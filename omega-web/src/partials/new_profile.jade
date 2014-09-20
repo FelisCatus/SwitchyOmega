@@ -1,0 +1,49 @@
+form(ng-submit='newProfile.$valid && $close(profile)' name='newProfile')
+  .modal-header
+    button.close(type='button', data-dismiss='modal')
+      span(aria-hidden='true') ×
+      span.sr-only Close
+    h4.modal-title {{'options_modalHeader_newProfile' | tr}}
+  .modal-body
+    .form-group(ng-class='{"has-error": !newProfile.profileNewName.$valid}')
+      label(for='profile-new-name') {{'options_newProfileName' | tr}}
+      input#profile-new-name.form-control(type='text' name='profileNewName' required ng-model='profile.name'
+        ui-validate='{conflict: "notConflict($value)"}')
+      .help-block(ng-show='newProfile.profileNewName.$error.required') {{'options_profileNameEmpty' | tr}}
+      .help-block(ng-show='newProfile.profileNewName.$error.conflict') {{'options_profileNameConflict' | tr}}
+    label {{'options_profileType' | tr}}
+    .radio
+      label
+        input(type='radio' name='profile-new-type' value='FixedProfile' ng-model='profile.profileType' ng-init='profile.profileType = "FixedProfile"')
+        span.profile-type
+          span.glyphicon.glyphicon-globe
+          = ' '
+          span {{'options_profileTypeFixedProfile' | tr}}
+        .help-block {{'options_profileDescFixedProfile' | tr}}
+    .radio
+      label
+        input(type='radio', name='profile-new-type', value='SwitchProfile' ng-model='profile.profileType')
+        span.profile-type
+          span.glyphicon.glyphicon-retweet
+          = ' '
+          span {{'options_profileTypeSwitchProfile' | tr}}
+        .help-block {{'options_profileDescSwitchProfile' | tr}}
+    .radio
+      label
+        input(type='radio', name='profile-new-type', value='PacProfile' ng-model='profile.profileType')
+        span.profile-type
+          span.glyphicon.glyphicon-file
+          = ' '
+          span {{'options_profileTypePacProfile' | tr}}
+        .help-block {{'options_profileDescPacProfile' | tr}}
+    .radio
+      label
+        input(type='radio', name='profile-new-type', value='SwitchyRuleListProfile' ng-model='profile.profileType')
+        span.profile-type
+          span.glyphicon.glyphicon-list
+          = ' '
+          span {{'options_profileTypeRuleListProfile' | tr}}
+        .help-block {{'options_profileDescRuleListProfile' | tr}}
+  .modal-footer
+    button.btn.btn-default(type='button' ng-click='$dismiss()') {{'dialog_cancel' | tr}}
+    button.btn.btn-primary(type='submit' ng-disabled='!newProfile.$valid') {{'options_createProfile' | tr}}

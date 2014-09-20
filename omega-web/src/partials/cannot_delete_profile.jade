@@ -1,0 +1,17 @@
+.modal-header
+  button.close(type='button', data-dismiss='modal')
+    span(aria-hidden='true') ×
+    span.sr-only {{'dialog_close' | tr}}
+  h4.modal-title {{'options_modalHeader_cannotDeleteProfile' | tr}}
+.modal-body
+  p {{'options_profileReferredBy' | tr}}
+  .well
+    ul.list-style-none
+      li(ng-repeat='p in refs')
+        span.glyphicon(class='{{profileIcons[p.profileType]}}'
+          ng-style='{color: p.color}')
+        = ' '
+        | {{p.name | dispName}}
+  p {{'options_modifyReferringProfiles' | tr}}
+.modal-footer
+  button.btn.btn-default(ng-click='$dismiss()') {{'dialog_cancel' | tr}}

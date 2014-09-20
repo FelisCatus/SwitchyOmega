@@ -1,0 +1,52 @@
+section.settings-group(ng-controller='SwitchProfileCtrl')
+  h3 {{'options_group_switchRules' | tr}}
+  .table-responsive
+    table.switch-rules.table.table-bordered.table-condensed.width-limit-xl
+      thead
+        tr
+          th(style='white-space: nowrap') {{'options_sort' | tr}}
+          th {{'options_conditionType' | tr}}
+          th {{'options_conditionDetails' | tr}}
+          th {{'options_resultProfile' | tr}}
+          th {{'options_conditionActions' | tr}}
+      tbody(ui-sortable='sortableOptions' ng-model='profile.rules')
+        tr(ng-repeat='rule in profile.rules')
+          td.sort-bar
+            span.glyphicon.glyphicon-sort
+          td
+            select.form-control(ng-model='rule.condition.conditionType'
+              ng-options='cond as (i18n | tr) for (cond, i18n) in conditionI18n')
+          td(ng-switch='rule.condition.conditionType')
+            span(ng-switch-when='AlwaysCondition') {{'condition_always_details' | tr}}
+            span(ng-switch-when='NeverCondition') {{'condition_never_details' | tr}}
+            span.host-levels-details(ng-switch-when='HostLevelsCondition')
+              input.form-control(type='number' min='1' max='99' ng-model='rule.condition.minValue' required)
+              = ' '
+              span {{'options_hostLevelsBetween' | tr}}
+              = ' '
+              input.form-control(type='number' max='99' min='1' ng-model='rule.condition.maxValue' required)
+            input.form-control(ng-model='rule.condition.pattern' ng-switch-default required)
+          td
+            select.form-control(ng-model='rule.profileName'
+              ng-options='p.name as (p.name | dispName) for p in options | profiles:profile')
+          td
+            button.btn.btn-danger.btn-sm(title="{{'options_deleteRule' | tr}}" ng-click='removeRule($index)')
+              span.glyphicon.glyphicon-trash
+      tbody
+        tr
+          td(style='border-right: none;')
+          td(style='border-left: none;', colspan='4')
+            button.btn.btn-default.btn-sm(ng-click='addRule()')
+              span.glyphicon.glyphicon-plus
+              = ' '
+              span {{'options_addCondition' | tr}}
+      tbody
+        tr
+          td
+          td(colspan='2') {{'options_switchDefaultProfile' | tr}}
+          td
+            select.form-control(ng-model='profile.defaultProfileName'
+              ng-options='p.name as (p.name | dispName) for p in options | profiles:profile')
+          td
+            button.btn.btn-info.btn-sm(title="{{'options_resetRules_help' | tr}}" ng-click='resetRules()')
+              span.glyphicon.glyphicon-chevron-up

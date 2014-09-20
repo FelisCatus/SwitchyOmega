@@ -1,0 +1,7 @@
+.input-group
+  input.form-control(ng-model='model' ng-attr-type='{{type}}'
+    placeholder='{{placeholder}}' ng-change='modelChange()')
+  span.input-group-btn
+    button.btn.btn-default.input-group-clear-btn(ng-click='toggleClear()' ng-disabled='!model && !oldModel'
+      title="{{'inputClear_' + (oldModel ? 'restore' : 'clear') | tr}}")
+      span.glyphicon(ng-class='{"glyphicon-remove": !oldModel, "glyphicon-repeat": !!oldModel}')

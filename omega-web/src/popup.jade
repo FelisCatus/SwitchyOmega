@@ -1,0 +1,133 @@
+doctype html
+//
+  Copyright (C) 2012-2013, The SwitchyOmega Authors. Please see the AUTHORS file
+  for details.
+
+  This file is part of SwitchyOmega.
+
+  SwitchyOmega is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  SwitchyOmega is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with SwitchyOmega.  If not, see <http://www.gnu.org/licenses/>.
+html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
+  head
+    meta(charset='utf-8')
+    title {{'popup_title' | tr}}
+    link(rel='stylesheet' href='lib/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet' href='css/popup.css')
+  body(ng-class='{"with-condition-form": showConditionForm}')
+    ul.nav.nav-pills.nav-stacked(ng-hide='showConditionForm || proxyNotControllable')
+      li.profile(ng-repeat='profile in builtinProfiles' ng-class='{active: isActive(profile.name), "bg-info": isEffective(profile.name)}')
+        a(ng-click='applyProfile(profile)')
+          span.glyphicon(ng-style='{color: profile.color}' class='{{getIcon(profile)}}')
+          = ' '
+          | {{profile.name | dispName}}
+      li.profile.external-profile(ng-show='!!externalProfile' ng-class='{active: isActive(""), "bg-info": isEffective("")}')
+        a(ng-click='nameExternal.open = true')
+          form(name='nameExternalForm' ng-submit='nameExternalForm.$valid && saveExternal()')
+            span.glyphicon(ng-style='{color: externalProfile.color}' class='{{getIcon(externalProfile, "normal")}}')
+            = ' '
+            span(ng-show='!nameExternal.open') {{'popup_externalProfile' | tr}}
+            input.form-control(ng-show='!!nameExternal.open' ng-model='externalProfile.name' ng-blur='nameExternalForm.submit()'
+              placeholder='{{"popup_externalProfileName" | tr}}' ui-validate='{conflict: "notConflict($value)"}')
+      li.divider
+      li.profile(ng-repeat='profile in customProfiles' ng-class='{active: isActive(profile.name), "bg-info": isEffective(profile.name)}')
+        a(ng-click='applyProfile(profile)')
+          span.glyphicon(ng-style='{color: profile.color}' class='{{getIcon(profile)}}')
+          = ' '
+          | {{profile.name | dispName}}
+      li.external-profile(style='display: none')
+        a.form-group
+          span.glyphicon.glyphicon-question-sign
+          = ' '
+          span {{'popup_externalProfile' | tr}}
+          input.external-profile-name.input-small(type='text' style='display: none'
+              placeholder='{{"popup_externalProfileName" | tr}}')
+      li.divider(ng-show='!!currentDomain')
+      li(ng-show='!!currentProfileCanAddRule')
+        a(ng-click='showConditionForm = true')
+          span.glyphicon.glyphicon-plus
+          = ' '
+          span {{'popup_addCondition' | tr}}
+      li(ng-show='!!currentDomain' dropdown is-open="tempRuleMenu.open")
+        a.dropdown-toggle
+          span.glyphicon.glyphicon-filter
+          = ' '
+          span.current-domain {{currentDomain}}
+          span.caret
+        ul.dropdown-menu
+          li(ng-repeat='profile in validResultProfiles' ng-class='{active: profile.name == currentTempRuleProfile}')
+            a(ng-click='addTempRule(currentDomain, profile.name)')
+              span.glyphicon(ng-style='{color: profile.color}'
+                class='{{profileIcons[profile.profileType]}}')
+              = ' '
+              | {{profile.name | dispName}}
+      li.divider
+      li
+        a(ng-click='openOptions()')
+          span.glyphicon.glyphicon-wrench
+          = ' '
+          span {{'popup_showOptions' | tr}}
+      li
+        a.report-issue(href='https://github.com/FelisCatus/SwitchyOmega/issues' target='_blank')
+          span.glyphicon.glyphicon-comment
+          = ' '
+          span {{'popup_reportIssues' | tr}}
+      li
+        a.error-log
+          span.glyphicon.glyphicon-download
+          = ' '
+          span {{'popup_errorLog' | tr}}
+    form.condition-form(name='conditionForm' style='display: none;'
+      ng-style='{display: showConditionForm ? "block" : "none"}'
+      ng-submit='addCondition(rule.condition, rule.profileName)')
+      fieldset
+        legend
+          | {{'popup_addConditionTo' | tr}}
+          = ' '
+          span.profile-inline
+            span.glyphicon(ng-style='{color: currentProfile.color}'
+              class='{{profileIcons[currentProfile.profileType]}}')
+            = ' '
+            | {{currentProfileName | dispName}}
+        div.form-group
+          label {{'options_conditionType' | tr}}
+          select.form-control(ng-model='rule.condition.conditionType')
+            option(value='HostWildcardCondition') {{'condition_hostWildcard' | tr}}
+            option(value='HostRegexCondition') {{'condition_hostRegex' | tr}}
+            option(value='UrlWildcardCondition') {{'condition_urlWildcard' | tr}}
+            option(value='UrlRegexCondition') {{'condition_urlRegex' | tr}}
+            option(value='KeywordCondition') {{'condition_keyword' | tr}}
+        div.form-group
+          label {{'options_conditionDetails' | tr}}
+          input.form-control.condition-details(type='text' required ng-model='rule.condition.pattern')
+        div.form-group
+          label {{'options_resultProfile' | tr}}
+          select.form-control(required ng-model="rule.profileName"
+            ng-options='profile.name as (profile.name | dispName) for profile in validResultProfiles')
+        div.condition-controls
+          button.btn.btn-default(type='button' ng-click='showConditionForm = false')
+            | {{'dialog_cancel' | tr}}
+          button.btn.btn-primary(type='submit' ng-disabled='conditionForm.$invalid') {{'popup_addCondition' | tr}}
+    div.proxy-not-controllable(ng-show='proxyNotControllable')
+      p.text-danger {{'popup_proxyNotControllable_' + proxyNotControllable | tr}}
+      p.help-block {{'popup_proxyNotControllableDetails' | tr}}
+
+    script(src='js/log_error.js')
+    script(src='lib/FileSaver/FileSaver.js')
+    script(src='js/omega_target_web_basics.js')
+    script(src='js/popup_basics.js')
+    script(src='lib/angular/angular.min.js')
+    script(src='lib/angular-bootstrap/ui-bootstrap-tpls.min.js')
+    script(src='lib/angular-ui-utils/validate.min.js')
+    script(src='js/omega_target_web.js')
+    script(src='js/omega_decoration.js')
+    script(src='js/popup.js')

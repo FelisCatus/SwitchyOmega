@@ -1,0 +1,15 @@
+.modal-header
+  button.close(type='button', data-dismiss='modal')
+    span(aria-hidden='true') ×
+    span.sr-only {{'dialog_close' | tr}}
+  h4.modal-title {{'options_modalHeader_resetRules' | tr}}
+.modal-body
+  p {{'options_resetRulesConfirm' | tr}}
+  .well
+    span.glyphicon(class='{{profileIcons[ruleProfile.profileType]}}'
+      ng-style='{color: ruleProfile.color}')
+    = ' '
+    | {{ruleProfile.name | dispName}}
+.modal-footer
+  button.btn.btn-default(ng-click='$dismiss()') {{'dialog_cancel' | tr}}
+  button.btn.btn-warning(type='button' ng-click='$close("ok")') {{'options_resetRules' | tr}}

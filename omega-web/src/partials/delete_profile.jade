@@ -1,0 +1,15 @@
+.modal-header
+  button.close(type='button', data-dismiss='modal')
+    span(aria-hidden='true') ×
+    span.sr-only {{'dialog_close' | tr}}
+  h4.modal-title {{'options_modalHeader_deleteProfile' | tr}}
+.modal-body
+  p {{'options_deleteProfileConfirm' | tr}}
+  .well
+    span.glyphicon(class='{{profileIcons[profile.profileType]}}'
+      ng-style='{color: profile.color}')
+    = ' '
+    | {{profile.name}}
+.modal-footer
+  button.btn.btn-default(ng-click='$dismiss()') {{'dialog_cancel' | tr}}
+  button.btn.btn-danger(type='button' ng-click='$close("ok")') {{'options_deleteProfile' | tr}}

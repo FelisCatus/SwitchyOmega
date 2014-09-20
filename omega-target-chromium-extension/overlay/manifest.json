@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_manifest_app_name__",
+  "version": "2.1.1",
+  "description": "__MSG_manifest_app_description__",
+  "icons": {
+    "16": "img/icons/omega-16.png",
+    "32": "img/icons/omega-32.png",
+    "48": "img/icons/omega-48.png",
+    "64": "img/icons/omega-64.png",
+    "128": "img/icons/omega-128.png"
+  },
+  "default_locale": "en",
+  "browser_action": {
+    "default_icon": "img/icons/omega-32.png",
+    "default_title": "__MSG_manifest_icon_default_title__",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "homepage_url": "https://chrome.google.com/webstore/detail/dpplabbmogkhghncfbfdeeokoefdjegm",
+  "minimum_chrome_version": "22.0.0",
+  "options_page": "options.html",
+  "permissions": [
+    "proxy",
+    "tabs",
+    "alarms",
+    "storage",
+    "http://*/*",
+    "https://*/*",
+    "ftp://*/*",
+    "<all_urls>"
+  ]
+}

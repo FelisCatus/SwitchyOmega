@@ -1,0 +1,551 @@
+{
+  "appNameShort": {
+    "message": "SwitchyOmega",
+    "description": "A short name of the application."
+  },
+
+  "manifest_app_name": {
+    "message": "Proxy SwitchyOmega",
+    "description": "Displayed as the name of the extension."
+  },
+  "manifest_app_description": {
+    "message": "Manage and switch between multiple proxies quickly & easily.",
+    "description": "Displayed as a longer description of the extension."
+  },
+  "manifest_icon_default_title": {
+    "message": "Loading...",
+    "description": "Displayed when the background page is loading."
+  },
+
+  "profile_direct" : {
+    "message": "[Direct]"
+  },
+  "profile_system" : {
+    "message": "[System Proxy]"
+  },
+
+  "condition_hostWildcard" : {
+    "message": "Host wildcard"
+  },
+  "condition_hostRegex" : {
+    "message": "Host regex"
+  },
+  "condition_hostLevels" : {
+    "message": "Host levels"
+  },
+  "condition_urlWildcard" : {
+    "message": "URL wildcard"
+  },
+  "condition_urlRegex" : {
+    "message": "URL regex"
+  },
+  "condition_keyword" : {
+    "message": "Keyword"
+  },
+  "condition_always" : {
+    "message": "Always"
+  },
+  "condition_always_details" : {
+    "message": "(Always matches)"
+  },
+  "condition_never" : {
+    "message": "Never"
+  },
+  "condition_never_details" : {
+    "message": "(Never matches)"
+  },
+
+  "rulelistFormat_Switchy": {
+    "message": "Switchy"
+  },
+  "rulelistFormat_AutoProxy": {
+    "message": "AutoProxy"
+  },
+
+  "dialog_close": {
+    "message": "Close"
+  },
+  "dialog_save": {
+    "message": "Save changes"
+  },
+  "dialog_ok": {
+    "message": "OK"
+  },
+  "dialog_cancel": {
+    "message": "Cancel"
+  },
+
+  "inputClear_clear": {
+    "message": "Clear"
+  },
+  "inputClear_restore": {
+    "message": "Restore"
+  },
+
+  "options_title": {
+    "message": "SwitchyOmega Options"
+  },
+  "options_navHeader_setting": {
+    "message": "Settings"
+  },
+  "options_navHeader_profiles": {
+    "message": "Profiles"
+  },
+  "options_navHeader_actions" : {
+    "message": "Actions"
+  },
+  "options_tab_ui": {
+    "message": "Interface"
+  },
+  "options_tab_general": {
+    "message": "General"
+  },
+  "options_tab_importExport": {
+    "message": "Import/Export"
+  },
+  "options_newProfile": {
+    "message": "New profile..."
+  },
+  "options_apply": {
+    "message": "Apply changes"
+  },
+  "options_discard": {
+    "message": "Discard changes"
+  },
+  "options_reset": {
+    "message": "Reset options"
+  },
+  "options_group_miscOptions": {
+    "message": "Misc Options"
+  },
+  "options_confirmDeletion": {
+    "message": "Confirm on condition deletion."
+  },
+  "options_refreshOnProfileChange": {
+    "message": "Refresh current tab on profile change."
+  },
+  "options_group_switchOptions": {
+    "message": "Switch Options"
+  },
+  "options_startupProfile": {
+    "message": "Startup Profile"
+  },
+  "options_startupProfile_none": {
+    "message": "(Current profile)"
+  },
+  "options_quickSwitch": {
+    "message": "Quick Switch"
+  },
+  "options_cycledProfiles": {
+    "message": "Cycled Profiles"
+  },
+  "options_cycledProfilesHelp": {
+    "message": "When you click on the icon, the following profiles will be applied in their order."
+  },
+  "options_cycledProfilesTooFew": {
+    "message": "You need to select at least 2 profiles to enable this function! You can drag them from the box below."
+  },
+  "options_notCycledProfiles": {
+    "message": "Not Cycled Profiles"
+  },
+  "options_group_proxyChanges": {
+    "message": "Proxy Changes"
+  },
+  "options_revertProxyChanges": {
+    "message": "Revert proxy changes done by other apps."
+  },
+  "options_downloadOptions": {
+    "message": "Download Options"
+  },
+  "options_downloadOptionsHelp": {
+    "message": "Configure the update frequency of online rule lists and PAC scripts."
+  },
+  "options_downloadInterval": {
+    "message": "Download Interval"
+  },
+  "options_downloadInterval_15": {
+    "message": "15 Minutes"
+  },
+  "options_downloadInterval_60": {
+    "message": "1 Hour"
+  },
+  "options_downloadInterval_180": {
+    "message": "3 Hours"
+  },
+  "options_downloadInterval_360": {
+    "message": "6 Hours"
+  },
+  "options_downloadInterval_720": {
+    "message": "12 Hours"
+  },
+  "options_downloadInterval_1440": {
+    "message": "Every day"
+  },
+  "options_downloadInterval_never": {
+    "message": "Never"
+  },
+  "options_group_importExportProfile": {
+    "message": "Profile"
+  },
+  "options_exportPacFile": {
+    "message": "Export as PAC File"
+  },
+  "options_exportPacFileHelp": {
+    "message": "Export the current profile as a PAC file, so you can use it in other browsers."
+  },
+  "options_group_importExportSettings": {
+    "message": "Settings"
+  },
+  "options_makeBackup": {
+    "message": "Make backup"
+  },
+  "options_makeBackupHelp": {
+    "message": "Make a full backup of your options (including profiles and all other options)."
+  },
+  "options_restoreLocal": {
+    "message": "Restore from file"
+  },
+  "options_restoreLocalHelp": {
+    "message": "Restore your SwitchyOmega options from a local file."
+  },
+  "options_restoreOnline": {
+    "message": "Restore from online"
+  },
+  "options_restoreOnlinePlaceholder": {
+    "message": "Options file URL (e.g. 'http://example.com/switchy.bak')"
+  },
+  "options_restoreOnlineSubmit": {
+    "message": "Restore"
+  },
+  "options_profileTabPrefix": {
+    "message": "Profile :: "
+  },
+  "options_renameProfile": {
+    "message": "Rename"
+  },
+  "options_deleteProfile": {
+    "message": "Delete"
+  },
+  "options_profileExportPac": {
+    "message": "Export PAC"
+  },
+  "options_profileUnsupported": {
+    "message": "Unsupported profile type $TYPE$!",
+    "placeholders": {
+      "type": {
+        "content": "$1",
+        "example": "BogusProfile"
+      }
+    }
+  },
+  "options_profileUnsupportedHelp": {
+    "message": "The options could be broken, or from a newer version of this program."
+  },
+  "options_group_proxyServers": {
+    "message": "Proxy servers"
+  },
+  "options_proxy_scheme": {
+    "message": "Scheme"
+  },
+  "options_proxy_protocol": {
+    "message": "Protocol"
+  },
+  "options_proxy_server": {
+    "message": "Server"
+  },
+  "options_proxy_port": {
+    "message": "Port"
+  },
+  "options_scheme_default": {
+    "message": "(default)"
+  },
+  "options_protocol_direct": {
+    "message": "DIRECT"
+  },
+  "options_protocol_useDefault": {
+    "message": "(use default)"
+  },
+  "options_proxy_single": {
+    "message": "Use the proxy above for all protocols."
+  },
+  "options_proxy_expand": {
+    "message": "Show Advanced"
+  },
+  "options_group_bypassList": {
+    "message": "Bypass List"
+  },
+  "options_bypassListHelp": {
+    "message": "Servers for which you do not want to use any proxy: (One server on each line.)"
+  },
+  "options_bypassListHelpLinkText": {
+    "message": "(Wildcards and more available...)"
+  },
+  "options_group_pacUrl": {
+    "message": "PAC URL"
+  },
+  "options_pacUrlHelp": {
+    "message": "The PAC script will be updated from this URL. If it is left blank, the following scripts will be used directly instead."
+  },
+  "options_group_pacScript": {
+    "message": "PAC Script"
+  },
+  "options_group_ruleListConfig": {
+    "message": "Rule List Config"
+  },
+  "options_ruleListFormat": {
+    "message": "Rule List Format"
+  },
+  "options_group_ruleListResult": {
+    "message": "Rule list result profiles"
+  },
+  "options_ruleListMatchProfile": {
+    "message": "Match profile"
+  },
+  "options_ruleListDefaultProfile": {
+    "message": "Default profile"
+  },
+  "options_group_ruleListUrl": {
+    "message": "Rule List URL"
+  },
+  "options_ruleListUrlHelp": {
+    "message": "The rule list will be updated from this URL. If it is left blank, the following text will be parsed instead."
+  },
+  "options_group_ruleListText": {
+    "message": "Rule List Text"
+  },
+  "options_group_switchRules": {
+    "message": "Switch rules"
+  },
+  "options_sort": {
+    "message": "Sort"
+  },
+  "options_conditionType": {
+    "message": "Condition Type"
+  },
+  "options_conditionDetails": {
+    "message": "Condition Details"
+  },
+  "options_resultProfile": {
+    "message": "Profile"
+  },
+  "options_conditionActions": {
+    "message": "Actions"
+  },
+  "options_addCondition": {
+    "message": "Add condition"
+  },
+  "options_switchDefaultProfile": {
+    "message": "Default"
+  },
+  "options_hostLevelsBetween": {
+    "message": "\u2264 host levels \u2264"
+  },
+  "options_modalHeader_applyOptions": {
+    "message": "Apply Options"
+  },
+  "options_optionsNotSaved": {
+    "message": "Your modifications to the options have not been saved and will be lost if you proceed!"
+  },
+  "options_applyOptionsRequired": {
+    "message": "Your changes to the options must be applied before you proceed."
+  },
+  "options_applyOptionsConfirm": {
+    "message": "Do you want to save and apply the options?"
+  },
+  "options_modalHeader_renameProfile": {
+    "message": "Rename Profile"
+  },
+  "options_renameProfileName": {
+    "message": "New profile name"
+  },
+  "options_profileNameConflict": {
+    "message": "A profile with this name already exists."
+  },
+  "options_modalHeader_deleteProfile": {
+    "message": "Delete Profile"
+  },
+  "options_deleteProfileConfirm": {
+    "message": "Do you really want to delete the following profile?"
+  },
+  "options_modalHeader_cannotDeleteProfile": {
+    "message": "Unable to Delete Profile"
+  },
+  "options_profileReferredBy": {
+    "message": "This profile cannot be deleted because it is referred by the following profiles:"
+  },
+  "options_modifyReferringProfiles": {
+    "message": "You must modify these profiles and make them stop referring to this profile before you can delete it."
+  },
+  "options_profileNameEmpty": {
+    "message": "The name of the profile must not be empty."
+  },
+  "popup_title": {
+    "message": "SwitchyOmega Popup",
+    "description": "The page title of the popup. Normally you won't see it."
+  },
+  "options_modalHeader_deleteRule": {
+    "message": "Delete Rule"
+  },
+  "options_deleteRuleConfirm": {
+    "message": "Do you really want to delete the following rule?"
+  },
+  "options_deleteRule": {
+    "message": "Delete"
+  },
+  "options_modalHeader_resetRules" : {
+    "message": "Reset rules"
+  },
+  "options_resetRulesConfirm" : {
+    "message": "Are you sure to set the result profile of ALL rules to the following profile?"
+  },
+  "options_resetRules" : {
+    "message": "Reset rules"
+  },
+  "options_resetRules_help" : {
+    "message": "Set profile for all rules"
+  },
+  "options_modalHeader_newProfile" : {
+    "message": "New Profile"
+  },
+  "options_newProfileName": {
+    "message": "Profile name"
+  },
+  "options_profileType" : {
+    "message": "Please select the type of the profile:"
+  },
+  "options_profileTypeFixedProfile" : {
+    "message": "Fixed Profile"
+  },
+  "options_profileDescFixedProfile" : {
+    "message": "Tunneling traffic through proxy servers."
+  },
+  "options_profileTypePacProfile" : {
+    "message": "PAC Profile"
+  },
+  "options_profileDescPacProfile" : {
+    "message": "Choosing proxies using an online/local PAC script."
+  },
+  "options_profileTypeSwitchProfile" : {
+    "message": "Switch Profile"
+  },
+  "options_profileDescSwitchProfile" : {
+    "message": "Applying different profiles automatically on various conditions such as domains or patterns. (Replaces AutoSwitch mode.)"
+  },
+  "options_profileTypeRuleListProfile" : {
+    "message": "Rulelist Profile"
+  },
+  "options_profileDescRuleListProfile" : {
+    "message": "Reusing an online collection of conditions published by others."
+  },
+  "options_createProfile" : {
+    "message": "Create"
+  },
+  "options_modalHeader_resetOptions": {
+    "message": "Reset Options"
+  },
+  "options_resetOptionsConfirm": {
+    "message": "Do you really want to reset the options? All profiles and settings will be LOST!"
+  },
+  "options_formInvalid": {
+    "message": "Please correct the errors in this page."
+  },
+  "options_resetSuccess": {
+    "message": "Options reset."
+  },
+  "options_saveSuccess": {
+    "message": "Options saved."
+  },
+  "options_importSuccess": {
+    "message": "Options imported."
+  },
+  "options_importFormatError": {
+    "message": "Invalid backup file!"
+  },
+  "options_importDownloadError": {
+    "message": "Error downloading backup file!"
+  },
+  "options_profileDownloadSuccess": {
+    "message": "Successfully updated profile."
+  },
+  "options_profileDownloadError": {
+    "message": "Error downloading profile data!"
+  },
+  "options_downloadProfileNow": {
+    "message": "Download Profile Now"
+  },
+  "popup_externalProfile": {
+    "message": "(External Profile)"
+  },
+  "popup_externalProfileName": {
+    "message": "profile name"
+  },
+  "popup_proxyNotControllable_app": {
+    "message": "The proxy settings are controlled by other app(s) or extension(s). Please disable or uninstall the apps or extensions in conflict."
+  },
+  "popup_proxyNotControllable_policy": {
+    "message": "The proxy settings are overruled by policies. Please contact your administrator."
+  },
+  "popup_proxyNotControllable_unknown": {
+    "message": "The proxy settings cannot be controlled. Please check your system and browser settings."
+  },
+  "popup_proxyNotControllableDetails": {
+    "message": "You cannot switch profiles with SwitchyOmega unless you fix the problem above."
+  },
+  "popup_addConditionTo": {
+    "message": "Add condition to"
+  },
+  "popup_addCondition": {
+    "message": "Add condition"
+  },
+  "popup_showOptions": {
+    "message": "Options"
+  },
+  "popup_reportIssues": {
+    "message": "Report issues"
+  },
+  "popup_errorLog": {
+    "message": "Error log"
+  },
+  "browserAction_titleNormal": {
+    "message": "SwitchyOmega:: $PROFILE$",
+    "placeholders": {
+      "profile": {
+        "content": "$1",
+        "example": "direct"
+      }
+    }
+  },
+  "browserAction_titleWithResult": {
+    "message": "SwitchyOmega:: $PROFILE$\n$DETAILS$",
+    "placeholders": {
+      "profile": {
+        "content": "$1",
+        "example": "autoswitch"
+      },
+      "result": {
+        "content": "$2",
+        "example": "direct"
+      },
+      "details": {
+        "content": "$3",
+        "example": "DIRECT"
+      }
+    }
+  },
+  "browserAction_titleNewerOptions": {
+    "message": "ERROR: A newer version of SwitchOmega is required to load the stored options."
+  },
+  "browserAction_titleOptionError": {
+    "message": "ERROR: The stored options are corrupted. Click here to RESET OPTIONS."
+  },
+  "browserAction_titleDownloadFail": {
+    "message": "Warning: Failed to download PAC scripts and/or rule lists."
+  },
+  "browserAction_titleExternalProxy": {
+    "message": "Note: The proxy settings are currently controlled by other app(s)."
+  },
+  "browserAction_tempRulePrefix": {
+    "message": "(TEMP) ",
+    "description": "The prefix to indicate a temp rule on browserAction title. Should be very short."
+  }
+}

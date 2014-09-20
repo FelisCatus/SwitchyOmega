@@ -1,0 +1,288 @@
+/* angular */
+.ng-hide {
+  display: none !important;
+}
+
+a[role="button"] {
+  cursor: pointer;
+}
+
+.width-initial {
+  width: auto !important;
+  width: initial !important;
+}
+
+.width-limit {
+  max-width: 600px;
+}
+
+.width-limit-lg {
+  max-width: 800px;
+}
+
+.width-limit-xl {
+  max-width: 1000px;
+}
+
+.inline-form-control {
+  display: inline-block;
+  margin-right: 20px;
+  margin-left: 20px;
+  min-width: 50%;
+  width: 50% !important;
+  width: initial !important;
+}
+
+.no-min-width {
+  min-width: 0 !important;
+}
+
+ul.list-style-none, li.list-style-none {
+  list-style: none;
+  padding-left: 0;
+}
+
+.help-inline {
+  margin-left: 10px;
+  color: #595959;
+}
+
+.settings-group {
+  > * {
+    margin-left: 30px;
+  }
+  > h3 {
+    margin-left: 0;
+  }
+}
+
+.form-control.ng-invalid {
+  border-color: #a94442;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+
+  &:hover {
+    border-color: #843534;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 6px #CE8483;
+  }
+}
+
+/* alert */
+
+.alert-top-wrapper {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: inline-block !important;
+
+  transition: transform .5s, opacity .5s;
+  transition: transform cubic-bezier(0.19, 1, 0.22, 1) .5s,
+              opacity cubic-bezier(0.19, 1, 0.22, 1) .5s;
+
+  &.ng-hide {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  pointer-events: none;
+  text-align: center;
+
+  * {
+    pointer-events: auto;
+    pointer-events: initial;
+    text-align: left;
+    text-align: initial;
+  }
+
+  .alert {
+    display: inline-block;
+    min-width: 400px;
+    margin-bottom: 0;
+
+    @media (max-width: 767px) {
+      min-width: 80%;
+    }
+  }
+}
+
+/* body */
+
+h1 {
+  color: #5c6166;
+  font-size: 1.7em;
+  font-weight: bold;
+  margin-bottom: 1.5em;
+}
+
+.side-nav {
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+
+  @media (max-width: 767px) {
+    position: static;
+    height: auto;
+    height: initial;
+  }
+}
+
+main {
+  padding-top: 85px;
+  padding-bottom: 20px;
+
+  .page-header {
+    margin: 0;
+    padding: 20px 60px 20px 0;
+    position: fixed;
+    top: 0;
+    width: inherit;
+    background-color: rgba(255, 255, 255, 0.6);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.6));
+    max-height: 85px;
+    z-index: 3;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 0;
+    .page-header {
+      position: static;
+      max-height: none;
+    }
+  }
+}
+
+#ngProgress-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.divider {
+  height: 1px;
+  margin: 9px 1px;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+.nav-header {
+  margin-right: -15px !important;
+  margin-left: -15px !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  display: block;
+  padding: 3px 15px;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #999;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  text-transform: uppercase;
+}
+
+#restore-local-file {
+  position: absolute;
+  visibility: hidden;
+}
+
+.profile-actions {
+  float: right;
+}
+
+.profile-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-color-editor {
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
+
+  input[type="color"] {
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    border: none;
+    background: none;
+
+    &::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+  }
+
+  .sp-replacer {
+    padding: 0;
+    border: none;
+  }
+
+  .sp-preview {
+    margin-right: 0;
+    height: 30px;
+    width: 30px;
+  }
+
+  .sp-dd {
+    display: none;
+  }
+}
+
+.fixed-servers,
+.switch-rules {
+  td {
+    vertical-align: middle !important;
+  }
+}
+
+.fixed-show-advanced {
+  td {
+    background-color: transparent !important;
+  }
+  .btn-link {
+    padding: 0;
+  }
+}
+
+.host-levels-details {
+  input {
+    .width-initial();
+    display: inline-block;
+  }
+}
+
+.sort-bar {
+  width: 1em;
+  text-align: center;
+  cursor: move;
+}
+
+.cycle-profile-container {
+  list-style-type: none;
+  min-height: 20px;
+  display: inline-block;
+  min-width: 40%;
+  padding: 0;
+  border: solid 1px #abc;
+
+  li {
+    display: block;
+    margin: 10px;
+    padding: 5px;
+    cursor: move;
+    background-color: #ddd;
+
+  }
+
+  &.cycle-enabled li {
+    background-color: #e4ffcd;
+  }
+}
+
+.modal-body .well:last-child {
+  margin-bottom: 0;
+}

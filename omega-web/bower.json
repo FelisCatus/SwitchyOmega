@@ -1,0 +1,107 @@
+{
+  "name": "switchyomega",
+  "version": "0.0.1",
+  "authors": [
+    "FelisCatus <felis.catus@example.com>"
+  ],
+  "description": "The ultimate proxy switcher.",
+  "keywords": [
+    "proxy",
+    "pac",
+    "extension"
+  ],
+  "license": "GPL",
+  "homepage": "https://github.com/FelisCatus/SwitchyOmega",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16",
+    "angular-bootstrap": "~0.11.0",
+    "angular-animate": "~1.2.16",
+    "angular-ui-router": "~0.2.10",
+    "angular-loader": "~1.2.16",
+    "angular-i18n": "~1.2.16",
+    "bootstrap": "~3.1.1",
+    "script.js": "~2.5.3",
+    "ngprogress": "~1.0.4",
+    "angular-ui-sortable": "~0.12.6",
+    "jsondiffpatch": "~0.1.7",
+    "angular-spectrum-colorpicker": "~1.0.13",
+    "blob": "*",
+    "FileSaver": "*",
+    "angular-ui-utils": "bower-validate",
+    "angular-ladda": "~0.1.6"
+  },
+  "exportsOverride": {
+    "script.js": {
+      "": "dist/*.min.js"
+    },
+    "jquery": {
+      "": "dist/jquery.min.js"
+    },
+    "jquery-ui": {
+      "": []
+    },
+    "angular": {
+      "": "*.js"
+    },
+    "angular-animate": {
+      "": "*.min.*"
+    },
+    "angular-bootstrap": {
+      "": "*.min.js"
+    },
+    "angular-i18n": {
+      "": [
+        "angular-locale_en-us.js",
+        "angular-locale_zh-cn.js"
+      ]
+    },
+    "angular-loader": {
+      "": "*.min.js"
+    },
+    "angular-spectrum-colorpicker": {
+      "": "dist/*.min.js"
+    },
+    "angular-ui-router": {
+      "": "release/*.js"
+    },
+    "angular-ui-sortable": {
+      "": "*.js"
+    },
+    "angular-ui-utils": {
+      "": "*.js"
+    },
+    "bootstrap": {
+      "css": "dist/css/*.min.*",
+      "fonts": "dist/fonts/*"
+    },
+    "ngprogress": {
+      "": "build/*.min.js"
+    },
+    "jsondiffpatch": {
+      "": "build/*.min.js"
+    },
+    "spectrum": {
+      "": [
+        "*.js",
+        "*.css"
+      ]
+    },
+    "FileSaver": {
+      "": "*.js"
+    },
+    "blob": {
+      "": "*.js"
+    },
+    "ladda": {
+      "": ["dist/ladda-themeless.min.css", "dist/ladda.min.js"]
+    }
+  }
+}

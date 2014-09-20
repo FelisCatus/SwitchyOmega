@@ -1,0 +1,30 @@
+div(ng-controller='RuleListProfileCtrl')
+  section.settings-group
+    h3 {{'options_group_ruleListConfig' | tr}}
+    .form-group
+      label {{'options_ruleListMatchProfile' | tr}}
+      select.form-control.inline-form-control(ng-model='profile.matchProfileName'
+        ng-options='p.name as (p.name | dispName) for p in options | profiles:profile')
+    .form-group
+      label {{'options_ruleListDefaultProfile' | tr}}
+      select.form-control.inline-form-control(ng-model='profile.defaultProfileName'
+        ng-options='p.name as (p.name | dispName) for p in options | profiles:profile')
+    form.form-group
+      label {{'options_ruleListFormat' | tr}}
+      .radio.inline-form-control.no-min-width(ng-repeat='format in ruleListFormats')
+        label
+          input(type='radio' name='formatInput' value='{{format}}' ng-model='profile.format')
+          | {{'rulelistFormat_' + format | tr}}
+  section.settings-group
+    h3 {{'options_group_ruleListUrl' | tr}}
+    .width-limit(input-group-clear type='url' model='profile.sourceUrl')
+    p.help-block {{'options_ruleListUrlHelp' | tr}}
+  section.settings-group
+    h3 {{'options_group_ruleListText' | tr}}
+    p
+      button.btn.btn-default(ng-disabled='!profile.sourceUrl' ng-click='updateProfile(profile.name)'
+          ladda='updatingProfile[profile.name]' data-spinner-color="#000000")
+        | #[span.glyphicon.glyphicon-download-alt] {{'options_downloadProfileNow' | tr}}
+    textarea.form-control.width-limit(ng-model='profile.ruleList' rows=20
+      ng-disabled='!!profile.sourceUrl')
+

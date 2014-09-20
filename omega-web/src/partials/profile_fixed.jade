@@ -1,0 +1,43 @@
+div(ng-controller='FixedProfileCtrl')
+  section.settings-group
+    h3 {{'options_group_proxyServers' | tr}}
+    .table-responsive
+      table.fixed-servers.table.table-bordered.table-striped.width-limit-lg
+        thead
+          tr
+            th {{'options_proxy_scheme' | tr}}
+            th {{'options_proxy_protocol' | tr}}
+            th {{'options_proxy_server' | tr}}
+            th {{'options_proxy_port' | tr}}
+        tbody
+          tr(ng-repeat='scheme in urlSchemes' ng-show='scheme == "" || showAdvanced')
+            td {{schemeDisp[scheme] || ('options_scheme_default' | tr)}}
+            td
+              select.form-control(ng-model='proxyEditors[scheme].scheme')
+                option(value='')
+                  | {{(scheme ? 'options_protocol_useDefault' : 'options_protocol_direct') | tr}}
+                option(value='http') HTTP
+                option(value='https') HTTPS
+                option(value='socks4') SOCKS4
+                option(value='socks5') SOCKS5
+            td(ng-if='proxyEditors[scheme].scheme')
+              input.form-control(type='text' ng-model='proxyEditors[scheme].host' required)
+            td(ng-if='!proxyEditors[scheme].scheme')
+              input.form-control(type='text' value='' placeholder='{{proxyEditors[""].host}}' disabled)
+
+            td(ng-if='proxyEditors[scheme].scheme')
+              input.form-control(type='number' min='1' ng-model='proxyEditors[scheme].port' required)
+            td(ng-if='!proxyEditors[scheme].scheme')
+              input.form-control(type='number' value='' placeholder='{{proxyEditors[""].port}}' disabled)
+        tbody(ng-show='!showAdvanced')
+          tr.fixed-show-advanced
+            td(colspan='6')
+              button.btn.btn-link(ng-click='showAdvanced = true')
+                | #[span.glyphicon.glyphicon-chevron-down] {{'options_proxy_expand' | tr}}
+  section.settings-group
+    h3 {{'options_group_bypassList' | tr}}
+    p.help-block {{'options_bypassListHelp' | tr}}
+    p.help-block
+      a(href='https://developer.chrome.com/extensions/proxy#bypass_list' target='_blank')
+        | {{'options_bypassListHelpLinkText' | tr}}
+    textarea.form-control.width-limit(rows='10' ng-model='bypassList' ng-model-options="{updateOn:'blur'}")

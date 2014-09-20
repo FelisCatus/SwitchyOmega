@@ -1,0 +1,31 @@
+.page-header
+  h2 {{'options_tab_importExport' | tr}}
+section.settings-group
+  h3 {{'options_group_importExportProfile' | tr}}
+  p
+    button.btn.btn-default(ng-click='exportScript()')
+      span.glyphicon.glyphicon-download
+      = ' '
+      | {{'options_exportPacFile' | tr}}
+    span.help-inline {{'options_exportPacFileHelp' | tr}}
+section.settings-group
+  h3 {{'options_group_importExportSettings' | tr}}
+  p
+    button.btn.btn-default(ng-click='exportOptions()')
+      span.glyphicon.glyphicon-floppy-save
+      = ' '
+      | {{'options_makeBackup' | tr}}
+    span.help-inline {{'options_makeBackupHelp' | tr}}
+  p
+    input#restore-local-file(type='file' omega-upload='restoreLocal($content)' omega-error='restoreLocalError($error)')
+    button.btn.btn-default(ng-click='triggerFileInput()')
+      span.glyphicon.glyphicon-folder-open
+      = ' '
+      | {{'options_restoreLocal' | tr}}
+    span.help-inline {{'options_restoreLocalHelp' | tr}}
+  div
+    label {{'options_restoreOnline' | tr}}
+    .input-group.width-limit
+      input.form-control(type='url' ng-model='restoreOnlineUrl' placeholder="{{'options_restoreOnlinePlaceholder' | tr}}")
+      span.input-group-btn
+        button.btn.btn-default(ng-click='restoreOnline()') {{'options_restoreOnlineSubmit' | tr}}

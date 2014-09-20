@@ -1,0 +1,13 @@
+{
+  "name": "omega-build",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-hub": "^0.7.0"
+  },
+  "scripts": {
+    "deps": "npm install && (cd ../omega-pac && npm install); (cd ../omega-target && npm install); (cd ../omega-web && npm install && bower install); (cd ../omega-target-chromium-extension/ && npm install);",
+    "dev": "(cd ../omega-pac && npm run dev); (cd ../omega-target && npm run dev); (cd ../omega-target-chromium-extension/ && npm run dev);"
+  }
+}

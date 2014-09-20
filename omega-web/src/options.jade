@@ -1,0 +1,68 @@
+doctype html
+html(lang='en' ng-controller='MasterCtrl' ng-csp)
+  head
+    meta(charset='utf-8')
+    title(ng-bind="'options_title' | tr") SwitchyOmega Options
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    link(rel='stylesheet' href='lib/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet' href='lib/spectrum/spectrum.css')
+    link(rel='stylesheet' href='lib/ladda/ladda-themeless.min.css')
+    link(rel='stylesheet' href='css/options.css')
+  body(style='display: none;' ng-style='{display: options ? "block" : "none"}')
+    .container-fluid
+      header.col-lg-2.col-sm-3.side-nav
+        h1 {{'appNameShort' | tr}}
+        nav.nav.nav-pills.nav-stacked
+          li.nav-header {{'options_navHeader_setting' | tr}}
+          li(ui-sref-active='active'): a(ui-sref='ui')
+            span.glyphicon.glyphicon-wrench
+            = ' '
+            | {{'options_tab_ui' | tr}}
+          li(ui-sref-active='active'): a(ui-sref='general')
+            span.glyphicon.glyphicon-cog
+            = ' '
+            | {{'options_tab_general' | tr}}
+          li(ui-sref-active='active'): a(ui-sref='io')
+            span.glyphicon.glyphicon-floppy-save
+            = ' '
+            | {{'options_tab_importExport' | tr}}
+          li.divider
+          li.nav-header {{'options_navHeader_profiles' | tr}}
+          li(ng-repeat='profile in options | profiles' ui-sref-active='active')
+            a(ui-sref='profile({name: profile.name})')
+              span.glyphicon(class='{{profileIcons[profile.profileType]}}'
+                ng-style='{color: profile.color}')
+              = ' '
+              | {{profile.name}}
+          li
+            a(role='button' ng-click='newProfile()')
+              span.glyphicon.glyphicon-plus
+              = ' '
+              span {{'options_newProfile' | tr}}
+          li.divider
+          li.nav-header Actions
+          li(ng-class='{"bg-warning": optionsDirty}')
+            a.text-success(role='button' ng-click='applyOptions()')
+              span.glyphicon.glyphicon-ok-circle
+              = ' '
+              | {{'options_apply' | tr}}
+          li(ng-class='{disabled: !optionsDirty}')
+            a.text-danger(role='button' ng-click='revertOptions()')
+              span.glyphicon.glyphicon-remove-circle
+              = ' '
+              | {{'options_discard' | tr}}
+      main.col-lg-10.col-sm-9.col-lg-offset-2.col-sm-offset-3(ui-view)
+
+    //-
+      Note: Alert type classes cannot be changed in angular-bootstrap.
+      This is already fixed but they don't have time for a new release:
+      https://github.com/angular-ui/bootstrap/issues/2641
+    .alert-top-wrapper(ng-show='alertShown')
+      div(alert type='workaround' close='hideAlert()'
+          class='{{alertClassForType(alert.type)}}')
+        span.glyphicon(class="{{alertIcons[alert.type]}}")
+        = ' '
+        | {{alert.i18n ? (alert.i18n | tr) : alert.message}}
+    script(src='js/log_error.js')
+    script(src='lib/script.js/script.min.js')
+    script(src='js/options.js')

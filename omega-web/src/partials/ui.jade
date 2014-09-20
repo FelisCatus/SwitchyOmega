@@ -1,0 +1,42 @@
+.page-header
+  h2 {{'options_tab_ui' | tr}}
+section.settings-group
+  h3 {{'options_group_miscOptions' | tr}}
+  div.checkbox
+    label
+      input(type='checkbox' ng-model='options["-confirmDeletion"]')
+      span {{'options_confirmDeletion' | tr}}
+  div.checkbox
+    label
+      input#refresh-on-profile-change(type='checkbox' ng-model='options["-refreshOnProfileChange"]')
+      span {{'options_refreshOnProfileChange' | tr}}
+section.settings-group
+  h3 {{'options_group_switchOptions' | tr}}
+  div.form-group
+    label {{'options_startupProfile' | tr}}
+    select.form-control.inline-form-control(ng-model='options["-startupProfileName"]'
+        ng-options='p.name as (p.name | dispName) for p in options | profiles:"all"')
+      option(value='') {{'options_startupProfile_none' | tr}}
+  div.checkbox
+    label
+      input(type='checkbox' ng-model='options["-enableQuickSwitch"]')
+      span {{'options_quickSwitch' | tr}}
+  #quick-switch-settings.settings-group(ng-show='options["-enableQuickSwitch"]' ng-controller='QuickSwitchCtrl')
+    h4 {{'options_cycledProfiles' | tr}}
+    p.help-block {{'options_cycledProfilesHelp' | tr}}
+    div.has-error(ng-show='options["-quickSwitchProfiles"].length < 2')
+      p.help-block {{'options_cycledProfilesTooFew' | tr}}
+    ul.cycle-profile-container.cycle-enabled(ui-sortable="sortableOptions"
+      ng-model='options["-quickSwitchProfiles"]')
+      li(ng-repeat='name in options["-quickSwitchProfiles"]')
+        span.glyphicon(class='{{profileIcons[profileByName(name).profileType]}}'
+          ng-style='{color: profileByName(name).color}')
+        = ' '
+        | {{name | dispName}}
+    h4 {{'options_notCycledProfiles' | tr}}
+    ul.cycle-profile-container(ui-sortable="sortableOptions" ng-model='notCycledProfiles')
+      li.bg-success(ng-repeat='name in notCycledProfiles')
+        span.glyphicon(class='{{profileIcons[profileByName(name).profileType]}}'
+          ng-style='{color: profileByName(name).color}')
+        = ' '
+        | {{name | dispName}}

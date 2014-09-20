@@ -1,0 +1,12 @@
+section.settings-group
+  h3 {{'options_group_pacUrl' | tr}}
+  .width-limit(input-group-clear type='url' model='profile.pacUrl')
+  p.help-block {{'options_pacUrlHelp' | tr}}
+section.settings-group
+  h3 {{'options_group_pacScript' | tr}}
+  p
+    button.btn.btn-default(ng-disabled='!profile.pacUrl' ng-click='updateProfile(profile.name)'
+        ladda='updatingProfile[profile.name]' data-spinner-color="#000000")
+      | #[span.glyphicon.glyphicon-download-alt] {{'options_downloadProfileNow' | tr}}
+  textarea.form-control.width-limit(ng-model='profile.pacScript' rows=20
+    ng-disabled='!!profile.pacUrl')

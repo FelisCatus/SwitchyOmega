@@ -1,0 +1,20 @@
+.page-header
+  .profile-actions
+    button.btn.btn-default(ng-show='scriptable' ng-click='exportScript(profile.name)' title="{{'options_exportPacFileHelp' | tr}}")
+      span.glyphicon.glyphicon-download
+      = ' '
+      | {{'options_profileExportPac' | tr}}
+    = ' '
+    button.btn.btn-default(ng-click='renameProfile(profile.name)')
+      span.glyphicon.glyphicon-edit
+      = ' '
+      | {{'options_renameProfile' | tr}}
+    = ' '
+    button.btn.btn-danger(ng-click='deleteProfile(profile.name)')
+      span.glyphicon.glyphicon-trash
+      = ' '
+      | {{'options_deleteProfile' | tr}}
+  span.profile-color-editor
+    x-spectrum-colorpicker(ng-model='profile.color' options='spectrumOptions')
+  h2.profile-name {{'options_profileTabPrefix' | tr}}{{profile.name}}
+div(ng-include='profileTemplate')

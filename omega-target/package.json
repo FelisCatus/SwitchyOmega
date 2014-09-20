@@ -1,0 +1,30 @@
+{
+  "name": "omega-target",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./index.js",
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "coffee-script": "^1.8.0",
+    "coffeeify": "^0.7.0",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.0.0",
+    "grunt-coffeelint": "^0.0.13",
+    "grunt-contrib-coffee": "^0.11.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-test": "~0.11.0",
+    "load-grunt-config": "^0.13.1",
+    "minifyify": "^4.1.1"
+  },
+  "dependencies": {
+    "bluebird": "^2.3.2",
+    "jsondiffpatch": "^0.1.8",
+    "omega-pac": "../omega-pac"
+  },
+  "browser": {
+    "omega-pac": "./omega_pac_shim.js"
+  },
+  "scripts": {
+    "dev": "npm link ../omega-pac"
+  }
+}

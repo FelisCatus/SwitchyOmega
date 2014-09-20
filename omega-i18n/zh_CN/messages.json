@@ -1,0 +1,551 @@
+{
+  "appNameShort": {
+    "message": "SwitchyOmega",
+    "description": "应用的简短名称"
+  },
+
+  "manifest_app_name": {
+    "message": "Proxy SwitchyOmega",
+    "description": "用作应用的标题"
+  },
+  "manifest_app_description": {
+    "message": "轻松快捷地管理和切换多个代理设置。",
+    "description": "作为应用的描述性说明而显示。"
+  },
+  "manifest_icon_default_title": {
+    "message": "正在加载……",
+    "description": "应用后台页面正在加载时显示。"
+  },
+
+  "profile_direct" : {
+    "message": "[直接连接]"
+  },
+  "profile_system" : {
+    "message": "[系统代理]"
+  },
+
+  "condition_hostWildcard" : {
+    "message": "主机通配符"
+  },
+  "condition_hostRegex" : {
+    "message": "主机正则表达式"
+  },
+  "condition_hostLevels" : {
+    "message": "主机层数"
+  },
+  "condition_urlWildcard" : {
+    "message": "网址通配符"
+  },
+  "condition_urlRegex" : {
+    "message": "网址正则表达式"
+  },
+  "condition_keyword" : {
+    "message": "关键字"
+  },
+  "condition_always" : {
+    "message": "总是"
+  },
+  "condition_always_details" : {
+    "message": "(匹配所有请求)"
+  },
+  "condition_never" : {
+    "message": "从不"
+  },
+  "condition_never_details" : {
+    "message": "(不匹配任何请求)"
+  },
+
+  "rulelistFormat_Switchy": {
+    "message": "Switchy"
+  },
+  "rulelistFormat_AutoProxy": {
+    "message": "AutoProxy"
+  },
+
+  "dialog_close": {
+    "message": "关闭"
+  },
+  "dialog_save": {
+    "message": "保存更改"
+  },
+  "dialog_ok": {
+    "message": "确定"
+  },
+  "dialog_cancel": {
+    "message": "取消"
+  },
+
+  "inputClear_clear": {
+    "message": "清空"
+  },
+  "inputClear_restore": {
+    "message": "还原"
+  },
+
+  "options_title": {
+    "message": "SwitchyOmega 选项"
+  },
+  "options_navHeader_setting": {
+    "message": "设定"
+  },
+  "options_navHeader_profiles": {
+    "message": "情景模式"
+  },
+  "options_navHeader_actions" : {
+    "message": "操作"
+  },
+  "options_tab_ui": {
+    "message": "界面"
+  },
+  "options_tab_general": {
+    "message": "通用"
+  },
+  "options_tab_importExport": {
+    "message": "导入/导出"
+  },
+  "options_newProfile": {
+    "message": "新建情景模式..."
+  },
+  "options_apply": {
+    "message": "应用选项"
+  },
+  "options_discard": {
+    "message": "撤销更改"
+  },
+  "options_reset": {
+    "message": "重置选项"
+  },
+  "options_group_miscOptions": {
+    "message": "其他设置"
+  },
+  "options_confirmDeletion": {
+    "message": "删除切换条件时需要确认"
+  },
+  "options_refreshOnProfileChange": {
+    "message": "当更改情景模式时刷新当前标签"
+  },
+  "options_group_switchOptions": {
+    "message": "切换选项"
+  },
+  "options_startupProfile": {
+    "message": "初始情景模式"
+  },
+  "options_startupProfile_none": {
+    "message": "(当前情景模式)"
+  },
+  "options_quickSwitch": {
+    "message": "快速切换"
+  },
+  "options_cycledProfiles": {
+    "message": "循环切换以下情景模式:"
+  },
+  "options_cycledProfilesHelp": {
+    "message": "点击图标时，依次循环切换到以下情景模式。"
+  },
+  "options_cycledProfilesTooFew": {
+    "message": "必须至少选择2个情景模式才能进行切换。请从下方框中拖动情景模式到此框。"
+  },
+  "options_notCycledProfiles": {
+    "message": "不循环切换的情景模式 (拖动到上面的框中启用切换)"
+  },
+  "options_group_proxyChanges": {
+    "message": "代理设置变化"
+  },
+  "options_revertProxyChanges": {
+    "message": "撤消其他扩展对代理的更改。"
+  },
+  "options_downloadOptions": {
+    "message": "下载选项"
+  },
+  "options_downloadOptionsHelp": {
+    "message": "设置规则列表和PAC脚本的更新间隔。"
+  },
+  "options_downloadInterval": {
+    "message": "更新间隔"
+  },
+  "options_downloadInterval_15": {
+    "message": "15分钟"
+  },
+  "options_downloadInterval_60": {
+    "message": "1小时"
+  },
+  "options_downloadInterval_180": {
+    "message": "3小时"
+  },
+  "options_downloadInterval_360": {
+    "message": "6小时"
+  },
+  "options_downloadInterval_720": {
+    "message": "12小时"
+  },
+  "options_downloadInterval_1440": {
+    "message": "每天一次"
+  },
+  "options_downloadInterval_never": {
+    "message": "从不更新"
+  },
+  "options_group_importExportProfile": {
+    "message": "情景模式"
+  },
+  "options_exportPacFile": {
+    "message": "导出PAC文件"
+  },
+  "options_exportPacFileHelp": {
+    "message": "导出PAC（代理自动设置）文件,以便在其它浏览器使用。"
+  },
+  "options_group_importExportSettings": {
+    "message": "选项"
+  },
+  "options_makeBackup": {
+    "message": "生成备份文件"
+  },
+  "options_makeBackupHelp": {
+    "message": "导出一份包括情景模式和其他所有选项的备份文件。"
+  },
+  "options_restoreLocal": {
+    "message": "从备份文件恢复"
+  },
+  "options_restoreLocalHelp": {
+    "message": "导入本地的备份文件以恢复所有选项。"
+  },
+  "options_restoreOnline": {
+    "message": "在线恢复"
+  },
+  "options_restoreOnlinePlaceholder": {
+    "message": "备份文件地址 (如：http://example.com/switchy.bak)"
+  },
+  "options_restoreOnlineSubmit": {
+    "message": "恢复"
+  },
+  "options_profileTabPrefix": {
+    "message": "情景模式： "
+  },
+  "options_renameProfile": {
+    "message": "更改名称"
+  },
+  "options_deleteProfile": {
+    "message": "删除"
+  },
+  "options_profileExportPac": {
+    "message": "导出PAC"
+  },
+  "options_profileUnsupported": {
+    "message": "不支持的情景模式类型： $TYPE$!",
+    "placeholders": {
+      "type": {
+        "content": "$1",
+        "example": "BogusProfile"
+      }
+    }
+  },
+  "options_profileUnsupportedHelp": {
+    "message": "选项文件已经损坏，或者当前版本过低无法处理选项。"
+  },
+  "options_group_proxyServers": {
+    "message": "代理服务器"
+  },
+  "options_proxy_scheme": {
+    "message": "网址协议"
+  },
+  "options_proxy_protocol": {
+    "message": "代理协议"
+  },
+  "options_proxy_server": {
+    "message": "代理服务器"
+  },
+  "options_proxy_port": {
+    "message": "代理端口"
+  },
+  "options_scheme_default": {
+    "message": "(默认)"
+  },
+  "options_protocol_direct": {
+    "message": "直接连接"
+  },
+  "options_protocol_useDefault": {
+    "message": "(同默认)"
+  },
+  "options_proxy_single": {
+    "message": "对于所有代理使用相同服务器。"
+  },
+  "options_proxy_expand": {
+    "message": "显示高级设置"
+  },
+  "options_group_bypassList": {
+    "message": "不代理的地址列表"
+  },
+  "options_bypassListHelp": {
+    "message": "不经过代理连接的主机列表: (每行一个主机)"
+  },
+  "options_bypassListHelpLinkText": {
+    "message": "(可使用通配符等匹配规则...)"
+  },
+  "options_group_pacUrl": {
+    "message": "PAC 网址"
+  },
+  "options_pacUrlHelp": {
+    "message": "应用将从此网址下载PAC脚本。如果网址留空，则直接使用下方的脚本内容。"
+  },
+  "options_group_pacScript": {
+    "message": "PAC 脚本"
+  },
+  "options_group_ruleListConfig": {
+    "message": "规则列表设置"
+  },
+  "options_ruleListFormat": {
+    "message": "规则列表格式"
+  },
+  "options_group_ruleListResult": {
+    "message": "规则列表结果情景模式"
+  },
+  "options_ruleListMatchProfile": {
+    "message": "匹配则使用情景模式"
+  },
+  "options_ruleListDefaultProfile": {
+    "message": "不匹配则使用情景模式"
+  },
+  "options_group_ruleListUrl": {
+    "message": "规则列表网址"
+  },
+  "options_ruleListUrlHelp": {
+    "message": "应用将从此网址下载规则列表。如果网址留空，则以下文本会被直接处理后作为规则列表使用。"
+  },
+  "options_group_ruleListText": {
+    "message": "规则列表正文"
+  },
+  "options_group_switchRules": {
+    "message": "切换规则"
+  },
+  "options_sort": {
+    "message": "排序"
+  },
+  "options_conditionType": {
+    "message": "条件类型"
+  },
+  "options_conditionDetails": {
+    "message": "条件设置"
+  },
+  "options_resultProfile": {
+    "message": "情景模式"
+  },
+  "options_conditionActions": {
+    "message": "操作"
+  },
+  "options_addCondition": {
+    "message": "添加条件"
+  },
+  "options_switchDefaultProfile": {
+    "message": "默认情景模式"
+  },
+  "options_hostLevelsBetween": {
+    "message": "\u2264 主机层数 \u2264"
+  },
+  "options_modalHeader_applyOptions": {
+    "message": "应用选项"
+  },
+  "options_optionsNotSaved": {
+    "message": "当前设置还未保存。如果您继续此操作，则刚才的所有修改都会丢失！"
+  },
+  "options_applyOptionsRequired": {
+    "message": "必须保存当前选项才能继续操作。"
+  },
+  "options_applyOptionsConfirm": {
+    "message": "是否保存并应用现在的选项？"
+  },
+  "options_modalHeader_renameProfile": {
+    "message": "重命名"
+  },
+  "options_renameProfileName": {
+    "message": "新的名称"
+  },
+  "options_profileNameConflict": {
+    "message": "已经存在相同名称的情景模式。"
+  },
+  "options_modalHeader_deleteProfile": {
+    "message": "删除情景模式"
+  },
+  "options_deleteProfileConfirm": {
+    "message": "真的要删除这个情景模式吗？"
+  },
+  "options_modalHeader_cannotDeleteProfile": {
+    "message": "情景模式无法删除"
+  },
+  "options_profileReferredBy": {
+    "message": "这个情景模式仍然被以下情景模式使用，所以无法删除。"
+  },
+  "options_modifyReferringProfiles": {
+    "message": "修改以上所有情景模式并移除对此情景模式的引用后，方可删除此情景模式。"
+  },
+  "options_profileNameEmpty": {
+    "message": "情景模式名称不能为空。"
+  },
+  "popup_title": {
+    "message": "SwitchyOmega 弹出菜单",
+    "description": "弹出菜单的标题。正常情况下不可见。"
+  },
+  "options_modalHeader_deleteRule": {
+    "message": "删除规则"
+  },
+  "options_deleteRuleConfirm": {
+    "message": "真的要删除这个规则吗?"
+  },
+  "options_deleteRule": {
+    "message": "删除"
+  },
+  "options_modalHeader_resetRules" : {
+    "message": "重置全部规则"
+  },
+  "options_resetRulesConfirm" : {
+    "message": "真的要设置所有规则对应的情景模式为以下情景模式吗？"
+  },
+  "options_resetRules" : {
+    "message": "重置规则"
+  },
+  "options_resetRules_help" : {
+    "message": "批量设置所有规则的情景模式"
+  },
+  "options_modalHeader_newProfile" : {
+    "message": "新建情景模式"
+  },
+  "options_newProfileName": {
+    "message": "情景模式名称"
+  },
+  "options_profileType" : {
+    "message": "请选择情景模式的类型:"
+  },
+  "options_profileTypeFixedProfile" : {
+    "message": "代理服务器"
+  },
+  "options_profileDescFixedProfile" : {
+    "message": "经过代理服务器访问网站。"
+  },
+  "options_profileTypePacProfile" : {
+    "message": "PAC情景模式"
+  },
+  "options_profileDescPacProfile" : {
+    "message": "根据在线或本地的PAC脚本选择代理。"
+  },
+  "options_profileTypeSwitchProfile" : {
+    "message": "自动切换模式"
+  },
+  "options_profileDescSwitchProfile" : {
+    "message": "根据多种条件，如域名或网址等自动选择情景模式。"
+  },
+  "options_profileTypeRuleListProfile" : {
+    "message": "规则列表"
+  },
+  "options_profileDescRuleListProfile" : {
+    "message": "使用他人发布的在线规则列表来切换情景模式。"
+  },
+  "options_createProfile" : {
+    "message": "创建"
+  },
+  "options_modalHeader_resetOptions": {
+    "message": "重置选项"
+  },
+  "options_resetOptionsConfirm": {
+    "message": "真的确定要重置选项吗？如果继续，现有的所有情景模式和选项将会丢失！"
+  },
+  "options_formInvalid": {
+    "message": "请更正这个页面中的错误。"
+  },
+  "options_resetSuccess": {
+    "message": "选项已经重置。"
+  },
+  "options_saveSuccess": {
+    "message": "保存选项成功！"
+  },
+  "options_importSuccess": {
+    "message": "导入选项成功。"
+  },
+  "options_importFormatError": {
+    "message": "备份文件格式错误！"
+  },
+  "options_importDownloadError": {
+    "message": "下载备份文件时出错！"
+  },
+  "options_profileDownloadSuccess": {
+    "message": "情景模式已经更新成功。"
+  },
+  "options_profileDownloadError": {
+    "message": "下载情景模式数据时出错。"
+  },
+  "options_downloadProfileNow": {
+    "message": "立即更新情景模式"
+  },
+  "popup_externalProfile": {
+    "message": "(外部情景模式)"
+  },
+  "popup_externalProfileName": {
+    "message": "保存名称"
+  },
+  "popup_proxyNotControllable_app": {
+    "message": "其他应用正在控制代理设置。请禁用或者卸载发生冲突的应用。"
+  },
+  "popup_proxyNotControllable_policy": {
+    "message": "代理设置被本地策略强制指定，无法修改。请联系系统管理员。"
+  },
+  "popup_proxyNotControllable_unknown": {
+    "message": "无法设置代理设置。请检查系统和浏览器设置。"
+  },
+  "popup_proxyNotControllableDetails": {
+    "message": "如果不解决以上问题，则无法使用SwitchyOmega切换代理。"
+  },
+  "popup_addConditionTo": {
+    "message": "添加条件到情景模式"
+  },
+  "popup_addCondition": {
+    "message": "添加条件"
+  },
+  "popup_showOptions": {
+    "message": "选项"
+  },
+  "popup_reportIssues": {
+    "message": "反馈问题"
+  },
+  "popup_errorLog": {
+    "message": "错误日志"
+  },
+  "browserAction_titleNormal": {
+    "message": "SwitchyOmega:: $PROFILE$",
+    "placeholders": {
+      "profile": {
+        "content": "$1",
+        "example": "direct"
+      }
+    }
+  },
+  "browserAction_titleWithResult": {
+    "message": "SwitchyOmega:: $PROFILE$\n$DETAILS$",
+    "placeholders": {
+      "profile": {
+        "content": "$1",
+        "example": "autoswitch"
+      },
+      "result": {
+        "content": "$2",
+        "example": "direct"
+      },
+      "details": {
+        "content": "$3",
+        "example": "DIRECT"
+      }
+    }
+  },
+  "browserAction_titleNewerOptions": {
+    "message": "错误：需要新版本的SwitchyOmega才能加载当前选项。"
+  },
+  "browserAction_titleOptionError": {
+    "message": "错误：选项文件已经损坏，点击此处重置选项。"
+  },
+  "browserAction_titleDownloadFail": {
+    "message": "警告：更新PAC文件或规则列表失败。"
+  },
+  "browserAction_titleExternalProxy": {
+    "message": "注意：其他应用正在控制当前代理设置。"
+  },
+  "browserAction_tempRulePrefix": {
+    "message": "(临时) ",
+    "description": "在图标悬停提示上显示临时规则的前缀。文字应该非常短。"
+  }
+}
