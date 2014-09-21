@@ -5,7 +5,6 @@ Profiles = require './profiles'
 # coffeelint: disable=missing_fat_arrows
 module.exports =
   ascii: (str) ->
-    throw new Error "WTF"
     str.replace /[\u0080-\uffff]/g, (char) ->
       hex = char.charCodeAt(0).toString(16)
       result = '\\u'

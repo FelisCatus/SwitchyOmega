@@ -185,18 +185,23 @@ class Options
   _setOptions: (changes, args) =>
     removed = []
     checkRev = args?.checkRevision ? false
+    profilesChanged = false
     currentProfileAffected = false
     for own key, value of changes
       if typeof value == 'undefined'
         delete @_options[key]
         removed.push(key)
-        if key == '+' + @_currentProfileName
-          currentProfileAffected = 'removed'
+        if key[0] == '+'
+          profilesChanged = true
+          if key == '+' + @_currentProfileName
+            currentProfileAffected = 'removed'
       else
-        if checkRev and key[0] == '+' and @_options[key]
-          result = OmegaPac.Revision.compare(@_options[key].revision,
-            value.revision)
-          continue if result >= 0
+        if key[0] == '+'
+          if checkRev and @_options[key]
+            result = OmegaPac.Revision.compare(@_options[key].revision,
+              value.revision)
+            continue if result >= 0
+          profilesChanged = true
         @_options[key] = value
       if not currentProfileAffected and @_watchingProfiles[key]
         currentProfileAffected = 'changed'
@@ -205,6 +210,8 @@ class Options
         @applyProfile(@fallbackProfileName)
       when 'changed'
         @applyProfile(@_currentProfileName)
+      else
+        @_setAvailableProfiles() if profilesChanged
     if args?.persist ? true
       for key in removed
         delete changes[key]
@@ -264,6 +271,28 @@ class Options
       ast = OmegaPac.PacGenerator.compress(ast)
     Promise.resolve ast.print_to_string()
 
+  _setAvailableProfiles: ->
+    profile = if @_currentProfileName then @currentProfile() else null
+    profiles = {}
+    currentIncludable = profile && OmegaPac.Profiles.isIncludable(profile)
+    if not profile or not OmegaPac.Profiles.isInclusive(profile)
+      results = []
+    OmegaPac.Profiles.each @_options, (key, profile) ->
+      profiles[key] =
+        name: profile.name
+        profileType: profile.profileType
+        color: profile.color
+        builtin: !!profile.builtin
+      if results? and currentIncludable
+        results.push(profile.name)
+    if profile and OmegaPac.Profiles.isInclusive(profile)
+      results = OmegaPac.Profiles.validResultProfilesFor(profile, @_options)
+      results = results.map (profile) -> profile.name
+    @_state.set({
+      'availableProfiles': profiles
+      'validResultProfiles': results
+    })
+
   ###*
   # Apply the profile by name.
   # @param {?string} name The name of the profile, or null for default.
@@ -283,27 +312,13 @@ class Options
     @_isSystem = options?.system || (profile.profileType == 'SystemProfile')
     @_watchingProfiles = OmegaPac.Profiles.allReferenceSet(profile, @_options)
 
-    if not OmegaPac.Profiles.isInclusive(profile)
-      results = []
-    profiles = {}
-    OmegaPac.Profiles.each @_options, (key, profile) ->
-      profiles[key] =
-        name: profile.name
-        profileType: profile.profileType
-        color: profile.color
-        builtin: !!profile.builtin
-      if results? and OmegaPac.Profiles.isIncludable(profile)
-        results.push(profile.name)
-    if OmegaPac.Profiles.isInclusive(profile)
-      results = OmegaPac.Profiles.validResultProfilesFor(profile, @_options)
-      results = results.map (profile) -> profile.name
     @_state.set({
       'currentProfileName': @_currentProfileName
       'isSystemProfile': @_isSystem
-      'availableProfiles': profiles
-      'validResultProfiles': results
       'currentProfileCanAddRule': profile.rules?
     })
+    @_setAvailableProfiles()
+
     @currentProfileChanged(options?.reason)
     if options? and options.proxy == false
       return Promise.resolve()
