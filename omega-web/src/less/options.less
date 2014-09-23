@@ -37,6 +37,11 @@ a[role="button"] {
   min-width: 0 !important;
 }
 
+.align-initial {
+  text-align: left;
+  text-align: initial;
+}
+
 ul.list-style-none, li.list-style-none {
   list-style: none;
   padding-left: 0;
@@ -92,8 +97,7 @@ ul.list-style-none, li.list-style-none {
   * {
     pointer-events: auto;
     pointer-events: initial;
-    text-align: left;
-    text-align: initial;
+    .align-initial();
   }
 
   .alert {

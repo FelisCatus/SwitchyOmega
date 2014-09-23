@@ -41,8 +41,9 @@ html(lang='en' ng-controller='MasterCtrl' ng-csp)
               span {{'options_newProfile' | tr}}
           li.divider
           li.nav-header Actions
-          li(ng-class='{"bg-warning": optionsDirty}')
-            a.text-success(role='button' ng-click='applyOptions()')
+          li
+            a.btn-default.btn.align-initial(role='button' ng-click='applyOptions()'
+                ng-class='{"btn-success": optionsDirty}')
               span.glyphicon.glyphicon-ok-circle
               = ' '
               | {{'options_apply' | tr}}
