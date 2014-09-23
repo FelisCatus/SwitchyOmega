@@ -29,6 +29,7 @@ To build the project:
     cd omega-build
     npm run deps # This runs npm install in every module.
     npm run dev # This runs npm link to aid local development.
+    # Note: the previous command may require sudo in some environments.
     # The modules are now working. We can build now:
     grunt
     # After building, a folder will be generated:

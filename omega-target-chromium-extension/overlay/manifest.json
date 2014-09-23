@@ -19,7 +19,6 @@
   "background": {
     "page": "background.html"
   },
-  "homepage_url": "https://chrome.google.com/webstore/detail/dpplabbmogkhghncfbfdeeokoefdjegm",
   "minimum_chrome_version": "22.0.0",
   "options_page": "options.html",
   "permissions": [

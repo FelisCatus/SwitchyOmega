@@ -21,7 +21,7 @@ module.exports = exports =
     '+system':
       name: 'system'
       profileType: 'SystemProfile'
-      color: '#aaaaaa'
+      color: '#000000'
       builtin: true
 
   schemes: [
