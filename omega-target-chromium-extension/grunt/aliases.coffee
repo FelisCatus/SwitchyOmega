@@ -6,3 +6,4 @@ module.exports =
     'copy'
   ]
   test: ['mochaTest']
+  release: ['default', 'compress']
