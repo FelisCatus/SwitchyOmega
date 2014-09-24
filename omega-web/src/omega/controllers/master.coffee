@@ -42,6 +42,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
       return if profile.profileType in ['DirectProfile', 'SystemProfile']
       ast = OmegaPac.PacGenerator.script($rootScope.options, profileName)
       pac = ast.print_to_string(beautify: true, comments: true)
+      pac = OmegaPac.PacGenerator.ascii(pac)
       blob = new Blob [pac], {type: "text/plain;charset=utf-8"}
       fileName = profileName.replace(/\W+/g, '_')
       saveAs(blob, "OmegaProfile_#{fileName}.pac")

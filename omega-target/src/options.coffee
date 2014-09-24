@@ -71,8 +71,12 @@ class Options
             @applyProfile('system')
           else
             @applyProfile(st['currentProfileName'] || @fallbackProfileName)
-    ).catch(ProfileNotExistError, =>
+    ).catch((err) =>
+      if not err instanceof ProfileNotExistError
+        @log.error(err)
       @applyProfile(@fallbackProfileName)
+    ).catch((err) =>
+      @log.error(err)
     ).then => @getAll()
 
     @ready.then =>
@@ -269,7 +273,7 @@ class Options
     ast = OmegaPac.PacGenerator.script(@_options, profile)
     if compress
       ast = OmegaPac.PacGenerator.compress(ast)
-    Promise.resolve ast.print_to_string()
+    Promise.resolve OmegaPac.PacGenerator.ascii(ast.print_to_string())
 
   _setAvailableProfiles: ->
     profile = if @_currentProfileName then @currentProfile() else null

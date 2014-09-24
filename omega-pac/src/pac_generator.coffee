@@ -8,7 +8,8 @@ module.exports =
     str.replace /[\u0080-\uffff]/g, (char) ->
       hex = char.charCodeAt(0).toString(16)
       result = '\\u'
-      result += '0' for _ in [hex.length..4]
+      result += '0' for _ in [hex.length...4]
+      result += hex
       return result
 
   compress: (ast) ->

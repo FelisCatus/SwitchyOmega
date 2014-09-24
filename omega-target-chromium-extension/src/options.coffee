@@ -135,7 +135,8 @@ class ChromeOptions extends OmegaTarget.Options
         data: null
         mandatory: true
       setPacScript = @pacForProfile(profile).then (script) ->
-        profileName = JSON.stringify(profile.name).replace(/\*/g, '\\u002a')
+        profileName = OmegaPac.PacGenerator.ascii(JSON.stringify(profile.name))
+        profileName = profileName.replace(/\*/g, '\\u002a')
         profileName = profileName.replace(/\\/g, '\\u002f')
         prefix = "/*OmegaProfile*#{profileName}*#{profile.revision}*/"
         config['pacScript'].data = prefix + script

@@ -6,7 +6,9 @@ chromeApiPromisifer = (originalMethod) ->
     new Promise (resolve, reject) =>
       callback = (callbackArgs...) ->
         if chrome.runtime.lastError?
-          return reject(chrome.runtime.lastError)
+          error = new Error(chrome.runtime.lastError.message)
+          error.original = chrome.runtime.lastError
+          return reject(error)
         if callbackArgs.length <= 1
           resolve(callbackArgs[0])
         else
