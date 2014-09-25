@@ -286,6 +286,12 @@
   "options_pacUrlHelp": {
     "message": "应用将从此网址下载PAC脚本。如果网址留空，则直接使用下方的脚本内容。"
   },
+  "options_pacUrlFile": {
+    "message": "如果您使用本地PAC文件，则该情景模式只能单独使用，无法作为自动切换的结果。这是因为浏览器不允许读取本地文件。"
+  },
+  "options_pacUrlFileDisabled": {
+    "message": "此情景模式已被引用，所以不能使用本地PAC文件。如果您真的需要使用本地文件，请另外新建一个PAC情景模式。"
+  },
   "options_group_pacScript": {
     "message": "PAC 脚本"
   },

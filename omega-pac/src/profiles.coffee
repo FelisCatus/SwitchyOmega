@@ -64,6 +64,8 @@ module.exports = exports =
     else
       'DIRECT'
 
+  isFileUrl: (url) -> !!(url?.substr(0, 5).toUpperCase() == 'FILE:')
+
   nameAsKey: (profileName) ->
     if typeof profileName != 'string'
       profileName = profileName.name
@@ -92,11 +94,17 @@ module.exports = exports =
       key = exports.pacResult()
     new U2.AST_String value: key
 
-  isIncludable: (profile) -> !!exports._handler(profile).includable
+  isIncludable: (profile) ->
+    includable = exports._handler(profile).includable
+    if typeof includable == 'function'
+      includable = includable.call(exports, profile)
+    !!includable
   isInclusive: (profile) -> !!exports._handler(profile).inclusive
 
-  updateUrl: (profile) -> exports._handler(profile).updateUrl?(profile)
-  update: (profile, data) -> exports._handler(profile).update(profile, data)
+  updateUrl: (profile) ->
+    exports._handler(profile).updateUrl?.call(exports, profile)
+  update: (profile, data) ->
+    exports._handler(profile).update.call(exports, profile, data)
 
   tag: (profile) -> exports._profileCache.tag(profile)
   create: (profile, opt_profileType) ->
@@ -259,7 +267,7 @@ module.exports = exports =
           body: body
         )
     'PacProfile':
-      includable: true
+      includable: (profile) -> !@isFileUrl(profile.pacUrl)
       create: (profile) ->
         profile.pacScript ?= '''
           function FindProxyForURL(url, host) {
@@ -277,7 +285,11 @@ module.exports = exports =
                 new U2.AST_SymbolRef name: 'FindProxyForURL'
             ]
           )
-      updateUrl: (profile) -> profile.pacUrl
+      updateUrl: (profile) ->
+        if @isFileUrl(profile.pacUrl)
+          undefined
+        else
+          profile.pacUrl
       update: (profile, data) ->
         profile.pacScript = data
     'AutoDetectProfile': 'PacProfile'

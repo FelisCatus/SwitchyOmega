@@ -1,7 +1,13 @@
-section.settings-group
+section.settings-group(ng-controller='PacProfileCtrl')
   h3 {{'options_group_pacUrl' | tr}}
-  .width-limit(input-group-clear type='url' model='profile.pacUrl')
+  .width-limit(input-group-clear type='text' model='profile.pacUrl'
+    ng-pattern='referenced ? urlRegex : urlWithFile' controller='pacUrlCtrl.ctrl')
   p.help-block {{'options_pacUrlHelp' | tr}}
+  .has-warning(ng-show='isFileUrl(profile.pacUrl) && !referenced')
+    p.help-block #[span.glyphicon.glyphicon-warning-sign] {{'options_pacUrlFile' | tr}}
+  .has-error(ng-show='isFileUrl(pacUrlCtrl.ctrl.$viewValue) && referenced')
+    p.help-block #[span.glyphicon.glyphicon-remove-sign] {{'options_pacUrlFile' | tr}}
+    p.help-block {{'options_pacUrlFileDisabled' | tr}}
 section.settings-group
   h3 {{'options_group_pacScript' | tr}}
   p

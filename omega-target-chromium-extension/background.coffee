@@ -88,7 +88,6 @@ actionForUrl = (url) ->
 storage = new OmegaTargetCurrent.Storage(chrome.storage.local, 'local')
 state = new OmegaTargetCurrent.BrowserStorage(localStorage, 'omega.local.')
 options = new OmegaTargetCurrent.Options(null, storage, state, Log)
-console.log(options.log)
 
 tabs = new OmegaTargetCurrent.ChromeTabs(actionForUrl)
 tabs.watch()

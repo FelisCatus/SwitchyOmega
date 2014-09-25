@@ -1,12 +1,19 @@
-angular.module('omega').directive 'inputGroupClear', ->
+angular.module('omega').directive 'inputGroupClear', ($timeout) ->
   restrict: 'A'
   templateUrl: 'partials/input_group_clear.html'
   scope:
     'model': '=model'
     'type': '@type'
+    'ngPattern': '=?ngPattern'
     'placeholder': '@placeholder'
+    'controller': '=controller'
   link: (scope, element, attrs) ->
+    scope.catchAll = new RegExp('')
+    $timeout ->
+      scope.controller = element.find('input').controller('ngModel')
+
     scope.oldModel = ''
+    scope.controller = scope.input
     scope.modelChange = ->
       if scope.model
         scope.oldModel = ''

@@ -286,6 +286,12 @@
   "options_pacUrlHelp": {
     "message": "The PAC script will be updated from this URL. If it is left blank, the following scripts will be used directly instead."
   },
+  "options_pacUrlFile": {
+    "message": "PAC profiles with file: URLs can only be applied directly. They cannot be used as result profiles because local files cannot be accessed due to browser limitation."
+  },
+  "options_pacUrlFileDisabled": {
+    "message": "Therefore, you cannot use local PAC file for this profile. You can create a new PAC profile for that if you really want that."
+  },
   "options_group_pacScript": {
     "message": "PAC Script"
   },

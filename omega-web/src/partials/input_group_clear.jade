@@ -1,5 +1,5 @@
 .input-group
-  input.form-control(ng-model='model' ng-attr-type='{{type}}'
+  input.form-control(ng-model='model' ng-attr-type='{{type}}' ng-pattern='ngPattern || catchAll'
     placeholder='{{placeholder}}' ng-change='modelChange()')
   span.input-group-btn
     button.btn.btn-default.input-group-clear-btn(ng-click='toggleClear()' ng-disabled='!model && !oldModel'

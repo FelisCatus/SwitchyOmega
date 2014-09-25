@@ -107,6 +107,12 @@ describe 'Profiles', ->
     it 'should return the result of the pac script', ->
       testProfile(profile, 'ftp://www.example.com:9999/abc', null,
         'PROXY www.example.com:8080')
+    it 'should return includable for non-file pacUrl', ->
+      Profiles.isIncludable(profile).should.be.true
+    it 'should return not includable for file: pacUrl', ->
+      profile = Profiles.create('test', 'PacProfile')
+      profile.pacUrl = 'file:///proxy.pac'
+      Profiles.isIncludable(profile).should.be.false
   describe 'SwitchProfile', ->
     profile = Profiles.create('test', 'SwitchProfile')
     profile.rules = [
