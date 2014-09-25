@@ -1,5 +1,5 @@
 .modal-header
-  button.close(type='button', data-dismiss='modal')
+  button.close(type='button' ng-click='$dismiss()')
     span(aria-hidden='true') ×
     span.sr-only {{'dialog_close' | tr}}
   h4.modal-title {{'options_modalHeader_applyOptions' | tr}}

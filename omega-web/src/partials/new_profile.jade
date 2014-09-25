@@ -1,6 +1,6 @@
 form(ng-submit='newProfile.$valid && $close(profile)' name='newProfile')
   .modal-header
-    button.close(type='button', data-dismiss='modal')
+    button.close(type='button' ng-click='$dismiss()')
       span(aria-hidden='true') ×
       span.sr-only Close
     h4.modal-title {{'options_modalHeader_newProfile' | tr}}
