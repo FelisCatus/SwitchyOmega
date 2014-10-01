@@ -27,8 +27,8 @@ section.settings-group(ng-controller='SwitchProfileCtrl')
               input.form-control(type='number' max='99' min='1' ng-model='rule.condition.maxValue' required)
             input.form-control(ng-model='rule.condition.pattern' ng-switch-default required)
           td
-            select.form-control(ng-model='rule.profileName'
-              ng-options='p.name as (p.name | dispName) for p in options | profiles:profile')
+            div.form-control(omega-profile-select='options | profiles:profile' ng-model='rule.profileName'
+              disp-name='$profile.name | dispName')
           td
             button.btn.btn-danger.btn-sm(title="{{'options_deleteRule' | tr}}" ng-click='removeRule($index)')
               span.glyphicon.glyphicon-trash
@@ -45,8 +45,8 @@ section.settings-group(ng-controller='SwitchProfileCtrl')
           td
           td(colspan='2') {{'options_switchDefaultProfile' | tr}}
           td
-            select.form-control(ng-model='profile.defaultProfileName'
-              ng-options='p.name as (p.name | dispName) for p in options | profiles:profile')
+            div.form-control(omega-profile-select='options | profiles:profile' ng-model='profile.defaultProfileName'
+              disp-name='$profile.name | dispName')
           td
             button.btn.btn-info.btn-sm(title="{{'options_resetRules_help' | tr}}" ng-click='resetRules()')
               span.glyphicon.glyphicon-chevron-up

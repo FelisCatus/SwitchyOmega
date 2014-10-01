@@ -36,7 +36,8 @@
     "blob": "*",
     "FileSaver": "*",
     "angular-ui-utils": "bower-validate",
-    "angular-ladda": "~0.1.6"
+    "angular-ladda": "~0.1.6",
+    "bootstrap-select": "~1.6.2"
   },
   "exportsOverride": {
     "script.js": {
@@ -80,7 +81,8 @@
     },
     "bootstrap": {
       "css": "dist/css/*.min.*",
-      "fonts": "dist/fonts/*"
+      "fonts": "dist/fonts/*",
+      "js": "js/dropdown.*"
     },
     "ngprogress": {
       "": "build/*.min.js"
@@ -101,7 +103,10 @@
       "": "*.js"
     },
     "ladda": {
-      "": ["dist/ladda-themeless.min.css", "dist/ladda.min.js"]
+      "": [
+        "dist/ladda-themeless.min.css",
+        "dist/ladda.min.js"
+      ]
     }
   }
 }

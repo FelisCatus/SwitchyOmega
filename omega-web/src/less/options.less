@@ -111,6 +111,25 @@ ul.list-style-none, li.list-style-none {
   }
 }
 
+/* bootstrap-select */
+
+.dropdown-menu>.selected>a {
+  &, &:hover, &:focus {
+    color: #FFF;
+    text-decoration: none;
+    outline: 0;
+    background-color: #428BCA;
+  }
+}
+
+.bootstrap-select.btn-group {
+  margin-bottom: 0 !important;
+}
+
+.form-control[omega-profile-select] {
+  display: none; // Prevent not loaded directive from showing.
+}
+
 /* body */
 
 h1 {
@@ -158,6 +177,15 @@ main {
       position: static;
       max-height: none;
     }
+  }
+
+  .ng-enter {
+    opacity: 0;
+    transition: opacity .5s;
+  }
+
+  .ng-enter-active {
+    opacity: 1;
   }
 }
 

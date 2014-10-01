@@ -1,0 +1,5 @@
+select.selectpicker(ng-class='classes')
+  option(ng-if='!!defaultText' value='' data-icon='glyphicon-time') {{defaultText}}
+  option(ng-repeat='profile in currentProfiles' value='{{profile.name}}' omega-repeat-done='onItemsUpdated()'
+    data-content='<span class="glyphicon {{profileIcons[profile.profileType]}}" style="color: {{profile.color}}"></span> {{getName(profile)}}')
+    | {{getName(profile)}}
