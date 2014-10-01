@@ -6,7 +6,7 @@ angular.module('omega').directive 'inputGroupClear', ($timeout) ->
     'type': '@type'
     'ngPattern': '=?ngPattern'
     'placeholder': '@placeholder'
-    'controller': '=controller'
+    'controller': '=?controller'
   link: (scope, element, attrs) ->
     scope.catchAll = new RegExp('')
     $timeout ->

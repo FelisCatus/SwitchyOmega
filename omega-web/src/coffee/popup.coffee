@@ -6,7 +6,7 @@ module.filter 'dispName', (omegaTarget) ->
   (name) -> omegaTarget.getMessage('profile_' + name) || name
 
 module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
-  profileIcons) ->
+  profileIcons, profileOrder) ->
 
   refreshOnProfileChange = false
   refresh = ->
@@ -73,6 +73,7 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
         $scope.builtinProfiles.push(profile)
       else
         $scope.customProfiles.push(profile)
+    $scope.customProfiles.sort(profileOrder)
     $scope.currentProfile = availableProfiles['+' + currentProfileName]
     $scope.currentProfileName = currentProfileName
     $scope.isSystemProfile = isSystemProfile

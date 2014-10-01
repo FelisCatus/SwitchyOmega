@@ -1,4 +1,4 @@
-angular.module('omega').filter 'profiles', (builtinProfiles) ->
+angular.module('omega').filter 'profiles', (builtinProfiles, profileOrder) ->
   charCodePlus = '+'.charCodeAt(0)
   builtinProfileList = (profile for _, profile of builtinProfiles)
   (options, filter) ->
@@ -12,6 +12,8 @@ angular.module('omega').filter 'profiles', (builtinProfiles) ->
       result = OmegaPac.Profiles.validResultProfilesFor(filter, options)
     if filter == 'all'
       result = result.concat builtinProfileList
+    if filter == 'sorted'
+      result.sort profileOrder
     result
 
 angular.module('omega').filter 'tr', (omegaTarget) -> omegaTarget.getMessage

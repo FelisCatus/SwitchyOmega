@@ -28,7 +28,7 @@ html(lang='en' ng-controller='MasterCtrl' ng-csp)
             | {{'options_tab_importExport' | tr}}
           li.divider
           li.nav-header {{'options_navHeader_profiles' | tr}}
-          li(ng-repeat='profile in options | profiles' ui-sref-active='active')
+          li(ng-repeat='profile in options | profiles:"sorted"' ui-sref-active='active')
             a(ui-sref='profile({name: profile.name})')
               span.glyphicon(class='{{profileIcons[profile.profileType]}}'
                 ng-style='{color: profile.color}')

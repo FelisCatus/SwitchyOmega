@@ -10,7 +10,6 @@ angular.module('omega').controller 'PacProfileCtrl', ($scope) ->
   
   $scope.isFileUrl = OmegaPac.Profiles.isFileUrl
   $scope.pacUrlCtrl = {ctrl: null}
-  $scope.$watch 'pacUrlCtrl.ctrl', console.log.bind(console)
 
   set = OmegaPac.Profiles.referencedBySet($scope.profile, $scope.options)
   $scope.referenced = Object.keys(set).length > 0
