@@ -21,6 +21,14 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $modal) ->
       rule.condition.pattern = ''
     $scope.profile.rules.push rule
 
+  $scope.validateCondition = (condition, pattern) ->
+    if condition.conditionType.indexOf('Regex') >= 0
+      try
+        new RegExp(pattern)
+      catch
+        return false
+    return true
+
   $scope.removeRule = (index) ->
     removeForReal = ->
       $scope.profile.rules.splice index, 1

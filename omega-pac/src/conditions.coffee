@@ -38,10 +38,17 @@ module.exports = exports =
     node.start.comments_before.push {type: 'comment2', value: comment}
     node
 
+  safeRegex: (expr) ->
+    try
+      new RegExp(expr)
+    catch
+      # Invalid regexp! Fall back to a regexp that does not match anything.
+      /(?!)/
+
   regTest: (expr, regexp) ->
     if typeof regexp == 'string'
       # Escape (unescaped) forward slash for use in regex literals.
-      regexp = new RegExp escapeSlash regexp
+      regexp = regexSafe escapeSlash regexp
     if typeof expr == 'string'
       expr = new U2.AST_SymbolRef name: expr
     new U2.AST_Call
@@ -164,7 +171,7 @@ module.exports = exports =
       compile: (condition) -> new U2.AST_False
     'UrlRegexCondition':
       tag: (condition) -> condition.pattern
-      analyze: (condition) -> new RegExp escapeSlash condition.pattern
+      analyze: (condition) -> @safeRegex escapeSlash condition.pattern
       match: (condition, request, cache) ->
         return cache.analyzed.test(request.url)
       compile: (condition, cache) ->
@@ -175,7 +182,7 @@ module.exports = exports =
       analyze: (condition) ->
         parts = for pattern in condition.pattern.split('|') when pattern
           shExp2RegExp pattern, trimAsterisk: true
-        new RegExp parts.join('|')
+        @safeRegex parts.join('|')
       match: (condition, request, cache) ->
         return cache.analyzed.test(request.url)
       compile: (condition, cache) ->
@@ -183,7 +190,7 @@ module.exports = exports =
 
     'HostRegexCondition':
       tag: (condition) -> condition.pattern
-      analyze: (condition) -> new RegExp escapeSlash condition.pattern
+      analyze: (condition) -> @safeRegex escapeSlash condition.pattern
       match: (condition, request, cache) ->
         return cache.analyzed.test(request.host)
       compile: (condition, cache) ->
@@ -206,7 +213,7 @@ module.exports = exports =
               .replace(/./, '(?:^|\\.)')
           else
             shExp2RegExp pattern, trimAsterisk: true
-        new RegExp parts.join('|')
+        @safeRegex parts.join('|')
       match: (condition, request, cache) ->
         return cache.analyzed.test(request.host)
       compile: (condition, cache) ->
@@ -261,14 +268,14 @@ module.exports = exports =
               serverRegex = shExp2RegExp(server)
               serverRegex = serverRegex.substring(1, serverRegex.length - 1)
             scheme = cache.scheme ? '[^:]+'
-            cache.url = new RegExp('^' + scheme + ':\\/\\/' + serverRegex +
+            cache.url = @safeRegex('^' + scheme + ':\\/\\/' + serverRegex +
               ':' + matchPort + '\\/')
           else if server != '*'
             if serverRegex
               serverRegex = '^' + serverRegex + '$'
             else
               serverRegex = shExp2RegExp server, trimAsterisk: true
-            cache.host = new RegExp serverRegex
+            cache.host = @safeRegex(serverRegex)
         return cache
       match: (condition, request, cache) ->
         cache = cache.analyzed

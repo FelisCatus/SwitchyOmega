@@ -61,7 +61,12 @@ describe 'Conditions', ->
       con =
         conditionType: 'UrlRegexCondition'
         pattern: 'exam.*\\.com'
-      testCond(cond, 'http://www.example.com/', 'match')
+      testCond(con, 'http://www.example.com/', 'match')
+    it 'should fallback to not match if pattern is invalid', ->
+      con =
+        conditionType: 'UrlRegexCondition'
+        pattern: ')Invalid('
+      testCond(con, 'http://www.example.com/', not 'match')
   describe 'UrlWildcardCondition', ->
     cond =
       conditionType: 'UrlWildcardCondition'

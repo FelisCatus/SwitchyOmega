@@ -25,7 +25,8 @@ section.settings-group(ng-controller='SwitchProfileCtrl')
               span {{'options_hostLevelsBetween' | tr}}
               = ' '
               input.form-control(type='number' max='99' min='1' ng-model='rule.condition.maxValue' required)
-            input.form-control(ng-model='rule.condition.pattern' ng-switch-default required)
+            input.form-control(ng-model='rule.condition.pattern' ng-switch-default required
+              ui-validate='{pattern: "validateCondition(rule.condition, $value)"}')
           td
             div.form-control(omega-profile-select='options | profiles:profile' ng-model='rule.profileName'
               disp-name='$profile.name | dispName')
