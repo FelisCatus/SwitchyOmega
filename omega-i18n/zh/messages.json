@@ -55,10 +55,10 @@
     "message": "(不匹配任何请求)"
   },
 
-  "rulelistFormat_Switchy": {
+  "ruleListFormat_Switchy": {
     "message": "Switchy"
   },
-  "rulelistFormat_AutoProxy": {
+  "ruleListFormat_AutoProxy": {
     "message": "AutoProxy"
   },
 
@@ -340,11 +340,26 @@
   "options_addCondition": {
     "message": "添加条件"
   },
+  "options_switchAttachedProfileInCondition": {
+    "message": "规则列表规则"
+  },
+  "options_switchAttachedProfileInConditionDetails": {
+    "message": "(按照规则列表匹配请求)"
+  },
   "options_switchDefaultProfile": {
     "message": "默认情景模式"
   },
   "options_hostLevelsBetween": {
     "message": "\u2264 主机层数 \u2264"
+  },
+  "options_group_attachProfile": {
+    "message": "导入在线规则列表"
+  },
+  "options_attachProfile": {
+    "message": "添加规则列表"
+  },
+  "options_attachProfileHelp": {
+    "message": "可以添加规则列表，以便引用他人在线发布的一组规则。"
   },
   "options_modalHeader_applyOptions": {
     "message": "应用选项"
@@ -409,6 +424,24 @@
   },
   "options_resetRules_help" : {
     "message": "批量设置所有规则的情景模式"
+  },
+  "options_modalHeader_deleteAttached": {
+    "message": "移除规则列表"
+  },
+  "options_deleteAttachedConfirm": {
+    "message": "真的要移除当前情景模式的在线规则列表吗？"
+  },
+  "options_ruleListLineCount": {
+    "message": "共计$COUNT$行规则",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "42"
+      }
+    }
+  },
+  "options_deleteAttached": {
+    "message": "Remove rule list"
   },
   "options_modalHeader_newProfile" : {
     "message": "新建情景模式"
@@ -549,6 +582,18 @@
   },
   "browserAction_titleExternalProxy": {
     "message": "注意：其他应用正在控制当前代理设置。"
+  },
+  "browserAction_defaultRuleDetails": {
+    "message": "(默认)",
+    "description": "在图标悬停提示上表示选择了默认情景模式作为结果的文字。"
+  },
+  "browserAction_directResult": {
+    "message": "直接连接",
+    "description": "在图标悬停提示上表示使用了直接连接的文字。"
+  },
+  "browserAction_attachedPrefix": {
+    "message": "(列表) ",
+    "description": "在图标悬停提示上显示规则列表规则的前缀。文字应该非常短。"
   },
   "browserAction_tempRulePrefix": {
     "message": "(临时) ",

@@ -39,6 +39,12 @@ drawIcon = (resultColor, profileColor) ->
   icon = ctx.getImageData(0, 0, 19, 19)
   return iconCache[cacheKey] = icon
 
+charCodeUnderscore = '_'.charCodeAt(0)
+isHidden = (name) -> (name.charCodeAt(0) == charCodeUnderscore and
+  name.charCodeAt(1) == charCodeUnderscore)
+
+dispName = (name) -> chrome.i18n.getMessage('profile_' + name) || name
+
 actionForUrl = (url) ->
   options.ready.then(->
     request = OmegaPac.Conditions.requestFromUrl(url)
@@ -47,25 +53,45 @@ actionForUrl = (url) ->
     current = options.currentProfile()
     details = ''
     direct = false
+    attached = false
     for result in results
       if Array.isArray(result)
         if not result[1]?
-          details += "(default) => #{result[0]}\n"
+          attached = false
+          name = result[0]
+          if name[0] == '+'
+            name = name.substr(1)
+          if isHidden(name)
+            attached = true
+          else
+            details += chrome.i18n.getMessage 'browserAction_defaultRuleDetails'
+            details += " => #{dispName(name)}\n"
         else if result[1].length == 0
-          details += "#{result[0]}\n"
+          if result[0] == 'DIRECT'
+            details += chrome.i18n.getMessage('browserAction_directResult')
+            details += '\n'
+          else
+            details += "#{result[0]}\n"
         else if typeof result[1] == 'string'
           details += "#{result[1]} => #{result[0]}\n"
         else
           condition = (result[1].condition ? result[1]).pattern ? ''
+          details += "#{condition} => "
           if result[0] == 'DIRECT'
+            details += chrome.i18n.getMessage('browserAction_directResult')
+            details += '\n'
             direct = true
-          details += "#{condition} => #{result[0]}\n"
+          else
+            details += "#{result[0]}\n"
       else if result.profileName
         if result.isTempRule
           details += chrome.i18n.getMessage('browserAction_tempRulePrefix')
+        else if attached
+          details += chrome.i18n.getMessage('browserAction_attachedPrefix')
+          attached = false
         condition = (result.source ? result.condition.pattern ?
           result.condition.conditionType)
-        details += "#{condition} => #{result.profileName}\n"
+        details += "#{condition} => #{dispName(result.profileName)}\n"
 
     icon =
       if profile.name == current.name and options.isCurrentProfileStatic()
@@ -77,8 +103,8 @@ actionForUrl = (url) ->
         drawIcon(profile.color, current.color)
     return {
       title: chrome.i18n.getMessage('browserAction_titleWithResult', [
-        current.name
-        profile.name
+        dispName(current.name)
+        dispName(profile.name)
         details
       ])
       icon: icon

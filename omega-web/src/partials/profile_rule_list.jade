@@ -16,7 +16,7 @@ div(ng-controller='RuleListProfileCtrl')
       .radio.inline-form-control.no-min-width(ng-repeat='format in ruleListFormats')
         label
           input(type='radio' name='formatInput' value='{{format}}' ng-model='profile.format')
-          | {{'rulelistFormat_' + format | tr}}
+          | {{'ruleListFormat_' + format | tr}}
   section.settings-group
     h3 {{'options_group_ruleListUrl' | tr}}
     .width-limit(input-group-clear type='url' model='profile.sourceUrl' ng-if='profile')

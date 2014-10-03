@@ -68,10 +68,11 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
     $scope.builtinProfiles = []
     $scope.customProfiles = []
     $scope.availableProfiles = availableProfiles
+    charCodeUnderscore = '_'.charCodeAt(0)
     for own key, profile of availableProfiles
       if profile.builtin
         $scope.builtinProfiles.push(profile)
-      else
+      else if profile.name.charCodeAt(0) != charCodeUnderscore
         $scope.customProfiles.push(profile)
     $scope.customProfiles.sort(profileOrder)
     $scope.currentProfile = availableProfiles['+' + currentProfileName]
@@ -79,8 +80,12 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
     $scope.isSystemProfile = isSystemProfile
     $scope.externalProfile = externalProfile
     refreshOnProfileChange = refreshOnProfileChange
-    $scope.validResultProfiles = validResultProfiles.map (name) ->
-      availableProfiles['+' + name]
+    $scope.validResultProfiles = []
+    for name in validResultProfiles
+      shown = (name.charCodeAt(0) != charCodeUnderscore or
+               name.charCodeAt(1) != charCodeUnderscore)
+      if shown
+        $scope.validResultProfiles.push(availableProfiles['+' + name])
 
   omegaTarget.getActivePageInfo().then((info) ->
     if info

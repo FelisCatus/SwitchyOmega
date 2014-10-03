@@ -55,10 +55,10 @@
     "message": "(Never matches)"
   },
 
-  "rulelistFormat_Switchy": {
+  "ruleListFormat_Switchy": {
     "message": "Switchy"
   },
-  "rulelistFormat_AutoProxy": {
+  "ruleListFormat_AutoProxy": {
     "message": "AutoProxy"
   },
 
@@ -340,11 +340,26 @@
   "options_addCondition": {
     "message": "Add condition"
   },
+  "options_switchAttachedProfileInCondition": {
+    "message": "Rule list rules"
+  },
+  "options_switchAttachedProfileInConditionDetails": {
+    "message": "(Any request matching the rule list below)"
+  },
   "options_switchDefaultProfile": {
     "message": "Default"
   },
   "options_hostLevelsBetween": {
     "message": "\u2264 host levels \u2264"
+  },
+  "options_group_attachProfile": {
+    "message": "Import online rule lists"
+  },
+  "options_attachProfile": {
+    "message": "Add a rule list"
+  },
+  "options_attachProfileHelp": {
+    "message": "You can reuse an online collection of conditions published by others by adding a rule list."
   },
   "options_modalHeader_applyOptions": {
     "message": "Apply Options"
@@ -410,6 +425,24 @@
   "options_resetRules_help" : {
     "message": "Set profile for all rules"
   },
+  "options_modalHeader_deleteAttached": {
+    "message": "Remove Rule List"
+  },
+  "options_deleteAttachedConfirm": {
+    "message": "Do you really want to remove the rule list from the current profile?"
+  },
+  "options_ruleListLineCount": {
+    "message": "$COUNT$ line(s) of rules",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "42"
+      }
+    }
+  },
+  "options_deleteAttached": {
+    "message": "Remove rule list"
+  },
   "options_modalHeader_newProfile" : {
     "message": "New Profile"
   },
@@ -438,7 +471,7 @@
     "message": "Applying different profiles automatically on various conditions such as domains or patterns. (Replaces AutoSwitch mode.)"
   },
   "options_profileTypeRuleListProfile" : {
-    "message": "Rulelist Profile"
+    "message": "Rule List Profile"
   },
   "options_profileDescRuleListProfile" : {
     "message": "Reusing an online collection of conditions published by others."
@@ -549,6 +582,18 @@
   },
   "browserAction_titleExternalProxy": {
     "message": "Note: The proxy settings are currently controlled by other app(s)."
+  },
+  "browserAction_defaultRuleDetails": {
+    "message": "(default)",
+    "description": "Representation of the default profile being selected on browserAction title."
+  },
+  "browserAction_directResult": {
+    "message": "DIRECT",
+    "description": "Representation of direct connection being used on browserAction title."
+  },
+  "browserAction_attachedPrefix": {
+    "message": "(RL) ",
+    "description": "The prefix to indicate a rule list rule on browserAction title. Should be very short."
   },
   "browserAction_tempRulePrefix": {
     "message": "(TEMP) ",

@@ -1,4 +1,6 @@
-angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $modal) ->
+angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $modal,
+  profileIcons) ->
+
   $scope.conditionI18n =
     'HostWildcardCondition': 'condition_hostWildcard'
     'HostRegexCondition': 'condition_hostRegex'
@@ -63,3 +65,52 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $modal) ->
     forceHelperSize: true
     forcePlaceholderSize: true
     containment: 'parent'
+
+  $scope.ruleListFormats = OmegaPac.Profiles.ruleListFormats
+
+  $scope.$watch 'profile.name', (name) ->
+    $scope.attachedName = '__ruleListOf_' + name
+    $scope.attachedKey = OmegaPac.Profiles.nameAsKey('__ruleListOf_' + name)
+
+  $scope.$watch 'options[attachedKey]', (attached) ->
+    $scope.attached = attached
+
+  onAttachedChange = (profile, oldProfile) ->
+    return profile if profile == oldProfile or not profile or not oldProfile
+    OmegaPac.Profiles.updateRevision(profile)
+    return profile
+  $scope.omegaWatchAndChange 'options[attachedKey]', onAttachedChange, true
+
+  $scope.$watch 'profile.defaultProfileName', (name) ->
+    if not $scope.attached
+      $scope.defaultProfileName = name
+
+  $scope.$watch 'attached.defaultProfileName', (name) ->
+    if name
+      $scope.defaultProfileName = name
+
+  $scope.$watch 'defaultProfileName', (name) ->
+    ($scope.attached || $scope.profile).defaultProfileName = name
+
+  $scope.attachNew = ->
+    $scope.attached = OmegaPac.Profiles.create(
+      name: $scope.attachedName
+      defaultProfileName: $scope.profile.defaultProfileName
+      profileType: 'RuleListProfile'
+      color: $scope.profile.color
+    )
+    OmegaPac.Profiles.updateRevision($scope.attached)
+    $scope.options[$scope.attachedKey] = $scope.attached
+    $scope.profile.defaultProfileName = $scope.attachedName
+
+  $scope.removeAttached = ->
+    return unless $scope.attached
+    scope = $scope.$new('isolate')
+    scope.attached = $scope.attached
+    scope.profileIcons = profileIcons
+    $modal.open(
+      templateUrl: 'partials/delete_attached.html'
+      scope: scope
+    ).result.then ->
+      $scope.profile.defaultProfileName = $scope.attached.defaultProfileName
+      delete $scope.options[$scope.attachedKey]
