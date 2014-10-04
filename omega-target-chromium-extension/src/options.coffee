@@ -200,9 +200,12 @@ class ChromeOptions extends OmegaTarget.Options
       if not options?['schemaVersion']
         if options?['config'] or localStorage['config']
           oldOptions = if options?['config'] then options else localStorage
+          i18n = {
+            upgrade_profile_auto: chrome.i18n.getMessage('upgrade_profile_auto')
+          }
           try
             # Upgrade from SwitchySharp.
-            upgraded = require('./upgrade')(oldOptions)
+            upgraded = require('./upgrade')(oldOptions, i18n)
           catch ex
             OmegaTarget.Log.error(ex)
           if upgraded

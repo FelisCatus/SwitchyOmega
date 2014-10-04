@@ -17,6 +17,11 @@
     "description": "应用后台页面正在加载时显示。"
   },
 
+  "upgrade_profile_auto" : {
+    "message": "自动切换",
+    "description": "旧版自动切换模式升级时将变成一个情景模式，其名称如上。"
+  },
+
   "profile_direct" : {
     "message": "[直接连接]"
   },

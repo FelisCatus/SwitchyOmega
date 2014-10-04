@@ -1,7 +1,7 @@
 OmegaTarget = require('omega-target')
 OmegaPac = OmegaTarget.OmegaPac
 
-module.exports = (oldOptions) ->
+module.exports = (oldOptions, i18n) ->
   config = try JSON.parse(oldOptions['config'])
   if config
     options = changes ? {}
@@ -16,27 +16,29 @@ module.exports = (oldOptions) ->
     options['-downloadInterval'] =
       parseInt(config['ruleListReload']) || 15
 
-    profile = OmegaPac.Profiles.create(
+    auto = OmegaPac.Profiles.create(
       profileType: 'SwitchProfile'
-      name: 'auto'
+      name: i18n.upgrade_profile_auto
       color: '#55bb55'
-      defaultProfileName: 'rulelist'
+      defaultProfileName: 'direct' # We will set this to rulelist.name soon.
     )
-    OmegaPac.Profiles.updateRevision(profile)
-    options[OmegaPac.Profiles.nameAsKey(profile.name)] = profile
+    OmegaPac.Profiles.updateRevision(auto)
+    options[OmegaPac.Profiles.nameAsKey(auto.name)] = auto
 
-    profile = OmegaPac.Profiles.create(
+    rulelist = OmegaPac.Profiles.create(
       profileType: 'RuleListProfile'
-      name: 'rulelist'
+      name: '__ruleListOf_' + auto.name
       color: '#dd6633'
       format:
         if config['ruleListAutoProxy'] then 'AutoProxy' else 'Switchy'
       defaultProfileName: 'direct'
       sourceUrl: config['ruleListUrl'] || ''
     )
-    options[OmegaPac.Profiles.nameAsKey(profile.name)] = profile
+    options[OmegaPac.Profiles.nameAsKey(rulelist.name)] = rulelist
 
-    nameMap = {'auto': 'auto', 'direct': 'direct'}
+    auto.defaultProfileName = rulelist.name
+
+    nameMap = {'auto': auto.name, 'direct': 'direct'}
     oldProfiles = (try JSON.parse(oldOptions['profiles'])) || {}
     colorTranslations =
       'blue': '#99ccee'
@@ -119,9 +121,8 @@ module.exports = (oldOptions) ->
     options['-quickSwitchProfiles'] = if not quickSwitch? then [] else
       quickSwitch.map (p) -> nameMap[p]
 
-    profile = OmegaPac.Profiles.byName('rulelist', options)
     if config['ruleListProfileId']
-      profile.matchProfileName =
+      rulelist.matchProfileName =
         nameMap[config['ruleListProfileId']] || 'direct'
 
     defaultRule = try JSON.parse(oldOptions['defaultRule'])
@@ -131,8 +132,7 @@ module.exports = (oldOptions) ->
 
     rules = try JSON.parse(oldOptions['rules'])
     if rules
-      profile = OmegaPac.Profiles.byName('auto', options)
-      profile.rules = for own _, rule of rules
+      auto.rules = for own _, rule of rules
         profileName: nameMap[rule['profileId']] || 'direct'
         condition:
           conditionType:

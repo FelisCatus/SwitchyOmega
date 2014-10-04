@@ -17,6 +17,11 @@
     "description": "Displayed when the background page is loading."
   },
 
+  "upgrade_profile_auto" : {
+    "message": "Auto Switch",
+    "description": "Legacy AutoSwitch mode will be converted to a profile with this name."
+  },
+
   "profile_direct" : {
     "message": "[Direct]"
   },
