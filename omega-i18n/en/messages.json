@@ -351,6 +351,9 @@
   "options_switchAttachedProfileInConditionDetails": {
     "message": "(Any request matching the rule list below)"
   },
+  "options_switchAttachedProfileInConditionDisabled": {
+    "message": "(Rule list rules are DISABLED)"
+  },
   "options_switchDefaultProfile": {
     "message": "Default"
   },

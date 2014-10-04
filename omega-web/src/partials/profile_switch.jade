@@ -46,12 +46,19 @@ div(ng-controller='SwitchProfileCtrl')
           tr
             td(style='border-right: none;')
               span.glyphicon(class='{{profileIcons["RuleListProfile"]}}')
-            td(style='border-left: none;') {{'options_switchAttachedProfileInCondition' | tr}}
+            td(style='border-left: none;')
+              span.checkbox
+                label
+                  input(type='checkbox' ng-model='attachedOptions.enabled')
+                  | {{'options_switchAttachedProfileInCondition' | tr}}
             td
-              span {{'options_switchAttachedProfileInConditionDetails' | tr}}
+              span(ng-show='!!attachedOptions.enabled')
+                | {{'options_switchAttachedProfileInConditionDetails' | tr}}
+              span(ng-show='!attachedOptions.enabled')
+                | {{'options_switchAttachedProfileInConditionDisabled' | tr}}
             td
               div.form-control(omega-profile-select='options | profiles:profile' ng-model='attached.matchProfileName'
-                disp-name='$profile.name | dispName')
+                disp-name='$profile.name | dispName' ng-class='{disabled: !attachedOptions.enabled}')
             td
               button.btn.btn-danger.btn-sm(title="{{'options_deleteAttached' | tr}}" ng-click='removeAttached()')
                 span.glyphicon.glyphicon-trash

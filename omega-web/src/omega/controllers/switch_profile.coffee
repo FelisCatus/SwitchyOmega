@@ -81,16 +81,35 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $modal,
     return profile
   $scope.omegaWatchAndChange 'options[attachedKey]', onAttachedChange, true
 
+  $scope.attachedOptions = {enabled: false}
   $scope.$watch 'profile.defaultProfileName', (name) ->
-    if not $scope.attached
+    $scope.attachedOptions.enabled = (name == $scope.attachedName)
+    if not $scope.attached or not $scope.attachedOptions.enabled
       $scope.defaultProfileName = name
 
+  $scope.$watch 'attachedOptions.enabled', (enabled, oldValue) ->
+    return if enabled == oldValue
+    if enabled
+      if $scope.profile.defaultProfileName != $scope.attachedName
+        $scope.profile.defaultProfileName = $scope.attachedName
+    else
+      if $scope.profile.defaultProfileName == $scope.attachedName
+        if $scope.attached
+          $scope.profile.defaultProfileName = $scope.attached.defaultProfileName
+          $scope.defaultProfileName = $scope.attached.defaultProfileName
+        else
+          $scope.profile.defaultProfileName = 'direct'
+          $scope.defaultProfileName = 'direct'
+
   $scope.$watch 'attached.defaultProfileName', (name) ->
-    if name
+    if name and $scope.attachedOptions.enabled
       $scope.defaultProfileName = name
 
   $scope.$watch 'defaultProfileName', (name) ->
-    ($scope.attached || $scope.profile).defaultProfileName = name
+    if $scope.attached and $scope.attachedOptions.enabled
+      $scope.attached.defaultProfileName = name
+    else
+      $scope.profile.defaultProfileName = name
 
   $scope.attachNew = ->
     $scope.attached = OmegaPac.Profiles.create(
@@ -101,6 +120,7 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $modal,
     )
     OmegaPac.Profiles.updateRevision($scope.attached)
     $scope.options[$scope.attachedKey] = $scope.attached
+    $scope.attachedOptions.enabled = true
     $scope.profile.defaultProfileName = $scope.attachedName
 
   $scope.removeAttached = ->

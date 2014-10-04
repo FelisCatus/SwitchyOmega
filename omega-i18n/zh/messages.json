@@ -351,6 +351,9 @@
   "options_switchAttachedProfileInConditionDetails": {
     "message": "(按照规则列表匹配请求)"
   },
+  "options_switchAttachedProfileInConditionDisabled": {
+    "message": "(规则列表已禁用！)"
+  },
   "options_switchDefaultProfile": {
     "message": "默认情景模式"
   },
