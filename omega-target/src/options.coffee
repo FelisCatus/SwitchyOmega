@@ -23,6 +23,7 @@ class Options
   _watchingProfiles: {}
   _tempProfile: null
   _tempProfileRules: {}
+  _tempProfileRulesByProfile: {}
   fallbackProfileName: 'system'
   _isSystem: false
   debugStr: 'Options'
@@ -331,6 +332,21 @@ class Options
         @_tempProfile.defaultProfileName = profile.name
         @_tempProfile.color = profile.color
         OmegaPac.Profiles.updateRevision(@_tempProfile)
+
+      removedKeys = []
+      for own key, list of @_tempProfileRulesByProfile
+        if not OmegaPac.Profiles.byKey(key, @_options)
+          removedKeys.push(key)
+          for rule in list
+            rule.profileName = null
+            @_tempProfile.rules.splice(@_tempProfile.rules.indexOf(rule), 1)
+      if removedKeys.length > 0
+        for key in removedKeys
+          delete @_tempProfileRulesByProfile[key]
+        OmegaPac.Profiles.updateRevision(@_tempProfile)
+
+      @_watchingProfiles = OmegaPac.Profiles.allReferenceSet(@_tempProfile,
+        @_options)
       @applyProfileProxy(@_tempProfile)
     else
       @applyProfileProxy(profile)
@@ -501,8 +517,12 @@ class Options
     
     changed = false
     rule = @_tempProfileRules[domain]
-    if rule
+    if rule and rule.profileName
       if rule.profileName != profileName
+        key = OmegaPac.Profiles.nameAsKey(rule.profileName)
+        list = @_tempProfileRulesByProfile[key]
+        list.splice(list.indexOf(rule), 1)
+
         rule.profileName = profileName
         changed = true
     else
@@ -515,6 +535,13 @@ class Options
       @_tempProfile.rules.push(rule)
       @_tempProfileRules[domain] = rule
       changed = true
+
+    key = OmegaPac.Profiles.nameAsKey(profileName)
+    rulesByProfile = @_tempProfileRulesByProfile[key]
+    if not rulesByProfile?
+      rulesByProfile = @_tempProfileRulesByProfile[key] = []
+    rulesByProfile.push(rule)
+
     if changed
       OmegaPac.Profiles.updateRevision(@_tempProfile)
       @applyProfile(@_currentProfileName)
@@ -530,9 +557,11 @@ class Options
   queryTempRule: (domain) ->
     rule = @_tempProfileRules[domain]
     if rule
-      rule.profileName
-    else
-      null
+      if rule.profileName
+        return rule.profileName
+      else
+        delete @_tempProfileRules[domain]
+    return null
 
   ###*
   # Add a condition to the current active switch profile.
