@@ -127,8 +127,10 @@ module.exports = (oldOptions, i18n) ->
 
     defaultRule = try JSON.parse(oldOptions['defaultRule'])
     if defaultRule
-      profile.defaultProfileName =
+      rulelist.defaultProfileName =
         nameMap[defaultRule.profileId] || 'direct'
+      if not config.ruleListEnabled
+        auto.defaultProfileName = rulelist.defaultProfileName
 
     rules = try JSON.parse(oldOptions['rules'])
     if rules
