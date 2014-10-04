@@ -36,14 +36,7 @@ form(ng-submit='newProfile.$valid && $close(profile)' name='newProfile')
           = ' '
           span {{'options_profileTypePacProfile' | tr}}
         .help-block {{'options_profileDescPacProfile' | tr}}
-    .radio
-      label
-        input(type='radio', name='profile-new-type', value='SwitchyRuleListProfile' ng-model='profile.profileType')
-        span.profile-type
-          span.glyphicon.glyphicon-list
-          = ' '
-          span {{'options_profileTypeRuleListProfile' | tr}}
-        .help-block {{'options_profileDescRuleListProfile' | tr}}
+        .help-block {{'options_profileDescMorePacProfile' | tr}}
   .modal-footer
     button.btn.btn-default(type='button' ng-click='$dismiss()') {{'dialog_cancel' | tr}}
     button.btn.btn-primary(type='submit' ng-disabled='!newProfile.$valid') {{'options_createProfile' | tr}}

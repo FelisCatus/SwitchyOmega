@@ -472,11 +472,14 @@
   "options_profileDescPacProfile" : {
     "message": "根据在线或本地的PAC脚本选择代理。"
   },
+  "options_profileDescMorePacProfile" : {
+    "message": "如果您没有任何PAC脚本，也没有脚本的网址，则不必使用此情景模式。不了解PAC的用户不建议自行尝试编写脚本。"
+  },
   "options_profileTypeSwitchProfile" : {
     "message": "自动切换模式"
   },
   "options_profileDescSwitchProfile" : {
-    "message": "根据多种条件，如域名或网址等自动选择情景模式。"
+    "message": "根据多种条件，如域名或网址等自动选择情景模式。您也可以导入在线发布的切换规则（如 AutoProxy 列表）以简化设置。"
   },
   "options_profileTypeRuleListProfile" : {
     "message": "规则列表"

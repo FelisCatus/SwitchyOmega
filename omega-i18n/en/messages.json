@@ -461,7 +461,7 @@
     "message": "Please select the type of the profile:"
   },
   "options_profileTypeFixedProfile" : {
-    "message": "Fixed Profile"
+    "message": "Proxy Profile"
   },
   "options_profileDescFixedProfile" : {
     "message": "Tunneling traffic through proxy servers."
@@ -472,11 +472,14 @@
   "options_profileDescPacProfile" : {
     "message": "Choosing proxies using an online/local PAC script."
   },
+  "options_profileDescMorePacProfile" : {
+    "message": "You will only need this if you have a PAC script or a URL to it. Don't try to create one unless you have knowledge about PAC."
+  },
   "options_profileTypeSwitchProfile" : {
     "message": "Switch Profile"
   },
   "options_profileDescSwitchProfile" : {
-    "message": "Applying different profiles automatically on various conditions such as domains or patterns. (Replaces AutoSwitch mode.)"
+    "message": "Applying different profiles automatically on various conditions such as domains or patterns.\n You can also import rules published online for easier switching. (Replaces AutoSwitch mode + Rule List.)"
   },
   "options_profileTypeRuleListProfile" : {
     "message": "Rule List Profile"
