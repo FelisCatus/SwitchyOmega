@@ -1,5 +1,6 @@
 angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
-  $location, $rootScope, $modal, $state, profileColorPalette) ->
+  $location, $rootScope, $state, $modal, profileColorPalette, getAttachedName,
+  getParentName) ->
   name = $stateParams.name
   profileTemplates =
     'FixedProfile': 'profile_fixed.html'
@@ -19,24 +20,36 @@ angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
   $scope.deleteProfile = ->
     profileName = $scope.profile.name
     refs = OmegaPac.Profiles.referencedBySet(profileName, $rootScope.options)
-    refs = Object.keys(refs)
 
     scope = $rootScope.$new('isolate')
     scope.profile = $scope.profile
     scope.profileIcons = $scope.profileIcons
 
-    if refs.length > 0
-      scope.refs = refs.map (p) -> OmegaPac.Profiles.byKey(p,
-        $rootScope.options)
+    if Object.keys(refs).length > 0
+      refSet = {}
+      for own key, pname of refs
+        parent = getParentName(pname)
+        if parent
+          key = OmegaPac.Profiles.nameAsKey(parent)
+          pname = parent
+        refSet[key] = pname
+
+      refProfiles = []
+      for own key of refSet
+        refProfiles.push(OmegaPac.Profiles.byKey(key, $rootScope.options))
+      scope.refs = refProfiles
       $modal.open(
         templateUrl: 'partials/cannot_delete_profile.html'
         scope: scope
       )
+      return
     else
       $modal.open(
         templateUrl: 'partials/delete_profile.html'
         scope: scope
       ).result.then ->
+        attachedName = getAttachedName(profileName)
+        delete $rootScope.options[OmegaPac.Profiles.nameAsKey(attachedName)]
         delete $rootScope.options[OmegaPac.Profiles.nameAsKey(profileName)]
         if $rootScope.options['-startupProfileName'] == profileName
           $rootScope.options['-startupProfileName'] = ""

@@ -10,6 +10,15 @@ profileColorPalette = (colors.splice(0, 3) while colors.length)
 angular.module('omega').constant('profileColors', profileColors)
 angular.module('omega').constant('profileColorPalette', profileColorPalette)
 
+attachedPrefix = '__ruleListOf_'
+angular.module('omega').constant 'getAttachedName', (name) ->
+  attachedPrefix + name
+angular.module('omega').constant 'getParentName', (name) ->
+  if name.indexOf(attachedPrefix) == 0
+    name.substr(attachedPrefix.length)
+  else
+    undefined
+
 angular.module('omega').config ($stateProvider, $urlRouterProvider,
   $httpProvider) ->
   $urlRouterProvider.otherwise '/ui'

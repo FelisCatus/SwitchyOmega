@@ -1,5 +1,5 @@
 angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $modal,
-  profileIcons) ->
+  profileIcons, getAttachedName) ->
 
   $scope.conditionI18n =
     'HostWildcardCondition': 'condition_hostWildcard'
@@ -69,8 +69,8 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $modal,
   $scope.ruleListFormats = OmegaPac.Profiles.ruleListFormats
 
   $scope.$watch 'profile.name', (name) ->
-    $scope.attachedName = '__ruleListOf_' + name
-    $scope.attachedKey = OmegaPac.Profiles.nameAsKey('__ruleListOf_' + name)
+    $scope.attachedName = getAttachedName(name)
+    $scope.attachedKey = OmegaPac.Profiles.nameAsKey($scope.attachedName)
 
   $scope.$watch 'options[attachedKey]', (attached) ->
     $scope.attached = attached
