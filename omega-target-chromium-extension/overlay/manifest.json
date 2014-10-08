@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "__MSG_manifest_app_name__",
-  "version": "2.1.9",
+  "version": "2.1.10",
   "description": "__MSG_manifest_app_description__",
   "icons": {
     "16": "img/icons/omega-16.png",
