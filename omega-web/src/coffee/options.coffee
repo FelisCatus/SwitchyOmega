@@ -11,9 +11,10 @@ $script 'lib/spin.js/spin.js', ->
       $script 'lib/angular-ladda/angular-ladda.min.js', 'angular-ladda'
 
 $script.ready ['angular-loader'], ->
-  angular.module 'omega', ['ngLocale', 'ngAnimate', 'ui.bootstrap', 'ui.router',
-    'ngProgress', 'ui.sortable', 'angularSpectrumColorpicker', 'ui.validate',
-    'angular-ladda', 'omegaTarget', 'omegaDecoration']
+  angular.module 'omega', ['ngLocale', 'ngAnimate', 'ngSanitize',
+    'ui.bootstrap', 'ui.router', 'ngProgress', 'ui.sortable',
+    'angularSpectrumColorpicker', 'ui.validate', 'angular-ladda', 'omegaTarget',
+    'omegaDecoration']
   $script.ready ['omega-pac'], ->
     $script 'js/omega.js', 'omega'
   $script([
@@ -39,7 +40,9 @@ $script.ready ['angular-loader', 'jquery'], ->
 
 $script.ready ['angular'], ->
   $script 'lib/angular-ui-router/angular-ui-router.js', 'angular-ui-router'
+  $script 'lib/angular-sanitize/angular-sanitize.min.js', 'angular-sanitize'
 
 $script.ready ['angular', 'omega', 'omega-deps', 'angular-ui-router',
-  'jquery-ui', 'spectrum', 'filesaver', 'blob', 'angular-ladda'], ->
+  'jquery-ui', 'spectrum', 'filesaver', 'blob', 'angular-ladda',
+  'angular-sanitize'], ->
   angular.bootstrap document, ['omega']

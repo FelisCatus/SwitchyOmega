@@ -20,7 +20,9 @@ angular.module('omega').constant 'getParentName', (name) ->
     undefined
 
 angular.module('omega').config ($stateProvider, $urlRouterProvider,
-  $httpProvider) ->
+  $httpProvider, $animateProvider) ->
+  $animateProvider.classNameFilter(/angular-animate/)
+
   $urlRouterProvider.otherwise '/ui'
   
   $stateProvider

@@ -37,6 +37,10 @@ a[role="button"] {
   min-width: 0 !important;
 }
 
+.clear-padding {
+  padding: 0 !important;
+}
+
 .align-initial {
   text-align: left;
   text-align: initial;
@@ -277,6 +281,30 @@ main {
 .switch-rules {
   td {
     vertical-align: middle !important;
+  }
+}
+
+.condition-help {
+  dl {
+    margin-left: 5px;
+    padding-left: 10px;
+    border-left: solid 1px #ccc;
+  }
+  dt {
+    font-size: 1.2em;
+  }
+  dd {
+    padding-left: 20px;
+  }
+}
+
+.close-condition-help {
+  float: none !important;
+  margin-left: 15px !important;
+  opacity: 1 !important;
+
+  &:hover, &:active {
+    color: #444 !important;
   }
 }
 

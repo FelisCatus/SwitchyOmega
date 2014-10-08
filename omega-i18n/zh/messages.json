@@ -29,35 +29,62 @@
     "message": "[系统代理]"
   },
 
-  "condition_hostWildcard" : {
-    "message": "主机通配符"
+  "condition_HostWildcardCondition" : {
+    "message": "域名通配符"
   },
-  "condition_hostRegex" : {
-    "message": "主机正则表达式"
+  "condition_help_HostWildcardCondition" : {
+    "message": "根据域名（主机名）匹配请求。<br><b>星号 <code>*</code></b> 匹配零个或者多个字符。<br><b>问号 <code>?</code></b> 匹配任意一个字符。<br><br>请注意以 <code>*.</code> 开头的规则有特别处理，会同时匹配子域名和自身。<br>例如: <code>*.example.com</code> 能匹配 www.example.com ，<b>而且也能匹配 example.com 。</b><br>如果<b>只需要匹配子域名</b>，请使用<b>两个</b>星号开头，如 <code>**.example.com</code>。"
   },
-  "condition_hostLevels" : {
-    "message": "主机层数"
+  "condition_HostRegexCondition" : {
+    "message": "域名正则"
   },
-  "condition_urlWildcard" : {
+  "condition_help_HostRegexCondition" : {
+    "message": "类似域名通配符，但使用<a href='https://www.google.com/search?q=%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F'>正则表达式</a>.<br>正则表达式很难编写，且可读性差。<br>因此，一般情况建议使用通配符。当其他任何条件都不能满足要求时，才使用正则表达式。"
+  },
+  "condition_HostLevelsCondition" : {
+    "message": "域名层数"
+  },
+  "condition_help_HostLevelsCondition" : {
+    "message": "如果域名层数在设定的范围内则匹配，否则不匹配。<br>域名层数是指 <b>域名共有几段（以点分隔）</b>.<br>例如: <code>www.example.com</code> 的域名层数为 3，而 <code>internal</code> 的域名层数为 1."
+  },
+  "condition_UrlWildcardCondition" : {
     "message": "网址通配符"
   },
-  "condition_urlRegex" : {
-    "message": "网址正则表达式"
+  "condition_help_UrlWildcardCondition" : {
+    "message": "根据通配符规则匹配网址。<br>关于通配符表达式，请参考上方的域名通配符一节的说明。<br>请注意网址通配符没有任何特殊处理，不会特殊处理子域名等。<br>所以 <code>*://*.example.com/*</code> 能匹配 http://www.example.com/ 但是 <b>不匹配</b> http://example.com/."
   },
-  "condition_keyword" : {
+  "condition_UrlRegexCondition" : {
+    "message": "网址正则"
+  },
+  "condition_help_UrlRegexCondition" : {
+    "message": "使用功能强大的<a href='https://www.google.com/search?q=%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F'>正则表达式</a>来匹配网址。<br>但正则表达式很难编写，且可读性差。<br>因此，一般情况建议使用通配符。当其他任何条件都不能满足要求时，才使用正则表达式。"
+  },
+  "condition_KeywordCondition" : {
     "message": "关键字"
   },
-  "condition_always" : {
-    "message": "总是"
+  "condition_help_KeywordCondition" : {
+    "message": "关键字条件的具体匹配规则是：网址协议为HTTP且网址中包含该关键字。<br>类似于 <code>http://*<b>关键字</b>*</code>, 其中 <b>关键字</b> 是设定好的关键字。<br>如果某防火墙根据网址中是否包含关键字来屏蔽网址，那么可以使用关键字条件来通过代理访问这样的请求，以达到绕过防火墙的目的。"
   },
-  "condition_always_details" : {
-    "message": "(匹配所有请求)"
+  "condition_FalseCondition" : {
+    "message": "(禁用)"
   },
-  "condition_never" : {
-    "message": "从不"
+  "condition_details_FalseCondition" : {
+    "message": "(匹配请求时无视此条规则)"
   },
-  "condition_never_details" : {
-    "message": "(不匹配任何请求)"
+  "condition_help_FalseCondition" : {
+    "message": "设置规则类型为<code>(禁用)</code>可以临时禁用某个条件。禁用的条件在匹配时视为不存在。<br>条件被禁用后，仍然保存有之前的数据（例如通配符或正则），因此当需要时，可以把条件类型改回之前的类型，以方便地重新启用条件。"
+  },
+  "condition_group_default" : {
+    "message": ""
+  },
+  "condition_group_host" : {
+    "message": "域名"
+  },
+  "condition_group_url" : {
+    "message": "网址"
+  },
+  "condition_group_special" : {
+    "message": "特殊"
   },
 
   "ruleListFormat_Switchy": {
@@ -137,6 +164,12 @@
   },
   "options_startupProfile_none": {
     "message": "(当前情景模式)"
+  },
+  "options_showConditionTypesAdvanced": {
+    "message": "显示高级切换条件"
+  },
+  "options_showConditionTypesAdvancedHelp": {
+    "message": "启用后，可以使用一些新种类的切换条件，功能强大但难以掌握。对于大多数情况来说，只用基本条件类型就可以满足需求，因此不推荐启用此功能。"
   },
   "options_quickSwitch": {
     "message": "快速切换"
@@ -333,6 +366,9 @@
   "options_conditionType": {
     "message": "条件类型"
   },
+  "options_showConditionTypeHelp": {
+    "message": "显示帮助"
+  },
   "options_conditionDetails": {
     "message": "条件设置"
   },
@@ -359,6 +395,9 @@
   },
   "options_hostLevelsBetween": {
     "message": "\u2264 主机层数 \u2264"
+  },
+  "options_group_conditionHelp": {
+    "message": "条件类型说明"
   },
   "options_group_attachProfile": {
     "message": "导入在线规则列表"

@@ -6,7 +6,7 @@
 .modal-body
   p {{'options_deleteRuleConfirm' | tr}}
   div.well
-    span.label.label-info {{conditionI18n[rule.condition.conditionType]}}
+    span.label.label-info {{'condition_' + rule.condition.conditionType | tr}}
     = ' '
     | {{rule.condition.pattern}}
     span.pull-right

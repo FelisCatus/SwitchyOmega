@@ -29,35 +29,62 @@
     "message": "[System Proxy]"
   },
 
-  "condition_hostWildcard" : {
+  "condition_HostWildcardCondition" : {
     "message": "Host wildcard"
   },
-  "condition_hostRegex" : {
+  "condition_help_HostWildcardCondition" : {
+    "message": "Matches hosts (domain names) by wildcard.<br><b>The asterisk <code>*</code></b> matches zero or more characters.<br><b>The question mark <code>?</code></b> matches exactly one character.<br><br>Note that rules beginning with <code>*.</code> are specially treated only in Host wildcard conditions.<br>Example: <code>*.example.com</code> will match www.example.com <b>AND example.com as well.</b><br>To match subdomains <b>only</b>, use <b>two</b> asterisks like <code>**.example.com</code>"
+  },
+  "condition_HostRegexCondition" : {
     "message": "Host regex"
   },
-  "condition_hostLevels" : {
+  "condition_help_HostRegexCondition" : {
+    "message": "Like Host wildcard condition, but matches hosts (domain names) by <a href='https://www.google.com/search?q=regular%20expression'>regular expression</a>.<br>Regular expressions can be hard to construct (and read).<br>It is recommended to use wildcards for most cases and only use regex for conditions that cannot be achieved by any other condition type."
+  },
+  "condition_HostLevelsCondition" : {
     "message": "Host levels"
   },
-  "condition_urlWildcard" : {
+  "condition_help_HostLevelsCondition" : {
+    "message": "Matches the request if and only if the host level in within the given range.<br>Host level is defined as the <b>number of dot-separated segments</b> of the host (domain name).<br>Example: <code>www.example.com</code> is with a host level of 3, while <code>internal</code> is of host level 1."
+  },
+  "condition_UrlWildcardCondition" : {
     "message": "URL wildcard"
   },
-  "condition_urlRegex" : {
+  "condition_help_UrlWildcardCondition" : {
+    "message": "Matches URLs of the request by wildcard.<br>See the Host wildcard section above for a quick wildcard reference.<br>Note that URL wildcards are not specially treated (no subdomain magic as in Host wildcard).<br>So <code>*://*.example.com/*</code> matches http://www.example.com/ but <b>does not</b> match http://example.com/."
+  },
+  "condition_UrlRegexCondition" : {
     "message": "URL regex"
   },
-  "condition_keyword" : {
+  "condition_help_UrlRegexCondition" : {
+    "message": "Matches URL by extremely powerful <a href='https://www.google.com/search?q=regular%20expression'>regular expression</a>.<br>However, regular expressions can be hard to construct (and read).<br>It is recommended to use wildcards for most cases and only use regex for conditions that cannot be achieved by any other condition type."
+  },
+  "condition_KeywordCondition" : {
     "message": "Keyword"
   },
-  "condition_always" : {
-    "message": "Always"
+  "condition_help_KeywordCondition" : {
+    "message": "A keyword condition matches if the URL protocol is HTTP, and the pattern is an exact sub-string of the URL.<br>It behaves like the URL wildcard pattern <code>http://*<b>pattern</b>*</code>, where <b>pattern</b> is the keyword pattern.<br>Keyword conditions are useful if you want to bypass a firewall blocking some keywords in the URL, by requesting such URLs through a proxy."
   },
-  "condition_always_details" : {
-    "message": "(Always matches)"
+  "condition_FalseCondition" : {
+    "message": "(Disabled)"
   },
-  "condition_never" : {
-    "message": "Never"
+  "condition_details_FalseCondition" : {
+    "message": "(Condition ignored when matching)"
   },
-  "condition_never_details" : {
-    "message": "(Never matches)"
+  "condition_help_FalseCondition" : {
+    "message": "You can disable a condition by setting its type to <code>(Disabled)</code>. A Disabled condition act as if it does not exist.<br>This feature can be used to disable conditions temporarily.<br>Disabled conditions still hold the previous information (like patterns) and can be re-enabled by setting the condition type back to the previous type."
+  },
+  "condition_group_default" : {
+    "message": ""
+  },
+  "condition_group_host" : {
+    "message": "Host"
+  },
+  "condition_group_url" : {
+    "message": "Url"
+  },
+  "condition_group_special" : {
+    "message": "Special"
   },
 
   "ruleListFormat_Switchy": {
@@ -137,6 +164,12 @@
   },
   "options_startupProfile_none": {
     "message": "(Current profile)"
+  },
+  "options_showConditionTypesAdvanced": {
+    "message": "Show advanced condition types"
+  },
+  "options_showConditionTypesAdvancedHelp": {
+    "message": "Unlocks new types of advanced but complicated switch conditions. For most senarios, the basic condition types should be enough, so this options is not recommended."
   },
   "options_quickSwitch": {
     "message": "Quick Switch"
@@ -333,6 +366,9 @@
   "options_conditionType": {
     "message": "Condition Type"
   },
+  "options_showConditionTypeHelp": {
+    "message": "Show help"
+  },
   "options_conditionDetails": {
     "message": "Condition Details"
   },
@@ -359,6 +395,9 @@
   },
   "options_hostLevelsBetween": {
     "message": "\u2264 host levels \u2264"
+  },
+  "options_group_conditionHelp": {
+    "message": "About Condition Types"
   },
   "options_group_attachProfile": {
     "message": "Import online rule lists"

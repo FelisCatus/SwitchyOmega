@@ -37,7 +37,8 @@
     "FileSaver": "*",
     "angular-ui-utils": "bower-validate",
     "angular-ladda": "~0.1.6",
-    "bootstrap-select": "~1.6.2"
+    "bootstrap-select": "~1.6.2",
+    "angular-sanitize": "~1.2.26"
   },
   "exportsOverride": {
     "script.js": {
@@ -65,6 +66,9 @@
       ]
     },
     "angular-loader": {
+      "": "*.min.js"
+    },
+    "angular-sanitize": {
       "": "*.min.js"
     },
     "angular-spectrum-colorpicker": {

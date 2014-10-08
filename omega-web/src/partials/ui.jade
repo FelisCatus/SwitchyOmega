@@ -20,6 +20,12 @@ section.settings-group
       style='display: inline-block;')
   div.checkbox
     label
+      input(type='checkbox' ng-model='options["-showConditionTypes"]' ng-true-value='1' ng-false-value='0' omega-int2str)
+      span {{'options_showConditionTypesAdvanced' | tr}}
+    p.help-block
+      | {{'options_showConditionTypesAdvancedHelp' | tr}}
+  div.checkbox
+    label
       input(type='checkbox' ng-model='options["-enableQuickSwitch"]')
       span {{'options_quickSwitch' | tr}}
   #quick-switch-settings.settings-group(ng-show='options["-enableQuickSwitch"]' ng-controller='QuickSwitchCtrl')

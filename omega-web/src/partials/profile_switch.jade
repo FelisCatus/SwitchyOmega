@@ -1,4 +1,19 @@
 div(ng-controller='SwitchProfileCtrl')
+  section.settings-group(ng-show='showConditionHelp' ng-init='expandedSection = {id: 0}')
+    h3
+      | {{'options_group_conditionHelp' | tr}}
+      button.close.close-condition-help(type='button' ng-click='showConditionHelp = false')
+        span(aria-hidden='true') ×
+        span.sr-only {{'dialog_close' | tr}}
+    div.condition-help(ng-repeat='group in (showConditionTypes == 0 ? basicConditionTypes : advancedConditionTypes)')
+      h4(ng-show="!!('condition_group_' + group.group | tr)")
+        a(ng-click='expandedSection.id = $index' role='button')
+          span.glyphicon(ng-class="{'glyphicon-chevron-down': expandedSection.id == $index, 'glyphicon-chevron-right': expandedSection.id != $index}")
+          = ' '
+          | {{'condition_group_' + group.group | tr}}
+      dl(ng-show='expandedSection.id == $index')
+        dt(ng-repeat-start='type in group.types') {{'condition_' + type | tr}}
+        dd(ng-repeat-end ng-bind-html='"condition_help_" + type | tr')
   section.settings-group
     h3 {{'options_group_switchRules' | tr}}
     .table-responsive
@@ -6,7 +21,12 @@ div(ng-controller='SwitchProfileCtrl')
         thead
           tr
             th(style='white-space: nowrap') {{'options_sort' | tr}}
-            th {{'options_conditionType' | tr}}
+            th
+              | {{'options_conditionType' | tr}}
+              = ' '
+              button.btn.btn-link.btn-sm.clear-padding(title='{{"options_showConditionTypeHelp" | tr}}'
+                ng-click='showConditionHelp = !showConditionHelp' ng-init='showConditionHelp = false')
+                span.glyphicon.glyphicon-question-sign
             th {{'options_conditionDetails' | tr}}
             th {{'options_resultProfile' | tr}}
             th {{'options_conditionActions' | tr}}
@@ -16,10 +36,12 @@ div(ng-controller='SwitchProfileCtrl')
               span.glyphicon.glyphicon-sort
             td
               select.form-control(ng-model='rule.condition.conditionType'
-                ng-options='cond as (i18n | tr) for (cond, i18n) in conditionI18n')
+                ng-options='type.type as ("condition_" + type.type | tr) group by (type.group | tr) for type in conditionTypes')
             td(ng-switch='rule.condition.conditionType')
-              span(ng-switch-when='AlwaysCondition') {{'condition_always_details' | tr}}
-              span(ng-switch-when='NeverCondition') {{'condition_never_details' | tr}}
+              span(ng-switch-when='FalseCondition')
+                span(ng-show='!!rule.condition.pattern')
+                  input.form-control(ng-model='rule.condition.pattern' disabled title="{{'condition_details_FalseCondition' | tr}}")
+                span(ng-show='!rule.condition.pattern') {{'condition_details_FalseCondition' | tr}}
               span.host-levels-details(ng-switch-when='HostLevelsCondition')
                 input.form-control(type='number' min='1' max='99' ng-model='rule.condition.minValue' required)
                 = ' '
@@ -30,7 +52,7 @@ div(ng-controller='SwitchProfileCtrl')
                 ui-validate='{pattern: "validateCondition(rule.condition, $value)"}')
             td
               div.form-control(omega-profile-select='options | profiles:profile' ng-model='rule.profileName'
-                disp-name='$profile.name | dispName')
+                disp-name='$profile.name | dispName' ng-class='{disabled: rule.condition.conditionType == "NeverCondition"}')
             td
               button.btn.btn-danger.btn-sm(title="{{'options_deleteRule' | tr}}" ng-click='removeRule($index)')
                 span.glyphicon.glyphicon-trash

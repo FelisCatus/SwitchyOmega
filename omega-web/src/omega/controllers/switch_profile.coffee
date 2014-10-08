@@ -1,15 +1,93 @@
 angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $modal,
   profileIcons, getAttachedName) ->
 
-  $scope.conditionI18n =
-    'HostWildcardCondition': 'condition_hostWildcard'
-    'HostRegexCondition': 'condition_hostRegex'
-    'HostLevelsCondition': 'condition_hostLevels'
-    'UrlWildcardCondition': 'condition_urlWildcard'
-    'UrlRegexCondition': 'condition_urlRegex'
-    'KeywordCondition': 'condition_keyword'
-    'AlwaysCondition': 'condition_always'
-    'NeverCondition': 'condition_never'
+  $scope.basicConditionTypes = [
+    {
+      group: 'default'
+      types: [
+        'HostWildcardCondition'
+        'UrlWildcardCondition'
+        'UrlRegexCondition'
+        'FalseCondition'
+      ]
+    }
+  ]
+
+  $scope.advancedConditionTypes = [
+    {
+      group: 'host'
+      types: [
+        'HostWildcardCondition'
+        'HostRegexCondition'
+        'HostLevelsCondition'
+      ]
+    }
+    {
+      group: 'url'
+      types: [
+        'UrlWildcardCondition'
+        'UrlRegexCondition'
+        'KeywordCondition'
+      ]
+    }
+    {
+      group: 'special'
+      types: [
+        'FalseCondition'
+      ]
+    }
+  ]
+
+  expandGroups = (groups) ->
+    result = []
+    for group in groups
+      for type in group.types
+        result.push({type: type, group: 'condition_group_' + group.group})
+    result
+
+  basicConditionTypesExpanded = expandGroups($scope.basicConditionTypes)
+  advancedConditionTypesExpanded = expandGroups($scope.advancedConditionTypes)
+
+  basicConditionTypeSet = {}
+  for type in basicConditionTypesExpanded
+    basicConditionTypeSet[type.type] = type.type
+
+  $scope.conditionTypes = basicConditionTypesExpanded
+
+  $scope.showConditionTypes = 0
+  $scope.hasConditionTypes = 0
+  updateHasConditionTypes = ->
+    return unless $scope.hasConditionTypes == 0
+    return unless $scope.profile?.rules?
+    for rule in $scope.profile.rules
+      # Convert TrueCondition to a HostWildcardCondition with pattern '*'.
+      if rule.condition.conditionType == 'TrueCondition'
+        rule.condition = {
+          conditionType: 'HostWildcardCondition'
+          pattern: '*'
+        }
+      if not basicConditionTypeSet[rule.condition.conditionType]
+        $scope.hasConditionTypes = 1
+        $scope.showConditionTypes = 1
+        break
+
+  $scope.$watch 'options["-showConditionTypes"]', (show) ->
+    show ||= 0
+    if show > 0
+      $scope.showConditionTypes = show
+    else
+      updateHasConditionTypes()
+      $scope.showConditionTypes = $scope.hasConditionTypes
+    if $scope.showConditionTypes == 0
+      $scope.conditionTypes = basicConditionTypesExpanded
+    else
+      $scope.conditionTypes = advancedConditionTypesExpanded
+      if not $scope.options["-showConditionTypes"]?
+        $scope.options["-showConditionTypes"] = $scope.showConditionTypes
+      unwatchRules?()
+
+  if $scope.hasConditionTypes == 0
+    unwatchRules = $scope.$watch 'profile.rules', updateHasConditionTypes, true
 
   $scope.addRule = ->
     rule =
@@ -37,7 +115,6 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $modal,
     if $scope.options['-confirmDeletion']
       scope = $scope.$new('isolate')
       scope.rule = $scope.profile.rules[index]
-      scope.conditionI18n = $scope.conditionI18n
       scope.ruleProfile = $scope.profileByName(scope.rule.profileName)
       scope.profileIcons = $scope.profileIcons
       $modal.open(
