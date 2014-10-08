@@ -227,7 +227,7 @@ class Options
   _watch: ->
     handler = (changes) =>
       if changes
-        @_setOptions(changes, {checkRev: true, persist: false})
+        @_setOptions(changes, {checkRevision: true, persist: false})
       else
         # Initial update.
         changes = @_options
