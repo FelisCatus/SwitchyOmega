@@ -27,11 +27,11 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
   isChromeUrl = (url) -> url.substr(0, 6) == 'chrome'
 
   optionsChangeCallback = []
+  prefix = 'omega.local.'
   urlParser = document.createElement('a')
   omegaTarget =
     options: null
     state: (name, value) ->
-      prefix = 'omega.local.'
       if arguments.length == 1
         getValue = (key) -> try JSON.parse(localStorage[prefix + key])
         if Array.isArray(name)
@@ -41,6 +41,13 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
       else
         localStorage[prefix + name] = JSON.stringify(value)
       return $q.when(value)
+    lastUrl: (url) ->
+      name = 'web.last_url'
+      if url
+        omegaTarget.state(name, url)
+        url
+      else
+        try JSON.parse(localStorage[prefix + name])
     addOptionsChangeCallback: (callback) ->
       optionsChangeCallback.push(callback)
     refresh: (args) ->
@@ -62,14 +69,23 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
         results
       ).then omegaTarget.refresh
     getMessage: chrome.i18n.getMessage.bind(chrome.i18n)
-    openOptions: ->
+    openOptions: (hash) ->
       d = $q['defer']()
       options_url = chrome.extension.getURL('options.html')
       chrome.tabs.query url: options_url, (tabs) ->
-        if tabs.length > 0
-          chrome.tabs.update(tabs[0].id, {active: true})
+        url = if hash
+          urlParser.href = tabs[0]?.url || options_url
+          urlParser.hash = hash
+          urlParser.href
         else
-          chrome.tabs.create({url: options_url})
+          options_url
+        if tabs.length > 0
+          props = {active: true}
+          if hash
+            props.url = url
+          chrome.tabs.update(tabs[0].id, props)
+        else
+          chrome.tabs.create({url: url})
         d.resolve()
       return d.promise
     applyProfile: (name) ->

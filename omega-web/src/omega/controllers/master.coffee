@@ -184,7 +184,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
       event.preventDefault()
 
   $rootScope.$on '$stateChangeSuccess', ->
-    omegaTarget.state('web.last_url', $location.url())
+    omegaTarget.lastUrl($location.url())
 
   $window.onbeforeunload = ->
     if $rootScope.optionsDirty
@@ -218,6 +218,3 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
     "options_downloadInterval_" + (if interval < 0 then "never" else interval)
 
   omegaTarget.refresh()
-
-  omegaTarget.state('web.last_url').then (lastUrl) ->
-    $location.url(lastUrl) if lastUrl?

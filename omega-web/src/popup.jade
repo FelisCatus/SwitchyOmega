@@ -99,13 +99,19 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
             = ' '
             | {{currentProfileName | dispName}}
         div.form-group
-          label {{'options_conditionType' | tr}}
+          label
+            | {{'options_conditionType' | tr}}
+            = ' '
+            button.btn.btn-link.btn-sm.clear-padding(type='button' ng-click='openConditionHelp()')
+              | {{"options_showConditionTypeHelp" | tr}}
+              = ' '
+              span.glyphicon.glyphicon-new-window
           select.form-control(ng-model='rule.condition.conditionType')
-            option(value='HostWildcardCondition') {{'condition_hostWildcard' | tr}}
-            option(value='HostRegexCondition') {{'condition_hostRegex' | tr}}
-            option(value='UrlWildcardCondition') {{'condition_urlWildcard' | tr}}
-            option(value='UrlRegexCondition') {{'condition_urlRegex' | tr}}
-            option(value='KeywordCondition') {{'condition_keyword' | tr}}
+            option(value='HostWildcardCondition') {{'condition_HostWildcardCondition' | tr}}
+            option(value='HostRegexCondition') {{'condition_HostRegexCondition' | tr}}
+            option(value='UrlWildcardCondition') {{'condition_UrlWildcardCondition' | tr}}
+            option(value='UrlRegexCondition') {{'condition_UrlRegexCondition' | tr}}
+            option(value='KeywordCondition') {{'condition_KeywordCondition' | tr}}
         div.form-group
           label {{'options_conditionDetails' | tr}}
           input.form-control.condition-details(type='text' required ng-model='rule.condition.pattern')

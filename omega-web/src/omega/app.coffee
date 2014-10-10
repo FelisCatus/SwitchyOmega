@@ -24,6 +24,11 @@ angular.module('omega').config ($stateProvider, $urlRouterProvider,
   $animateProvider.classNameFilter(/angular-animate/)
 
   $urlRouterProvider.otherwise '/ui'
+  $urlRouterProvider.otherwise ($injector, $location) ->
+    if $location.path() == '' or $location.path() == '/'
+      $injector.get('omegaTarget').lastUrl()
+    else
+      '/ui'
   
   $stateProvider
     .state('ui',

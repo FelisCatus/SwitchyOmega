@@ -29,9 +29,12 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
       'glyphicon-ok'
     else
       profileIcons[profile.profileType]
-  $scope.openOptions = ->
-    omegaTarget.openOptions().then ->
+  $scope.openOptions = (hash) ->
+    omegaTarget.openOptions(hash).then ->
       $window.close()
+  $scope.openConditionHelp = ->
+    pname = encodeURIComponent($scope.currentProfileName)
+    $scope.openOptions("#/profile/#{pname}?help=condition")
   $scope.applyProfile = (profile) ->
     omegaTarget.applyProfile(profile.name).then ->
       refresh()

@@ -1,5 +1,7 @@
-angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $modal,
-  profileIcons, getAttachedName) ->
+angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
+  $modal, profileIcons, getAttachedName) ->
+
+  $scope.showConditionHelp = ($location.search().help == 'condition')
 
   $scope.basicConditionTypes = [
     {
