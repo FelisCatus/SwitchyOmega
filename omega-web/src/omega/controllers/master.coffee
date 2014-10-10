@@ -1,6 +1,6 @@
 angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   $modal, $state, builtinProfiles, profileColors, profileIcons, omegaTarget, $q,
-  $timeout, $location, $filter) ->
+  $timeout, $location, $filter, getAttachedName) ->
 
   tr = $filter('tr')
 
@@ -136,7 +136,28 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
         scope: scope
       ).result.then (toName) ->
         if toName != fromName
-          omegaTarget.renameProfile(fromName, toName).then(->
+          rename = omegaTarget.renameProfile(fromName, toName)
+          attachedName = getAttachedName(fromName)
+          if $rootScope.profileByName(attachedName)
+            toAttachedName = getAttachedName(toName)
+            defaultProfileName = undefined
+            if $rootScope.profileByName(toAttachedName)
+              defaultProfileName = profile.defaultProfileName
+              rename = rename.then ->
+                toAttachedKey = OmegaPac.Profiles.nameAsKey(toAttachedName)
+                profile = $rootScope.profileByName(toName)
+                profile.defaultProfileName = 'direct'
+                OmegaPac.Profiles.updateRevision(profile)
+                delete $rootScope.options[toAttachedKey]
+                $rootScope.applyOptions()
+            rename = rename.then ->
+              omegaTarget.renameProfile(attachedName, toAttachedName)
+            if defaultProfileName
+              rename = rename.then ->
+                profile = $rootScope.profileByName(toName)
+                profile.defaultProfileName = defaultProfileName
+                $rootScope.applyOptions()
+          rename.then(->
             $state.go('profile', {name: toName})
           ).catch (err) ->
             $rootScope.showAlert(
