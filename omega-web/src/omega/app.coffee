@@ -19,6 +19,16 @@ angular.module('omega').constant 'getParentName', (name) ->
   else
     undefined
 
+charCodeUnderscore = '_'.charCodeAt(0)
+angular.module('omega').constant 'charCodeUnderscore', charCodeUnderscore
+angular.module('omega').constant 'isProfileNameHidden', (name) ->
+  # Hide profiles beginning with underscore.
+  name.charCodeAt(0) == charCodeUnderscore
+angular.module('omega').constant 'isProfileNameReserved', (name) ->
+  # Reserve profile names beginning with double-underscore.
+  (name.charCodeAt(0) == charCodeUnderscore and
+  name.charCodeAt(1) == charCodeUnderscore)
+
 angular.module('omega').config ($stateProvider, $urlRouterProvider,
   $httpProvider, $animateProvider) ->
   $animateProvider.classNameFilter(/angular-animate/)

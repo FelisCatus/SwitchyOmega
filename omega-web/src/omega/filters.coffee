@@ -1,6 +1,7 @@
-angular.module('omega').filter 'profiles', (builtinProfiles, profileOrder) ->
+angular.module('omega').filter 'profiles', (builtinProfiles, profileOrder,
+  isProfileNameHidden, isProfileNameReserved) ->
+
   charCodePlus = '+'.charCodeAt(0)
-  charCodeUnderscore = '_'.charCodeAt(0)
   builtinProfileList = (profile for _, profile of builtinProfiles)
   (options, filter) ->
     result = []
@@ -12,15 +13,10 @@ angular.module('omega').filter 'profiles', (builtinProfiles, profileOrder) ->
         filter = filter.substr(1)
       result = OmegaPac.Profiles.validResultProfilesFor(filter, options)
     if filter == 'all'
-      result = result.filter (profile) ->
-        # Hide profiles beginning with underscore.
-        profile.name.charCodeAt(0) != charCodeUnderscore
+      result = result.filter (profile) -> !isProfileNameHidden(profile.name)
       result = result.concat builtinProfileList
     else
-      result = result.filter (profile) ->
-        # Hide profiles beginning with double underscore in options.
-        (profile.name.charCodeAt(0) != charCodeUnderscore or
-        profile.name.charCodeAt(1) != charCodeUnderscore)
+      result = result.filter (profile) -> !isProfileNameReserved(profile.name)
     if filter == 'sorted'
       result.sort profileOrder
     result

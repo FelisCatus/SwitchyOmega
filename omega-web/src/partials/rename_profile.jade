@@ -8,9 +8,16 @@ form(ng-submit='renameProfile.$valid && $close(newName)' name='renameProfile')
     .form-group(ng-class='{"has-error": !renameProfile.profileNewName.$valid}')
       label(for='profile-new-name') {{'options_renameProfileName' | tr}}
       input#profile-new-name.form-control(type='text' name='profileNewName' required ng-model='newName'
-        ui-validate='{conflict: "notConflict($value)"}' ng-init='newName = fromName')
+        ui-validate='validateProfileName' ng-init='newName = fromName')
       .help-block(ng-show='renameProfile.profileNewName.$error.required') {{'options_profileNameEmpty' | tr}}
-      .help-block(ng-show='renameProfile.profileNewName.$error.conflict') {{'options_profileNameConflict' | tr}}
+      .help-block(ng-show='renameProfile.profileNewName.$error.reserved') {{'options_profileNameReserved' | tr}}
+      .help-block(ng-show='!renameProfile.profileNewName.$error.reserved && renameProfile.profileNewName.$error.conflict')
+        | {{'options_profileNameConflict' | tr}}
+      .help-block(ng-show='renameProfile.profileNewName.$valid && newName && isProfileNameHidden(newName)')
+        .text-info
+          span.glyphicon.glyphicon-info-sign
+          = ' '
+          | {{'options_profileNameHidden' | tr}}
   .modal-footer
     button.btn.btn-default(type='button' ng-click='$dismiss()') {{'dialog_cancel' | tr}}
     button.btn.btn-primary(type='submit' ng-disabled='!renameProfile.$valid') {{'options_renameProfile' | tr}}

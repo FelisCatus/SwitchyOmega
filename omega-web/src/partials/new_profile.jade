@@ -8,9 +8,16 @@ form(ng-submit='newProfile.$valid && $close(profile)' name='newProfile')
     .form-group(ng-class='{"has-error": !newProfile.profileNewName.$valid}')
       label(for='profile-new-name') {{'options_newProfileName' | tr}}
       input#profile-new-name.form-control(type='text' name='profileNewName' required ng-model='profile.name'
-        ui-validate='{conflict: "notConflict($value)"}')
+        ui-validate='validateProfileName')
       .help-block(ng-show='newProfile.profileNewName.$error.required') {{'options_profileNameEmpty' | tr}}
-      .help-block(ng-show='newProfile.profileNewName.$error.conflict') {{'options_profileNameConflict' | tr}}
+      .help-block(ng-show='newProfile.profileNewName.$error.reserved') {{'options_profileNameReserved' | tr}}
+      .help-block(ng-show='!newProfile.profileNewName.$error.reserved && newProfile.profileNewName.$error.conflict')
+        | {{'options_profileNameConflict' | tr}}
+      .help-block(ng-show='newProfile.profileNewName.$valid && profile.name && isProfileNameHidden(profile.name)')
+        .text-info
+          span.glyphicon.glyphicon-info-sign
+          = ' '
+          | {{'options_profileNameHidden' | tr}}
     label {{'options_profileType' | tr}}
     .radio
       label

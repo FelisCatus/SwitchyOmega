@@ -105,6 +105,8 @@ module.exports = (oldOptions, i18n) ->
         color = oldProfile['color']
         profile.color = colorTranslations[color] ? colorTranslations['']
         name = oldProfile['name'] ? oldProfile['id']
+        if name[0] == '_'
+          name = 'p' + name
         profile.name = name
         num = 1
         while OmegaPac.Profiles.byName(profile.name, options)

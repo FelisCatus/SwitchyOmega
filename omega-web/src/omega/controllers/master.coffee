@@ -1,6 +1,7 @@
 angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   $modal, $state, builtinProfiles, profileColors, profileIcons, omegaTarget, $q,
-  $timeout, $location, $filter, getAttachedName) ->
+  $timeout, $location, $filter, getAttachedName, isProfileNameReserved,
+  isProfileNameHidden) ->
 
   tr = $filter('tr')
 
@@ -109,7 +110,12 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   $rootScope.newProfile = ->
     scope = $rootScope.$new('isolate')
     scope.options = $rootScope.options
-    scope.notConflict = (name) -> not $rootScope.profileByName(name)
+    scope.isProfileNameReserved = isProfileNameReserved
+    scope.isProfileNameHidden = isProfileNameHidden
+    scope.profileByName = $rootScope.profileByName
+    scope.validateProfileName =
+      conflict: '!$value || !profileByName($value)'
+      reserved: '!$value || !isProfileNameReserved($value)'
     scope.profileIcons = profileIcons
     $modal.open(
       templateUrl: 'partials/new_profile.html'
@@ -128,8 +134,12 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
       scope = $rootScope.$new('isolate')
       scope.options = $rootScope.options
       scope.fromName = fromName
-      scope.notConflict = (name) ->
-        name == fromName or not $rootScope.profileByName(name)
+      scope.isProfileNameReserved = isProfileNameReserved
+      scope.isProfileNameHidden = isProfileNameHidden
+      scope.profileByName = $rootScope.profileByName
+      scope.validateProfileName =
+        conflict: '!$value || $value == fromName || !profileByName($value)'
+        reserved: '!$value || !isProfileNameReserved($value)'
       scope.profileIcons = profileIcons
       $modal.open(
         templateUrl: 'partials/rename_profile.html'

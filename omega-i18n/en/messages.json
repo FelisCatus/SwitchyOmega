@@ -322,7 +322,7 @@
     "message": "PAC URL"
   },
   "options_pacUrlHelp": {
-    "message": "The PAC script will be updated from this URL. If it is left blank, the following scripts will be used directly instead."
+    "message": "The PAC script will be updated from this URL. If it is left blank, the following script will be used directly instead."
   },
   "options_pacUrlFile": {
     "message": "PAC profiles with file: URLs can only be applied directly. They cannot be used as result profiles because local files cannot be accessed due to browser limitation."
@@ -428,6 +428,12 @@
   },
   "options_profileNameConflict": {
     "message": "A profile with this name already exists."
+  },
+  "options_profileNameReserved": {
+    "message": "Profile names beginning with double-underscore are reserved."
+  },
+  "options_profileNameHidden": {
+    "message": "Profiles with names starting with underscore will be hidden on the popup menu. However, they can still be used in places like switch profile results."
   },
   "options_modalHeader_deleteProfile": {
     "message": "Delete Profile"

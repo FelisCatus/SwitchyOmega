@@ -429,6 +429,12 @@
   "options_profileNameConflict": {
     "message": "已经存在相同名称的情景模式。"
   },
+  "options_profileNameReserved": {
+    "message": "以双下划线开头的名称为系统保留，禁止使用。"
+  },
+  "options_profileNameHidden": {
+    "message": "以下划线开头的情景模式不会在弹出菜单中显示，但仍可被用作切换的结果等。"
+  },
   "options_modalHeader_deleteProfile": {
     "message": "删除情景模式"
   },
