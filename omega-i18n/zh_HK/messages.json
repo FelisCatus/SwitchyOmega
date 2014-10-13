@@ -91,7 +91,8 @@
     "message": "Switchy"
   },
   "ruleListFormat_AutoProxy": {
-    "message": "自動代理"
+    "message": "AutoProxy",
+    "description": "AutoProxy 項目規則列表格式的名稱，和本程式的自動切換等無關。"
   },
 
   "dialog_close": {
@@ -430,7 +431,7 @@
     "message": "已經存在相同名稱的情景模式。"
   },
   "options_profileNameReserved": {
-    "message": "以_ _開頭的名稱爲系統保留，禁止使用。"
+    "message": "以兩個下劃線（__）開頭的名稱爲系統保留，禁止使用。"
   },
   "options_profileNameHidden": {
     "message": "以下劃線開頭的情景模式不會在彈出菜單中顯示，但仍可被用作切換的結果等。"
