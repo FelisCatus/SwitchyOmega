@@ -1,20 +1,20 @@
 {
   "appNameShort": {
     "message": "SwitchyOmega",
-    "description": "應用的簡短名稱"
+    "description": "程式的簡短名稱"
   },
 
   "manifest_app_name": {
     "message": "Proxy SwitchyOmega",
-    "description": "用作應用的標題"
+    "description": "用作程式的標題"
   },
   "manifest_app_description": {
     "message": "輕鬆快捷地管理和切換多個代理設置。",
-    "description": "作爲應用的描述性說明而顯示。"
+    "description": "作爲擴展程式的描述性說明而顯示。"
   },
   "manifest_icon_default_title": {
-    "message": "正在加載……",
-    "description": "應用後臺頁面正在加載時顯示。"
+    "message": "正在載入……",
+    "description": "程式後台頁面正在加載時顯示。"
   },
 
   "upgrade_profile_auto" : {
@@ -33,10 +33,10 @@
     "message": "域名通配符"
   },
   "condition_help_HostWildcardCondition" : {
-    "message": "根據域名（主機名）匹配請求。<br><b>星號 <code>*</code></b> 匹配零個或者多個字符。<br><b>問號 <code>?</code></b> 匹配任意一個字符。<br><br>請注意以 <code>*.</code> 開頭的規則有特別處理，會同時匹配子域名和自身。<br>例如: <code>*.example.com</code> 能匹配 www.example.com ，<b>而且也能匹配 example.com 。</b><br>如果<b>只需要匹配子域名</b>，請使用<b>兩個</b>星號開頭，如 <code>**.example.com</code>。"
+    "message": "根據域名（主機名）匹配請求。<br><b>星號 <code>*</code></b> 代表零個或者多個字符。<br><b>問號 <code>?</code></b> 代表任意一個字符。<br><br>請注意以 <code>*.</code> 開頭的規則有特別處理，會同時匹配子域名和自身。<br>例如: <code>*.example.com</code> 能代表 www.example.com ，<b>而且也能代表 example.com 。</b><br>如果<b>只需要匹配子域名</b>，請使用<b>兩個</b>星號開頭，如 <code>**.example.com</code>。"
   },
   "condition_HostRegexCondition" : {
-    "message": "域名正則"
+    "message": "域名正則表達式"
   },
   "condition_help_HostRegexCondition" : {
     "message": "類似域名通配符，但使用<a href='https://www.google.com/search?q=%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F'>正則表達式</a>.<br>正則表達式很難編寫，且可讀性差。<br>因此，一般情況建議使用通配符。當其他任何條件都不能滿足要求時，才使用正則表達式。"
@@ -54,16 +54,16 @@
     "message": "根據通配符規則匹配網址。<br>關於通配符表達式，請參考上方的域名通配符一節的說明。<br>請注意網址通配符沒有任何特殊處理，不會特殊處理子域名等。<br>所以 <code>*://*.example.com/*</code> 能匹配 http://www.example.com/ 但是 <b>不匹配</b> http://example.com/."
   },
   "condition_UrlRegexCondition" : {
-    "message": "網址正則"
+    "message": "網址正則表達式"
   },
   "condition_help_UrlRegexCondition" : {
-    "message": "使用功能強大的<a href='https://www.google.com/search?q=%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F'>正則表達式</a>來匹配網址。<br>但正則表達式很難編寫，且可讀性差。<br>因此，一般情況建議使用通配符。當其他任何條件都不能滿足要求時，才使用正則表達式。"
+    "message": "使用功能強大的<a href='https://www.google.com/search?q=%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F'>正則表達式</a>來辨認網址。<br>但正則表達式很難編寫，且可讀性差。<br>因此，一般情況建議使用通配符。當其他任何條件都不能滿足要求時，才使用正則表達式。"
   },
   "condition_KeywordCondition" : {
     "message": "關鍵字"
   },
   "condition_help_KeywordCondition" : {
-    "message": "關鍵字條件的具體匹配規則是：網址協議爲HTTP且網址中包含該關鍵字。<br>類似於 <code>http://*<b>關鍵字</b>*</code>, 其中 <b>關鍵字</b> 是設定好的關鍵字。<br>如果某防火牆根據網址中是否包含關鍵字來屏蔽網址，那麼可以使用關鍵字條件來通過代理訪問這樣的請求，以達到繞過防火牆的目的。"
+    "message": "關鍵字條件的具體匹配規則是：網址協議爲HTTP且網址中包含該關鍵字。<br>類似於 <code>http://*<b>關鍵字</b>*</code>, 其中 <b>關鍵字</b> 是設定好的關鍵字。<br>如果某防火牆根據網址中是否包含關鍵字來阻止訪問，那麼可以使用關鍵字條件來通過代理訪問這樣的請求，以達到繞過防火牆的目的。"
   },
   "condition_FalseCondition" : {
     "message": "(禁用)"
@@ -72,7 +72,7 @@
     "message": "(匹配請求時無視此條規則)"
   },
   "condition_help_FalseCondition" : {
-    "message": "設置規則類型爲<code>(禁用)</code>可以臨時禁用某個條件。禁用的條件在匹配時視爲不存在。<br>條件被禁用後，仍然保存有之前的數據（例如通配符或正則），因此當需要時，可以把條件類型改回之前的類型，以方便地重新啓用條件。"
+    "message": "設置規則類型爲<code>(禁用)</code>可以臨時禁用某個條件。禁用的條件在匹配時視爲不存在。<br>條件被禁用後，仍然保存有之前的數據（例如通配符或正則表達式），因此當需要時，可以把條件類型改回之前的類型，以方便地重新啓用條件。"
   },
   "condition_group_default" : {
     "message": ""
@@ -91,7 +91,7 @@
     "message": "Switchy"
   },
   "ruleListFormat_AutoProxy": {
-    "message": "AutoProxy"
+    "message": "自動代理"
   },
 
   "dialog_close": {
@@ -139,10 +139,10 @@
     "message": "新建情景模式..."
   },
   "options_apply": {
-    "message": "應用選項"
+    "message": "程式選項"
   },
   "options_discard": {
-    "message": "撤銷更改"
+    "message": "取消更改"
   },
   "options_reset": {
     "message": "重置選項"
@@ -154,7 +154,7 @@
     "message": "刪除切換條件時需要確認"
   },
   "options_refreshOnProfileChange": {
-    "message": "當更改情景模式時刷新當前標籤"
+    "message": "當更改情景模式時更新當前標籤"
   },
   "options_group_switchOptions": {
     "message": "切換選項"
@@ -235,22 +235,22 @@
     "message": "選項"
   },
   "options_makeBackup": {
-    "message": "生成備份文件"
+    "message": "生成備份"
   },
   "options_makeBackupHelp": {
-    "message": "導出一份包括情景模式和其他所有選項的備份文件。"
+    "message": "導出一份包括情景模式和其他所有選項的備份。"
   },
   "options_restoreLocal": {
-    "message": "從備份文件恢復"
+    "message": "從備份恢復"
   },
   "options_restoreLocalHelp": {
-    "message": "導入本地的備份文件以恢復所有選項。"
+    "message": "導入本地的備份以恢復所有選項。"
   },
   "options_restoreOnline": {
     "message": "在線恢復"
   },
   "options_restoreOnlinePlaceholder": {
-    "message": "備份文件地址 (如：http://example.com/switchy.bak)"
+    "message": "備份地址 (如：http://example.com/switchy.bak)"
   },
   "options_restoreOnlineSubmit": {
     "message": "恢復"
@@ -322,7 +322,7 @@
     "message": "PAC 網址"
   },
   "options_pacUrlHelp": {
-    "message": "應用將從此網址下載PAC腳本。如果網址留空，則直接使用下方的腳本內容。"
+    "message": "程式將從此網址下載PAC腳本。如果網址留空，則直接使用下方的腳本內容。"
   },
   "options_pacUrlFile": {
     "message": "如果您使用本地PAC文件，則該情景模式只能單獨使用，無法作爲自動切換的結果。這是因爲瀏覽器不允許讀取本地文件。"
@@ -352,7 +352,7 @@
     "message": "規則列表網址"
   },
   "options_ruleListUrlHelp": {
-    "message": "應用將從此網址下載規則列表。如果網址留空，則以下文本會被直接處理後作爲規則列表使用。"
+    "message": "程式將從此網址下載規則列表。如果網址留空，則以下文本會被直接處理後作爲規則列表使用。"
   },
   "options_group_ruleListText": {
     "message": "規則列表正文"
@@ -409,19 +409,19 @@
     "message": "可以添加規則列表，以便引用他人在線發佈的一組規則。"
   },
   "options_modalHeader_applyOptions": {
-    "message": "應用選項"
+    "message": "程式選項"
   },
   "options_optionsNotSaved": {
-    "message": "當前設置還未保存。如果您繼續此操作，則剛纔的所有修改都會丟失！"
+    "message": "當前設置還未保存。如果您繼續此操作，則剛才做的所有修改都會消失！"
   },
   "options_applyOptionsRequired": {
     "message": "必須保存當前選項才能繼續操作。"
   },
   "options_applyOptionsConfirm": {
-    "message": "是否保存並應用現在的選項？"
+    "message": "是否保存並程式現在的選項？"
   },
   "options_modalHeader_renameProfile": {
-    "message": "重命名"
+    "message": "重新命名"
   },
   "options_renameProfileName": {
     "message": "新的名稱"
@@ -430,7 +430,7 @@
     "message": "已經存在相同名稱的情景模式。"
   },
   "options_profileNameReserved": {
-    "message": "以雙下劃線開頭的名稱爲系統保留，禁止使用。"
+    "message": "以_ _開頭的名稱爲系統保留，禁止使用。"
   },
   "options_profileNameHidden": {
     "message": "以下劃線開頭的情景模式不會在彈出菜單中顯示，但仍可被用作切換的結果等。"
@@ -494,7 +494,7 @@
     }
   },
   "options_deleteAttached": {
-    "message": "Remove rule list"
+    "message": "移除規則列表"
   },
   "options_modalHeader_newProfile" : {
     "message": "新建情景模式"
@@ -557,7 +557,7 @@
     "message": "備份文件格式錯誤！"
   },
   "options_importDownloadError": {
-    "message": "下載備份文件時出錯！"
+    "message": "下載備份時出錯！"
   },
   "options_profileDownloadSuccess": {
     "message": "情景模式已經更新成功。"
@@ -575,7 +575,7 @@
     "message": "保存名稱"
   },
   "popup_proxyNotControllable_app": {
-    "message": "其他應用正在控制代理設置。請禁用或者卸載發生衝突的應用。"
+    "message": "其他程式正在控制代理設置。請禁用或者卸載發生衝突的程式。"
   },
   "popup_proxyNotControllable_policy": {
     "message": "代理設置被本地策略強制指定，無法修改。請聯繫系統管理員。"
@@ -637,7 +637,7 @@
     "message": "警告：更新PAC文件或規則列表失敗。"
   },
   "browserAction_titleExternalProxy": {
-    "message": "注意：其他應用正在控制當前代理設置。"
+    "message": "注意：其他程式正在控制當前代理設置。"
   },
   "browserAction_defaultRuleDetails": {
     "message": "(默認)",
