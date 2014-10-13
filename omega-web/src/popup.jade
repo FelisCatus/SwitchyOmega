@@ -51,20 +51,21 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           span {{'popup_externalProfile' | tr}}
           input.external-profile-name.input-small(type='text' style='display: none'
               placeholder='{{"popup_externalProfileName" | tr}}')
-      li.divider(ng-show='!!currentDomain')
+      li.divider(ng-show='!!currentDomain && validResultProfiles.length')
       li(ng-show='!!currentProfileCanAddRule')
         a(ng-click='showConditionForm = true')
           span.glyphicon.glyphicon-plus
           = ' '
           span {{'popup_addCondition' | tr}}
-      li(ng-show='!!currentDomain' dropdown is-open="tempRuleMenu.open")
+      li(ng-show='!!currentDomain && validResultProfiles.length' dropdown is-open="tempRuleMenu.open")
         a.dropdown-toggle
           span.glyphicon.glyphicon-filter
           = ' '
           span.current-domain {{currentDomain}}
           span.caret
         ul.dropdown-menu
-          li(ng-repeat='profile in validResultProfiles' ng-class='{active: profile.name == currentTempRuleProfile}')
+          li(ng-repeat='profile in validResultProfiles' ng-class='{active: profile.name == currentTempRuleProfile}'
+            ng-show='!!currentTempRuleProfile || validResultProfiles.length == 1 || profile.name != currentProfileName')
             a(ng-click='addTempRule(currentDomain, profile.name)')
               span.glyphicon(ng-style='{color: profile.color}'
                 class='{{profileIcons[profile.profileType]}}')

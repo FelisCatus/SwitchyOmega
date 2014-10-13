@@ -288,8 +288,8 @@ class Options
         profileType: profile.profileType
         color: profile.color
         builtin: !!profile.builtin
-      if results? and currentIncludable
-        results.push(profile.name)
+      if currentIncludable and OmegaPac.Profiles.isIncludable(profile)
+        results?.push(profile.name)
     if profile and OmegaPac.Profiles.isInclusive(profile)
       results = OmegaPac.Profiles.validResultProfilesFor(profile, @_options)
       results = results.map (profile) -> profile.name
