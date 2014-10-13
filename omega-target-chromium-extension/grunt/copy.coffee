@@ -16,6 +16,11 @@ module.exports =
     cwd: '../omega-i18n'
     src: ['**/*']
     dest: 'build/_locales/'
+  i18n_zh:
+    expand: true
+    cwd: '../omega-i18n/zh_CN'
+    src: ['**/*']
+    dest: 'build/_locales/zh'
   overlay:
     expand: true
     cwd: 'overlay'

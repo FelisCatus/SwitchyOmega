@@ -10,7 +10,7 @@ module.exports =
     tasks: ['copy:web']
   copy_i18n:
     files: ['../omega-i18n/**/*']
-    tasks: ['copy:i18n']
+    tasks: ['copy:i18n', 'copy:i18n_zh']
   copy_target:
     files: ['node_modules/omega-target/omega_target.min.js']
     tasks: ['copy:target']
