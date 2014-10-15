@@ -50,7 +50,10 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
     omegaTarget.addCondition(condition, profileName).then ->
       refresh()
   
-  $scope.notConflict = (name) -> not $scope.availableProfiles?['+' + name]
+  $scope.validateProfileName =
+    conflict: '!$value || !availableProfiles["+" + $value]'
+    hidden: '!$value || $value[0] != "_"'
+
   $scope.saveExternal = ->
     $scope.nameExternal.open = false
     name = $scope.externalProfile.name

@@ -37,7 +37,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
             = ' '
             span(ng-show='!nameExternal.open') {{'popup_externalProfile' | tr}}
             input.form-control(ng-show='!!nameExternal.open' ng-model='externalProfile.name' ng-blur='nameExternalForm.submit()'
-              placeholder='{{"popup_externalProfileName" | tr}}' ui-validate='{conflict: "notConflict($value)"}')
+              placeholder='{{"popup_externalProfileName" | tr}}' ui-validate='validateProfileName')
       li.divider
       li.profile(ng-repeat='profile in customProfiles' ng-class='{active: isActive(profile.name), "bg-info": isEffective(profile.name)}')
         a(ng-click='applyProfile(profile)')
