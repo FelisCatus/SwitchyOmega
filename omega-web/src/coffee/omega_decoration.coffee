@@ -36,24 +36,38 @@ angular.module('omegaDecoration', []).value('profileIcons', {
     'defaultText': '@?defaultText'
     'dispName': '&?dispName'
   link: (scope, element, attrs, ngModel) ->
-    scope.classes = [].slice.call(element[0].classList)
-    element.attr('class', '')
-    selectpicker = element.find('.selectpicker')
-    if ngModel
-      ngModel.$render = ->
-        selectpicker.selectpicker('val', ngModel.$viewValue)
-        return
-      selectpicker.selectpicker().change (e) ->
-        ngModel.$setViewValue($(e.target).val())
     scope.profileIcons = profileIcons
     scope.currentProfiles = []
-
+    scope.dispProfiles = undefined
+    updateView = ->
+      scope.profileIcon = ''
+      for profile in scope.currentProfiles
+        if profile.name == scope.profileName
+          scope.selectedProfile = profile
+          scope.profileIcon = profileIcons[profile.profileType]
+          break
     scope.$watch(scope.profiles, ((profiles) ->
       scope.currentProfiles = profiles
+      if scope.dispProfiles?
+        scope.dispProfiles = currentProfiles
+      updateView()
     ), true)
-    scope.onItemsUpdated = ->
-      selectpicker.selectpicker('refresh')
-      ngModel?.$render()
+
+    scope.toggled = (open) ->
+      if open and not scope.dispProfiles?
+        scope.dispProfiles = scope.currentProfiles
+        scope.toggled = undefined
+
+    if ngModel
+      ngModel.$render = ->
+        scope.profileName = ngModel.$viewValue
+        updateView()
+
+    scope.setProfileName = (name) ->
+      if ngModel
+        ngModel.$setViewValue(name)
+        ngModel.$render()
+
     scope.getName = (profile) ->
-      scope.dispName?({$profile: profile}) || profile.name
+      scope.dispName?({$profile: profile}) || profile?.name
 )

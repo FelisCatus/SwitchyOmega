@@ -115,23 +115,32 @@ ul.list-style-none, li.list-style-none {
   }
 }
 
-/* bootstrap-select */
+/* omega-profile-select */
 
-.dropdown-menu>.selected>a {
-  &, &:hover, &:focus {
-    color: #FFF;
-    text-decoration: none;
-    outline: 0;
-    background-color: #428BCA;
+.omega-profile-select {
+  width: 100%;
+
+  .btn {
+    width: 100%;
+    display: block;
+    text-align: left;
+    text-align: initial;
+    position: relative;
+    padding-right: 25px;
+
+    .caret {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      margin-top: -2px;
+      vertical-align: middle;
+    }
   }
-}
 
-.bootstrap-select.btn-group {
-  margin-bottom: 0 !important;
-}
-
-.form-control[omega-profile-select] {
-  display: none; // Prevent not loaded directive from showing.
+  .dropdown-menu {
+    width: 100%;
+    cursor: pointer;
+  }
 }
 
 .disabled .btn {

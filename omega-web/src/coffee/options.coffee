@@ -28,8 +28,6 @@ $script.ready ['angular-loader'], ->
     'lib/angular-ui-utils/validate.min.js'
     'lib/jsondiffpatch/bundle.min.js'
     'lib/angular-spectrum-colorpicker/angular-spectrum-colorpicker.min.js'
-    'lib/bootstrap/js/dropdown.js'
-    'lib/bootstrap-select/bootstrap-select.js'
   ], 'omega-deps')
 $script.ready ['jquery'], ->
   $script 'lib/jquery-ui-1.10.4.custom.min.js', 'jquery-ui'

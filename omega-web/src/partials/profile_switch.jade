@@ -51,7 +51,7 @@ div(ng-controller='SwitchProfileCtrl')
               input.form-control(ng-model='rule.condition.pattern' ng-switch-default required
                 ui-validate='{pattern: "validateCondition(rule.condition, $value)"}')
             td
-              div.form-control(omega-profile-select='options | profiles:profile' ng-model='rule.profileName'
+              div(omega-profile-select='options | profiles:profile' ng-model='rule.profileName'
                 disp-name='$profile.name | dispName' ng-class='{disabled: rule.condition.conditionType == "NeverCondition"}')
             td
               button.btn.btn-danger.btn-sm(title="{{'options_deleteRule' | tr}}" ng-click='removeRule($index)')
@@ -79,7 +79,7 @@ div(ng-controller='SwitchProfileCtrl')
               span(ng-show='!attachedOptions.enabled')
                 | {{'options_switchAttachedProfileInConditionDisabled' | tr}}
             td
-              div.form-control(omega-profile-select='options | profiles:profile' ng-model='attached.matchProfileName'
+              div(omega-profile-select='options | profiles:profile' ng-model='attached.matchProfileName'
                 disp-name='$profile.name | dispName' ng-class='{disabled: !attachedOptions.enabled}')
             td
               button.btn.btn-danger.btn-sm(title="{{'options_deleteAttached' | tr}}" ng-click='removeAttached()')
@@ -89,7 +89,7 @@ div(ng-controller='SwitchProfileCtrl')
             td
             td(colspan='2') {{'options_switchDefaultProfile' | tr}}
             td
-              div.form-control(omega-profile-select='options | profiles:profile' ng-model='defaultProfileName'
+              div(omega-profile-select='options | profiles:profile' ng-model='defaultProfileName'
                 disp-name='$profile.name | dispName')
             td
               button.btn.btn-info.btn-sm(title="{{'options_resetRules_help' | tr}}" ng-click='resetRules()')
