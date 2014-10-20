@@ -26,7 +26,7 @@ $script.ready ['angular-loader'], ->
     'lib/ngprogress/ngProgress.min.js'
     'lib/angular-ui-sortable/sortable.min.js'
     'lib/angular-ui-utils/validate.min.js'
-    'lib/jsondiffpatch/bundle.min.js'
+    'lib/jsondiffpatch/jsondiffpatch.min.js'
     'lib/angular-spectrum-colorpicker/angular-spectrum-colorpicker.min.js'
   ], 'omega-deps')
 $script.ready ['jquery'], ->

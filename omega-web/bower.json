@@ -91,7 +91,7 @@
       "": "build/*.min.js"
     },
     "jsondiffpatch": {
-      "": "build/*.min.js"
+      "": "public/build/jsondiffpatch.min.js"
     },
     "spectrum": {
       "": [
