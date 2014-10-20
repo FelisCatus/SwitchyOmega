@@ -69,5 +69,6 @@ angular.module('omegaDecoration', []).value('profileIcons', {
         ngModel.$render()
 
     scope.getName = (profile) ->
-      scope.dispName?({$profile: profile}) || profile?.name
+      if profile
+        scope.dispName?({$profile: profile}) || profile?.name
 )

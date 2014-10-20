@@ -8,7 +8,7 @@
   .well
     span.glyphicon(class='{{profileIcons[attached.profileType]}}')
     = ' '
-    | {{attached.sourceUrl || ('options_ruleListLineCount' | tr:[attached.ruleList.split('\r?\n').length])}}
+    | {{attached.sourceUrl || ('options_ruleListLineCount' | tr:[attached.ruleList.split('\n').length])}}
 .modal-footer
   button.btn.btn-default(ng-click='$dismiss()') {{'dialog_cancel' | tr}}
   button.btn.btn-danger(type='button' ng-click='$close("ok")') {{'options_deleteAttached' | tr}}

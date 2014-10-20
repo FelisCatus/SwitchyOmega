@@ -57,17 +57,18 @@ module.exports = exports =
       normal_rules = []
       exclusive_rules = []
       begin = false
+      section = 'WILDCARD'
       for line in text.split(/\n|\r/)
         line = line.trim()
         continue if line.length == 0 || line[0] == ';'
         if not begin
-          if line == '#BEGIN'
+          if line.toUpperCase() == '#BEGIN'
             begin = true
           continue
-        if line == '#END'
+        if line.toUpperCase() == '#END'
           break
         if line[0] == '[' and line[line.length - 1] == ']'
-          section = line.substring(1, line.length - 1)
+          section = line.substring(1, line.length - 1).toUpperCase()
           continue
         source = line
         profile = matchProfileName
@@ -77,10 +78,10 @@ module.exports = exports =
           list = exclusive_rules
           line = line.substring(1)
         cond = switch section
-          when 'Wildcard'
+          when 'WILDCARD'
             conditionType: 'UrlWildcardCondition'
             pattern: line
-          when 'RegExp'
+          when 'REGEXP'
             conditionType: 'UrlRegexCondition'
             pattern: line
           else
