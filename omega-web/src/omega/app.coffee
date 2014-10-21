@@ -55,7 +55,7 @@ angular.module('omega').config ($stateProvider, $urlRouterProvider,
       templateUrl: 'partials/io.html'
       controller: 'IoCtrl'
     ).state('profile',
-      url: '/profile/:name'
+      url: '/profile/*name'
       templateUrl: 'partials/profile.html'
       controller: 'ProfileCtrl'
     ).state('about',
