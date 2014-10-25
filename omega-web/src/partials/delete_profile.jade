@@ -6,8 +6,7 @@
 .modal-body
   p {{'options_deleteProfileConfirm' | tr}}
   .well
-    span.glyphicon(class='{{profileIcons[profile.profileType]}}'
-      ng-style='{color: profile.color}')
+    span(omega-profile-icon='profile')
     = ' '
     | {{profile.name}}
 .modal-footer

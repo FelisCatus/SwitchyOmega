@@ -91,7 +91,8 @@
     "message": "Switchy"
   },
   "ruleListFormat_AutoProxy": {
-    "message": "AutoProxy"
+    "message": "AutoProxy",
+    "description": "AutoProxy 項目規則列表格式的名稱，和本程式的自動切換等無關。"
   },
 
   "dialog_close": {
@@ -339,6 +340,9 @@
   "options_ruleListFormat": {
     "message": "規則列表格式"
   },
+  "options_virtualProfileTargetHelp": {
+    "message": "當使用此情景模式時，相當於使用了以下情景模式："
+  },
   "options_group_ruleListResult": {
     "message": "規則列表結果情景模式"
   },
@@ -531,6 +535,12 @@
   },
   "options_profileDescRuleListProfile" : {
     "message": "使用他人釋出的線上規則列表來切換情景模式。"
+  },
+  "options_profileTypeVirtualProfile" : {
+    "message": "虛擬情景模式"
+  },
+  "options_profileDescVirtualProfile" : {
+    "message": "虛擬情景模式可以作為某個其他情景模式使用，並可以根據需要更改目標。一般用在自動切換中，這樣就可以一次性更改多個條件對應的代理。"
   },
   "options_createProfile" : {
     "message": "創建"

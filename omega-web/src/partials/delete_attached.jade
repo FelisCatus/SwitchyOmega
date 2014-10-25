@@ -6,7 +6,7 @@
 .modal-body
   p {{'options_deleteAttachedConfirm' | tr}}
   .well
-    span.glyphicon(class='{{profileIcons[attached.profileType]}}')
+    span(omega-profile-icon='attached')
     = ' '
     | {{attached.sourceUrl || ('options_ruleListLineCount' | tr:[attached.ruleList.split('\n').length])}}
 .modal-footer

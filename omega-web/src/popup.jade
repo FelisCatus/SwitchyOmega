@@ -27,30 +27,36 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
     ul.nav.nav-pills.nav-stacked(ng-hide='showConditionForm || proxyNotControllable')
       li.profile(ng-repeat='profile in builtinProfiles' ng-class='{active: isActive(profile.name), "bg-info": isEffective(profile.name)}')
         a(ng-click='applyProfile(profile)')
-          span.glyphicon(ng-style='{color: profile.color}' class='{{getIcon(profile)}}')
+          span(omega-profile-icon='profile' icon='getIcon(profile)')
           = ' '
           | {{profile.name | dispName}}
       li.profile.external-profile(ng-show='!!externalProfile' ng-class='{active: isActive(""), "bg-info": isEffective("")}')
         a(ng-click='nameExternal.open = true')
           form(name='nameExternalForm' ng-submit='nameExternalForm.$valid && saveExternal()')
-            span.glyphicon(ng-style='{color: externalProfile.color}' class='{{getIcon(externalProfile, "normal")}}')
+            span(omega-profile-icon='externalProfile' icon='getIcon(externalProfile, "normal")')
             = ' '
             span(ng-show='!nameExternal.open') {{'popup_externalProfile' | tr}}
             input.form-control(ng-show='!!nameExternal.open' ng-model='externalProfile.name' ng-blur='nameExternalForm.submit()'
               placeholder='{{"popup_externalProfileName" | tr}}' ui-validate='validateProfileName')
       li.divider
-      li.profile(ng-repeat='profile in customProfiles' ng-class='{active: isActive(profile.name), "bg-info": isEffective(profile.name)}')
-        a(ng-click='applyProfile(profile)')
-          span.glyphicon(ng-style='{color: profile.color}' class='{{getIcon(profile)}}')
+      li.profile(ng-repeat='profile in customProfiles' ng-class='{active: isActive(profile.name), "bg-info": isEffective(profile.name)}'
+        dropdown)
+        a(ng-click='applyProfile(profile)' ng-if='!profile.validResultProfiles')
+          span(omega-profile-icon='profile' icon='getIcon(profile)')
           = ' '
           | {{profile.name | dispName}}
-      li.external-profile(style='display: none')
-        a.form-group
-          span.glyphicon.glyphicon-question-sign
-          = ' '
-          span {{'popup_externalProfile' | tr}}
-          input.external-profile-name.input-small(type='text' style='display: none'
-              placeholder='{{"popup_externalProfileName" | tr}}')
+        a.profile-with-default-edit(ng-click='applyProfile(profile)' ng-if='!!profile.validResultProfiles')
+          span(omega-profile-icon='profile' icon='getIcon(profile)')
+          = ' {{profile.name | dispName}} '
+          | [{{profile.defaultProfileName}}]
+          button.dropdown-toggle.btn.btn-default(ng-click='$event.stopPropagation()')
+            span.glyphicon.glyphicon-chevron-down
+        ul.dropdown-menu(ng-if='!!profile.validResultProfiles')
+          li(ng-repeat='p in profile.validResultProfiles' ng-class='{active: p.name == profile.defaultProfileName}')
+            a(ng-click='setDefaultProfile(profile.name, p.name)')
+              span(omega-profile-icon='p')
+              = ' '
+              | {{p.name | dispName}}
       li.divider(ng-show='!!currentDomain && validResultProfiles.length')
       li(ng-show='!!currentProfileCanAddRule')
         a(ng-click='showConditionForm = true')
@@ -67,8 +73,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           li(ng-repeat='profile in validResultProfiles' ng-class='{active: profile.name == currentTempRuleProfile}'
             ng-show='!!currentTempRuleProfile || validResultProfiles.length == 1 || profile.name != currentProfileName')
             a(ng-click='addTempRule(currentDomain, profile.name)')
-              span.glyphicon(ng-style='{color: profile.color}'
-                class='{{profileIcons[profile.profileType]}}')
+              span(omega-profile-icon='profile')
               = ' '
               | {{profile.name | dispName}}
       li.divider
@@ -95,8 +100,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           | {{'popup_addConditionTo' | tr}}
           = ' '
           span.profile-inline
-            span.glyphicon(ng-style='{color: currentProfile.color}'
-              class='{{profileIcons[currentProfile.profileType]}}')
+            span(omega-profile-icon='currentProfile')
             = ' '
             | {{currentProfileName | dispName}}
         div.form-group

@@ -167,6 +167,12 @@ describe 'Profiles', ->
         '+example': 'example'
         '+abc': 'abc'
       )
+  describe 'VirtualProfile', ->
+    profile = Profiles.create('test', 'VirtualProfile')
+    profile.defaultProfileName = 'default'
+    it 'should always return defaultProfileName', ->
+      testProfile(profile, 'http://www.example.com/abc',
+        ['+default', null])
   describe 'RulelistProfile', ->
     profile = Profiles.create('test', 'AutoProxyRuleListProfile')
     profile.defaultProfileName = 'default'

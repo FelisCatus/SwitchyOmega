@@ -28,6 +28,11 @@ body.with-condition-form {
   padding: 0 5px;
 }
 
+.virtual-profile-icon {
+  border: dotted 1px;
+  margin: -1px;
+}
+
 .nav {
   margin-bottom: 0;
 }
@@ -47,6 +52,28 @@ li > a {
     .glyphicon {
       margin-right: 6px;
     }
+
+    &.profile-with-default-edit {
+      padding-right: 0;
+      .dropdown-toggle {
+        margin: -5px 0;
+        color: inherit;
+        padding: 5px 8px;
+        min-width: 20px;
+        float: right;
+
+        .glyphicon {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  > li.active .dropdown-toggle {
+    border: none !important;
+    border-left: solid 1px !important;
+    background: none !important;
+    border-radius: 0 !important;
   }
 }
 

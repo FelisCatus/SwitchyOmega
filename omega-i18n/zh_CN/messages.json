@@ -91,7 +91,8 @@
     "message": "Switchy"
   },
   "ruleListFormat_AutoProxy": {
-    "message": "AutoProxy"
+    "message": "AutoProxy",
+    "description": "AutoProxy 项目规则列表格式的名称，和此程序的自动切换等无关。"
   },
 
   "dialog_close": {
@@ -339,6 +340,9 @@
   "options_ruleListFormat": {
     "message": "规则列表格式"
   },
+  "options_virtualProfileTargetHelp": {
+    "message": "当使用此情景模式时，相当于使用了以下情景模式："
+  },
   "options_group_ruleListResult": {
     "message": "规则列表结果情景模式"
   },
@@ -531,6 +535,12 @@
   },
   "options_profileDescRuleListProfile" : {
     "message": "使用他人发布的在线规则列表来切换情景模式。"
+  },
+  "options_profileTypeVirtualProfile" : {
+    "message": "虚情景模式"
+  },
+  "options_profileDescVirtualProfile" : {
+    "message": "虚情景模式可以作为某个其他情景模式使用，并可以根据需要更改对象。一般用在自动切换中，这样就可以一次性更改多个条件对应的代理。"
   },
   "options_createProfile" : {
     "message": "创建"

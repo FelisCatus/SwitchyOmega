@@ -1,0 +1,10 @@
+div(ng-controller='VirtualProfileCtrl')
+  section.settings-group
+    h3 {{'options_group_virtualProfile' | tr}}
+    p.help-block
+      | {{'options_virtualProfileTargetHelp' | tr}}
+    .form-group
+      label {{'options_virtualProfileTarget' | tr}}
+      = ' '
+      div(omega-profile-select='options | profiles:profile' ng-model='profile.defaultProfileName'
+        disp-name='$profile.name | dispName' style='display: inline-block;')

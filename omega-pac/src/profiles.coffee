@@ -299,6 +299,11 @@ module.exports = exports =
       create: (profile) ->
         profile.defaultProfileName ?= 'direct'
         profile.rules ?= []
+        if profile.profileType == 'VirtualProfile' and not profile.virtualType?
+          target = exports.byName(profile.defaultProfileName, {})
+          if target
+            profile.virtualType = target.profileType
+            profile.color = target.color
       directReferenceSet: (profile) ->
         refs = {}
         refs[exports.nameAsKey(profile.defaultProfileName)] =
@@ -323,10 +328,12 @@ module.exports = exports =
             return rule
         return [exports.nameAsKey(profile.defaultProfileName), null]
       compile: (profile, cache) ->
+        rules = cache.analyzed
+        if rules.length == 0
+          return @profileResult profile.defaultProfileName
         body = [
           new U2.AST_Directive value: 'use strict'
         ]
-        rules = cache.analyzed
         for rule in rules
           body.push new U2.AST_If
             condition: Conditions.compile rule.condition
@@ -342,6 +349,7 @@ module.exports = exports =
           ]
           body: body
         )
+    'VirtualProfile': 'SwitchProfile'
     'RuleListProfile':
       includable: true
       inclusive: true

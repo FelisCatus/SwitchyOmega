@@ -51,6 +51,11 @@ actionForUrl = (url) ->
     options.matchProfile(request)
   ).then ({profile, results}) ->
     current = options.currentProfile()
+    currentName = dispName(current.name)
+    if current.profileType == 'VirtualProfile'
+      realCurrentName = current.defaultProfileName
+      currentName += " [#{dispName(realCurrentName)}]"
+      current = options.profile(realCurrentName)
     details = ''
     direct = false
     attached = false
@@ -63,7 +68,7 @@ actionForUrl = (url) ->
             name = name.substr(1)
           if isHidden(name)
             attached = true
-          else
+          else if name != realCurrentName
             details += chrome.i18n.getMessage 'browserAction_defaultRuleDetails'
             details += " => #{dispName(name)}\n"
         else if result[1].length == 0
@@ -103,7 +108,7 @@ actionForUrl = (url) ->
         drawIcon(profile.color, current.color)
     return {
       title: chrome.i18n.getMessage('browserAction_titleWithResult', [
-        dispName(current.name)
+        currentName
         dispName(profile.name)
         details
       ])
@@ -163,14 +168,20 @@ options.currentProfileChanged = (reason) ->
   else if reason != 'clearBadge'
     external = false
 
+  current = options.currentProfile()
+  currentName = ''
+  if current
+    currentName = dispName(current.name)
+    if current.profileType == 'VirtualProfile'
+      realCurrentName = current.defaultProfileName
+      currentName += " [#{dispName(realCurrentName)}]"
+      current = options.profile(realCurrentName)
   title =
     if profile.name == ''
       details = profile.pacUrl ? options.printFixedProfile(profile)
       details = details ? profile.profileType
     else
-      chrome.i18n.getMessage('browserAction_titleNormal', [
-        options._currentProfileName
-      ])
+      chrome.i18n.getMessage('browserAction_titleNormal', [currentName])
   if external and profile.profileType != 'SystemProfile'
     message = chrome.i18n.getMessage('browserAction_titleExternalProxy')
     title = message + '\n' + title

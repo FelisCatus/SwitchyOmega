@@ -96,6 +96,8 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
       callBackground('addCondition', condition, profileName)
     addProfile: (profile) ->
       callBackground('addProfile', profile).then omegaTarget.refresh
+    setDefaultProfile: (profileName, defaultProfileName) ->
+      callBackground('setDefaultProfile', profileName, defaultProfileName)
     getActivePageInfo: ->
       # First, try to clear badges on opening the popup.
       callBackground('clearBadge')

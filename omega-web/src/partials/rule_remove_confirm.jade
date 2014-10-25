@@ -10,8 +10,7 @@
     = ' '
     | {{rule.condition.pattern}}
     span.pull-right
-      span.glyphicon(class='{{profileIcons[ruleProfile.profileType]}}'
-        ng-style='{color: ruleProfile.color}')
+      span(omega-profile-icon='ruleProfile')
       = ' '
       | {{ruleProfile.name | dispName}}
 .modal-footer

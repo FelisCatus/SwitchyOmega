@@ -36,14 +36,12 @@ section.settings-group
     ul.cycle-profile-container.cycle-enabled(ui-sortable="sortableOptions"
       ng-model='options["-quickSwitchProfiles"]')
       li(ng-repeat='name in options["-quickSwitchProfiles"]')
-        span.glyphicon(class='{{profileIcons[profileByName(name).profileType]}}'
-          ng-style='{color: profileByName(name).color}')
+        span(omega-profile-icon='profileByName(name)')
         = ' '
         | {{name | dispName}}
     h4 {{'options_notCycledProfiles' | tr}}
     ul.cycle-profile-container(ui-sortable="sortableOptions" ng-model='notCycledProfiles')
       li.bg-success(ng-repeat='name in notCycledProfiles')
-        span.glyphicon(class='{{profileIcons[profileByName(name).profileType]}}'
-          ng-style='{color: profileByName(name).color}')
+        span(omega-profile-icon='profileByName(name)')
         = ' '
         | {{name | dispName}}

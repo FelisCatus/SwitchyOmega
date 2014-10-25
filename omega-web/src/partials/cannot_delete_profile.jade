@@ -8,8 +8,7 @@
   .well
     ul.list-style-none
       li(ng-repeat='p in refs')
-        span.glyphicon(class='{{profileIcons[p.profileType]}}'
-          ng-style='{color: p.color}')
+        span(omega-profile-icon='p')
         = ' '
         | {{p.name | dispName}}
   p {{'options_modifyReferringProfiles' | tr}}

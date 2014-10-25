@@ -91,7 +91,8 @@
     "message": "Switchy"
   },
   "ruleListFormat_AutoProxy": {
-    "message": "AutoProxy"
+    "message": "AutoProxy",
+    "description": "The rule list format name of the AutoProxy project. This has nothing to do with SwitchProfile."
   },
 
   "dialog_close": {
@@ -333,6 +334,15 @@
   "options_group_pacScript": {
     "message": "PAC Script"
   },
+  "options_group_virtualProfile": {
+    "message": "Virtual Profile"
+  },
+  "options_virtualProfileTarget": {
+    "message": "Target"
+  },
+  "options_virtualProfileTargetHelp": {
+    "message": "When this profile is applied, it acts exactly the same as the profile selected below."
+  },
   "options_group_ruleListConfig": {
     "message": "Rule List Config"
   },
@@ -531,6 +541,12 @@
   },
   "options_profileDescRuleListProfile" : {
     "message": "Reusing an online collection of conditions published by others."
+  },
+  "options_profileTypeVirtualProfile" : {
+    "message": "Virtual Profile"
+  },
+  "options_profileDescVirtualProfile" : {
+    "message": "A virtual profile can act as any of the other profiles on demand. It works well with SwitchProfile, allowing you to change the result of multiple conditions by one click."
   },
   "options_createProfile" : {
     "message": "Create"

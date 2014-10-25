@@ -1,6 +1,7 @@
 orderForType =
   'FixedProfile': -2000
   'PacProfile': -1000
+  'VirtualProfile': 1000
   'SwitchProfile': 2000
   'RuleListProfile': 3000
 
@@ -10,6 +11,7 @@ angular.module('omegaDecoration', []).value('profileIcons', {
   'AutoDetectProfile': 'glyphicon-file'
   'FixedProfile': 'glyphicon-globe'
   'PacProfile': 'glyphicon-file'
+  'VirtualProfile': 'glyphicon-question-sign'
   'RuleListProfile': 'glyphicon-list'
   'SwitchProfile': 'glyphicon-retweet'
 }).constant('profileOrder', (a, b) ->
@@ -21,12 +23,15 @@ angular.module('omegaDecoration', []).value('profileIcons', {
     -1
   else
     1
-).directive('omegaRepeatDone', ($parse) ->
+).directive('omegaProfileIcon', (profileIcons) ->
   restrict: 'A'
-  link: (scope, element, attrs) ->
-    callback = $parse(attrs.omegaRepeatDone)
-    if scope.$last
-      scope.$evalAsync callback
+  templateUrl: 'partials/omega_profile_icon.html'
+  scope:
+    'profile': '=?omegaProfileIcon'
+    'icon': '=?icon'
+    'color': '=?color'
+  link: (scope, element, attrs, ngModel) ->
+    scope.profileIcons = profileIcons
 ).directive('omegaProfileSelect', ($timeout, profileIcons) ->
   restrict: 'A'
   templateUrl: 'partials/omega_profile_select.html'

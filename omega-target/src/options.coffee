@@ -280,16 +280,25 @@ class Options
     profile = if @_currentProfileName then @currentProfile() else null
     profiles = {}
     currentIncludable = profile && OmegaPac.Profiles.isIncludable(profile)
+    allReferenceSet = null
     if not profile or not OmegaPac.Profiles.isInclusive(profile)
       results = []
-    OmegaPac.Profiles.each @_options, (key, profile) ->
+    OmegaPac.Profiles.each @_options, (key, p) =>
       profiles[key] =
-        name: profile.name
-        profileType: profile.profileType
-        color: profile.color
-        builtin: !!profile.builtin
-      if currentIncludable and OmegaPac.Profiles.isIncludable(profile)
-        results?.push(profile.name)
+        name: p.name
+        profileType: p.profileType
+        color: p.color
+        builtin: if p.builtin then true
+      if p.virtualType
+        profiles[key].virtualType = p.virtualType
+        profiles[key].defaultProfileName = p.defaultProfileName
+        if not allReferenceSet?
+          allReferenceSet = OmegaPac.Profiles.allReferenceSet profile, @_options
+        if allReferenceSet[key]
+          profiles[key].validResultProfiles =
+            OmegaPac.Profiles.validResultProfilesFor(p, @_options)
+      if currentIncludable and OmegaPac.Profiles.isIncludable(p)
+        results?.push(p.name)
     if profile and OmegaPac.Profiles.isInclusive(profile)
       results = OmegaPac.Profiles.validResultProfilesFor(profile, @_options)
       results = results.map (profile) -> profile.name
@@ -505,7 +514,7 @@ class Options
   ###
   addTempRule: (domain, profileName) ->
     @log.method('Options#addTempRule', this, arguments)
-    return Profile.resolve() if not @_currentProfileName
+    return Promise.resolve() if not @_currentProfileName
     profile = OmegaPac.Profiles.byName(profileName, @_options)
     if not profile
       return Promise.reject new ProfileNotExistError(profileName)
@@ -566,16 +575,19 @@ class Options
   ###*
   # Add a condition to the current active switch profile.
   # @param {Object.<String,{}>} cond The condition to add
-  # @param {string>} profileName The name of the profile to add the rule to.
+  # @param {string>} profileName The name of the result profile of the rule.
   # @returns {Promise} A promise which is fulfilled when the condition is saved.
   ###
   addCondition: (condition, profileName) ->
     @log.method('Options#addCondition', this, arguments)
-    return Profile.resolve() if not @_currentProfileName
+    return Promise.resolve() if not @_currentProfileName
     profile = OmegaPac.Profiles.byName(@_currentProfileName, @_options)
     if not profile?.rules?
       return Promise.reject new Error(
         "Cannot add condition to Profile #{@profile.name} (@{profile.type})")
+    target = OmegaPac.Profiles.byName(profileName, @_options)
+    if not target?
+      return Promise.reject new ProfileNotExistError(profileName)
     # Try to remove rules with the same condition first.
     tag = OmegaPac.Conditions.tag(condition)
     for i in [0...profile.rules.length]
@@ -588,6 +600,33 @@ class Options
       condition: condition
       profileName: profileName
     })
+    OmegaPac.Profiles.updateRevision(profile)
+    changes = {}
+    changes[OmegaPac.Profiles.nameAsKey(profile)] = profile
+    @_setOptions(changes)
+
+  ###*
+  # Set the defaultProfileName of the profile.
+  # @param {string>} profileName The name of the profile to modify.
+  # @param {string>} defaultProfileName The defaultProfileName to set.
+  # @returns {Promise} A promise which is fulfilled when the profile is saved.
+  ###
+  setDefaultProfile: (profileName, defaultProfileName) ->
+    @log.method('Options#setDefaultProfile', this, arguments)
+    profile = OmegaPac.Profiles.byName(profileName, @_options)
+    if not profile?
+      return Promise.reject new ProfileNotExistError(profileName)
+    else if not profile.defaultProfileName?
+      return Promise.reject new Error("Profile #{@profile.name} " +
+        "(@{profile.type}) does not have defaultProfileName!")
+    target = OmegaPac.Profiles.byName(defaultProfileName, @_options)
+    if not target?
+      return Promise.reject new ProfileNotExistError(defaultProfileName)
+
+    profile.defaultProfileName = defaultProfileName
+    if profile.virtualType
+      profile.color = target.color
+      profile.virtualType = target.profileType
     OmegaPac.Profiles.updateRevision(profile)
     changes = {}
     changes[OmegaPac.Profiles.nameAsKey(profile)] = profile
@@ -616,7 +655,7 @@ class Options
   ###
   matchProfile: (request) ->
     if not @_currentProfileName
-      return Profile.resolve({profile: @_externalProfile, results: []})
+      return Promise.resolve({profile: @_externalProfile, results: []})
     results = []
     profile = @_tempProfile
     profile ?= OmegaPac.Profiles.byName(@_currentProfileName, @_options)

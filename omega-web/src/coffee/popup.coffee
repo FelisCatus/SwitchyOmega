@@ -28,7 +28,7 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
     if not normal and $scope.isEffective(profile.name)
       'glyphicon-ok'
     else
-      profileIcons[profile.profileType]
+      undefined
   $scope.openOptions = (hash) ->
     omegaTarget.openOptions(hash).then ->
       $window.close()
@@ -44,6 +44,10 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
   $scope.addTempRule = (domain, profileName) ->
     $scope.tempRuleMenu.open = false
     omegaTarget.addTempRule(domain, profileName).then ->
+      refresh()
+
+  $scope.setDefaultProfile = (profileName, defaultProfileName) ->
+    omegaTarget.setDefaultProfile(profileName, defaultProfileName).then ->
       refresh()
   
   $scope.addCondition = (condition, profileName) ->

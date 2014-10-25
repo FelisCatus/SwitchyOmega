@@ -5,6 +5,7 @@ angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
   profileTemplates =
     'FixedProfile': 'profile_fixed.html'
     'PacProfile': 'profile_pac.html'
+    'VirtualProfile': 'profile_virtual.html'
     'SwitchProfile': 'profile_switch.html'
     'RuleListProfile': 'profile_rule_list.html'
   $scope.spectrumOptions =
