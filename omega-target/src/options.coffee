@@ -297,6 +297,7 @@ class Options
         if allReferenceSet[key]
           profiles[key].validResultProfiles =
             OmegaPac.Profiles.validResultProfilesFor(p, @_options)
+              .map (result) -> result.name
       if currentIncludable and OmegaPac.Profiles.isIncludable(p)
         results?.push(p.name)
     if profile and OmegaPac.Profiles.isInclusive(profile)
@@ -329,7 +330,7 @@ class Options
     @_state.set({
       'currentProfileName': @_currentProfileName
       'isSystemProfile': @_isSystem
-      'currentProfileCanAddRule': profile.rules?
+      'currentProfileCanAddRule': profile.rules? and not profile.virtualType
     })
     @_setAvailableProfiles()
 

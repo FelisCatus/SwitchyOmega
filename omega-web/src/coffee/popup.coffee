@@ -75,27 +75,37 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
     proxyNotControllable]) ->
     $scope.proxyNotControllable = proxyNotControllable
     return if proxyNotControllable
-    $scope.builtinProfiles = []
-    $scope.customProfiles = []
     $scope.availableProfiles = availableProfiles
-    charCodeUnderscore = '_'.charCodeAt(0)
-    for own key, profile of availableProfiles
-      if profile.builtin
-        $scope.builtinProfiles.push(profile)
-      else if profile.name.charCodeAt(0) != charCodeUnderscore
-        $scope.customProfiles.push(profile)
-    $scope.customProfiles.sort(profileOrder)
     $scope.currentProfile = availableProfiles['+' + currentProfileName]
     $scope.currentProfileName = currentProfileName
     $scope.isSystemProfile = isSystemProfile
     $scope.externalProfile = externalProfile
     refreshOnProfileChange = refreshOnProfileChange
-    $scope.validResultProfiles = []
-    for name in validResultProfiles
-      shown = (name.charCodeAt(0) != charCodeUnderscore or
-               name.charCodeAt(1) != charCodeUnderscore)
-      if shown
-        $scope.validResultProfiles.push(availableProfiles['+' + name])
+
+    charCodeUnderscore = '_'.charCodeAt(0)
+    profilesByNames = (names) ->
+      profiles = []
+      for name in names
+        shown = (name.charCodeAt(0) != charCodeUnderscore or
+                 name.charCodeAt(1) != charCodeUnderscore)
+        if shown
+          profiles.push(availableProfiles['+' + name])
+      profiles
+
+    $scope.validResultProfiles = profilesByNames(validResultProfiles)
+
+    $scope.builtinProfiles = []
+    $scope.customProfiles = []
+    for own key, profile of availableProfiles
+      if profile.builtin
+        $scope.builtinProfiles.push(profile)
+      else if profile.name.charCodeAt(0) != charCodeUnderscore
+        $scope.customProfiles.push(profile)
+      if profile.validResultProfiles
+        profile.validResultProfiles =
+          profilesByNames(profile.validResultProfiles)
+
+    $scope.customProfiles.sort(profileOrder)
 
   omegaTarget.getActivePageInfo().then((info) ->
     if info
