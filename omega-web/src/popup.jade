@@ -122,8 +122,8 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           input.form-control.condition-details(type='text' required ng-model='rule.condition.pattern')
         div.form-group
           label {{'options_resultProfile' | tr}}
-          select.form-control(required ng-model="rule.profileName"
-            ng-options='profile.name as (profile.name | dispName) for profile in validResultProfiles')
+          div(omega-profile-select='validResultProfiles' ng-model='rule.profileName'
+            disp-name='$profile.name | dispName')
         div.condition-controls
           button.btn.btn-default(type='button' ng-click='showConditionForm = false')
             | {{'dialog_cancel' | tr}}

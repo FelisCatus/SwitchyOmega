@@ -1,14 +1,6 @@
-/* angular */
-
-.ng-hide {
-  display: none !important;
-}
+@import 'common.less';
 
 /* popup */
-
-.clear-padding {
-  padding: 0 !important;
-}
 
 body {
   margin: 0;
@@ -26,11 +18,6 @@ body.with-condition-form {
 .profile-inline {
   background-color: #eee;
   padding: 0 5px;
-}
-
-.virtual-profile-icon {
-  border: dotted 1px;
-  margin: -1px;
 }
 
 .nav {
@@ -88,7 +75,7 @@ li > a {
   box-shadow: none !important;
 }
 
-.dropdown-menu {
+li .dropdown-menu {
   position: static;
   top: initial;
   top: -moz-initial;
@@ -141,16 +128,6 @@ legend,
     padding: 0;
     height: 2em;
     width: ~"calc(100% - 1em - 8px)";
-  }
-}
-
-.form-control.ng-invalid {
-  border-color: #a94442;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-
-  &:hover {
-    border-color: #843534;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 6px #CE8483;
   }
 }
 

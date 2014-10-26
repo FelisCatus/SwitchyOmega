@@ -1,11 +1,4 @@
-/* angular */
-.ng-hide {
-  display: none !important;
-}
-
-a[role="button"] {
-  cursor: pointer;
-}
+@import 'common.less';
 
 .width-initial {
   width: auto !important;
@@ -37,10 +30,6 @@ a[role="button"] {
   min-width: 0 !important;
 }
 
-.clear-padding {
-  padding: 0 !important;
-}
-
 .align-initial {
   text-align: left;
   text-align: initial;
@@ -62,16 +51,6 @@ ul.list-style-none, li.list-style-none {
   }
   > h3 {
     margin-left: 0;
-  }
-}
-
-.form-control.ng-invalid {
-  border-color: #a94442;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-
-  &:hover {
-    border-color: #843534;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 6px #CE8483;
   }
 }
 
@@ -113,43 +92,6 @@ ul.list-style-none, li.list-style-none {
       min-width: 80%;
     }
   }
-}
-
-/* omega-profile-select */
-
-.omega-profile-select {
-  width: 100%;
-
-  .btn {
-    width: 100%;
-    display: block;
-    text-align: left;
-    text-align: initial;
-    position: relative;
-    padding-right: 25px;
-
-    .caret {
-      position: absolute;
-      top: 50%;
-      right: 12px;
-      margin-top: -2px;
-      vertical-align: middle;
-    }
-  }
-
-  .dropdown-menu {
-    width: 100%;
-    cursor: pointer;
-  }
-}
-
-.disabled .btn {
-  background-color: #ddd !important;
-  border-color: #ccc !important;
-  cursor: not-allowed !important;
-  pointer-events: none !important;
-  opacity: .65 !important;
-  box-shadow: none !important;
 }
 
 /* body */
