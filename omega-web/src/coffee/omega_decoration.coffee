@@ -23,40 +23,55 @@ angular.module('omegaDecoration', []).value('profileIcons', {
     -1
   else
     1
-).directive('omegaProfileIcon', (profileIcons) ->
+).constant('getVirtualTarget', (profile, options) ->
+  if profile?.profileType == 'VirtualProfile'
+    options?['+' + profile.defaultProfileName]
+).directive('omegaProfileIcon', (profileIcons, getVirtualTarget) ->
   restrict: 'A'
   template: '''
-    <span ng-style="{color: color || profile.color}"
-      ng-class="{'virtual-profile-icon': profile.virtualType}"
-      class="glyphicon {{getIcon(profile)}}">
+    <span ng-style="{color: color || getColor(profile)}"
+      ng-class="{'virtual-profile-icon': isVirtual(profile)}"
+      class="glyphicon {{icon || getIcon(profile)}}">
     </span>
     '''
   scope:
     'profile': '=?omegaProfileIcon'
     'icon': '=?icon'
     'color': '=?color'
+    'options': '=options'
   link: (scope, element, attrs, ngModel) ->
     scope.profileIcons = profileIcons
+    scope.isVirtual = (profile) ->
+      profile?.profileType == 'VirtualProfile'
     scope.getIcon = (profile) ->
-      (scope.icon || scope.profileIcons[profile.virtualType] ||
-      profileIcons[profile.profileType])
+      type = profile?.profileType
+      type = getVirtualTarget(profile, scope.options)?.profileType ? type
+      profileIcons[type]
+    scope.getColor = (profile) ->
+      color = undefined
+      while profile
+        color = profile.color
+        profile = getVirtualTarget(profile, scope.options)
+      color
 ).directive('omegaProfileInline', ->
   restrict: 'A'
   template: '''
-    <span omega-profile-icon="profile"></span>
+    <span omega-profile-icon="profile" options="options"></span>
     {{dispName ? dispName(profile) : profile.name}}
     '''
   scope:
     'profile': '=omegaProfileInline'
     'dispName': '=?dispName'
+    'options': '=options'
 ).directive('omegaHtml', ($compile) ->
   restrict: 'A'
   link: (scope, element, attrs, ngModel) ->
     locals =
-      $profile: (profile = 'profile', dispName = 'dispNameFilter') ->
+      $profile: (profile = 'profile', dispName = 'dispNameFilter',
+        options = 'options') ->
         """
         <span class="profile-inline" omega-profile-inline="#{profile}"
-          disp-name="#{dispName}"></span>
+          disp-name="#{dispName}" options="#{options}"></span>
         """
     getHtml = -> scope.$eval(attrs.omegaHtml, locals)
     scope.$watch getHtml, (html) ->
@@ -70,6 +85,7 @@ angular.module('omegaDecoration', []).value('profileIcons', {
     'profiles': '&omegaProfileSelect'
     'defaultText': '@?defaultText'
     'dispName': '=?dispName'
+    'options': '=options'
   link: (scope, element, attrs, ngModel) ->
     scope.profileIcons = profileIcons
     scope.currentProfiles = []

@@ -118,7 +118,8 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
       scope = $scope.$new('isolate')
       scope.rule = $scope.profile.rules[index]
       scope.ruleProfile = $scope.profileByName(scope.rule.profileName)
-      scope.profileIcons = $scope.profileIcons
+      scope.dispNameFilter = $scope.dispNameFilter
+      scope.options = $scope.options
       $modal.open(
         templateUrl: 'partials/rule_remove_confirm.html'
         scope: scope
@@ -128,14 +129,15 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
 
   $scope.resetRules = ->
     scope = $scope.$new('isolate')
-    scope.ruleProfile = $scope.profileByName($scope.profile.defaultProfileName)
-    scope.profileIcons = $scope.profileIcons
+    scope.ruleProfile = $scope.profileByName($scope.defaultProfileName)
+    scope.dispNameFilter = $scope.dispNameFilter
+    scope.options = $scope.options
     $modal.open(
       templateUrl: 'partials/rule_reset_confirm.html'
       scope: scope
     ).result.then ->
       for rule in $scope.profile.rules
-        rule.profileName = $scope.profile.defaultProfileName
+        rule.profileName = $scope.defaultProfileName
 
   $scope.sortableOptions =
     handle: '.sort-bar'
@@ -202,7 +204,8 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
     return unless $scope.attached
     scope = $scope.$new('isolate')
     scope.attached = $scope.attached
-    scope.profileIcons = profileIcons
+    scope.dispNameFilter = $scope.dispNameFilter
+    scope.options = $scope.options
     $modal.open(
       templateUrl: 'partials/delete_attached.html'
       scope: scope

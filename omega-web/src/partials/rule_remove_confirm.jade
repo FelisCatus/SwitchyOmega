@@ -10,9 +10,7 @@
     = ' '
     | {{rule.condition.pattern}}
     span.pull-right
-      span(omega-profile-icon='ruleProfile')
-      = ' '
-      | {{ruleProfile.name | dispName}}
+      span(omega-profile-inline='ruleProfile' disp-name='dispNameFilter' options='options')
 .modal-footer
   button.btn.btn-default(ng-click='$dismiss()') {{'dialog_cancel' | tr}}
   button.btn.btn-danger(type='button' ng-click='$close("ok")') {{'options_deleteRule' | tr}}

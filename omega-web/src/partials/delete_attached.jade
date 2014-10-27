@@ -6,7 +6,7 @@
 .modal-body
   p {{'options_deleteAttachedConfirm' | tr}}
   .well
-    span(omega-profile-icon='attached')
+    span(omega-profile-icon='attached' options='options')
     = ' '
     | {{attached.sourceUrl || ('options_ruleListLineCount' | tr:[attached.ruleList.split('\n').length])}}
 .modal-footer

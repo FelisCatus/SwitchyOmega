@@ -6,9 +6,7 @@
 .modal-body
   p {{'options_deleteProfileConfirm' | tr}}
   .well
-    span(omega-profile-icon='profile')
-    = ' '
-    | {{profile.name}}
+    span(omega-profile-inline='profile' options='options' disp-name='dispNameFilter')
 .modal-footer
   button.btn.btn-default(ng-click='$dismiss()') {{'dialog_cancel' | tr}}
   button.btn.btn-danger(type='button' ng-click='$close("ok")') {{'options_deleteProfile' | tr}}

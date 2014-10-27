@@ -103,6 +103,8 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
       conflict: '!$value || !profileByName($value)'
       reserved: '!$value || !isProfileNameReserved($value)'
     scope.profileIcons = profileIcons
+    scope.dispNameFilter = dispNameFilter
+    scope.options = $scope.options
     $modal.open(
       templateUrl: 'partials/new_profile.html'
       scope: scope
@@ -122,10 +124,11 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
       scope.toName = toName
       scope.profileByName = $rootScope.profileByName
       scope.dispNameFilter = dispNameFilter
+      scope.options = $scope.options
       scope.profileSelect = (model) ->
         """
         <div omega-profile-select="options | profiles:profile"
-          ng-model="#{model}"
+          ng-model="#{model}" options="options"
           disp-name="dispNameFilter" style="display: inline-block;">
         </div>
         """
@@ -157,7 +160,8 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
       scope.validateProfileName =
         conflict: '!$value || $value == fromName || !profileByName($value)'
         reserved: '!$value || !isProfileNameReserved($value)'
-      scope.profileIcons = profileIcons
+      scope.dispNameFilter = $scope.dispNameFilter
+      scope.options = $scope.options
       $modal.open(
         templateUrl: 'partials/rename_profile.html'
         scope: scope

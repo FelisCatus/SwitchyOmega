@@ -1,6 +1,6 @@
 angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
   $location, $rootScope, $timeout, $state, $modal, profileColorPalette,
-  getAttachedName, getParentName) ->
+  getAttachedName, getParentName, getVirtualTarget) ->
   name = $stateParams.name
   profileTemplates =
     'FixedProfile': 'profile_fixed.html'
@@ -18,13 +18,22 @@ angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
     showPalette: true
     showSelectionPalette: true
 
+  $scope.getProfileColor = ->
+    color = undefined
+    profile = $scope.profile
+    while profile
+      color = profile.color
+      profile = getVirtualTarget(profile, $scope.options)
+    color
+
   $scope.deleteProfile = ->
     profileName = $scope.profile.name
     refs = OmegaPac.Profiles.referencedBySet(profileName, $rootScope.options)
 
     scope = $rootScope.$new('isolate')
     scope.profile = $scope.profile
-    scope.profileIcons = $scope.profileIcons
+    scope.dispNameFilter = $scope.dispNameFilter
+    scope.options = $scope.options
 
     if Object.keys(refs).length > 0
       refSet = {}
@@ -94,15 +103,4 @@ angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
           revisionChanged = true
       $scope.$watch expression, onChange, true
 
-    onProfileChange = (profile, oldProfile) ->
-      return if profile == oldProfile
-      if profile.virtualType
-        target = $scope.profileByName(profile.defaultProfileName)
-        profile.color = target.color
-        profile.virtualType = target.profileType
-      OmegaPac.Profiles.each $scope.options, (key, p) ->
-        if p.virtualType and p.defaultProfileName == profile.name
-          onProfileChange(p, null)
-
     $scope.watchAndUpdateRevision 'profile'
-    $scope.$watch 'profile', onProfileChange, true

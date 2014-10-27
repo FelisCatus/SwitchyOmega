@@ -15,6 +15,9 @@
       = ' '
       | {{'options_deleteProfile' | tr}}
   span.profile-color-editor
-    x-spectrum-colorpicker(ng-model='profile.color' options='spectrumOptions')
+    .profile-color-editor-fake(ng-if='profile.profileType == "VirtualProfile"'
+      ng-style="{'background-color': getProfileColor()}")
+    x-spectrum-colorpicker(ng-model='profile.color' options='spectrumOptions'
+      ng-if='profile.profileType != "VirtualProfile"')
   h2.profile-name {{'options_profileTabPrefix' | tr}}{{profile.name}}
 div(ng-include='profileTemplate')

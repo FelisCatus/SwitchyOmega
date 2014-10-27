@@ -299,11 +299,6 @@ module.exports = exports =
       create: (profile) ->
         profile.defaultProfileName ?= 'direct'
         profile.rules ?= []
-        if profile.profileType == 'VirtualProfile' and not profile.virtualType?
-          target = exports.byName(profile.defaultProfileName, {})
-          if target
-            profile.virtualType = target.profileType
-            profile.color = target.color
       directReferenceSet: (profile) ->
         refs = {}
         refs[exports.nameAsKey(profile.defaultProfileName)] =

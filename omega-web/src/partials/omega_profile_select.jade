@@ -1,7 +1,7 @@
 .btn-group.omega-profile-select(dropdown on-toggle="toggled(open)")
   button.btn.btn-default.dropdown-toggle(type='button' aria-expanded='false'
     role='listbox' aria-haspopup='true')
-    span(omega-profile-icon='selectedProfile' icon='selectedProfile ? undefined : "glyphicon-time"')
+    span(omega-profile-icon='selectedProfile' options='options' icon='selectedProfile ? undefined : "glyphicon-time"')
     = ' '
     span(ng-show='!!profileName') {{getName(selectedProfile)}}
     span(ng-show='!profileName') {{defaultText}}
@@ -14,5 +14,5 @@
         = ' {{defaultText}}'
     li(role='option' ng-repeat='profile in dispProfiles' ng-class='{active: profileName == profile.name}')
       a(ng-click='setProfileName(profile.name)')
-        span(omega-profile-icon='profile')
+        span(omega-profile-icon='profile' options='options')
         = ' {{getName(profile)}}'

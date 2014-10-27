@@ -30,9 +30,7 @@ html(lang='en' ng-controller='MasterCtrl' ng-csp)
           li.nav-header {{'options_navHeader_profiles' | tr}}
           li(ng-repeat='profile in options | profiles:"sorted"' ui-sref-active='active')
             a(ui-sref='profile({name: profile.name})')
-              span(omega-profile-icon='profile')
-              = ' '
-              | {{profile.name}}
+              span(omega-profile-inline='profile' options='options')
           li
             a(role='button' ng-click='newProfile()')
               span.glyphicon.glyphicon-plus

@@ -289,8 +289,7 @@ class Options
         profileType: p.profileType
         color: p.color
         builtin: if p.builtin then true
-      if p.virtualType
-        profiles[key].virtualType = p.virtualType
+      if p.profileType == 'VirtualProfile'
         profiles[key].defaultProfileName = p.defaultProfileName
         if not allReferenceSet?
           allReferenceSet = OmegaPac.Profiles.allReferenceSet profile, @_options
@@ -330,7 +329,8 @@ class Options
     @_state.set({
       'currentProfileName': @_currentProfileName
       'isSystemProfile': @_isSystem
-      'currentProfileCanAddRule': profile.rules? and not profile.virtualType
+      'currentProfileCanAddRule':
+        profile.rules? and profile.profileType != 'VirtualProfile'
     })
     @_setAvailableProfiles()
 
@@ -656,9 +656,6 @@ class Options
       return Promise.reject new ProfileNotExistError(defaultProfileName)
 
     profile.defaultProfileName = defaultProfileName
-    if profile.virtualType
-      profile.color = target.color
-      profile.virtualType = target.profileType
     OmegaPac.Profiles.updateRevision(profile)
     changes = {}
     changes[OmegaPac.Profiles.nameAsKey(profile)] = profile
