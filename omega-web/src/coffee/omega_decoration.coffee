@@ -25,13 +25,43 @@ angular.module('omegaDecoration', []).value('profileIcons', {
     1
 ).directive('omegaProfileIcon', (profileIcons) ->
   restrict: 'A'
-  templateUrl: 'partials/omega_profile_icon.html'
+  template: '''
+    <span ng-style="{color: color || profile.color}"
+      ng-class="{'virtual-profile-icon': profile.virtualType}"
+      class="glyphicon {{getIcon(profile)}}">
+    </span>
+    '''
   scope:
     'profile': '=?omegaProfileIcon'
     'icon': '=?icon'
     'color': '=?color'
   link: (scope, element, attrs, ngModel) ->
     scope.profileIcons = profileIcons
+    scope.getIcon = (profile) ->
+      (scope.icon || scope.profileIcons[profile.virtualType] ||
+      profileIcons[profile.profileType])
+).directive('omegaProfileInline', ->
+  restrict: 'A'
+  template: '''
+    <span omega-profile-icon="profile"></span>
+    {{dispName ? dispName(profile) : profile.name}}
+    '''
+  scope:
+    'profile': '=omegaProfileInline'
+    'dispName': '=?dispName'
+).directive('omegaHtml', ($compile) ->
+  restrict: 'A'
+  link: (scope, element, attrs, ngModel) ->
+    locals =
+      $profile: (profile = 'profile', dispName = 'dispNameFilter') ->
+        """
+        <span class="profile-inline" omega-profile-inline="#{profile}"
+          disp-name="#{dispName}"></span>
+        """
+    getHtml = -> scope.$eval(attrs.omegaHtml, locals)
+    scope.$watch getHtml, (html) ->
+      element.html(html)
+      $compile(element.contents())(scope)
 ).directive('omegaProfileSelect', ($timeout, profileIcons) ->
   restrict: 'A'
   templateUrl: 'partials/omega_profile_select.html'
@@ -39,7 +69,7 @@ angular.module('omegaDecoration', []).value('profileIcons', {
   scope:
     'profiles': '&omegaProfileSelect'
     'defaultText': '@?defaultText'
-    'dispName': '&?dispName'
+    'dispName': '=?dispName'
   link: (scope, element, attrs, ngModel) ->
     scope.profileIcons = profileIcons
     scope.currentProfiles = []
@@ -75,5 +105,5 @@ angular.module('omegaDecoration', []).value('profileIcons', {
 
     scope.getName = (profile) ->
       if profile
-        scope.dispName?({$profile: profile}) || profile?.name
+        scope.dispName(profile) || profile.name
 )

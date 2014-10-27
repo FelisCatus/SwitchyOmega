@@ -1,0 +1,17 @@
+.modal-header
+  button.close(type='button' ng-click='$dismiss()')
+    span(aria-hidden='true') ×
+    span.sr-only {{'dialog_close' | tr}}
+  h4.modal-title {{'options_modalHeader_replaceProfile' | tr}}
+.modal-body
+  p(omega-html='"options_replaceProfileConfirm" | tr:[profileSelect("fromName"), profileSelect("toName")]')
+  .well
+    span(omega-profile-inline='profileByName(fromName)')
+    = ' '
+    span.glyphicon.glyphicon-chevron-right
+    = ' '
+    span(omega-profile-inline='profileByName(toName)')
+  .help-block(omega-html="'options_replaceProfileHelp' | tr:[$profile('profileByName(fromName)'), $profile('profileByName(toName)')]")
+.modal-footer
+  button.btn.btn-default(ng-click='$dismiss()') {{'dialog_cancel' | tr}}
+  button.btn.btn-warning(type='button' ng-click='$close({fromName: fromName, toName: toName})') {{'options_replaceProfile' | tr}}

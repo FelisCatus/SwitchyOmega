@@ -334,14 +334,35 @@
   "options_group_pacScript": {
     "message": "PAC 腳本"
   },
+  "options_group_virtualProfile": {
+    "message": "虛情景模式"
+  },
+  "options_virtualProfileTarget": {
+    "message": "目標"
+  },
+  "options_virtualProfileTargetHelp": {
+    "message": "當使用此情景模式時，相當於使用了以下情景模式："
+  },
+  "options_group_virtualProfileReplace": {
+    "message": "遷移到虛情景模式"
+  },
+  "options_virtualProfileReplace": {
+    "message": "取代目標情景模式"
+  },
+  "options_virtualProfileReplaceHelp": {
+    "message": "通過此功能可以更改現有的選項，使用此虛情景模式來取代 $PROFILE$ 。此功能會把所有和 $PROFILE$ 相關的切換規則改為使用此虛情景模式。這樣一來，就可以通過此虛情景模式來控制那些切換條件對應的結果。",
+    "placeholders": {
+      "PROFILE": {
+        "content": "$1",
+        "example": "direct"
+      }
+    }
+  },
   "options_group_ruleListConfig": {
     "message": "規則列表設置"
   },
   "options_ruleListFormat": {
     "message": "規則列表格式"
-  },
-  "options_virtualProfileTargetHelp": {
-    "message": "當使用此情景模式時，相當於使用了以下情景模式："
   },
   "options_group_ruleListResult": {
     "message": "規則列表結果情景模式"
@@ -438,6 +459,38 @@
   },
   "options_profileNameHidden": {
     "message": "以下劃線開頭的情景模式不會在彈出菜單中顯示，但仍可被用作切換的結果等。"
+  },
+  "options_modalHeader_replaceProfile": {
+    "message": "替換情景模式"
+  },
+  "options_replaceProfile": {
+    "message": "替換"
+  },
+  "options_replaceProfileConfirm": {
+    "message": "您確定要使用 $ToProfile 來代替 $FromProfile$ 嗎?",
+    "placeholders": {
+      "FromProfile": {
+        "content": "$1",
+        "example": "autoswitch"
+      },
+      "ToProfile": {
+        "content": "$2",
+        "example": "direct"
+      }
+    }
+  },
+  "options_replaceProfileHelp": {
+    "message": "如果繼續操作，則和 $FromProfile$ 有關的切換規則將改為使用 $ToProfile$ 來代替。此外，啟動情景模式、快速切換等設定也會做相應調整。但請注意，此操作不影響這兩個情景模式本身。",
+    "placeholders": {
+      "FromProfile": {
+        "content": "$1",
+        "example": "autoswitch"
+      },
+      "ToProfile": {
+        "content": "$2",
+        "example": "direct"
+      }
+    }
   },
   "options_modalHeader_deleteProfile": {
     "message": "刪除情景模式"

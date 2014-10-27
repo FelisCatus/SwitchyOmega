@@ -154,11 +154,7 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
   $scope.$watch 'options[attachedKey]', (attached) ->
     $scope.attached = attached
 
-  onAttachedChange = (profile, oldProfile) ->
-    return profile if profile == oldProfile or not profile or not oldProfile
-    OmegaPac.Profiles.updateRevision(profile)
-    return profile
-  $scope.omegaWatchAndChange 'options[attachedKey]', onAttachedChange, true
+  $scope.watchAndUpdateRevision 'options[attachedKey]'
 
   $scope.attachedOptions = {enabled: false}
   $scope.$watch 'profile.defaultProfileName', (name) ->

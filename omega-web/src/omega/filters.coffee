@@ -23,4 +23,7 @@ angular.module('omega').filter 'profiles', (builtinProfiles, profileOrder,
 
 angular.module('omega').filter 'tr', (omegaTarget) -> omegaTarget.getMessage
 angular.module('omega').filter 'dispName', (omegaTarget) ->
-  (name) -> omegaTarget.getMessage('profile_' + name) || name
+  (name) ->
+    if typeof name == 'object'
+      name = name.name
+    omegaTarget.getMessage('profile_' + name) || name

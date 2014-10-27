@@ -58,6 +58,8 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
         return args
     renameProfile: (fromName, toName) ->
       callBackground('renameProfile', fromName, toName).then omegaTarget.refresh
+    replaceRef: (fromName, toName) ->
+      callBackground('replaceRef', fromName, toName).then omegaTarget.refresh
     optionsPatch: (patch) ->
       callBackground('patch', patch).then omegaTarget.refresh
     resetOptions: (opt) ->

@@ -1,4 +1,4 @@
-div(ng-controller='VirtualProfileCtrl')
+div
   section.settings-group
     h3 {{'options_group_virtualProfile' | tr}}
     p.help-block
@@ -7,4 +7,12 @@ div(ng-controller='VirtualProfileCtrl')
       label {{'options_virtualProfileTarget' | tr}}
       = ' '
       div(omega-profile-select='options | profiles:profile' ng-model='profile.defaultProfileName'
-        disp-name='$profile.name | dispName' style='display: inline-block;')
+        disp-name='dispNameFilter' style='display: inline-block;')
+  section.settings-group
+    h3 {{'options_group_virtualProfileReplace' | tr}}
+    p.help-block(omega-html='"options_virtualProfileReplaceHelp" | tr:[$profile("profileByName(profile.defaultProfileName)")]')
+    .form-group
+      button.btn.btn-default(ng-click='replaceProfile(profile.defaultProfileName, profile.name)')
+        span.glyphicon.glyphicon-search
+        = ' '
+        | {{'options_virtualProfileReplace' | tr}}

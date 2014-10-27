@@ -16,7 +16,7 @@ section.settings-group
     label {{'options_startupProfile' | tr}}
     = ' '
     div(omega-profile-select='options | profiles:"all"' ng-model='options["-startupProfileName"]'
-      default-text="{{'options_startupProfile_none' | tr}}" disp-name='$profile.name | dispName'
+      default-text="{{'options_startupProfile_none' | tr}}" disp-name='dispNameFilter'
       style='display: inline-block;')
   div.checkbox
     label

@@ -5,12 +5,12 @@ div(ng-controller='RuleListProfileCtrl')
       label {{'options_ruleListMatchProfile' | tr}}
       = ' '
       div(omega-profile-select='options | profiles:profile' ng-model='profile.matchProfileName'
-        disp-name='$profile.name | dispName' style='display: inline-block;')
+        disp-name='dispNameFilter' style='display: inline-block;')
     .form-group
       label {{'options_ruleListDefaultProfile' | tr}}
       = ' '
       div(omega-profile-select='options | profiles:profile' ng-model='profile.defaultProfileName'
-        disp-name='$profile.name | dispName' style='display: inline-block;')
+        disp-name='dispNameFilter' style='display: inline-block;')
     form.form-group
       label {{'options_ruleListFormat' | tr}}
       .radio.inline-form-control.no-min-width(ng-repeat='format in ruleListFormats')

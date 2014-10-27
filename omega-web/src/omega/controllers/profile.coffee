@@ -1,6 +1,6 @@
 angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
-  $location, $rootScope, $state, $modal, profileColorPalette, getAttachedName,
-  getParentName) ->
+  $location, $rootScope, $timeout, $state, $modal, profileColorPalette,
+  getAttachedName, getParentName) ->
   name = $stateParams.name
   profileTemplates =
     'FixedProfile': 'profile_fixed.html'
@@ -83,9 +83,26 @@ angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
     $scope.profileTemplate = 'partials/' + templ
     $scope.scriptable = true
 
-    onProfileChange = (profile, oldProfile) ->
-      return profile if profile == oldProfile
-      OmegaPac.Profiles.updateRevision(profile)
-      return profile
+    $scope.watchAndUpdateRevision = (expression) ->
+      revisionChanged = false
+      onChange = (profile, oldProfile) ->
+        return profile if profile == oldProfile or not profile or not oldProfile
+        if revisionChanged and profile.revision != oldProfile.revision
+          revisionChanged = false
+        else
+          OmegaPac.Profiles.updateRevision(profile)
+          revisionChanged = true
+      $scope.$watch expression, onChange, true
 
-    $scope.omegaWatchAndChange 'profile', onProfileChange, true
+    onProfileChange = (profile, oldProfile) ->
+      return if profile == oldProfile
+      if profile.virtualType
+        target = $scope.profileByName(profile.defaultProfileName)
+        profile.color = target.color
+        profile.virtualType = target.profileType
+      OmegaPac.Profiles.each $scope.options, (key, p) ->
+        if p.virtualType and p.defaultProfileName == profile.name
+          onProfileChange(p, null)
+
+    $scope.watchAndUpdateRevision 'profile'
+    $scope.$watch 'profile', onProfileChange, true

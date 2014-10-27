@@ -1,23 +1,9 @@
 angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   $modal, $state, builtinProfiles, profileColors, profileIcons, omegaTarget, $q,
   $timeout, $location, $filter, getAttachedName, isProfileNameReserved,
-  isProfileNameHidden) ->
+  isProfileNameHidden, dispNameFilter) ->
 
   tr = $filter('tr')
-
-  # This method allows watchers to change the value without recursively firing
-  # itself. Usage: $scope.omegaWatchAndChange
-  # coffeelint: disable=missing_fat_arrows
-  $rootScope.omegaWatchAndChange = (expression, listener, objectEquality) ->
-    scope = this
-    # coffeelint: enable=missing_fat_arrows
-    handler = (newValue, oldValue) ->
-      modified = listener(newValue, oldValue)
-      return if newValue == oldValue and newValue == modified
-      for watcher in scope.$$watchers
-        if watcher.exp == expression
-          watcher.last = modified
-    return scope.$watch(expression, handler, objectEquality)
 
   $rootScope.options = null
 
@@ -128,6 +114,37 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
       $rootScope.options[OmegaPac.Profiles.nameAsKey(profile)] = profile
       $state.go('profile', {name: profile.name})
 
+  $rootScope.replaceProfile = (fromName, toName) ->
+    $rootScope.applyOptionsConfirm().then ->
+      scope = $rootScope.$new('isolate')
+      scope.options = $rootScope.options
+      scope.fromName = fromName
+      scope.toName = toName
+      scope.profileByName = $rootScope.profileByName
+      scope.dispNameFilter = dispNameFilter
+      scope.profileSelect = (model) ->
+        """
+        <div omega-profile-select="options | profiles:profile"
+          ng-model="#{model}"
+          disp-name="dispNameFilter" style="display: inline-block;">
+        </div>
+        """
+      $modal.open(
+        templateUrl: 'partials/replace_profile.html'
+        scope: scope
+      ).result.then ({fromName, toName}) ->
+        omegaTarget.replaceRef(fromName, toName).then(->
+          $rootScope.showAlert(
+            type: 'success'
+            i18n: 'options_replaceProfileSuccess'
+          )
+        ).catch (err) ->
+          $rootScope.showAlert(
+            type: 'error'
+            message: err
+          )
+
+
   $rootScope.renameProfile = (fromName) ->
     $rootScope.applyOptionsConfirm().then ->
       profile = $rootScope.profileByName(fromName)
@@ -228,6 +245,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   ), false
 
   $scope.profileIcons = profileIcons
+  $scope.dispNameFilter = dispNameFilter
 
   for own type of OmegaPac.Profiles.formatByType
     $scope.profileIcons[type] = $scope.profileIcons['RuleListProfile']

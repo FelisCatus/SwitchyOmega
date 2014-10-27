@@ -462,25 +462,11 @@ class Options
   fetchUrl: (url, opt_bypass_cache) ->
     Promise.reject new Error('not implemented')
 
-  ###*
-  # Rename a profile and update references and options
-  # @param {String} fromName The original profile name
-  # @param {String} toname The target profile name
-  # @returns {Promise<OmegaOptions>} The updated options
-  ###
-  renameProfile: (fromName, toName) ->
-    @log.method('Options#renameProfile', this, arguments)
-    if OmegaPac.Profiles.byName(toName, @_options)
-      return Promise.reject new Error("Target name #{name} already taken!")
-    profile = OmegaPac.Profiles.byName(fromName, @_options)
-    if not profile
-      return Promise.reject new ProfileNotExistError(name)
-
-    profile.name = toName
-    changes = {}
-    changes[OmegaPac.Profiles.nameAsKey(profile)] = profile
+  _replaceRefChanges: (fromName, toName, changes) ->
+    changes ?= {}
 
     OmegaPac.Profiles.each @_options, (key, p) ->
+      return if p.name == fromName or p.name == toName
       if OmegaPac.Profiles.replaceRef(p, fromName, toName)
         OmegaPac.Profiles.updateRevision(p)
         changes[OmegaPac.Profiles.nameAsKey(p)] = p
@@ -493,6 +479,51 @@ class Options
         quickSwitch[i] = toName
         changes['-quickSwitchProfiles'] = quickSwitch
 
+    return changes
+
+  ###*
+  # Replace all references of profile fromName to toName.
+  # @param {String} fromName The original profile name
+  # @param {String} toname The target profile name
+  # @returns {Promise<OmegaOptions>} The updated options
+  ###
+  replaceRef: (fromName, toName) ->
+    @log.method('Options#replaceRef', this, arguments)
+    profile = OmegaPac.Profiles.byName(fromName, @_options)
+    if not profile
+      return Promise.reject new ProfileNotExistError(fromName)
+
+    changes = @_replaceRefChanges(fromName, toName)
+    for own key, value of changes
+      @_options[key] = value
+
+    fromKey = OmegaPac.Profiles.nameAsKey(fromName)
+    if @_watchingProfiles[fromKey]
+      if @_currentProfileName == fromName
+        @_currentProfileName = toName
+      @applyProfile(@_currentProfileName)
+
+    @_setOptions(changes)
+
+  ###*
+  # Rename a profile and update references and options
+  # @param {String} fromName The original profile name
+  # @param {String} toname The target profile name
+  # @returns {Promise<OmegaOptions>} The updated options
+  ###
+  renameProfile: (fromName, toName) ->
+    @log.method('Options#renameProfile', this, arguments)
+    if OmegaPac.Profiles.byName(toName, @_options)
+      return Promise.reject new Error("Target name #{name} already taken!")
+    profile = OmegaPac.Profiles.byName(fromName, @_options)
+    if not profile
+      return Promise.reject new ProfileNotExistError(fromName)
+
+    profile.name = toName
+    changes = {}
+    changes[OmegaPac.Profiles.nameAsKey(profile)] = profile
+
+    @_replaceRefChanges(fromName, toName, changes)
     for own key, value of changes
       @_options[key] = value
 

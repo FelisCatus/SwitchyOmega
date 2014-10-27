@@ -3,10 +3,13 @@ module = angular.module('omegaPopup', ['omegaTarget', 'omegaDecoration',
 
 module.filter 'tr', (omegaTarget) -> omegaTarget.getMessage
 module.filter 'dispName', (omegaTarget) ->
-  (name) -> omegaTarget.getMessage('profile_' + name) || name
+  (name) ->
+    if typeof name == 'object'
+      name = name.name
+    omegaTarget.getMessage('profile_' + name) || name
 
 module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
-  profileIcons, profileOrder) ->
+  profileIcons, profileOrder, dispNameFilter) ->
 
   refreshOnProfileChange = false
   refresh = ->
@@ -16,6 +19,7 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
     else
       $window.close()
   $scope.profileIcons = profileIcons
+  $scope.dispNameFilter = dispNameFilter
   $scope.isActive = (profileName) ->
     if $scope.isSystemProfile
       profileName == 'system'

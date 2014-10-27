@@ -123,7 +123,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
         div.form-group
           label {{'options_resultProfile' | tr}}
           div(omega-profile-select='validResultProfiles' ng-model='rule.profileName'
-            disp-name='$profile.name | dispName')
+            disp-name='dispNameFilter')
         div.condition-controls
           button.btn.btn-default(type='button' ng-click='showConditionForm = false')
             | {{'dialog_cancel' | tr}}

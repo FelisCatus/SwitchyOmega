@@ -343,6 +343,21 @@
   "options_virtualProfileTargetHelp": {
     "message": "When this profile is applied, it acts exactly the same as the profile selected below."
   },
+  "options_group_virtualProfileReplace": {
+    "message": "Migrate to Virtual Profile"
+  },
+  "options_virtualProfileReplace": {
+    "message": "Replace target profile"
+  },
+  "options_virtualProfileReplaceHelp": {
+    "message": "You can migrate existing options to use this virtual profile instead of $PROFILE$. Doing so will update all existing rules concerning $PROFILE$ and point them to this virtual profile, so that their result profile can be controlled here.",
+    "placeholders": {
+      "PROFILE": {
+        "content": "$1",
+        "example": "direct"
+      }
+    }
+  },
   "options_group_ruleListConfig": {
     "message": "Rule List Config"
   },
@@ -444,6 +459,41 @@
   },
   "options_profileNameHidden": {
     "message": "Profiles with names starting with underscore will be hidden on the popup menu. However, they can still be used in places like switch profile results."
+  },
+  "options_modalHeader_replaceProfile": {
+    "message": "Replace Profile"
+  },
+  "options_replaceProfile": {
+    "message": "Replace Profile"
+  },
+  "options_replaceProfileConfirm": {
+    "message": "Do you really want to replace $FromProfile$ with $ToProfile$?",
+    "placeholders": {
+      "FromProfile": {
+        "content": "$1",
+        "example": "autoswitch"
+      },
+      "ToProfile": {
+        "content": "$2",
+        "example": "direct"
+      }
+    }
+  },
+  "options_replaceProfileHelp": {
+    "message": "If you proceed, all rules pointing to $FromProfile$ will be updated to use $ToProfile$ instead. Other options, such as startup profile and Quick Switch will also be modified as appropriate. However, the two profile themselves will NOT be changed or deleted.",
+    "placeholders": {
+      "FromProfile": {
+        "content": "$1",
+        "example": "autoswitch"
+      },
+      "ToProfile": {
+        "content": "$2",
+        "example": "direct"
+      }
+    }
+  },
+  "options_replaceProfileSuccess": {
+    "message": "Options updated."
   },
   "options_modalHeader_deleteProfile": {
     "message": "Delete Profile"
