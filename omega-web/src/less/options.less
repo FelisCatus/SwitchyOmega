@@ -113,6 +113,15 @@ h1 {
     height: auto;
     height: initial;
   }
+
+  .nav-pills {
+    > li > a {
+      padding: 8px 15px;
+      @media (max-height: 767px) {
+        padding: 5px 15px;
+      }
+    }
+  }
 }
 
 main {
