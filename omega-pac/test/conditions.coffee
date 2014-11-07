@@ -167,12 +167,12 @@ describe 'Conditions', ->
       testCond(cond, 'http://127.0.0.1:8080/', 'match')
       testCond(cond, 'http://127.0.0.2:8080/', not 'match')
     # TODO(felis): Not yet supported. See the code for BypassCondition.
-    it.skip 'should correctly support IPv6 canonicalization', ->
+    it 'should correctly support IPv6 canonicalization', ->
       cond =
         conditionType: 'BypassCondition'
         pattern: 'http://[0:0::1]:8080'
-      Conditions.analyze(cond)
-      cond._analyzed().url.should.equal '999'
+      result = Conditions.analyze(cond)
+      console.log(result.analyzed)
       testCond(cond, 'http://[::1]:8080/', 'match')
       testCond(cond, 'http://[1::1]:8080/', not 'match')
 

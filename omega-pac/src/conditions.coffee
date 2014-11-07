@@ -143,6 +143,7 @@ module.exports = exports =
     return addr
   normalizeIp: (addr) ->
     return (addr.correctForm ? addr.canonicalForm).call(addr)
+  ipv6Max: new IP.v6.Address('::/0').endAddress().canonicalForm()
 
   localHosts: ["127.0.0.1", "[::1]", "localhost"]
 
@@ -247,43 +248,46 @@ module.exports = exports =
 
         parts = server.split '/'
         if parts.length > 1
-          cache.ip =
-            conditionType: 'IpCondition'
-            ip: parts[0]
-            prefixLength: parseInt parts[1]
-        else
-          if server.charCodeAt(server.length - 1) != ']'.charCodeAt(0)
-            pos = server.lastIndexOf(':')
-            if pos >= 0
-              matchPort = server.substring(pos + 1)
-              server = server.substring(0, pos)
-          serverIp = @parseIp server
-          serverRegex = null
-          if serverIp?
-            if serverIp.regularExpressionString?
-              # TODO(felis): IPv6 regex is not fully supported by the ipv6
-              # module. Even simple addresses like ::1 will fail. Shall we
-              # implement that instead?
-              regexStr = serverIp.regularExpressionString()
-              regexStr = regexStr.substring 2, regexStr.length - 2
-              serverRegex = '\\[' + regexStr + '\\]'
-            else
-              server = @normalizeIp serverIp
-          else if server.charCodeAt(0) == '.'.charCodeAt(0)
-            server = '*' + server
-          if matchPort
-            if not serverRegex?
-              serverRegex = shExp2RegExp(server)
-              serverRegex = serverRegex.substring(1, serverRegex.length - 1)
-            scheme = cache.scheme ? '[^:]+'
-            cache.url = @safeRegex('^' + scheme + ':\\/\\/' + serverRegex +
-              ':' + matchPort + '\\/')
-          else if server != '*'
-            if serverRegex
-              serverRegex = '^' + serverRegex + '$'
-            else
-              serverRegex = shExp2RegExp server, trimAsterisk: true
-            cache.host = @safeRegex(serverRegex)
+          addr = @parseIp parts[0]
+          prefixLen = parseInt(parts[1])
+          if addr and prefixLen
+            cache.ip =
+              conditionType: 'IpCondition'
+              ip: parts[0]
+              prefixLength: prefixLen
+            return cache
+        if server.charCodeAt(server.length - 1) != ']'.charCodeAt(0)
+          pos = server.lastIndexOf(':')
+          if pos >= 0
+            matchPort = server.substring(pos + 1)
+            server = server.substring(0, pos)
+        serverIp = @parseIp server
+        serverRegex = null
+        if serverIp?
+          if serverIp.regularExpressionString?
+            # TODO(felis): IPv6 regex is not fully supported by the ipv6
+            # module. Even simple addresses like ::1 will fail. Shall we
+            # implement that instead?
+            regexStr = serverIp.regularExpressionString(true)
+            console.log(regexStr)
+            serverRegex = '\\[' + regexStr + '\\]'
+          else
+            server = @normalizeIp serverIp
+        else if server.charCodeAt(0) == '.'.charCodeAt(0)
+          server = '*' + server
+        if matchPort
+          if not serverRegex?
+            serverRegex = shExp2RegExp(server)
+            serverRegex = serverRegex.substring(1, serverRegex.length - 1)
+          scheme = cache.scheme ? '[^:]+'
+          cache.url = @safeRegex('^' + scheme + ':\\/\\/' + serverRegex +
+            ':' + matchPort + '\\/')
+        else if server != '*'
+          if serverRegex
+            serverRegex = '^' + serverRegex + '$'
+          else
+            serverRegex = shExp2RegExp server, trimAsterisk: true
+          cache.host = @safeRegex(serverRegex)
         return cache
       match: (condition, request, cache) ->
         cache = cache.analyzed
@@ -374,10 +378,14 @@ module.exports = exports =
         if not cache.addr?
           throw new Error "Invalid IP address #{addr}"
         cache.normalized = @normalizeIp cache.addr
-        cache.mask = @normalizeIp cache.addr.startAddress()
+        mask = if cache.addr.v4
+          new IP.v4.Address('255.255.255.255/' + cache.addr.subnetMask)
+        else
+          new IP.v6.Address(@ipv6Max + cache.addr.subnetMask)
+        cache.mask = @normalizeIp mask.startAddress()
         cache
       match: (condition, request, cache) ->
-        addr = @parseIp addr
+        addr = @parseIp request.host
         return false if not addr?
         cache = cache.analyzed
         return false if addr.v4 != cache.addr.v4
