@@ -27,11 +27,14 @@ class ChromeOptions extends OmegaTarget.Options
           error = true
           break
       if error
+        # TODO(catus): Find a better way to notify the user.
+        ###
         @setBadge(
           text: '!'
           color: '#faa732'
           title: chrome.i18n.getMessage('browserAction_titleDownloadFail')
         )
+        ###
       return results
 
   _proxyNotControllable: null
