@@ -12,6 +12,14 @@ module.exports = exports =
       url: Url.format(url)
       host: url.hostname
       scheme: url.protocol.replace(':', '')
+
+  urlWildcard2HostWildcard: (pattern) ->
+    result = pattern.match ///
+      ^\*:\/\/ # Begins with *://
+      ((?:\w|[?*.])+) # The host part follows.
+      \/\*$ # And ends with /*
+    ///
+    result?[1]
   tag: (condition) -> exports._condCache.tag(condition)
   analyze: (condition) -> exports._condCache.get condition, -> {
     analyzed: exports._handler(condition.conditionType).analyze.call(

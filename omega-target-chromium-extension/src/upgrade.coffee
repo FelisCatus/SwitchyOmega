@@ -136,15 +136,22 @@ module.exports = (oldOptions, i18n) ->
 
     rules = try JSON.parse(oldOptions['rules'])
     if rules
+      conditionFromRule = (rule) ->
+        switch rule['patternType']
+          when 'wildcard'
+            pattern = rule['urlPattern']
+            host = OmegaPac.Conditions.urlWildcard2HostWildcard(pattern)
+            if host
+              conditionType: 'HostWildcardCondition'
+              pattern: host
+            else
+              conditionType: 'UrlWildcardCondition'
+              pattern: pattern
+          else
+            conditionType: 'UrlRegexCondition'
+            pattern: rule['urlPattern']
       auto.rules = for own _, rule of rules
         profileName: nameMap[rule['profileId']] || 'direct'
-        condition:
-          conditionType:
-            if rule['patternType'] == 'wildcard'
-              # TODO(catus): Recognize HostWildcardCondition.
-              'UrlWildcardCondition'
-            else
-              'UrlRegexCondition'
-          pattern: rule['urlPattern']
+        condition: conditionFromRule(rule)
     return options
   return
