@@ -35,7 +35,7 @@ class ChromeOptions extends OmegaTarget.Options
       return results
 
   _proxyNotControllable: null
-  proxyNotControllable: => @_proxyNotControllable
+  proxyNotControllable: -> @_proxyNotControllable
   setProxyNotControllable: (reason) ->
     @_proxyNotControllable = reason
     if reason
@@ -110,7 +110,8 @@ class ChromeOptions extends OmegaTarget.Options
           watcher(details)
       chrome.proxy.settings.onChange.addListener @_proxyChangeListener
     @_proxyChangeWatchers.push(callback)
-  applyProfileProxy: (profile) ->
+  applyProfileProxy: (profile, meta) ->
+    meta ?= profile
     if profile.profileType == 'SystemProfile'
       # Clear proxy settings, returning proxy control to Chromium.
       return proxySettings.clearAsync({}).then =>
@@ -135,10 +136,10 @@ class ChromeOptions extends OmegaTarget.Options
         data: null
         mandatory: true
       setPacScript = @pacForProfile(profile).then (script) ->
-        profileName = OmegaPac.PacGenerator.ascii(JSON.stringify(profile.name))
+        profileName = OmegaPac.PacGenerator.ascii(JSON.stringify(meta.name))
         profileName = profileName.replace(/\*/g, '\\u002a')
         profileName = profileName.replace(/\\/g, '\\u002f')
-        prefix = "/*OmegaProfile*#{profileName}*#{profile.revision}*/"
+        prefix = "/*OmegaProfile*#{profileName}*#{meta.revision}*/"
         config['pacScript'].data = prefix + script
         return
     setPacScript ?= Promise.resolve()
@@ -193,7 +194,21 @@ class ChromeOptions extends OmegaTarget.Options
         result += "#{scheme.scheme}: #{pacResult}\n"
       else
         result += "#{pacResult}\n"
+    result ||= chrome.i18n.getMessage(
+      'browserAction_profileDetails_DirectProfile')
     return result
+
+  printProfile: (profile) ->
+    type = profile.profileType
+    if type.indexOf('RuleListProfile') >= 0
+      type = 'RuleListProfile'
+
+    if type == 'FixedProfile'
+      @printFixedProfile(profile)
+    else if type == 'PacProfile' and profile.pacUrl
+      profile.pacUrl
+    else
+      chrome.i18n.getMessage('browserAction_profileDetails_' + type) || null
 
   upgrade: (options, changes) ->
     super(options).catch (err) =>

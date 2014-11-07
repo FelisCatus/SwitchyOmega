@@ -492,6 +492,9 @@
       }
     }
   },
+  "options_replaceProfileSuccess": {
+    "message": "更改選項成功。"
+  },
   "options_modalHeader_deleteProfile": {
     "message": "刪除情景模式"
   },
@@ -663,6 +666,21 @@
   },
   "popup_errorLog": {
     "message": "錯誤日誌"
+  },
+  "browserAction_profileDetails_PacProfile": {
+    "message": "(PAC 指令碼)"
+  },
+  "browserAction_profileDetails_SystemProfile": {
+    "message": "(由其他擴展或系統環境控制)"
+  },
+  "browserAction_profileDetails_DirectProfile": {
+    "message": "(不使用任何代理)"
+  },
+  "browserAction_profileDetails_SwitchProfile": {
+    "message": "(根據條件切換)"
+  },
+  "browserAction_profileDetails_RuleListProfile": {
+    "message": "(根據規則列表切換)"
   },
   "browserAction_titleNormal": {
     "message": "SwitchyOmega:: $PROFILE$",

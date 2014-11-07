@@ -98,7 +98,7 @@ angular.module('omegaDecoration', []).value('profileIcons', {
           scope.profileIcon = profileIcons[profile.profileType]
           break
     scope.$watch(scope.profiles, ((profiles) ->
-      scope.currentProfiles = profiles
+      scope.currentProfiles = profiles || []
       if scope.dispProfiles?
         scope.dispProfiles = currentProfiles
       updateView()

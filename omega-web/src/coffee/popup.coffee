@@ -9,7 +9,7 @@ module.filter 'dispName', (omegaTarget) ->
     omegaTarget.getMessage('profile_' + name) || name
 
 module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
-  profileIcons, profileOrder, dispNameFilter) ->
+  profileIcons, profileOrder, dispNameFilter, getVirtualTarget) ->
 
   refreshOnProfileChange = false
   refresh = ->
@@ -33,6 +33,12 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
       'glyphicon-ok'
     else
       undefined
+  $scope.getProfileTitle = (profile, normal) ->
+    desc = ''
+    while profile
+      desc = profile.desc
+      profile = getVirtualTarget(profile, $scope.availableProfiles)
+    desc || profile?.name || ''
   $scope.openOptions = (hash) ->
     omegaTarget.openOptions(hash).then ->
       $window.close()

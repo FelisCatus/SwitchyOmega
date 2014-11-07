@@ -87,6 +87,14 @@ class Options
   toString: -> "<Options>"
 
   ###*
+  # Return a localized, human-readable description of the given profile.
+  # In base class, this method is not implemented and will always return null.
+  # @param {?{}} profile The profile to print
+  # @returns {string} Description of the profile with details
+  ###
+  printProfile: (profile) -> null
+
+  ###*
   # Upgrade options from previous versions.
   # For now, this method only supports schemaVersion 1 and 2. If so, it upgrades
   # the options to version 2 (the latest version). Otherwise it rejects.
@@ -268,7 +276,7 @@ class Options
   # Get PAC script for profile.
   # @param {?string|Object} profile The name of the profile, or the profile.
   # @param {bool=false} compress Compress the script if true.
-  # @returns {String} The compiled
+  # @returns {string} The compiled
   ###
   pacForProfile: (profile, compress = false) ->
     ast = OmegaPac.PacGenerator.script(@_options, profile)
@@ -288,11 +296,16 @@ class Options
         name: p.name
         profileType: p.profileType
         color: p.color
+        desc: @printProfile(p)
         builtin: if p.builtin then true
       if p.profileType == 'VirtualProfile'
         profiles[key].defaultProfileName = p.defaultProfileName
         if not allReferenceSet?
-          allReferenceSet = OmegaPac.Profiles.allReferenceSet profile, @_options
+          allReferenceSet =
+            if profile
+              OmegaPac.Profiles.allReferenceSet profile, @_options
+            else
+              {}
         if allReferenceSet[key]
           profiles[key].validResultProfiles =
             OmegaPac.Profiles.validResultProfilesFor(p, @_options)
@@ -357,7 +370,7 @@ class Options
 
       @_watchingProfiles = OmegaPac.Profiles.allReferenceSet(@_tempProfile,
         @_options)
-      @applyProfileProxy(@_tempProfile)
+      @applyProfileProxy(@_tempProfile, profile)
     else
       @applyProfileProxy(profile)
 
@@ -381,9 +394,10 @@ class Options
   # Set proxy settings based on the given profile.
   # In base class, this method is not implemented and will always reject.
   # @param {{}} profile The profile to apply
+  # @param {{}=profile} meta The metadata of the profile, like name and revision
   # @returns {Promise} A promise which is fulfilled when the proxy is set.
   ###
-  applyProfileProxy: (profile) ->
+  applyProfileProxy: (profile, meta) ->
     Promise.reject new Error('not implemented')
 
   ###*
@@ -707,6 +721,8 @@ class Options
   # @param {{}} profile The external profile
   # @param {?{}} args Extra arguments
   # @param {boolean=false} args.noRevert If true, do not revert changes.
+  # @param {boolean=false} args.internal If true, treat the profile change as
+  # caused by the options itself instead of external reasons.
   # @returns {Promise} A promise which is fulfilled when the profile is set
   ###
   setExternalProfile: (profile, args) ->
@@ -717,8 +733,11 @@ class Options
           return
     p = OmegaPac.Profiles.byName(profile.name, @_options)
     if p
-      @applyProfile(p.name,
-        {proxy: false, system: @_isSystem, reason: 'external'})
+      if args?.internal
+        @applyProfile(p.name, {proxy: false})
+      else
+        @applyProfile(p.name,
+          {proxy: false, system: @_isSystem, reason: 'external'})
     else
       @_currentProfileName = null
       @_externalProfile = profile

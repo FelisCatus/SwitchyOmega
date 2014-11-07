@@ -667,6 +667,21 @@
   "popup_errorLog": {
     "message": "Error log"
   },
+  "browserAction_profileDetails_PacProfile": {
+    "message": "(PAC script)"
+  },
+  "browserAction_profileDetails_SystemProfile": {
+    "message": "(controlled by other extensions or environment)"
+  },
+  "browserAction_profileDetails_DirectProfile": {
+    "message": "(not using any proxy)"
+  },
+  "browserAction_profileDetails_SwitchProfile": {
+    "message": "(switching based on conditions)"
+  },
+  "browserAction_profileDetails_RuleListProfile": {
+    "message": "(switching based on rule list)"
+  },
   "browserAction_titleNormal": {
     "message": "SwitchyOmega:: $PROFILE$",
     "placeholders": {

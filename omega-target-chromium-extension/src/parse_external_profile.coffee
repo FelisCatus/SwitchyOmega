@@ -63,7 +63,7 @@ module.exports = (details, options, fixedProfileConfig) ->
         proxies = {}
         for prop in props
           result = OmegaPac.Profiles.pacResult(details.value.rules[prop])
-          if prop == 'singleProxy'
+          if prop == 'singleProxy' and details.value.rules[prop]?
             proxies['fallbackProxy'] = result
           else
             proxies[prop] = result

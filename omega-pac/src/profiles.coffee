@@ -139,7 +139,9 @@ module.exports = exports =
     handler = exports._handler(profile)
     cache.directReferenceSet = handler.directReferenceSet.call(exports, profile)
   allReferenceSet: (profile, options, opt_out) ->
+    o_profile = profile
     profile = exports.byName(profile, options)
+    throw new Error("Profile #{o_profile} does not exist!") if not profile?
     result = opt_out ? {}
     result[exports.nameAsKey(profile.name)] = profile.name
     for key, name of exports.directReferenceSet(profile)

@@ -127,10 +127,9 @@ options.setProxyNotControllable(null)
 timeout = null
 
 options.watchProxyChange (details) ->
-  lastProxyChangeAt = Date.now()
+  notControllableBefore = options.proxyNotControllable()
+  internal = false
   switch details['levelOfControl']
-    when "controllable_by_this_extension"
-      break
     when "controlled_by_other_extensions", "not_controllable"
       reason =
         if details['levelOfControl'] == 'not_controllable'
@@ -141,7 +140,9 @@ options.watchProxyChange (details) ->
     else
       options.setProxyNotControllable(null)
 
-  return if details['levelOfControl'] == 'controlled_by_this_extension'
+  if details['levelOfControl'] == 'controlled_by_this_extension'
+    internal = true
+    return if not notControllableBefore
   Log.log('external proxy: ', details)
 
   # Chromium will send chrome.proxy.settings.onChange on extension unload,
@@ -151,16 +152,16 @@ options.watchProxyChange (details) ->
   # To workaround this issue, wait for some time before setting the proxy.
   # However this will cause some delay before the settings are processed.
   clearTimeout(timeout) if timeout?
+  parsed = null
   timeout = setTimeout (->
-    options.setExternalProfile(
-      options.parseExternalProfile(details),
-      noRevert: true)
+    options.setExternalProfile(parsed, {noRevert: true, internal: internal})
   ), 500
+
+  parsed = options.parseExternalProfile(details)
   return
 
 external = false
 options.currentProfileChanged = (reason) ->
-  profile = options.currentProfile()
   iconCache = {}
 
   if reason == 'external'
@@ -176,19 +177,21 @@ options.currentProfileChanged = (reason) ->
       realCurrentName = current.defaultProfileName
       currentName += " [#{dispName(realCurrentName)}]"
       current = options.profile(realCurrentName)
-  title =
-    if profile.name == ''
-      details = profile.pacUrl ? options.printFixedProfile(profile)
-      details = details ? profile.profileType
-    else
-      chrome.i18n.getMessage('browserAction_titleNormal', [currentName])
-  if external and profile.profileType != 'SystemProfile'
+
+  details = options.printProfile(current)
+  if currentName
+    title = chrome.i18n.getMessage('browserAction_titleWithResult', [
+      currentName, '', details])
+  else
+    title = details
+
+  if external and current.profileType != 'SystemProfile'
     message = chrome.i18n.getMessage('browserAction_titleExternalProxy')
     title = message + '\n' + title
     options.setBadge()
 
   tabs.resetAll(
-    icon: drawIcon(profile.color)
+    icon: drawIcon(current.color)
     title: title
   )
 
