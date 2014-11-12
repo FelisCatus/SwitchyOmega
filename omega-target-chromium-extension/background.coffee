@@ -98,6 +98,9 @@ actionForUrl = (url) ->
           result.condition.conditionType)
         details += "#{condition} => #{dispName(result.profileName)}\n"
 
+    if not details
+      details = options.printProfile(current)
+
     icon =
       if profile.name == current.name and options.isCurrentProfileStatic()
         if direct
@@ -119,6 +122,8 @@ actionForUrl = (url) ->
 storage = new OmegaTargetCurrent.Storage(chrome.storage.local, 'local')
 state = new OmegaTargetCurrent.BrowserStorage(localStorage, 'omega.local.')
 options = new OmegaTargetCurrent.Options(null, storage, state, Log)
+options.switchySharp = new OmegaTargetCurrent.SwitchySharp()
+options.switchySharp.monitor()
 
 tabs = new OmegaTargetCurrent.ChromeTabs(actionForUrl)
 tabs.watch()

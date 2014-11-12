@@ -20,7 +20,7 @@ class ChromeOptions extends OmegaTarget.Options
     xhr(dest_url).get(1)
 
   updateProfile: (args...) ->
-    super(args...).then (results) =>
+    super(args...).then (results) ->
       error = false
       for own profileName, result of results
         if result instanceof Error
@@ -215,25 +215,33 @@ class ChromeOptions extends OmegaTarget.Options
 
   upgrade: (options, changes) ->
     super(options).catch (err) =>
-      if not options?['schemaVersion']
-        if options?['config'] or localStorage['config']
-          oldOptions = if options?['config'] then options else localStorage
-          i18n = {
-            upgrade_profile_auto: chrome.i18n.getMessage('upgrade_profile_auto')
-          }
-          try
-            # Upgrade from SwitchySharp.
-            upgraded = require('./upgrade')(oldOptions, i18n)
-          catch ex
-            OmegaTarget.Log.error(ex)
-          if upgraded
-            if localStorage['config']
-              Object.getPrototypeOf(localStorage).clear.call(localStorage)
-            return this && super(upgraded, upgraded)
-        else
-          return Promise.reject new Error('No options set.')
+      return Promise.reject err if options?['schemaVersion']
+      getOldOptions = if @switchySharp
+        @switchySharp.getOptions().timeout(1000)
+      else
+        Promise.reject()
 
-      Promise.reject err
+      getOldOptions = getOldOptions.catch ->
+        if options?['config']
+          Promise.resolve options
+        else if localStorage['config']
+          Promise.resolve localStorage
+        else
+          Promise.reject new Error('No options set.')
+
+      getOldOptions.then (oldOptions) =>
+        i18n = {
+          upgrade_profile_auto: chrome.i18n.getMessage('upgrade_profile_auto')
+        }
+        try
+          # Upgrade from SwitchySharp.
+          upgraded = require('./upgrade')(oldOptions, i18n)
+        catch ex
+          @log.error(ex)
+          return Promise.reject ex
+        if localStorage['config']
+          Object.getPrototypeOf(localStorage).clear.call(localStorage)
+        return this && super(upgraded, upgraded)
 
 module.exports = ChromeOptions
 
