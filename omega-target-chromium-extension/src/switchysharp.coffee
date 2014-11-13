@@ -6,10 +6,11 @@ module.exports = class SwitchySharp
   extId: 'oheiiidjlelbjilmglommidcfknfidpd'
   port: null
 
-  monitor: ->
+  monitor: (action) ->
     if not port? and not @_monitorTimerId
-      @_monitorTimerId = setInterval @_monitorRun.bind(this), 5000
-      @_monitorRun()
+      @_monitorTimerId = setInterval @_connect.bind(this), 5000
+      if action != 'reconnect'
+        @_connect()
 
   getOptions: ->
     if not @_getOptions
@@ -23,6 +24,11 @@ module.exports = class SwitchySharp
   _monitorTimerId: null
 
   _onMessage: (msg) ->
+    if @_monitorTimerId
+      clearInterval @_monitorTimerId
+      @_monitorTimerId = null
+    if @_getOptionsResolver
+      @port.postMessage({action: 'getOptions'})
     switch msg?.action
       when 'state'
         # State changed.
@@ -34,15 +40,7 @@ module.exports = class SwitchySharp
     @port = null
     @_getOptions = null
     @_getOptionsResolver = null
-    @monitor()
-
-  _monitorRun: ->
-    if @_connect()
-      if @_monitorTimerId
-        clearInterval @_monitorTimerId
-        @_monitorTimerId = null
-      if @_getOptionsResolver
-        @port.postMessage({action: 'getOptions'})
+    @monitor('reconnect')
 
   _connect: ->
     if not @port
