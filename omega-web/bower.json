@@ -37,7 +37,8 @@
     "FileSaver": "*",
     "angular-ui-utils": "bower-validate",
     "angular-ladda": "~0.1.6",
-    "angular-sanitize": "~1.2.26"
+    "angular-sanitize": "~1.2.26",
+    "shepherd.js": "~0.5.1"
   },
   "exportsOverride": {
     "script.js": {
@@ -92,6 +93,12 @@
     },
     "jsondiffpatch": {
       "": "public/build/jsondiffpatch.min.js"
+    },
+    "shepherd.js": {
+      "": [
+        "*.min.js",
+        "css/*.css"
+      ]
     },
     "spectrum": {
       "": [

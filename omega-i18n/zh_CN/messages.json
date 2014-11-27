@@ -433,6 +433,30 @@
   "options_attachProfileHelp": {
     "message": "可以添加规则列表，以便引用他人在线发布的一组规则。"
   },
+  "options_modalHeader_welcome": {
+    "message": "欢迎使用 SwitchyOmega"
+  },
+  "options_welcomeNormal": {
+    "message": "您已经成功安装了 SwitchyOmega ，一个强大的代理切换工具。"
+  },
+  "options_welcomeNormalGuide": {
+    "message": "您可以通过选项页面设置需要使用的代理服务器，下面我们就来试试看吧。"
+  },
+  "options_welcomeUpgrade": {
+    "message": "您已经成功升级到 SwitchyOmega. 别担心，所有设置都已经升级成功，可以继续使用。"
+  },
+  "options_welcomeUpgradeGuide": {
+    "message": "现在我们来熟悉一下新的选项页面。"
+  },
+  "options_guideNext": {
+    "message": "下一步"
+  },
+  "options_guideDone": {
+    "message": "完成"
+  },
+  "options_guideSkip": {
+    "message": "跳过教程"
+  },
   "options_modalHeader_applyOptions": {
     "message": "应用选项"
   },
@@ -633,6 +657,18 @@
   },
   "options_downloadProfileNow": {
     "message": "立即更新情景模式"
+  },
+  "options_guide_fixedProfileStep": {
+    "message": "<b>代理情景</b>包含了服务器地址、端口等代理的信息。<br>在 SwitchyOmega 中，情景模式是代理设置的基本单元。<br>默认设置中已经建立了一个代理情景模式作为样例。试着打开它吧。"
+  },
+  "options_guide_fixedServersStep": {
+    "message": "在这里，您可以填写所需的代理服务器地址和端口。<br>SwitchyOmega<b>软件本身不提供任何内置代理服务器</b>。<br>如果您不清楚应该填写什么，最好咨询下您的网络提供者，或者参考代理软件的设置说明。"
+  },
+  "options_guide_autoSwitchProfileStep": {
+    "message": "您可以通过强大的<b>自动切换模式</b>在多个代理间切换自如。<br>不过，在这个简单的教程中无法详尽介绍所有功能。<br>想要使用此功能时，可以打开这里的设置界面，来了解如何使用自动切换功能。"
+  },
+  "options_guide_addMoreProfilesStep": {
+    "message": "如果您需要更多的情景模式，可以随时在这里创建<b>代理、切换和其他情景模式</b>。<br>教程到此结束，您可以继续自定义设置。"
   },
   "popup_externalProfile": {
     "message": "(外部情景模式)"

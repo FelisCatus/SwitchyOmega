@@ -433,6 +433,30 @@
   "options_attachProfileHelp": {
     "message": "You can reuse an online collection of conditions published by others by adding a rule list."
   },
+  "options_modalHeader_welcome": {
+    "message": "Welcome to SwitchyOmega"
+  },
+  "options_welcomeNormal": {
+    "message": "You have successfully installed SwitchyOmega, the ultimate proxy switcher."
+  },
+  "options_welcomeNormalGuide": {
+    "message": "Please tell SwitchyOmega about your proxies through the options page. Let's see how."
+  },
+  "options_welcomeUpgrade": {
+    "message": "You have successfully upgraded to SwitchyOmega. Don't panic, your existing options are fully preserved."
+  },
+  "options_welcomeUpgradeGuide": {
+    "message": "Now let's go through a quick guide of the new options page."
+  },
+  "options_guideNext": {
+    "message": "Next"
+  },
+  "options_guideDone": {
+    "message": "Done"
+  },
+  "options_guideSkip": {
+    "message": "Skip guide"
+  },
   "options_modalHeader_applyOptions": {
     "message": "Apply Options"
   },
@@ -633,6 +657,18 @@
   },
   "options_downloadProfileNow": {
     "message": "Download Profile Now"
+  },
+  "options_guide_fixedProfileStep": {
+    "message": "A <b>Proxy Profile</b> contains settings like server ip &amp; port for proxy.<br>Profiles are the the basic configuration units in SwitchyOmega.<br>We have already created an example profile for you. Try opening it."
+  },
+  "options_guide_fixedServersStep": {
+    "message": "You can fill in your proxy server and port here as you like.<br>SwitchyOmega <b>does not come with any proxy servers</b>.<br>Please consult your network provider or proxy software manual if you don't know what should be filled in here."
+  },
+  "options_guide_autoSwitchProfileStep": {
+    "message": "You can tell SwitchyOmega to switch between proxies automatically through the mighty <b>Switch Profile</b>.<br>However, its features cannot be covered in this quick guide.<br>You can open this profile to unlock its power some time later."
+  },
+  "options_guide_addMoreProfilesStep": {
+    "message": "Need more profiles? You can always add more <b>Proxy, Switch and other profiles</b><br>for all your proxying needs.<br>Enjoy proxying!"
   },
   "popup_externalProfile": {
     "message": "(External Profile)"

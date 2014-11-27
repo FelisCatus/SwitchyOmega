@@ -241,6 +241,7 @@ class ChromeOptions extends OmegaTarget.Options
           return Promise.reject ex
         if localStorage['config']
           Object.getPrototypeOf(localStorage).clear.call(localStorage)
+        @_state.set({'firstRun': 'upgrade'})
         return this && super(upgraded, upgraded)
 
 module.exports = ChromeOptions

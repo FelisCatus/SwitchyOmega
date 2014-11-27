@@ -1,5 +1,5 @@
 angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
-  $modal, $state, builtinProfiles, profileColors, profileIcons, omegaTarget, $q,
+  $q, $modal, $state, profileColors, profileIcons, omegaTarget,
   $timeout, $location, $filter, getAttachedName, isProfileNameReserved,
   isProfileNameHidden, dispNameFilter) ->
 
@@ -271,3 +271,23 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
     "options_downloadInterval_" + (if interval < 0 then "never" else interval)
 
   omegaTarget.refresh()
+
+  omegaTarget.state('firstRun').then (firstRun) ->
+    return unless firstRun
+    scope = $rootScope.$new('isolate')
+    scope.upgrade = (firstRun == 'upgrade')
+    $modal.open(
+      templateUrl: 'partials/options_welcome.html'
+      keyboard: false
+      scope: scope
+      backdrop: 'static'
+      backdropClass: 'opacity-half'
+    ).result.then (r) ->
+      switch r
+        when 'later'
+          return
+        when 'show'
+          $script 'js/options_guide.js'
+        when 'skip'
+          break
+      omegaTarget.state('firstRun', '')

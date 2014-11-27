@@ -56,7 +56,8 @@ class Options
         ).return(options)
       ).catch (ex) =>
         @log.error(ex.stack)
-        @reset()
+        @reset().tap =>
+          @_state.set({'firstRun': 'new'})
     ).then((options) =>
       @_options = options
       @_watch()

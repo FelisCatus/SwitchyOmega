@@ -1,0 +1,13 @@
+.modal-header
+  button.close(type='button' ng-click='$dismiss()')
+    span(aria-hidden='true') ×
+    span.sr-only {{'dialog_close' | tr}}
+  h4.modal-title {{'options_modalHeader_welcome' | tr}}
+.modal-body
+  p(ng-show="upgrade") {{'options_welcomeUpgrade' | tr}}
+  p(ng-show="upgrade") {{'options_welcomeUpgradeGuide' | tr}}
+  p(ng-show="!upgrade") {{'options_welcomeNormal' | tr}}
+  p(ng-show="!upgrade") {{'options_welcomeNormalGuide' | tr}}
+.modal-footer
+  button.btn.btn-default(ng-click='$close("skip")') {{'options_guideSkip' | tr}}
+  button.btn.btn-primary(type='button' ng-click='$close("show")') {{'options_guideNext' | tr}}
