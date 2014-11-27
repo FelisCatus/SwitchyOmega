@@ -48,6 +48,7 @@ module.exports = (oldOptions, i18n) ->
       'purple': '#d497ee'
       '': '#99ccee'
 
+    seenFixedProfile = false
     for own _, oldProfile of oldProfiles
       profile = null
       switch oldProfile['proxyMode']
@@ -64,6 +65,7 @@ module.exports = (oldOptions, i18n) ->
           else
             profile.pacUrl = url
         when 'manual'
+          seenFixedProfile = true
           profile = OmegaPac.Profiles.create(
             profileType: 'FixedProfile'
           )
@@ -115,6 +117,21 @@ module.exports = (oldOptions, i18n) ->
         nameMap[oldProfile['id']] = profile.name
         OmegaPac.Profiles.updateRevision(profile)
         options[OmegaPac.Profiles.nameAsKey(profile.name)] = profile
+
+    if not seenFixedProfile
+      exampleFixedProfileName = 'Example Profile'
+      options[OmegaPac.Profiles.nameAsKey(exampleFixedProfileName)] =
+        bypassList: [
+          pattern: "<local>"
+          conditionType: "BypassCondition"
+        ]
+        profileType: "FixedProfile"
+        name: exampleFixedProfileName
+        color: "#99ccee"
+        fallbackProxy:
+          port: 8080
+          scheme: "http"
+          host: "proxy.example.com"
 
     startupId = config['startupProfileId']
     options['-startupProfileName'] = nameMap[startupId] || ''

@@ -3,6 +3,9 @@ Revision =
     time = if time then new Date(time) else new Date()
     return time.getTime().toString(16)
   compare: (a, b) ->
+    return 0 if not a and not b
+    return -1 if not a
+    return 1 if not b
     return 1 if a.length > b.length
     return -1 if a.length < b.length
     return 1 if a > b

@@ -27,14 +27,15 @@ module.exports = class SwitchySharp
     if @_monitorTimerId
       clearInterval @_monitorTimerId
       @_monitorTimerId = null
-    if @_getOptionsResolver
-      @port.postMessage({action: 'getOptions'})
     switch msg?.action
       when 'state'
         # State changed.
         OmegaTarget.Log.log(msg)
+        if @_getOptionsResolver
+          @port.postMessage({action: 'getOptions'})
       when 'options'
         @_getOptionsResolver?(msg.options)
+        @_getOptionsResolver = null
 
   _onDisconnect: (msg) ->
     @port = null
