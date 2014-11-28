@@ -670,6 +670,21 @@
   "options_guide_addMoreProfilesStep": {
     "message": "如果您需要更多的情景模式，可以随时在这里创建<b>代理、切换和其他情景模式</b>。<br>教程到此结束，您可以继续自定义设置。"
   },
+  "options_guide_conditionStep": {
+    "message": "SwitchyOmega 可以根据<b>切换条件</b>对不同的网络请求使用不同的情景模式。<br>例如<b>域名通配符</b>条件可以对某个域名下的所有网址使用特定的情景模式。"
+  },
+  "options_guide_conditionTypeStep": {
+    "message": "您可以使用各种条件类型来匹配域名或者整个网址。<br> 点击问号按钮来查看条件类型的说明。"
+  },
+  "options_guide_conditionProfileStep": {
+    "message": "对于<b>任何匹配该条件的请求</b>，SwitchyOmega 会使用这个情景模式。<br>如果选择了<b>\"[直接连接]\"情景模式</b>，则匹配的请求不使用任何代理。"
+  },
+  "options_guide_switchDefaultStep": {
+    "message": "如果请求不匹配任何条件，则使用默认情景模式。<br>条件的匹配顺序总是按此页面<b>从上到下</b>。<br>您可以拖动排序图标来更改条件的顺序。"
+  },
+  "options_guide_applySwitchProfileStep": {
+    "message": "当您设置完毕后，别忘记<b>在弹出菜单中启用自动切换情景模式</b>。<br/>图标将会显示标签页切换的<b>最终结果</b>情景。<br/> <b>悬停在图标上</b>则会显示切换相关的详细说明。"
+  },
   "popup_externalProfile": {
     "message": "(外部情景模式)"
   },

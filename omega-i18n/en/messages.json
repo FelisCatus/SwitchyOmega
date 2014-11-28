@@ -670,6 +670,21 @@
   "options_guide_addMoreProfilesStep": {
     "message": "Need more profiles? You can always add more <b>Proxy, Switch and other profiles</b><br>for all your proxying needs.<br>Enjoy proxying!"
   },
+  "options_guide_conditionStep": {
+    "message": "SwitchyOmega can apply different profiles to requests based on <b>conditions</b>.<br> For example, the <b>Host wildcard</b> condition allows you to set the profile for all URLs in a domain."
+  },
+  "options_guide_conditionTypeStep": {
+    "message": "You can use various condition types to match the host or full URL. <br> Click on the question mark to open the type reference."
+  },
+  "options_guide_conditionProfileStep": {
+    "message": "SwitchyOmega applies the selected profile here to <b>any request matching the condition.</b> <br> The special <b>\"[Direct]\" profile</b> will cause the request to be sent without any proxy."
+  },
+  "options_guide_switchDefaultStep": {
+    "message": "If no condition applies to some request, the \"Default\" profile will be used. <br>Conditions are always considered <b>from top to bottom</b> in order.<br>You can change their order by dragging the sort icon."
+  },
+  "options_guide_applySwitchProfileStep": {
+    "message": "When you are done setting the switch profile, don't forget to <b>switch to it in the popup menu.</b><br/> The icon will show you the <b>final result</b> profile applied for the current tab. <br/> <b>Hovering</b> on the icon will reveal a tooltip with details."
+  },
   "popup_externalProfile": {
     "message": "(External Profile)"
   },

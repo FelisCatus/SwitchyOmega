@@ -1,5 +1,5 @@
 div(ng-controller='SwitchProfileCtrl')
-  section.settings-group(ng-show='showConditionHelp' ng-init='expandedSection = {id: 0}')
+  section.condition-help-section.settings-group(ng-show='showConditionHelp' ng-init='expandedSection = {id: 0}')
     h3
       | {{'options_group_conditionHelp' | tr}}
       button.close.close-condition-help(type='button' ng-click='showConditionHelp = false')
@@ -16,22 +16,23 @@ div(ng-controller='SwitchProfileCtrl')
         dd(ng-repeat-end ng-bind-html='"condition_help_" + type | tr')
   section.settings-group
     h3 {{'options_group_switchRules' | tr}}
-    .table-responsive
+    .table-responsive.switch-rules-wrapper
       table.switch-rules.table.table-bordered.table-condensed.width-limit-xl
         thead
           tr
             th(style='white-space: nowrap') {{'options_sort' | tr}}
-            th
+            th.condition-type-th
               | {{'options_conditionType' | tr}}
               = ' '
-              button.btn.btn-link.btn-sm.clear-padding(title='{{"options_showConditionTypeHelp" | tr}}'
+              button.btn.btn-link.btn-sm.clear-padding.toggle-condition-help(
+                title='{{"options_showConditionTypeHelp" | tr}}'
                 ng-click='showConditionHelp = !showConditionHelp')
                 span.glyphicon.glyphicon-question-sign
             th {{'options_conditionDetails' | tr}}
             th {{'options_resultProfile' | tr}}
             th {{'options_conditionActions' | tr}}
         tbody(ui-sortable='sortableOptions' ng-model='profile.rules')
-          tr(ng-repeat='rule in profile.rules')
+          tr.switch-rule-row(ng-repeat='rule in profile.rules')
             td.sort-bar
               span.glyphicon.glyphicon-sort
             td
@@ -50,7 +51,7 @@ div(ng-controller='SwitchProfileCtrl')
                 input.form-control(type='number' max='99' min='1' ng-model='rule.condition.maxValue' required)
               input.form-control(ng-model='rule.condition.pattern' ng-switch-default required
                 ui-validate='{pattern: "validateCondition(rule.condition, $value)"}')
-            td
+            td.switch-rule-row-target
               div(omega-profile-select='options | profiles:profile' ng-model='rule.profileName'
                 disp-name='dispNameFilter' options='options'
                 ng-class='{disabled: rule.condition.conditionType == "NeverCondition"}')
@@ -86,7 +87,7 @@ div(ng-controller='SwitchProfileCtrl')
               button.btn.btn-danger.btn-sm(title="{{'options_deleteAttached' | tr}}" ng-click='removeAttached()')
                 span.glyphicon.glyphicon-trash
         tbody
-          tr
+          tr.switch-default-row
             td
             td(colspan='2') {{'options_switchDefaultProfile' | tr}}
             td

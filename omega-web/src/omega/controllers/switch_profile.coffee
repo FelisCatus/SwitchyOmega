@@ -1,5 +1,5 @@
 angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
-  $modal, profileIcons, getAttachedName) ->
+  $modal, profileIcons, getAttachedName, omegaTarget) ->
 
   $scope.showConditionHelp = ($location.search().help == 'condition')
 
@@ -212,3 +212,12 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
     ).result.then ->
       $scope.profile.defaultProfileName = $scope.attached.defaultProfileName
       delete $scope.options[$scope.attachedKey]
+
+  stopWatchingForGuide = $scope.$watch 'profile.rules', (rules) ->
+    return unless rules
+    stopWatchingForGuide()
+    omegaTarget.state(['web.switchGuide', 'firstRun'
+    ]).then ([switchGuide, firstRun]) ->
+      return if firstRun or switchGuide == 'shown'
+      $script 'js/switch_profile_guide.js'
+      omegaTarget.state('web.switchGuide', 'shown')

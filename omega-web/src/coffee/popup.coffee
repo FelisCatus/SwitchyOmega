@@ -45,9 +45,18 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
   $scope.openConditionHelp = ->
     pname = encodeURIComponent($scope.currentProfileName)
     $scope.openOptions("#/profile/#{pname}?help=condition")
+
   $scope.applyProfile = (profile) ->
-    omegaTarget.applyProfile(profile.name).then ->
-      refresh()
+    omegaTarget.applyProfile(profile.name).then(->
+      if refreshOnProfileChange
+        return omegaTarget.refreshActivePage()
+    ).then(->
+      if profile.profileType == 'SwitchProfile'
+        return omegaTarget.state('web.switchGuide').then (switchGuide) ->
+          if switchGuide == 'showOnFirstUse'
+            return $scope.openOptions("#/profile/#{profile.name}")
+    ).then ->
+      $window.close()
 
   $scope.tempRuleMenu = {open: false}
   $scope.nameExternal = {open: false}

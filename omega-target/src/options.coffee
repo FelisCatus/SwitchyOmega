@@ -57,7 +57,7 @@ class Options
       ).catch (ex) =>
         @log.error(ex.stack)
         @reset().tap =>
-          @_state.set({'firstRun': 'new'})
+          @_state.set({'firstRun': 'new', 'web.switchGuide': 'showOnFirstUse'})
     ).then((options) =>
       @_options = options
       @_watch()
