@@ -221,13 +221,13 @@ class ChromeOptions extends OmegaTarget.Options
       else
         Promise.reject()
 
-      getOldOptions = getOldOptions.catch ->
+      getOldOptions = getOldOptions.catch =>
         if options?['config']
           Promise.resolve options
         else if localStorage['config']
           Promise.resolve localStorage
         else
-          Promise.reject new Error('No options set.')
+          Promise.reject new @NoOptionsError()
 
       getOldOptions.then (oldOptions) =>
         i18n = {
@@ -243,6 +243,9 @@ class ChromeOptions extends OmegaTarget.Options
           Object.getPrototypeOf(localStorage).clear.call(localStorage)
         @_state.set({'firstRun': 'upgrade'})
         return this && super(upgraded, upgraded)
+
+  onFirstRun: (reason) ->
+    chrome.tabs.create url: chrome.extension.getURL('options.html')
 
 module.exports = ChromeOptions
 

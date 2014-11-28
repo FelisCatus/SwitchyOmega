@@ -34,6 +34,8 @@ class Options
     constructor: (@profileName) ->
       super.constructor("Profile #{@profileName} does not exist!")
 
+  NoOptionsError: class NoOptionsError extends Error
+
   constructor: (@_options, @_storage, @_state, @log) ->
     @_storage ?= Storage()
     @_state ?= Storage()
@@ -55,7 +57,8 @@ class Options
           @_storage.remove(removed)
         ).return(options)
       ).catch (ex) =>
-        @log.error(ex.stack)
+        if not ex instanceof NoOptionsError
+          @log.error(ex.stack)
         @reset().tap =>
           @_state.set({'firstRun': 'new', 'web.switchGuide': 'showOnFirstUse'})
     ).then((options) =>
@@ -82,6 +85,10 @@ class Options
     ).then => @getAll()
 
     @ready.then =>
+      @_state.get({'firstRun': ''}).then ({firstRun}) =>
+        if firstRun
+          @onFirstRun(firstRun)
+
       if @_options['-downloadInterval'] > 0
         @updateProfile()
 
@@ -155,6 +162,12 @@ class Options
       @_storage.remove().then(=>
         @_storage.set(opt)
       ).then -> opt
+
+  ###*
+  # Called on the first initialization of options.
+  # @param {reason} reason The value of 'firstRun' in state.
+  ###
+  onFirstRun: (reason) -> null
 
   ###*
   # Return the default options used initially and on resets.
