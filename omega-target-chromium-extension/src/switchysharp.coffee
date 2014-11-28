@@ -3,7 +3,7 @@ OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 
 module.exports = class SwitchySharp
-  extId: 'oheiiidjlelbjilmglommidcfknfidpd'
+  extId: 'dpplabbmogkhghncfbfdeeokoefdjegm'
   port: null
 
   monitor: (action) ->
