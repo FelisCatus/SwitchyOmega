@@ -126,12 +126,14 @@ class ChromeOptions extends OmegaTarget.Options
       config['mode'] = 'direct'
     else if profile.profileType == 'PacProfile'
       config['mode'] = 'pac_script'
-      config['pacScript'] = if profile.pacUrl
-        url: profile.pacUrl
-        mandatory: true
-      else
-        data: profile.pacScript
-        mandatory: true
+      
+      config['pacScript'] =
+        if !profile.pacScript || OmegaPac.Profiles.isFileUrl(profile.pacUrl)
+          url: profile.pacUrl
+          mandatory: true
+        else
+          data: profile.pacScript
+          mandatory: true
     else if profile.profileType == 'FixedProfile'
       config = @_fixedProfileConfig(profile)
     else
