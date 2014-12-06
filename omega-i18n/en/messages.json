@@ -700,8 +700,20 @@
   "popup_proxyNotControllable_unknown": {
     "message": "The proxy settings cannot be controlled. Please check your system and browser settings."
   },
+  "popup_proxyNotControllable_disabled": {
+    "message": "The proxy settings are disabled by explicit request from other app(s) or extension(s)."
+  },
+  "popup_proxyNotControllable_upgrade": {
+    "message": "Proxy settings are now controlled by a newer version of SwitchyOmega."
+  },
   "popup_proxyNotControllableDetails": {
     "message": "You cannot switch profiles with SwitchyOmega unless you fix the problem above."
+  },
+  "popup_proxyNotControllableDetails_upgrade": {
+    "message": "You can't enable two (or more) versions of SwitchyOmega at the same time. Please disable one of them."
+  },
+  "popup_proxyNotControllableManage": {
+    "message": "Manage extensions"
   },
   "popup_addConditionTo": {
     "message": "Add condition to"

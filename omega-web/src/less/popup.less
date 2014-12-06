@@ -103,8 +103,10 @@ legend,
   padding: 10px;
 }
 
-.condition-controls .btn-primary {
-  float: right;
+.condition-controls, .proxy-not-controllable-controls {
+  .btn-primary {
+    float: right;
+  }
 }
 
 .external-profile {
@@ -128,5 +130,9 @@ legend,
 
 .proxy-not-controllable {
   min-width: 400px;
-  padding: 10px 5px;
+  padding: 10px 10px;
+
+  .proxy-not-controllable-controls {
+    margin-bottom: 0;
+  }
 }

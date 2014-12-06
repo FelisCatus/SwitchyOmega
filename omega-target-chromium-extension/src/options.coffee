@@ -39,11 +39,11 @@ class ChromeOptions extends OmegaTarget.Options
 
   _proxyNotControllable: null
   proxyNotControllable: -> @_proxyNotControllable
-  setProxyNotControllable: (reason) ->
+  setProxyNotControllable: (reason, badge) ->
     @_proxyNotControllable = reason
     if reason
       @_state.set({'proxyNotControllable': reason})
-      @setBadge()
+      @setBadge(badge)
     else
       @_state.remove(['proxyNotControllable'])
       @clearBadge()
@@ -66,6 +66,7 @@ class ChromeOptions extends OmegaTarget.Options
     else
       @_badgeTitle = null
   clearBadge: ->
+    return if @externalApi.disabled
     if @_badgeTitle
       @currentProfileChanged('clearBadge')
     if @_proxyNotControllable

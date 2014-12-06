@@ -3,7 +3,7 @@ OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 
 module.exports = class SwitchySharp
-  extId: 'dpplabbmogkhghncfbfdeeokoefdjegm'
+  @extId: 'dpplabbmogkhghncfbfdeeokoefdjegm'
   port: null
 
   monitor: (action) ->
@@ -45,7 +45,7 @@ module.exports = class SwitchySharp
 
   _connect: ->
     if not @port
-      @port = chrome.runtime.connect(@extId)
+      @port = chrome.runtime.connect(SwitchySharp.extId)
       @port.onDisconnect.addListener(@_onDisconnect.bind(this))
       @port.onMessage.addListener(@_onMessage.bind(this))
     try

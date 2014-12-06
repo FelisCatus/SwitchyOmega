@@ -259,20 +259,27 @@ class Options
         @_state.set({'refreshOnProfileChange': refresh})
 
       if changes['-enableQuickSwitch']? or changes['-quickSwitchProfiles']?
-        if @_options['-enableQuickSwitch']
-          profiles = @_options['-quickSwitchProfiles']
-          if profiles.length >= 2
-            @setQuickSwitch(profiles)
-          else
-            @setQuickSwitch(null)
-        else
-          @setQuickSwitch(null)
+        @reloadQuickSwitch()
       if changes['-downloadInterval']?
         @schedule 'updateProfile', @_options['-downloadInterval'], =>
           @updateProfile()
 
     handler()
     @_storage.watch null, handler
+
+  ###*
+  # Reload the quick switch according to settings.
+  # @returns {Promise} A promise which is fulfilled when the quick switch is set
+  ###
+  reloadQuickSwitch: ->
+    if @_options['-enableQuickSwitch']
+      profiles = @_options['-quickSwitchProfiles']
+      if profiles.length >= 2
+        @setQuickSwitch(profiles)
+      else
+        @setQuickSwitch(null)
+    else
+      @setQuickSwitch(null)
 
   ###*
   # @callback watchCallback

@@ -700,8 +700,20 @@
   "popup_proxyNotControllable_unknown": {
     "message": "无法设置代理设置。请检查系统和浏览器设置。"
   },
+  "popup_proxyNotControllable_disabled": {
+    "message": "在其他应用或扩展的要求下，SwitchyOmega 已经禁用代理设置。"
+  },
+  "popup_proxyNotControllable_upgrade": {
+    "message": "代理设置现在由新版本的 SwitchyOmega 控制。"
+  },
   "popup_proxyNotControllableDetails": {
     "message": "如果不解决以上问题，则无法使用SwitchyOmega切换代理。"
+  },
+  "popup_proxyNotControllableDetails_upgrade": {
+    "message": "两个不同版本的 SwitchyOmega （如稳定版和测试版）不能共存。请禁用其中之一。"
+  },
+  "popup_proxyNotControllableManage": {
+    "message": "管理扩展"
   },
   "popup_addConditionTo": {
     "message": "添加条件到情景模式"

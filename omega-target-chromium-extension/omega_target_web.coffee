@@ -121,5 +121,7 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
           chrome.tabs.reload(tabs[0].id)
         d.resolve()
       return d.promise
+    openManage: ->
+      chrome.tabs.create url: 'chrome://extensions/?id=' + chrome.runtime.id
 
   return omegaTarget

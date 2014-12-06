@@ -122,8 +122,12 @@ actionForUrl = (url) ->
 storage = new OmegaTargetCurrent.Storage(chrome.storage.local, 'local')
 state = new OmegaTargetCurrent.BrowserStorage(localStorage, 'omega.local.')
 options = new OmegaTargetCurrent.Options(null, storage, state, Log)
-options.switchySharp = new OmegaTargetCurrent.SwitchySharp()
-options.switchySharp.monitor()
+options.externalApi = new OmegaTargetCurrent.ExternalApi(options)
+options.externalApi.listen()
+
+if chrome.runtime.id != OmegaTargetCurrent.SwitchySharp.extId
+  options.switchySharp = new OmegaTargetCurrent.SwitchySharp()
+  options.switchySharp.monitor()
 
 tabs = new OmegaTargetCurrent.ChromeTabs(actionForUrl)
 tabs.watch()
@@ -132,6 +136,7 @@ options.setProxyNotControllable(null)
 timeout = null
 
 options.watchProxyChange (details) ->
+  return if options.externalApi.disabled
   notControllableBefore = options.proxyNotControllable()
   internal = false
   switch details['levelOfControl']

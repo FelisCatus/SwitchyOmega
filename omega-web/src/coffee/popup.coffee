@@ -11,6 +11,13 @@ module.filter 'dispName', (omegaTarget) ->
 module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
   profileIcons, profileOrder, dispNameFilter, getVirtualTarget) ->
 
+  $scope.closePopup = ->
+    $window.close()
+
+  $scope.openManage = ->
+    omegaTarget.openManage()
+    $window.close()
+
   refreshOnProfileChange = false
   refresh = ->
     if refreshOnProfileChange

@@ -120,7 +120,10 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           button.btn.btn-primary(type='submit' ng-disabled='conditionForm.$invalid') {{'popup_addCondition' | tr}}
     div.proxy-not-controllable(ng-show='proxyNotControllable')
       p.text-danger {{'popup_proxyNotControllable_' + proxyNotControllable | tr}}
-      p.help-block {{'popup_proxyNotControllableDetails' | tr}}
+      p.help-block {{('popup_proxyNotControllableDetails_' + proxyNotControllable | tr) || ('popup_proxyNotControllableDetails' | tr)}}
+      p.proxy-not-controllable-controls
+        button.btn.btn-default(ng-click='closePopup()') {{'dialog_cancel' | tr}}
+        button.btn.btn-primary(ng-click='openManage()') {{'popup_proxyNotControllableManage' | tr}}
 
     script(src='js/log_error.js')
     script(src='lib/FileSaver/FileSaver.js')
