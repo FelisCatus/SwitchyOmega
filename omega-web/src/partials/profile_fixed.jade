@@ -9,6 +9,7 @@ div(ng-controller='FixedProfileCtrl')
             th {{'options_proxy_protocol' | tr}}
             th {{'options_proxy_server' | tr}}
             th {{'options_proxy_port' | tr}}
+            th
         tbody
           tr(ng-repeat='scheme in urlSchemes' ng-show='scheme == "" || showAdvanced')
             td {{schemeDisp[scheme] || ('options_scheme_default' | tr)}}
@@ -29,9 +30,14 @@ div(ng-controller='FixedProfileCtrl')
               input.form-control(type='number' min='1' ng-model='proxyEditors[scheme].port' required)
             td(ng-if='!proxyEditors[scheme].scheme')
               input.form-control(type='number' value='' placeholder='{{proxyEditors[""].port}}' disabled)
+            td.proxy-actions
+              button.btn.btn-xs.proxy-auth-toggle(ng-show='authSupported[proxyEditors[scheme].scheme]'
+                ng-class='isProxyAuthActive(scheme) ? "btn-success" : "btn-default"'
+                type='button' role='button' ng-click='editProxyAuth(scheme)' title='{{"options_proxy_auth" | tr}}')
+                span.glyphicon.glyphicon-lock
         tbody(ng-show='!showAdvanced')
           tr.fixed-show-advanced
-            td(colspan='6')
+            td(colspan='7')
               button.btn.btn-link(ng-click='showAdvanced = true')
                 | #[span.glyphicon.glyphicon-chevron-down] {{'options_proxy_expand' | tr}}
   section.settings-group

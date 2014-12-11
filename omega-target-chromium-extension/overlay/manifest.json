@@ -27,6 +27,8 @@
     "tabs",
     "alarms",
     "storage",
+    "webRequest",
+    "webRequestBlocking",
     "http://*/*",
     "https://*/*",
     "ftp://*/*",

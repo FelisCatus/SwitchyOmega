@@ -1,4 +1,4 @@
-angular.module('omega').controller 'FixedProfileCtrl', ($scope) ->
+angular.module('omega').controller 'FixedProfileCtrl', ($scope, $modal) ->
   $scope.urlSchemes = ['', 'http', 'https', 'ftp']
   $scope.urlSchemeDefault = 'fallbackProxy'
   proxyProperties =
@@ -22,10 +22,34 @@ angular.module('omega').controller 'FixedProfileCtrl', ($scope) ->
 
   $scope.proxyEditors = {}
 
+  $scope.authSupported = {"http": true, "https": true}
+  $scope.isProxyAuthActive = (scheme) ->
+    return $scope.profile.auth?[proxyProperties[scheme]]?
+  $scope.editProxyAuth = (scheme) ->
+    prop = proxyProperties[scheme]
+    proxy = $scope.profile[prop]
+    scope = $scope.$new('isolate')
+    scope.proxy = proxy
+    auth = $scope.profile.auth?[prop]
+    scope.auth = auth && angular.copy(auth)
+    $modal.open(
+      templateUrl: 'partials/fixed_auth_edit.html'
+      scope: scope
+      size: 'sm'
+    ).result.then (auth) ->
+      if not auth?.username
+        if $scope.profile.auth
+          $scope.profile.auth[prop] = undefined
+      else
+        $scope.profile.auth ?= {}
+        $scope.profile.auth[prop] = auth
+
   onProxyChange = (proxyEditors, oldProxyEditors) ->
     return unless proxyEditors
     for scheme in $scope.urlSchemes
       proxy = proxyEditors[scheme]
+      if $scope.profile.auth and not $scope.authSupported[proxy.scheme]
+        delete $scope.profile.auth[proxyProperties[scheme]]
       if not proxy.scheme
         if not scheme
           proxyEditors[scheme] = {}

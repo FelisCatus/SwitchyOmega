@@ -295,6 +295,9 @@
   "options_proxy_port": {
     "message": "代理端口"
   },
+  "options_proxy_auth": {
+    "message": "代理登录"
+  },
   "options_scheme_default": {
     "message": "(默认)"
   },
@@ -543,6 +546,18 @@
   },
   "options_modalHeader_deleteRule": {
     "message": "删除规则"
+  },
+  "options_modalHeader_proxyAuth": {
+    "message": "代理登录"
+  },
+  "options_proxyAuthUsername": {
+    "message": "用户名"
+  },
+  "options_proxyAuthPassword": {
+    "message": "密码"
+  },
+  "options_proxyAuthNone": {
+    "message": "(无密码)"
   },
   "options_deleteRuleConfirm": {
     "message": "真的要删除这个规则吗?"

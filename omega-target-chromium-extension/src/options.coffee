@@ -6,6 +6,7 @@ url = require('url')
 chromeApiPromisifyAll = require('./chrome_api')
 proxySettings = chromeApiPromisifyAll(chrome.proxy.settings)
 parseExternalProfile = require('./parse_external_profile')
+ProxyAuth = require('./proxy_auth')
 
 class ChromeOptions extends OmegaTarget.Options
   parseExternalProfile: (details) ->
@@ -149,7 +150,10 @@ class ChromeOptions extends OmegaTarget.Options
         config['pacScript'].data = prefix + script
         return
     setPacScript ?= Promise.resolve()
-    setPacScript.then(->
+    setPacScript.then(=>
+      @_proxyAuth ?= new ProxyAuth(this)
+      @_proxyAuth.listen()
+      @_proxyAuth.setProxies(@_watchingProfiles)
       proxySettings.setAsync({value: config})
     ).then =>
       chrome.proxy.settings.get {}, @_proxyChangeListener

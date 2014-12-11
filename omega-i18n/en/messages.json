@@ -295,6 +295,9 @@
   "options_proxy_port": {
     "message": "Port"
   },
+  "options_proxy_auth": {
+    "message": "Authentication"
+  },
   "options_scheme_default": {
     "message": "(default)"
   },
@@ -540,6 +543,18 @@
   "popup_title": {
     "message": "SwitchyOmega Popup",
     "description": "The page title of the popup. Normally you won't see it."
+  },
+  "options_modalHeader_proxyAuth": {
+    "message": "Proxy Authentication"
+  },
+  "options_proxyAuthUsername": {
+    "message": "Username"
+  },
+  "options_proxyAuthPassword": {
+    "message": "Password"
+  },
+  "options_proxyAuthNone": {
+    "message": "No Authentication"
   },
   "options_modalHeader_deleteRule": {
     "message": "Delete Rule"

@@ -1,0 +1,26 @@
+form(ng-submit='authForm.$valid && $close(auth)' name='authForm')
+  .modal-header
+    button.close(type='button' ng-click='$dismiss()')
+      span(aria-hidden='true') ×
+      span.sr-only Close
+    h4.modal-title {{'options_modalHeader_newProfile' | tr}}
+  .modal-body(style='padding-bottom: 0;')
+    .form-group
+      label.sr-only {{'options_proxyAuthUsername' | tr}}
+      div(input-group-clear type='text' model='auth.username' autofocus
+        placeholder='{{"options_proxyAuthUsername" | tr}}')
+    .form-group(ng-class='{"has-error": !authForm.password.$valid}')
+      label.sr-only {{'options_proxyAuthPassword' | tr}}
+      .input-group
+        input.form-control(type='text' name='password' ng-model='auth.password'
+          ng-attr-type='{{showPassword ? "text" : "password"}}'
+          placeholder='{{"options_proxyAuthPassword" | tr}}' ng-show='!!auth.username')
+        input.form-control(type='text' value='' placeholder='{{"options_proxyAuthNone" | tr}}'
+          disabled ng-show='!auth.username')
+        span.input-group-btn
+          button.btn.btn-default(type='button' ng-click='showPassword = !showPassword'
+            title="{{'showPassword_' + (showPassword ? 'hide' : 'show') | tr}}" ng-disabled='!auth.username')
+            span.glyphicon(ng-class='{"glyphicon-eye-close": !showPassword, "glyphicon-eye-open": !!showPassword}')
+  .modal-footer
+    button.btn.btn-default(type='button' ng-click='$dismiss()') {{'dialog_cancel' | tr}}
+    button.btn.btn-primary(type='submit' ng-disabled='!authForm.$valid') {{'dialog_save' | tr}}
