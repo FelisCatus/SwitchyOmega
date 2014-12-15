@@ -27,12 +27,23 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
       return unless profileName
       profile = $rootScope.profileByName(profileName)
       return if profile.profileType in ['DirectProfile', 'SystemProfile']
-      ast = OmegaPac.PacGenerator.script($rootScope.options, profileName)
+      missingProfile = null
+      profileNotFound = (name) ->
+        missingProfile = name
+        return 'dumb'
+      ast = OmegaPac.PacGenerator.script($rootScope.options, profileName,
+        profileNotFound: profileNotFound)
       pac = ast.print_to_string(beautify: true, comments: true)
       pac = OmegaPac.PacGenerator.ascii(pac)
       blob = new Blob [pac], {type: "text/plain;charset=utf-8"}
       fileName = profileName.replace(/\W+/g, '_')
       saveAs(blob, "OmegaProfile_#{fileName}.pac")
+      if missingProfile
+        $timeout ->
+          $rootScope.showAlert(
+            type: 'error'
+            message: tr('options_profileNotFound', [missingProfile])
+          )
 
   diff = jsondiffpatch.create(
     objectHash: (obj) -> JSON.stringify(obj)

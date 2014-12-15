@@ -649,6 +649,15 @@
   "options_formInvalid": {
     "message": "请更正这个页面中的错误。"
   },
+  "options_profileNotFound": {
+    "message": "情景模式 $PROFILE$ 不存在！选项可能已经损坏。",
+    "placeholders": {
+      "profile": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
   "options_resetSuccess": {
     "message": "选项已经重置。"
   },

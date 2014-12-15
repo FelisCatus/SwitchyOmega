@@ -649,6 +649,15 @@
   "options_formInvalid": {
     "message": "Please correct the errors in this page."
   },
+  "options_profileNotFound": {
+    "message": "Profile $PROFILE$ does not exist! The options may be corrupted.",
+    "placeholders": {
+      "profile": {
+        "content": "$1",
+        "example": "Example"
+      }
+    }
+  },
   "options_resetSuccess": {
     "message": "Options reset."
   },

@@ -293,6 +293,14 @@ class Options
   ###
   watch: (callback) -> @_storage.watch null, callback
 
+  _profileNotFound: (name) ->
+    @log.error("Profile #{name} not found! Things may go very, very wrong.")
+    return OmegaPac.Profiles.create({
+      name: name
+      profileType: 'VirtualProfile'
+      defaultProfileName: 'direct'
+    })
+
   ###*
   # Get PAC script for profile.
   # @param {?string|Object} profile The name of the profile, or the profile.
@@ -300,7 +308,8 @@ class Options
   # @returns {string} The compiled
   ###
   pacForProfile: (profile, compress = false) ->
-    ast = OmegaPac.PacGenerator.script(@_options, profile)
+    ast = OmegaPac.PacGenerator.script(@_options, profile,
+      profileNotFound: @_profileNotFound.bind(this))
     if compress
       ast = OmegaPac.PacGenerator.compress(ast)
     Promise.resolve OmegaPac.PacGenerator.ascii(ast.print_to_string())
@@ -324,7 +333,8 @@ class Options
         if not allReferenceSet?
           allReferenceSet =
             if profile
-              OmegaPac.Profiles.allReferenceSet profile, @_options
+              OmegaPac.Profiles.allReferenceSet(profile, @_options,
+                profileNotFound: @_profileNotFound.bind(this))
             else
               {}
         if allReferenceSet[key]
@@ -358,7 +368,8 @@ class Options
 
     @_currentProfileName = profile.name
     @_isSystem = options?.system || (profile.profileType == 'SystemProfile')
-    @_watchingProfiles = OmegaPac.Profiles.allReferenceSet(profile, @_options)
+    @_watchingProfiles = OmegaPac.Profiles.allReferenceSet(profile, @_options,
+      profileNotFound: @_profileNotFound.bind(this))
 
     @_state.set({
       'currentProfileName': @_currentProfileName
@@ -390,7 +401,7 @@ class Options
         OmegaPac.Profiles.updateRevision(@_tempProfile)
 
       @_watchingProfiles = OmegaPac.Profiles.allReferenceSet(@_tempProfile,
-        @_options)
+        @_options, profileNotFound: @_profileNotFound.bind(this))
       @applyProfileProxy(@_tempProfile, profile)
     else
       @applyProfileProxy(profile)

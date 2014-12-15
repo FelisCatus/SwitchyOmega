@@ -22,16 +22,21 @@ module.exports =
     compressed_ast.mangle_names()
     compressed_ast
 
-  script: (options, profile) ->
+  script: (options, profile, args) ->
     if typeof profile == 'string'
       profile = Profiles.byName(profile, options)
-    refs = Profiles.allReferenceSet(profile, options)
+    refs = Profiles.allReferenceSet(profile, options,
+      profileNotFound: args?.profileNotFound)
+
     profiles = new U2.AST_Object properties:
       for key, name of refs when key != '+direct'
-        new U2.AST_ObjectKeyVal(
-          key: key
-          value: Profiles.compile(Profiles.byName(name, options) ? profile),
-        )
+        p = if typeof profile == 'object' and profile.name == name
+          profile
+        else
+          Profiles.byName(name, options)
+        if not p?
+          p = Profiles.profileNotFound(name, args?.profileNotFound)
+        new U2.AST_ObjectKeyVal(key: key, value: Profiles.compile(p))
 
     factory = new U2.AST_Function(
       argnames: [

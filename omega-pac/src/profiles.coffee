@@ -138,22 +138,48 @@ module.exports = exports =
     return cache.directReferenceSet if cache.directReferenceSet
     handler = exports._handler(profile)
     cache.directReferenceSet = handler.directReferenceSet.call(exports, profile)
-  allReferenceSet: (profile, options, opt_out) ->
+  
+  profileNotFound: (name, action) ->
+    if not action?
+      throw new Error("Profile #{name} does not exist!")
+    if typeof action == 'function'
+      action = action(name)
+    if typeof action == 'object' and action.profileType
+      return action
+    switch action
+      when 'ignore'
+        return null
+      when 'dumb'
+        return exports.create({
+          name: name
+          profileType: 'VirtualProfile'
+          defaultProfileName: 'direct'
+        })
+    throw action
+
+  allReferenceSet: (profile, options, opt_args) ->
     o_profile = profile
     profile = exports.byName(profile, options)
-    throw new Error("Profile #{o_profile} does not exist!") if not profile?
-    result = opt_out ? {}
-    result[exports.nameAsKey(profile.name)] = profile.name
-    for key, name of exports.directReferenceSet(profile)
-      exports.allReferenceSet(name, options, result)
+    profile ?= exports.profileNotFound?(o_profile, opt_args.profileNotFound)
+    opt_args ?= {}
+    has_out = opt_args.out?
+    result = opt_args.out ?= {}
+    if profile
+      result[exports.nameAsKey(profile.name)] = profile.name
+      for key, name of exports.directReferenceSet(profile)
+        exports.allReferenceSet(name, options, opt_args)
+    delete opt_args.out if not has_out
     result
-  referencedBySet: (profile, options, opt_out) ->
+  referencedBySet: (profile, options, opt_args) ->
     profileKey = exports.nameAsKey(profile)
-    result = opt_out ? {}
+    opt_args ?= {}
+    has_out = opt_args.out?
+    result = opt_args.out ?= {}
     exports.each options, (key, prof) ->
       if exports.directReferenceSet(prof)[profileKey]
         result[key] = prof.name
-        exports.referencedBySet(prof, options, result)
+        exports.referencedBySet(prof, options, opt_args)
+    delete opt_args.out if not has_out
     result
   validResultProfilesFor: (profile, options) ->
     profile = exports.byName(profile, options)

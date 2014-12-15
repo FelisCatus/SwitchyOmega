@@ -55,6 +55,18 @@ describe 'Profiles', ->
       profile = {}
       profile = Profiles.byName('profile', {"+profile": profile})
       profile.should.equal(profile)
+  describe '#allReferenceSet', ->
+    profile = Profiles.create('test', 'VirtualProfile')
+    profile.defaultProfileName = 'bogus'
+    it 'should throw if referenced profile does not exist', ->
+      getAllReferenceSet = ->
+        Profiles.allReferenceSet(profile, {})
+      getAllReferenceSet.should.throw(Error)
+    it 'should process a dumb profile for each missing profile if requested', ->
+      profile.defaultProfileName = 'bogus'
+      refs = Profiles.allReferenceSet profile, {}, profileNotFound: 'dumb'
+      refs['+bogus'].should.equal('bogus')
+
   describe 'SystemProfile', ->
     it 'should be builtin with the name "system"', ->
       profile = Profiles.byName('system')
