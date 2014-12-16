@@ -490,6 +490,7 @@ class Options
         results[key] = @fetchUrl(url, opt_bypass_cache).then((data) =>
           profile = OmegaPac.Profiles.byKey(key, @_options)
           OmegaPac.Profiles.update(profile, data)
+          OmegaPac.Profiles.updateRevision(profile)
           changes = {}
           changes[key] = profile
           @_setOptions(changes).return(profile)
