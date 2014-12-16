@@ -150,6 +150,7 @@ module.exports = (oldOptions, i18n) ->
         nameMap[defaultRule.profileId] || 'direct'
       if not config.ruleListEnabled
         auto.defaultProfileName = rulelist.defaultProfileName
+    OmegaPac.Profiles.updateRevision(rulelist)
 
     rules = try JSON.parse(oldOptions['rules'])
     if rules
