@@ -137,6 +137,7 @@ timeout = null
 
 options.watchProxyChange (details) ->
   return if options.externalApi.disabled
+  return unless details
   notControllableBefore = options.proxyNotControllable()
   internal = false
   switch details['levelOfControl']
