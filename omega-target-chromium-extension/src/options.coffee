@@ -133,7 +133,7 @@ class ChromeOptions extends OmegaTarget.Options
           url: profile.pacUrl
           mandatory: true
         else
-          data: profile.pacScript
+          data: OmegaPac.PacGenerator.ascii(profile.pacScript)
           mandatory: true
     else if profile.profileType == 'FixedProfile'
       config = @_fixedProfileConfig(profile)
