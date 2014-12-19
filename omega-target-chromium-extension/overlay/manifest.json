@@ -33,5 +33,12 @@
     "https://*/*",
     "ftp://*/*",
     "<all_urls>"
-  ]
+  ],
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+O"
+      }
+    }
+  }
 }
