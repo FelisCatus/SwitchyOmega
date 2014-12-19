@@ -101,12 +101,25 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
     setDefaultProfile: (profileName, defaultProfileName) ->
       callBackground('setDefaultProfile', profileName, defaultProfileName)
     getActivePageInfo: ->
-      # First, try to clear badges on opening the popup.
-      callBackground('clearBadge')
+      clearBadge = true
       d = $q['defer']()
       chrome.tabs.query {active: true, lastFocusedWindow: true}, (tabs) ->
-        d.resolve(tabs[0]?.url)
+        if not tabs[0]?.url
+          d.resolve(undefined)
+          return
+        getBadge = $q['defer']()
+        chrome.browserAction.getBadgeText {tabId: tabs[0]?.id}, (result) ->
+          getBadge.resolve(result)
+        $q.all([getBadge.promise, omegaTarget.state('inspectUrl')
+        ]).then ([badge, url]) ->
+          if badge != '#' || not url
+            d.resolve(tabs[0]?.url)
+          else
+            clearBadge = false
+            d.resolve(url)
       return d.promise.then (url) ->
+        # First, try to clear badges on opening the popup.
+        callBackground('clearBadge') if clearBadge
         return null if not url or isChromeUrl(url)
         urlParser.href = url
         domain = urlParser.hostname

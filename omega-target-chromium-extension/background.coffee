@@ -102,14 +102,22 @@ actionForUrl = (url) ->
     if not details
       details = options.printProfile(current)
 
-    icon =
-      if profile.name == current.name and options.isCurrentProfileStatic()
-        if direct
-          drawIcon(options.profile('direct').color, profile.color)
-        else
-          drawIcon(profile.color)
+    resultColor = profile.color
+    profileColor = current.color
+
+    icon = null
+    if profile.name == current.name and options.isCurrentProfileStatic()
+      if direct
+        resultColor = options.profile('direct').color
+        profileColor = profile.color
       else
-        drawIcon(profile.color, current.color)
+        resultColor = profileColor = profile.color
+        icon = drawIcon(profile.color)
+    else
+      resultColor = profile.color
+      profileColor = current.color
+
+    icon ?= drawIcon(resultColor, profileColor)
     return {
       title: chrome.i18n.getMessage('browserAction_titleWithResult', [
         currentName
@@ -117,6 +125,8 @@ actionForUrl = (url) ->
         details
       ])
       icon: icon
+      resultColor: resultColor
+      profileColor: profileColor
     }
 
 
@@ -132,6 +142,32 @@ if chrome.runtime.id != OmegaTargetCurrent.SwitchySharp.extId
 
 tabs = new OmegaTargetCurrent.ChromeTabs(actionForUrl)
 tabs.watch()
+
+inspect = new OmegaTargetCurrent.Inspect (url, tab) ->
+  if url == tab.url
+    options.clearBadge()
+    tabs.processTab(tab)
+    state.remove('inspectUrl')
+    return
+
+  state.set({inspectUrl: url})
+
+  actionForUrl(url).then (action) ->
+    parsedUrl = OmegaTargetCurrent.Url.parse(url)
+    if parsedUrl.hostname == OmegaTargetCurrent.Url.parse(tab.url).hostname
+      urlDisp = parsedUrl.path
+    else
+      urlDisp = parsedUrl.hostname
+
+    title = chrome.i18n.getMessage('browserAction_titleInspect', urlDisp) + '\n'
+    title += action.title
+    chrome.browserAction.setTitle(title: title, tabId: tab.id)
+    tabs.setTabBadge(tab, {
+      text: '#'
+      color: action.resultColor
+    })
+
+inspect.register()
 
 options.setProxyNotControllable(null)
 timeout = null

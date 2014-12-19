@@ -807,6 +807,15 @@
   "browserAction_titleExternalProxy": {
     "message": "注意：其他应用正在控制当前代理设置。"
   },
+  "browserAction_titleInspect": {
+    "message": "[检查] $URL$",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "example.com/image.png"
+      }
+    }
+  },
   "browserAction_defaultRuleDetails": {
     "message": "(默认)",
     "description": "在图标悬停提示上表示选择了默认情景模式作为结果的文字。"
@@ -822,5 +831,17 @@
   "browserAction_tempRulePrefix": {
     "message": "(临时) ",
     "description": "在图标悬停提示上显示临时规则的前缀。文字应该非常短。"
+  },
+  "contextMenu_inspectPage": {
+    "message": "检查此页面使用的代理"
+  },
+  "contextMenu_inspectFrame": {
+    "message": "检查此[框架页面]使用的代理"
+  },
+  "contextMenu_inspectLink": {
+    "message": "检查此[链接目标]将会使用的代理"
+  },
+  "contextMenu_inspectElement": {
+    "message": "检查此[元素]使用的代理"
   }
 }

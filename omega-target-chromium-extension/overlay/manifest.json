@@ -29,6 +29,8 @@
     "storage",
     "webRequest",
     "webRequestBlocking",
+    "contextMenus",
+
     "http://*/*",
     "https://*/*",
     "ftp://*/*",

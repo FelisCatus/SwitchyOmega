@@ -807,6 +807,15 @@
   "browserAction_titleExternalProxy": {
     "message": "Note: The proxy settings are currently controlled by other app(s)."
   },
+  "browserAction_titleInspect": {
+    "message": "[Inspect] $URL$",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "example.com/image.png"
+      }
+    }
+  },
   "browserAction_defaultRuleDetails": {
     "message": "(default)",
     "description": "Representation of the default profile being selected on browserAction title."
@@ -822,5 +831,17 @@
   "browserAction_tempRulePrefix": {
     "message": "(TEMP) ",
     "description": "The prefix to indicate a temp rule on browserAction title. Should be very short."
+  },
+  "contextMenu_inspectPage": {
+    "message": "Inspect proxy used for this page"
+  },
+  "contextMenu_inspectFrame": {
+    "message": "Inspect proxy used for this Frame"
+  },
+  "contextMenu_inspectLink": {
+    "message": "Inspect proxy to be used if this Link is opened"
+  },
+  "contextMenu_inspectElement": {
+    "message": "Inspect proxy used for this Element"
   }
 }

@@ -1,6 +1,7 @@
 class ChromeTabs
   _dirtyTabs: {}
   _defaultAction: null
+  _badgeTab: null
 
   constructor: (@actionForUrl) -> return
 
@@ -34,6 +35,10 @@ class ChromeTabs
     @processTab(tab, changeInfo)
 
   processTab: (tab, changeInfo) ->
+    if @_badgeTab
+      for own id of @_badgeTab
+        try chrome.browserAction.setBadgeText(text: '', tabId: id)
+        @_badgeTab = null
     if not tab.url? or tab.url.indexOf("chrome") == 0
       chrome.browserAction.setTitle(title: @_defaultAction.title, tabId: tab.id)
       @clearIcon tab.id
@@ -41,6 +46,15 @@ class ChromeTabs
     @actionForUrl(tab.url).then (action) =>
       @setIcon(action.icon, tab.id)
       chrome.browserAction.setTitle(title: action.title, tabId: tab.id)
+
+  setTabBadge: (tab, badge) ->
+    @_badgeTab ?= {}
+    @_badgeTab[tab.id] = true
+    chrome.browserAction.setBadgeText(text: badge.text, tabId: tab.id)
+    chrome.browserAction.setBadgeBackgroundColor(
+      color: badge.color
+      tabId: tab.id
+    )
 
   setIcon: (icon, tabId) ->
     if tabId?
