@@ -1,6 +1,8 @@
 window.OmegaTargetWebBasics =
   getLog: (callback) ->
     callback(localStorage['log'] || '')
+  getError: (callback) ->
+    callback(localStorage['logLastError'] || '')
   getEnv: (callback) ->
     extensionVersion = chrome.runtime.getManifest().version
     callback({

@@ -10,6 +10,7 @@ Log.log = (args...) ->
 Log.error = (args...) ->
   console.error(args...)
   content = args.map(Log.str.bind(Log)).join(' ')
+  localStorage['logLastError'] = content
   localStorage['log'] += 'ERROR: ' + content + '\n'
 
 unhandledPromises = []

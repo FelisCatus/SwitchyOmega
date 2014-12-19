@@ -15,4 +15,10 @@ window.OmegaTargetWebBasics.getEnv (env) ->
     SwitchyOmega #{env.projectVersion}
     #{env.userAgent}
   """
-  document.querySelector('.report-issue').href = url + encodeURIComponent(body)
+  link = document.querySelector('.report-issue')
+  link.href = url + encodeURIComponent(body)
+  window.OmegaTargetWebBasics.getError (err) ->
+    return unless err
+    body += "\n```\n#{err}\n```"
+    final_url = url + encodeURIComponent(body)
+    link.href = final_url.substr(0, 2000) # Limit URL up to 2000 chars.
