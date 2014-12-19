@@ -24,12 +24,12 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
     link(rel='stylesheet' href='lib/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet' href='css/popup.css')
   body(ng-class='{"with-condition-form": showConditionForm}')
-    ul.nav.nav-pills.nav-stacked(ng-hide='showConditionForm || proxyNotControllable')
+    ul.popup-menu-nav.nav.nav-pills.nav-stacked(ng-hide='showConditionForm || proxyNotControllable')
       li.profile(ng-repeat='profile in builtinProfiles' ng-class='{active: isActive(profile.name), "bg-info": isEffective(profile.name)}')
-        a(ng-click='applyProfile(profile)' title='{{getProfileTitle(profile)}}')
+        a(href='#' role='button' ng-attr-tabindex='{{100 + $index}}' ng-click='applyProfile(profile)' title='{{getProfileTitle(profile)}}')
           span(omega-profile-inline='profile' icon='getIcon(profile)' options='availableProfiles' disp-name='dispNameFilter')
       li.profile.external-profile(ng-show='!!externalProfile' ng-class='{active: isActive(""), "bg-info": isEffective("")}')
-        a(ng-click='nameExternal.open = true' title='{{getProfileTitle(externalProfile)}}')
+        a(href='#' role='button' ng-click='nameExternal.open = true' title='{{getProfileTitle(externalProfile)}}')
           form(name='nameExternalForm' ng-submit='nameExternalForm.$valid && saveExternal()')
             span(omega-profile-icon='externalProfile' icon='getIcon(externalProfile, "normal")' options='availableProfiles' disp-name='dispNameFilter')
             = ' '
@@ -39,26 +39,26 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
       li.divider
       li.profile(ng-repeat='profile in customProfiles' ng-class='{active: isActive(profile.name), "bg-info": isEffective(profile.name)}'
         dropdown)
-        a(ng-click='applyProfile(profile)' ng-if='!profile.validResultProfiles' title='{{getProfileTitle(profile)}}')
+        a(href='#' role='button' ng-click='applyProfile(profile)' ng-if='!profile.validResultProfiles' title='{{getProfileTitle(profile)}}')
           span(omega-profile-inline='profile' icon='getIcon(profile)' options='availableProfiles' disp-name='dispNameFilter')
-        a.profile-with-default-edit(ng-click='applyProfile(profile)' ng-if='!!profile.validResultProfiles' title='{{getProfileTitle(profile)}}')
+        a.profile-with-default-edit(href='#' role='button' ng-click='applyProfile(profile)' ng-if='!!profile.validResultProfiles' title='{{getProfileTitle(profile)}}')
           span(omega-profile-inline='profile' icon='getIcon(profile)' options='availableProfiles' disp-name='dispNameFilter')
           = ' '
           | [{{profile.defaultProfileName}}]
-          button.dropdown-toggle.btn.btn-default(ng-click='$event.stopPropagation()')
+          button.dropdown-toggle.btn.btn-default(href='#' role='button' ng-click='$event.stopPropagation()')
             span.glyphicon.glyphicon-chevron-down
         ul.dropdown-menu(ng-if='!!profile.validResultProfiles')
           li(ng-repeat='p in profile.validResultProfiles' ng-class='{active: p.name == profile.defaultProfileName}')
-            a(ng-click='setDefaultProfile(profile.name, p.name)' title='{{getProfileTitle(profile)}}')
+            a(href='#' role='button' ng-click='setDefaultProfile(profile.name, p.name)' title='{{getProfileTitle(profile)}}')
               span(omega-profile-inline='p' options='availableProfiles' disp-name='dispNameFilter')
       li.divider(ng-show='!!currentDomain && validResultProfiles.length')
       li(ng-show='!!currentProfileCanAddRule')
-        a(ng-click='showConditionForm = true')
+        a(href='#' role='button' ng-click='showConditionForm = true')
           span.glyphicon.glyphicon-plus
           = ' '
           span {{'popup_addCondition' | tr}}
       li(ng-show='!!currentDomain && validResultProfiles.length' dropdown is-open="tempRuleMenu.open")
-        a.dropdown-toggle
+        a.dropdown-toggle(href='#' role='button')
           span.glyphicon.glyphicon-filter
           = ' '
           span.current-domain {{currentDomain}}
@@ -66,11 +66,11 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
         ul.dropdown-menu
           li(ng-repeat='profile in validResultProfiles' ng-class='{active: profile.name == currentTempRuleProfile}'
             ng-show='!!currentTempRuleProfile || validResultProfiles.length == 1 || profile.name != currentProfileName')
-            a(ng-click='addTempRule(currentDomain, profile.name)' title='{{getProfileTitle(profile)}}')
+            a(href='#' role='button' ng-click='addTempRule(currentDomain, profile.name)' title='{{getProfileTitle(profile)}}')
               span(omega-profile-inline='profile' options='availableProfiles' disp-name='dispNameFilter')
       li.divider
       li
-        a(ng-click='openOptions()')
+        a(href='#' role='button' ng-click='openOptions()')
           span.glyphicon.glyphicon-wrench
           = ' '
           span {{'popup_showOptions' | tr}}
@@ -80,7 +80,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           = ' '
           span {{'popup_reportIssues' | tr}}
       li
-        a.error-log
+        a.error-log(href='#' role='button')
           span.glyphicon.glyphicon-download
           = ' '
           span {{'popup_errorLog' | tr}}
@@ -129,6 +129,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
     script(src='lib/FileSaver/FileSaver.js')
     script(src='js/omega_target_web_basics.js')
     script(src='js/popup_basics.js')
+    script(src='lib/jquery/jquery.min.js')
     script(src='lib/angular/angular.min.js')
     script(src='lib/angular-bootstrap/ui-bootstrap-tpls.min.js')
     script(src='lib/angular-ui-utils/validate.min.js')

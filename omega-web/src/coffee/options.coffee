@@ -34,7 +34,7 @@ $script.ready ['jquery'], ->
   $script 'lib/spectrum/spectrum.js', 'spectrum'
 
 $script.ready ['angular-loader', 'jquery'], ->
-  $script 'lib/angular/angular.js', 'angular'
+  $script 'lib/angular/angular.min.js', 'angular'
 
 $script.ready ['angular'], ->
   $script 'lib/angular-ui-router/angular-ui-router.js', 'angular-ui-router'

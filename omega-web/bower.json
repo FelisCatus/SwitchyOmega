@@ -51,13 +51,13 @@
       "": []
     },
     "angular": {
-      "": "*.js"
+      "": "*.min.js"
     },
     "angular-animate": {
       "": "*.min.*"
     },
     "angular-bootstrap": {
-      "": "*.min.js"
+      "": "ui-bootstrap-tpls.min.js"
     },
     "angular-i18n": {
       "": [

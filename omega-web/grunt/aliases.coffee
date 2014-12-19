@@ -6,7 +6,6 @@ module.exports =
     'autoprefixer'
     'coffeelint'
     'coffee'
-    'ngAnnotate'
     'bower'
   ]
   test: ['mochaTest']

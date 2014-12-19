@@ -8,6 +8,22 @@ module.filter 'dispName', (omegaTarget) ->
       name = name.name
     omegaTarget.getMessage('profile_' + name) || name
 
+jQuery(document).on 'keydown', (e) ->
+  return unless e.keyCode == 38 or e.keyCode == 40
+  items = jQuery('.popup-menu-nav > li:not(.ng-hide) > a')
+
+  i = items.index(jQuery(e.target).closest('a'))
+  switch e.keyCode
+    when 38
+      i--
+      if i >= 0
+        items.eq(i)[0]?.focus()
+    when 40
+      i++
+      items.eq(i)[0]?.focus()
+
+  return false
+
 module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
   profileIcons, profileOrder, dispNameFilter, getVirtualTarget) ->
 
