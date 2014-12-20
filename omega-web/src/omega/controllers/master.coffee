@@ -238,7 +238,6 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
 
   onOptionChange = (options, oldOptions) ->
     return if options == oldOptions or not oldOptions?
-    plainOptions = angular.fromJson(angular.toJson(options))
     $rootScope.optionsDirty = true
   $rootScope.$watch 'options', onOptionChange, true
 

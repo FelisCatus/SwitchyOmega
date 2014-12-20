@@ -70,6 +70,19 @@ angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
             break
         $state.go('ui')
 
+  # The watcher should be applied on the calling scope.
+  # coffeelint: disable=missing_fat_arrows
+  $scope.watchAndUpdateRevision = (expression) ->
+    revisionChanged = false
+    onChange = (profile, oldProfile) ->
+      return profile if profile == oldProfile or not profile or not oldProfile
+      if revisionChanged and profile.revision != oldProfile.revision
+        revisionChanged = false
+      else
+        OmegaPac.Profiles.updateRevision(profile)
+        revisionChanged = true
+    this.$watch expression, onChange, true
+
   unwatch = $scope.$watch (-> $scope.options?['+' + name]), (profile) ->
     if not profile
       if $scope.options
@@ -91,16 +104,5 @@ angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
     templ = profileTemplates[type] ? 'profile_unsupported.html'
     $scope.profileTemplate = 'partials/' + templ
     $scope.scriptable = true
-
-    $scope.watchAndUpdateRevision = (expression) ->
-      revisionChanged = false
-      onChange = (profile, oldProfile) ->
-        return profile if profile == oldProfile or not profile or not oldProfile
-        if revisionChanged and profile.revision != oldProfile.revision
-          revisionChanged = false
-        else
-          OmegaPac.Profiles.updateRevision(profile)
-          revisionChanged = true
-      $scope.$watch expression, onChange, true
 
     $scope.watchAndUpdateRevision 'profile'
