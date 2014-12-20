@@ -286,6 +286,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
     return unless firstRun
     scope = $rootScope.$new('isolate')
     scope.upgrade = (firstRun == 'upgrade')
+    omegaTarget.state('firstRun', '')
     $modal.open(
       templateUrl: 'partials/options_welcome.html'
       keyboard: false
@@ -298,6 +299,3 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
           return
         when 'show'
           $script 'js/options_guide.js'
-        when 'skip'
-          break
-      omegaTarget.state('firstRun', '')
