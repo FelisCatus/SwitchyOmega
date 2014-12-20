@@ -50,8 +50,10 @@ module.exports = exports =
 
   parseHostPort: (str, scheme) ->
     sep = str.lastIndexOf(':')
+    return if sep < 0
     port = parseInt(str.substr(sep + 1)) || 80
     host = str.substr(0, sep)
+    return unless host
     return {
       scheme: scheme
       host: host
