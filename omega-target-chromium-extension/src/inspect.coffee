@@ -18,6 +18,7 @@ module.exports = class Inspect
       "ftp://*/*"
     ]
 
+    ### Not so useful...
     chrome.contextMenus.create({
       id: 'inspectPage'
       title: chrome.i18n.getMessage('contextMenu_inspectPage')
@@ -25,6 +26,7 @@ module.exports = class Inspect
       onclick: @inspect.bind(this)
       documentUrlPatterns: webResource
     })
+    ###
 
     chrome.contextMenus.create({
       id: 'inspectFrame'
