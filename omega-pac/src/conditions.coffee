@@ -16,7 +16,7 @@ module.exports = exports =
   urlWildcard2HostWildcard: (pattern) ->
     result = pattern.match ///
       ^\*:\/\/ # Begins with *://
-      ((?:\w|[?*.])+) # The host part follows.
+      ((?:\w|[?*._\-])+) # The host part follows.
       \/\*$ # And ends with /*
     ///
     result?[1]
