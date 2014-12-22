@@ -409,6 +409,9 @@
   "options_addCondition": {
     "message": "添加条件"
   },
+  "options_cloneRule": {
+    "message": "克隆"
+  },
   "options_switchAttachedProfileInCondition": {
     "message": "规则列表规则"
   },

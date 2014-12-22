@@ -58,6 +58,9 @@ div(ng-controller='SwitchProfileCtrl')
             td
               button.btn.btn-danger.btn-sm(title="{{'options_deleteRule' | tr}}" ng-click='removeRule($index)')
                 span.glyphicon.glyphicon-trash
+              = ' '
+              button.btn.btn-default.btn-sm(title="{{'options_cloneRule' | tr}}" ng-click='cloneRule($index)')
+                span.glyphicon.glyphicon-tags
         tbody
           tr
             td(style='border-right: none;')

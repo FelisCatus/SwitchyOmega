@@ -409,6 +409,9 @@
   "options_addCondition": {
     "message": "Add condition"
   },
+  "options_cloneRule": {
+    "message": "Clone"
+  },
   "options_switchAttachedProfileInCondition": {
     "message": "Rule list rules"
   },

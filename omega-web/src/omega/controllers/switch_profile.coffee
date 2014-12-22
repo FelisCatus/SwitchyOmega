@@ -1,5 +1,5 @@
 angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
-  $modal, profileIcons, getAttachedName, omegaTarget) ->
+  $modal, profileIcons, getAttachedName, omegaTarget, $timeout) ->
 
   $scope.showConditionHelp = ($location.search().help == 'condition')
 
@@ -126,6 +126,14 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
       ).result.then removeForReal
     else
       removeForReal()
+
+  $scope.cloneRule = (index) ->
+    rule = angular.copy($scope.profile.rules[index])
+    $scope.profile.rules.splice(index + 1, 0, rule)
+    $timeout ->
+      input = angular.element(".switch-rule-row:nth-child(#{index + 2}) input")
+      input[0]?.focus()
+      input[0]?.select()
 
   $scope.resetRules = ->
     scope = $scope.$new('isolate')
