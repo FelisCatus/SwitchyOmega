@@ -46,4 +46,4 @@ div(ng-controller='FixedProfileCtrl')
     p.help-block
       a(href='https://developer.chrome.com/extensions/proxy#bypass_list' target='_blank')
         | {{'options_bypassListHelpLinkText' | tr}}
-    textarea.form-control.width-limit(rows='10' ng-model='bypassList' ng-model-options="{updateOn:'blur'}")
+    textarea.monospace.form-control.width-limit(rows='10' ng-model='bypassList' ng-model-options="{updateOn:'blur'}")

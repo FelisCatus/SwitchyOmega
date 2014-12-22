@@ -14,5 +14,5 @@ section.settings-group
     button.btn.btn-default(ng-disabled='!profile.pacUrl' ng-click='updateProfile(profile.name)'
         ladda='updatingProfile[profile.name]' data-spinner-color="#000000")
       | #[span.glyphicon.glyphicon-download-alt] {{'options_downloadProfileNow' | tr}}
-  textarea.form-control.width-limit(ng-model='profile.pacScript' rows=20
+  textarea.monospace.form-control.width-limit(ng-model='profile.pacScript' rows=20
     ng-disabled='!!profile.pacUrl')

@@ -123,5 +123,5 @@ div(ng-controller='SwitchProfileCtrl')
       button.btn.btn-default(ng-disabled='!attached.sourceUrl' ng-click='updateProfile(attached.name)'
           ladda='updatingProfile[attached.name]' data-spinner-color="#000000")
         | #[span.glyphicon.glyphicon-download-alt] {{'options_downloadProfileNow' | tr}}
-    textarea.form-control.width-limit(ng-model='attached.ruleList' rows=20
+    textarea.monospace.form-control.width-limit(ng-model='attached.ruleList' rows=20
       ng-disabled='!!attached.sourceUrl')
