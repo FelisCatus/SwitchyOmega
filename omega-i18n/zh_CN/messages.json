@@ -157,6 +157,9 @@
   "options_refreshOnProfileChange": {
     "message": "当更改情景模式时刷新当前标签"
   },
+  "options_showInspectMenu": {
+    "message": "右键菜单中，可检查网页元素所使用的代理。"
+  },
   "options_group_switchOptions": {
     "message": "切换选项"
   },

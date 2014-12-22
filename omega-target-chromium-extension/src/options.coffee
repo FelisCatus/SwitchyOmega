@@ -9,6 +9,7 @@ parseExternalProfile = require('./parse_external_profile')
 ProxyAuth = require('./proxy_auth')
 
 class ChromeOptions extends OmegaTarget.Options
+  _inspect: null
   parseExternalProfile: (details) ->
     parseExternalProfile(details, @_options, @_fixedProfileConfig.bind(this))
 
@@ -177,6 +178,14 @@ class ChromeOptions extends OmegaTarget.Options
     else
       chrome.browserAction.setPopup({popup: 'popup.html'})
     Promise.resolve()
+
+  setInspect: (settings) ->
+    if @_inspect
+      if settings.showMenu
+        @_inspect.enable()
+      else
+        @_inspect.disable()
+    return Promise.resolve()
 
   _alarms: null
   schedule: (name, periodInMinutes, callback) ->

@@ -143,7 +143,7 @@ if chrome.runtime.id != OmegaTargetCurrent.SwitchySharp.extId
 tabs = new OmegaTargetCurrent.ChromeTabs(actionForUrl)
 tabs.watch()
 
-inspect = new OmegaTargetCurrent.Inspect (url, tab) ->
+options._inspect = new OmegaTargetCurrent.Inspect (url, tab) ->
   if url == tab.url
     options.clearBadge()
     tabs.processTab(tab)
@@ -166,8 +166,6 @@ inspect = new OmegaTargetCurrent.Inspect (url, tab) ->
       text: '#'
       color: action.resultColor
     })
-
-inspect.register()
 
 options.setProxyNotControllable(null)
 timeout = null

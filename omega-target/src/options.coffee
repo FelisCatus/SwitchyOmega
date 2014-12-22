@@ -263,6 +263,12 @@ class Options
       if changes['-downloadInterval']?
         @schedule 'updateProfile', @_options['-downloadInterval'], =>
           @updateProfile()
+      if changes['-showInspectMenu']? or changes == @_options
+        showMenu = @_options['-showInspectMenu']
+        if not showMenu?
+          showMenu = true
+          @_setOptions({'-showInspectMenu': true}, {persist: true})
+        @setInspect(showMenu: showMenu)
 
     handler()
     @_storage.watch null, handler
@@ -280,6 +286,15 @@ class Options
         @setQuickSwitch(null)
     else
       @setQuickSwitch(null)
+
+  ###*
+  # Apply the settings related to element proxy inspection.
+  # In base class, this method is not implemented and will not do anything.
+  # @param {{}} settings
+  # @param {boolean} settings.showMenu Whether to show the menu or not
+  # @returns {Promise} A promise which is fulfilled when the settings apply
+  ###
+  setInspect: -> Promise.resolve()
 
   ###*
   # @callback watchCallback

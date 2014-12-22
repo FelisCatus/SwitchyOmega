@@ -157,6 +157,9 @@
   "options_refreshOnProfileChange": {
     "message": "Refresh current tab on profile change."
   },
+  "options_showInspectMenu": {
+    "message": "Allow inspecting proxy used for page elements via context menu."
+  },
   "options_group_switchOptions": {
     "message": "Switch Options"
   },

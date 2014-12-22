@@ -3,14 +3,16 @@ OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 
 module.exports = class Inspect
+  _enabled: false
   constructor: (@onInspect) ->
 
-  register: ->
+  enable: ->
     # We don't need this API. However its presence indicates that Chrome >= 35,
     # which provides the menuItemId we need in contextMenu callback.
     # https://developer.chrome.com/extensions/contextMenus
     return unless chrome.i18n.getUILanguage?
 
+    return if @_enabled
 
     webResource = [
       "http://*/*"
@@ -55,6 +57,14 @@ module.exports = class Inspect
       onclick: @inspect.bind(this)
       targetUrlPatterns: webResource
     })
+
+    @_enabled = true
+
+  disable: ->
+    return unless @_enabled
+    for own menuId of @propForMenuItem
+      try chrome.contextMenus.remove(menuId)
+    @_enabled = false
 
   propForMenuItem:
     'inspectPage': 'pageUrl'

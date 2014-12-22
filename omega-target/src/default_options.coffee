@@ -6,6 +6,7 @@ module.exports = ->
   "-quickSwitchProfiles": []
   "-revertProxyChanges": false
   "-confirmDeletion": true
+  "-showInspectMenu": true
   "-downloadInterval": 1440
   "+proxy":
     bypassList: [

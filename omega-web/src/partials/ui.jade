@@ -10,6 +10,10 @@ section.settings-group
     label
       input#refresh-on-profile-change(type='checkbox' ng-model='options["-refreshOnProfileChange"]')
       span {{'options_refreshOnProfileChange' | tr}}
+  div.checkbox
+    label
+      input(type='checkbox' ng-model='options["-showInspectMenu"]')
+      span {{'options_showInspectMenu' | tr}}
 section.settings-group
   h3 {{'options_group_switchOptions' | tr}}
   div.form-group
