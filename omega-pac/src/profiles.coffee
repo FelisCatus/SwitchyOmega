@@ -253,7 +253,7 @@ module.exports = exports =
         body = [
           new U2.AST_Directive value: 'use strict'
         ]
-        if profile.bypassList
+        if profile.bypassList and profile.bypassList.length
           conditions = null
           for cond in profile.bypassList
             condition = Conditions.compile cond
