@@ -76,6 +76,7 @@ actionForUrl = (url) ->
           if result[0] == 'DIRECT'
             details += chrome.i18n.getMessage('browserAction_directResult')
             details += '\n'
+            direct = true
           else
             details += "#{result[0]}\n"
         else if typeof result[1] == 'string'
@@ -106,13 +107,12 @@ actionForUrl = (url) ->
     profileColor = current.color
 
     icon = null
-    if profile.name == current.name and options.isCurrentProfileStatic()
-      if direct
-        resultColor = options.profile('direct').color
-        profileColor = profile.color
-      else
-        resultColor = profileColor = profile.color
-        icon = drawIcon(profile.color)
+    if direct
+      resultColor = options.profile('direct').color
+      profileColor = profile.color
+    else if profile.name == current.name and options.isCurrentProfileStatic()
+      resultColor = profileColor = profile.color
+      icon = drawIcon(profile.color)
     else
       resultColor = profile.color
       profileColor = current.color
@@ -236,8 +236,13 @@ options.currentProfileChanged = (reason) ->
     title = message + '\n' + title
     options.setBadge()
 
+  if not current.name or not OmegaPac.Profiles.isInclusive(current)
+    icon = drawIcon(current.color)
+  else
+    icon = drawIcon(options.profile('direct').color, current.color)
+
   tabs.resetAll(
-    icon: drawIcon(current.color)
+    icon: icon
     title: title
   )
 
