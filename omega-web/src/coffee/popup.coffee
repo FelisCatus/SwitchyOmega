@@ -13,6 +13,8 @@ jQuery(document).on 'keydown', (e) ->
   items = jQuery('.popup-menu-nav > li:not(.ng-hide) > a')
 
   i = items.index(jQuery(e.target).closest('a'))
+  if i == -1
+    i = items.index(jQuery('.popup-menu-nav > li.active > a'))
   switch e.keyCode
     when 38
       i--
