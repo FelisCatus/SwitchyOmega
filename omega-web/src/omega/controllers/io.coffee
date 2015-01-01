@@ -6,13 +6,18 @@ angular.module('omega').controller 'IoCtrl', ($scope, $rootScope) ->
       blob = new Blob [content], {type: "text/plain;charset=utf-8"}
       saveAs(blob, "OmegaOptions.bak")
 
+  $scope.importSuccess = ->
+    $rootScope.showAlert(
+      type: 'success'
+      i18n: 'options_importSuccess'
+      message: 'Options imported.'
+    )
+
   $scope.restoreLocal = (content) ->
     $rootScope.resetOptions(content).then ( ->
-      $rootScope.showAlert(
-        type: 'success'
-        i18n: 'options_importSuccess'
-        message: 'Options imported.'
-      )
+      $scope.importSuccess()
+      $rootScope.updateProfile().finally ->
+        $scope.importSuccess()
     ), -> $scope.restoreLocalError()
   $scope.restoreLocalError = ->
     $rootScope.showAlert(

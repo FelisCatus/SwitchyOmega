@@ -211,7 +211,13 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
 
   $rootScope.updateProfile = (name) ->
     $rootScope.applyOptionsConfirm().then(->
-      $scope.updatingProfile[name] = true
+      if name?
+        $scope.updatingProfile[name] = true
+      else
+        OmegaPac.Profiles.each $scope.options, (key, profile) ->
+          if not profile.builtin
+            $scope.updatingProfile[profile.name] = true
+        
       omegaTarget.updateProfile(name).then((results) ->
         success = 0
         error = 0
@@ -233,7 +239,10 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
           i18n: 'options_profileDownloadError'
         )
       ).finally ->
-        $scope.updatingProfile[name] = false
+        if name?
+          $scope.updatingProfile[name] = false
+        else
+          $scope.updatingProfile = {}
     )
 
   onOptionChange = (options, oldOptions) ->
