@@ -1,5 +1,10 @@
 .page-header
   .profile-actions
+    button.btn.btn-default(ng-show='exportRuleList' ng-click='exportRuleList(profile.name)' title="{{'options_profileExportRuleListHelp' | tr}}")
+      span.glyphicon.glyphicon-list
+      = ' '
+      | {{'options_profileExportRuleList' | tr}}
+    = ' '
     button.btn.btn-default(ng-show='scriptable' ng-click='exportScript(profile.name)' title="{{'options_exportPacFileHelp' | tr}}")
       span.glyphicon.glyphicon-download
       = ' '

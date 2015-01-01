@@ -158,21 +158,7 @@ module.exports = (oldOptions, i18n) ->
         switch rule['patternType']
           when 'wildcard'
             pattern = rule['urlPattern']
-            if pattern[0] == '@'
-              pattern = pattern.substring(1)
-            else
-              if pattern.indexOf('://') <= 0 and pattern[0] != '*'
-                pattern = '*' + pattern
-              if pattern[pattern.length - 1] != '*'
-                pattern += '*'
-
-            host = OmegaPac.Conditions.urlWildcard2HostWildcard(pattern)
-            if host
-              conditionType: 'HostWildcardCondition'
-              pattern: host
-            else
-              conditionType: 'UrlWildcardCondition'
-              pattern: pattern
+            OmegaPac.RuleList['Switchy'].conditionFromLegacyWildcard(pattern)
           else
             conditionType: 'UrlRegexCondition'
             pattern: rule['urlPattern']

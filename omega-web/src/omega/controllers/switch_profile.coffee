@@ -40,6 +40,38 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
     }
   ]
 
+  exportRuleList = ->
+    wildcardRules = ''
+    regexpRules = ''
+    for rule in $scope.profile.rules
+      i = ''
+      if rule.profileName == 'direct'
+        i = '!'
+      switch rule.condition.conditionType
+        when 'HostWildcardCondition'
+          wildcardRules += i + '@*://' + rule.condition.pattern + '/*' + '\r\n'
+        when 'UrlWildcardCondition'
+          wildcardRules += i + '@' + rule.condition.pattern + '\r\n'
+        when 'UrlRegexCondition'
+          regexpRules += i + rule.condition.pattern + '\r\n'
+
+    text = """
+      ; Summary: Proxy Switchy! Exported Rule List
+      ; Date: #{new Date().toLocaleDateString()}
+      ; Website: http://bit.ly/proxyswitchy
+
+      #BEGIN
+
+      [wildcard]
+      #{wildcardRules}
+      [regexp]
+      #{regexpRules}
+      #END
+    """
+    blob = new Blob [text], {type: "text/plain;charset=utf-8"}
+    fileName = $scope.profile.name.replace(/\W+/g, '_')
+    saveAs(blob, "SwitchyRules_#{fileName}.ssrl")
+
   expandGroups = (groups) ->
     result = []
     for group in groups
@@ -82,8 +114,10 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
       $scope.showConditionTypes = $scope.hasConditionTypes
     if $scope.showConditionTypes == 0
       $scope.conditionTypes = basicConditionTypesExpanded
+      $scope.setExportRuleListHandler(exportRuleList)
     else
       $scope.conditionTypes = advancedConditionTypesExpanded
+      $scope.setExportRuleListHandler(null)
       if not $scope.options["-showConditionTypes"]?
         $scope.options["-showConditionTypes"] = $scope.showConditionTypes
       unwatchRules?()

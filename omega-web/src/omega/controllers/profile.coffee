@@ -83,6 +83,10 @@ angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
         revisionChanged = true
     this.$watch expression, onChange, true
 
+  $scope.exportRuleList = null
+  $scope.setExportRuleListHandler = (exportRuleList) ->
+    $scope.exportRuleList = exportRuleList
+
   unwatch = $scope.$watch (-> $scope.options?['+' + name]), (profile) ->
     if not profile
       if $scope.options

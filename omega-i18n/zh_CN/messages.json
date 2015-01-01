@@ -268,6 +268,12 @@
   "options_deleteProfile": {
     "message": "删除"
   },
+  "options_profileExportRuleList": {
+    "message": "发布规则列表"
+  },
+  "options_profileExportRuleListHelp": {
+    "message": "将切换规则导出为文本格式以便发布。"
+  },
   "options_profileExportPac": {
     "message": "导出PAC"
   },

@@ -1,4 +1,5 @@
 Buffer = require('buffer').Buffer
+Conditions = require('./conditions')
 
 strStartsWith = (str, prefix) ->
   str.substr(0, prefix.length) == prefix
@@ -52,6 +53,23 @@ module.exports = exports =
       # Exclusive rules have higher priority, so they come first.
       return exclusive_rules.concat normal_rules
   'Switchy':
+    conditionFromLegacyWildcard: (pattern) ->
+      if pattern[0] == '@'
+        pattern = pattern.substring(1)
+      else
+        if pattern.indexOf('://') <= 0 and pattern[0] != '*'
+          pattern = '*' + pattern
+        if pattern[pattern.length - 1] != '*'
+          pattern += '*'
+
+      host = Conditions.urlWildcard2HostWildcard(pattern)
+      if host
+        conditionType: 'HostWildcardCondition'
+        pattern: host
+      else
+        conditionType: 'UrlWildcardCondition'
+        pattern: pattern
+
     parse: (text, matchProfileName, defaultProfileName) ->
       text = text.trim()
       normal_rules = []
@@ -79,8 +97,7 @@ module.exports = exports =
           line = line.substring(1)
         cond = switch section
           when 'WILDCARD'
-            conditionType: 'UrlWildcardCondition'
-            pattern: line
+            exports['Switchy'].conditionFromLegacyWildcard(line)
           when 'REGEXP'
             conditionType: 'UrlRegexCondition'
             pattern: line
