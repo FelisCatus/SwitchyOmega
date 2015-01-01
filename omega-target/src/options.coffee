@@ -20,6 +20,7 @@ class Options
   _storage: null
   _state: null
   _currentProfileName: null
+  _revertToProfileName: null
   _watchingProfiles: {}
   _tempProfile: null
   _tempProfileRules: {}
@@ -774,11 +775,14 @@ class Options
   # @returns {Promise} A promise which is fulfilled when the profile is set
   ###
   setExternalProfile: (profile, args) ->
-    if not args?.noRevert and @_options['-revertProxyChanges']
+    if @_options['-revertProxyChanges'] and not @_isSystem
       if profile.name != @_currentProfileName and @_currentProfileName
-        if not @_isSystem
-          @applyProfile(@_currentProfileName)
+        if not args?.noRevert
+          @applyProfile(@_revertToProfileName)
+          @_revertToProfileName = null
           return
+        else
+          @_revertToProfileName ?= @_currentProfileName
     p = OmegaPac.Profiles.byName(profile.name, @_options)
     if p
       if args?.internal

@@ -175,6 +175,7 @@ options.watchProxyChange (details) ->
   return unless details
   notControllableBefore = options.proxyNotControllable()
   internal = false
+  noRevert = false
   switch details['levelOfControl']
     when "controlled_by_other_extensions", "not_controllable"
       reason =
@@ -183,6 +184,7 @@ options.watchProxyChange (details) ->
         else
           'app'
       options.setProxyNotControllable(reason)
+      noRevert = true
     else
       options.setProxyNotControllable(null)
 
@@ -200,7 +202,7 @@ options.watchProxyChange (details) ->
   clearTimeout(timeout) if timeout?
   parsed = null
   timeout = setTimeout (->
-    options.setExternalProfile(parsed, {noRevert: true, internal: internal})
+    options.setExternalProfile(parsed, {noRevert: noRevert, internal: internal})
   ), 500
 
   parsed = options.parseExternalProfile(details)

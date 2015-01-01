@@ -4,7 +4,7 @@ module.exports = ->
   "-refreshOnProfileChange": true
   "-startupProfileName": ""
   "-quickSwitchProfiles": []
-  "-revertProxyChanges": false
+  "-revertProxyChanges": true
   "-confirmDeletion": true
   "-showInspectMenu": true
   "-downloadInterval": 1440
