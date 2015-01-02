@@ -346,6 +346,18 @@
   "options_group_pacScript": {
     "message": "PAC 指令碼"
   },
+  "options_pacScriptLastUpdate": {
+    "message": "PAC 指令碼最後更新時間：$TIME$",
+    "placeholders": {
+      "TIME": {
+        "content": "$1",
+        "example": "Jan 2, 2015 7:22:08 PM"
+      }
+    }
+  },
+  "options_pacScriptObsolete": {
+    "message": "修改網址後尚未下載更新，因此指令碼已經過時。請使用上方的更新按鈕進行下載。"
+  },
   "options_group_virtualProfile": {
     "message": "虛情景模式"
   },
@@ -393,6 +405,18 @@
   },
   "options_group_ruleListText": {
     "message": "規則列表正文"
+  },
+  "options_ruleListLastUpdate": {
+    "message": "規則列表最後更新時間：$TIME$",
+    "placeholders": {
+      "TIME": {
+        "content": "$1",
+        "example": "2015年1月2日 下午7:22:08"
+      }
+    }
+  },
+  "options_ruleListObsolete": {
+    "message": "修改網址後尚未下載更新，因此規則列表已經過時。請使用上方的更新按鈕進行下載。"
   },
   "options_group_switchRules": {
     "message": "切換規則"

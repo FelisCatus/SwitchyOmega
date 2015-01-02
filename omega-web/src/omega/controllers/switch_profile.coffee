@@ -200,6 +200,22 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
 
   $scope.watchAndUpdateRevision 'options[attachedKey]'
 
+  oldSourceUrl = null
+  oldLastUpdate = null
+  oldRuleList = null
+  onAttachedChange = (attached, oldAttached) ->
+    return unless attached and oldAttached
+    if attached.sourceUrl != oldAttached.sourceUrl
+      if attached.lastUpdate
+        oldSourceUrl = oldAttached.sourceUrl
+        oldLastUpdate = attached.lastUpdate
+        oldRuleList = oldAttached.ruleList
+        attached.lastUpdate = null
+      else if oldSourceUrl and attached.sourceUrl == oldSourceUrl
+        attached.lastUpdate = oldLastUpdate
+        attached.ruleList = oldRuleList
+  $scope.$watch 'options[attachedKey]', onAttachedChange, true
+
   $scope.attachedOptions = {enabled: false}
   $scope.$watch 'profile.defaultProfileName', (name) ->
     $scope.attachedOptions.enabled = (name == $scope.attachedName)

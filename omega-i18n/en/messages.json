@@ -173,7 +173,7 @@
     "message": "Show advanced condition types"
   },
   "options_showConditionTypesAdvancedHelp": {
-    "message": "Unlocks new types of advanced but complicated switch conditions. For most senarios, the basic condition types should be enough, so this options is not recommended."
+    "message": "Unlocks new types of advanced but complicated switch conditions. For most senarios, the basic condition types should be enough, so this option is not recommended."
   },
   "options_quickSwitch": {
     "message": "Quick Switch"
@@ -346,6 +346,18 @@
   "options_group_pacScript": {
     "message": "PAC Script"
   },
+  "options_pacScriptLastUpdate": {
+    "message": "PAC script downloaded at $TIME$:",
+    "placeholders": {
+      "TIME": {
+        "content": "$1",
+        "example": "Jan 2, 2015 7:22:08 PM"
+      }
+    }
+  },
+  "options_pacScriptObsolete": {
+    "message": "PAC script is obsolete due to URL change. Press the download button above to update."
+  },
   "options_group_virtualProfile": {
     "message": "Virtual Profile"
   },
@@ -393,6 +405,18 @@
   },
   "options_group_ruleListText": {
     "message": "Rule List Text"
+  },
+  "options_ruleListLastUpdate": {
+    "message": "Rule list downloaded at $TIME$:",
+    "placeholders": {
+      "TIME": {
+        "content": "$1",
+        "example": "Jan 2, 2015 7:22:08 PM"
+      }
+    }
+  },
+  "options_ruleListObsolete": {
+    "message": "Rule list is obsolete due to URL change. Press the download button above to update."
   },
   "options_group_switchRules": {
     "message": "Switch rules"

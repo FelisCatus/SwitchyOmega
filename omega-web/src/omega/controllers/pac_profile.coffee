@@ -14,6 +14,19 @@ angular.module('omega').controller 'PacProfileCtrl', ($scope) ->
   set = OmegaPac.Profiles.referencedBySet($scope.profile, $scope.options)
   $scope.referenced = Object.keys(set).length > 0
 
-  onProfileChange = (profile) ->
+  oldPacUrl = null
+  oldLastUpdate = null
+  oldPacScript = null
+  onProfileChange = (profile, oldProfile) ->
+    return unless profile and oldProfile
+    if profile.pacUrl != oldProfile.pacUrl
+      if profile.lastUpdate
+        oldPacUrl = oldProfile.pacUrl
+        oldLastUpdate = profile.lastUpdate
+        oldPacScript = oldProfile.pacScript
+        profile.lastUpdate = null
+      else if oldPacUrl and profile.pacUrl == oldPacUrl
+        profile.lastUpdate = oldLastUpdate
+        profile.pacScript = oldPacScript
     $scope.pacUrlIsFile = $scope.isFileUrl(profile.pacUrl)
   $scope.$watch 'profile', onProfileChange, true

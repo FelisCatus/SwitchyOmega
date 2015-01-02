@@ -17,12 +17,29 @@ $script.ready ['angular-loader'], ->
     'omegaDecoration']
   $script.ready ['omega-pac'], ->
     $script 'js/omega.js', 'omega'
+
+  locales =
+    '': 'en-us'
+
+    'en': 'en-us'
+
+    'zh': 'zh-cn'
+    'zh-hans': 'zh-cn'
+    'zh-hant': 'zh-tw'
+    'zh-cn': 'zh-cn'
+    'zh-hk': 'zh-hk'
+    'zh-tw': 'zh-tw'
+
+  lang = navigator.language
+  lang1 = navigator.language?.split('-')[0] || ''
+  locale = locales[lang] || locales[lang1] || locales['']
+
   $script([
     'js/omega_target_web.js'
     'js/omega_decoration.js'
     'lib/angular-animate/angular-animate.min.js'
     'lib/angular-bootstrap/ui-bootstrap-tpls.min.js'
-    'lib/angular-i18n/angular-locale_en-us.js'
+    'lib/angular-i18n/angular-locale_' + locale + '.js'
     'lib/ngprogress/ngProgress.min.js'
     'lib/angular-ui-sortable/sortable.min.js'
     'lib/angular-ui-utils/validate.min.js'

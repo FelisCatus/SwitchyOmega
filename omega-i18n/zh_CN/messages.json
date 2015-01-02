@@ -346,6 +346,18 @@
   "options_group_pacScript": {
     "message": "PAC 脚本"
   },
+  "options_pacScriptLastUpdate": {
+    "message": "PAC 脚本最后更新时间：$TIME$",
+    "placeholders": {
+      "TIME": {
+        "content": "$1",
+        "example": "2015年1月2日 下午7:22:08"
+      }
+    }
+  },
+  "options_pacScriptObsolete": {
+    "message": "修改网址后尚未下载更新，因此脚本已经过时。请使用上方的更新按钮进行下载。"
+  },
   "options_group_virtualProfile": {
     "message": "虚情景模式"
   },
@@ -393,6 +405,18 @@
   },
   "options_group_ruleListText": {
     "message": "规则列表正文"
+  },
+  "options_ruleListLastUpdate": {
+    "message": "规则列表最后更新时间：$TIME$",
+    "placeholders": {
+      "TIME": {
+        "content": "$1",
+        "example": "2015年1月2日 下午7:22:08"
+      }
+    }
+  },
+  "options_ruleListObsolete": {
+    "message": "修改网址后尚未下载更新，因此规则列表已经过时。请使用上方的更新按钮进行下载。"
   },
   "options_group_switchRules": {
     "message": "切换规则"

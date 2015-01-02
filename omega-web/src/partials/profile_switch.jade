@@ -120,11 +120,16 @@ div(ng-controller='SwitchProfileCtrl')
         .width-limit.inline-form-control(input-group-clear type='url' model='attached.sourceUrl'
           style='vertical-align: middle')
       p.help-block {{'options_ruleListUrlHelp' | tr}}
-  section.settings-group(ng-if='attached')
-    h3 {{'options_group_ruleListText' | tr}}
     p
       button.btn.btn-default(ng-disabled='!attached.sourceUrl' ng-click='updateProfile(attached.name)'
-          ladda='updatingProfile[attached.name]' data-spinner-color="#000000")
+          ladda='updatingProfile[attached.name]' data-spinner-color="#000000"
+          ng-class='attached.sourceUrl && !attached.lastUpdate ? "btn-primary" : "btn-default"')
         | #[span.glyphicon.glyphicon-download-alt] {{'options_downloadProfileNow' | tr}}
+  section.settings-group(ng-if='attached')
+    h3 {{'options_group_ruleListText' | tr}}
+    p.alert.alert-success.width-limit(ng-show='attached.sourceUrl && attached.lastUpdate')
+      | {{'options_ruleListLastUpdate' | tr:[(attached.lastUpdate | date:'medium')]}}
+    p.alert.alert-danger.width-limit(ng-show='attached.sourceUrl && !attached.lastUpdate')
+      | {{'options_ruleListObsolete' | tr}}
     textarea.monospace.form-control.width-limit(ng-model='attached.ruleList' rows=20
       ng-disabled='!!attached.sourceUrl')
