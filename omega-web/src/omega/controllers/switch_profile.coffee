@@ -45,7 +45,7 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
     regexpRules = ''
     for rule in $scope.profile.rules
       i = ''
-      if rule.profileName == 'direct'
+      if rule.profileName == $scope.defaultProfileName
         i = '!'
       switch rule.condition.conditionType
         when 'HostWildcardCondition'
