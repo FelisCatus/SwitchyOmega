@@ -237,7 +237,7 @@ class Options
       when 'removed'
         @applyProfile(@fallbackProfileName)
       when 'changed'
-        @applyProfile(@_currentProfileName)
+        @applyProfile(@_currentProfileName, update: false)
       else
         @_setAvailableProfiles() if profilesChanged
     if args?.persist ? true
@@ -372,6 +372,8 @@ class Options
   # @param {?string} name The name of the profile, or null for default.
   # @param {?{}} options Some options
   # @param {bool=true} options.proxy Set proxy for the applied profile if true
+  # @param {bool=true} options.update Try to update this profile and referenced
+  # profiles after the proxy is set.
   # @param {bool=false} options.system Whether options is in system mode.
   # @param {{}=undefined} options.reason will be passed to currentProfileChanged
   # @returns {Promise} A promise which is fulfilled when the profile is applied.
@@ -418,9 +420,21 @@ class Options
 
       @_watchingProfiles = OmegaPac.Profiles.allReferenceSet(@_tempProfile,
         @_options, profileNotFound: @_profileNotFound.bind(this))
-      @applyProfileProxy(@_tempProfile, profile)
+      applyProxy = @applyProfileProxy(@_tempProfile, profile)
     else
-      @applyProfileProxy(profile)
+      applyProxy = @applyProfileProxy(profile)
+
+    return applyProxy if options? and options.update == false
+
+    applyProxy.then =>
+      return unless @_options['-downloadInterval'] > 0
+      return unless @_currentProfileName == profile.name
+      updateProfiles = []
+      for key, name of @_watchingProfiles
+        updateProfiles.push(name)
+      if updateProfiles.length > 0
+        @updateProfile(updateProfiles)
+    return applyProxy
 
   ###*
   # Get the current applied profile.
@@ -500,17 +514,23 @@ class Options
     @log.method('Options#updateProfile', this, arguments)
     results = {}
     OmegaPac.Profiles.each @_options, (key, profile) =>
-      return if name? and profile.name != name
+      if name?
+        if Array.isArray(name)
+          return unless name.indexOf(profile.name) >= 0
+        else
+          return unless profile.name == name
       url = OmegaPac.Profiles.updateUrl(profile)
       if url
         results[key] = @fetchUrl(url, opt_bypass_cache).then((data) =>
           profile = OmegaPac.Profiles.byKey(key, @_options)
-          OmegaPac.Profiles.update(profile, data)
           profile.lastUpdate = new Date().toISOString()
-          OmegaPac.Profiles.updateRevision(profile)
-          changes = {}
-          changes[key] = profile
-          @_setOptions(changes).return(profile)
+          if OmegaPac.Profiles.update(profile, data)
+            OmegaPac.Profiles.updateRevision(profile)
+            changes = {}
+            changes[key] = profile
+            @_setOptions(changes).return(profile)
+          else
+            return profile
         ).catch (reason) ->
           if reason instanceof Error then reason else new Error(reason)
 

@@ -321,7 +321,9 @@ module.exports = exports =
         else
           profile.pacUrl
       update: (profile, data) ->
+        return false if profile.pacScript == data
         profile.pacScript = data
+        return true
     'AutoDetectProfile': 'PacProfile'
     'SwitchProfile':
       includable: true
@@ -428,7 +430,9 @@ module.exports = exports =
         formatHandler = RuleList[format]
         if formatHandler.preprocess?
           data = formatHandler.preprocess(data)
+        return false if profile.ruleList == data
         profile.ruleList = data
+        return true
     'SwitchyRuleListProfile': 'RuleListProfile'
     'AutoProxyRuleListProfile': 'RuleListProfile'
     # coffeelint: enable=missing_fat_arrows
