@@ -131,16 +131,16 @@ describe 'RuleList', ->
       result.should.have.length(0)
     it 'should parse wildcard rules', ->
       list = compose 'Wildcard': [
-        '*://example.com/*'
+        '*://example.com/abc/*'
       ]
       result = parse(list, 'match', 'notmatch')
       result.should.have.length(1)
       result[0].should.eql(
-        source: '*://example.com/*'
+        source: '*://example.com/abc/*'
         profileName: 'match'
         condition:
           conditionType: 'UrlWildcardCondition'
-          pattern: '*://example.com/*'
+          pattern: '*://example.com/abc/*'
       )
     it 'should parse RegExp rules', ->
       list = compose 'RegExp': [

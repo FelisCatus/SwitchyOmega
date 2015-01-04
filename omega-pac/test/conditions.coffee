@@ -113,6 +113,15 @@ describe 'Conditions', ->
     it 'should also match hostname without the optional level', ->
       # https://github.com/FelisCatus/SwitchyOmega/wiki/Host-wildcard-condition
       testCond(cond, 'http://example.com/', 'match')
+    it 'should process patterns like *.*example.com correctly', ->
+      # https://github.com/FelisCatus/SwitchyOmega/issues/158
+      con =
+        conditionType: 'HostWildcardCondition'
+        pattern: '*.*example.com'
+      testCond(con, 'http://example.com/', 'match')
+      testCond(con, 'http://www.example.com/', 'match')
+      testCond(con, 'http://www.some-example.com/', 'match')
+      testCond(con, 'http://xample.com/', not 'match')
     it 'should allow override of the magical behavior', ->
       con =
         conditionType: 'HostWildcardCondition'

@@ -218,8 +218,8 @@ module.exports = exports =
           if pattern.indexOf('**.') == 0
             shExp2RegExp pattern.substring(1), trimAsterisk: true
           else if pattern.indexOf('*.') == 0
-            shExp2RegExp(pattern.substring(2), trimAsterisk: true)
-              .replace(/./, '(?:^|\\.)')
+            shExp2RegExp(pattern.substring(2), trimAsterisk: false)
+              .replace(/./, '(?:^|\\.)').replace(/\.\*\$$/, '')
           else
             shExp2RegExp pattern, trimAsterisk: true
         @safeRegex parts.join('|')
