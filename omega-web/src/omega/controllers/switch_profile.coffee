@@ -145,6 +145,12 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
         return false
     return true
 
+  $scope.conditionHasWarning = (condition) ->
+    if condition.conditionType == 'HostWildcardCondition'
+      pattern = condition.pattern
+      return pattern.indexOf(':') >= 0 || pattern.indexOf('/') >= 0
+    return false
+
   $scope.removeRule = (index) ->
     removeForReal = ->
       $scope.profile.rules.splice index, 1

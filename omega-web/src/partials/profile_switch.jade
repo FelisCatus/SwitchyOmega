@@ -38,7 +38,7 @@ div(ng-controller='SwitchProfileCtrl')
             td
               select.form-control(ng-model='rule.condition.conditionType'
                 ng-options='type.type as ("condition_" + type.type | tr) group by (type.group | tr) for type in conditionTypes')
-            td(ng-switch='rule.condition.conditionType')
+            td(ng-switch='rule.condition.conditionType' ng-class='{"has-warning": conditionHasWarning(rule.condition)}')
               span(ng-switch-when='FalseCondition')
                 span(ng-show='!!rule.condition.pattern')
                   input.form-control(ng-model='rule.condition.pattern' disabled title="{{'condition_details_FalseCondition' | tr}}")
