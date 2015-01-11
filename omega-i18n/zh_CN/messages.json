@@ -790,6 +790,20 @@
   "popup_errorLog": {
     "message": "错误日志"
   },
+  "popup_issueTemplate": {
+    "message": "\n\n\n<!-- ↑请在此行上方填写问题/建议详情，可用中文↑ -->\nSwitchyOmega $projectVersion$\n$userAgent$",
+    "description": "这是通过反馈问题按钮新建 Issue 时，默认填写的文字内容。",
+    "placeholders": {
+      "projectVersion": {
+        "content": "$1",
+        "example": "2.2.11"
+      },
+      "userAgent": {
+        "content": "$2",
+        "example": "Mozilla/5.0 (OS info) ..."
+      }
+    }
+  },
   "browserAction_profileDetails_PacProfile": {
     "message": "(PAC 脚本)"
   },

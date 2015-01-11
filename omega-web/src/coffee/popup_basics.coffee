@@ -8,7 +8,9 @@ document.querySelector('.error-log').addEventListener 'click', (->
 
 window.OmegaTargetWebBasics.getEnv (env) ->
   url = 'https://github.com/FelisCatus/SwitchyOmega/issues/new?title=&body='
-  body = window.OmegaTargetWebBasics.getMessage('popup_issueTemplate', env)
+  body = window.OmegaTargetWebBasics.getMessage('popup_issueTemplate', [
+    env.projectVersion, env.userAgent
+  ])
   body ||= """
     \n\n
     <!-- Please write your comment ABOVE this line. -->

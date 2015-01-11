@@ -790,6 +790,20 @@
   "popup_errorLog": {
     "message": "Error log"
   },
+  "popup_issueTemplate": {
+    "message": "\n\n\n<!-- Please write your comment ABOVE this line. -->\nSwitchyOmega $projectVersion$\n$userAgent$",
+    "description": "This is used for prefilled content of the issue created by the report issue button.",
+    "placeholders": {
+      "projectVersion": {
+        "content": "$1",
+        "example": "2.2.11"
+      },
+      "userAgent": {
+        "content": "$2",
+        "example": "Mozilla/5.0 (OS info) ..."
+      }
+    }
+  },
   "browserAction_profileDetails_PacProfile": {
     "message": "(PAC script)"
   },
