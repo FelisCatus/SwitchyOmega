@@ -115,7 +115,7 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
     'validResultProfiles', 'refreshOnProfileChange', 'externalProfile',
     'proxyNotControllable'
   ]).then ([availableProfiles, currentProfileName, isSystemProfile,
-    validResultProfiles, refreshOnProfileChange, externalProfile,
+    validResultProfiles, refresh, externalProfile,
     proxyNotControllable]) ->
     $scope.proxyNotControllable = proxyNotControllable
     return if proxyNotControllable
@@ -124,7 +124,7 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
     $scope.currentProfileName = currentProfileName
     $scope.isSystemProfile = isSystemProfile
     $scope.externalProfile = externalProfile
-    refreshOnProfileChange = refreshOnProfileChange
+    refreshOnProfileChange = refresh
 
     charCodeUnderscore = '_'.charCodeAt(0)
     profilesByNames = (names) ->
