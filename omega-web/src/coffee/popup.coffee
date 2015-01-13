@@ -8,21 +8,73 @@ module.filter 'dispName', (omegaTarget) ->
       name = name.name
     omegaTarget.getMessage('profile_' + name) || name
 
-jQuery(document).on 'keydown', (e) ->
-  return unless e.keyCode == 38 or e.keyCode == 40
-  items = jQuery('.popup-menu-nav > li:not(.ng-hide) > a')
-
-  i = items.index(jQuery(e.target).closest('a'))
-  if i == -1
-    i = items.index(jQuery('.popup-menu-nav > li.active > a'))
-  switch e.keyCode
-    when 38
-      i--
-      if i >= 0
-        items.eq(i)[0]?.focus()
-    when 40
-      i++
+shortcutKeys =
+  38: (activeIndex, items) -> # Up
+    i = activeIndex - 1
+    if i >= 0
       items.eq(i)[0]?.focus()
+  40: (activeIndex, items) -> # Down
+    items.eq(activeIndex + 1)[0]?.focus()
+  48: '+direct' # 0
+  83: '+system' # s
+  191: 'help' # /
+  63: 'help' # ?
+  69: 'external' # e
+  65: 'addRule' # a
+  43: 'addRule' # +
+  61: 'addRule' # =
+  84: 'tempRule' # t
+  79: 'option' # o
+  73: 'issue' # i
+  76: 'log' # l
+
+for i in [1..9]
+  shortcutKeys[48 + i] = i
+
+customProfiles = do ->
+  _customProfiles = null
+  return ->
+    _customProfiles ?= jQuery('.custom-profile:not(.ng-hide) > a')
+
+jQuery(document).on 'keydown', (e) ->
+  handler = shortcutKeys[e.keyCode]
+  return unless handler
+  switch typeof handler
+    when 'string'
+      switch handler
+        when 'help'
+          showHelp = (element, key) ->
+            if typeof element == 'string'
+              element = jQuery("a[data-shortcut='#{element}']")
+            span = jQuery('.shortcut-help', element)
+            if span.length == 0
+              span = jQuery('<span/>').addClass('shortcut-help')
+            span.text(key)
+            element.find('.glyphicon').after(span)
+          keys =
+            '+direct': '0'
+            '+system': 'S'
+            'external': 'E'
+            'addRule': 'A'
+            'tempRule': 'T'
+            'option': 'O'
+            'issue': 'I'
+            'log': 'L'
+          for shortcut, key of keys
+            showHelp(shortcut, key)
+          customProfiles().each (i, el) ->
+            if i <= 8
+              showHelp(jQuery(el), i + 1)
+        else
+          jQuery("a[data-shortcut='#{handler}']")[0]?.click()
+    when 'number'
+      customProfiles().eq(handler - 1)?.click()
+    when 'function'
+      items = jQuery('.popup-menu-nav > li:not(.ng-hide) > a')
+      i = items.index(jQuery(e.target).closest('a'))
+      if i == -1
+        i = items.index(jQuery('.popup-menu-nav > li.active > a'))
+      handler(i, items)
 
   return false
 
