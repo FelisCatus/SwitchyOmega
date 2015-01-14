@@ -23,5 +23,8 @@
   "browser": {
     "uglify-js": "./uglifyjs-shim.js",
     "uglify-js-real": "./uglifyjs.js"
+  },
+  "scripts": {
+    "dev": "npm link"
   }
 }

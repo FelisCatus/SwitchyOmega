@@ -4,7 +4,8 @@ Promise = OmegaTarget.Promise
 
 module.exports = class Inspect
   _enabled: false
-  constructor: (@onInspect) ->
+  constructor: (onInspect) ->
+    @onInspect = onInspect
 
   enable: ->
     # We don't need this API. However its presence indicates that Chrome >= 35,
