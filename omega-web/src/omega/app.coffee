@@ -37,7 +37,7 @@ angular.module('omega').config ($stateProvider, $urlRouterProvider,
   
   $urlRouterProvider.otherwise ($injector, $location) ->
     if $location.path() == ''
-      $injector.get('omegaTarget').lastUrl()
+      $injector.get('omegaTarget').lastUrl() || '/ui'
     else
       '/ui'
   
