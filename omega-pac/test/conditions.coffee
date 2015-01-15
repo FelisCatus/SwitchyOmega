@@ -175,15 +175,94 @@ describe 'Conditions', ->
         pattern: 'http://127.0.0.1:8080'
       testCond(cond, 'http://127.0.0.1:8080/', 'match')
       testCond(cond, 'http://127.0.0.2:8080/', not 'match')
-    # TODO(felis): Not yet supported. See the code for BypassCondition.
     it 'should correctly support IPv6 canonicalization', ->
       cond =
         conditionType: 'BypassCondition'
         pattern: 'http://[0:0::1]:8080'
       result = Conditions.analyze(cond)
-      console.log(result.analyzed)
       testCond(cond, 'http://[::1]:8080/', 'match')
       testCond(cond, 'http://[1::1]:8080/', not 'match')
+
+    it 'should parse IPv4 CIDR notation', ->
+      cond =
+        conditionType: 'BypassCondition'
+        pattern: '192.168.0.0/16'
+      result = Conditions.analyze(cond).analyzed
+      should.exist(result.ip)
+      result.ip.should.eql({
+        conditionType: 'IpCondition'
+        ip: '192.168.0.0'
+        prefixLength: 16
+      })
+
+    it 'should parse IPv6 CIDR notation', ->
+      cond =
+        conditionType: 'BypassCondition'
+        pattern: 'fefe:13::abc/33'
+      result = Conditions.analyze(cond).analyzed
+      should.exist(result.ip)
+      result.ip.should.eql({
+        conditionType: 'IpCondition'
+        ip: 'fefe:13::abc'
+        prefixLength: 33
+      })
+
+    it 'should parse IPv6 CIDR notation with zero prefixLength', ->
+      cond =
+        conditionType: 'BypassCondition'
+        pattern: '::/0'
+      result = Conditions.analyze(cond).analyzed
+      should.exist(result.ip)
+      result.ip.should.eql({
+        conditionType: 'IpCondition'
+        ip: '::'
+        prefixLength: 0
+      })
+
+  describe 'IpCondition', ->
+    # IpCondition requires isInNetEx or isInNet function provided by the PAC
+    # runner, which is not available in the unit test. So We can't use testCond
+    # here.
+    it 'should support IPv4 subnet', ->
+      cond =
+        conditionType: "IpCondition"
+        ip: '192.168.1.1'
+        prefixLength: 16
+      request = Conditions.requestFromUrl('http://192.168.4.4/')
+      Conditions.match(cond, request).should.be.true
+      compiled = Conditions.compile(cond).print_to_string()
+      compiled.should.equal('isInNet(host,"192.168.1.1","255.255.0.0")')
+    it 'should support IPv6 subnet', ->
+      cond =
+        conditionType: "IpCondition"
+        ip: 'fefe:13::abc'
+        prefixLength: 33
+
+      request = Conditions.requestFromUrl('http://[fefe:13::def]/')
+      Conditions.match(cond, request).should.be.true
+
+      compiled = Conditions.compile(cond).print_to_string()
+      compiled_args = compiled.substr(compiled.lastIndexOf('('))
+      compiled_args.should.eql('(host,"fefe:13::abc","ffff:ffff:8000::")')
+    it 'should support IPv6 subnet with zero prefixLength', ->
+      cond =
+        conditionType: "IpCondition"
+        ip: '::'
+        prefixLength: 0
+
+      request = Conditions.requestFromUrl('http://[fefe:13::def]/')
+      Conditions.match(cond, request).should.be.true
+
+      compiled = Conditions.compile(cond).print_to_string()
+      compiled.indexOf('indexOf(').should.be.above(0)
+    it 'should not match domain name to IP subnet', ->
+      cond =
+        conditionType: "IpCondition"
+        ip: '::'
+        prefixLength: 0
+
+      request = Conditions.requestFromUrl('http://www.example.com/')
+      Conditions.match(cond, request).should.be.false
 
   describe 'KeywordCondition', ->
     cond =

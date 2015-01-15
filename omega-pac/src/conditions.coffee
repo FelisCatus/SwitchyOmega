@@ -250,7 +250,7 @@ module.exports = exports =
         if parts.length > 1
           addr = @parseIp parts[0]
           prefixLen = parseInt(parts[1])
-          if addr and prefixLen
+          if addr and not isNaN(prefixLen)
             cache.ip =
               conditionType: 'IpCondition'
               ip: parts[0]
@@ -265,11 +265,7 @@ module.exports = exports =
         serverRegex = null
         if serverIp?
           if serverIp.regularExpressionString?
-            # TODO(felis): IPv6 regex is not fully supported by the ipv6
-            # module. Even simple addresses like ::1 will fail. Shall we
-            # implement that instead?
             regexStr = serverIp.regularExpressionString(true)
-            console.log(regexStr)
             serverRegex = '\\[' + regexStr + '\\]'
           else
             server = @normalizeIp serverIp
@@ -292,7 +288,7 @@ module.exports = exports =
       match: (condition, request, cache) ->
         cache = cache.analyzed
         return false if cache.scheme? and cache.scheme != request.scheme
-        return false if cache.ip? and @match cache.ip, request
+        return false if cache.ip? and not @match cache.ip, request
         if cache.host?
           if cache.host == '<local>'
             return request.host in @localHosts
@@ -381,7 +377,7 @@ module.exports = exports =
         mask = if cache.addr.v4
           new IP.v4.Address('255.255.255.255/' + cache.addr.subnetMask)
         else
-          new IP.v6.Address(@ipv6Max + cache.addr.subnetMask)
+          new IP.v6.Address(@ipv6Max + '/' + cache.addr.subnetMask)
         cache.mask = @normalizeIp mask.startAddress()
         cache
       match: (condition, request, cache) ->
@@ -392,7 +388,7 @@ module.exports = exports =
         return addr.isInSubnet cache.addr
       compile: (condition, cache) ->
         cache = cache.analyzed
-        new U2.AST_Call(
+        isInNetCall = new U2.AST_Call(
           expression: new U2.AST_SymbolRef name: 'isInNet'
           args: [
             new U2.AST_SymbolRef name: 'host'
@@ -400,6 +396,39 @@ module.exports = exports =
             new U2.AST_String value: cache.mask
           ]
         )
+        if cache.addr.v4 then isInNetCall else
+          isInNetExCall = new U2.AST_Call(
+            expression: new U2.AST_SymbolRef name: 'isInNetEx'
+            args: [
+              new U2.AST_SymbolRef name: 'host'
+              new U2.AST_String value: cache.addr.address
+            ]
+          )
+          alternative = if cache.addr.subnetMask > 0 then isInNetCall else
+            # ::/0 ==> Just detect whether address is IPv6 (containing colons).
+            new U2.AST_Binary(
+              left: new U2.AST_Call(
+                expression: new U2.AST_Dot(
+                  expression: new U2.AST_SymbolRef name: 'host'
+                  property: 'indexOf'
+                )
+                args: [new U2.AST_String value: ':']
+              )
+              operator: '>='
+              right: new U2.AST_Number value: 0
+            )
+          new U2.AST_Conditional(
+            condition: new U2.AST_Binary(
+              left: new U2.AST_UnaryPrefix(
+                operator: 'typeof'
+                expression: new U2.AST_SymbolRef name: 'isInNetEx'
+              )
+              operator: '==='
+              right: new U2.AST_String value: 'function'
+            )
+            consequent: isInNetExCall
+            alternative: alternative
+          )
     'HostLevelsCondition':
       tag: (condition) -> condition.minValue + '~' + condition.maxValue
       analyze: (condition) -> '.'.charCodeAt 0
