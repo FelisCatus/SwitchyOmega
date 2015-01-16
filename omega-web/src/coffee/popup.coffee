@@ -39,6 +39,7 @@ customProfiles = do ->
 jQuery(document).on 'keydown', (e) ->
   handler = shortcutKeys[e.keyCode]
   return unless handler
+  return if e.target.tagName == 'INPUT' or e.target.tagName == 'TEXTAREA'
   switch typeof handler
     when 'string'
       switch handler
