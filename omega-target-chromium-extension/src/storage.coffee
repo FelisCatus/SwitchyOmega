@@ -3,24 +3,48 @@ OmegaTarget = require('omega-target')
 Promise = OmegaTarget.Promise
 
 class ChromeStorage extends OmegaTarget.Storage
+  @parseStorageErrors: (err) ->
+    if err?.message
+      sustainedPerMinute = 'MAX_SUSTAINED_WRITE_OPERATIONS_PER_MINUTE'
+      if err.message.indexOf('QUOTA_BYTES_PER_ITEM') >= 0
+        err = new OmegaTarget.Storage.QuotaExceededError()
+        err.perItem = true
+      else if err.message.indexOf('QUOTA_BYTES') >= 0
+        err = new OmegaTarget.Storage.QuotaExceededError()
+      else if err.message.indexOf('MAX_ITEMS') >= 0
+        err = new OmegaTarget.Storage.QuotaExceededError()
+        err.maxItems = true
+      else if err.message.indexOf('MAX_WRITE_OPERATIONS_') >= 0
+        err = new OmegaTarget.Storage.RateLimitExceededError()
+        if err.message.indexOf('MAX_WRITE_OPERATIONS_PER_HOUR') >= 0
+          err.perHour = true
+        else if err.message.indexOf('MAX_WRITE_OPERATIONS_PER_MINUTE') >= 0
+          err.perMinute = true
+      else if err.message.indexOf(sustainedPerMinute) >= 0
+        err = new OmegaTarget.Storage.RateLimitExceededError()
+        err.perMinute = true
+        err.sustained = 10
+
+    return Promise.reject(err)
+
   constructor: (storage, @areaName) ->
     @storage = chromeApiPromisifyAll(storage)
 
   get: (keys) ->
     keys ?= null
-    @storage.getAsync(keys)
+    @storage.getAsync(keys).catch(ChromeStorage.parseStorageErrors)
 
   set: (items) ->
     if Object.keys(items).length == 0
       return Promise.resolve({})
-    @storage.setAsync(items)
+    @storage.setAsync(items).catch(ChromeStorage.parseStorageErrors)
 
   remove: (keys) ->
     if not keys?
       return @storage.clearAsync()
     if Array.isArray(keys) and keys.length == 0
       return Promise.resolve({})
-    @storage.removeAsync(keys)
+    @storage.removeAsync(keys).catch(ChromeStorage.parseStorageErrors)
 
   watch: (keys, callback) ->
     ChromeStorage.watchers[@areaName] ?= {}

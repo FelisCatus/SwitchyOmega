@@ -134,6 +134,8 @@ module.exports = exports =
       result = analyze?.call(exports, profile)
       cache.analyzed = result
     return cache
+  dropCache: (profile) ->
+    exports._profileCache.drop profile
   directReferenceSet: (profile) ->
     return {} if not exports.isInclusive(profile)
     cache = exports._profileCache.get profile, {}

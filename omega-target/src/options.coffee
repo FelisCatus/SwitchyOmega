@@ -31,20 +31,51 @@ class Options
 
   ready: null
 
-  ProfileNotExistError: class ProfileNotExistError extends Error
+  @ProfileNotExistError: class ProfileNotExistError extends Error
     constructor: (@profileName) ->
       super.constructor("Profile #{@profileName} does not exist!")
 
-  NoOptionsError: class NoOptionsError extends Error
+  @NoOptionsError:
+    class NoOptionsError extends Error
+      constructor: -> super
 
-  constructor: (@_options, @_storage, @_state, @log) ->
+  ###*
+  # Transform options values (especially profiles) for syncing.
+  # @param {{}} value The value to transform
+  # @param {{}} key The key of the options
+  # @returns {{}} The transformed value
+  ###
+  @transformValueForSync: (value, key) ->
+    if key[0] == '+'
+      if OmegaPac.Profiles.updateUrl(value)
+        profile = {}
+        for k, v of value
+          continue if k == 'lastUpdate' || k == 'ruleList' || k == 'pacScript'
+          profile[k] = v
+        value = profile
+    return value
+
+  constructor: (@_options, @_storage, @_state, @log, @sync) ->
     @_storage ?= Storage()
     @_state ?= Storage()
     @log ?= Log
     if @_options?
       @ready = Promise.resolve(@_options)
     else
-      @ready = @_storage.get(null)
+      @ready = if @sync?.enabled then Promise.resolve() else @_storage.get(null)
+      @ready = @ready.then (options) =>
+        return options if not @sync?
+        if options?['schemaVersion']
+          @_state.get({'syncOptions': ''}).then ({syncOptions}) =>
+            return if syncOptions
+            @_state.set({'syncOptions': 'conflict'})
+            @sync.storage.get('schemaVersion').then({schemaVersion}) =>
+              @_state.set({'syncOptions': 'pristine'}) if not schemaVersion
+          return options
+        @_state.set({'syncOptions': 'sync'})
+        @sync.watchAndPull(@_storage)
+        @sync.copyTo(@_storage).then =>
+          @_storage.get(null)
     @ready = @ready.then((options) =>
       @upgrade(options).then(([options, changes]) =>
         modified = {}
@@ -86,9 +117,10 @@ class Options
     ).then => @getAll()
 
     @ready.then =>
+      @sync.requestPush(@_options) if @sync?.enabled
+
       @_state.get({'firstRun': ''}).then ({firstRun}) =>
-        if firstRun
-          @onFirstRun(firstRun)
+        @onFirstRun(firstRun) if firstRun
 
       if @_options['-downloadInterval'] > 0
         @updateProfile()
@@ -200,7 +232,6 @@ class Options
     @_options = jsondiffpatch.patch(@_options, patch)
     # Only set the keys whose values have changed.
     changes = {}
-    removed = []
     for own key, delta of patch
       if delta.length == 3 and delta[1] == 0 and delta[2] == 0
         # [previousValue, 0, 0] indicates that the key was removed.
@@ -241,6 +272,7 @@ class Options
       else
         @_setAvailableProfiles() if profilesChanged
     if args?.persist ? true
+      @sync?.requestPush(changes) if @sync?.enabled
       for key in removed
         delete changes[key]
       @_storage.set(changes).then =>
@@ -525,7 +557,7 @@ class Options
           profile = OmegaPac.Profiles.byKey(key, @_options)
           profile.lastUpdate = new Date().toISOString()
           if OmegaPac.Profiles.update(profile, data)
-            OmegaPac.Profiles.updateRevision(profile)
+            OmegaPac.Profiles.dropCache(profile)
             changes = {}
             changes[key] = profile
             @_setOptions(changes).return(profile)

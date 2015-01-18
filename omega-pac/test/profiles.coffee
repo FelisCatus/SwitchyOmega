@@ -179,6 +179,18 @@ describe 'Profiles', ->
         '+example': 'example'
         '+abc': 'abc'
       )
+    it 'should clear the reference cache if explicitly requested', ->
+      profile.revision = 'a'
+      set = Profiles.directReferenceSet(profile)
+      # Remove 'default' from references.
+      profile.defaultProfileName = 'abc'
+      Profiles.dropCache(profile)
+      newSet = Profiles.directReferenceSet(profile)
+      newSet.should.eql(
+        '+company': 'company'
+        '+example': 'example'
+        '+abc': 'abc'
+      )
   describe 'VirtualProfile', ->
     profile = Profiles.create('test', 'VirtualProfile')
     profile.defaultProfileName = 'default'

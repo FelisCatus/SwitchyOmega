@@ -132,7 +132,14 @@ actionForUrl = (url) ->
 
 storage = new OmegaTargetCurrent.Storage(chrome.storage.local, 'local')
 state = new OmegaTargetCurrent.BrowserStorage(localStorage, 'omega.local.')
-options = new OmegaTargetCurrent.Options(null, storage, state, Log)
+
+syncStorage = new OmegaTargetCurrent.Storage(chrome.storage.sync, 'sync')
+sync = new OmegaTargetCurrent.OptionsSync(syncStorage)
+if localStorage['omega.local.syncOptions'] != '"sync"'
+  sync.enabled = false
+sync.transformValue = OmegaTargetCurrent.Options.transformValueForSync
+
+options = new OmegaTargetCurrent.Options(null, storage, state, Log, sync)
 options.externalApi = new OmegaTargetCurrent.ExternalApi(options)
 options.externalApi.listen()
 

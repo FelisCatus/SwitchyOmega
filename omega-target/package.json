@@ -4,7 +4,7 @@
   "private": true,
   "main": "./index.js",
   "devDependencies": {
-    "chai": "~1.9.1",
+    "chai": "^1.10.0",
     "coffee-script": "^1.8.0",
     "coffeeify": "^0.7.0",
     "grunt": "^0.4.5",
@@ -14,11 +14,14 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-mocha-test": "~0.11.0",
     "load-grunt-config": "^0.13.1",
-    "minifyify": "^4.1.1"
+    "minifyify": "^4.1.1",
+    "sinon": "^1.12.2",
+    "sinon-chai": "^2.6.0"
   },
   "dependencies": {
     "bluebird": "^2.3.2",
     "jsondiffpatch": "^0.1.8",
+    "limiter": "^1.0.5",
     "omega-pac": "../omega-pac"
   },
   "browser": {

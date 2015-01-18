@@ -28,6 +28,9 @@ class AttachedCache
     value = if typeof otherwise == 'function' then otherwise() else otherwise
     @_setCache(obj, {tag: tag, value: value})
     return value
+  drop: (obj) ->
+    if obj[@prop]?
+      obj[@prop] = undefined
   _getCache: (obj) -> obj[@prop]
   _setCache: (obj, value) ->
     if not Object::hasOwnProperty.call obj, @prop
