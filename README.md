@@ -79,7 +79,8 @@ npm 2.x is required for this project.
 
 To build the project:
 
-    # Install node and npm first, then:
+    # Install node and npm first (make sure npm --version > 2.0), then:
+    
     sudo npm install -g grunt-cli bower
     # In the project folder:
     cd omega-build
