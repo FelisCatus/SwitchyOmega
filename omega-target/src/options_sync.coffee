@@ -162,6 +162,9 @@ class OptionsSync
   ###
   copyTo: (local) ->
     Promise.join local.get(null), @storage.get(null), (base, changes) =>
+      for key of base when not (key of changes)
+        if key[0] == '+'
+          changes[key] = undefined
       local.apply(
         changes: changes
         base: base
