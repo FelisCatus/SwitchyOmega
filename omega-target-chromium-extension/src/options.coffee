@@ -237,13 +237,13 @@ class ChromeOptions extends OmegaTarget.Options
       else
         Promise.reject()
 
-      getOldOptions = getOldOptions.catch =>
+      getOldOptions = getOldOptions.catch ->
         if options?['config']
           Promise.resolve options
         else if localStorage['config']
           Promise.resolve localStorage
         else
-          Promise.reject new @NoOptionsError()
+          Promise.reject new OmegaTarget.Options.NoOptionsError()
 
       getOldOptions.then (oldOptions) =>
         i18n = {
