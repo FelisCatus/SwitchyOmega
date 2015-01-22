@@ -259,6 +259,36 @@
   "options_restoreOnlineSubmit": {
     "message": "恢復"
   },
+  "options_group_syncing": {
+    "message": "選項同步 (測試中)"
+  },
+  "options_syncEnable": {
+    "message": "啟用同步"
+  },
+  "options_syncEnableForce": {
+    "message": "下載雲端版本"
+  },
+  "options_syncDisable": {
+    "message": "禁用同步"
+  },
+  "options_syncPristineHelp": {
+    "message": "您可以將設定和情景模式同步到所有使用Chrome瀏覽器的桌面裝置。"
+  },
+  "options_syncSyncAlert": {
+    "message": "您的設定將會自動與其他裝置進行同步。"
+  },
+  "options_syncSyncHelp": {
+    "message": "請注意：您需要在所有裝置上（包括此裝置）的Chrome瀏覽器中登入，這樣同步的選項才能正常使用。<br>可以在其他裝置上檢視此頁面，來檢查同步是否生效。"
+  },
+  "options_syncConflictAlert": {
+    "message": "您已經通過其他裝置上傳了一份選項用於同步。"
+  },
+  "options_syncConflictHelp": {
+    "message": "您可以將雲端的選項下載到此裝置使用。<br>一旦選擇下載，<b>此裝置上的設定和情景模式將會被覆蓋</b>。"
+  },
+  "options_syncUnsupportedHelp": {
+    "message": "選項同步暫不支援您的平臺或瀏覽器。目前只支援桌面版Chrome的瀏覽器的同步，請諒解。"
+  },
   "options_profileTabPrefix": {
     "message": "情景模式： "
   },

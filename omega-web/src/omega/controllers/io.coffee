@@ -1,4 +1,6 @@
-angular.module('omega').controller 'IoCtrl', ($scope, $rootScope) ->
+angular.module('omega').controller 'IoCtrl', ($scope, $rootScope,
+  $window, omegaTarget) ->
+
   $scope.exportOptions = ->
     $rootScope.applyOptionsConfirm().then ->
       plainOptions = angular.fromJson(angular.toJson($rootScope.options))
@@ -14,11 +16,11 @@ angular.module('omega').controller 'IoCtrl', ($scope, $rootScope) ->
     )
 
   $scope.restoreLocal = (content) ->
-    $rootScope.resetOptions(content).then ( ->
+    $scope.restoringLocal = true
+    $rootScope.resetOptions(content).then(( ->
       $scope.importSuccess()
-      $rootScope.updateProfile().finally ->
-        $scope.importSuccess()
-    ), -> $scope.restoreLocalError()
+    ), -> $scope.restoreLocalError()).finally ->
+      $scope.restoringLocal = false
   $scope.restoreLocalError = ->
     $rootScope.showAlert(
       type: 'error'
@@ -44,3 +46,17 @@ angular.module('omega').controller 'IoCtrl', ($scope, $rootScope) ->
       cache: false,
       timeout: 10000
     )
+
+  $scope.enableOptionsSync = (args) ->
+    enable = ->
+      omegaTarget.setOptionsSync(true, args).finally ->
+        $window.location.reload()
+    if args?.force
+      enable()
+    else
+      $rootScope.applyOptionsConfirm().then enable
+
+  $scope.disableOptionsSync = ->
+    omegaTarget.setOptionsSync(false).then ->
+      $rootScope.applyOptionsConfirm().then ->
+        $window.location.reload()

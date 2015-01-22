@@ -10,6 +10,10 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   omegaTarget.addOptionsChangeCallback (newOptions) ->
     $rootScope.options = angular.copy(newOptions)
     $rootScope.optionsOld = angular.copy(newOptions)
+
+    omegaTarget.state('syncOptions').then (syncOptions) ->
+      $scope.syncOptions = syncOptions
+
     $timeout ->
       $rootScope.optionsDirty = false
   

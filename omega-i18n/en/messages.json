@@ -259,6 +259,36 @@
   "options_restoreOnlineSubmit": {
     "message": "Restore"
   },
+  "options_group_syncing": {
+    "message": "Syncing (Experimental)"
+  },
+  "options_syncEnable": {
+    "message": "Enable Syncing"
+  },
+  "options_syncEnableForce": {
+    "message": "Download from Syncing"
+  },
+  "options_syncDisable": {
+    "message": "Disable syncing"
+  },
+  "options_syncPristineHelp": {
+    "message": "You can now automatically synchroize your settings and profiles across all your desktop devices running Chrome browser."
+  },
+  "options_syncSyncAlert": {
+    "message": "Your options are automatically synchroized with your other devices."
+  },
+  "options_syncSyncHelp": {
+    "message": "Please note that you must sign in to Chrome on each of your devices (including this one) for the syncing to actually work. <br> You may check this section on other devices to ensure that it is working."
+  },
+  "options_syncConflictAlert": {
+    "message": "You have uploaded a copy of your options on another device via syncing."
+  },
+  "options_syncConflictHelp": {
+    "message": "You may download the remote copy to your device if you like. <br>However, doing so would <b>overwrite your existing settings and profiles</b> on this device."
+  },
+  "options_syncUnsupportedHelp": {
+    "message": "Options syncing is not supported on your platform or browser. For now, only Chrome browser on desktop is supported."
+  },
   "options_profileTabPrefix": {
     "message": "Profile :: "
   },
