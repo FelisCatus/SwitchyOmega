@@ -50,13 +50,15 @@ li > a {
     }
 
     &.profile-with-default-edit {
-      padding-right: 0;
+      padding-right: 32px;
+      position: relative;
       .dropdown-toggle {
         margin: -5px 0;
         color: inherit;
-        padding: 5px 8px;
+        padding: 5px 8px 3px;
         min-width: 20px;
-        float: right;
+        position: absolute;
+        right: 0;
 
         .glyphicon {
           margin-right: 0;
@@ -66,7 +68,7 @@ li > a {
   }
 
   > li.active .dropdown-toggle {
-    border: none !important;
+    border-color: transparent !important;
     border-left: solid 1px !important;
     background: none !important;
     border-radius: 0 !important;
