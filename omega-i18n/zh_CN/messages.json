@@ -337,6 +337,18 @@
   "options_proxy_auth": {
     "message": "代理登录"
   },
+  "options_proxy_authAllWarningPac": {
+    "message": "警告: 用户名密码将会提供给PAC脚本返回的任何服务器，有时目标服务器会出乎您的预料。"
+  },
+  "options_proxy_authAllWarningPacUrl": {
+    "message": "在提供用户名和密码时，请先确保您可以信任以上网址提供的PAC脚本。"
+  },
+  "options_proxy_authAllWarningPacScript": {
+    "message": "在提供用户名和密码时，请先确保您可以信任以下输入的PAC脚本。"
+  },
+  "options_proxy_authReferencedWarning": {
+    "message": "此外，在其他情景模式（如自动切换）中使用此情景时，可能会导致用户名和密码被发送至其他情景模式中设置的服务器。"
+  },
   "options_scheme_default": {
     "message": "(默认)"
   },

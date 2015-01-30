@@ -337,6 +337,18 @@
   "options_proxy_auth": {
     "message": "Authentication"
   },
+  "options_proxy_authAllWarningPac": {
+    "message": "Warning: The username/password may be sent to unexpected servers returned by the PAC script."
+  },
+  "options_proxy_authAllWarningPacUrl": {
+    "message": "Please make sure that you trust the script provided via the URL above before entering sensitive credentials."
+  },
+  "options_proxy_authAllWarningPacScript": {
+    "message": "Please make sure that you trust the script below before providing sensitive credentials."
+  },
+  "options_proxy_authReferencedWarning": {
+    "message": "Additionally, using this profile in other profiles (e.g. Switch Profile) may cause the username/password to be sent to proxy servers configured in other profiles."
+  },
   "options_scheme_default": {
     "message": "(default)"
   },

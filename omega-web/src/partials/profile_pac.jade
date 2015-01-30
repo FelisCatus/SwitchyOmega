@@ -14,11 +14,23 @@ div(ng-controller='PacProfileCtrl')
         ladda='updatingProfile[profile.name]' data-spinner-color="#000000"
         ng-class='profile.pacUrl && !profile.lastUpdate ? "btn-primary" : "btn-default"')
         | #[span.glyphicon.glyphicon-download-alt] {{'options_downloadProfileNow' | tr}}
-  section.settings-group(ng-hide='pacUrlIsFile')
-    h3 {{'options_group_pacScript' | tr}}
-    p.alert.alert-success.width-limit(ng-show='profile.pacUrl && profile.lastUpdate')
-      | {{'options_pacScriptLastUpdate' | tr:[(profile.lastUpdate | date:'medium')]}}
-    p.alert.alert-danger.width-limit(ng-show='profile.pacUrl && !profile.lastUpdate')
-      | {{'options_pacScriptObsolete' | tr}}
-    textarea.monospace.form-control.width-limit(ng-model='profile.pacScript' rows=20
-      ng-disabled='pacUrlCtrl.ctrl.$invalid || !!profile.pacUrl')
+  section.settings-group
+    h3
+      {{'options_group_pacScript' | tr}}
+      = ' '
+      button.btn.btn-xs.proxy-auth-toggle(ng-class='profile.auth["all"] ? "btn-success" : "btn-default"'
+        type='button' role='button' ng-click='editProxyAuth()' title='{{"options_proxy_auth" | tr}}')
+        span.glyphicon.glyphicon-lock
+    div.alert.alert-warning.width-limit(ng-show='profile.auth["all"]')
+      p {{'options_proxy_authAllWarningPac' | tr}}
+      p(ng-show='!!profile.pacUrl') {{'options_proxy_authAllWarningPacUrl' | tr}}
+      p(ng-show='!profile.pacUrl') {{'options_proxy_authAllWarningPacScript' | tr}}
+      p(ng-show='!!referenced')
+        | #[span.glyphicon.glyphicon-warning-sign] {{'options_proxy_authReferencedWarning' | tr}}
+    div(ng-hide='pacUrlIsFile')
+      p.alert.alert-success.width-limit(ng-show='profile.pacUrl && profile.lastUpdate')
+        | {{'options_pacScriptLastUpdate' | tr:[(profile.lastUpdate | date:'medium')]}}
+      p.alert.alert-danger.width-limit(ng-show='profile.pacUrl && !profile.lastUpdate')
+        | {{'options_pacScriptObsolete' | tr}}
+      textarea.monospace.form-control.width-limit(ng-model='profile.pacScript' rows=20
+        ng-disabled='pacUrlCtrl.ctrl.$invalid || !!profile.pacUrl')

@@ -337,6 +337,18 @@
   "options_proxy_auth": {
     "message": "代理認證"
   },
+  "options_proxy_authAllWarningPac": {
+    "message": "警告: 用戶名密碼將會提供給PAC指令碼返回的任何伺服器，有時目標伺服器會出乎您的預料。"
+  },
+  "options_proxy_authAllWarningPacUrl": {
+    "message": "在提供用戶名和密碼時，請先確保您可以信任以上網址提供的PAC指令碼。"
+  },
+  "options_proxy_authAllWarningPacScript": {
+    "message": "在提供用戶名和密碼時，請先確保您可以信任以下輸入的PAC指令碼。"
+  },
+  "options_proxy_authReferencedWarning": {
+    "message": "此外，在其他情景模式（如自動切換）中使用此情景時，可能會導致用戶名和密碼被髮送至其他情景模式中設定的伺服器。"
+  },
   "options_scheme_default": {
     "message": "(默認)"
   },

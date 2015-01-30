@@ -1,4 +1,4 @@
-angular.module('omega').controller 'PacProfileCtrl', ($scope) ->
+angular.module('omega').controller 'PacProfileCtrl', ($scope, $modal) ->
   # coffeelint: disable=max_line_length
 
   # https://github.com/angular/angular.js/blob/master/src/ng/directive/input.js#L13
@@ -30,3 +30,20 @@ angular.module('omega').controller 'PacProfileCtrl', ($scope) ->
         profile.pacScript = oldPacScript
     $scope.pacUrlIsFile = $scope.isFileUrl(profile.pacUrl)
   $scope.$watch 'profile', onProfileChange, true
+
+  $scope.editProxyAuth = (scheme) ->
+    prop = 'all'
+    auth = $scope.profile.auth?[prop]
+    scope = $scope.$new('isolate')
+    scope.auth = auth && angular.copy(auth)
+    $modal.open(
+      templateUrl: 'partials/fixed_auth_edit.html'
+      scope: scope
+      size: 'sm'
+    ).result.then (auth) ->
+      if not auth?.username
+        if $scope.profile.auth
+          $scope.profile.auth[prop] = undefined
+      else
+        $scope.profile.auth ?= {}
+        $scope.profile.auth[prop] = auth

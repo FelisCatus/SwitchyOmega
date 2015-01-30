@@ -30,6 +30,7 @@ module.exports = class ProxyAuth
   _keyForProxy: (proxy) -> "#{proxy.host}:#{proxy.port}"
   setProxies: (profiles) ->
     @_proxies = {}
+    @_fallbacks = []
     processProfile = (profile) =>
       profile = @options.profile(profile)
       return unless profile?.auth
@@ -47,6 +48,13 @@ module.exports = class ProxyAuth
           name: profile.name + '.' + scheme.prop
         })
 
+      fallback = profile.auth?['all']
+      if fallback?
+        @_fallbacks.push({
+          auth: fallback
+          name: profile.name + '.' + 'all'
+        })
+
     if Array.isArray(profiles)
       for profile in profiles
         processProfile(profile)
@@ -55,6 +63,7 @@ module.exports = class ProxyAuth
         processProfile(profile)
 
   _proxies: {}
+  _fallbacks: []
   _requests: {}
   authHandler: (details) ->
     return {} unless details.isProxy
@@ -67,7 +76,12 @@ module.exports = class ProxyAuth
       port: details.challenger.port
     )
 
-    proxy = @_proxies[key]?[req.authTries]
+    list = @_proxies[key]
+    listLen = if list? then list.length else 0
+    if req.authTries < listLen
+      proxy = list[req.authTries]
+    else
+      proxy = @_fallbacks[req.authTries - listLen]
     @options.log.log('ProxyAuth', key, req.authTries, proxy?.name)
 
     return {} unless proxy?
