@@ -33,11 +33,16 @@ drawIcon = (resultColor, profileColor) ->
   icon = iconCache[cacheKey]
   return icon if icon
   ctx = document.getElementById('canvas-icon').getContext('2d')
+  ctx2x = document.getElementById('canvas-icon-2x').getContext('2d')
   if resultColor?
     drawOmega ctx, resultColor, profileColor
+    drawOmega2x ctx2x, resultColor, profileColor
   else
     drawOmega ctx, profileColor
-  icon = ctx.getImageData(0, 0, 19, 19)
+    drawOmega2x ctx2x, profileColor
+  icon =
+    19: ctx.getImageData(0, 0, 19, 19)
+    38: ctx2x.getImageData(0, 0, 38, 38)
   return iconCache[cacheKey] = icon
 
 charCodeUnderscore = '_'.charCodeAt(0)
