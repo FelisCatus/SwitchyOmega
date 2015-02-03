@@ -160,6 +160,18 @@
   "options_showInspectMenu": {
     "message": "右键菜单中，可检查网页元素所使用的代理。"
   },
+  "options_group_keyboardShortcut": {
+    "message": "键盘快捷键"
+  },
+  "options_menuShortcutHelp": {
+    "message": "按下快捷键即可打开弹出菜单来切换情景模式。(默认快捷键: Alt+Shift+O)."
+  },
+  "options_menuShortcutMore": {
+    "message": "弹出菜单中的菜单项也可以用键盘进行选择。在弹出菜单中按下? (问号键，或/斜杠键) 查看帮助。"
+  },
+  "options_menuShortcutConfigure": {
+    "message": "修改快捷键"
+  },
   "options_group_switchOptions": {
     "message": "切换选项"
   },
@@ -182,7 +194,7 @@
     "message": "循环切换以下情景模式:"
   },
   "options_cycledProfilesHelp": {
-    "message": "点击图标时，依次循环切换到以下情景模式。"
+    "message": "点击图标或按下快捷键时，依次循环切换到以下情景模式。"
   },
   "options_cycledProfilesTooFew": {
     "message": "必须至少选择2个情景模式才能进行切换。请从下方框中拖动情景模式到此框。"

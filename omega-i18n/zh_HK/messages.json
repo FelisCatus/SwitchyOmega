@@ -160,6 +160,18 @@
   "options_showInspectMenu": {
     "message": "右鍵選單中，可檢查網頁元素所使用的代理。"
   },
+  "options_group_keyboardShortcut": {
+    "message": "鍵盤快捷鍵"
+  },
+  "options_menuShortcutHelp": {
+    "message": "按下快捷鍵即可開啟彈出選單來切換情景模式。(預設快捷鍵: Alt+Shift+O)."
+  },
+  "options_menuShortcutMore": {
+    "message": "彈出選單中的選單項也可以用鍵盤進行選擇。在彈出選單中按下? (問號鍵，或/斜槓鍵) 檢視幫助。"
+  },
+  "options_menuShortcutConfigure": {
+    "message": "修改快捷鍵"
+  },
   "options_group_switchOptions": {
     "message": "切換選項"
   },
@@ -182,7 +194,7 @@
     "message": "循環切換以下情景模式:"
   },
   "options_cycledProfilesHelp": {
-    "message": "點擊圖標時，依次循環切換到以下情景模式。"
+    "message": "點擊圖標或按下快捷鍵時，依次循環切換到以下情景模式。"
   },
   "options_cycledProfilesTooFew": {
     "message": "必須至少選擇2個情景模式才能進行切換。請從下方框中拖動情景模式到此框。"

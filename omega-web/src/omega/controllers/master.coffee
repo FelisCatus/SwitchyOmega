@@ -293,6 +293,8 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   $scope.downloadIntervalI18n = (interval) ->
     "options_downloadInterval_" + (if interval < 0 then "never" else interval)
 
+  $scope.openShortcutConfig = omegaTarget.openShortcutConfig.bind(omegaTarget)
+
   omegaTarget.refresh()
 
   omegaTarget.state('firstRun').then (firstRun) ->

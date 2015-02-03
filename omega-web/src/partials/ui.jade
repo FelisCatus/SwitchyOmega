@@ -15,6 +15,17 @@ section.settings-group
       input(type='checkbox' ng-model='options["-showInspectMenu"]')
       span {{'options_showInspectMenu' | tr}}
 section.settings-group
+  h3 {{'options_group_keyboardShortcut' | tr}}
+  p
+    button.btn.btn-default(type='button' role='button' ng-click='openShortcutConfig()')
+      span.glyphicon.glyphicon-share-alt
+      = ' '
+      | {{'options_menuShortcutConfigure' | tr}}
+    = ' '
+    | {{'options_menuShortcutHelp' | tr}}
+  p.help-block
+      | {{'options_menuShortcutMore' | tr}}
+section.settings-group
   h3 {{'options_group_switchOptions' | tr}}
   div.form-group
     label {{'options_startupProfile' | tr}}

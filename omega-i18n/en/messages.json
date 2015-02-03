@@ -160,6 +160,18 @@
   "options_showInspectMenu": {
     "message": "Allow inspecting proxy used for page elements via context menu."
   },
+  "options_group_keyboardShortcut": {
+    "message": "Keyboard Shortcut"
+  },
+  "options_menuShortcutHelp": {
+    "message": "Pressing the shortcut will open the switch popup menu. (Defaults to Alt+Shift+O)."
+  },
+  "options_menuShortcutMore": {
+    "message": "The items in the popup menu can also be accessed using the keyboard. Press ? (or /) in the menu to learn more."
+  },
+  "options_menuShortcutConfigure": {
+    "message": "Configure shortcut"
+  },
   "options_group_switchOptions": {
     "message": "Switch Options"
   },
@@ -182,7 +194,7 @@
     "message": "Cycled Profiles"
   },
   "options_cycledProfilesHelp": {
-    "message": "When you click on the icon, the following profiles will be applied in their order."
+    "message": "When you click on the icon (or use the shortcut above), the following profiles will be applied in their order."
   },
   "options_cycledProfilesTooFew": {
     "message": "You need to select at least 2 profiles to enable this function! You can drag them from the box below."

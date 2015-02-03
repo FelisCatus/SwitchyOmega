@@ -16,7 +16,7 @@ div(ng-controller='PacProfileCtrl')
         | #[span.glyphicon.glyphicon-download-alt] {{'options_downloadProfileNow' | tr}}
   section.settings-group
     h3
-      {{'options_group_pacScript' | tr}}
+      | {{'options_group_pacScript' | tr}}
       = ' '
       button.btn.btn-xs.proxy-auth-toggle(ng-class='profile.auth["all"] ? "btn-success" : "btn-default"'
         type='button' role='button' ng-click='editProxyAuth()' title='{{"options_proxy_auth" | tr}}')

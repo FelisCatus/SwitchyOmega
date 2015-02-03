@@ -136,6 +136,8 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
       return d.promise
     openManage: ->
       chrome.tabs.create url: 'chrome://extensions/?id=' + chrome.runtime.id
+    openShortcutConfig: ->
+      chrome.tabs.create url: 'chrome://extensions/configureCommands'
     setOptionsSync: (enabled, args) ->
       callBackground('setOptionsSync', enabled, args)
 
