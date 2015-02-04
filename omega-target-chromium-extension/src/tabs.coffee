@@ -40,8 +40,9 @@ class ChromeTabs
         try chrome.browserAction.setBadgeText(text: '', tabId: id)
         @_badgeTab = null
     if not tab.url? or tab.url.indexOf("chrome") == 0
-      chrome.browserAction.setTitle(title: @_defaultAction.title, tabId: tab.id)
-      @clearIcon tab.id
+      if @_defaultAction
+        chrome.browserAction.setTitle(title: @_defaultAction.title, tabId: tab.id)
+        @clearIcon tab.id
       return
     @actionForUrl(tab.url).then (action) =>
       @setIcon(action.icon, tab.id)
