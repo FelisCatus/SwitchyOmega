@@ -234,3 +234,163 @@ describe 'RuleList', ->
           conditionType: 'UrlWildcardCondition'
           pattern: 'http://www.example.com/*'
       )
+
+  describe 'Switchy (omega format)', ->
+    parse = RuleList['Switchy'].parse
+    compose = RuleList['Switchy'].compose
+    it 'should parse empty rule lists', ->
+      list = compose {rules: []}
+      result = parse(list, 'match', 'notmatch')
+      result.should.have.length(0)
+    it 'should ignore comment lines.', ->
+      list = compose {rules: []}
+      list += ';*.example.com \r\n'
+      result = parse(list, 'match', 'notmatch')
+      result.should.have.length(0)
+    it 'should compose and parse HostWildcardCondition', ->
+      rule =
+        source: '*.example.com'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: '*.example.com'
+        profileName: 'match'
+      list = compose({rules: [rule], defaultProfileName: 'notmatch'})
+      result = parse(list, 'match', 'notmatch')
+      result.should.have.length(1)
+      result[0].should.eql(rule)
+    it 'should compose and parse HostRegexCondition', ->
+      rule =
+        source: 'HostRegex: ^http://www\.example\.com/.*'
+        condition:
+          conditionType: 'HostRegexCondition',
+          pattern: '^http://www\.example\.com/.*'
+        profileName: 'match'
+      list = compose({rules: [rule], defaultProfileName: 'notmatch'})
+      result = parse(list, 'match', 'notmatch')
+      result.should.have.length(1)
+      result[0].should.eql(rule)
+    it 'should compose and parse disabled rules', ->
+      rule =
+        source: 'Disabled: *.example.com'
+        condition:
+          conditionType: 'FalseCondition',
+          pattern: '*.example.com'
+        profileName: 'match'
+      list = compose({rules: [rule], defaultProfileName: 'notmatch'})
+      result = parse(list, 'match', 'notmatch')
+      result.should.have.length(1)
+      result[0].should.eql(rule)
+    it 'should compose and parse exclusive rules', ->
+      rule =
+        source: '!*.example.com'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: '*.example.com'
+        profileName: 'notmatch'
+      list = compose({rules: [rule], defaultProfileName: 'notmatch'})
+      result = parse(list, 'match', 'notmatch')
+      result.should.have.length(1)
+      result[0].should.eql(rule)
+    it 'should parse multiple conditions', ->
+      rules = [{
+        source: '*.example.com'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: '*.example.com'
+        profileName: 'match'
+      }, {
+        source: '*.example.org'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: '*.example.org'
+        profileName: 'match'
+      }]
+      list = compose({rules: rules, defaultProfileName: 'notmatch'})
+      result = parse(list, 'match', 'notmatch')
+      result.should.eql(rules)
+    it 'should respect the top-down order of conditions', ->
+      rules = [{
+        source: 'b.example.com'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: 'b.example.com'
+        profileName: 'match'
+      }, {
+        source: '!a.example.org'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: 'a.example.org'
+        profileName: 'notmatch'
+      }]
+      list = compose({rules: rules, defaultProfileName: 'notmatch'})
+      result = parse(list, 'match', 'notmatch')
+      result.should.eql(rules)
+    it 'should add a default rule when results are enabled', ->
+      list = compose(
+        {rules: [], defaultProfileName: 'notmatch'}
+        {withResult: true}
+      )
+      list.split(/\r|\n/).should.contain('@with result')
+      result = parse(list, 'ignored', 'alsoIgnored')
+      result.should.have.length(1)
+      result[0].should.eql({
+        source: '*'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: '*'
+        profileName: 'notmatch',
+      })
+    it 'should compose and parse conditions with results', ->
+      rules = [{
+        source: 'b.example.com'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: 'b.example.com'
+        profileName: 'abc'
+      }, {
+        source: 'a.example.org'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: 'a.example.org'
+        profileName: 'def'
+      }]
+      list = compose(
+        {rules: rules, defaultProfileName: 'ghi'}
+        {withResult: true}
+      )
+      result = parse(list, 'ignored', 'alsoIgnored')
+      rules.push({
+        source: '*'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: '*'
+        profileName: 'ghi',
+      })
+      result.should.eql(rules)
+    it 'should compose and parse exclusive conditions with results', ->
+      rules = [{
+        source: '!b.example.com'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: 'b.example.com'
+        profileName: 'default profile'
+      }, {
+        source: 'a.example.org'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: 'a.example.org'
+        profileName: 'some profile'
+      }]
+      list = compose(
+        {rules: rules, defaultProfileName: 'default profile'}
+        {withResult: true, useExclusive: true}
+      )
+      result = parse(list, 'ignored', 'alsoIgnored')
+      rules.push({
+        source: '*'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: '*'
+        profileName: 'default profile',
+      })
+      result.should.eql(rules)
