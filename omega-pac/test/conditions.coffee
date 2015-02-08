@@ -274,3 +274,80 @@ describe 'Conditions', ->
     it 'should not match HTTPS requests', ->
       testCond(cond, 'https://example.com/', not 'match')
       testCond(cond, 'https://example.net/', not 'match')
+
+  describe '#typeFromAbbr', ->
+    it 'should get condition types by abbrs', ->
+      Conditions.typeFromAbbr('True').should.equal('TrueCondition')
+      Conditions.typeFromAbbr('HR').should.equal('HostRegexCondition')
+
+  describe '#str and #fromStr', ->
+    it 'should encode & decode TrueCondition correctly', ->
+      condition =
+        conditionType: 'TrueCondition'
+      result = Conditions.str(condition)
+      result.should.equal('True:')
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+    it 'should encode & decode conditions with pattern correctly', ->
+      condition =
+        conditionType: 'UrlWildcardCondition'
+        pattern: '*://*.example.com/*'
+      result = Conditions.str(condition)
+      result.should.equal('UrlWildcard: ' + condition.pattern)
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+    it 'should encode & decode False while preserving pattern', ->
+      condition =
+        conditionType: 'FalseCondition'
+        pattern: 'a b c'
+      result = Conditions.str(condition)
+      result.should.equal('Disabled: a b c')
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+    it 'should encode & decode FalseCondition without any pattern', ->
+      condition =
+        conditionType: 'FalseCondition'
+      result = Conditions.str(condition)
+      result.should.equal('Disabled:')
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+    it 'should encode & decode HostWildcardCondition using shorthand syntax', ->
+      condition =
+        conditionType: 'HostWildcardCondition'
+        pattern: '*.example.com'
+      result = Conditions.str(condition)
+      result.should.equal(condition.pattern)
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+    it 'should encode & decode HostWildcardCondition ending with colon', ->
+      condition =
+        conditionType: 'HostWildcardCondition'
+        pattern: 'bogus:'
+      result = Conditions.str(condition)
+      result.should.equal('HostWildcard: ' + condition.pattern)
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+    it 'should encode & decode IpCondition correctly', ->
+      condition =
+        conditionType: 'IpCondition'
+        ip: '127.0.0.1'
+        prefixLength: 16
+      result = Conditions.str(condition)
+      result.should.equal('Ip: 127.0.0.1/16')
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+    it 'should parse conditions with extra spaces correctly', ->
+      Conditions.fromStr('url:    *abcde*   ').should.eql({
+        conditionType: 'UrlWildcardCondition'
+        pattern: '*abcde*'
+      })
+    it 'should parse abbreviated condition types correctly', ->
+      Conditions.fromStr('url: *://*.example.com/*').should.eql({
+        conditionType: 'UrlWildcardCondition'
+        pattern: '*://*.example.com/*'
+      })
+    it 'should parse escaped HostWildcardCondition starting with colon', ->
+      Conditions.fromStr(': :bogus:').should.eql({
+        conditionType: 'HostWildcardCondition'
+        pattern: ':bogus:'
+      })

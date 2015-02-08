@@ -34,6 +34,54 @@ module.exports = exports =
     return cache.compiled if cache.compiled
     handler = exports._handler(condition.conditionType)
     cache.compiled = handler.compile.call(exports, condition, cache)
+  str: (condition, {abbr} = {abbr: -1}) ->
+    handler = exports._handler(condition.conditionType)
+    if handler.abbrs[0].length == 0
+      endCode = condition.pattern.charCodeAt(condition.pattern.length - 1)
+      if endCode != exports.colonCharCode and condition.pattern.indexOf(' ') < 0
+        return condition.pattern
+    str = handler.str
+    typeStr =
+      if typeof abbr == 'number'
+        handler.abbrs[(handler.abbrs.length + abbr) % handler.abbrs.length]
+      else
+        condition.conditionType
+    result = typeStr + ':'
+    part = if str then str.call(exports, condition) else condition.pattern
+    result += ' ' + part if part
+    return result
+
+  colonCharCode: ':'.charCodeAt(0)
+  fromStr: (str) ->
+    str = str.trim()
+    i = str.indexOf(' ')
+    i = str.length if i < 0
+    if str.charCodeAt(i - 1) == exports.colonCharCode
+      conditionType = str.substr(0, i - 1)
+      str = str.substr(i + 1).trim()
+    else
+      conditionType = ''
+
+    conditionType = exports.typeFromAbbr(conditionType)
+    return null unless conditionType
+    condition = {conditionType: conditionType}
+    fromStr = exports._handler(condition.conditionType).fromStr
+    if fromStr
+      return fromStr.call(exports, str, condition)
+    else
+      condition.pattern = str
+      return condition
+
+  _abbrs: null
+  typeFromAbbr: (abbr) ->
+    if not exports._abbrs
+      exports._abbrs = {}
+      for own type, {abbrs} of exports._conditionTypes
+        exports._abbrs[type.toUpperCase()] = type
+        for ab in abbrs
+          exports._abbrs[ab.toUpperCase()] = type
+
+    return exports._abbrs[abbr.toUpperCase()]
 
   comment: (comment, node) ->
     return unless comment
@@ -148,8 +196,11 @@ module.exports = exports =
   localHosts: ["127.0.0.1", "[::1]", "localhost"]
 
   _condCache: new AttachedCache (condition) ->
-    condition.conditionType + '$' +
-    exports._handler(condition.conditionType).tag.apply(exports, arguments)
+    tag = exports._handler(condition.conditionType).tag
+    result =
+      if tag then tag.apply(exports, arguments) else exports.str(condition)
+
+    condition.conditionType + '$' + result
 
   _setProp: (obj, prop, value) ->
     if not Object::hasOwnProperty.call obj, prop
@@ -169,17 +220,25 @@ module.exports = exports =
     # These functions are .call()-ed with `this` set to module.exports.
     # coffeelint: disable=missing_fat_arrows
     'TrueCondition':
-      tag: (condition) -> ''
+      abbrs: ['True']
       analyze: (condition) -> null
       match: -> true
       compile: (condition) -> new U2.AST_True
+      str: (condition) -> ''
+      fromStr: (str, condition) -> condition
+
     'FalseCondition':
-      tag: (condition) -> ''
+      abbrs: ['False', 'Disabled']
       analyze: (condition) -> null
       match: -> false
       compile: (condition) -> new U2.AST_False
+      fromStr: (str, condition) ->
+        if str.length > 0
+          condition.pattern = str
+        condition
+
     'UrlRegexCondition':
-      tag: (condition) -> condition.pattern
+      abbrs: ['UR', 'URegex', 'UrlR', 'UrlRegex']
       analyze: (condition) -> @safeRegex escapeSlash condition.pattern
       match: (condition, request, cache) ->
         return cache.analyzed.test(request.url)
@@ -187,7 +246,8 @@ module.exports = exports =
         @regTest 'url', cache.analyzed
 
     'UrlWildcardCondition':
-      tag: (condition) -> condition.pattern
+      abbrs: ['U', 'UW', 'Url', 'UrlW', 'UWild', 'UWildcard', 'UrlWild',
+              'UrlWildcard']
       analyze: (condition) ->
         parts = for pattern in condition.pattern.split('|') when pattern
           shExp2RegExp pattern, trimAsterisk: true
@@ -198,7 +258,7 @@ module.exports = exports =
         @regTest 'url', cache.analyzed
 
     'HostRegexCondition':
-      tag: (condition) -> condition.pattern
+      abbrs: ['R', 'HR', 'Regex', 'HostR', 'HRegex', 'HostRegex']
       analyze: (condition) -> @safeRegex escapeSlash condition.pattern
       match: (condition, request, cache) ->
         return cache.analyzed.test(request.host)
@@ -206,7 +266,8 @@ module.exports = exports =
         @regTest 'host', cache.analyzed
 
     'HostWildcardCondition':
-      tag: (condition) -> condition.pattern
+      abbrs: ['', 'H', 'W', 'HW', 'Wild', 'Wildcard', 'Host', 'HostW', 'HWild',
+              'HWildcard', 'HostWild', 'HostWildcard']
       analyze: (condition) ->
         parts = for pattern in condition.pattern.split('|') when pattern
           # Get the magical regex of this pattern. See
@@ -229,7 +290,7 @@ module.exports = exports =
         @regTest 'host', cache.analyzed
 
     'BypassCondition':
-      tag: (condition) -> condition.pattern
+      abbrs: ['B', 'Bypass']
       analyze: (condition) ->
         # See https://developer.chrome.com/extensions/proxy#bypass_list
         cache =
@@ -335,7 +396,7 @@ module.exports = exports =
             right: conditions[1]
           )
     'KeywordCondition':
-      tag: (condition) -> condition.pattern
+      abbrs: ['K', 'KW', 'Keyword']
       analyze: (condition) -> null
       match: (condition, request) ->
         request.scheme == 'http' and request.url.indexOf(condition.pattern) >= 0
@@ -361,7 +422,7 @@ module.exports = exports =
         )
 
     'IpCondition':
-      tag: (condition) -> condition.ip + '/' + condition.prefixLength
+      abbrs: ['Ip']
       analyze: (condition) ->
         cache =
           addr: null
@@ -429,8 +490,16 @@ module.exports = exports =
             consequent: isInNetExCall
             alternative: alternative
           )
+      str: (condition) -> condition.ip + '/' + condition.prefixLength
+      fromStr: (str, condition) ->
+        [ip, prefixLength] = str.split('/')
+        condition.ip = ip
+        condition.prefixLength = parseInt(prefixLength)
+        condition
+
     'HostLevelsCondition':
-      tag: (condition) -> condition.minValue + '~' + condition.maxValue
+      abbrs: ['Lv', 'Level', 'Levels', 'HL', 'HLv', 'HLevel', 'HLevels',
+              'HostL', 'HostLv', 'HostLevel', 'HostLevels']
       analyze: (condition) -> '.'.charCodeAt 0
       match: (condition, request, cache) ->
         dotCharCode = cache.analyzed
@@ -453,8 +522,15 @@ module.exports = exports =
         )
         @between(val, condition.minValue + 1, condition.maxValue + 1,
           "#{condition.minValue} <= hostLevels <= #{condition.maxValue}")
+      str: (condition) -> condition.minValue + '~' + condition.maxValue
+      fromStr: (str, condition) ->
+        [minValue, maxValue] = str.split('~')
+        condition.minValue = minValue
+        condition.maxValue = maxValue
+        condition
+
     'WeekdayCondition':
-      tag: (condition) -> condition.startDay + '~' + condition.endDay
+      abbrs: ['WD', 'Week', 'Day', 'Weekday']
       analyze: (condition) -> null
       match: (condition, request) ->
         day = new Date().getDay()
@@ -471,8 +547,14 @@ module.exports = exports =
           )
         )
         @between val, condition.startDay, condition.endDay
+      str: (condition) -> condition.startDay + '~' + condition.endDay
+      fromStr: (str, condition) ->
+        [startDay, endDay] = str.split('~')
+        condition.startDay = startDay
+        condition.endDay = endDay
+        condition
     'TimeCondition':
-      tag: (condition) -> condition.startHour + '~' + condition.endHour
+      abbrs: ['T', 'Time', 'Hour']
       analyze: (condition) -> null
       match: (condition, request) ->
         hour = new Date().getHours()
@@ -489,4 +571,10 @@ module.exports = exports =
           )
         )
         @between val, condition.startHour, condition.endHour
+      str: (condition) -> condition.startHour + '~' + condition.endHour
+      fromStr: (str, condition) ->
+        [startHour, endHour] = str.split('~')
+        condition.startHour = startHour
+        condition.endHour = endHour
+        condition
     # coffeelint: enable=missing_fat_arrows
