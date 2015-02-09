@@ -8,6 +8,12 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
       err
     else
       obj
+  callBackgroundNoReply = (method, args...) ->
+    chrome.runtime.sendMessage({
+      method: method
+      args: args
+      noReply: true
+    })
   callBackground = (method, args...) ->
     d = $q['defer']()
     chrome.runtime.sendMessage({
@@ -92,6 +98,8 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
       return d.promise
     applyProfile: (name) ->
       callBackground('applyProfile', name)
+    applyProfileNoReply: (name) ->
+      callBackgroundNoReply('applyProfile', name)
     addTempRule: (domain, profileName) ->
       callBackground('addTempRule', domain, profileName)
     addCondition: (condition, profileName) ->

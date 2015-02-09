@@ -285,6 +285,7 @@ chrome.runtime.onMessage.addListener (request, sender, respond) ->
       return
 
     promise = Promise.resolve().then -> method.apply(target, request.args)
+    return if request.noReply
 
     promise.then (result) ->
       if request.method == 'updateProfile'
@@ -297,4 +298,4 @@ chrome.runtime.onMessage.addListener (request, sender, respond) ->
       respond(error: encodeError(error))
 
   # Wait for my response!
-  return true
+  return true unless request.noReply
