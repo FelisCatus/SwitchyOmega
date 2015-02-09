@@ -98,6 +98,47 @@
   "ruleList_usageUrl": {
     "message": "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
   },
+  "ruleList_error_resultNotEnabled": {
+    "message": "语法错误：缺少 '@with result' 指令。"
+  },
+  "ruleList_error_unknownProfile": {
+    "message": "Unknown profile: $PROFILE$",
+    "placeholders": {
+      "profile": {
+        "content": "$1",
+        "example": "some profile"
+      }
+    }
+  },
+  "ruleList_error_missingResultProfile": {
+    "message": "语法错误：缺少结果情景模式名称。 行号 $LNO$: $SOURCE$",
+    "placeholders": {
+      "lno": {
+        "content": "$1",
+        "example": "11"
+      },
+      "source": {
+        "content": "$2",
+        "example": "*.example.com"
+      }
+    }
+  },
+  "ruleList_error_invalidRule": {
+    "message": "语法错误：非法规则。行号 $LNO$: $SOURCE$",
+    "placeholders": {
+      "lno": {
+        "content": "$1",
+        "example": "11"
+      },
+      "source": {
+        "content": "$2",
+        "example": ":invalid rule"
+      }
+    }
+  },
+  "ruleList_error_noDefaultRule": {
+    "message": "语法错误：缺少匹配全部请求的默认规则。应在最后添加'*'规则和默认情景模式。"
+  },
 
   "dialog_close": {
     "message": "关闭"
@@ -343,6 +384,15 @@
   },
   "options_profileUnsupportedHelp": {
     "message": "选项文件已经损坏，或者当前版本过低无法处理选项。"
+  },
+  "options_profileEditSource": {
+    "message": "编辑源代码"
+  },
+  "options_profileEditSourceHelp": {
+    "message": "显示源代码格式相关的帮助"
+  },
+  "options_profileEditSourceHelpUrl": {
+    "message": "https://github.com/FelisCatus/SwitchyOmega/wiki/SwitchyOmega-conditions-format#result-profile"
   },
   "options_group_proxyServers": {
     "message": "代理服务器"

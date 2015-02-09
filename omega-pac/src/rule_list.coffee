@@ -70,7 +70,7 @@ module.exports = exports =
       switchy = exports['Switchy']
       parser = switchy.getParser(text)
       return unless parser == 'parseOmega'
-      return unless /(^|\n)@with\s+results?(\r|\n)/i.test(text)
+      return unless /(^|\n)@with\s+results?(\r|\n|$)/i.test(text)
       refs = {}
       for line in text.split(/\n|\r/)
         line = line.trim()
@@ -107,7 +107,7 @@ module.exports = exports =
         ruleList += line + eol
       if withResult
         # TODO(catus): Also special chars and sequences in defaultProfileName.
-        ruleList += '* +' + defaultProfileName + eol
+        ruleList += eol + '* +' + defaultProfileName + eol
       return ruleList
 
     getParser: (text) ->
@@ -174,11 +174,20 @@ module.exports = exports =
 
     parseOmega: (text, matchProfileName, defaultProfileName, args = {}) ->
       {strict} = args
+      if strict
+        error = (fields) ->
+          err = new Error(fields.message)
+          for own key, value of fields
+            err[key] = value
+          throw err
+      includeSource = args.source ? true
       rules = []
       rulesWithDefaultProfile = []
       withResult = false
       exclusiveProfile = null
+      lno = 0
       for line in text.split(/\n|\r/)
+        lno++
         line = line.trim()
         continue if line.length == 0
         switch line[0]
@@ -199,6 +208,7 @@ module.exports = exports =
             continue
 
         source = null
+        exclusiveProfile = null if strict
         if line[0] == '!'
           profile = if withResult then null else defaultProfileName
           source = line
@@ -206,7 +216,12 @@ module.exports = exports =
         else if withResult
           iSpace = line.lastIndexOf(' +')
           if iSpace < 0
-            throw new Error("Missing result profile name: " + line) if strict
+            error?({
+              message: "Missing result profile name: " + line
+              reason: 'missingResultProfile'
+              source: line
+              sourceLineNo: lno
+            })
             continue
           profile = line.substr(iSpace + 2).trim()
           line = line.substr(0, iSpace).trim()
@@ -216,10 +231,18 @@ module.exports = exports =
 
         cond = Conditions.fromStr(line)
         if not cond
-          throw new Error("Invalid rule: " + line) if strict
+          error?({
+            message: "Invalid rule: " + line
+            reason: 'invalidRule'
+            source: source ? line
+            sourceLineNo: lno
+          })
           continue
 
-        rule = {condition: cond, profileName: profile, source: source ? line}
+        rule =
+          condition: cond
+          profileName: profile
+          source: if includeSource then source ? line
         rules.push(rule)
         if not profile
           rulesWithDefaultProfile.push(rule)
@@ -227,7 +250,10 @@ module.exports = exports =
       if withResult
         if not exclusiveProfile
           if strict
-            throw new Error("Missing default rule with catch-all '*' condition")
+            error?({
+              message: "Missing default rule with catch-all '*' condition"
+              reason: 'noDefaultRule'
+            })
           exclusiveProfile = defaultProfileName || 'direct'
         for rule in rulesWithDefaultProfile
           rule.profileName = exclusiveProfile

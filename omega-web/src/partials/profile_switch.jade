@@ -15,8 +15,26 @@ div(ng-controller='SwitchProfileCtrl')
         dt(ng-repeat-start='type in group.types') {{'condition_' + type | tr}}
         dd(ng-repeat-end ng-bind-html='"condition_help_" + type | tr')
   section.settings-group
-    h3 {{'options_group_switchRules' | tr}}
-    .table-responsive.switch-rules-wrapper
+    h3
+      | {{'options_group_switchRules' | tr}}
+      = ' '
+      button.btn(ng-click='toggleSource()' ng-class='editSource ? "btn-primary active" : "btn-default"')
+        span.glyphicon.glyphicon-edit
+        = ' '
+        | {{'options_profileEditSource' | tr}}
+      = ' '
+      a.btn.btn-link.btn-sm.clear-padding.toggle-condition-help(
+        ng-show='editSource' target='_blank' 
+        title='{{"options_profileEditSourceHelp" | tr}}'
+        href='{{"options_profileEditSourceHelpUrl" | tr}}')
+        span.glyphicon.glyphicon-question-sign
+    .alert.alert-danger.width-limit(ng-show='source.error')
+      span.glyphicon.glyphicon-remove
+      = ' '
+      | {{source.error.message}}
+    .rules-source(ng-show='editSource')
+      textarea.monospace.form-control.width-limit(ng-model='source.code' rows=20 ng-change='source.touched = true; $root.optionsDirty = true')
+    .table-responsive.switch-rules-wrapper(ng-if='loadRules' ng-show='!editSource')
       table.switch-rules.table.table-bordered.table-condensed.width-limit-xl
         thead
           tr
@@ -94,7 +112,7 @@ div(ng-controller='SwitchProfileCtrl')
             td
             td(colspan='2') {{'options_switchDefaultProfile' | tr}}
             td
-              div(omega-profile-select='options | profiles:profile' ng-model='defaultProfileName'
+              div(omega-profile-select='options | profiles:profile' ng-model='attachedOptions.defaultProfileName'
                 disp-name='dispNameFilter' options='options')
             td
               button.btn.btn-info.btn-sm(title="{{'options_resetRules_help' | tr}}" ng-click='resetRules()')
@@ -131,5 +149,9 @@ div(ng-controller='SwitchProfileCtrl')
       | {{'options_ruleListLastUpdate' | tr:[(attached.lastUpdate | date:'medium')]}}
     p.alert.alert-danger.width-limit(ng-show='attached.sourceUrl && !attached.lastUpdate')
       | {{'options_ruleListObsolete' | tr}}
-    textarea.monospace.form-control.width-limit(ng-model='attached.ruleList' rows=20
-      ng-disabled='!!attached.sourceUrl')
+    p.alert.alert-danger.width-limit(ng-show='attachedRuleListError')
+      span.glyphicon.glyphicon-remove
+      = ' '
+      | {{attachedRuleListError.message}}
+    textarea#attached-rulelist.monospace.form-control.width-limit(rows=20
+      ng-model='attached.ruleList' ng-disabled='!!attached.sourceUrl')

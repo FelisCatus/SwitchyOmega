@@ -98,6 +98,47 @@
   "ruleList_usageUrl": {
     "message": "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
   },
+  "ruleList_error_resultNotEnabled": {
+    "message": "Missing '@with result' directive!"
+  },
+  "ruleList_error_unknownProfile": {
+    "message": "Unknown profile: $PROFILE$",
+    "placeholders": {
+      "profile": {
+        "content": "$1",
+        "example": "some profile"
+      }
+    }
+  },
+  "ruleList_error_missingResultProfile": {
+    "message": "Missing result profile name at Line $LNO$: $SOURCE$",
+    "placeholders": {
+      "lno": {
+        "content": "$1",
+        "example": "11"
+      },
+      "source": {
+        "content": "$2",
+        "example": "*.example.com"
+      }
+    }
+  },
+  "ruleList_error_invalidRule": {
+    "message": "Invalid rule at Line $LNO$: $SOURCE$",
+    "placeholders": {
+      "lno": {
+        "content": "$1",
+        "example": "11"
+      },
+      "source": {
+        "content": "$2",
+        "example": ":invalid rule"
+      }
+    }
+  },
+  "ruleList_error_noDefaultRule": {
+    "message": "Missing default rule with catch-all '*' condition!"
+  },
 
   "dialog_close": {
     "message": "Close"
@@ -343,6 +384,15 @@
   },
   "options_profileUnsupportedHelp": {
     "message": "The options could be broken, or from a newer version of this program."
+  },
+  "options_profileEditSource": {
+    "message": "Edit source code"
+  },
+  "options_profileEditSourceHelp": {
+    "message": "Show help about the source code format"
+  },
+  "options_profileEditSourceHelpUrl": {
+    "message": "https://github.com/FelisCatus/SwitchyOmega/wiki/SwitchyOmega-conditions-format#result-profile"
   },
   "options_group_proxyServers": {
     "message": "Proxy servers"

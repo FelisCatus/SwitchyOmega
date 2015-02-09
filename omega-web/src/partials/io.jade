@@ -6,7 +6,7 @@ section.settings-group
     .text-info
       span.glyphicon.glyphicon-info-sign
       = ' '
-      {{'options_exportProfileHelp' | tr}}
+      | {{'options_exportProfileHelp' | tr}}
   div.checkbox(ng-show='!(options["-showConditionTypes"] > 0)')
     label
       input(type='checkbox' ng-model='options["-exportLegacyRuleList"]')
