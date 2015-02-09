@@ -41,7 +41,10 @@ class ChromeTabs
         @_badgeTab = null
     if not tab.url? or tab.url.indexOf("chrome") == 0
       if @_defaultAction
-        chrome.browserAction.setTitle(title: @_defaultAction.title, tabId: tab.id)
+        chrome.browserAction.setTitle({
+          title: @_defaultAction.title
+          tabId: tab.id
+        })
         @clearIcon tab.id
       return
     @actionForUrl(tab.url).then (action) =>

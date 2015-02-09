@@ -619,6 +619,10 @@ class Options
       url = OmegaPac.Profiles.updateUrl(profile)
       if url
         results[key] = @fetchUrl(url, opt_bypass_cache).then((data) =>
+          # Errors and unsuccessful response codes shoud have been already
+          # rejected by fetchUrl and will not end up here.
+          # So empty data indicates success without any update (e.g. 304).
+          return profile unless data
           profile = OmegaPac.Profiles.byKey(key, @_options)
           profile.lastUpdate = new Date().toISOString()
           if OmegaPac.Profiles.update(profile, data)
