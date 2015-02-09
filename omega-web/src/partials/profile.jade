@@ -1,6 +1,8 @@
 .page-header
   .profile-actions
-    button.btn.btn-default(ng-show='exportRuleList' ng-click='exportRuleList(profile.name)' title="{{'options_profileExportRuleListHelp' | tr}}")
+    button.btn(ng-show='exportRuleList' ng-click='exportRuleList(profile.name)'
+      title="{{'options_profileExportRuleListHelp' | tr}}"
+      ng-class="exportRuleListOptions.warning ? 'btn-warning' : 'btn-default'")
       span.glyphicon.glyphicon-list
       = ' '
       | {{'options_profileExportRuleList' | tr}}

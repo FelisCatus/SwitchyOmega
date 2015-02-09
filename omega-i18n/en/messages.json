@@ -95,6 +95,10 @@
     "description": "The rule list format name of the AutoProxy project. This has nothing to do with SwitchProfile."
   },
 
+  "ruleList_usageUrl": {
+    "message": "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
+  },
+
   "dialog_close": {
     "message": "Close"
   },
@@ -246,6 +250,15 @@
   },
   "options_exportPacFileHelp": {
     "message": "Export the current profile as a PAC file, so you can use it in other browsers."
+  },
+  "options_exportProfileHelp": {
+    "message": "To export a profile, use the top-right action bar on the profile page."
+  },
+  "options_exportLegacyRuleList": {
+    "message": "Export rule lists using Proxy Switchy!/SwitchyPlus/SwitchySharp compatible format when possible."
+  },
+  "options_exportLegacyRuleListHelp": {
+    "message": "Enable this option only if you publish rule lists for users of those projects.<br>Please consider advising your audience to upgrade to SwitchyOmega for the improvements."
   },
   "options_group_importExportSettings": {
     "message": "Settings"

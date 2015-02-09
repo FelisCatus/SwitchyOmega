@@ -2,12 +2,16 @@
   h2 {{'options_tab_importExport' | tr}}
 section.settings-group
   h3 {{'options_group_importExportProfile' | tr}}
-  p
-    button.btn.btn-default(ng-click='exportScript()')
-      span.glyphicon.glyphicon-download
+  .help-block
+    .text-info
+      span.glyphicon.glyphicon-info-sign
       = ' '
-      | {{'options_exportPacFile' | tr}}
-    span.help-inline {{'options_exportPacFileHelp' | tr}}
+      {{'options_exportProfileHelp' | tr}}
+  div.checkbox(ng-show='!(options["-showConditionTypes"] > 0)')
+    label
+      input(type='checkbox' ng-model='options["-exportLegacyRuleList"]')
+      span {{'options_exportLegacyRuleList' | tr}}
+    p.help-block(omega-html="'options_exportLegacyRuleListHelp' | tr")
 section.settings-group
   h3 {{'options_group_importExportSettings' | tr}}
   p

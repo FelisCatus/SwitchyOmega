@@ -1,5 +1,5 @@
 angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
-  $modal, profileIcons, getAttachedName, omegaTarget, $timeout) ->
+  $modal, profileIcons, getAttachedName, omegaTarget, $timeout, trFilter) ->
 
   $scope.showConditionHelp = ($location.search().help == 'condition')
 
@@ -41,6 +41,21 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
   ]
 
   exportRuleList = ->
+    text = OmegaPac.RuleList.Switchy.compose($scope.profile)
+
+    eol = '\r\n'
+    info = '\n'
+    info += '; Require: SwitchyOmega >= 2.3.2' + eol
+    info += "; Date: #{new Date().toLocaleDateString()}" + eol
+    info += "; Usage: #{trFilter('ruleList_usageUrl')}" + eol
+
+    text = text.replace('\n', info)
+
+    blob = new Blob [text], {type: "text/plain;charset=utf-8"}
+    fileName = $scope.profile.name.replace(/\W+/g, '_')
+    saveAs(blob, "OmegaRules_#{fileName}.sorl")
+
+  exportLegacyRuleList = ->
     wildcardRules = ''
     regexpRules = ''
     for rule in $scope.profile.rules
@@ -112,12 +127,21 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $location,
     else
       updateHasConditionTypes()
       $scope.showConditionTypes = $scope.hasConditionTypes
+
+    if $scope.options['-exportLegacyRuleList']
+      if $scope.showConditionTypes > 0
+        $scope.setExportRuleListHandler(exportRuleList, {warning: true})
+      else
+        $scope.setExportRuleListHandler(exportLegacyRuleList)
+    else
+      $scope.setExportRuleListHandler(exportRuleList)
+
     if $scope.showConditionTypes == 0
       $scope.conditionTypes = basicConditionTypesExpanded
-      $scope.setExportRuleListHandler(exportRuleList)
+      if $scope.options['-exportLegacyRuleList']
+        $scope.setExportRuleListHandler exportLegacyRuleList
     else
       $scope.conditionTypes = advancedConditionTypesExpanded
-      $scope.setExportRuleListHandler(null)
       if not $scope.options["-showConditionTypes"]?
         $scope.options["-showConditionTypes"] = $scope.showConditionTypes
       unwatchRules?()

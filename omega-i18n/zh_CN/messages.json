@@ -95,6 +95,10 @@
     "description": "AutoProxy 项目规则列表格式的名称，和此程序的自动切换等无关。"
   },
 
+  "ruleList_usageUrl": {
+    "message": "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
+  },
+
   "dialog_close": {
     "message": "关闭"
   },
@@ -246,6 +250,15 @@
   },
   "options_exportPacFileHelp": {
     "message": "导出PAC（代理自动设置）文件,以便在其它浏览器使用。"
+  },
+  "options_exportProfileHelp": {
+    "message": "如需导出情景模式，请使用情景模式设置页面右上角的工具栏。"
+  },
+  "options_exportLegacyRuleList": {
+    "message": "导出规则列表时使用 Proxy Switchy!/SwitchyPlus/SwitchySharp 兼容格式。"
+  },
+  "options_exportLegacyRuleListHelp": {
+    "message": "如果您需要发布规则列表给那些软件的用户，请启用此选项。<br>建议您提醒订阅者升级到 SwitchyOmega 以享受新版功能。"
   },
   "options_group_importExportSettings": {
     "message": "选项"
