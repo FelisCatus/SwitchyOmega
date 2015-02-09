@@ -14,12 +14,10 @@ module.exports = exports =
         return true
       return
     preprocess: (text) ->
-      text = text.trim()
       if strStartsWith(text, exports['AutoProxy'].magicPrefix)
         text = new Buffer(text, 'base64').toString('utf8')
       return text
     parse: (text, matchProfileName, defaultProfileName) ->
-      text = text.trim()
       normal_rules = []
       exclusive_rules = []
       for line in text.split(/\n|\r/)
@@ -55,20 +53,35 @@ module.exports = exports =
 
   'Switchy':
     omegaPrefix: '[SwitchyOmega Conditions'
+    specialLineStart: "[;#@!"
+
     detect: (text) ->
-      text = text.trim()
       if strStartsWith(text, exports['Switchy'].omegaPrefix)
         return true
       return
 
     parse: (text, matchProfileName, defaultProfileName) ->
-      text = text.trim()
       switchy = exports['Switchy']
-      parser = 'parseOmega'
-      if not strStartsWith(text, switchy.omegaPrefix)
-        if text[0] == '#' or text.indexOf('\n#') >= 0
-          parser = 'parseLegacy'
+      parser = switchy.getParser(text)
       return switchy[parser](text, matchProfileName, defaultProfileName)
+
+    directReferenceSet: ({ruleList, matchProfileName, defaultProfileName}) ->
+      text = ruleList.trim()
+      switchy = exports['Switchy']
+      parser = switchy.getParser(text)
+      return unless parser == 'parseOmega'
+      return unless /(^|\n)@with\s+results?(\r|\n)/i.test(text)
+      refs = {}
+      for line in text.split(/\n|\r/)
+        line = line.trim()
+        if switchy.specialLineStart.indexOf(line[0]) < 0
+          iSpace = line.lastIndexOf(' +')
+          if iSpace < 0
+            profile = defaultProfileName || 'direct'
+          else
+            profile = line.substr(iSpace + 2).trim()
+          refs['+' + profile] = profile
+      refs
 
     # For the omega rule list format, please see the following wiki page:
     # https://github.com/FelisCatus/SwitchyOmega/wiki/SwitchyOmega-conditions-format
@@ -80,22 +93,30 @@ module.exports = exports =
         ruleList += '@with result' + eol + eol
       else
         ruleList += eol
+      specialLineStart = exports['Switchy'].specialLineStart + '+'
       for rule in rules
         line = Conditions.str(rule.condition)
-        if line[0] == '#' or line[0] == '+'
-          # Escape leading # to avoid being detected as legacy format.
-          # Reserve leading + for condition results.
-          line = ': ' + line
         if useExclusive and rule.profileName == defaultProfileName
           line = '!' + line
-        else if withResult
-          # TODO(catus): What if rule.profileName contains ' +' or new lines?
-          line += ' +' + rule.profileName
+        else
+          if specialLineStart.indexOf(line[0]) >= 0
+            line = ': ' + line
+          if withResult
+            # TODO(catus): What if rule.profileName contains ' +' or new lines?
+            line += ' +' + rule.profileName
         ruleList += line + eol
       if withResult
         # TODO(catus): Also special chars and sequences in defaultProfileName.
         ruleList += '* +' + defaultProfileName + eol
       return ruleList
+
+    getParser: (text) ->
+      switchy = exports['Switchy']
+      parser = 'parseOmega'
+      if not strStartsWith(text, switchy.omegaPrefix)
+        if text[0] == '#' or text.indexOf('\n#') >= 0
+          parser = 'parseLegacy'
+      return parser
 
     conditionFromLegacyWildcard: (pattern) ->
       if pattern[0] == '@'
@@ -151,10 +172,12 @@ module.exports = exports =
       # Exclusive rules have higher priority, so they come first.
       return exclusive_rules.concat normal_rules
 
-    parseOmega: (text, matchProfileName, defaultProfileName) ->
+    parseOmega: (text, matchProfileName, defaultProfileName, args = {}) ->
+      {strict} = args
       rules = []
       rulesWithDefaultProfile = []
       withResult = false
+      exclusiveProfile = null
       for line in text.split(/\n|\r/)
         line = line.trim()
         continue if line.length == 0
@@ -183,16 +206,18 @@ module.exports = exports =
         else if withResult
           iSpace = line.lastIndexOf(' +')
           if iSpace < 0
-            throw new Error("Missing result profile name: " + line)
+            throw new Error("Missing result profile name: " + line) if strict
+            continue
           profile = line.substr(iSpace + 2).trim()
           line = line.substr(0, iSpace).trim()
-          defaultProfileName = profile if line == '*'
+          exclusiveProfile = profile if line == '*'
         else
           profile = matchProfileName
 
         cond = Conditions.fromStr(line)
         if not cond
-          throw new Error("Invalid rule: " + line)
+          throw new Error("Invalid rule: " + line) if strict
+          continue
 
         rule = {condition: cond, profileName: profile, source: source ? line}
         rules.push(rule)
@@ -200,8 +225,10 @@ module.exports = exports =
           rulesWithDefaultProfile.push(rule)
 
       if withResult
-        if not defaultProfileName
-          throw new Error("Missing default rule with catch-all '*' condition!")
+        if not exclusiveProfile
+          if strict
+            throw new Error("Missing default rule with catch-all '*' condition")
+          exclusiveProfile = defaultProfileName || 'direct'
         for rule in rulesWithDefaultProfile
-          rule.profileName = defaultProfileName
+          rule.profileName = exclusiveProfile
       return rules

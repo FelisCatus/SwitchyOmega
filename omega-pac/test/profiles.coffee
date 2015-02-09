@@ -209,6 +209,24 @@ describe 'Profiles', ->
         '+example': 'example'
         '+default': 'default'
       )
+    it 'should calulate referenced profiles for rule list with results', ->
+      set = Profiles.directReferenceSet({
+        profileType: 'RuleListProfile'
+        format: 'Switchy'
+        matchProfileName: 'ignored'
+        defaultProfileName: 'alsoIgnored'
+        ruleList: '''
+          [SwitchyOmega Conditions]
+          @with result
+          !*.example.org
+          *.example.com +ABC
+          * +DEF
+        '''
+      })
+      set.should.eql(
+        '+ABC': 'ABC'
+        '+DEF': 'DEF'
+      )
     it 'should match requests based on the rule list', ->
       testProfile(profile, 'http://localhost/example.com',
         ruleListResult('example', 'example.com'))

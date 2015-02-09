@@ -389,6 +389,8 @@ module.exports = exports =
         profile.matchProfileName ?= 'direct'
         profile.ruleList ?= ''
       directReferenceSet: (profile) ->
+        refs = RuleList[profile.format]?.directReferenceSet?(profile)
+        return refs if refs
         refs = {}
         for name in [profile.matchProfileName, profile.defaultProfileName]
           refs[exports.nameAsKey(name)] = name
@@ -407,7 +409,7 @@ module.exports = exports =
         formatHandler = RuleList[format]
         if not formatHandler
           throw new Error "Unsupported rule list format #{format}!"
-        ruleList = profile.ruleList
+        ruleList = profile.ruleList?.trim() || ''
         if formatHandler.preprocess?
           ruleList = formatHandler.preprocess(ruleList)
         return formatHandler.parse(ruleList, profile.matchProfileName,
@@ -418,6 +420,7 @@ module.exports = exports =
         exports.compile(profile, 'SwitchProfile')
       updateUrl: (profile) -> profile.sourceUrl
       update: (profile, data) ->
+        data = data.trim()
         original = profile.format ? exports.formatByType[profile.profileType]
         profile.profileType = 'RuleListProfile'
         format = original

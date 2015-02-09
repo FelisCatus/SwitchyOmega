@@ -291,6 +291,17 @@ describe 'RuleList', ->
       result = parse(list, 'match', 'notmatch')
       result.should.have.length(1)
       result[0].should.eql(rule)
+    it 'should compose and parse conditions starting with special chars', ->
+      rule =
+        source: ': ;abc'
+        condition:
+          conditionType: 'HostWildcardCondition',
+          pattern: ';abc'
+        profileName: 'match'
+      list = compose({rules: [rule], defaultProfileName: 'notmatch'})
+      result = parse(list, 'match', 'notmatch')
+      result.should.have.length(1)
+      result[0].should.eql(rule)
     it 'should parse multiple conditions', ->
       rules = [{
         source: '*.example.com'
