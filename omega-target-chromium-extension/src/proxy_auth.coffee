@@ -4,6 +4,7 @@ Promise = OmegaTarget.Promise
 
 module.exports = class ProxyAuth
   constructor: (options) ->
+    @_requests = {}
     @options = options
 
   listening: false
@@ -64,7 +65,7 @@ module.exports = class ProxyAuth
 
   _proxies: {}
   _fallbacks: []
-  _requests: {}
+  _requests: null
   authHandler: (details) ->
     return {} unless details.isProxy
     req = @_requests[details.requestId]

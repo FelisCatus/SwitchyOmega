@@ -107,9 +107,10 @@ class ChromeOptions extends OmegaTarget.Options
       config['rules'] = rules
     return config
 
-  _proxyChangeWatchers: []
+  _proxyChangeWatchers: null
   _proxyChangeListener: null
   watchProxyChange: (callback) ->
+    @_proxyChangeWatchers = []
     if not @_proxyChangeListener?
       @_proxyChangeListener = (details) =>
         for watcher in @_proxyChangeWatchers

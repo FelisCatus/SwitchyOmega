@@ -16,15 +16,13 @@ class Options
   # All the options, in a map from key to value.
   # @type OmegaOptions
   ###
-  _options: {}
+  _options: null
   _storage: null
   _state: null
   _currentProfileName: null
   _revertToProfileName: null
   _watchingProfiles: {}
   _tempProfile: null
-  _tempProfileRules: {}
-  _tempProfileRulesByProfile: {}
   fallbackProfileName: 'system'
   _isSystem: false
   debugStr: 'Options'
@@ -56,6 +54,9 @@ class Options
     return value
 
   constructor: (options, @_storage, @_state, @log, @sync) ->
+    @_options = {}
+    @_tempProfileRules = {}
+    @_tempProfileRulesByProfile = {}
     @_storage ?= Storage()
     @_state ?= Storage()
     @log ?= Log

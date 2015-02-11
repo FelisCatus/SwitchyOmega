@@ -12,7 +12,6 @@ class OptionsSync
   _timeout: null
   _bucket: null
   _waiting: false
-  _pending: {}
 
   ###*
   # The debounce timeout (ms) for requestPush scheduling. See requestPush.
@@ -33,6 +32,7 @@ class OptionsSync
   storage: null
 
   constructor: (@storage, @_bucket) ->
+    @_pending = {}
     @_bucket ?= new TokenBucket(10, 10, 'minute', null)
     @_bucket.clear ?= =>
       @_bucket.tryRemoveTokens(@_bucket.content)
@@ -50,9 +50,10 @@ class OptionsSync
   ###*
   # Merge newVal and oldVal of a given key. The default implementation choose
   # between newVal and oldVal based on the following rules:
-  # 1. Choose oldVal if it has a revision newer than or equal to that of newVal.
-  # 2. Choose oldVal if it deeply equals newVal.
-  # 3. Otherwise, choose newVal.
+  # 1. Choose oldVal if syncOptions is 'disabled' in either oldVal or newVal.
+  # 2. Choose oldVal if it has a revision newer than or equal to that of newVal.
+  # 3. Choose oldVal if it deeply equals newVal.
+  # 4. Otherwise, choose newVal.
   #
   # @param {string} key The key of the item
   # @param {} newVal The new value
@@ -66,6 +67,8 @@ class OptionsSync
     )
     return (key, newVal, oldVal) ->
       return oldVal if newVal == oldVal
+      if oldVal?.syncOptions == 'disabled' or newVal?.syncOptions == 'disabled'
+        return oldVal
       if oldVal?.revision? and newVal?.revision?
         result = Revision.compare(oldVal.revision, newVal.revision)
         return oldVal if result >= 0
@@ -87,7 +90,7 @@ class OptionsSync
   ###
   requestPush: (changes) ->
     clearTimeout(@_timeout) if @_timeout?
-    for key, value of changes
+    for own key, value of changes
       if typeof value != 'undefined'
         value = @transformValue(value, key)
         continue if typeof value == 'undefined'
@@ -128,7 +131,7 @@ class OptionsSync
               return Promise.reject('bucket')
         ).catch (e) =>
           # Re-submit the changes for syncing, but with lower priority.
-          for key, value of set
+          for own key, value of set
             if not (key of @_pending)
               @_pending[key] = value
           for key in remove
@@ -144,8 +147,19 @@ class OptionsSync
             @requestPush({})
             return
           else if e instanceof Storage.QuotaExceededError
-            # TODO(catus): Remove profiles that are too large and retry.
-            @_pending = {}
+            # For now, we just disable syncing for all changed profiles.
+            # TODO(catus): Remove the largest profile each time and retry.
+            valuesAffected = 0
+            for own key, value of set
+              if key[0] == '+' and value.syncOptions != 'disabled'
+                value.syncOptions = 'disabled'
+                value.syncError = {reason: 'quotaPerItem'}
+                valuesAffected++
+            if valuesAffected > 0
+              @requestPush({})
+            else
+              @_pending = {}
+            return
           else
             Promise.reject(e)
 
@@ -162,8 +176,8 @@ class OptionsSync
   ###
   copyTo: (local) ->
     Promise.join local.get(null), @storage.get(null), (base, changes) =>
-      for key of base when not (key of changes)
-        if key[0] == '+'
+      for own key of base when not (key of changes)
+        if key[0] == '+' and not base[key]?.syncOptions == 'disabled'
           changes[key] = undefined
       local.apply(
         changes: changes
@@ -192,7 +206,7 @@ class OptionsSync
         local.apply(operations)
 
     @storage.watch null, (changes) =>
-      for key, value of changes
+      for own key, value of changes
         pull[key] = value
       return if pullScheduled?
       pullScheduled = setTimeout(doPull, @pullThrottle)

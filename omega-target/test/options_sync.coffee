@@ -7,6 +7,7 @@ describe 'OptionsSync', ->
   OptionsSync = require '../src/options_sync'
   Storage = require '../src/storage'
   Log = require '../src/log'
+  Promise = require 'bluebird'
 
   before ->
     # Silence storage and sync logging.
@@ -36,6 +37,14 @@ describe 'OptionsSync', ->
       newVal = {revision: '2'}
       oldVal = {revision: '1'}
       sync.merge('example', newVal, oldVal).should.equal(newVal)
+    it 'should use oldVal when sync is disabled in newVal', ->
+      newVal = {revision: '2', is: 'newVal', syncOptions: 'disabled'}
+      oldVal = {revision: '1', is: 'oldVal'}
+      sync.merge('example', newVal, oldVal).should.equal(oldVal)
+    it 'should use oldVal when sync is disabled in oldVal', ->
+      newVal = {revision: '2', is: 'newVal'}
+      oldVal = {revision: '1', is: 'oldVal', syncOptions: 'disabled'}
+      sync.merge('example', newVal, oldVal).should.equal(oldVal)
     it 'should favor oldVal when revisions are equal', ->
       newVal = {revision: '1', is: 'newVal'}
       oldVal = {revision: '1', is: 'oldVal'}
@@ -100,6 +109,30 @@ describe 'OptionsSync', ->
       sync.requestPush({d: 1})
       sync.requestPush({e: 1})
       sync.requestPush({e: undefined})
+
+    it 'should disable syncing for the profiles if quota is exceeded', (done) ->
+      options = {'+a': {is: 'a', oversized: true}, b: {is: 'b'}}
+
+      storage = new Storage()
+      storage.set = (changes) ->
+        for key, value of changes
+          if value.oversized
+            err = new Storage.QuotaExceededError()
+            err.perItem = true
+            return Promise.reject(err)
+        storage.set.should.have.been.calledTwice
+        storage.set.should.have.been.calledWith(options)
+        storage.set.should.have.been.calledWith({b: {is: 'b'}})
+        options['+a'].syncOptions.should.equal('disabled')
+        options['+a'].syncError.reason.should.equal('quotaPerItem')
+        done()
+        Promise.resolve()
+
+      sinon.spy(storage, 'set')
+
+      sync = new OptionsSync(storage, unlimited)
+      sync.debounce = 0
+      sync.requestPush(options)
 
   describe '#copyTo', ->
     it 'should fetch all items from remote storage', (done) ->

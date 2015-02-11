@@ -35,31 +35,23 @@ class Storage
   # @param {?{}} args Extra arguments
   # @param {Object.<string, {}>?} args.base The original items in the storage.
   # @param {function(key, newVal, oldVal)} args.merge A function that merges
-  # the newVal and oldVal. oldVal is only provided if args.base is present.
+  # the newVal and oldVal. oldVal is provided only if args.base is present.
+  # Otherwise it will be equal to newVal (i.e. merge(key, newVal, newVal)).
   # @returns {WriteOperations} The operations that should be performed.
   ###
   @operationsForChanges: (changes, {base, merge} = {}) ->
     set = {}
     remove = []
     for key, newVal of changes
-      if not base?
-        newVal = if merge then merge(key, newVal) else newVal
-        if typeof newVal == 'undefined'
+      oldVal = if base? then base[key] else newVal
+      if merge
+        newVal = merge(key, newVal, oldVal)
+      continue if base? and newVal == oldVal
+      if typeof newVal == 'undefined'
+        if typeof oldVal != 'undefined' or not base?
           remove.push(key)
-        else
-          set[key] = newVal
       else
-        oldVal = base[key]
-        if typeof newVal == 'undefined'
-          if typeof oldVal != 'undefined'
-            remove.push(key)
-        else if newVal != oldVal
-          if merge
-            newVal = merge(key, newVal, oldVal)
-            if newVal != oldVal
-              set[key] = newVal
-          else
-            set[key] = newVal
+        set[key] = newVal
     return {set: set, remove: remove}
 
   ###*

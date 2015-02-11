@@ -1,9 +1,10 @@
 class ChromeTabs
-  _dirtyTabs: {}
   _defaultAction: null
   _badgeTab: null
 
-  constructor: (@actionForUrl) -> return
+  constructor: (@actionForUrl) ->
+    @_dirtyTabs = {}
+    return
 
   ignoreError: ->
     chrome.runtime.lastError
