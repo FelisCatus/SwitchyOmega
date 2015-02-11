@@ -355,6 +355,12 @@
   "options_syncUnsupportedHelp": {
     "message": "Options syncing is not supported on your platform or browser. For now, only Chrome browser on desktop is supported."
   },
+  "options_profileSyncDisabled": {
+    "message": "Syncing is disabled for this profile."
+  },
+  "options_profileSyncDisabled_quotaPerItem": {
+    "message": "Syncing is disabled for this profile for using too much storage space."
+  },
   "options_profileTabPrefix": {
     "message": "Profile :: "
   },

@@ -355,6 +355,12 @@
   "options_syncUnsupportedHelp": {
     "message": "選項同步暫不支援您的平臺或瀏覽器。目前只支援桌面版Chrome的瀏覽器的同步，請諒解。"
   },
+  "options_profileSyncDisabled": {
+    "message": "此情景模式已經禁用同步。"
+  },
+  "options_profileSyncDisabled_quotaPerItem": {
+    "message": "此情景模式使用儲存空間過多，因此無法進行同步。"
+  },
   "options_profileTabPrefix": {
     "message": "情景模式： "
   },
