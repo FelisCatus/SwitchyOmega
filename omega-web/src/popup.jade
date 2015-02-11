@@ -46,7 +46,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           span(omega-profile-inline='profile' icon='getIcon(profile)' options='availableProfiles' disp-name='dispNameFilter')
           = ' '
           | [{{profile.defaultProfileName}}]
-          button.dropdown-toggle.btn.btn-default(href='#' role='button' ng-click='$event.stopPropagation()')
+          button.dropdown-toggle.btn.btn-default(role='button' dropdown-toggle href='#' ng-click='$event.stopPropagation()')
             span.glyphicon.glyphicon-chevron-down
         ul.dropdown-menu(ng-if='!!profile.validResultProfiles')
           li(ng-repeat='p in profile.validResultProfiles' ng-class='{active: p.name == profile.defaultProfileName}')
@@ -59,7 +59,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           = ' '
           span {{'popup_addCondition' | tr}}
       li(ng-show='!!currentDomain && validResultProfiles.length' dropdown is-open="tempRuleMenu.open")
-        a.dropdown-toggle(href='#' role='button' data-shortcut='tempRule')
+        a.dropdown-toggle(href='#' role='button' dropdown-toggle data-shortcut='tempRule')
           span.glyphicon.glyphicon-filter
           = ' '
           span.current-domain {{currentDomain}}

@@ -206,6 +206,19 @@ ul.list-style-none, li.list-style-none {
 
 /* body */
 
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+.modal-backdrop {
+  position: fixed;
+  bottom: 0;
+}
+
 h1 {
   color: #5c6166;
   font-size: 1.7em;
@@ -350,6 +363,16 @@ main {
 
   .sp-dd {
     display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  // Try to workaround the issue where dropdown menus in the table are clipped.
+  // .table-responsive sets overflow-x, which causes the issue. Just setting
+  // overflow-y: visible will NOT work. Scrolling must be disabled for X & Y.
+  // See: http://stackoverflow.com/a/6433475
+  .table-responsive {
+    overflow: visible;
   }
 }
 
