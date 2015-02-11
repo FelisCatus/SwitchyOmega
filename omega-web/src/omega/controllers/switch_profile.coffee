@@ -52,7 +52,8 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
     saveAs(blob, "SwitchyRules_#{fileName}.ssrl")
 
   # == Condition types ==
-  $scope.showConditionHelp = ($location.search().help == 'condition')
+  $scope.conditionHelp =
+    show: ($location.search().help == 'condition')
 
   $scope.basicConditionTypes = [
     {

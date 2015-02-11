@@ -1,8 +1,8 @@
 div(ng-controller='SwitchProfileCtrl')
-  section.condition-help-section.settings-group(ng-show='showConditionHelp' ng-init='expandedSection = {id: 0}')
+  section.condition-help-section.settings-group(ng-show='conditionHelp.show' ng-init='expandedSection = {id: 0}')
     h3
       | {{'options_group_conditionHelp' | tr}}
-      button.close.close-condition-help(type='button' ng-click='showConditionHelp = false')
+      button.close.close-condition-help(type='button' ng-click='conditionHelp.show = false')
         span(aria-hidden='true') ×
         span.sr-only {{'dialog_close' | tr}}
     div.condition-help(ng-repeat='group in (showConditionTypes == 0 ? basicConditionTypes : advancedConditionTypes)')
@@ -44,7 +44,7 @@ div(ng-controller='SwitchProfileCtrl')
               = ' '
               button.btn.btn-link.btn-sm.clear-padding.toggle-condition-help(
                 title='{{"options_showConditionTypeHelp" | tr}}'
-                ng-click='showConditionHelp = !showConditionHelp')
+                ng-click='conditionHelp.show = !conditionHelp.show')
                 span.glyphicon.glyphicon-question-sign
             th {{'options_conditionDetails' | tr}}
             th {{'options_resultProfile' | tr}}
