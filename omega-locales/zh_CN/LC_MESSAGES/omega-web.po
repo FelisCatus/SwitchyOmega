@@ -1,0 +1,938 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SwitchyOmega 2.3.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-13 11:05+0000\n"
+"PO-Revision-Date: 2015-02-13 11:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: Chinese\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "appNameShort"
+msgstr "SwitchyOmega"
+
+msgid "manifest_app_name"
+msgstr "Proxy SwitchyOmega"
+
+msgid "manifest_app_description"
+msgstr "轻松快捷地管理和切换多个代理设置。"
+
+msgid "manifest_icon_default_title"
+msgstr "正在加载……"
+
+msgid "upgrade_profile_auto"
+msgstr "自动切换"
+
+msgid "profile_direct"
+msgstr "[直接连接]"
+
+msgid "profile_system"
+msgstr "[系统代理]"
+
+msgid "condition_HostWildcardCondition"
+msgstr "域名通配符"
+
+msgid "condition_help_HostWildcardCondition"
+msgstr ""
+"根据域名（主机名）匹配请求。<br><b>星号 <code>*</code></b> 匹配零个或者多个字符。<br><b>问号 <code>?</code></"
+"b> 匹配任意一个字符。<br><br>请注意以 <code>*.</code> 开头的规则有特别处理，会同时匹配子域名和自身。<br>例如: <code>*."
+"example.com</code> 能匹配 www.example.com ，<b>而且也能匹配 example.com 。</b><br>如果<b>"
+"只需要匹配子域名</b>，请使用<b>两个</b>星号开头，如 <code>**.example.com</code>。"
+
+msgid "condition_HostRegexCondition"
+msgstr "域名正则"
+
+msgid "condition_help_HostRegexCondition"
+msgstr ""
+"类似域名通配符，但使用<a href='https://www.google.com/search?q=%E6%AD%A3%E5%88%99%E8%A1%"
+"A8%E8%BE%BE%E5%BC%8F'>正则表达式</a>.<br>正则表达式很难编写，且可读性差。<br>因此，一般情况建议使用通配符。"
+"当其他任何条件都不能满足要求时，才使用正则表达式。"
+
+msgid "condition_HostLevelsCondition"
+msgstr "域名层数"
+
+msgid "condition_help_HostLevelsCondition"
+msgstr ""
+"如果域名层数在设定的范围内则匹配，否则不匹配。<br>域名层数是指 <b>域名共有几段（以点分隔）</b>.<br>例如: <code>www."
+"example.com</code> 的域名层数为 3，而 <code>internal</code> 的域名层数为 1."
+
+msgid "condition_UrlWildcardCondition"
+msgstr "网址通配符"
+
+msgid "condition_help_UrlWildcardCondition"
+msgstr ""
+"根据通配符规则匹配网址。<br>关于通配符表达式，请参考上方的域名通配符一节的说明。<br>请注意网址通配符没有任何特殊处理，不会特殊处理子域名等。<br>"
+"所以 <code>*://*.example.com/*</code> 能匹配 http://www.example.com/ 但是 <b>不匹配</b> "
+"http://example.com/."
+
+msgid "condition_UrlRegexCondition"
+msgstr "网址正则"
+
+msgid "condition_help_UrlRegexCondition"
+msgstr ""
+"使用功能强大的<a href='https://www.google.com/search?q=%E6%AD%A3%E5%88%99%E8%A1%A8%"
+"E8%BE%BE%E5%BC%8F'>正则表达式</a>来匹配网址。<br>但正则表达式很难编写，且可读性差。<br>因此，一般情况建议使用通配符。"
+"当其他任何条件都不能满足要求时，才使用正则表达式。"
+
+msgid "condition_KeywordCondition"
+msgstr "关键字"
+
+msgid "condition_help_KeywordCondition"
+msgstr ""
+"关键字条件的具体匹配规则是：网址协议为HTTP且网址中包含该关键字。<br>类似于 <code>http://*<b>关键字</b>*</code>, "
+"其中 <b>关键字</b> 是设定好的关键字。<br>如果某防火墙根据网址中是否包含关键字来屏蔽网址，那么可以使用关键字条件来通过代理访问这样的请求，"
+"以达到绕过防火墙的目的。"
+
+msgid "condition_FalseCondition"
+msgstr "(禁用)"
+
+msgid "condition_details_FalseCondition"
+msgstr "(匹配请求时无视此条规则)"
+
+msgid "condition_help_FalseCondition"
+msgstr ""
+"设置规则类型为<code>(禁用)</code>可以临时禁用某个条件。禁用的条件在匹配时视为不存在。<br>条件被禁用后，仍然保存有之前的数据（"
+"例如通配符或正则），因此当需要时，可以把条件类型改回之前的类型，以方便地重新启用条件。"
+
+msgid "condition_group_default"
+msgstr ""
+
+msgid "condition_group_host"
+msgstr "域名"
+
+msgid "condition_group_url"
+msgstr "网址"
+
+msgid "condition_group_special"
+msgstr "特殊"
+
+msgid "ruleListFormat_Switchy"
+msgstr "Switchy"
+
+msgid "ruleListFormat_AutoProxy"
+msgstr "AutoProxy"
+
+msgid "ruleList_usageUrl"
+msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
+
+msgid "ruleList_error_resultNotEnabled"
+msgstr "语法错误：缺少 '@with result' 指令。"
+
+msgid "ruleList_error_unknownProfile"
+msgstr "Unknown profile: $PROFILE$"
+
+msgid "ruleList_error_missingResultProfile"
+msgstr "语法错误：缺少结果情景模式名称。 行号 $LNO$: $SOURCE$"
+
+msgid "ruleList_error_invalidRule"
+msgstr "语法错误：非法规则。行号 $LNO$: $SOURCE$"
+
+msgid "ruleList_error_noDefaultRule"
+msgstr "语法错误：缺少匹配全部请求的默认规则。应在最后添加'*'规则和默认情景模式。"
+
+msgid "dialog_close"
+msgstr "关闭"
+
+msgid "dialog_save"
+msgstr "保存更改"
+
+msgid "dialog_ok"
+msgstr "确定"
+
+msgid "dialog_cancel"
+msgstr "取消"
+
+msgid "inputClear_clear"
+msgstr "清空"
+
+msgid "inputClear_restore"
+msgstr "还原"
+
+msgid "options_title"
+msgstr "SwitchyOmega 选项"
+
+msgid "options_navHeader_setting"
+msgstr "设定"
+
+msgid "options_navHeader_profiles"
+msgstr "情景模式"
+
+msgid "options_navHeader_actions"
+msgstr "操作"
+
+msgid "options_tab_ui"
+msgstr "界面"
+
+msgid "options_tab_general"
+msgstr "通用"
+
+msgid "options_tab_importExport"
+msgstr "导入/导出"
+
+msgid "options_newProfile"
+msgstr "新建情景模式..."
+
+msgid "options_apply"
+msgstr "应用选项"
+
+msgid "options_discard"
+msgstr "撤销更改"
+
+msgid "options_reset"
+msgstr "重置选项"
+
+msgid "options_group_miscOptions"
+msgstr "其他设置"
+
+msgid "options_confirmDeletion"
+msgstr "删除切换条件时需要确认"
+
+msgid "options_refreshOnProfileChange"
+msgstr "当更改情景模式时刷新当前标签"
+
+msgid "options_showInspectMenu"
+msgstr "右键菜单中，可检查网页元素所使用的代理。"
+
+msgid "options_group_keyboardShortcut"
+msgstr "键盘快捷键"
+
+msgid "options_menuShortcutHelp"
+msgstr "按下快捷键即可打开弹出菜单来切换情景模式。(默认快捷键: Alt+Shift+O)."
+
+msgid "options_menuShortcutMore"
+msgstr "弹出菜单中的菜单项也可以用键盘进行选择。在弹出菜单中按下? (问号键，或/斜杠键) 查看帮助。"
+
+msgid "options_menuShortcutConfigure"
+msgstr "修改快捷键"
+
+msgid "options_group_switchOptions"
+msgstr "切换选项"
+
+msgid "options_startupProfile"
+msgstr "初始情景模式"
+
+msgid "options_startupProfile_none"
+msgstr "(当前情景模式)"
+
+msgid "options_showConditionTypesAdvanced"
+msgstr "显示高级切换条件"
+
+msgid "options_showConditionTypesAdvancedHelp"
+msgstr "启用后，可以使用一些新种类的切换条件，功能强大但难以掌握。对于大多数情况来说，只用基本条件类型就可以满足需求，因此不推荐启用此功能。"
+
+msgid "options_quickSwitch"
+msgstr "快速切换"
+
+msgid "options_cycledProfiles"
+msgstr "循环切换以下情景模式:"
+
+msgid "options_cycledProfilesHelp"
+msgstr "点击图标或按下快捷键时，依次循环切换到以下情景模式。"
+
+msgid "options_cycledProfilesTooFew"
+msgstr "必须至少选择2个情景模式才能进行切换。请从下方框中拖动情景模式到此框。"
+
+msgid "options_notCycledProfiles"
+msgstr "不循环切换的情景模式 (拖动到上面的框中启用切换)"
+
+msgid "options_group_proxyChanges"
+msgstr "代理设置变化"
+
+msgid "options_revertProxyChanges"
+msgstr "撤消其他扩展对代理的更改。"
+
+msgid "options_downloadOptions"
+msgstr "下载选项"
+
+msgid "options_downloadOptionsHelp"
+msgstr "设置规则列表和PAC脚本的更新间隔。"
+
+msgid "options_downloadInterval"
+msgstr "更新间隔"
+
+msgid "options_downloadInterval_15"
+msgstr "15分钟"
+
+msgid "options_downloadInterval_60"
+msgstr "1小时"
+
+msgid "options_downloadInterval_180"
+msgstr "3小时"
+
+msgid "options_downloadInterval_360"
+msgstr "6小时"
+
+msgid "options_downloadInterval_720"
+msgstr "12小时"
+
+msgid "options_downloadInterval_1440"
+msgstr "每天一次"
+
+msgid "options_downloadInterval_never"
+msgstr "从不更新"
+
+msgid "options_group_importExportProfile"
+msgstr "情景模式"
+
+msgid "options_exportPacFile"
+msgstr "导出PAC文件"
+
+msgid "options_exportPacFileHelp"
+msgstr "导出PAC（代理自动设置）文件,以便在其它浏览器使用。"
+
+msgid "options_exportProfileHelp"
+msgstr "如需导出情景模式，请使用情景模式设置页面右上角的工具栏。"
+
+msgid "options_exportLegacyRuleList"
+msgstr "导出规则列表时使用 Proxy Switchy!/SwitchyPlus/SwitchySharp 兼容格式。"
+
+msgid "options_exportLegacyRuleListHelp"
+msgstr "如果您需要发布规则列表给那些软件的用户，请启用此选项。<br>建议您提醒订阅者升级到 SwitchyOmega 以享受新版功能。"
+
+msgid "options_group_importExportSettings"
+msgstr "选项"
+
+msgid "options_makeBackup"
+msgstr "生成备份文件"
+
+msgid "options_makeBackupHelp"
+msgstr "导出一份包括情景模式和其他所有选项的备份文件。"
+
+msgid "options_restoreLocal"
+msgstr "从备份文件恢复"
+
+msgid "options_restoreLocalHelp"
+msgstr "导入本地的备份文件以恢复所有选项。"
+
+msgid "options_restoreOnline"
+msgstr "在线恢复"
+
+msgid "options_restoreOnlinePlaceholder"
+msgstr "备份文件地址 (如：http://example.com/switchy.bak)"
+
+msgid "options_restoreOnlineSubmit"
+msgstr "恢复"
+
+msgid "options_group_syncing"
+msgstr "选项同步 (测试中)"
+
+msgid "options_syncEnable"
+msgstr "启用同步"
+
+msgid "options_syncEnableForce"
+msgstr "下载云端版本"
+
+msgid "options_syncDisable"
+msgstr "禁用同步"
+
+msgid "options_syncPristineHelp"
+msgstr "您可以将设置和情景模式同步到所有使用Chrome浏览器的桌面设备。"
+
+msgid "options_syncSyncAlert"
+msgstr "您的设置将会自动与其他设备进行同步。"
+
+msgid "options_syncSyncHelp"
+msgstr "请注意：您需要在所有设备上（包括此设备）的Chrome浏览器中登录，这样同步的选项才能正常使用。<br>可以在其他设备上查看此页面，来检查同步是否生效。"
+
+msgid "options_syncConflictAlert"
+msgstr "您已经通过其他设备上传了一份选项用于同步。"
+
+msgid "options_syncConflictHelp"
+msgstr "您可以将云端的选项下载到此设备使用。<br>一旦选择下载，<b>此设备上的设置和情景模式将会被覆盖</b>。"
+
+msgid "options_syncUnsupportedHelp"
+msgstr "选项同步暂不支持您的平台或浏览器。目前只支持桌面版Chrome的浏览器的同步，请谅解。"
+
+msgid "options_profileSyncDisabled"
+msgstr "此情景模式已经禁用同步。"
+
+msgid "options_profileSyncDisabled_quotaPerItem"
+msgstr "此情景模式使用存储空间过多，因此无法进行同步。"
+
+msgid "options_profileTabPrefix"
+msgstr "情景模式： "
+
+msgid "options_renameProfile"
+msgstr "更改名称"
+
+msgid "options_deleteProfile"
+msgstr "删除"
+
+msgid "options_profileExportRuleList"
+msgstr "发布规则列表"
+
+msgid "options_profileExportRuleListHelp"
+msgstr "将切换规则导出为文本格式以便发布。"
+
+msgid "options_profileExportPac"
+msgstr "导出PAC"
+
+msgid "options_profileUnsupported"
+msgstr "不支持的情景模式类型： $TYPE$!"
+
+msgid "options_profileUnsupportedHelp"
+msgstr "选项文件已经损坏，或者当前版本过低无法处理选项。"
+
+msgid "options_profileEditSource"
+msgstr "编辑源代码"
+
+msgid "options_profileEditSourceHelp"
+msgstr "显示源代码格式相关的帮助"
+
+msgid "options_profileEditSourceHelpUrl"
+msgstr ""
+"https://github.com/FelisCatus/SwitchyOmega/wiki/SwitchyOmega-conditions-"
+"format#result-profile"
+
+msgid "options_group_proxyServers"
+msgstr "代理服务器"
+
+msgid "options_proxy_scheme"
+msgstr "网址协议"
+
+msgid "options_proxy_protocol"
+msgstr "代理协议"
+
+msgid "options_proxy_server"
+msgstr "代理服务器"
+
+msgid "options_proxy_port"
+msgstr "代理端口"
+
+msgid "options_proxy_auth"
+msgstr "代理登录"
+
+msgid "options_proxy_authAllWarningPac"
+msgstr "警告: 用户名密码将会提供给PAC脚本返回的任何服务器，有时目标服务器会出乎您的预料。"
+
+msgid "options_proxy_authAllWarningPacUrl"
+msgstr "在提供用户名和密码时，请先确保您可以信任以上网址提供的PAC脚本。"
+
+msgid "options_proxy_authAllWarningPacScript"
+msgstr "在提供用户名和密码时，请先确保您可以信任以下输入的PAC脚本。"
+
+msgid "options_proxy_authReferencedWarning"
+msgstr "此外，在其他情景模式（如自动切换）中使用此情景时，可能会导致用户名和密码被发送至其他情景模式中设置的服务器。"
+
+msgid "options_scheme_default"
+msgstr "(默认)"
+
+msgid "options_protocol_direct"
+msgstr "直接连接"
+
+msgid "options_protocol_useDefault"
+msgstr "(同默认)"
+
+msgid "options_proxy_single"
+msgstr "对于所有代理使用相同服务器。"
+
+msgid "options_proxy_expand"
+msgstr "显示高级设置"
+
+msgid "options_group_bypassList"
+msgstr "不代理的地址列表"
+
+msgid "options_bypassListHelp"
+msgstr "不经过代理连接的主机列表: (每行一个主机)"
+
+msgid "options_bypassListHelpLinkText"
+msgstr "(可使用通配符等匹配规则...)"
+
+msgid "options_group_pacUrl"
+msgstr "PAC 网址"
+
+msgid "options_pacUrlHelp"
+msgstr "应用将从此网址下载PAC脚本。如果网址留空，则直接使用下方的脚本内容。"
+
+msgid "options_pacUrlFile"
+msgstr "如果您使用本地PAC文件，则该情景模式只能单独使用，无法作为自动切换的结果。这是因为浏览器不允许读取本地文件。"
+
+msgid "options_pacUrlFileDisabled"
+msgstr "此情景模式已被引用，所以不能使用本地PAC文件。如果您真的需要使用本地文件，请另外新建一个PAC情景模式。"
+
+msgid "options_group_pacScript"
+msgstr "PAC 脚本"
+
+msgid "options_pacScriptLastUpdate"
+msgstr "PAC 脚本最后更新时间：$TIME$"
+
+msgid "options_pacScriptObsolete"
+msgstr "修改网址后尚未下载更新，因此脚本已经过时。请使用上方的更新按钮进行下载。"
+
+msgid "options_group_virtualProfile"
+msgstr "虚情景模式"
+
+msgid "options_virtualProfileTarget"
+msgstr "目标"
+
+msgid "options_virtualProfileTargetHelp"
+msgstr "当使用此情景模式时，相当于使用了以下情景模式："
+
+msgid "options_group_virtualProfileReplace"
+msgstr "迁移到虚情景模式"
+
+msgid "options_virtualProfileReplace"
+msgstr "取代目标情景模式"
+
+msgid "options_virtualProfileReplaceHelp"
+msgstr ""
+"通过此功能可以更改现有的选项，使用此虚情景模式来取代 $PROFILE$ 。此功能会把所有和 $PROFILE$ 相关的切换规则改为使用此虚情景模式。"
+"这样一来，就可以通过此虚情景模式来控制那些切换条件对应的结果。"
+
+msgid "options_group_ruleListConfig"
+msgstr "规则列表设置"
+
+msgid "options_ruleListFormat"
+msgstr "规则列表格式"
+
+msgid "options_group_ruleListResult"
+msgstr "规则列表结果情景模式"
+
+msgid "options_ruleListMatchProfile"
+msgstr "匹配则使用情景模式"
+
+msgid "options_ruleListDefaultProfile"
+msgstr "不匹配则使用情景模式"
+
+msgid "options_group_ruleListUrl"
+msgstr "规则列表网址"
+
+msgid "options_ruleListUrlHelp"
+msgstr "应用将从此网址下载规则列表。如果网址留空，则以下文本会被直接处理后作为规则列表使用。"
+
+msgid "options_group_ruleListText"
+msgstr "规则列表正文"
+
+msgid "options_ruleListLastUpdate"
+msgstr "规则列表最后更新时间：$TIME$"
+
+msgid "options_ruleListObsolete"
+msgstr "修改网址后尚未下载更新，因此规则列表已经过时。请使用上方的更新按钮进行下载。"
+
+msgid "options_group_switchRules"
+msgstr "切换规则"
+
+msgid "options_sort"
+msgstr "排序"
+
+msgid "options_conditionType"
+msgstr "条件类型"
+
+msgid "options_showConditionTypeHelp"
+msgstr "显示帮助"
+
+msgid "options_conditionDetails"
+msgstr "条件设置"
+
+msgid "options_resultProfile"
+msgstr "情景模式"
+
+msgid "options_conditionActions"
+msgstr "操作"
+
+msgid "options_addCondition"
+msgstr "添加条件"
+
+msgid "options_cloneRule"
+msgstr "克隆"
+
+msgid "options_switchAttachedProfileInCondition"
+msgstr "规则列表规则"
+
+msgid "options_switchAttachedProfileInConditionDetails"
+msgstr "(按照规则列表匹配请求)"
+
+msgid "options_switchAttachedProfileInConditionDisabled"
+msgstr "(规则列表已禁用！)"
+
+msgid "options_switchDefaultProfile"
+msgstr "默认情景模式"
+
+msgid "options_hostLevelsBetween"
+msgstr "≤ 主机层数 ≤"
+
+msgid "options_group_conditionHelp"
+msgstr "条件类型说明"
+
+msgid "options_group_attachProfile"
+msgstr "导入在线规则列表"
+
+msgid "options_attachProfile"
+msgstr "添加规则列表"
+
+msgid "options_attachProfileHelp"
+msgstr "可以添加规则列表，以便引用他人在线发布的一组规则。"
+
+msgid "options_modalHeader_welcome"
+msgstr "欢迎使用 SwitchyOmega"
+
+msgid "options_welcomeNormal"
+msgstr "您已经成功安装了 SwitchyOmega ，一个强大的代理切换工具。"
+
+msgid "options_welcomeNormalGuide"
+msgstr "您可以通过选项页面设置需要使用的代理服务器，下面我们就来试试看吧。"
+
+msgid "options_welcomeUpgrade"
+msgstr "您已经成功升级到 SwitchyOmega. 别担心，所有设置都已经升级成功，可以继续使用。"
+
+msgid "options_welcomeUpgradeGuide"
+msgstr "现在我们来熟悉一下新的选项页面。"
+
+msgid "options_guideNext"
+msgstr "下一步"
+
+msgid "options_guideDone"
+msgstr "完成"
+
+msgid "options_guideSkip"
+msgstr "跳过教程"
+
+msgid "options_modalHeader_applyOptions"
+msgstr "应用选项"
+
+msgid "options_optionsNotSaved"
+msgstr "当前设置还未保存。如果您继续此操作，则刚才的所有修改都会丢失！"
+
+msgid "options_applyOptionsRequired"
+msgstr "必须保存当前选项才能继续操作。"
+
+msgid "options_applyOptionsConfirm"
+msgstr "是否保存并应用现在的选项？"
+
+msgid "options_modalHeader_renameProfile"
+msgstr "重命名"
+
+msgid "options_renameProfileName"
+msgstr "新的名称"
+
+msgid "options_profileNameConflict"
+msgstr "已经存在相同名称的情景模式。"
+
+msgid "options_profileNameReserved"
+msgstr "以双下划线开头的名称为系统保留，禁止使用。"
+
+msgid "options_profileNameHidden"
+msgstr "以下划线开头的情景模式不会在弹出菜单中显示，但仍可被用作切换的结果等。"
+
+msgid "options_modalHeader_replaceProfile"
+msgstr "替换情景模式"
+
+msgid "options_replaceProfile"
+msgstr "替换"
+
+msgid "options_replaceProfileConfirm"
+msgstr "您确定要使用 $ToProfile 来代替 $FromProfile$ 吗?"
+
+msgid "options_replaceProfileHelp"
+msgstr ""
+"如果继续操作，则和 $FromProfile$ 有关的切换规则将改为使用 $ToProfile$ 来代替。此外，启动情景模式、快速切换等设置也会做相应调整。"
+"但请注意，此操作不影响这两个情景模式本身。"
+
+msgid "options_replaceProfileSuccess"
+msgstr "更改选项成功。"
+
+msgid "options_modalHeader_deleteProfile"
+msgstr "删除情景模式"
+
+msgid "options_deleteProfileConfirm"
+msgstr "真的要删除这个情景模式吗？"
+
+msgid "options_modalHeader_cannotDeleteProfile"
+msgstr "情景模式无法删除"
+
+msgid "options_profileReferredBy"
+msgstr "这个情景模式仍然被以下情景模式使用，所以无法删除。"
+
+msgid "options_modifyReferringProfiles"
+msgstr "修改以上所有情景模式并移除对此情景模式的引用后，方可删除此情景模式。"
+
+msgid "options_profileNameEmpty"
+msgstr "情景模式名称不能为空。"
+
+msgid "popup_title"
+msgstr "SwitchyOmega 弹出菜单"
+
+msgid "options_modalHeader_deleteRule"
+msgstr "删除规则"
+
+msgid "options_modalHeader_proxyAuth"
+msgstr "代理登录"
+
+msgid "options_proxyAuthUsername"
+msgstr "用户名"
+
+msgid "options_proxyAuthPassword"
+msgstr "密码"
+
+msgid "options_proxyAuthNone"
+msgstr "(无密码)"
+
+msgid "options_deleteRuleConfirm"
+msgstr "真的要删除这个规则吗?"
+
+msgid "options_deleteRule"
+msgstr "删除"
+
+msgid "options_modalHeader_resetRules"
+msgstr "重置全部规则"
+
+msgid "options_resetRulesConfirm"
+msgstr "真的要设置所有规则对应的情景模式为以下情景模式吗？"
+
+msgid "options_resetRules"
+msgstr "重置规则"
+
+msgid "options_resetRules_help"
+msgstr "批量设置所有规则的情景模式"
+
+msgid "options_modalHeader_deleteAttached"
+msgstr "移除规则列表"
+
+msgid "options_deleteAttachedConfirm"
+msgstr "真的要移除当前情景模式的在线规则列表吗？"
+
+msgid "options_ruleListLineCount"
+msgstr "共计$COUNT$行规则"
+
+msgid "options_deleteAttached"
+msgstr "Remove rule list"
+
+msgid "options_modalHeader_newProfile"
+msgstr "新建情景模式"
+
+msgid "options_newProfileName"
+msgstr "情景模式名称"
+
+msgid "options_profileType"
+msgstr "请选择情景模式的类型:"
+
+msgid "options_profileTypeFixedProfile"
+msgstr "代理服务器"
+
+msgid "options_profileDescFixedProfile"
+msgstr "经过代理服务器访问网站。"
+
+msgid "options_profileTypePacProfile"
+msgstr "PAC情景模式"
+
+msgid "options_profileDescPacProfile"
+msgstr "根据在线或本地的PAC脚本选择代理。"
+
+msgid "options_profileDescMorePacProfile"
+msgstr "如果您没有任何PAC脚本，也没有脚本的网址，则不必使用此情景模式。不了解PAC的用户不建议自行尝试编写脚本。"
+
+msgid "options_profileTypeSwitchProfile"
+msgstr "自动切换模式"
+
+msgid "options_profileDescSwitchProfile"
+msgstr "根据多种条件，如域名或网址等自动选择情景模式。您也可以导入在线发布的切换规则（如 AutoProxy 列表）以简化设置。"
+
+msgid "options_profileTypeRuleListProfile"
+msgstr "规则列表"
+
+msgid "options_profileDescRuleListProfile"
+msgstr "使用他人发布的在线规则列表来切换情景模式。"
+
+msgid "options_profileTypeVirtualProfile"
+msgstr "虚情景模式"
+
+msgid "options_profileDescVirtualProfile"
+msgstr "虚情景模式可以作为某个其他情景模式使用，并可以根据需要更改对象。一般用在自动切换中，这样就可以一次性更改多个条件对应的代理。"
+
+msgid "options_createProfile"
+msgstr "创建"
+
+msgid "options_modalHeader_resetOptions"
+msgstr "重置选项"
+
+msgid "options_resetOptionsConfirm"
+msgstr "真的确定要重置选项吗？如果继续，现有的所有情景模式和选项将会丢失！"
+
+msgid "options_formInvalid"
+msgstr "请更正这个页面中的错误。"
+
+msgid "options_profileNotFound"
+msgstr "情景模式 $PROFILE$ 不存在！选项可能已经损坏。"
+
+msgid "options_resetSuccess"
+msgstr "选项已经重置。"
+
+msgid "options_saveSuccess"
+msgstr "保存选项成功！"
+
+msgid "options_importSuccess"
+msgstr "导入选项成功。"
+
+msgid "options_importFormatError"
+msgstr "备份文件格式错误！"
+
+msgid "options_importDownloadError"
+msgstr "下载备份文件时出错！"
+
+msgid "options_profileDownloadSuccess"
+msgstr "情景模式已经更新成功。"
+
+msgid "options_profileDownloadError"
+msgstr "下载情景模式数据时出错。"
+
+msgid "options_downloadProfileNow"
+msgstr "立即更新情景模式"
+
+msgid "options_guide_fixedProfileStep"
+msgstr ""
+"<b>代理情景</b>包含了服务器地址、端口等代理的信息。<br>在 SwitchyOmega 中，情景模式是代理设置的基本单元。<br>"
+"默认设置中已经建立了一个代理情景模式作为样例。试着打开它吧。"
+
+msgid "options_guide_fixedServersStep"
+msgstr ""
+"在这里，您可以填写所需的代理服务器地址和端口。<br>SwitchyOmega<b>软件本身不提供任何内置代理服务器</b>。<br>"
+"如果您不清楚应该填写什么，最好咨询下您的网络提供者，或者参考代理软件的设置说明。"
+
+msgid "options_guide_autoSwitchProfileStep"
+msgstr ""
+"您可以通过强大的<b>自动切换模式</b>在多个代理间切换自如。<br>不过，在这个简单的教程中无法详尽介绍所有功能。<br>想要使用此功能时，"
+"可以打开这里的设置界面，来了解如何使用自动切换功能。"
+
+msgid "options_guide_addMoreProfilesStep"
+msgstr "如果您需要更多的情景模式，可以随时在这里创建<b>代理、切换和其他情景模式</b>。<br>教程到此结束，您可以继续自定义设置。"
+
+msgid "options_guide_conditionStep"
+msgstr ""
+"SwitchyOmega 可以根据<b>切换条件</b>对不同的网络请求使用不同的情景模式。<br>例如<b>域名通配符</b>"
+"条件可以对某个域名下的所有网址使用特定的情景模式。"
+
+msgid "options_guide_conditionTypeStep"
+msgstr "您可以使用各种条件类型来匹配域名或者整个网址。<br> 点击问号按钮来查看条件类型的说明。"
+
+msgid "options_guide_conditionProfileStep"
+msgstr ""
+"对于<b>任何匹配该条件的请求</b>，SwitchyOmega 会使用这个情景模式。<br>如果选择了<b>\"[直接连接]\"情景模式</b>，"
+"则匹配的请求不使用任何代理。"
+
+msgid "options_guide_switchDefaultStep"
+msgstr "如果请求不匹配任何条件，则使用默认情景模式。<br>条件的匹配顺序总是按此页面<b>从上到下</b>。<br>您可以拖动排序图标来更改条件的顺序。"
+
+msgid "options_guide_applySwitchProfileStep"
+msgstr ""
+"当您设置完毕后，别忘记<b>在弹出菜单中启用自动切换情景模式</b>。<br/>图标将会显示标签页切换的<b>最终结果</b>情景。<br/> <b>"
+"悬停在图标上</b>则会显示切换相关的详细说明。"
+
+msgid "popup_externalProfile"
+msgstr "(外部情景模式)"
+
+msgid "popup_externalProfileName"
+msgstr "保存名称"
+
+msgid "popup_proxyNotControllable_app"
+msgstr "其他应用正在控制代理设置。请禁用或者卸载发生冲突的应用。"
+
+msgid "popup_proxyNotControllable_policy"
+msgstr "代理设置被本地策略强制指定，无法修改。请联系系统管理员。"
+
+msgid "popup_proxyNotControllable_unknown"
+msgstr "无法设置代理设置。请检查系统和浏览器设置。"
+
+msgid "popup_proxyNotControllable_disabled"
+msgstr "在其他应用或扩展的要求下，SwitchyOmega 已经禁用代理设置。"
+
+msgid "popup_proxyNotControllable_upgrade"
+msgstr "代理设置现在由新版本的 SwitchyOmega 控制。"
+
+msgid "popup_proxyNotControllableDetails"
+msgstr "如果不解决以上问题，则无法使用SwitchyOmega切换代理。"
+
+msgid "popup_proxyNotControllableDetails_upgrade"
+msgstr "两个不同版本的 SwitchyOmega （如稳定版和测试版）不能共存。请禁用其中之一。"
+
+msgid "popup_proxyNotControllableManage"
+msgstr "管理扩展"
+
+msgid "popup_addConditionTo"
+msgstr "添加条件到情景模式"
+
+msgid "popup_addCondition"
+msgstr "添加条件"
+
+msgid "popup_showOptions"
+msgstr "选项"
+
+msgid "popup_reportIssues"
+msgstr "反馈问题"
+
+msgid "popup_errorLog"
+msgstr "错误日志"
+
+msgid "popup_issueTemplate"
+msgstr ""
+"\n"
+"\n"
+"\n"
+"<!-- ↑请在此行上方填写问题/建议详情，可用中文↑ -->\n"
+"SwitchyOmega $projectVersion$\n"
+"$userAgent$"
+
+msgid "browserAction_profileDetails_PacProfile"
+msgstr "(PAC 脚本)"
+
+msgid "browserAction_profileDetails_SystemProfile"
+msgstr "(由其他扩展或系统环境控制)"
+
+msgid "browserAction_profileDetails_DirectProfile"
+msgstr "(不使用任何代理)"
+
+msgid "browserAction_profileDetails_SwitchProfile"
+msgstr "(根据条件切换)"
+
+msgid "browserAction_profileDetails_RuleListProfile"
+msgstr "(根据规则列表切换)"
+
+msgid "browserAction_titleNormal"
+msgstr "SwitchyOmega:: $PROFILE$"
+
+msgid "browserAction_titleWithResult"
+msgstr ""
+"SwitchyOmega:: $PROFILE$\n"
+"$DETAILS$"
+
+msgid "browserAction_titleNewerOptions"
+msgstr "错误：需要新版本的SwitchyOmega才能加载当前选项。"
+
+msgid "browserAction_titleOptionError"
+msgstr "错误：选项文件已经损坏，点击此处重置选项。"
+
+msgid "browserAction_titleDownloadFail"
+msgstr "警告：更新PAC文件或规则列表失败。"
+
+msgid "browserAction_titleExternalProxy"
+msgstr "注意：其他应用正在控制当前代理设置。"
+
+msgid "browserAction_titleInspect"
+msgstr "[检查] $URL$"
+
+msgid "browserAction_defaultRuleDetails"
+msgstr "(默认)"
+
+msgid "browserAction_directResult"
+msgstr "直接连接"
+
+msgid "browserAction_attachedPrefix"
+msgstr "(列表) "
+
+msgid "browserAction_tempRulePrefix"
+msgstr "(临时) "
+
+msgid "contextMenu_inspectPage"
+msgstr "检查此页面使用的代理"
+
+msgid "contextMenu_inspectFrame"
+msgstr "检查此[框架页面]使用的代理"
+
+msgid "contextMenu_inspectLink"
+msgstr "检查此[链接目标]将会使用的代理"
+
+msgid "contextMenu_inspectElement"
+msgstr "检查此[元素]使用的代理"
