@@ -20,6 +20,6 @@
     "omega-pac": "../omega-pac"
   },
   "scripts": {
-    "dev": "npm link omega-pac; npm link"
+    "dev": "npm link omega-pac && npm link"
   }
 }
