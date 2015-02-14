@@ -7,7 +7,7 @@
     "grunt-hub": "^0.7.0"
   },
   "scripts": {
-    "deps": "npm install && (cd ../omega-pac && npm install); (cd ../omega-target && npm install); (cd ../omega-web && npm install && bower install); (cd ../omega-target-chromium-extension/ && npm install);",
-    "dev": "(cd ../omega-pac && npm run dev); (cd ../omega-target && npm run dev); (cd ../omega-web && npm run dev); (cd ../omega-target-chromium-extension/ && npm run dev);"
+    "deps": "npm install && (cd ../omega-pac && npm install) && (cd ../omega-target && npm install) && (cd ../omega-web && npm install && bower install) && (cd ../omega-target-chromium-extension/ && npm install)",
+    "dev": "(cd ../omega-pac && npm run dev) && (cd ../omega-target && npm run dev) && (cd ../omega-web && npm run dev) && (cd ../omega-target-chromium-extension/ && npm run dev)"
   }
 }

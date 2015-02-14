@@ -3,6 +3,8 @@ SwitchyOmega
 
 Manage and switch between multiple proxies quickly & easily.
 
+[![Translation status](https://hosted.weblate.org/widgets/switchyomega/-/svg-badge.svg)](https://hosted.weblate.org/engage/switchyomega/?utm_source=widget)
+
 Chromium Extension
 ------------------
 The project is available as a Chromium Extension.
@@ -62,15 +64,14 @@ time for that now. Feel free to open a pull request if you want to help.
 
 ## Translation
 
-All translations are in the `omega-i18n` folder. For now, only `en` \(English\)
-and `zh` \(简体中文\) translations are done. If you notice a translation issue
-such as typo or bad spelling, please open an issue or a pull request.
+Translation is hosted on Weblate. If you want to help improve the translated
+text or start translation for your language, please follow the link of the picture
+below.
 
-You can also help to translate SwitchyOmega into your language. Just fork the
-project and copy the `en` folder to a new folder named the locale code of your
-choice. Then edit the `message.json` to provide translations. The file is in
-[Chrome Extension Locale-Specific Messages Format](https://developer.chrome.com/extensions/i18n-messages).
-Don't forget to open a pull request when you are done translating.
+本项目翻译由Weblate托管。如果您希望帮助改进翻译，或将本项目翻译成一种新的语言，请
+点击下方图片链接进入翻译。
+
+[![Translation status](https://hosted.weblate.org/widgets/switchyomega/-/287x66-white.png)](https://hosted.weblate.org/engage/switchyomega/?utm_source=widget)
 
 ## Building the project
 

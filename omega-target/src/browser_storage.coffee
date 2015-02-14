@@ -14,9 +14,10 @@ class BrowserStorage extends Storage
         map[key] = undefined
     else if typeof keys == 'object'
       map = keys
-    for own key, value of map
+    for own key of map
       try
-        map[key] = JSON.parse(@proto.getItem.call(@storage, @prefix + key))
+        value = JSON.parse(@proto.getItem.call(@storage, @prefix + key))
+      map[key] = value if value?
       if typeof map[key] == 'undefined'
         delete map[key]
     Promise.resolve map
