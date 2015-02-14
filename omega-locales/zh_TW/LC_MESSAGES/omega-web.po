@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 11:15+0000\n"
-"PO-Revision-Date: 2015-02-14 07:28+0200\n"
+"PO-Revision-Date: 2015-02-14 07:35+0200\n"
 "Last-Translator: FelisCatus <shyc2010@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://hosted.weblate.org/projects/switchyomega/main/zh_TW/>\n"
@@ -122,10 +122,10 @@ msgid "ruleList_usageUrl"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
-msgstr "語法錯誤：缺少 '@with result' 指令。"
+msgstr "語法錯誤：缺少 '@with result' 指令！"
 
 msgid "ruleList_error_unknownProfile"
-msgstr "Unknown profile: $PROFILE$"
+msgstr "未找到此情景模式: $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
 msgstr "語法錯誤：缺少結果情景模式名稱。 行號 $LNO$: $SOURCE$"
@@ -191,10 +191,10 @@ msgid "options_group_miscOptions"
 msgstr "其他設定"
 
 msgid "options_confirmDeletion"
-msgstr "刪除切換條件時需要確認"
+msgstr "刪除切換條件時需要確認。"
 
 msgid "options_refreshOnProfileChange"
-msgstr "當更改情景模式時重新整理當前標籤"
+msgstr "當更改情景模式時刷新當前標籤。"
 
 msgid "options_showInspectMenu"
 msgstr "右鍵選單中，可檢查網頁元素所使用的代理。"
@@ -230,7 +230,7 @@ msgid "options_quickSwitch"
 msgstr "快速切換"
 
 msgid "options_cycledProfiles"
-msgstr "迴圈切換以下情景模式:"
+msgstr "循環切換以下情景模式:"
 
 msgid "options_cycledProfilesHelp"
 msgstr "點選圖示或按下快捷鍵時，依次迴圈切換到以下情景模式。"
@@ -701,7 +701,7 @@ msgid "options_ruleListLineCount"
 msgstr "共計$COUNT$行規則"
 
 msgid "options_deleteAttached"
-msgstr "Remove rule list"
+msgstr "移除規則列表"
 
 msgid "options_modalHeader_newProfile"
 msgstr "新建情景模式"
@@ -764,7 +764,7 @@ msgid "options_resetSuccess"
 msgstr "選項已經重置。"
 
 msgid "options_saveSuccess"
-msgstr "儲存選項成功！"
+msgstr "儲存選項成功。"
 
 msgid "options_importSuccess"
 msgstr "匯入選項成功。"
@@ -779,7 +779,7 @@ msgid "options_profileDownloadSuccess"
 msgstr "情景模式已經更新成功。"
 
 msgid "options_profileDownloadError"
-msgstr "下載情景模式資料時出錯。"
+msgstr "下載情景模式資料時出錯！"
 
 msgid "options_downloadProfileNow"
 msgstr "立即更新情景模式"
