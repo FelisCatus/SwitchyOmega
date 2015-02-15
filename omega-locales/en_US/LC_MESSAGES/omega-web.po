@@ -22,7 +22,7 @@ msgid "manifest_app_description"
 msgstr "Manage and switch between multiple proxies quickly & easily."
 
 msgid "manifest_icon_default_title"
-msgstr "Loading..."
+msgstr "Loading…"
 
 msgid "upgrade_profile_auto"
 msgstr "Auto Switch"
@@ -44,7 +44,7 @@ msgstr ""
 "code> are specially treated only in Host wildcard conditions.<br>Example: <"
 "code>*.example.com</code> will match www.example.com <b>AND example.com as "
 "well.</b><br>To match subdomains <b>only</b>, use <b>two</b> asterisks like <"
-"code>**.example.com</code>"
+"code>**.example.com</code>."
 
 msgid "condition_HostRegexCondition"
 msgstr "Host regex"
@@ -190,7 +190,7 @@ msgid "options_tab_importExport"
 msgstr "Import/Export"
 
 msgid "options_newProfile"
-msgstr "New profile..."
+msgstr "New profile…"
 
 msgid "options_apply"
 msgstr "Apply changes"
@@ -491,7 +491,7 @@ msgid "options_bypassListHelp"
 msgstr "Servers for which you do not want to use any proxy: (One server on each line.)"
 
 msgid "options_bypassListHelpLinkText"
-msgstr "(Wildcards and more available...)"
+msgstr "(Wildcards and more available…)"
 
 msgid "options_group_pacUrl"
 msgstr "PAC URL"
@@ -1016,8 +1016,8 @@ msgstr "SwitchyOmega:: $PROFILE$"
 
 msgid "browserAction_titleWithResult"
 msgstr ""
-"SwitchyOmega:: $PROFILE$\n"
-"$DETAILS$"
+"SwitchyOmega:: $1:PROFILE$\n"
+"$3:DETAILS$"
 
 msgid "browserAction_titleNewerOptions"
 msgstr "ERROR: A newer version of SwitchOmega is required to load the stored options."

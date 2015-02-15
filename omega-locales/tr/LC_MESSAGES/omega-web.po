@@ -1032,8 +1032,8 @@ msgstr "SwitchyOmega:: $PROFILE$"
 
 msgid "browserAction_titleWithResult"
 msgstr ""
-"SwitchyOmega:: $PROFILE$\n"
-"$DETAILS$"
+"SwitchyOmega:: $1:PROFILE$\n"
+"$3:DETAILS$"
 
 msgid "browserAction_titleNewerOptions"
 msgstr ""

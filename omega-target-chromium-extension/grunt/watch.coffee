@@ -5,12 +5,12 @@ module.exports =
     files:
       'grunt/*'
     tasks: ['coffeelint:tasks', 'default']
+  po2crx_locales:
+    files: ['../omega-locales/**/*']
+    tasks: ['po2crx:locales']
   copy_web:
     files: ['node_modules/omega-web/build/**/*']
     tasks: ['copy:web']
-  copy_i18n:
-    files: ['../omega-i18n/**/*']
-    tasks: ['copy:i18n', 'copy:i18n_zh']
   copy_target:
     files: ['node_modules/omega-target/omega_target.min.js']
     tasks: ['copy:target']

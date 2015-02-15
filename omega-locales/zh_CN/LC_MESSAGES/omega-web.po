@@ -897,8 +897,8 @@ msgstr "SwitchyOmega:: $PROFILE$"
 
 msgid "browserAction_titleWithResult"
 msgstr ""
-"SwitchyOmega:: $PROFILE$\n"
-"$DETAILS$"
+"SwitchyOmega:: $1:PROFILE$\n"
+"$3:DETAILS$"
 
 msgid "browserAction_titleNewerOptions"
 msgstr "错误：需要新版本的SwitchyOmega才能加载当前选项。"
