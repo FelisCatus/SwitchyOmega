@@ -3,51 +3,53 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-02-13 10:29+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-02-17 11:01+0200\n"
+"Last-Translator: Filip  <filip@havlin.cz>\n"
+"Language-Team: Czech "
+"<https://hosted.weblate.org/projects/switchyomega/main/cs/>\n"
 "Language: cs\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
 
 msgid "manifest_app_name"
-msgstr "Proxy SwitchyOmega"
+msgstr "Proxy přepínač SwitchyOmega"
 
 msgid "manifest_app_description"
-msgstr "Manage and switch between multiple proxies quickly & easily."
+msgstr "Správa a přepínání mezi více servery proxy."
 
 msgid "manifest_icon_default_title"
-msgstr "Loading..."
+msgstr "Nahrávám…"
 
 msgid "upgrade_profile_auto"
-msgstr "Auto Switch"
+msgstr "Automatický přepínač"
 
 msgid "profile_direct"
-msgstr "[Direct]"
+msgstr "[Přímé připojení]"
 
 msgid "profile_system"
-msgstr "[System Proxy]"
+msgstr "[Systémová Proxy]"
 
 msgid "condition_HostWildcardCondition"
 msgstr "Host wildcard"
 
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
-"Matches hosts (domain names) by wildcard.<br><b>The asterisk <code>*</code></"
-"b> matches zero or more characters.<br><b>The question mark <code>?</code></"
-"b> matches exactly one character.<br><br>Note that rules beginning with "
-"<code>*.</code> are specially treated only in Host wildcard conditions."
-"<br>Example: <code>*.example.com</code> will match www.example.com <b>AND "
-"example.com as well.</b><br>To match subdomains <b>only</b>, use <b>two</b> "
-"asterisks like <code>**.example.com</code>"
+"Matches hosts (domain names) by wildcard.<br><b>The asterisk "
+"<code>*</code></b> matches zero or more characters.<br><b>The question mark "
+"<code>?</code></b> matches exactly one character.<br><br>Note that rules "
+"beginning with <code>*.</code> are specially treated only in Host wildcard "
+"conditions.<br>Example: <code>*.example.com</code> will match "
+"www.example.com <b>AND example.com as well.</b><br>To match subdomains "
+"<b>only</b>, use <b>two</b> asterisks like <code>**.example.com</code>"
 
 msgid "condition_HostRegexCondition"
-msgstr "Host regex"
+msgstr "Regulární výraz host"
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
@@ -58,14 +60,14 @@ msgstr ""
 "conditions that cannot be achieved by any other condition type."
 
 msgid "condition_HostLevelsCondition"
-msgstr "Host levels"
+msgstr "Host úrovně"
 
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
-"Matches the request if and only if the host level in within the given range."
-"<br>Host level is defined as the <b>number of dot-separated segments</b> of "
-"the host (domain name).<br>Example: <code>www.example.com</code> is with a "
-"host level of 3, while <code>internal</code> is of host level 1."
+"Odpovídá žádosti pokud úroveň hostitele v v daném rozsahu.Úroveň hostitele "
+"<br>je definována jako <b>počet segmentů oddělených tečkou</b> hostitele ("
+"název domény).<br>Příklad: <code>www.example.com</code> je na úrovni "
+"hostitele 3, zatímco <code>vnitřní</code> hostitele úrovně 1."
 
 msgid "condition_UrlWildcardCondition"
 msgstr "URL wildcard"
@@ -79,7 +81,7 @@ msgstr ""
 "match http://example.com/."
 
 msgid "condition_UrlRegexCondition"
-msgstr "URL regex"
+msgstr "URL regulární výraz"
 
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
@@ -90,7 +92,7 @@ msgstr ""
 "achieved by any other condition type."
 
 msgid "condition_KeywordCondition"
-msgstr "Keyword"
+msgstr "Klíčové slovo"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
@@ -101,10 +103,10 @@ msgstr ""
 "blocking some keywords in the URL, by requesting such URLs through a proxy."
 
 msgid "condition_FalseCondition"
-msgstr "(Disabled)"
+msgstr "(Vypnuto)"
 
 msgid "condition_details_FalseCondition"
-msgstr "(Condition ignored when matching)"
+msgstr "(Podmínky ignorovány při porovnání)"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
@@ -115,7 +117,7 @@ msgstr ""
 "the condition type back to the previous type."
 
 msgid "condition_group_default"
-msgstr ""
+msgstr " "
 
 msgid "condition_group_host"
 msgstr "Host"
@@ -124,122 +126,121 @@ msgid "condition_group_url"
 msgstr "Url"
 
 msgid "condition_group_special"
-msgstr "Special"
+msgstr "Speciální"
 
 msgid "ruleListFormat_Switchy"
-msgstr "Switchy"
+msgstr "Přepínač"
 
 msgid "ruleListFormat_AutoProxy"
-msgstr "AutoProxy"
+msgstr "Automatická Proxy"
 
 msgid "ruleList_usageUrl"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
-msgstr "Missing '@with result' directive!"
+msgstr "Schází '@s výsledkem' directive!"
 
 msgid "ruleList_error_unknownProfile"
-msgstr "Unknown profile: $PROFILE$"
+msgstr "Neznámý profil: $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
-msgstr "Missing result profile name at Line $LNO$: $SOURCE$"
+msgstr "Schází výsledný profil na řádce $LNO$: $SOURCE$"
 
 msgid "ruleList_error_invalidRule"
-msgstr "Invalid rule at Line $LNO$: $SOURCE$"
+msgstr "Nesprávná podmínka na řádce $LNO$: $SOURCE$"
 
 msgid "ruleList_error_noDefaultRule"
 msgstr "Missing default rule with catch-all '*' condition!"
 
 msgid "dialog_close"
-msgstr "Close"
+msgstr "Zavřít"
 
 msgid "dialog_save"
-msgstr "Save changes"
+msgstr "Uložit změny"
 
 msgid "dialog_ok"
 msgstr "OK"
 
 msgid "dialog_cancel"
-msgstr "Cancel"
+msgstr "Storno"
 
 msgid "inputClear_clear"
-msgstr "Clear"
+msgstr "Vyčistit"
 
 msgid "inputClear_restore"
-msgstr "Restore"
+msgstr "Obnovit"
 
 msgid "options_title"
-msgstr "SwitchyOmega Options"
+msgstr "SwitchyOmega Nastavení"
 
 msgid "options_navHeader_setting"
-msgstr "Settings"
+msgstr "Nastavení"
 
 msgid "options_navHeader_profiles"
-msgstr "Profiles"
+msgstr "Profily"
 
 msgid "options_navHeader_actions"
-msgstr "Actions"
+msgstr "Akce"
 
 msgid "options_tab_ui"
-msgstr "Interface"
+msgstr "Rozhraní"
 
 msgid "options_tab_general"
-msgstr "General"
+msgstr "Generální"
 
 msgid "options_tab_importExport"
 msgstr "Import/Export"
 
 msgid "options_newProfile"
-msgstr "New profile..."
+msgstr "Nový profil…"
 
 msgid "options_apply"
-msgstr "Apply changes"
+msgstr "Aplikovat změny"
 
 msgid "options_discard"
-msgstr "Discard changes"
+msgstr "Zahodit změny"
 
 msgid "options_reset"
-msgstr "Reset options"
+msgstr "Obnovit nastavení"
 
 msgid "options_group_miscOptions"
-msgstr "Misc Options"
+msgstr "Ostatní Nastavení"
 
 msgid "options_confirmDeletion"
-msgstr "Confirm on condition deletion."
+msgstr "Potvrď smazání podmínky."
 
 msgid "options_refreshOnProfileChange"
-msgstr "Refresh current tab on profile change."
+msgstr "Obnovit aktuální záložku na změnu profilu."
 
 msgid "options_showInspectMenu"
-msgstr "Allow inspecting proxy used for page elements via context menu."
+msgstr "Povolit kontrolu proxy pro prvky stránky přes kontextové menu."
 
 msgid "options_group_keyboardShortcut"
-msgstr "Keyboard Shortcut"
+msgstr "Klávesnicové zkratky"
 
 msgid "options_menuShortcutHelp"
 msgstr ""
-"Pressing the shortcut will open the switch popup menu. (Defaults to Alt+Shift"
-"+O)."
+"Stisknutí zástupce otevře přepínač místní nabídku.  (Výchozí Alt+Shift+O)."
 
 msgid "options_menuShortcutMore"
 msgstr ""
-"The items in the popup menu can also be accessed using the keyboard. Press ? "
-"(or /) in the menu to learn more."
+"Položky v kontextovém menu lze také přistupovat pomocí klávesnice. "
+"Stisknout? (nebo /)  v menu se dozvíte více."
 
 msgid "options_menuShortcutConfigure"
-msgstr "Configure shortcut"
+msgstr "Konfigurace zástupců"
 
 msgid "options_group_switchOptions"
-msgstr "Switch Options"
+msgstr "Nastavení přepínání"
 
 msgid "options_startupProfile"
-msgstr "Startup Profile"
+msgstr "Profil při spuštění"
 
 msgid "options_startupProfile_none"
-msgstr "(Current profile)"
+msgstr "(Aktuální profil)"
 
 msgid "options_showConditionTypesAdvanced"
-msgstr "Show advanced condition types"
+msgstr "Zobraz pokročilé typy podmínek"
 
 msgid "options_showConditionTypesAdvancedHelp"
 msgstr ""
@@ -248,187 +249,191 @@ msgstr ""
 "recommended."
 
 msgid "options_quickSwitch"
-msgstr "Quick Switch"
+msgstr "Rychlé přepínání"
 
 msgid "options_cycledProfiles"
-msgstr "Cycled Profiles"
+msgstr "Koloval profily"
 
 msgid "options_cycledProfilesHelp"
 msgstr ""
-"When you click on the icon (or use the shortcut above), the following "
-"profiles will be applied in their order."
+"Když kliknete na ikonu (nebo použijte zkratku výše), následující profily "
+"bude použitý v pořadí."
 
 msgid "options_cycledProfilesTooFew"
 msgstr ""
-"You need to select at least 2 profiles to enable this function! You can drag "
-"them from the box below."
+"Musíte vybrat alespoň 2 profilů pro tuto funkci! Můžete přetáhnout z níže "
+"uvedeného pole."
 
 msgid "options_notCycledProfiles"
-msgstr "Not Cycled Profiles"
+msgstr "Nekolované profily"
 
 msgid "options_group_proxyChanges"
-msgstr "Proxy Changes"
+msgstr "Proxy Změny"
 
 msgid "options_revertProxyChanges"
-msgstr "Revert proxy changes done by other apps."
+msgstr "Reverzní proxy změněna jinou aplikací."
 
 msgid "options_downloadOptions"
-msgstr "Download Options"
+msgstr "Nastavení stahování"
 
 msgid "options_downloadOptionsHelp"
-msgstr "Configure the update frequency of online rule lists and PAC scripts."
+msgstr "Konfigurace četnosti aktualizace online pravidla seznamů a PAC skriptů."
 
 msgid "options_downloadInterval"
-msgstr "Download Interval"
+msgstr "Interval stahování"
 
 msgid "options_downloadInterval_15"
-msgstr "15 Minutes"
+msgstr "15 minut"
 
 msgid "options_downloadInterval_60"
-msgstr "1 Hour"
+msgstr "1 Hodina"
 
 msgid "options_downloadInterval_180"
-msgstr "3 Hours"
+msgstr "3 Hodiny"
 
 msgid "options_downloadInterval_360"
-msgstr "6 Hours"
+msgstr "6 Hodin"
 
 msgid "options_downloadInterval_720"
-msgstr "12 Hours"
+msgstr "12 Hodin"
 
 msgid "options_downloadInterval_1440"
-msgstr "Every day"
+msgstr "Každý den"
 
 msgid "options_downloadInterval_never"
-msgstr "Never"
+msgstr "Nikdy"
 
 msgid "options_group_importExportProfile"
-msgstr "Profile"
+msgstr "Profil"
 
 msgid "options_exportPacFile"
-msgstr "Export as PAC File"
+msgstr "Exportovat jako PAC soubor"
 
 msgid "options_exportPacFileHelp"
 msgstr ""
-"Export the current profile as a PAC file, so you can use it in other "
-"browsers."
+"Exportujte aktuální profil jako soubor PAC, takže můžete použít v jiných "
+"prohlížečích."
 
 msgid "options_exportProfileHelp"
-msgstr "To export a profile, use the top-right action bar on the profile page."
+msgstr ""
+"Chcete-li exportovat profil, pomocí panelu Akce shora zprava na stránce "
+"profil."
 
 msgid "options_exportLegacyRuleList"
 msgstr ""
-"Export rule lists using Proxy Switchy!/SwitchyPlus/SwitchySharp compatible "
-"format when possible."
+"Exportovat pravidla seznamy pomocí Proxy Switchy!/SwitchyPlus/SwitchySharp "
+"kompatibilní formát pokud je to možné."
 
 msgid "options_exportLegacyRuleListHelp"
 msgstr ""
-"Enable this option only if you publish rule lists for users of those "
-"projects.<br>Please consider advising your audience to upgrade to "
-"SwitchyOmega for the improvements."
+"Tuto možnost použijte, pouze v případě, že publikujete pravidlo seznamy pro "
+"uživatele těchto projektů.<br>Prosím zvažte aktualizovat na  SwitchyOmega "
+"pro zlepšení."
 
 msgid "options_group_importExportSettings"
-msgstr "Settings"
+msgstr "Nastavení"
 
 msgid "options_makeBackup"
-msgstr "Make backup"
+msgstr "Provést zálohu"
 
 msgid "options_makeBackupHelp"
 msgstr ""
-"Make a full backup of your options (including profiles and all other "
-"options)."
+"Provést plnou záloho Vašeho nastavení (obsahuje profily a veškeré další "
+"nastavení)."
 
 msgid "options_restoreLocal"
-msgstr "Restore from file"
+msgstr "Obnovit ze souboru"
 
 msgid "options_restoreLocalHelp"
-msgstr "Restore your SwitchyOmega options from a local file."
+msgstr "Obnovit Vaše SwitchyOmega nastavení z lokálního souboru."
 
 msgid "options_restoreOnline"
-msgstr "Restore from online"
+msgstr "Obnovit z online"
 
 msgid "options_restoreOnlinePlaceholder"
-msgstr "Options file URL (e.g. 'http://example.com/switchy.bak')"
+msgstr "URL souboru nastavení (e.g. 'http://example.com/switchy.bak')"
 
 msgid "options_restoreOnlineSubmit"
-msgstr "Restore"
+msgstr "Obnovit"
 
 msgid "options_group_syncing"
-msgstr "Syncing (Experimental)"
+msgstr "Synchronizace (Experimentální)"
 
 msgid "options_syncEnable"
-msgstr "Enable Syncing"
+msgstr "Povolit synchronizaci"
 
 msgid "options_syncEnableForce"
-msgstr "Download from Syncing"
+msgstr "Stáhnout ze synchronizace"
 
 msgid "options_syncDisable"
-msgstr "Disable syncing"
+msgstr "Zrušit synchronizaci"
 
 msgid "options_syncPristineHelp"
 msgstr ""
-"You can now automatically synchroize your settings and profiles across all "
-"your desktop devices running Chrome browser."
+"Vy můžete nyní automaticky synchronizovat Vaše nastavení, profily napříč "
+"všemi desktop spuštěnými Chrome prohlížeči."
 
 msgid "options_syncSyncAlert"
-msgstr "Your options are automatically synchroized with your other devices."
+msgstr "Vaše nastavení jsou automaticky synchronizování s dalšími zařízeními."
 
 msgid "options_syncSyncHelp"
 msgstr ""
-"Please note that you must sign in to Chrome on each of your devices "
-"(including this one) for the syncing to actually work. <br> You may check "
-"this section on other devices to ensure that it is working."
+"Vezměte prosím na vědomí, že musíte se přihlásit k Chrome na každém zařízení "
+"(včetně této) pro synchronizaci skutečně pracovat. <br>Můžete zkontrolovat "
+"tuto sekci na jiných zařízeních, aby bylo zajištěno, že to funguje."
 
 msgid "options_syncConflictAlert"
 msgstr ""
-"You have uploaded a copy of your options on another device via syncing."
+"Načetli jste kopii svých nastavení/možností na jiném zařízení "
+"prostřednictvím synchronizace."
 
 msgid "options_syncConflictHelp"
 msgstr ""
-"You may download the remote copy to your device if you like. <br>However, "
-"doing so would <b>overwrite your existing settings and profiles</b> on this "
-"device."
+"Pokud budete chtít můžete stáhnout vzdálenou kopii do zařízení. <br>To tak "
+"by však <b>přepsat stávající nastavení a profily</b> v tomto zařízení."
 
 msgid "options_syncUnsupportedHelp"
 msgstr ""
-"Options syncing is not supported on your platform or browser. For now, only "
-"Chrome browser on desktop is supported."
+"Možnosti synchronizace není podporována na platformě nebo prohlížeče. Pro "
+"tuto chvíli je podporován pouze prohlížeč Chrome na desktopu."
 
 msgid "options_profileSyncDisabled"
-msgstr "Syncing is disabled for this profile."
+msgstr "Synchronizace je vypnutá pro tento profil."
 
 msgid "options_profileSyncDisabled_quotaPerItem"
-msgstr "Syncing is disabled for this profile for using too much storage space."
+msgstr ""
+"Synchronizace je zakázána pro tento profil pro použití příliš mnoho úložného "
+"prostoru."
 
 msgid "options_profileTabPrefix"
-msgstr "Profile :: "
+msgstr "Profil :: "
 
 msgid "options_renameProfile"
-msgstr "Rename"
+msgstr "Přejmenovat"
 
 msgid "options_deleteProfile"
-msgstr "Delete"
+msgstr "Smazat"
 
 msgid "options_profileExportRuleList"
-msgstr "Publish rule list"
+msgstr "Publikovat tento seznam podmínek"
 
 msgid "options_profileExportRuleListHelp"
-msgstr "Export Switch Rules as text format for publishing."
+msgstr "Exportovat podmínky jako prostý text pro publikování."
 
 msgid "options_profileExportPac"
-msgstr "Export PAC"
+msgstr "Exportovat PAC"
 
 msgid "options_profileUnsupported"
-msgstr "Unsupported profile type $TYPE$!"
+msgstr "Nepodporovaný profil typu $TYPE$!"
 
 msgid "options_profileUnsupportedHelp"
 msgstr "The options could be broken, or from a newer version of this program."
 
 msgid "options_profileEditSource"
-msgstr "Edit source code"
+msgstr "Editovat zdrojový kód"
 
 msgid "options_profileEditSourceHelp"
-msgstr "Show help about the source code format"
+msgstr "Zobraz nápovědu o formátování zdrojového kódu"
 
 msgid "options_profileEditSourceHelpUrl"
 msgstr ""
@@ -436,13 +441,13 @@ msgstr ""
 "format#result-profile"
 
 msgid "options_group_proxyServers"
-msgstr "Proxy servers"
+msgstr "Proxy servery"
 
 msgid "options_proxy_scheme"
-msgstr "Scheme"
+msgstr "Schéma"
 
 msgid "options_proxy_protocol"
-msgstr "Protocol"
+msgstr "Protokol"
 
 msgid "options_proxy_server"
 msgstr "Server"
@@ -451,22 +456,21 @@ msgid "options_proxy_port"
 msgstr "Port"
 
 msgid "options_proxy_auth"
-msgstr "Authentication"
+msgstr "Ověřování"
 
 msgid "options_proxy_authAllWarningPac"
 msgstr ""
-"Warning: The username/password may be sent to unexpected servers returned by "
-"the PAC script."
+"Varování: Uživatelské jméno a heslo může být nečekané serverům zaslána "
+"vrácenou skriptem PAC."
 
 msgid "options_proxy_authAllWarningPacUrl"
 msgstr ""
-"Please make sure that you trust the script provided via the URL above before "
-"entering sensitive credentials."
+"Ujistěte se prosím, důvěryhodných skriptů poskytované prostřednictvím adresy "
+"URL nad před vstupem do citlivých pověření."
 
 msgid "options_proxy_authAllWarningPacScript"
 msgstr ""
-"Please make sure that you trust the script below before providing sensitive "
-"credentials."
+"Přesvědčte se, zda důvěřovat skript níže než poskytnutí citlivých pověření."
 
 msgid "options_proxy_authReferencedWarning"
 msgstr ""
@@ -475,22 +479,22 @@ msgstr ""
 "profiles."
 
 msgid "options_scheme_default"
-msgstr "(default)"
+msgstr "(výchozí)"
 
 msgid "options_protocol_direct"
-msgstr "DIRECT"
+msgstr "PŘÍMÉ"
 
 msgid "options_protocol_useDefault"
-msgstr "(use default)"
+msgstr "(použít výchozí)"
 
 msgid "options_proxy_single"
-msgstr "Use the proxy above for all protocols."
+msgstr "Používejte proxy výše pro všechny protokoly."
 
 msgid "options_proxy_expand"
-msgstr "Show Advanced"
+msgstr "Zobraz pokročilé"
 
 msgid "options_group_bypassList"
-msgstr "Bypass List"
+msgstr "Seznam vynechaných serverů"
 
 msgid "options_bypassListHelp"
 msgstr ""
@@ -505,14 +509,14 @@ msgstr "PAC URL"
 
 msgid "options_pacUrlHelp"
 msgstr ""
-"The PAC script will be updated from this URL. If it is left blank, the "
-"following script will be used directly instead."
+"PAC skript bude aktualizován z této adresy URL. Pokud je ponechán prázdný, "
+"následující skript bude použit přímo."
 
 msgid "options_pacUrlFile"
 msgstr ""
-"PAC profiles with file: URLs can only be applied directly. They cannot be "
-"used as result profiles because local files cannot be accessed due to "
-"browser limitation."
+"PAC profily s souboru: adresy URL lze použít pouze přímo. Jejich nelze "
+"použít jako výsledek profily, protože místní soubory není přístupná z důvodu "
+"omezení prohlížeče."
 
 msgid "options_pacUrlFileDisabled"
 msgstr ""
@@ -520,32 +524,30 @@ msgstr ""
 "new PAC profile for that if you really want that."
 
 msgid "options_group_pacScript"
-msgstr "PAC Script"
+msgstr "PAC Skript"
 
 msgid "options_pacScriptLastUpdate"
-msgstr "PAC script downloaded at $TIME$:"
+msgstr "PAC skript stažený v $TIME$:"
 
 msgid "options_pacScriptObsolete"
 msgstr ""
-"PAC script is obsolete due to URL change. Press the download button above to "
-"update."
+"PAC skript je zastaralá kvůli změně adresy URL. Stiskněte tlačítko Stáhnout "
+"výše k aktualizaci."
 
 msgid "options_group_virtualProfile"
-msgstr "Virtual Profile"
+msgstr "Virtuální profil"
 
 msgid "options_virtualProfileTarget"
-msgstr "Target"
+msgstr "Cíl"
 
 msgid "options_virtualProfileTargetHelp"
-msgstr ""
-"When this profile is applied, it acts exactly the same as the profile "
-"selected below."
+msgstr "Při použití tohoto profilu, funguje stejně jako profilu vybraný níže."
 
 msgid "options_group_virtualProfileReplace"
-msgstr "Migrate to Virtual Profile"
+msgstr "Migrovat do virtuálního profilu"
 
 msgid "options_virtualProfileReplace"
-msgstr "Replace target profile"
+msgstr "Nahradit cílový profil"
 
 msgid "options_virtualProfileReplaceHelp"
 msgstr ""
@@ -555,22 +557,22 @@ msgstr ""
 "controlled here."
 
 msgid "options_group_ruleListConfig"
-msgstr "Rule List Config"
+msgstr "Konfigurace seznamu pravidel"
 
 msgid "options_ruleListFormat"
-msgstr "Rule List Format"
+msgstr "Formát seznamu podmínek"
 
 msgid "options_group_ruleListResult"
 msgstr "Rule list result profiles"
 
 msgid "options_ruleListMatchProfile"
-msgstr "Match profile"
+msgstr "Porovnat profil"
 
 msgid "options_ruleListDefaultProfile"
-msgstr "Default profile"
+msgstr "Výchozí profil"
 
 msgid "options_group_ruleListUrl"
-msgstr "Rule List URL"
+msgstr "Adresa URL podmínek"
 
 msgid "options_ruleListUrlHelp"
 msgstr ""
@@ -578,126 +580,123 @@ msgstr ""
 "following text will be parsed instead."
 
 msgid "options_group_ruleListText"
-msgstr "Rule List Text"
+msgstr "Text seznamu pravidel"
 
 msgid "options_ruleListLastUpdate"
-msgstr "Rule list downloaded at $TIME$:"
+msgstr "Seznam pravidel stažen $TIME$:"
 
 msgid "options_ruleListObsolete"
 msgstr ""
-"Rule list is obsolete due to URL change. Press the download button above to "
-"update."
+"Seznam pravidel je zastaralá kvůli změně adresy URL. Stiskněte tlačítko "
+"Stáhnout výše k aktualizaci."
 
 msgid "options_group_switchRules"
-msgstr "Switch rules"
+msgstr "Přepínač pravidel"
 
 msgid "options_sort"
-msgstr "Sort"
+msgstr "Řadit"
 
 msgid "options_conditionType"
-msgstr "Condition Type"
+msgstr "Typ podmínek"
 
 msgid "options_showConditionTypeHelp"
-msgstr "Show help"
+msgstr "Zobrazit nápovědu"
 
 msgid "options_conditionDetails"
-msgstr "Condition Details"
+msgstr "Podrobnosti o podmínce"
 
 msgid "options_resultProfile"
-msgstr "Profile"
+msgstr "Profil"
 
 msgid "options_conditionActions"
-msgstr "Actions"
+msgstr "Akce"
 
 msgid "options_addCondition"
-msgstr "Add condition"
+msgstr "Přidat podmínku"
 
 msgid "options_cloneRule"
-msgstr "Clone"
+msgstr "Klonovat"
 
 msgid "options_switchAttachedProfileInCondition"
 msgstr "Rule list rules"
 
 msgid "options_switchAttachedProfileInConditionDetails"
-msgstr "(Any request matching the rule list below)"
+msgstr "(Každá žádost odpovídající pravidlo seznam níže)"
 
 msgid "options_switchAttachedProfileInConditionDisabled"
-msgstr "(Rule list rules are DISABLED)"
+msgstr "(Seznam pravidel je ZAKÁZÁN)"
 
 msgid "options_switchDefaultProfile"
-msgstr "Default"
+msgstr "Výchozí"
 
 msgid "options_hostLevelsBetween"
 msgstr "≤ host levels ≤"
 
 msgid "options_group_conditionHelp"
-msgstr "About Condition Types"
+msgstr "O typech podmínek"
 
 msgid "options_group_attachProfile"
-msgstr "Import online rule lists"
+msgstr "Importovat seznamy online pravidla"
 
 msgid "options_attachProfile"
-msgstr "Add a rule list"
+msgstr "Přidat seznam pravidel"
 
 msgid "options_attachProfileHelp"
 msgstr ""
-"You can reuse an online collection of conditions published by others by "
-"adding a rule list."
+"Můžete použít on-line sbírku podmínek vydané ostatními a přidáním do seznamu "
+"pravidel."
 
 msgid "options_modalHeader_welcome"
-msgstr "Welcome to SwitchyOmega"
+msgstr "Vítejte v SwitchyOmega"
 
 msgid "options_welcomeNormal"
-msgstr ""
-"You have successfully installed SwitchyOmega, the ultimate proxy switcher."
+msgstr "Úspěšně jste nainstalovali SwitchyOmega, ultimate proxy přepínač."
 
 msgid "options_welcomeNormalGuide"
 msgstr ""
-"Please tell SwitchyOmega about your proxies through the options page. Let's "
-"see how."
+"Prosím, řekněte SwitchyOmega o vaší proxy prostřednictvím stránky možnosti. "
+"Podívejme se, jak."
 
 msgid "options_welcomeUpgrade"
 msgstr ""
-"You have successfully upgraded to SwitchyOmega. Don't panic, your existing "
-"options are fully preserved."
+"Úspěšně jste inovovali na SwitchyOmega. Buďte v klidu, vaše stávající "
+"možnosti jsou plně zachovány."
 
 msgid "options_welcomeUpgradeGuide"
-msgstr "Now let's go through a quick guide of the new options page."
+msgstr "Teď pojďme projít stručného průvodce a nové možnosti stránky."
 
 msgid "options_guideNext"
-msgstr "Next"
+msgstr "Další"
 
 msgid "options_guideDone"
-msgstr "Done"
+msgstr "Hotovo"
 
 msgid "options_guideSkip"
-msgstr "Skip guide"
+msgstr "Přeskočit průvodce"
 
 msgid "options_modalHeader_applyOptions"
-msgstr "Apply Options"
+msgstr "Použít možnosti"
 
 msgid "options_optionsNotSaved"
-msgstr ""
-"Your modifications to the options have not been saved and will be lost if "
-"you proceed!"
+msgstr "Vaše změny nebyly uloženy a budou ztracena, pokud budete pokračovat!"
 
 msgid "options_applyOptionsRequired"
-msgstr "Your changes to the options must be applied before you proceed."
+msgstr "Než budete pokračovat, je třeba použít vaše změny možností."
 
 msgid "options_applyOptionsConfirm"
-msgstr "Do you want to save and apply the options?"
+msgstr "Přejete si uložit a aplikovat nastavení?"
 
 msgid "options_modalHeader_renameProfile"
-msgstr "Rename Profile"
+msgstr "Přejmenovat profil"
 
 msgid "options_renameProfileName"
-msgstr "New profile name"
+msgstr "Název nového profilu"
 
 msgid "options_profileNameConflict"
-msgstr "A profile with this name already exists."
+msgstr "Profil s tímto názvem již existuje."
 
 msgid "options_profileNameReserved"
-msgstr "Profile names beginning with double-underscore are reserved."
+msgstr "Profil názvy začínající dvojité podtržítko, jsou vyhrazena."
 
 msgid "options_profileNameHidden"
 msgstr ""
@@ -705,13 +704,13 @@ msgstr ""
 "menu. However, they can still be used in places like switch profile results."
 
 msgid "options_modalHeader_replaceProfile"
-msgstr "Replace Profile"
+msgstr "Nahradit profil"
 
 msgid "options_replaceProfile"
-msgstr "Replace Profile"
+msgstr "Nahradit profil"
 
 msgid "options_replaceProfileConfirm"
-msgstr "Do you really want to replace $FromProfile$ with $ToProfile$?"
+msgstr "Opravdu chcete nahradit $FromProfile$ s $ToProfile$?"
 
 msgid "options_replaceProfileHelp"
 msgstr ""
@@ -721,21 +720,19 @@ msgstr ""
 "will NOT be changed or deleted."
 
 msgid "options_replaceProfileSuccess"
-msgstr "Options updated."
+msgstr "Nastavení aktualizováno."
 
 msgid "options_modalHeader_deleteProfile"
-msgstr "Delete Profile"
+msgstr "Odstranit profil"
 
 msgid "options_deleteProfileConfirm"
-msgstr "Do you really want to delete the following profile?"
+msgstr "Opravdu chcete odstranit tento profil?"
 
 msgid "options_modalHeader_cannotDeleteProfile"
-msgstr "Unable to Delete Profile"
+msgstr "Nelze odstranit profil"
 
 msgid "options_profileReferredBy"
-msgstr ""
-"This profile cannot be deleted because it is referred by the following "
-"profiles:"
+msgstr "Tento profil nelze odstranit, protože se označuje následující profily:"
 
 msgid "options_modifyReferringProfiles"
 msgstr ""
@@ -743,77 +740,77 @@ msgstr ""
 "before you can delete it."
 
 msgid "options_profileNameEmpty"
-msgstr "The name of the profile must not be empty."
+msgstr "Název profilu nesmí být prázdný."
 
 msgid "popup_title"
-msgstr "SwitchyOmega Popup"
+msgstr "SwitchyOmega Vyskakovací okno"
 
 msgid "options_modalHeader_proxyAuth"
-msgstr "Proxy Authentication"
+msgstr "Ověřování proxy serveru"
 
 msgid "options_proxyAuthUsername"
-msgstr "Username"
+msgstr "Uživatelské jméno"
 
 msgid "options_proxyAuthPassword"
-msgstr "Password"
+msgstr "Heslo"
 
 msgid "options_proxyAuthNone"
-msgstr "No Authentication"
+msgstr "Bez ověřování"
 
 msgid "options_modalHeader_deleteRule"
-msgstr "Delete Rule"
+msgstr "Odstranit pravidlo"
 
 msgid "options_deleteRuleConfirm"
-msgstr "Do you really want to delete the following rule?"
+msgstr "Opravdu chcete odstranit toto pravidlo?"
 
 msgid "options_deleteRule"
-msgstr "Delete"
+msgstr "Odstranit"
 
 msgid "options_modalHeader_resetRules"
-msgstr "Reset rules"
+msgstr "Obnovit pravidla"
 
 msgid "options_resetRulesConfirm"
 msgstr ""
 "Are you sure to set the result profile of ALL rules to the following profile?"
 
 msgid "options_resetRules"
-msgstr "Reset rules"
+msgstr "Obnovit pravidla"
 
 msgid "options_resetRules_help"
-msgstr "Set profile for all rules"
+msgstr "Nastavit profil pro všechna pravidla"
 
 msgid "options_modalHeader_deleteAttached"
-msgstr "Remove Rule List"
+msgstr "Odstranit seznam pravidel"
 
 msgid "options_deleteAttachedConfirm"
-msgstr "Do you really want to remove the rule list from the current profile?"
+msgstr "Opravdu chcete odstranit seznam pravidel z aktuálního profilu?"
 
 msgid "options_ruleListLineCount"
-msgstr "$COUNT$ line(s) of rules"
+msgstr "$COUNT$ řádky pravidel"
 
 msgid "options_deleteAttached"
-msgstr "Remove rule list"
+msgstr "Odstranit seznam pravidel"
 
 msgid "options_modalHeader_newProfile"
-msgstr "New Profile"
+msgstr "Nový profil"
 
 msgid "options_newProfileName"
-msgstr "Profile name"
+msgstr "Název profilu"
 
 msgid "options_profileType"
-msgstr "Please select the type of the profile:"
+msgstr "Vyberte prosím typ profilu:"
 
 msgid "options_profileTypeFixedProfile"
-msgstr "Proxy Profile"
+msgstr "Profil serveru proxy"
 
 msgid "options_profileDescFixedProfile"
-msgstr "Tunneling traffic through proxy servers."
+msgstr "Tunelování provozu přes proxy servery."
 
 msgid "options_profileTypePacProfile"
-msgstr "PAC Profile"
+msgstr "PAC Profil"
 
 msgid "options_profileDescPacProfile"
-msgstr "Choosing proxies using an online/local PAC script."
+msgstr "Volba proxy pomocí skriptu PAC online nebo místní."
 
 msgid "options_profileDescMorePacProfile"
 msgstr ""
@@ -821,7 +818,7 @@ msgstr ""
 "to create one unless you have knowledge about PAC."
 
 msgid "options_profileTypeSwitchProfile"
-msgstr "Switch Profile"
+msgstr "Přepnout profil"
 
 msgid "options_profileDescSwitchProfile"
 msgstr ""
@@ -831,13 +828,13 @@ msgstr ""
 "AutoSwitch mode + Rule List.)"
 
 msgid "options_profileTypeRuleListProfile"
-msgstr "Rule List Profile"
+msgstr "Pravidla seznamu profilu"
 
 msgid "options_profileDescRuleListProfile"
 msgstr "Reusing an online collection of conditions published by others."
 
 msgid "options_profileTypeVirtualProfile"
-msgstr "Virtual Profile"
+msgstr "Virtuální profil"
 
 msgid "options_profileDescVirtualProfile"
 msgstr ""
@@ -846,45 +843,44 @@ msgstr ""
 "conditions by one click."
 
 msgid "options_createProfile"
-msgstr "Create"
+msgstr "Vytvořit"
 
 msgid "options_modalHeader_resetOptions"
-msgstr "Reset Options"
+msgstr "Obnovit nastavení"
 
 msgid "options_resetOptionsConfirm"
 msgstr ""
-"Do you really want to reset the options? All profiles and settings will be "
-"LOST!"
+"Opravdu chcete obnovit možnosti? Všechny profily a nastavení bude ztraceno!"
 
 msgid "options_formInvalid"
-msgstr "Please correct the errors in this page."
+msgstr "Opravte chyby na této stránce."
 
 msgid "options_profileNotFound"
-msgstr "Profile $PROFILE$ does not exist! The options may be corrupted."
+msgstr "Profil $PROFILE$ neexistuje! Nastavení může být špatné."
 
 msgid "options_resetSuccess"
-msgstr "Options reset."
+msgstr "Obnovit nastavení."
 
 msgid "options_saveSuccess"
-msgstr "Options saved."
+msgstr "Nastavení uloženo."
 
 msgid "options_importSuccess"
-msgstr "Options imported."
+msgstr "Nastavení importováno."
 
 msgid "options_importFormatError"
-msgstr "Invalid backup file!"
+msgstr "Soubor ze zálohy je neplatný."
 
 msgid "options_importDownloadError"
-msgstr "Error downloading backup file!"
+msgstr "Chyba při stahování zálohovaného souboru!"
 
 msgid "options_profileDownloadSuccess"
-msgstr "Successfully updated profile."
+msgstr "Profil byl úspěšně aktualizován."
 
 msgid "options_profileDownloadError"
-msgstr "Error downloading profile data!"
+msgstr "Chyba při stahování dat profilu!"
 
 msgid "options_downloadProfileNow"
-msgstr "Download Profile Now"
+msgstr "Stáhnout profil"
 
 msgid "options_guide_fixedProfileStep"
 msgstr ""
@@ -942,10 +938,10 @@ msgstr ""
 "will reveal a tooltip with details."
 
 msgid "popup_externalProfile"
-msgstr "(External Profile)"
+msgstr "(Externí profil)"
 
 msgid "popup_externalProfileName"
-msgstr "profile name"
+msgstr "název profilu"
 
 msgid "popup_proxyNotControllable_app"
 msgstr ""
@@ -954,13 +950,13 @@ msgstr ""
 
 msgid "popup_proxyNotControllable_policy"
 msgstr ""
-"The proxy settings are overruled by policies. Please contact your "
-"administrator."
+"Nastavení serveru proxy byly přepsány politikou. Obraťte se na správce "
+"systému."
 
 msgid "popup_proxyNotControllable_unknown"
 msgstr ""
-"The proxy settings cannot be controlled. Please check your system and "
-"browser settings."
+"Nastavení serveru proxy nelze ovládat. Zkontrolujte nastavení systému a "
+"prohlížeče."
 
 msgid "popup_proxyNotControllable_disabled"
 msgstr ""
@@ -968,7 +964,8 @@ msgstr ""
 "extension(s)."
 
 msgid "popup_proxyNotControllable_upgrade"
-msgstr "Proxy settings are now controlled by a newer version of SwitchyOmega."
+msgstr ""
+"Nastavení serveru proxy jsou nyní řízeny pomocí novější verze SwitchyOmega."
 
 msgid "popup_proxyNotControllableDetails"
 msgstr ""
@@ -981,22 +978,22 @@ msgstr ""
 "Please disable one of them."
 
 msgid "popup_proxyNotControllableManage"
-msgstr "Manage extensions"
+msgstr "Správa rozšíření"
 
 msgid "popup_addConditionTo"
-msgstr "Add condition to"
+msgstr "Přidat podmínku do"
 
 msgid "popup_addCondition"
-msgstr "Add condition"
+msgstr "Přidat podmínku"
 
 msgid "popup_showOptions"
-msgstr "Options"
+msgstr "Možnosti"
 
 msgid "popup_reportIssues"
-msgstr "Report issues"
+msgstr "Report problémů"
 
 msgid "popup_errorLog"
-msgstr "Error log"
+msgstr "Protokol chyb"
 
 msgid "popup_issueTemplate"
 msgstr ""
@@ -1008,19 +1005,19 @@ msgstr ""
 "$userAgent$"
 
 msgid "browserAction_profileDetails_PacProfile"
-msgstr "(PAC script)"
+msgstr "(PAC skript)"
 
 msgid "browserAction_profileDetails_SystemProfile"
 msgstr "(controlled by other extensions or environment)"
 
 msgid "browserAction_profileDetails_DirectProfile"
-msgstr "(not using any proxy)"
+msgstr "(nepoužívá žádné proxy)"
 
 msgid "browserAction_profileDetails_SwitchProfile"
-msgstr "(switching based on conditions)"
+msgstr "(přepínání na základě podmínek)"
 
 msgid "browserAction_profileDetails_RuleListProfile"
-msgstr "(switching based on rule list)"
+msgstr "(přepínání na základě seznamu pravidel)"
 
 msgid "browserAction_titleNormal"
 msgstr "SwitchyOmega:: $PROFILE$"
@@ -1035,10 +1032,11 @@ msgstr ""
 "ERROR: A newer version of SwitchOmega is required to load the stored options."
 
 msgid "browserAction_titleOptionError"
-msgstr "ERROR: The stored options are corrupted. Click here to RESET OPTIONS."
+msgstr ""
+"Chyba: Uložené volby jsou poškozeny. Chcete-li obnovit možnosti klikněte zde."
 
 msgid "browserAction_titleDownloadFail"
-msgstr "Warning: Failed to download PAC scripts and/or rule lists."
+msgstr "Upozornění: Nepodařilo se stáhnout PAC skripty nebo seznam pravidel."
 
 msgid "browserAction_titleExternalProxy"
 msgstr "Note: The proxy settings are currently controlled by other app(s)."
@@ -1047,10 +1045,10 @@ msgid "browserAction_titleInspect"
 msgstr "[Inspect] $URL$"
 
 msgid "browserAction_defaultRuleDetails"
-msgstr "(default)"
+msgstr "(výchozí)"
 
 msgid "browserAction_directResult"
-msgstr "DIRECT"
+msgstr "PŘÍMÉ"
 
 msgid "browserAction_attachedPrefix"
 msgstr "(RL) "
@@ -1059,13 +1057,13 @@ msgid "browserAction_tempRulePrefix"
 msgstr "(TEMP) "
 
 msgid "contextMenu_inspectPage"
-msgstr "Inspect proxy used for this page"
+msgstr "Zkontrolujte proxy pro tuto stránku"
 
 msgid "contextMenu_inspectFrame"
-msgstr "Inspect proxy used for this Frame"
+msgstr "Zkontrolujte proxy pro tento Frame"
 
 msgid "contextMenu_inspectLink"
 msgstr "Inspect proxy to be used if this Link is opened"
 
 msgid "contextMenu_inspectElement"
-msgstr "Inspect proxy used for this Element"
+msgstr "Zkontrolujte, zda server proxy používaná tento prvek"
