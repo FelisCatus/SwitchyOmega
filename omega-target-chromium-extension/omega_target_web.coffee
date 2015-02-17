@@ -119,36 +119,19 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
       d = $q['defer']()
       chrome.tabs.query {active: true, lastFocusedWindow: true}, (tabs) ->
         if not tabs[0]?.url
-          d.resolve(undefined)
+          d.resolve(null)
           return
+        args = {tabId: tabs[0].id, url: tabs[0].url}
         if tabs[0].id and requestInfoCallback
-          connectBackground('tabRequestInfo', {tabId: tabs[0].id},
+          connectBackground('tabRequestInfo', args,
             requestInfoCallback)
-        getBadge = $q['defer']()
-        chrome.browserAction.getBadgeText {tabId: tabs[0]?.id}, (result) ->
-          getBadge.resolve(result)
-        $q.all([getBadge.promise, omegaTarget.state('inspectUrl')
-        ]).then ([badge, url]) ->
-          if badge != '#' || not url
-            d.resolve(tabs[0]?.url)
-          else
-            clearBadge = false
-            d.resolve(url)
-      return d.promise.then (url) ->
-        # First, try to clear badges on opening the popup.
-        callBackground('clearBadge') if clearBadge
-        return null if not url or isChromeUrl(url)
-        urlParser.href = url
-        domain = urlParser.hostname
-        callBackground('queryTempRule', domain).then (profileName) ->
-          url: url
-          domain: domain
-          tempRuleProfileName: profileName
+        d.resolve(callBackground('getPageInfo', args))
+      return d.promise
     refreshActivePage: ->
       d = $q['defer']()
       chrome.tabs.query {active: true, lastFocusedWindow: true}, (tabs) ->
         if tabs[0].url and not isChromeUrl(tabs[0].url)
-          chrome.tabs.reload(tabs[0].id)
+          chrome.tabs.reload(tabs[0].id, {bypassCache: true})
         d.resolve()
       return d.promise
     openManage: ->

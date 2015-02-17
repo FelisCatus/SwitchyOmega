@@ -150,12 +150,13 @@ module.exports = class WebRequestMonitor
       for callback in @_tabCallbacks
         callback(req.tabId, info, req, status)
 
-  summarizeErrors: (info) ->
+  summarizeErrors: (info, domainOfHost) ->
     domains = []
     domainInfoByName = {}
     for reqId, req of info.requests
       if @eventCategory[info.requestStatus[reqId]] == 'error'
         domain = Url.parse(req.url).hostname
+        domain = domainOfHost(domain) if domainOfHost
         domainInfo = domainInfoByName[domain]
         if not domainInfo
           domainInfo = domainInfoByName[domain] = {

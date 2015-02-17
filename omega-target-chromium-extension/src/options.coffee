@@ -2,7 +2,7 @@ OmegaTarget = require('omega-target')
 OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 xhr = Promise.promisify(require('xhr'))
-url = require('url')
+Url = require('url')
 chromeApiPromisifyAll = require('./chrome_api')
 proxySettings = chromeApiPromisifyAll(chrome.proxy.settings)
 parseExternalProfile = require('./parse_external_profile')
@@ -16,10 +16,10 @@ class ChromeOptions extends OmegaTarget.Options
 
   fetchUrl: (dest_url, opt_bypass_cache) ->
     if opt_bypass_cache
-      parsed = url.parse(dest_url, true)
+      parsed = Url.parse(dest_url, true)
       parsed.search = undefined
       parsed.query['_'] = Date.now()
-      dest_url = url.format(parsed)
+      dest_url = Url.format(parsed)
     xhr(dest_url).get(1)
 
   updateProfile: (args...) ->
@@ -209,7 +209,7 @@ class ChromeOptions extends OmegaTarget.Options
         else
           chrome.browserAction.setBadgeText(text: '', tabId: tabId)
         @_tabRequestInfoPorts[tabId]?.postMessage(
-          @_requestMonitor.summarizeErrors(info))
+          @_requestMonitor.summarizeErrors(info, OmegaPac.getBaseDomain))
 
       chrome.runtime.onConnect.addListener (port) =>
         return unless port.name == 'tabRequestInfo'
@@ -219,7 +219,9 @@ class ChromeOptions extends OmegaTarget.Options
           tabId = msg.tabId
           @_tabRequestInfoPorts[tabId] = port
           info = @_requestMonitor.tabInfo[tabId]
-          port.postMessage(@_requestMonitor.summarizeErrors(info)) if info
+          if info
+            summ = @_requestMonitor.summarizeErrors info, OmegaPac.getBaseDomain
+            port.postMessage(summ)
         port.onDisconnect.addListener =>
           delete @_tabRequestInfoPorts[tabId] if tabId?
 
@@ -298,6 +300,25 @@ class ChromeOptions extends OmegaTarget.Options
 
   onFirstRun: (reason) ->
     chrome.tabs.create url: chrome.extension.getURL('options.html')
+
+  getPageInfo: ({tabId, url}) ->
+    getBadge = new Promise (resolve, reject) ->
+      chrome.browserAction.getBadgeText {tabId: tabId}, (result) ->
+        resolve(result)
+
+    getInspectUrl = @_state.get({inspectUrl: ''})
+    Promise.join getBadge, getInspectUrl, (badge, {inspectUrl}) =>
+      if badge == '#' and inspectUrl
+        url = inspectUrl
+      else
+        @clearBadge()
+      return null if not url or url.substr(0, 6) == 'chrome'
+      domain = OmegaPac.getBaseDomain(Url.parse(url).hostname)
+      return {
+        url: url
+        domain: domain
+        tempRuleProfileName: @queryTempRule(domain)
+      }
 
 module.exports = ChromeOptions
 
