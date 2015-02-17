@@ -368,6 +368,12 @@ class Options
           showMenu = true
           @_setOptions({'-showInspectMenu': true}, {persist: true})
         @setInspect(showMenu: showMenu)
+      if changes['-monitorWebRequests']? or changes == @_options
+        monitorWebRequests = @_options['-monitorWebRequests']
+        if not monitorWebRequests?
+          monitorWebRequests = true
+          @_setOptions({'-monitorWebRequests': true}, {persist: true})
+        @setMonitorWebRequests(monitorWebRequests)
 
     handler()
     @_storage.watch null, handler
@@ -394,6 +400,14 @@ class Options
   # @returns {Promise} A promise which is fulfilled when the settings apply
   ###
   setInspect: -> Promise.resolve()
+
+  ###*
+  # Apply the settings related to web request monitoring.
+  # In base class, this method is not implemented and will not do anything.
+  # @param {boolean} enabled Whether network shall be monitored or not
+  # @returns {Promise} A promise which is fulfilled when the settings apply
+  ###
+  setMonitorWebRequests: -> Promise.resolve()
 
   ###*
   # @callback watchCallback
@@ -806,18 +820,23 @@ class Options
     target = OmegaPac.Profiles.byName(profileName, @_options)
     if not target?
       return Promise.reject new ProfileNotExistError(profileName)
-    # Try to remove rules with the same condition first.
-    tag = OmegaPac.Conditions.tag(condition)
-    for i in [0...profile.rules.length]
-      if OmegaPac.Conditions.tag(profile.rules[i].condition) == tag
-        profile.rules.splice(i, 1)
-        break
+    if not Array.isArray(condition)
+      condition = [condition]
 
-    # Add the new rule to the beginning so that it won't be shadowed by others.
-    profile.rules.unshift({
-      condition: condition
-      profileName: profileName
-    })
+    for cond in condition
+      # Try to remove rules with the same condition first.
+      tag = OmegaPac.Conditions.tag(cond)
+      for i in [0...profile.rules.length]
+        if OmegaPac.Conditions.tag(profile.rules[i].condition) == tag
+          profile.rules.splice(i, 1)
+          break
+
+      # Add the new rule to the start so that it won't be shadowed by others.
+      profile.rules.unshift({
+        condition: cond
+        profileName: profileName
+      })
+
     OmegaPac.Profiles.updateRevision(profile)
     changes = {}
     changes[OmegaPac.Profiles.nameAsKey(profile)] = profile

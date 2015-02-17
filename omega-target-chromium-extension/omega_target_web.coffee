@@ -29,10 +29,16 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
         d.resolve(response.result)
     )
     return d.promise
+  connectBackground = (name, message, callback) ->
+    port = chrome.runtime.connect({name: name})
+    port.postMessage(message)
+    port.onMessage.addListener(callback)
+    return
 
   isChromeUrl = (url) -> url.substr(0, 6) == 'chrome'
 
   optionsChangeCallback = []
+  requestInfoCallback = null
   prefix = 'omega.local.'
   urlParser = document.createElement('a')
   omegaTarget =
@@ -115,6 +121,9 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
         if not tabs[0]?.url
           d.resolve(undefined)
           return
+        if tabs[0].id and requestInfoCallback
+          connectBackground('tabRequestInfo', {tabId: tabs[0].id},
+            requestInfoCallback)
         getBadge = $q['defer']()
         chrome.browserAction.getBadgeText {tabId: tabs[0]?.id}, (result) ->
           getBadge.resolve(result)
@@ -148,5 +157,7 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
       chrome.tabs.create url: 'chrome://extensions/configureCommands'
     setOptionsSync: (enabled, args) ->
       callBackground('setOptionsSync', enabled, args)
+    setRequestInfoCallback: (callback) ->
+      requestInfoCallback = callback
 
   return omegaTarget

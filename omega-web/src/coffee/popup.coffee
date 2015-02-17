@@ -8,13 +8,16 @@ module.filter 'dispName', (omegaTarget) ->
       name = name.name
     omegaTarget.getMessage('profile_' + name) || name
 
+moveUp = (activeIndex, items) ->
+  i = activeIndex - 1
+  if i >= 0
+    items.eq(i)[0]?.focus()
+moveDown = (activeIndex, items) -> items.eq(activeIndex + 1)[0]?.focus()
 shortcutKeys =
-  38: (activeIndex, items) -> # Up
-    i = activeIndex - 1
-    if i >= 0
-      items.eq(i)[0]?.focus()
-  40: (activeIndex, items) -> # Down
-    items.eq(activeIndex + 1)[0]?.focus()
+  38: moveUp # Up
+  40: moveDown # Down
+  74: moveDown # j
+  75: moveUp # k
   48: '+direct' # 0
   83: '+system' # s
   191: 'help' # /
@@ -27,6 +30,7 @@ shortcutKeys =
   79: 'option' # o
   73: 'issue' # i
   76: 'log' # l
+  82: 'requestInfo' # r
 
 for i in [1..9]
   shortcutKeys[48 + i] = i
@@ -61,6 +65,7 @@ jQuery(document).on 'keydown', (e) ->
             'option': 'O'
             'issue': 'I'
             'log': 'L'
+            'requestInfo': 'R'
           for shortcut, key of keys
             showHelp(shortcut, key)
           customProfiles().each (i, el) ->
@@ -148,6 +153,7 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
   $scope.addTempRule = (domain, profileName) ->
     $scope.tempRuleMenu.open = false
     omegaTarget.addTempRule(domain, profileName).then ->
+      omegaTarget.state('lastProfileNameForCondition', profileName)
       refresh()
 
   $scope.setDefaultProfile = (profileName, defaultProfileName) ->
@@ -156,6 +162,16 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
   
   $scope.addCondition = (condition, profileName) ->
     omegaTarget.addCondition(condition, profileName).then ->
+      omegaTarget.state('lastProfileNameForCondition', profileName)
+      refresh()
+
+  $scope.addConditionForDomains = (domains, profileName) ->
+    conditions = Object.keys(domains).map (domain) -> {
+      conditionType: 'HostWildcardCondition'
+      pattern: '*.' + domain
+    }
+    omegaTarget.addCondition(conditions, profileName).then ->
+      omegaTarget.state('lastProfileNameForCondition', profileName)
       refresh()
   
   $scope.validateProfileName =
@@ -170,13 +186,15 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
         omegaTarget.applyProfile(name).then ->
           refresh()
 
+  preselectedProfileNameForCondition = 'direct'
+
   omegaTarget.state([
     'availableProfiles', 'currentProfileName', 'isSystemProfile',
     'validResultProfiles', 'refreshOnProfileChange', 'externalProfile',
-    'proxyNotControllable'
+    'proxyNotControllable', 'lastProfileNameForCondition'
   ]).then ([availableProfiles, currentProfileName, isSystemProfile,
     validResultProfiles, refresh, externalProfile,
-    proxyNotControllable]) ->
+    proxyNotControllable, lastProfileNameForCondition]) ->
     $scope.proxyNotControllable = proxyNotControllable
     return if proxyNotControllable
     $scope.availableProfiles = availableProfiles
@@ -198,6 +216,11 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
 
     $scope.validResultProfiles = profilesByNames(validResultProfiles)
 
+    if lastProfileNameForCondition
+      for profile in $scope.validResultProfiles
+        if profile.name == lastProfileNameForCondition
+          preselectedProfileNameForCondition = lastProfileNameForCondition
+
     $scope.builtinProfiles = []
     $scope.customProfiles = []
     for own key, profile of availableProfiles
@@ -211,9 +234,21 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
 
     $scope.customProfiles.sort(profileOrder)
 
+  $scope.domainsForCondition = {}
+  $scope.requestInfoProvided = null
+  omegaTarget.setRequestInfoCallback (info) ->
+    $scope.$apply ->
+      $scope.requestInfo = info
+      $scope.requestInfoProvided ?= (info?.domains.length > 0)
+      for domain in info.domains
+        $scope.domainsForCondition[domain.domain] ?= true
+      $scope.profileForDomains ?= preselectedProfileNameForCondition
+
   omegaTarget.getActivePageInfo().then((info) ->
     if info
       $scope.currentTempRuleProfile = info.tempRuleProfileName
+      if $scope.currentTempRuleProfile
+        preselectedProfileNameForCondition = $scope.currentTempRuleProfile
       $scope.currentDomain = info.domain
     else
       $q.reject()
@@ -234,6 +269,8 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
         condition:
           conditionType: 'HostWildcardCondition'
           pattern: conditionSuggestion['HostWildcardCondition']
-        profileName: $scope.currentTempRuleProfile ? 'direct'
+        profileName: preselectedProfileNameForCondition
       $scope.$watch 'rule.condition.conditionType', (type) ->
         $scope.rule.condition.pattern = conditionSuggestion[type]
+    else
+      $scope.requestInfoProvided = false

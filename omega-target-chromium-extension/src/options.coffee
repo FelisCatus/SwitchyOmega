@@ -7,6 +7,7 @@ chromeApiPromisifyAll = require('./chrome_api')
 proxySettings = chromeApiPromisifyAll(chrome.proxy.settings)
 parseExternalProfile = require('./parse_external_profile')
 ProxyAuth = require('./proxy_auth')
+WebRequestMonitor = require('./web_request_monitor')
 
 class ChromeOptions extends OmegaTarget.Options
   _inspect: null
@@ -187,6 +188,40 @@ class ChromeOptions extends OmegaTarget.Options
       else
         @_inspect.disable()
     return Promise.resolve()
+
+  _requestMonitor: null
+  _monitorWebRequests: false
+  _tabRequestInfoPorts: null
+  setMonitorWebRequests: (enabled) ->
+    @_monitorWebRequests = enabled
+    if enabled and not @_requestMonitor?
+      @_tabRequestInfoPorts = {}
+      @_requestMonitor = new WebRequestMonitor()
+      @_requestMonitor.watchTabs (tabId, info, req, event) =>
+        return unless @_monitorWebRequests
+        if info.errorCount > 0
+          badge = {text: info.errorCount.toString(), color: '#f0ad4e'}
+          chrome.browserAction.setBadgeText(text: badge.text, tabId: tabId)
+          chrome.browserAction.setBadgeBackgroundColor(
+            color: badge.color
+            tabId: tabId
+          )
+        else
+          chrome.browserAction.setBadgeText(text: '', tabId: tabId)
+        @_tabRequestInfoPorts[tabId]?.postMessage(
+          @_requestMonitor.summarizeErrors(info))
+
+      chrome.runtime.onConnect.addListener (port) =>
+        return unless port.name == 'tabRequestInfo'
+        return unless @_monitorWebRequests
+        tabId = null
+        port.onMessage.addListener (msg) =>
+          tabId = msg.tabId
+          @_tabRequestInfoPorts[tabId] = port
+          info = @_requestMonitor.tabInfo[tabId]
+          port.postMessage(@_requestMonitor.summarizeErrors(info)) if info
+        port.onDisconnect.addListener =>
+          delete @_tabRequestInfoPorts[tabId] if tabId?
 
   _alarms: null
   schedule: (name, periodInMinutes, callback) ->

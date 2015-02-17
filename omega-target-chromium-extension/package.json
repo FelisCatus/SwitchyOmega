@@ -20,6 +20,7 @@
     "po2json": "^0.3.2"
   },
   "dependencies": {
+    "heap": "^0.2.6",
     "omega-target": "../omega-target",
     "omega-web": "../omega-web",
     "xhr": "^1.16.0"
