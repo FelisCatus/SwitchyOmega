@@ -2,6 +2,11 @@
 
 FelisCatus <catusx@gmail.com>
 
+# SwitchyOmega translators:
+
+Filip <filip@havlin.cz>
+Michal Čihař <michal@cihar.com>
+
 # SwitchyOmega includes or links to (unchanged):
 # * jQuery UI (custom build)
 #     => omega-web/lib/jquery-ui-*.js
