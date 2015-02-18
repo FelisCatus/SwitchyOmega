@@ -74,7 +74,9 @@ module.exports = class WebRequestMonitor
         callback('ongoing', req)
 
   _requestRedirected: (req) ->
-    if req.url.indexOf('data:') == 0
+    url = req.redirectUrl
+    return unless url
+    if url.indexOf('data:') == 0 || url.indexOf('about:') == 0
       @_requestDone(req)
 
   _requestError: (req) ->
