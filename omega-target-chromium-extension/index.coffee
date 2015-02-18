@@ -4,6 +4,7 @@ module.exports =
   ChromeTabs: require('./src/tabs')
   SwitchySharp: require('./src/switchysharp')
   ExternalApi: require('./src/external_api.coffee')
+  WebRequestMonitor: require('./src/web_request_monitor')
   Inspect: require('./src/inspect')
   Url: require('url')
 

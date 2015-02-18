@@ -247,6 +247,16 @@ msgstr "代理设置变化"
 msgid "options_revertProxyChanges"
 msgstr "撤消其他扩展对代理的更改。"
 
+msgid "options_group_networkRequests"
+msgstr "网络请求"
+
+msgid "options_monitorWebRequests"
+msgstr "在图标上显示当前页面中由于网络原因而未加载的资源数量。"
+
+msgid "options_monitorWebRequestsHelp"
+msgstr "启用此选项后，如有资源加载失败，则图标上会显示数字提示。<br>"
+"此时，您可以通过弹出菜单一次设置这些资源使用的情景模式，操作十分便捷。"
+
 msgid "options_downloadOptions"
 msgstr "下载选项"
 
@@ -867,6 +877,18 @@ msgstr "反馈问题"
 
 msgid "popup_errorLog"
 msgstr "错误日志"
+
+msgid "popup_requestErrorCount"
+msgstr "$COUNT$个资源未加载"
+
+msgid "popup_requestErrorWarning"
+msgstr "由于网络原因，此页面部分资源加载失败。"
+
+msgid "popup_requestErrorAddCondition"
+msgstr "您可以查看以下域名，并根据实际情况确定是否对其使用代理。"
+
+msgid "options_resultProfileForSelectedDomains"
+msgstr "对所有选中域名使用此情景模式："
 
 msgid "popup_issueTemplate"
 msgstr ""

@@ -32,6 +32,8 @@ module.exports = (grunt) ->
             for i in [0...refs.length]
               placeholder = refs[i] ? ('_unused_' + i)
               placeholders[placeholder] = {content: '$' + i}
+          if message == ' '
+            message = ''
           result[key] =
             message: message
             placeholders: placeholders

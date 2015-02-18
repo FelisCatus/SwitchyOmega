@@ -29,10 +29,16 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
         d.resolve(response.result)
     )
     return d.promise
+  connectBackground = (name, message, callback) ->
+    port = chrome.runtime.connect({name: name})
+    port.postMessage(message)
+    port.onMessage.addListener(callback)
+    return
 
   isChromeUrl = (url) -> url.substr(0, 6) == 'chrome'
 
   optionsChangeCallback = []
+  requestInfoCallback = null
   prefix = 'omega.local.'
   urlParser = document.createElement('a')
   omegaTarget =
@@ -113,33 +119,19 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
       d = $q['defer']()
       chrome.tabs.query {active: true, lastFocusedWindow: true}, (tabs) ->
         if not tabs[0]?.url
-          d.resolve(undefined)
+          d.resolve(null)
           return
-        getBadge = $q['defer']()
-        chrome.browserAction.getBadgeText {tabId: tabs[0]?.id}, (result) ->
-          getBadge.resolve(result)
-        $q.all([getBadge.promise, omegaTarget.state('inspectUrl')
-        ]).then ([badge, url]) ->
-          if badge != '#' || not url
-            d.resolve(tabs[0]?.url)
-          else
-            clearBadge = false
-            d.resolve(url)
-      return d.promise.then (url) ->
-        # First, try to clear badges on opening the popup.
-        callBackground('clearBadge') if clearBadge
-        return null if not url or isChromeUrl(url)
-        urlParser.href = url
-        domain = urlParser.hostname
-        callBackground('queryTempRule', domain).then (profileName) ->
-          url: url
-          domain: domain
-          tempRuleProfileName: profileName
+        args = {tabId: tabs[0].id, url: tabs[0].url}
+        if tabs[0].id and requestInfoCallback
+          connectBackground('tabRequestInfo', args,
+            requestInfoCallback)
+        d.resolve(callBackground('getPageInfo', args))
+      return d.promise
     refreshActivePage: ->
       d = $q['defer']()
       chrome.tabs.query {active: true, lastFocusedWindow: true}, (tabs) ->
         if tabs[0].url and not isChromeUrl(tabs[0].url)
-          chrome.tabs.reload(tabs[0].id)
+          chrome.tabs.reload(tabs[0].id, {bypassCache: true})
         d.resolve()
       return d.promise
     openManage: ->
@@ -148,5 +140,7 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
       chrome.tabs.create url: 'chrome://extensions/configureCommands'
     setOptionsSync: (enabled, args) ->
       callBackground('setOptionsSync', enabled, args)
+    setRequestInfoCallback: (callback) ->
+      requestInfoCallback = callback
 
   return omegaTarget
