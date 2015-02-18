@@ -197,16 +197,18 @@ class ChromeOptions extends OmegaTarget.Options
     if enabled and not @_requestMonitor?
       @_tabRequestInfoPorts = {}
       @_requestMonitor = new WebRequestMonitor()
-      @_requestMonitor.watchTabs (tabId, info, req, event) =>
+      @_requestMonitor.watchTabs (tabId, info) =>
         return unless @_monitorWebRequests
         if info.errorCount > 0
+          info.badgeSet = true
           badge = {text: info.errorCount.toString(), color: '#f0ad4e'}
           chrome.browserAction.setBadgeText(text: badge.text, tabId: tabId)
           chrome.browserAction.setBadgeBackgroundColor(
             color: badge.color
             tabId: tabId
           )
-        else
+        else if info.badgeSet
+          info.badgeSet = false
           chrome.browserAction.setBadgeText(text: '', tabId: tabId)
         @_tabRequestInfoPorts[tabId]?.postMessage(
           @_requestMonitor.summarizeErrors(info, OmegaPac.getBaseDomain))

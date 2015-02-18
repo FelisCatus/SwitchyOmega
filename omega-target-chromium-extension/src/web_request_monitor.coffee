@@ -83,6 +83,9 @@ module.exports = class WebRequestMonitor
 
     return if req.tabId < 0
     return if req.error.indexOf('BLOCKED') >= 0
+    return if req.error.indexOf('net::ERR_FILE_') == 0
+    return if req.url.indexOf('file:') == 0
+    return if req.url.indexOf('chrome') == 0
     return unless reqInfo
     if req.error == 'net::ERR_ABORTED'
       if reqInfo.timeoutCalled and not reqInfo.noTimeout
@@ -121,6 +124,11 @@ module.exports = class WebRequestMonitor
     chrome.tabs.onReplaced?.addListener (added, removed) =>
       @tabInfo[added] ?= @_newTabInfo()
       delete @tabInfo[removed]
+    chrome.tabs.onUpdated.addListener (tab) =>
+      info = @tabInfo[tab.id] ?= @_newTabInfo()
+      return unless info
+      for callback in @_tabCallbacks
+        callback(tab.id, info, null, 'updated')
     chrome.tabs.query {}, (tabs) =>
       for tab in tabs
         @tabInfo[tab.id] ?= @_newTabInfo()
@@ -139,7 +147,8 @@ module.exports = class WebRequestMonitor
     info = @tabInfo[req.tabId]
     if info
       if status == 'start' and req.type == 'main_frame'
-        info = @tabInfo[req.tabId] = @_newTabInfo()
+        for own key, value of @_newTabInfo()
+          info[key] = value
       info.requests[req.requestId] = req
       if (oldStatus = info.requestStatus[req.requestId])
         info[@eventCategory[oldStatus] + 'Count']--
