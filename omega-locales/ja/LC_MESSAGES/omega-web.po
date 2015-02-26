@@ -3,63 +3,61 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-02-13 10:29+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-02-26 16:42+0200\n"
+"Last-Translator: Qwilas Windymelt <qwilas@mail.3qe.us>\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/switchyomega/main/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
 
+#, fuzzy
 msgid "manifest_app_name"
 msgstr "Proxy SwitchyOmega"
 
 msgid "manifest_app_description"
-msgstr "Manage and switch between multiple proxies quickly & easily."
+msgstr "素早く簡単に複数のプロキシを管理・切替できます。"
 
 msgid "manifest_icon_default_title"
-msgstr "Loading…"
+msgstr "読み込んでいます…"
 
 msgid "upgrade_profile_auto"
-msgstr "Auto Switch"
+msgstr "自動切替"
 
 msgid "profile_direct"
-msgstr "[Direct]"
+msgstr "[直接接続]"
 
 msgid "profile_system"
-msgstr "[System Proxy]"
+msgstr "[システムのプロキシ]"
 
 msgid "condition_HostWildcardCondition"
-msgstr "Host wildcard"
+msgstr "ホスト名とワイルドカード"
 
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
-"Matches hosts (domain names) by wildcard.<br><b>The asterisk <code>*</code></"
-"b> matches zero or more characters.<br><b>The question mark <code>?</code></"
-"b> matches exactly one character.<br><br>Note that rules beginning with "
-"<code>*.</code> are specially treated only in Host wildcard conditions."
-"<br>Example: <code>*.example.com</code> will match www.example.com <b>AND "
-"example.com as well.</b><br>To match subdomains <b>only</b>, use <b>two</b> "
-"asterisks like <code>**.example.com</code>."
+"ワイルドカードを使ってホスト名（ドメイン名）にマッチします。<br><b>アスタリスク<code>*</code></b>は0個以上の文字にマッチします。"
+"<br><b>疑問符<code>?</code></b>は1文字のみにマッチします。特にホストをワイルドカードの条件を使って指定するときに限っては、<br"
+"><br><code>*.</code>から始まるルールは特別に扱います。<br><br>例えば、<code>*.example.com</code>はw"
+"ww.example.comに限らず<b>example.comにも同様にマッチします。</b><br>サブドメイン<b>のみ</b>にマッチさせたいとき"
+"は、<code>**.example.com</code>といった具合に、アスタリスクを<b>2つ</b>使用してください。"
 
 msgid "condition_HostRegexCondition"
-msgstr "Host regex"
+msgstr "ホスト名の正規表現"
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
-"Like Host wildcard condition, but matches hosts (domain names) by <a "
-"href='https://www.google.com/search?q=regular%20expression'>regular "
-"expression</a>.<br>Regular expressions can be hard to construct (and read)."
-"<br>It is recommended to use wildcards for most cases and only use regex for "
-"conditions that cannot be achieved by any other condition type."
+"ホスト名のワイルドカード条件と似ていますが、ホスト名（ドメイン名）に<a href='https://www.google.com/search?q=%9"
+"0%B3%8BK%95%5C%8C%BB'>正規表現＜/a>を利用してマッチします。<br>正規表現は作成や解読が難しくなりことがあります。<br>大抵の"
+"場合ではワイルドカードを使い、どうしても他の方法では記述できない場合にのみ正規表現を使った方がよいでしょう。"
 
 msgid "condition_HostLevelsCondition"
-msgstr "Host levels"
+msgstr "ホストレベル"
 
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
@@ -69,7 +67,7 @@ msgstr ""
 "host level of 3, while <code>internal</code> is of host level 1."
 
 msgid "condition_UrlWildcardCondition"
-msgstr "URL wildcard"
+msgstr "URLワイルドカード"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
@@ -80,7 +78,7 @@ msgstr ""
 "match http://example.com/."
 
 msgid "condition_UrlRegexCondition"
-msgstr "URL regex"
+msgstr "URL正規表現"
 
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
@@ -91,7 +89,7 @@ msgstr ""
 "achieved by any other condition type."
 
 msgid "condition_KeywordCondition"
-msgstr "Keyword"
+msgstr "キーワード"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
@@ -102,10 +100,10 @@ msgstr ""
 "blocking some keywords in the URL, by requesting such URLs through a proxy."
 
 msgid "condition_FalseCondition"
-msgstr "(Disabled)"
+msgstr "（無効）"
 
 msgid "condition_details_FalseCondition"
-msgstr "(Condition ignored when matching)"
+msgstr "（マッチ時に無視される条件）"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
@@ -119,108 +117,106 @@ msgid "condition_group_default"
 msgstr " "
 
 msgid "condition_group_host"
-msgstr "Host"
+msgstr "ホスト"
 
 msgid "condition_group_url"
 msgstr "Url"
 
 msgid "condition_group_special"
-msgstr "Special"
+msgstr "特別"
 
 msgid "ruleListFormat_Switchy"
 msgstr "Switchy"
 
 msgid "ruleListFormat_AutoProxy"
-msgstr "AutoProxy"
+msgstr "自動プロキシ"
 
 msgid "ruleList_usageUrl"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
-msgstr "Missing '@with result' directive!"
+msgstr "'@with result'の部分がありません！"
 
 msgid "ruleList_error_unknownProfile"
-msgstr "Unknown profile: $PROFILE$"
+msgstr "不明なプロファイル: $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
 msgstr "Missing result profile name at Line $LNO$: $SOURCE$"
 
 msgid "ruleList_error_invalidRule"
-msgstr "Invalid rule at Line $LNO$: $SOURCE$"
+msgstr "$SOURCE$の$LNO$:のルールは無効です"
 
 msgid "ruleList_error_noDefaultRule"
 msgstr "Missing default rule with catch-all '*' condition!"
 
 msgid "dialog_close"
-msgstr "Close"
+msgstr "閉じる"
 
 msgid "dialog_save"
-msgstr "Save changes"
+msgstr "変更を保存する"
 
 msgid "dialog_ok"
 msgstr "OK"
 
 msgid "dialog_cancel"
-msgstr "Cancel"
+msgstr "キャンセル"
 
 msgid "inputClear_clear"
-msgstr "Clear"
+msgstr "クリア"
 
 msgid "inputClear_restore"
-msgstr "Restore"
+msgstr "復元"
 
 msgid "options_title"
-msgstr "SwitchyOmega Options"
+msgstr "SwitchyOmega オプション"
 
 msgid "options_navHeader_setting"
-msgstr "Settings"
+msgstr "設定"
 
 msgid "options_navHeader_profiles"
-msgstr "Profiles"
+msgstr "プロファイル"
 
 msgid "options_navHeader_actions"
 msgstr "Actions"
 
 msgid "options_tab_ui"
-msgstr "Interface"
+msgstr "インターフェイス"
 
 msgid "options_tab_general"
-msgstr "General"
+msgstr "総合"
 
 msgid "options_tab_importExport"
-msgstr "Import/Export"
+msgstr "インポート/エクスポート"
 
 msgid "options_newProfile"
-msgstr "New profile…"
+msgstr "新しくプロファイルを作る…"
 
 msgid "options_apply"
-msgstr "Apply changes"
+msgstr "変更を適用"
 
 msgid "options_discard"
-msgstr "Discard changes"
+msgstr "変更を破棄"
 
 msgid "options_reset"
-msgstr "Reset options"
+msgstr "設定をリセットする"
 
 msgid "options_group_miscOptions"
-msgstr "Misc Options"
+msgstr "その他の設定"
 
 msgid "options_confirmDeletion"
-msgstr "Confirm on condition deletion."
+msgstr "条件を削除する際に確認する。"
 
 msgid "options_refreshOnProfileChange"
-msgstr "Refresh current tab on profile change."
+msgstr "プロファイルの変更にともなって現在のタブを更新する。"
 
 msgid "options_showInspectMenu"
 msgstr "Allow inspecting proxy used for page elements via context menu."
 
 msgid "options_group_keyboardShortcut"
-msgstr "Keyboard Shortcut"
+msgstr "キーボードショートカット"
 
 msgid "options_menuShortcutHelp"
-msgstr ""
-"Pressing the shortcut will open the switch popup menu. (Defaults to Alt+Shift"
-"+O)."
+msgstr "ショートカットを押すと切替ポップアップメニューが開きます。(デフォルトではAlt+Shift+O)"
 
 msgid "options_menuShortcutMore"
 msgstr ""
@@ -228,19 +224,19 @@ msgstr ""
 "(or /) in the menu to learn more."
 
 msgid "options_menuShortcutConfigure"
-msgstr "Configure shortcut"
+msgstr "ショートカットの設定"
 
 msgid "options_group_switchOptions"
-msgstr "Switch Options"
+msgstr "切替オプション"
 
 msgid "options_startupProfile"
-msgstr "Startup Profile"
+msgstr "起動時プロファイル"
 
 msgid "options_startupProfile_none"
-msgstr "(Current profile)"
+msgstr "（現在のプロファイル）"
 
 msgid "options_showConditionTypesAdvanced"
-msgstr "Show advanced condition types"
+msgstr "高度な条件の種類を表示する"
 
 msgid "options_showConditionTypesAdvancedHelp"
 msgstr ""
