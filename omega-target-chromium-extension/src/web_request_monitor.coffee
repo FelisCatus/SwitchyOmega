@@ -149,6 +149,7 @@ module.exports = class WebRequestMonitor
   }
 
   setTabRequestInfo: (status, req) ->
+    console.log(req.tabId, status, req.type, req.url)
     info = @tabInfo[req.tabId]
     if info
       if status == 'start' and req.type == 'main_frame'
@@ -159,6 +160,7 @@ module.exports = class WebRequestMonitor
       if (oldStatus = info.requestStatus[req.requestId])
         info[@eventCategory[oldStatus] + 'Count']--
       else
+        return if status == 'timeoutAbort'
         info.requestCount++
       info.requestStatus[req.requestId] = status
       info[@eventCategory[status] + 'Count']++

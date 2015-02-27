@@ -816,7 +816,7 @@ class Options
     profile = OmegaPac.Profiles.byName(@_currentProfileName, @_options)
     if not profile?.rules?
       return Promise.reject new Error(
-        "Cannot add condition to Profile #{@profile.name} (@{profile.type})")
+        "Cannot add condition to Profile #{@profile.name} (#{profile.type})")
     target = OmegaPac.Profiles.byName(profileName, @_options)
     if not target?
       return Promise.reject new ProfileNotExistError(profileName)
