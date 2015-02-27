@@ -168,7 +168,7 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
   $scope.addConditionForDomains = (domains, profileName) ->
     conditions = Object.keys(domains).map (domain) -> {
       conditionType: 'HostWildcardCondition'
-      pattern: '*.' + domain
+      pattern: domain
     }
     omegaTarget.addCondition(conditions, profileName).then ->
       omegaTarget.state('lastProfileNameForCondition', profileName)
@@ -237,6 +237,11 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
   $scope.domainsForCondition = {}
   $scope.requestInfoProvided = null
   omegaTarget.setRequestInfoCallback (info) ->
+    info.domains = []
+    for own domain, domainInfo of info.summary
+      domainInfo.domain = domain
+      info.domains.push(domainInfo)
+    info.domains.sort (a, b) -> b.errorCount - a.errorCount
     $scope.$apply ->
       $scope.requestInfo = info
       $scope.requestInfoProvided ?= (info?.domains.length > 0)
@@ -272,5 +277,3 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
         profileName: preselectedProfileNameForCondition
       $scope.$watch 'rule.condition.conditionType', (type) ->
         $scope.rule.condition.pattern = conditionSuggestion[type]
-    else
-      $scope.requestInfoProvided = false

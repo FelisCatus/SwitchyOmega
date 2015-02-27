@@ -136,26 +136,27 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
       ng-style='{display: showRequestInfo ? "block" : "none"}'
       ng-submit='addConditionForDomains(domainsForCondition, profileForDomains)')
       fieldset
-        legend
+        legend(ng-show='!!currentProfileCanAddRule')
           | {{'popup_addConditionTo' | tr}}
           = ' '
           span.profile-inline
             span(omega-profile-inline='currentProfile' options='availableProfiles' disp-name='dispNameFilter')
+        legend(ng-show='!currentProfileCanAddRule')
         p.text-warning {{'popup_requestErrorWarning' | tr}}
-        p.help-block {{'popup_requestErrorAddCondition' | tr}} 
+        p.help-block(ng-show='!!currentProfileCanAddRule') {{'popup_requestErrorAddCondition' | tr}} 
         .checkbox(ng-repeat='domain in requestInfo.domains')
           label
             input(type='checkbox' ng-model='domainsForCondition[domain.domain]')
             span.label.label-warning {{domain.errorCount}}
-            =' *.{{domain.domain}}'
-        div.form-group
+            =' {{domain.domain}}'
+        div.form-group(ng-show='!!currentProfileCanAddRule')
           label {{'options_resultProfileForSelectedDomains' | tr}}
           div(omega-profile-select='validResultProfiles' ng-model='profileForDomains'
             disp-name='dispNameFilter' options='availableProfiles')
         div.condition-controls
           button.btn.btn-default(type='button' ng-click='showRequestInfo = false')
             | {{'dialog_cancel' | tr}}
-          button.btn.btn-primary(type='submit') {{'popup_addCondition' | tr}}
+          button.btn.btn-primary(type='submit' ng-show='!!currentProfileCanAddRule') {{'popup_addCondition' | tr}}
 
     script(src='js/log_error.js')
     script(src='lib/FileSaver/FileSaver.js')

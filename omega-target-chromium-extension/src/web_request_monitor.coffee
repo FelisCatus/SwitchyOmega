@@ -2,7 +2,7 @@ Heap = require('heap')
 Url = require('url')
 
 module.exports = class WebRequestMonitor
-  constructor: ->
+  constructor: (@getSummaryId) ->
     @_requests = {}
     @_recentRequests = new Heap((a, b) -> a._startTime - b._startTime)
     @_callbacks = []
@@ -144,6 +144,8 @@ module.exports = class WebRequestMonitor
     ongoingCount: 0
     errorCount: 0
     doneCount: 0
+
+    summary: {}
   }
 
   setTabRequestInfo: (status, req) ->
@@ -160,28 +162,16 @@ module.exports = class WebRequestMonitor
         info.requestCount++
       info.requestStatus[req.requestId] = status
       info[@eventCategory[status] + 'Count']++
+      id = @getSummaryId?(req)
+      if id?
+        if @eventCategory[status] == 'error'
+          if @eventCategory[oldStatus] != 'error'
+            summaryItem = info.summary[id]
+            if not summaryItem?
+              summaryItem = info.summary[id] = {errorCount: 0}
+            summaryItem.errorCount++
+        else if @eventCategory[oldStatus] == 'error'
+          summaryItem = info.summary[id]
+          summaryItem.errorCount-- if summaryItem?
       for callback in @_tabCallbacks
         callback(req.tabId, info, req, status)
-
-  summarizeErrors: (info, domainOfHost) ->
-    domains = []
-    domainInfoByName = {}
-    for reqId, req of info.requests
-      if @eventCategory[info.requestStatus[reqId]] == 'error'
-        domain = Url.parse(req.url).hostname
-        domain = domainOfHost(domain) if domainOfHost
-        domainInfo = domainInfoByName[domain]
-        if not domainInfo
-          domainInfo = domainInfoByName[domain] = {
-            domain: domain
-            errorCount: 0
-            type: 'other'
-          }
-          domains.push(domainInfo)
-        domainInfo.errorCount++
-        domainInfo.type = req.type
-    domains.sort (a, b) -> b.errorCount - a.errorCount
-    return {
-      errorCount: info.errorCount
-      domains: domains
-    }

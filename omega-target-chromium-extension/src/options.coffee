@@ -196,7 +196,8 @@ class ChromeOptions extends OmegaTarget.Options
     @_monitorWebRequests = enabled
     if enabled and not @_requestMonitor?
       @_tabRequestInfoPorts = {}
-      @_requestMonitor = new WebRequestMonitor()
+      wildcardForReq = (req) -> OmegaPac.wildcardForUrl(req.url)
+      @_requestMonitor = new WebRequestMonitor(wildcardForReq)
       @_requestMonitor.watchTabs (tabId, info) =>
         return unless @_monitorWebRequests
         if info.errorCount > 0
@@ -210,8 +211,10 @@ class ChromeOptions extends OmegaTarget.Options
         else if info.badgeSet
           info.badgeSet = false
           chrome.browserAction.setBadgeText(text: '', tabId: tabId)
-        @_tabRequestInfoPorts[tabId]?.postMessage(
-          @_requestMonitor.summarizeErrors(info, OmegaPac.getBaseDomain))
+        @_tabRequestInfoPorts[tabId]?.postMessage({
+          errorCount: info.errorCount
+          summary: info.summary
+        })
 
       chrome.runtime.onConnect.addListener (port) =>
         return unless port.name == 'tabRequestInfo'
@@ -222,8 +225,10 @@ class ChromeOptions extends OmegaTarget.Options
           @_tabRequestInfoPorts[tabId] = port
           info = @_requestMonitor.tabInfo[tabId]
           if info
-            summ = @_requestMonitor.summarizeErrors info, OmegaPac.getBaseDomain
-            port.postMessage(summ)
+            port.postMessage({
+              errorCount: info.errorCount
+              summary: info.summary
+            })
         port.onDisconnect.addListener =>
           delete @_tabRequestInfoPorts[tabId] if tabId?
 
