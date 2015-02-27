@@ -149,7 +149,6 @@ module.exports = class WebRequestMonitor
   }
 
   setTabRequestInfo: (status, req) ->
-    console.log(req.tabId, status, req.type, req.url)
     info = @tabInfo[req.tabId]
     if info
       if status == 'start' and req.type == 'main_frame'
