@@ -84,6 +84,7 @@ module.exports = class WebRequestMonitor
     delete @_requests[req.requestId]
 
     return if req.tabId < 0
+    return if req.error == 'net::ERR_INCOMPLETE_CHUNKED_ENCODING'
     return if req.error.indexOf('BLOCKED') >= 0
     return if req.error.indexOf('net::ERR_FILE_') == 0
     return if req.url.indexOf('file:') == 0
