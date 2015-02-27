@@ -1007,13 +1007,25 @@ msgstr "Protokol chyb"
 msgid "popup_requestErrorCount"
 msgstr "$COUNT$ chybových požadavků"
 
+msgid "popup_requestErrorHeading"
+msgstr "Resources that failed to load"
+
 msgid "popup_requestErrorWarning"
 msgstr "Několik zdrojů se nepodařilo načíst kvůli potížím se sítí."
+
+msgid "popup_requestErrorWarningHelp"
+msgstr "SwitchyOmega is just the reporter of these issues, not the cause of them."
 
 msgid "popup_requestErrorAddCondition"
 msgstr ""
 "Můžete zkontrolovat následující domény a použít proxy server pro ně v "
 "případě potřeby."
+
+msgid "popup_requestErrorCannotAddCondition"
+msgstr "You can add switch conditions for them only when using a Switch Profile."
+
+msgid "popup_configureMonitorWebRequests"
+msgstr "Configure Network Monitor"
 
 msgid "options_resultProfileForSelectedDomains"
 msgstr "Použít tento profil pro všechny vybrané domény"

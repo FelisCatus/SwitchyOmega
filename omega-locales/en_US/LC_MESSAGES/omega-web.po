@@ -1002,11 +1002,23 @@ msgstr "Error log"
 msgid "popup_requestErrorCount"
 msgstr "$COUNT$ failed resources"
 
+msgid "popup_requestErrorHeading"
+msgstr "Resources that failed to load"
+
 msgid "popup_requestErrorWarning"
-msgstr "A few resources failed to load due to network issues."
+msgstr "A few resources failed to load due to issues with your network, proxy server or the webpage."
+
+msgid "popup_requestErrorWarningHelp"
+msgstr "SwitchyOmega is just the reporter of these issues, not the cause of them."
 
 msgid "popup_requestErrorAddCondition"
 msgstr "You can review the following domains and use proxy for them when appropriate."
+
+msgid "popup_requestErrorCannotAddCondition"
+msgstr "You can add switch conditions for them only when using a Switch Profile."
+
+msgid "popup_configureMonitorWebRequests"
+msgstr "Configure Network Monitor"
 
 msgid "options_resultProfileForSelectedDomains"
 msgstr "Use this profile for all selected domains"

@@ -881,11 +881,23 @@ msgstr "錯誤日誌"
 msgid "popup_requestErrorCount"
 msgstr "$COUNT$個資源未載入"
 
+msgid "popup_requestErrorHeading"
+msgstr "載入失敗的資源列表"
+
 msgid "popup_requestErrorWarning"
 msgstr "由於網路原因，此頁面部分資源載入失敗。"
 
+msgid "popup_requestErrorWarningHelp"
+msgstr "這些問題並非由 SwitchyOmega 自身導致，它只不過檢測並報告了錯誤而已。"
+
 msgid "popup_requestErrorAddCondition"
 msgstr "您可以檢視以下域名，並根據實際情況確定是否對其使用代理。"
+
+msgid "popup_requestErrorCannotAddCondition"
+msgstr "在使用自動切換情景時，才可以將這些資源新增為切換條件。"
+
+msgid "popup_configureMonitorWebRequests"
+msgstr "設定網路檢測選項"
 
 msgid "options_resultProfileForSelectedDomains"
 msgstr "對所有選中域名使用此情景模式："

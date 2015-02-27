@@ -881,11 +881,23 @@ msgstr "错误日志"
 msgid "popup_requestErrorCount"
 msgstr "$COUNT$个资源未加载"
 
+msgid "popup_requestErrorHeading"
+msgstr "加载失败的资源列表"
+
 msgid "popup_requestErrorWarning"
-msgstr "由于网络原因，此页面部分资源加载失败。"
+msgstr "由于网络原因，此页面部分资源加载失败。这些问题可能是由您的网络、代理服务器或网站本身引起的。"
+
+msgid "popup_requestErrorWarningHelp"
+msgstr "这些问题并非由 SwitchyOmega 自身导致，它只不过检测并报告了错误而已。"
 
 msgid "popup_requestErrorAddCondition"
 msgstr "您可以查看以下域名，并根据实际情况确定是否对其使用代理。"
+
+msgid "popup_requestErrorCannotAddCondition"
+msgstr "在使用自动切换情景时，才可以将这些资源添加为切换条件。"
+
+msgid "popup_configureMonitorWebRequests"
+msgstr "设置网络检测选项"
 
 msgid "options_resultProfileForSelectedDomains"
 msgstr "对所有选中域名使用此情景模式："

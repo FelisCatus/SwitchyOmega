@@ -142,7 +142,9 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           span.profile-inline
             span(omega-profile-inline='currentProfile' options='availableProfiles' disp-name='dispNameFilter')
         legend(ng-show='!currentProfileCanAddRule')
-        p.text-warning {{'popup_requestErrorWarning' | tr}}
+          | {{'popup_requestErrorHeading' | tr}} 
+        .text-warning {{'popup_requestErrorWarning' | tr}}
+        p.help-block {{'popup_requestErrorWarningHelp' | tr}}
         p.help-block(ng-show='!!currentProfileCanAddRule') {{'popup_requestErrorAddCondition' | tr}} 
         .checkbox(ng-repeat='domain in requestInfo.domains')
           label
@@ -153,10 +155,14 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           label {{'options_resultProfileForSelectedDomains' | tr}}
           div(omega-profile-select='validResultProfiles' ng-model='profileForDomains'
             disp-name='dispNameFilter' options='availableProfiles')
+        p.help-block(ng-show='!currentProfileCanAddRule')
+          | {{'popup_requestErrorCannotAddCondition' | tr}}
         div.condition-controls
           button.btn.btn-default(type='button' ng-click='showRequestInfo = false')
             | {{'dialog_cancel' | tr}}
           button.btn.btn-primary(type='submit' ng-show='!!currentProfileCanAddRule') {{'popup_addCondition' | tr}}
+          button.btn.btn-default.pull-right(type='submit' ng-show='!currentProfileCanAddRule'
+            ng-click='openOptions("#/general")') {{'popup_configureMonitorWebRequests' | tr}}
 
     script(src='js/log_error.js')
     script(src='lib/FileSaver/FileSaver.js')
