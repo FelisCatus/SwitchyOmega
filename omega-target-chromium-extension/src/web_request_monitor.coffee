@@ -152,6 +152,7 @@ module.exports = class WebRequestMonitor
       if status == 'start' and req.type == 'main_frame'
         for own key, value of @_newTabInfo()
           info[key] = value
+      return if info.requestCount > 1000
       info.requests[req.requestId] = req
       if (oldStatus = info.requestStatus[req.requestId])
         info[@eventCategory[oldStatus] + 'Count']--
