@@ -39,19 +39,23 @@ class AttachedCache
 
 exports.AttachedCache = AttachedCache
 
-exports.getBaseDomain = (domain) ->
-  return domain if domain.indexOf(':') > 0 # IPv6
+tld = require('tldjs')
+
+exports.isIp = (domain) ->
+  return true if domain.indexOf(':') > 0 # IPv6
   lastCharCode = domain.charCodeAt(domain.length - 1)
-  return domain if 48 <= lastCharCode <= 57 # IP address ending with number.
-  segments = domain.split('.')
-  if segments.length <= 2
-    return domain
-  if segments[0] == 'www'
-    segments.shift()
-  len = segments.length
-  if len <= 2
-    return segments.join('.')
-  if segments[len - 2].length <= 2
-    return segments[len - 3] + '.' + segments[len - 2] + '.' + segments[len - 1]
-  else
-    return segments[len - 2] + '.' + segments[len - 1]
+  return true if 48 <= lastCharCode <= 57 # IP address ending with number.
+  return false
+
+exports.getBaseDomain = (domain) ->
+  return domain if exports.isIp(domain)
+  return tld.getDomain(domain) ? domain
+
+exports.wildcardForDomain = (domain) ->
+  return domain if exports.isIp(domain)
+  return '*.' + exports.getBaseDomain(domain)
+
+Url = require('url')
+exports.wildcardForUrl = (url) ->
+  domain = Url.parse(url).hostname
+  return exports.wildcardForDomain(domain)

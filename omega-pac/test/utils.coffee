@@ -10,19 +10,13 @@ describe 'getBaseDomain', ->
     getBaseDomain('example.com').should.equal('example.com')
     getBaseDomain('e.test').should.equal('e.test')
     getBaseDomain('a.b').should.equal('a.b')
-  it 'should ignore the leading www with domains with two or more levels', ->
-    getBaseDomain('www.example.com').should.equal('example.com')
-    getBaseDomain('www.e.test').should.equal('e.test')
-    getBaseDomain('www.a.b').should.equal('a.b')
-  it 'should assume two-segment TLD if len(second segment from last) <= 2', ->
+  it 'should treat two-segment TLD as one component', ->
     getBaseDomain('images.google.co.uk').should.equal('google.co.uk')
     getBaseDomain('images.google.co.jp').should.equal('google.co.jp')
-    getBaseDomain('ab.de.ef.test').should.equal('de.ef.test')
-  it 'should assume one-segment TLD and keep two segments as base otherwise', ->
-    getBaseDomain('subdomain.example.com').should.equal('example.com')
-    getBaseDomain('some.site.example.net').should.equal('example.net')
-    getBaseDomain('some.site.abc.test').should.equal('abc.test')
-    getBaseDomain('ab.de.efg.test').should.equal('efg.test')
+    getBaseDomain('example.com.cn').should.equal('example.com.cn')
+  it 'should not mistake short domains with two-segment TLDs', ->
+    getBaseDomain('a.bc.com').should.equal('bc.com')
+    getBaseDomain('i.t.co').should.equal('t.co')
   it 'should not try to modify IP address literals', ->
     getBaseDomain('127.0.0.1').should.equal('127.0.0.1')
     getBaseDomain('[::1]').should.equal('[::1]')

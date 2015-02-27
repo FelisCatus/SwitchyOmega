@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "ipv6": "beaugunderson/javascript-ipv6",
+    "tldjs": "^1.5.2",
     "uglify-js": "^2.4.15"
   },
   "browser": {
