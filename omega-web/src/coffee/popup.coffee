@@ -166,10 +166,12 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
       refresh()
 
   $scope.addConditionForDomains = (domains, profileName) ->
-    conditions = Object.keys(domains).map (domain) -> {
-      conditionType: 'HostWildcardCondition'
-      pattern: domain
-    }
+    conditions = []
+    for own domain, enabled of domains when enabled
+      conditions.push({
+        conditionType: 'HostWildcardCondition'
+        pattern: domain
+      })
     omegaTarget.addCondition(conditions, profileName).then ->
       omegaTarget.state('lastProfileNameForCondition', profileName)
       refresh()
