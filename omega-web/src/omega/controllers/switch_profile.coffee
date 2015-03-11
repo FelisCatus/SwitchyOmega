@@ -37,7 +37,7 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
     text = """
       ; Summary: Proxy Switchy! Exported Rule List
       ; Date: #{new Date().toLocaleDateString()}
-      ; Website: http://bit.ly/proxyswitchy
+      ; Website: #{trFilter('ruleList_usageUrl')}
 
       #BEGIN
 
