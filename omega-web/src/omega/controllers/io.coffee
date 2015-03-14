@@ -60,3 +60,8 @@ angular.module('omega').controller 'IoCtrl', ($scope, $rootScope,
     omegaTarget.setOptionsSync(false).then ->
       $rootScope.applyOptionsConfirm().then ->
         $window.location.reload()
+
+  $scope.resetOptionsSync = ->
+    omegaTarget.resetOptionsSync().then ->
+      $rootScope.applyOptionsConfirm().then ->
+        $window.location.reload()

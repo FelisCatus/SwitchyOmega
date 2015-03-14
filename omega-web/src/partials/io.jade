@@ -66,5 +66,10 @@ section.settings-group
         span.glyphicon.glyphicon-cloud-download
         = ' '
         | {{'options_syncEnableForce' | tr}}
+      = ' '
+      button.btn.btn-link(ng-click='resetOptionsSync()')
+        span.glyphicon.glyphicon-erase
+        = ' '
+        | {{'options_syncReset' | tr}}
   div(ng-show='syncOptions == "unsupported"')
     p.help-block(omega-html='"options_syncUnsupportedHelp" | tr')

@@ -985,4 +985,20 @@ class Options
           @_syncWatchStop = @sync.watchAndPull(@_storage)
           return
 
+  ###*
+  # Clear the sync storage, resetting syncing state to pristine.
+  # @returns {Promise} A promise which is fulfilled when the syncing is reset.
+  ###
+  resetOptionsSync: ->
+    @log.method('Options#resetOptionsSync', this, arguments)
+    if not @sync?
+      return Promise.reject(new Error('Options syncing is unsupported.'))
+    @sync.enabled = false
+    @_syncWatchStop?()
+    @_syncWatchStop = null
+    @_state.set({'syncOptions': 'conflict'})
+
+    return @sync.storage.remove().then =>
+      @_state.set({'syncOptions': 'pristine'})
+
 module.exports = Options

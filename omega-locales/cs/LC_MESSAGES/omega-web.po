@@ -381,6 +381,9 @@ msgstr "Stáhnout ze synchronizace"
 msgid "options_syncDisable"
 msgstr "Zrušit synchronizaci"
 
+msgid "options_syncReset"
+msgstr "Clear remote copy"
+
 msgid "options_syncPristineHelp"
 msgstr ""
 "Vy můžete nyní automaticky synchronizovat Vaše nastavení, profily napříč "

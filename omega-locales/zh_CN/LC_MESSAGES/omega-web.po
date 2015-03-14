@@ -341,6 +341,9 @@ msgstr "下载云端版本"
 msgid "options_syncDisable"
 msgstr "禁用同步"
 
+msgid "options_syncReset"
+msgstr "删除云端版本"
+
 msgid "options_syncPristineHelp"
 msgstr "您可以将设置和情景模式同步到所有使用Chrome浏览器的桌面设备。"
 

@@ -373,6 +373,9 @@ msgstr "Download from Syncing"
 msgid "options_syncDisable"
 msgstr "Disable syncing"
 
+msgid "options_syncReset"
+msgstr "Clear remote copy"
+
 msgid "options_syncPristineHelp"
 msgstr ""
 "You can now automatically synchroize your settings and profiles across all "
