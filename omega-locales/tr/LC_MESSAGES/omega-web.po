@@ -385,11 +385,11 @@ msgstr "Clear remote copy"
 
 msgid "options_syncPristineHelp"
 msgstr ""
-"You can now automatically synchroize your settings and profiles across all "
+"You can now automatically synchronize your settings and profiles across all "
 "your desktop devices running Chrome browser."
 
 msgid "options_syncSyncAlert"
-msgstr "Your options are automatically synchroized with your other devices."
+msgstr "Your options are automatically synchronized with your other devices."
 
 msgid "options_syncSyncHelp"
 msgstr ""
