@@ -14,6 +14,7 @@ class ChromeTabs
     chrome.tabs.onUpdated.addListener @onUpdated.bind(this)
     chrome.tabs.onActivated.addListener (info) =>
       chrome.tabs.get info.tabId, (tab) =>
+        return if chrome.runtime.lastError
         if @_dirtyTabs.hasOwnProperty(info.tabId)
           @onUpdated tab.id, {}, tab
 
