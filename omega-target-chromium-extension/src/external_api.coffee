@@ -1,6 +1,7 @@
 OmegaTarget = require('omega-target')
 OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
+ChromePort = require('./chrome_port')
 
 module.exports = class ExternalApi
   constructor: (options) ->
@@ -9,7 +10,8 @@ module.exports = class ExternalApi
     'padekgcemlokbadohgkifijomclgjgif': 32
   disabled: false
   listen: ->
-    chrome.runtime.onConnectExternal.addListener (port) =>
+    chrome.runtime.onConnectExternal.addListener (rawPort) =>
+      port = new ChromePort(rawPort)
       port.onMessage.addListener (msg) => @onMessage(msg, port)
       port.onDisconnect.addListener @reenable.bind(this)
 

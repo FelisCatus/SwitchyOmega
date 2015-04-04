@@ -1,6 +1,7 @@
 OmegaTarget = require('omega-target')
 OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
+ChromePort = require('./chrome_port')
 
 module.exports = class SwitchySharp
   @extId: 'dpplabbmogkhghncfbfdeeokoefdjegm'
@@ -45,9 +46,9 @@ module.exports = class SwitchySharp
 
   _connect: ->
     if not @port
-      @port = chrome.runtime.connect(SwitchySharp.extId)
+      @port = new ChromePort(chrome.runtime.connect(SwitchySharp.extId))
       @port.onDisconnect.addListener(@_onDisconnect.bind(this))
-      @port.onMessage.addListener(@_onMessage.bind(this))
+      @port?.onMessage.addListener(@_onMessage.bind(this))
     try
       @port.postMessage({action: 'disable'})
     catch

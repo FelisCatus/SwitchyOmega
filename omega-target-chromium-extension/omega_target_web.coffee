@@ -31,6 +31,11 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
     return d.promise
   connectBackground = (name, message, callback) ->
     port = chrome.runtime.connect({name: name})
+    onDisconnect = ->
+      port.onDisconnect.removeListener(onDisconnect)
+      port.onMessage.removeListener(callback)
+    port.onDisconnect.addListener(onDisconnect)
+
     port.postMessage(message)
     port.onMessage.addListener(callback)
     return

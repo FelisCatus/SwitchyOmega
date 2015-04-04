@@ -8,6 +8,7 @@ proxySettings = chromeApiPromisifyAll(chrome.proxy.settings)
 parseExternalProfile = require('./parse_external_profile')
 ProxyAuth = require('./proxy_auth')
 WebRequestMonitor = require('./web_request_monitor')
+ChromePort = require('./chrome_port')
 
 class ChromeOptions extends OmegaTarget.Options
   _inspect: null
@@ -216,10 +217,11 @@ class ChromeOptions extends OmegaTarget.Options
           summary: info.summary
         })
 
-      chrome.runtime.onConnect.addListener (port) =>
-        return unless port.name == 'tabRequestInfo'
+      chrome.runtime.onConnect.addListener (rawPort) =>
+        return unless rawPort.name == 'tabRequestInfo'
         return unless @_monitorWebRequests
         tabId = null
+        port = new ChromePort(rawPort)
         port.onMessage.addListener (msg) =>
           tabId = msg.tabId
           @_tabRequestInfoPorts[tabId] = port
