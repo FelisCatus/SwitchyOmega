@@ -46,6 +46,10 @@ describe 'Profiles', ->
     it 'should return a valid PAC result for a proxy', ->
       proxy = {scheme: "http", host: "127.0.0.1", port: 8888}
       Profiles.pacResult(proxy).should.equal("PROXY 127.0.0.1:8888")
+    it 'should return special compatible result for SOCKS5', ->
+      proxy = {scheme: "socks5", host: "127.0.0.1", port: 8888}
+      compatibleResult = "SOCKS5 127.0.0.1:8888; SOCKS 127.0.0.1:8888"
+      Profiles.pacResult(proxy).should.equal(compatibleResult)
   describe '#byName', ->
     it 'should get profiles from builtin profiles', ->
       profile = Profiles.byName('direct')

@@ -62,7 +62,10 @@ module.exports = exports =
 
   pacResult: (proxy) ->
     if proxy
-      "#{exports.pacProtocols[proxy.scheme]} #{proxy.host}:#{proxy.port}"
+      if proxy.scheme == 'socks5'
+        "SOCKS5 #{proxy.host}:#{proxy.port}; SOCKS #{proxy.host}:#{proxy.port}"
+      else
+        "#{exports.pacProtocols[proxy.scheme]} #{proxy.host}:#{proxy.port}"
     else
       'DIRECT'
 
