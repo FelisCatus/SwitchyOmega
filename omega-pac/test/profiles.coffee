@@ -98,7 +98,7 @@ describe 'Profiles', ->
         host: '127.0.0.1'
         port: 1234
       fallbackProxy:
-        scheme: 'socks5'
+        scheme: 'socks4'
         host: '127.0.0.1'
         port: 1234
     it 'should use protocol-specific proxies if suitable', ->
@@ -106,7 +106,7 @@ describe 'Profiles', ->
         ['PROXY 127.0.0.1:1234', 'https'])
     it 'should use fallback proxies for other protocols', ->
       testProfile(profile, 'ftp://www.example.com/',
-        ['SOCKS5 127.0.0.1:1234', ''])
+        ['SOCKS 127.0.0.1:1234', ''])
     it 'should not use any proxy for requests matching the bypassList', ->
       testProfile profile, 'ftp://localhost/', ['DIRECT', profile.bypassList[0]]
   describe 'PacProfile', ->
@@ -119,12 +119,25 @@ describe 'Profiles', ->
     it 'should return the result of the pac script', ->
       testProfile(profile, 'ftp://www.example.com:9999/abc', null,
         'PROXY www.example.com:8080')
+    it 'should not fail for PAC with trailing comments', ->
+      p = Profiles.create('test', 'PacProfile')
+      p.pacScript = profile.pacScript + '''
+        // This is a trailing line comment.
+      '''
+      testProfile(p, 'ftp://www.example.com:9999/abc', null,
+        'PROXY www.example.com:8080')
+      p = Profiles.create('test', 'PacProfile')
+      p.pacScript = profile.pacScript + '''
+        /* This is a multiline comment which is not properly closed.
+      '''
+      testProfile(p, 'ftp://www.example.com:9999/abc', null,
+        'PROXY www.example.com:8080')
     it 'should return includable for non-file pacUrl', ->
       Profiles.isIncludable(profile).should.be.true
     it 'should return not includable for file: pacUrl', ->
-      profile = Profiles.create('test', 'PacProfile')
-      profile.pacUrl = 'file:///proxy.pac'
-      Profiles.isIncludable(profile).should.be.false
+      p = Profiles.create('test', 'PacProfile')
+      p.pacUrl = 'file:///proxy.pac'
+      Profiles.isIncludable(p).should.be.false
   describe 'SwitchProfile', ->
     profile = Profiles.create('test', 'SwitchProfile')
     profile.rules = [

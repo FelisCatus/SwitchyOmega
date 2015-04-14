@@ -311,8 +311,17 @@ module.exports = exports =
           new U2.AST_Dot property: 'call', expression: new U2.AST_Function(
             argnames: []
             body: [
+              # https://github.com/FelisCatus/SwitchyOmega/issues/390
+              # 1. Add \n after PAC to terminate line comment in PAC (// ...)
+              # 2. Add another \n with knowledge that the first can be escaped
+              #    by trailing backslash in PAC. (// ... \)
+              # 3. Add a multiline-comment block /* ... */ to terminate any
+              #    potential unclosed multiline-comment block. (/* ...)
+              # 4. And finally, a semicolon to terminate the final statement.
+              # Wait a moment. Do we really need to go this far? I don't know.
+
               # TODO(catus): Remove the hack needed to insert raw code.
-              new AST_Raw ';\n' + profile.pacScript + ';'
+              new AST_Raw ';\n' + profile.pacScript + '\n\n/* End of PAC */;'
               new U2.AST_Return value:
                 new U2.AST_SymbolRef name: 'FindProxyForURL'
             ]
