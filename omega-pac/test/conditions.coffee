@@ -231,7 +231,7 @@ describe 'Conditions', ->
       request = Conditions.requestFromUrl('http://192.168.4.4/')
       Conditions.match(cond, request).should.be.true
       compiled = Conditions.compile(cond).print_to_string()
-      compiled.should.equal('isInNet(host,"192.168.1.1","255.255.0.0")')
+      compiled.should.contain('isInNet(host,"192.168.1.1","255.255.0.0")')
     it 'should support IPv6 subnet', ->
       cond =
         conditionType: "IpCondition"
@@ -263,6 +263,55 @@ describe 'Conditions', ->
 
       request = Conditions.requestFromUrl('http://www.example.com/')
       Conditions.match(cond, request).should.be.false
+    it 'should not pass domain name to isInNet function', ->
+      ipToCompiledFunc = (ip, prefixLen) ->
+        cond =
+          conditionType: "IpCondition"
+          ip: ip
+          prefixLength: prefixLen
+
+        # In this test case, a dummy isInNet function that always returns true
+        # is used. We only care about whether it is called or not here.
+        dummyIsInNet = new U2.AST_Function(
+          argnames: []
+          body: [
+            new U2.AST_Return value: new U2.AST_True
+          ]
+        )
+        testFunc = new U2.AST_Function(
+          argnames: [
+            new U2.AST_SymbolFunarg name: 'url'
+            new U2.AST_SymbolFunarg name: 'host'
+            new U2.AST_SymbolFunarg name: 'scheme'
+          ]
+          body: [
+            new U2.AST_Var definitions: [
+              new U2.AST_VarDef(
+                name: new U2.AST_SymbolVar(name: 'isInNet')
+                value: dummyIsInNet
+              )
+            ]
+            new U2.AST_Return value: Conditions.compile(cond)
+          ]
+        )
+        console.log(Conditions.compile(cond).print_to_string())
+        eval('(' + testFunc.print_to_string() + ')')
+
+      compiledFunc = ipToCompiledFunc('0.0.0.0', 0)
+      compiledFunc(null, 'www.example.com').should.equal(false)
+      compiledFunc(null, '127.0.0.1').should.equal(true)
+
+      compiledFunc = ipToCompiledFunc('0.0.0.0', 1)
+      compiledFunc(null, 'www.example.com').should.equal(false)
+      compiledFunc(null, '127.0.0.1').should.equal(true)
+
+      compiledFunc = ipToCompiledFunc('::', 0)
+      compiledFunc(null, 'www.example.com').should.equal(false)
+      compiledFunc(null, '::1').should.equal(true)
+
+      compiledFunc = ipToCompiledFunc('::', 1)
+      compiledFunc(null, 'www.example.com').should.equal(false)
+      compiledFunc(null, '::1').should.equal(true)
 
   describe 'KeywordCondition', ->
     cond =

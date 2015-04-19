@@ -449,24 +449,26 @@ module.exports = exports =
         return addr.isInSubnet cache.addr
       compile: (condition, cache) ->
         cache = cache.analyzed
-        isInNetCall = new U2.AST_Call(
-          expression: new U2.AST_SymbolRef name: 'isInNet'
-          args: [
-            new U2.AST_SymbolRef name: 'host'
-            new U2.AST_String value: cache.normalized
-            new U2.AST_String value: cache.mask
-          ]
-        )
-        if cache.addr.v4 then isInNetCall else
-          isInNetExCall = new U2.AST_Call(
-            expression: new U2.AST_SymbolRef name: 'isInNetEx'
-            args: [
-              new U2.AST_SymbolRef name: 'host'
-              new U2.AST_String value: cache.addr.address
-            ]
-          )
-          alternative = if cache.addr.subnetMask > 0 then isInNetCall else
-            # ::/0 ==> Just detect whether address is IPv6 (containing colons).
+        # We want to make sure that host is not a domain name before we pass it
+        # to isInNet. Otherwise an expensive dns lookup might be triggered.
+        hostLooksLikeIp =
+          if cache.addr.v4
+            # For performance reasons, we just check the last character of host.
+            # If it's a digit, we assume that host is valid IPv4 address.
+            new U2.AST_Binary
+              left: new U2.AST_Sub
+                expression: new U2.AST_SymbolRef name: 'host'
+                property: new U2.AST_Binary
+                  left: new U2.AST_Dot(
+                    expression: new U2.AST_SymbolRef name: 'host'
+                    property: 'length'
+                  )
+                  operator: '-'
+                  right: new U2.AST_Number value: 1
+              operator: '>='
+              right: new U2.AST_Number value: 0
+          else
+            # Likewise, we assume that host is valid IPv6 if it contains colons.
             new U2.AST_Binary(
               left: new U2.AST_Call(
                 expression: new U2.AST_Dot(
@@ -478,7 +480,30 @@ module.exports = exports =
               operator: '>='
               right: new U2.AST_Number value: 0
             )
-          new U2.AST_Conditional(
+        if cache.addr.subnetMask == 0
+          # 0.0.0.0/0 (matches all IPv4 literals), or ::/0 (all IPv6 literals).
+          # Use hostLooksLikeIp instead of isInNet for better efficiency and
+          # browser support.
+          return hostLooksLikeIp
+        hostIsInNet = new U2.AST_Call(
+          expression: new U2.AST_SymbolRef name: 'isInNet'
+          args: [
+            new U2.AST_SymbolRef name: 'host'
+            new U2.AST_String value: cache.normalized
+            new U2.AST_String value: cache.mask
+          ]
+        )
+        if cache.addr.v6
+          hostIsInNetEx = new U2.AST_Call(
+            expression: new U2.AST_SymbolRef name: 'isInNetEx'
+            args: [
+              new U2.AST_SymbolRef name: 'host'
+              new U2.AST_String value: cache.normalized
+              new U2.AST_String value: cache.mask
+            ]
+          )
+          # Use isInNetEx if possible.
+          hostIsInNet = new U2.AST_Conditional(
             condition: new U2.AST_Binary(
               left: new U2.AST_UnaryPrefix(
                 operator: 'typeof'
@@ -487,9 +512,14 @@ module.exports = exports =
               operator: '==='
               right: new U2.AST_String value: 'function'
             )
-            consequent: isInNetExCall
-            alternative: alternative
+            consequent: hostIsInNetEx
+            alternative: hostIsInNet
           )
+        return new U2.AST_Binary(
+          left: hostLooksLikeIp
+          operator: '&&'
+          right: hostIsInNet
+        )
       str: (condition) -> condition.ip + '/' + condition.prefixLength
       fromStr: (str, condition) ->
         [ip, prefixLength] = str.split('/')
