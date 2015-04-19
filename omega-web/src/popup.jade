@@ -161,7 +161,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           button.btn.btn-default(type='button' ng-click='showRequestInfo = false')
             | {{'dialog_cancel' | tr}}
           button.btn.btn-primary(type='submit' ng-show='!!currentProfileCanAddRule') {{'popup_addCondition' | tr}}
-          button.btn.btn-default.pull-right(type='submit' ng-show='!currentProfileCanAddRule'
+          button.btn.btn-default.pull-right(type='button' ng-show='!currentProfileCanAddRule'
             ng-click='openOptions("#/general")') {{'popup_configureMonitorWebRequests' | tr}}
 
     script(src='js/log_error.js')
