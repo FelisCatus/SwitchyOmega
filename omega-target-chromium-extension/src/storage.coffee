@@ -24,6 +24,10 @@ class ChromeStorage extends OmegaTarget.Storage
         err = new OmegaTarget.Storage.RateLimitExceededError()
         err.perMinute = true
         err.sustained = 10
+      else if err.message.indexOf('is not available') >= 0
+        # This could happen if the storage area is not available. For example,
+        # some Chromium-based browsers disable access to the sync storage.
+        err = new OmegaTarget.Storage.StorageUnavailableError()
 
     return Promise.reject(err)
 

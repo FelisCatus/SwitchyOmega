@@ -20,6 +20,17 @@ class Storage
       constructor: -> super
 
   ###*
+  # If this storage is not available for some reason, all operations should
+  # reject with an instance of StorageUnavailableError, when implemented in
+  # derived classes of Storage.
+  # This error is considered fatal and unrecoverable in the current environment.
+  # Further access to this storage should be avoided until restart.
+  ###
+  @StorageUnavailableError:
+    class StorageUnavailableError extends Error
+      constructor: -> super
+
+  ###*
   # A set of operations to be performed on a Storage.
   # @typedef WriteOperations
   # @type {object}

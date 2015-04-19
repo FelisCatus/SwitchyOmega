@@ -89,7 +89,14 @@ class Options
       else
         @_state.set({'syncOptions': 'sync'})
         @_syncWatchStop = @sync.watchAndPull(@_storage)
-        @sync.copyTo(@_storage).then =>
+        @sync.copyTo(@_storage).catch(Storage.StorageUnavailableError, =>
+          console.error('Warning: Sync storage is not available in this ' +
+            'browser! Disabling options sync.')
+          @_syncWatchStop?()
+          @_syncWatchStop = null
+          @sync = null
+          @_state.set({'syncOptions': 'unsupported'})
+        ).then =>
           @_storage.get(null)
 
     @optionsLoaded = loadRaw.then((options) =>
