@@ -263,19 +263,42 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
     omegaTarget.state('currentProfileCanAddRule')
   ).then (value) ->
     $scope.currentProfileCanAddRule = value
-    if $scope.currentProfileCanAddRule
-      currentDomain = $scope.currentDomain
-      currentDomainEscaped = currentDomain.replace('.', '\\.')
+
+  $scope.prepareConditionForm = ->
+    currentDomain = $scope.currentDomain
+    currentDomainEscaped = currentDomain.replace(/\./g, '\\.')
+    domainLooksLikeIp = false
+    if currentDomain.indexOf(':') >= 0
+      domainLooksLikeIp = true
+      if currentDomain[0] != '['
+        currentDomain = '[' + currentDomain + ']'
+        currentDomainEscaped = currentDomain.replace(/\./g, '\\.')
+          .replace(/\[/g, '\\[').replace(/\]/g, '\\]')
+    else if currentDomain[currentDomain.length - 1] >= 0
+      domainLooksLikeIp = true
+
+    if domainLooksLikeIp
+      conditionSuggestion =
+        'HostWildcardCondition': currentDomain
+        'HostRegexCondition': '^' + currentDomainEscaped + '$'
+        'UrlWildcardCondition': '*://' + currentDomain + '/*'
+        'UrlRegexCondition': '://' + currentDomainEscaped + '(:\\d+)?/'
+        'KeywordCondition': currentDomain
+    else
       conditionSuggestion =
         'HostWildcardCondition': '*.' + currentDomain
         'HostRegexCondition': '(^|\\.)' + currentDomainEscaped + '$'
         'UrlWildcardCondition': '*://*.' + currentDomain + '/*'
-        'UrlRegexCondition': '://([^/.]+\\.)*' + currentDomainEscaped + '/'
+        'UrlRegexCondition':
+          '://([^/.]+\\.)*' + currentDomainEscaped + '(:\\d+)?/'
         'KeywordCondition': currentDomain
-      $scope.rule =
-        condition:
-          conditionType: 'HostWildcardCondition'
-          pattern: conditionSuggestion['HostWildcardCondition']
-        profileName: preselectedProfileNameForCondition
-      $scope.$watch 'rule.condition.conditionType', (type) ->
-        $scope.rule.condition.pattern = conditionSuggestion[type]
+
+    $scope.rule =
+      condition:
+        conditionType: 'HostWildcardCondition'
+        pattern: conditionSuggestion['HostWildcardCondition']
+      profileName: preselectedProfileNameForCondition
+    $scope.$watch 'rule.condition.conditionType', (type) ->
+      $scope.rule.condition.pattern = conditionSuggestion[type]
+
+    $scope.showConditionForm = true
