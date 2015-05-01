@@ -254,6 +254,14 @@ describe 'Profiles', ->
       testProfile(profile, 'http://localhost/example.com', ['+default', null])
       testProfile(profile, 'http://localhost/example.org',
         ruleListResult('example', 'example.org'))
+    it 'should not fail when ruleList is not provided', ->
+      p =
+        profileType: 'RuleListProfile'
+        format: 'Switchy'
+        matchProfileName: 'match'
+        defaultProfileName: 'default'
+      Profiles.directReferenceSet(p).should.be.an 'object'
+      testProfile(p, 'http://localhost/example.com', ['+default', null])
     it 'should switch to AutoProxy format on update if detected', ->
       profile = Profiles.create('test2', 'RuleListProfile')
       profile.format = 'Switchy'

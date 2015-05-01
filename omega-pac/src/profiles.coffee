@@ -401,8 +401,9 @@ module.exports = exports =
         profile.matchProfileName ?= 'direct'
         profile.ruleList ?= ''
       directReferenceSet: (profile) ->
-        refs = RuleList[profile.format]?.directReferenceSet?(profile)
-        return refs if refs
+        if profile.ruleList?
+          refs = RuleList[profile.format]?.directReferenceSet?(profile)
+          return refs if refs
         refs = {}
         for name in [profile.matchProfileName, profile.defaultProfileName]
           refs[exports.nameAsKey(name)] = name
