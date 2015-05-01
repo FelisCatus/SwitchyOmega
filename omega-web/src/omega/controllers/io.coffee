@@ -1,5 +1,9 @@
 angular.module('omega').controller 'IoCtrl', ($scope, $rootScope,
-  $window, omegaTarget) ->
+  $window, $http, omegaTarget) ->
+
+  omegaTarget.state('web.restoreOnlineUrl').then (url) ->
+    if url
+      $scope.restoreOnlineUrl = url
 
   $scope.exportOptions = ->
     $rootScope.applyOptionsConfirm().then ->
@@ -21,6 +25,7 @@ angular.module('omega').controller 'IoCtrl', ($scope, $rootScope,
       $scope.importSuccess()
     ), -> $scope.restoreLocalError()).finally ->
       $scope.restoringLocal = false
+
   $scope.restoreLocalError = ->
     $rootScope.showAlert(
       type: 'error'
@@ -37,15 +42,20 @@ angular.module('omega').controller 'IoCtrl', ($scope, $rootScope,
     angular.element('#restore-local-file').click()
     return
   $scope.restoreOnline = ->
-    $.ajax(
-      url: $scope.restoreOnlineUrl,
-      success: (content) -> $scope.$apply ->
-        $scope.restoreLocal(content)
-      error: $scope.downloadError,
-      dataType: "text",
-      cache: false,
+    omegaTarget.state('web.restoreOnlineUrl', $scope.restoreOnlineUrl)
+    $scope.restoringOnline = true
+    $http(
+      method: 'GET'
+      url: $scope.restoreOnlineUrl
+      cache: false
       timeout: 10000
-    )
+      responseType: "text"
+    ).then(((result) ->
+      $rootScope.resetOptions(result.data).then (->
+        $scope.importSuccess()
+      ), -> $scope.restoreLocalError()
+    ), $scope.downloadError).finally ->
+      $scope.restoringOnline = false
 
   $scope.enableOptionsSync = (args) ->
     enable = ->

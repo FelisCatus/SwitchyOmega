@@ -34,7 +34,8 @@ section.settings-group
     .input-group.width-limit
       input.form-control(type='url' ng-model='restoreOnlineUrl' placeholder="{{'options_restoreOnlinePlaceholder' | tr}}")
       span.input-group-btn
-        button.btn.btn-default(ng-click='restoreOnline()') {{'options_restoreOnlineSubmit' | tr}}
+        button.btn.btn-default(ng-click='restoreOnline()' ladda='restoringOnline' data-spinner-color="#000000")
+          | {{'options_restoreOnlineSubmit' | tr}}
 section.settings-group
   h3 {{'options_group_syncing' | tr}}
   div(ng-show='syncOptions == "pristine" || syncOptions == "disabled"')
