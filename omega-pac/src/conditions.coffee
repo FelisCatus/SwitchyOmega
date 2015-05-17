@@ -1,5 +1,5 @@
 U2 = require 'uglify-js'
-IP = require 'ipv6'
+IP = require 'ip-address'
 Url = require 'url'
 {shExp2RegExp, escapeSlash} = require './shexp_utils'
 {AttachedCache} = require './utils'

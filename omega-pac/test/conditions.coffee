@@ -294,7 +294,6 @@ describe 'Conditions', ->
             new U2.AST_Return value: Conditions.compile(cond)
           ]
         )
-        console.log(Conditions.compile(cond).print_to_string())
         eval('(' + testFunc.print_to_string() + ')')
 
       compiledFunc = ipToCompiledFunc('0.0.0.0', 0)

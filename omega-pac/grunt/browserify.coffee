@@ -4,7 +4,7 @@ module.exports =
       'index.js': 'index.coffee'
     options:
       transform: ['coffeeify']
-      exclude: ['uglify-js', 'ipv6']
+      exclude: ['uglify-js', 'ip-address']
       browserifyOptions:
         extensions: '.coffee'
         builtins: []
