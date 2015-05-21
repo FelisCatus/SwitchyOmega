@@ -3,95 +3,99 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-02-13 10:29+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-05-21 12:48+0200\n"
+"Last-Translator: Masoud <mrem71@gmail.com>\n"
+"Language-Team: Persian "
+"<https://hosted.weblate.org/projects/switchyomega/main/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
 
 msgid "manifest_app_name"
-msgstr "Proxy SwitchyOmega"
+msgstr "پروکسی SwitchyOmega"
 
 msgid "manifest_app_description"
-msgstr "Manage and switch between multiple proxies quickly & easily."
+msgstr ""
+"به راحتی و با سرعت بین پروکسی های خود جابهجا شوید و آنها را مدیریت کنید ."
 
 msgid "manifest_icon_default_title"
-msgstr "Loading…"
+msgstr "درحال بارگذاری .…"
 
 msgid "upgrade_profile_auto"
-msgstr "Auto Switch"
+msgstr "سوییچ خودکار"
 
 msgid "profile_direct"
-msgstr "[Direct]"
+msgstr "[مستقیم]"
 
 msgid "profile_system"
-msgstr "[System Proxy]"
+msgstr "[پروکسی سیستم]"
 
 msgid "condition_HostWildcardCondition"
-msgstr "Host wildcard"
+msgstr "فرانویسه (Wildcard) میزبان"
 
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
-"Matches hosts (domain names) by wildcard.<br><b>The asterisk <code>*</code></"
-"b> matches zero or more characters.<br><b>The question mark <code>?</code></"
-"b> matches exactly one character.<br><br>Note that rules beginning with "
-"<code>*.</code> are specially treated only in Host wildcard conditions."
-"<br>Example: <code>*.example.com</code> will match www.example.com <b>AND "
-"example.com as well.</b><br>To match subdomains <b>only</b>, use <b>two</b> "
-"asterisks like <code>**.example.com</code>."
+"انتخاب و تطبیق میزبان ها ( نام دامین ) به کمک فرا نویسه . <br><b> ستاره "
+"<code>*</code></b> صفر کارکتر یا بیشتر را تطابق میدهد .<br><b> علامت سوال "
+"<code>?</code></b> فقط یک کارکتر را انتخاب و تطابق میدهد ..<br><br>توجه "
+"داشته باشید که قوانینی که با <code>*</code>شروع میشوند به صورت ویژه تنها در "
+"شروط فرانویسه ایه میزبان کاربرد دارند .<br> به طور مثال: "
+"<code>*.example.com</code>  این ادرس ها را تشخیص میدهد. <b> www.example.com "
+"و example.com .</b><br برای انتخاب زیر دامنه ها <b>کافیست</b> ، از <b>دو</b> "
+"ستاره استفاده نمایید . <code>**.example.com</code>."
 
 msgid "condition_HostRegexCondition"
-msgstr "Host regex"
+msgstr "عبارت منظم میزبان"
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
-"Like Host wildcard condition, but matches hosts (domain names) by <a "
-"href='https://www.google.com/search?q=regular%20expression'>regular "
-"expression</a>.<br>Regular expressions can be hard to construct (and read)."
-"<br>It is recommended to use wildcards for most cases and only use regex for "
-"conditions that cannot be achieved by any other condition type."
+"همانند شرط فرانویسه ی میزبان،اما با کمک <a "
+"href='https://www.google.com/search?q=عبارت+منظم'>عبارت منظم</a>.<br> میزبان "
+"ها ( اسامی دامنه ها ) را انتخاب و تطابق میدهد . نوشتن یا حتی خواندن عبارات "
+"منظم میتواند سخت باشد.<br> پیشنهاد میشود که از فرانویسه استفاده کنید و فقط "
+"در مواقعی که به هیچ روشی نمیشود عبارتی رو یافت از عبارات منظم استفاده کنید ."
 
 msgid "condition_HostLevelsCondition"
-msgstr "Host levels"
+msgstr "سطح های میزبان"
 
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
-"Matches the request if and only if the host level in within the given range."
-"<br>Host level is defined as the <b>number of dot-separated segments</b> of "
-"the host (domain name).<br>Example: <code>www.example.com</code> is with a "
-"host level of 3, while <code>internal</code> is of host level 1."
+"تنها درصورتی درخواست را انطباق میدهد که سطح میزبان در محدوده ی داده شده باشد "
+".<br> به <b> تعداد بخش های جدا شده توسط نقطه ( دات )</b> سطح میزبان ، هاست ( "
+"دامنه ) داده شده میگویند . <br> به طور مثال <code>www.example.com</code>  "
+"دارای سطح میزابن سه میباشد ، در حالی که <code>داخل</code> سطح میزبان یک را "
+"دارد."
 
 msgid "condition_UrlWildcardCondition"
-msgstr "URL wildcard"
+msgstr "فرانویسه ادرس (URL)"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
-"Matches URLs of the request by wildcard.<br>See the Host wildcard section "
-"above for a quick wildcard reference.<br>Note that URL wildcards are not "
-"specially treated (no subdomain magic as in Host wildcard).<br>So <code>*://"
-"*.example.com/*</code> matches http://www.example.com/ but <b>does not</b> "
-"match http://example.com/."
+"ادرس های درخواست داده شده را به کمک فرانویسه بررسی و مطابقت میدهد .<br> برای "
+"اشنایی با فرانویسه به بخش فرانویسه ی میزبان مراجعه کنید .<br> توجه داشته "
+"باشید که فرانویسه ی آدرس به صورت ویژه ای برخورد نمیشوند ( تشخیص جادویی "
+"زیردامنه همانند هاست وجود ندارد ) <br> بنابراین دستور "
+"<code>*://*.example.com/*</code> ادرس http://www.example.com/ را تشخیص میدهد "
+"اما  این ادرس http://example.com را<b>تشخیص نمیدهد .</b>."
 
 msgid "condition_UrlRegexCondition"
-msgstr "URL regex"
+msgstr "عبارت منظم ادرس"
 
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
-"Matches URL by extremely powerful <a href='https://www.google.com/search?"
-"q=regular%20expression'>regular expression</a>.<br>However, regular "
-"expressions can be hard to construct (and read).<br>It is recommended to use "
-"wildcards for most cases and only use regex for conditions that cannot be "
-"achieved by any other condition type."
+"ادرس ها  را ابزار قدرتمند <a "
+"href='https://www.google.com/search?q=عبارت+منظم'>عبارت منظم</a> تشخیص و "
+"انتطباق میدهد .<br> پیشنهاد میشود که از فرانویسه استفاده کنید و فقط در "
+"مواقعی که به هیچ روشی نمیشود عبارتی رو یافت از عبارات منظم استفاده کنید ."
 
 msgid "condition_KeywordCondition"
-msgstr "Keyword"
+msgstr "کلمات کلیدی"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
@@ -102,10 +106,10 @@ msgstr ""
 "blocking some keywords in the URL, by requesting such URLs through a proxy."
 
 msgid "condition_FalseCondition"
-msgstr "(Disabled)"
+msgstr "(غیرفعال)"
 
 msgid "condition_details_FalseCondition"
-msgstr "(Condition ignored when matching)"
+msgstr "(درحین بررسی این شرط در نظر گرفته نمیشود)"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
@@ -116,22 +120,22 @@ msgstr ""
 "the condition type back to the previous type."
 
 msgid "condition_group_default"
-msgstr " "
+msgstr ""
 
 msgid "condition_group_host"
-msgstr "Host"
+msgstr "میزبان"
 
 msgid "condition_group_url"
-msgstr "Url"
+msgstr "ادرس"
 
 msgid "condition_group_special"
-msgstr "Special"
+msgstr "ویژه"
 
 msgid "ruleListFormat_Switchy"
 msgstr "Switchy"
 
 msgid "ruleListFormat_AutoProxy"
-msgstr "AutoProxy"
+msgstr "پروکسی خودکار"
 
 msgid "ruleList_usageUrl"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
@@ -152,70 +156,70 @@ msgid "ruleList_error_noDefaultRule"
 msgstr "Missing default rule with catch-all '*' condition!"
 
 msgid "dialog_close"
-msgstr "Close"
+msgstr "بستن"
 
 msgid "dialog_save"
-msgstr "Save changes"
+msgstr "ذخیره تغییرات"
 
 msgid "dialog_ok"
-msgstr "OK"
+msgstr "اکی"
 
 msgid "dialog_cancel"
-msgstr "Cancel"
+msgstr "کنسل"
 
 msgid "inputClear_clear"
-msgstr "Clear"
+msgstr "پاک"
 
 msgid "inputClear_restore"
-msgstr "Restore"
+msgstr "بازگرداندن"
 
 msgid "options_title"
-msgstr "SwitchyOmega Options"
+msgstr "تنظیمات SwitchyOmega"
 
 msgid "options_navHeader_setting"
-msgstr "Settings"
+msgstr "تنظیمات"
 
 msgid "options_navHeader_profiles"
-msgstr "Profiles"
+msgstr "پروفایل ها"
 
 msgid "options_navHeader_actions"
-msgstr "Actions"
+msgstr "اکشن ها"
 
 msgid "options_tab_ui"
-msgstr "Interface"
+msgstr "رابط"
 
 msgid "options_tab_general"
-msgstr "General"
+msgstr "عمومی"
 
 msgid "options_tab_importExport"
-msgstr "Import/Export"
+msgstr "واردکردن/خروجی گرفتن"
 
 msgid "options_newProfile"
-msgstr "New profile…"
+msgstr "پروفایل جدید .…"
 
 msgid "options_apply"
-msgstr "Apply changes"
+msgstr "ذخیره ی تغییرات"
 
 msgid "options_discard"
-msgstr "Discard changes"
+msgstr "بیخیال تغییرات"
 
 msgid "options_reset"
-msgstr "Reset options"
+msgstr "ریست کردن تنظیمات"
 
 msgid "options_group_miscOptions"
-msgstr "Misc Options"
+msgstr "دیگر تنظیمات"
 
 msgid "options_confirmDeletion"
-msgstr "Confirm on condition deletion."
+msgstr "تصدیق در زمان حذف شروط."
 
 msgid "options_refreshOnProfileChange"
-msgstr "Refresh current tab on profile change."
+msgstr "رفرش کردن تب کنونی در هنگام تغییر پروفایل."
 
 msgid "options_showInspectMenu"
 msgstr "Allow inspecting proxy used for page elements via context menu."
 
 msgid "options_group_keyboardShortcut"
-msgstr "Keyboard Shortcut"
+msgstr "میانبرد های کیبرد"
 
 msgid "options_menuShortcutHelp"
 msgstr ""
@@ -228,19 +232,19 @@ msgstr ""
 "(or /) in the menu to learn more."
 
 msgid "options_menuShortcutConfigure"
-msgstr "Configure shortcut"
+msgstr "تنظیم میانبر ها"
 
 msgid "options_group_switchOptions"
-msgstr "Switch Options"
+msgstr "تنظیم جابه جایی"
 
 msgid "options_startupProfile"
-msgstr "Startup Profile"
+msgstr "پروفایل شروع برنامه"
 
 msgid "options_startupProfile_none"
-msgstr "(Current profile)"
+msgstr "(پروفایل کنونی)"
 
 msgid "options_showConditionTypesAdvanced"
-msgstr "Show advanced condition types"
+msgstr "نمایش حالت های پیشرفته ی شروط"
 
 msgid "options_showConditionTypesAdvancedHelp"
 msgstr ""
@@ -249,10 +253,10 @@ msgstr ""
 "recommended."
 
 msgid "options_quickSwitch"
-msgstr "Quick Switch"
+msgstr "جا به جایی سریع"
 
 msgid "options_cycledProfiles"
-msgstr "Cycled Profiles"
+msgstr "پروفایل های چرخشی"
 
 msgid "options_cycledProfilesHelp"
 msgstr ""
@@ -268,16 +272,16 @@ msgid "options_notCycledProfiles"
 msgstr "Not Cycled Profiles"
 
 msgid "options_group_proxyChanges"
-msgstr "Proxy Changes"
+msgstr "تغییر پروکسی"
 
 msgid "options_revertProxyChanges"
-msgstr "Revert proxy changes done by other apps."
+msgstr "بازگرداندن تغییرات پروکسی انجام شده توسط دیگر برنامه ها."
 
 msgid "options_group_networkRequests"
-msgstr "Network Requests"
+msgstr "درخواست های شبکه"
 
 msgid "options_monitorWebRequests"
-msgstr "Show count of failed web requests for resources in the current tab."
+msgstr "نمایش میزان درخواست های  ناموفق منابع وب در تب کنونی."
 
 msgid "options_monitorWebRequestsHelp"
 msgstr ""
@@ -286,45 +290,44 @@ msgstr ""
 "popup menu."
 
 msgid "options_downloadOptions"
-msgstr "Download Options"
+msgstr "دانلود تنظیمات"
 
 msgid "options_downloadOptionsHelp"
 msgstr "Configure the update frequency of online rule lists and PAC scripts."
 
 msgid "options_downloadInterval"
-msgstr "Download Interval"
+msgstr "فاصله ی دانلود"
 
 msgid "options_downloadInterval_15"
-msgstr "15 Minutes"
+msgstr "15 دقیقه"
 
 msgid "options_downloadInterval_60"
-msgstr "1 Hour"
+msgstr "1 ساعت"
 
 msgid "options_downloadInterval_180"
-msgstr "3 Hours"
+msgstr "3 ساعت"
 
 msgid "options_downloadInterval_360"
-msgstr "6 Hours"
+msgstr "6 ساعت"
 
 msgid "options_downloadInterval_720"
-msgstr "12 Hours"
+msgstr "12 ساعت"
 
 msgid "options_downloadInterval_1440"
-msgstr "Every day"
+msgstr "هر روز"
 
 msgid "options_downloadInterval_never"
-msgstr "Never"
+msgstr "هرگز"
 
 msgid "options_group_importExportProfile"
-msgstr "Profile"
+msgstr "پروفایل"
 
 msgid "options_exportPacFile"
-msgstr "Export as PAC File"
+msgstr "خروجی به صورت فایل PAC"
 
 msgid "options_exportPacFileHelp"
 msgstr ""
-"Export the current profile as a PAC file, so you can use it in other "
-"browsers."
+"خروجی گرفتن پروفایل کنونی به صورت فایل PAC ، برای استفاده در دیگر مرورگرها ."
 
 msgid "options_exportProfileHelp"
 msgstr "To export a profile, use the top-right action bar on the profile page."
@@ -341,42 +344,40 @@ msgstr ""
 "SwitchyOmega for the improvements."
 
 msgid "options_group_importExportSettings"
-msgstr "Settings"
+msgstr "تنظیمات"
 
 msgid "options_makeBackup"
-msgstr "Make backup"
+msgstr "گرفتن پشتیبان"
 
 msgid "options_makeBackupHelp"
-msgstr ""
-"Make a full backup of your options (including profiles and all other "
-"options)."
+msgstr "گرفتن پشتیبان کامل از تنظیمات ( شامل پروفایل ها و تمامی تنظیمات )."
 
 msgid "options_restoreLocal"
-msgstr "Restore from file"
+msgstr "برگرداندن از فایل"
 
 msgid "options_restoreLocalHelp"
-msgstr "Restore your SwitchyOmega options from a local file."
+msgstr "برگرداندن تنظیمات SwitchyOmega  از یک فایل محلی."
 
 msgid "options_restoreOnline"
-msgstr "Restore from online"
+msgstr "بازگرداندن از فایل آنلاین"
 
 msgid "options_restoreOnlinePlaceholder"
 msgstr "Options file URL (e.g. 'http://example.com/switchy.bak')"
 
 msgid "options_restoreOnlineSubmit"
-msgstr "Restore"
+msgstr "بازگرداندن"
 
 msgid "options_group_syncing"
-msgstr "Syncing (Experimental)"
+msgstr "همگام سازی ( ازمایشی )"
 
 msgid "options_syncEnable"
-msgstr "Enable Syncing"
+msgstr "فعال سازی همگام سازی"
 
 msgid "options_syncEnableForce"
-msgstr "Download from Syncing"
+msgstr "دانلود از همگام سازی"
 
 msgid "options_syncDisable"
-msgstr "Disable syncing"
+msgstr "غیرفعال کردن همگام سازی"
 
 msgid "options_syncReset"
 msgstr "Clear remote copy"
@@ -411,28 +412,28 @@ msgstr ""
 "Chrome browser on desktop is supported."
 
 msgid "options_profileSyncDisabled"
-msgstr "Syncing is disabled for this profile."
+msgstr "همگام سازی برای این پروفایل غیرفعال میباشد ."
 
 msgid "options_profileSyncDisabled_quotaPerItem"
 msgstr "Syncing is disabled for this profile for using too much storage space."
 
 msgid "options_profileTabPrefix"
-msgstr "Profile :: "
+msgstr "پروفایل :: "
 
 msgid "options_renameProfile"
-msgstr "Rename"
+msgstr "تغییر نام"
 
 msgid "options_deleteProfile"
-msgstr "Delete"
+msgstr "پاک کردن"
 
 msgid "options_profileExportRuleList"
-msgstr "Publish rule list"
+msgstr "انتشار لیست قوانین"
 
 msgid "options_profileExportRuleListHelp"
 msgstr "Export Switch Rules as text format for publishing."
 
 msgid "options_profileExportPac"
-msgstr "Export PAC"
+msgstr "خروج PAC"
 
 msgid "options_profileUnsupported"
 msgstr "Unsupported profile type $TYPE$!"
@@ -441,10 +442,10 @@ msgid "options_profileUnsupportedHelp"
 msgstr "The options could be broken, or from a newer version of this program."
 
 msgid "options_profileEditSource"
-msgstr "Edit source code"
+msgstr "ویرایش سورس کد"
 
 msgid "options_profileEditSourceHelp"
-msgstr "Show help about the source code format"
+msgstr "نمایش کمک درباره ی فرمت سورس کد"
 
 msgid "options_profileEditSourceHelpUrl"
 msgstr ""
@@ -452,22 +453,22 @@ msgstr ""
 "format#result-profile"
 
 msgid "options_group_proxyServers"
-msgstr "Proxy servers"
+msgstr "سرور های پروکسی"
 
 msgid "options_proxy_scheme"
-msgstr "Scheme"
+msgstr "طرح"
 
 msgid "options_proxy_protocol"
-msgstr "Protocol"
+msgstr "پروتکل"
 
 msgid "options_proxy_server"
-msgstr "Server"
+msgstr "سرور"
 
 msgid "options_proxy_port"
-msgstr "Port"
+msgstr "پورت"
 
 msgid "options_proxy_auth"
-msgstr "Authentication"
+msgstr "تصدیق"
 
 msgid "options_proxy_authAllWarningPac"
 msgstr ""
@@ -491,19 +492,19 @@ msgstr ""
 "profiles."
 
 msgid "options_scheme_default"
-msgstr "(default)"
+msgstr "(پیش فرض)"
 
 msgid "options_protocol_direct"
-msgstr "DIRECT"
+msgstr "مستقیم"
 
 msgid "options_protocol_useDefault"
-msgstr "(use default)"
+msgstr "(استفاده از پیش فرض)"
 
 msgid "options_proxy_single"
-msgstr "Use the proxy above for all protocols."
+msgstr "استفاده از پروکسی بالا برای همه ی پروتکل ها."
 
 msgid "options_proxy_expand"
-msgstr "Show Advanced"
+msgstr "نمایش پیشرفته"
 
 msgid "options_group_bypassList"
 msgstr "Bypass List"
@@ -517,7 +518,7 @@ msgid "options_bypassListHelpLinkText"
 msgstr "(Wildcards and more available…)"
 
 msgid "options_group_pacUrl"
-msgstr "PAC URL"
+msgstr "آدرس PAc"
 
 msgid "options_pacUrlHelp"
 msgstr ""
@@ -536,7 +537,7 @@ msgstr ""
 "new PAC profile for that if you really want that."
 
 msgid "options_group_pacScript"
-msgstr "PAC Script"
+msgstr "اسکریپت PAC"
 
 msgid "options_pacScriptLastUpdate"
 msgstr "PAC script downloaded at $TIME$:"
@@ -547,10 +548,10 @@ msgstr ""
 "update."
 
 msgid "options_group_virtualProfile"
-msgstr "Virtual Profile"
+msgstr "پرووفایل مجازی"
 
 msgid "options_virtualProfileTarget"
-msgstr "Target"
+msgstr "هدف"
 
 msgid "options_virtualProfileTargetHelp"
 msgstr ""
