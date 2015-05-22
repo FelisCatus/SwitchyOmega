@@ -1,6 +1,6 @@
 module.exports = exports =
   regExpMetaChars: do ->
-    chars = '''[\^$.|?*+(){}/'''
+    chars = '''\\[\^$.|?*+(){}/'''
     set = {}
     for i in [0...chars.length]
       set[chars.charCodeAt(i)] = true
