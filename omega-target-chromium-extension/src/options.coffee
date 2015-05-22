@@ -98,7 +98,7 @@ class ChromeOptions extends OmegaTarget.Options
         else
           # Try to set the proxies of all possible protocols.
           for protocol in protocols
-            rules[protocol] ?= profile.fallbackProxy
+            rules[protocol] ?= JSON.parse(JSON.stringify(profile.fallbackProxy))
       else
         rules['fallbackProxy'] = profile.fallbackProxy
     else if not protocolProxySet
