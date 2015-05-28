@@ -106,7 +106,13 @@ class ChromeOptions extends OmegaTarget.Options
       config['mode'] = 'direct'
 
     if config['mode'] != 'direct'
-      rules['bypassList'] = profile.bypassList.map((b) -> b.pattern)
+      rules['bypassList'] = bypassList = []
+      for rule in profile.bypassList
+        if rule.pattern == '<local>'
+          for host in OmegaPac.Conditions.localHosts
+            bypassList.push(host)
+        else
+          bypassList.push(rule.pattern)
       config['rules'] = rules
     return config
 
