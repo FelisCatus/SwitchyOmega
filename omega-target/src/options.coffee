@@ -23,6 +23,7 @@ class Options
   _revertToProfileName: null
   _watchingProfiles: {}
   _tempProfile: null
+  _tempProfileActive: false
   fallbackProfileName: 'system'
   _isSystem: false
   debugStr: 'Options'
@@ -519,7 +520,9 @@ class Options
     @currentProfileChanged(options?.reason)
     if options? and options.proxy == false
       return Promise.resolve()
-    if @_tempProfile?
+    @_tempProfileActive = false
+    if @_tempProfile? and OmegaPac.Profiles.isIncludable(profile)
+      @_tempProfileActive = true
       if @_tempProfile.defaultProfileName != profile.name
         @_tempProfile.defaultProfileName = profile.name
         @_tempProfile.color = profile.color
@@ -614,7 +617,7 @@ class Options
   ###
   isCurrentProfileStatic: ->
     return true if not @_currentProfileName
-    return false if @_tempProfile
+    return false if @_tempProfileActive
     currentProfile = @currentProfile()
     return false if OmegaPac.Profiles.isInclusive(currentProfile)
     return true
@@ -898,8 +901,11 @@ class Options
     if not @_currentProfileName
       return Promise.resolve({profile: @_externalProfile, results: []})
     results = []
-    profile = @_tempProfile
-    profile ?= OmegaPac.Profiles.byName(@_currentProfileName, @_options)
+    profile =
+      if @_tempProfileActive
+        @_tempProfile
+      else
+        OmegaPac.Profiles.byName(@_currentProfileName, @_options)
     while profile
       lastProfile = profile
       result = OmegaPac.Profiles.match(profile, request)
