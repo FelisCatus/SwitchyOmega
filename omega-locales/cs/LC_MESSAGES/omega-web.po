@@ -1005,7 +1005,7 @@ msgid "popup_reportIssues"
 msgstr "Report problémů"
 
 msgid "popup_errorLog"
-msgstr "Protokol chyb"
+msgstr "Exportovat Protokol chyb"
 
 msgid "popup_requestErrorCount"
 msgstr "$COUNT$ chybových požadavků"
@@ -1110,3 +1110,6 @@ msgstr "Zkontrolujte, zda server proxy používaná tento prvek"
 
 msgid "contextMenu_inspectElement"
 msgstr "Zkontrolujte, zda server proxy používaná tento prvek"
+
+msgid "contextMenu_enableQuickSwitch"
+msgstr "Povolit Rychlé přepínání"

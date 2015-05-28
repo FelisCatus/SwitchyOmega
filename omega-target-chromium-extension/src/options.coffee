@@ -1,4 +1,4 @@
-OmegaTarget = require('omega-target')
+OcontextMenu_inspectElementmegaTarget = require('omega-target')
 OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 xhr = Promise.promisify(require('xhr'))
@@ -165,7 +165,24 @@ class ChromeOptions extends OmegaTarget.Options
       return
 
   _quickSwitchInit: false
-  setQuickSwitch: (quickSwitch) ->
+  _quickSwitchContextMenuCreated: false
+  _quickSwitchCanEnable: false
+  setQuickSwitch: (quickSwitch, canEnable) ->
+    @_quickSwitchCanEnable = canEnable
+    if not @_quickSwitchContextMenuCreated
+      @_quickSwitchContextMenuCreated = true
+      if quickSwitch
+        chrome.contextMenus.update('enableQuickSwitch', {checked: true})
+      window.OmegaContextMenuQuickSwitchHandler = (info) =>
+        changes = {}
+        changes['-enableQuickSwitch'] = info.checked
+        setOptions = @_setOptions(changes)
+        if info.checked and not @_quickSwitchCanEnable
+          setOptions.then ->
+            chrome.tabs.create(
+              url: chrome.extension.getURL('options.html#/ui')
+            )
+
     if quickSwitch
       chrome.browserAction.setPopup({popup: ''})
       if not @_quickSwitchInit

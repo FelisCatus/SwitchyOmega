@@ -879,7 +879,7 @@ msgid "popup_reportIssues"
 msgstr "反饋問題"
 
 msgid "popup_errorLog"
-msgstr "錯誤日誌"
+msgstr "儲存错误日志"
 
 msgid "popup_requestErrorCount"
 msgstr "$COUNT$個資源未載入"
@@ -975,3 +975,6 @@ msgstr "檢查此[連結目標]將會使用的代理"
 
 msgid "contextMenu_inspectElement"
 msgstr "檢查此[元素]使用的代理"
+
+msgid "contextMenu_enableQuickSwitch"
+msgstr "啟用快速切換"

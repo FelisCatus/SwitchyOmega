@@ -1008,7 +1008,7 @@ msgid "popup_reportIssues"
 msgstr "Report issues"
 
 msgid "popup_errorLog"
-msgstr "Error log"
+msgstr "Save error log"
 
 msgid "popup_requestErrorCount"
 msgstr "$COUNT$ failed resources"
@@ -1105,3 +1105,6 @@ msgstr "Inspect proxy to be used if this Link is opened"
 
 msgid "contextMenu_inspectElement"
 msgstr "Inspect proxy used for this Element"
+
+msgid "contextMenu_enableQuickSwitch"
+msgstr "Enable Quick Switch"

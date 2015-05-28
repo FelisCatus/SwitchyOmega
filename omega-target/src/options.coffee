@@ -391,14 +391,12 @@ class Options
   # @returns {Promise} A promise which is fulfilled when the quick switch is set
   ###
   reloadQuickSwitch: ->
+    profiles = @_options['-quickSwitchProfiles']
+    profiles = null if profiles.length < 2
     if @_options['-enableQuickSwitch']
-      profiles = @_options['-quickSwitchProfiles']
-      if profiles.length >= 2
-        @setQuickSwitch(profiles)
-      else
-        @setQuickSwitch(null)
+      @setQuickSwitch(profiles, !!profiles)
     else
-      @setQuickSwitch(null)
+      @setQuickSwitch(null, !!profiles)
 
   ###*
   # Apply the settings related to element proxy inspection.
@@ -594,9 +592,10 @@ class Options
   # Set or disable the quick switch profiles.
   # In base class, this method is not implemented and will not do anything.
   # @param {string[]|null} quickSwitch The profile names, or null to disable
+  # @param {boolean} canEnable Whether user can enable quick switch or not.
   # @returns {Promise} A promise which is fulfilled when the quick switch is set
   ###
-  setQuickSwitch: (quickSwitch) ->
+  setQuickSwitch: (quickSwitch, canEnable) ->
     Promise.resolve()
 
   ###*

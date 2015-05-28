@@ -28,8 +28,6 @@ shortcutKeys =
   61: 'addRule' # =
   84: 'tempRule' # t
   79: 'option' # o
-  73: 'issue' # i
-  76: 'log' # l
   82: 'requestInfo' # r
 
 for i in [1..9]
@@ -63,8 +61,6 @@ jQuery(document).on 'keydown', (e) ->
             'addRule': 'A'
             'tempRule': 'T'
             'option': 'O'
-            'issue': 'I'
-            'log': 'L'
             'requestInfo': 'R'
           for shortcut, key of keys
             showHelp(shortcut, key)

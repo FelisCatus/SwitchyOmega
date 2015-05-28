@@ -80,17 +80,6 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           span.glyphicon.glyphicon-wrench
           = ' '
           span {{'popup_showOptions' | tr}}
-      li
-        a.report-issue(href='https://github.com/FelisCatus/SwitchyOmega/issues'
-          target='_blank' data-shortcut='issue')
-          span.glyphicon.glyphicon-comment
-          = ' '
-          span {{'popup_reportIssues' | tr}}
-      li
-        a.error-log(href='#' role='button' data-shortcut='log')
-          span.glyphicon.glyphicon-download
-          = ' '
-          span {{'popup_errorLog' | tr}}
     form.condition-form(name='conditionForm' style='display: none;'
       ng-style='{display: showConditionForm ? "block" : "none"}'
       ng-submit='addCondition(rule.condition, rule.profileName)')
@@ -165,9 +154,6 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
             ng-click='openOptions("#/general")') {{'popup_configureMonitorWebRequests' | tr}}
 
     script(src='js/log_error.js')
-    script(src='lib/FileSaver/FileSaver.js')
-    script(src='js/omega_target_web_basics.js')
-    script(src='js/popup_basics.js')
     script(src='lib/jquery/jquery.min.js')
     script(src='lib/angular/angular.min.js')
     script(src='lib/angular-bootstrap/ui-bootstrap-tpls.min.js')
