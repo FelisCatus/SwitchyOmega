@@ -3,6 +3,7 @@ OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 xhr = Promise.promisify(require('xhr'))
 Url = require('url')
+querystring = require('querystring')
 chromeApiPromisifyAll = require('./chrome_api')
 proxySettings = chromeApiPromisifyAll(chrome.proxy.settings)
 parseExternalProfile = require('./parse_external_profile')
@@ -321,7 +322,14 @@ class ChromeOptions extends OmegaTarget.Options
         url = inspectUrl
       else
         @clearBadge()
-      return null if not url or url.substr(0, 6) == 'chrome'
+      return null if not url
+      if url.substr(0, 6) == 'chrome'
+        errorPagePrefix = 'chrome://errorpage/'
+        if url.substr(0, errorPagePrefix.length) == errorPagePrefix
+          url = querystring.parse(url.substr(url.indexOf('?') + 1)).lasturl
+          return null if not url
+        else
+          return null
       domain = OmegaPac.getBaseDomain(Url.parse(url).hostname)
       return {
         url: url

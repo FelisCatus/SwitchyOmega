@@ -251,18 +251,16 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
         $scope.domainsForCondition[domain.domain] ?= true
       $scope.profileForDomains ?= preselectedProfileNameForCondition
 
-  omegaTarget.getActivePageInfo().then((info) ->
+  $q.all([
+    omegaTarget.state('currentProfileCanAddRule')
+    omegaTarget.getActivePageInfo(),
+  ]).then ([canAddRule, info]) ->
+    $scope.currentProfileCanAddRule = canAddRule
     if info
       $scope.currentTempRuleProfile = info.tempRuleProfileName
       if $scope.currentTempRuleProfile
         preselectedProfileNameForCondition = $scope.currentTempRuleProfile
       $scope.currentDomain = info.domain
-    else
-      $q.reject()
-  ).then(->
-    omegaTarget.state('currentProfileCanAddRule')
-  ).then (value) ->
-    $scope.currentProfileCanAddRule = value
 
   $scope.prepareConditionForm = ->
     currentDomain = $scope.currentDomain

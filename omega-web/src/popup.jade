@@ -58,7 +58,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
             a(href='#' role='button' ng-click='setDefaultProfile(profile.name, p.name)' title='{{getProfileTitle(profile)}}')
               span(omega-profile-inline='p' options='availableProfiles' disp-name='dispNameFilter')
       li.divider(ng-show='!!currentDomain && validResultProfiles.length')
-      li(ng-show='!!currentProfileCanAddRule')
+      li(ng-show='!!currentProfileCanAddRule && !!currentDomain')
         a(href='#' role='button' ng-click='prepareConditionForm()' data-shortcut='addRule')
           span.glyphicon.glyphicon-plus
           = ' '

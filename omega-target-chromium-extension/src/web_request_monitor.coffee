@@ -129,7 +129,7 @@ module.exports = class WebRequestMonitor
     chrome.tabs.onReplaced?.addListener (added, removed) =>
       @tabInfo[added] ?= @_newTabInfo()
       delete @tabInfo[removed]
-    chrome.tabs.onUpdated.addListener (tab) =>
+    chrome.tabs.onUpdated.addListener (tabId, changeInfo, tab) =>
       info = @tabInfo[tab.id] ?= @_newTabInfo()
       return unless info
       for callback in @_tabCallbacks
@@ -154,8 +154,9 @@ module.exports = class WebRequestMonitor
     info = @tabInfo[req.tabId]
     if info
       if status == 'start' and req.type == 'main_frame'
-        for own key, value of @_newTabInfo()
-          info[key] = value
+        if req.url.indexOf('chrome://errorpage/') != 0
+          for own key, value of @_newTabInfo()
+            info[key] = value
       return if info.requestCount > 1000
       info.requests[req.requestId] = req
       if (oldStatus = info.requestStatus[req.requestId])
