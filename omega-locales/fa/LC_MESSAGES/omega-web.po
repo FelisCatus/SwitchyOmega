@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-05-21 12:48+0200\n"
+"PO-Revision-Date: 2015-06-08 23:04+0200\n"
 "Last-Translator: Masoud <mrem71@gmail.com>\n"
 "Language-Team: Persian "
 "<https://hosted.weblate.org/projects/switchyomega/main/fa/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
@@ -99,11 +99,13 @@ msgstr "کلمات کلیدی"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
-"A keyword condition matches if the URL protocol is HTTP, and the pattern is "
-"an exact sub-string of the URL.<br>It behaves like the URL wildcard pattern "
-"<code>http://*<b>pattern</b>*</code>, where <b>pattern</b> is the keyword "
-"pattern.<br>Keyword conditions are useful if you want to bypass a firewall "
-"blocking some keywords in the URL, by requesting such URLs through a proxy."
+"شرط کلمات کلیدی درصورتی انتخاب انجام میدهد که پروتکل مورد استفاده HTTP باشد ،"
+" و الگو (pattern) یک خرده-رشته ی ادرس باشد .<br> همانند الگوی فرانویسه ی "
+"ادرس کار میکند که در اینجا <code>http://*<b>pattern</b>*</code> قسمت  "
+"<b>pattern</b> الگوی کلمه ی کلیدی میباشد . <br> شرط کلمات کلیدی زمانی مفید "
+"هستند که قصد دارید از یک فایروالی که کلمات خاصی را که در ادرس بلاک میکند "
+"بگذرید . اینگونه میتوانید اینگونه ادرس های خاص را پیدا کرده و با پروکسی از "
+"ان ها عبور کرده."
 
 msgid "condition_FalseCondition"
 msgstr "(غیرفعال)"
@@ -113,14 +115,14 @@ msgstr "(درحین بررسی این شرط در نظر گرفته نمیشود
 
 msgid "condition_help_FalseCondition"
 msgstr ""
-"You can disable a condition by setting its type to <code>(Disabled)</code>. "
-"A Disabled condition act as if it does not exist.<br>This feature can be "
-"used to disable conditions temporarily.<br>Disabled conditions still hold "
-"the previous information (like patterns) and can be re-enabled by setting "
-"the condition type back to the previous type."
+"شما میتوانید یک شرط را با قرار دادن نوع آن به  <code>(غیرفعال)</code> "
+"غیرفعال کنید . یک شرط غیرفعال طوری عمل میکند که انگار وجود ندارد .<br> از "
+"این قابلیت برای غیرفعال کردن موقت شرط استفاده نمایید .<br> شروط غیرفعال "
+"تمامی تنظیمات خود را حفظ میکنند و در صورت نیاز میتوانید با برگردان نوع آن به "
+"حالت قبلی آن را فعال کنید ."
 
 msgid "condition_group_default"
-msgstr ""
+msgstr " "
 
 msgid "condition_group_host"
 msgstr "میزبان"
@@ -141,19 +143,19 @@ msgid "ruleList_usageUrl"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
-msgstr "Missing '@with result' directive!"
+msgstr "دستور '@with result' غایب است!"
 
 msgid "ruleList_error_unknownProfile"
-msgstr "Unknown profile: $PROFILE$"
+msgstr "پروفایل ناشناس : $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
-msgstr "Missing result profile name at Line $LNO$: $SOURCE$"
+msgstr "نام نتیجه ی پروفایل در خط $LNO$: $SOURCE$ غایب است"
 
 msgid "ruleList_error_invalidRule"
-msgstr "Invalid rule at Line $LNO$: $SOURCE$"
+msgstr "قانون نامعتبر در خط $LNO$: $SOURCE$"
 
 msgid "ruleList_error_noDefaultRule"
-msgstr "Missing default rule with catch-all '*' condition!"
+msgstr "قانون پیش فرض با شرط انتخاب همه '*' غایب است !"
 
 msgid "dialog_close"
 msgstr "بستن"
@@ -216,20 +218,20 @@ msgid "options_refreshOnProfileChange"
 msgstr "رفرش کردن تب کنونی در هنگام تغییر پروفایل."
 
 msgid "options_showInspectMenu"
-msgstr "Allow inspecting proxy used for page elements via context menu."
+msgstr ""
+"مجوز برای بررسی پروکسی مورد استفاده برای یک المان صفحه در منوی زمنیه ("
+"context menu)."
 
 msgid "options_group_keyboardShortcut"
 msgstr "میانبرد های کیبرد"
 
 msgid "options_menuShortcutHelp"
-msgstr ""
-"Pressing the shortcut will open the switch popup menu. (Defaults to Alt+Shift"
-"+O)."
+msgstr "کلید میانبر برای باز کردن منوی popup . ( پیش فرض  Alt+Shift+O )."
 
 msgid "options_menuShortcutMore"
 msgstr ""
-"The items in the popup menu can also be accessed using the keyboard. Press ? "
-"(or /) in the menu to learn more."
+"با استفاده از دکمه های کیبرد میتوانید به موارد داخل منوی بالاپر (popup) "
+"دسترسی داشته باشید . با فشاردادن ؟ ( یا /) میتوانید بیشتر یاد بگیرید ."
 
 msgid "options_menuShortcutConfigure"
 msgstr "تنظیم میانبر ها"
@@ -248,9 +250,8 @@ msgstr "نمایش حالت های پیشرفته ی شروط"
 
 msgid "options_showConditionTypesAdvancedHelp"
 msgstr ""
-"Unlocks new types of advanced but complicated switch conditions. For most "
-"senarios, the basic condition types should be enough, so this option is not "
-"recommended."
+"نوع های جدید پیشرفته اما پیچیده تر از شرط ها را فعال کنید .برای بیشتر حالات "
+"نوع های عادی کافی میباشد ، این گزینه پیشنهاد نمیشود ."
 
 msgid "options_quickSwitch"
 msgstr "جا به جایی سریع"
@@ -260,16 +261,16 @@ msgstr "پروفایل های چرخشی"
 
 msgid "options_cycledProfilesHelp"
 msgstr ""
-"When you click on the icon (or use the shortcut above), the following "
-"profiles will be applied in their order."
+"وقتی بر روی آیکون کلید میکند ( یا از میانبرهای بالا ) استفاده میکنید  ،"
+"پروفایل های زیر به ترتیب اجرا میشوند ."
 
 msgid "options_cycledProfilesTooFew"
 msgstr ""
-"You need to select at least 2 profiles to enable this function! You can drag "
-"them from the box below."
+"شما باید حداقل دو پروفایل را انتخاب کنید برای فعال کردن این وظیفه ! میتوانید "
+"از جعبه ی زیر آن را به اینجا بکشید ."
 
 msgid "options_notCycledProfiles"
-msgstr "Not Cycled Profiles"
+msgstr "پروفایل های غیرچرخشی"
 
 msgid "options_group_proxyChanges"
 msgstr "تغییر پروکسی"
@@ -285,15 +286,15 @@ msgstr "نمایش میزان درخواست های  ناموفق منابع و�
 
 msgid "options_monitorWebRequestsHelp"
 msgstr ""
-"A yellow badge will be displayed on the icon if some resources fail to load,"
-"<br>and you can set the profile for such resources conveniently via the "
-"popup menu."
+"یک نشان زرد بر روی آیکون قرارخواهد گرفت اگر در لود شدن منبعی مشکل پیش بیاید "
+",<br> و شما میتوانید به راحتی پروفایل این گونه منابع را در منوی بالاپر(popup)"
+" تنظیم کنید ."
 
 msgid "options_downloadOptions"
 msgstr "دانلود تنظیمات"
 
 msgid "options_downloadOptionsHelp"
-msgstr "Configure the update frequency of online rule lists and PAC scripts."
+msgstr "تناوب بروزرسانی لیست قوانین آنلاین و اسکریپت های PAC را تنظیم کنید ."
 
 msgid "options_downloadInterval"
 msgstr "فاصله ی دانلود"
@@ -330,18 +331,20 @@ msgstr ""
 "خروجی گرفتن پروفایل کنونی به صورت فایل PAC ، برای استفاده در دیگر مرورگرها ."
 
 msgid "options_exportProfileHelp"
-msgstr "To export a profile, use the top-right action bar on the profile page."
+msgstr ""
+"برای خروجی گرفتن از یک پروفایل ، از عملگر سمت راست بالای صفحه ی پروفایل ها "
+"استفاده نمایید ."
 
 msgid "options_exportLegacyRuleList"
 msgstr ""
-"Export rule lists using Proxy Switchy!/SwitchyPlus/SwitchySharp compatible "
-"format when possible."
+"لیست قوانین را به فرمت سازگار با  \"Proxy Switchy!/SwitchyPlus/SwitchySharp\""
+" در زمان ممکن خروجی بگیر ."
 
 msgid "options_exportLegacyRuleListHelp"
 msgstr ""
-"Enable this option only if you publish rule lists for users of those "
-"projects.<br>Please consider advising your audience to upgrade to "
-"SwitchyOmega for the improvements."
+"این گزینه را تنها درصورتی که میخواهید لیست قوانین را برای کاربران اون پروژه "
+"ها انتشار دهید فعال کنید . <br>لطفا به کاربران خود پیشنهاد بروزرسانی به "
+"SwitchyOmega را برای بهره بری بهتر پیشنهاد دهید ."
 
 msgid "options_group_importExportSettings"
 msgstr "تنظیمات"
@@ -380,42 +383,45 @@ msgid "options_syncDisable"
 msgstr "غیرفعال کردن همگام سازی"
 
 msgid "options_syncReset"
-msgstr "Clear remote copy"
+msgstr "پاک کردن کپی ریموت"
 
 msgid "options_syncPristineHelp"
 msgstr ""
-"You can now automatically synchronize your settings and profiles across all "
-"your desktop devices running Chrome browser."
+"شما اکنون میتوانید به صورت خودکار تمامی تنظیمات و پروفایل های خود را بین "
+"تمامی دستگاه های خانگی که از مرورگر کروم استفاده میکنند همگام سازی کنید ."
 
 msgid "options_syncSyncAlert"
-msgstr "Your options are automatically synchronized with your other devices."
+msgstr "تنظیمات شما به صورت خودکار بین دیگر دستگاه های خود همگام سازی میشوند ."
 
 msgid "options_syncSyncHelp"
 msgstr ""
-"Please note that you must sign in to Chrome on each of your devices "
-"(including this one) for the syncing to actually work. <br> You may check "
-"this section on other devices to ensure that it is working."
+"لطفا توجه داشته باشید که برای کارکردن همگام سازی باید در مرورگرهای کروم خود "
+"وارد شده باشید (همین دستگاه راهم شامل میشود ).<br>میتوانید این قسمت را در "
+"دیگر دستگاه ها بررسی کنید تا مطمئن شوید که کار میکند ."
 
 msgid "options_syncConflictAlert"
 msgstr ""
-"You have uploaded a copy of your options on another device via syncing."
+"شما یک کپی از تنظیمات خود را در یک دستگاه دیگر با استفاده از همگام سازی "
+"فراهم ساختید ."
 
 msgid "options_syncConflictHelp"
 msgstr ""
-"You may download the remote copy to your device if you like. <br>However, "
-"doing so would <b>overwrite your existing settings and profiles</b> on this "
-"device."
+"شما میتوانید کپی موجود در دیگر دستگاه خود را در اینجا دانلود کنید .<br>هرچند "
+"این عمل باعث میشود <b> تنظیمات این دستگاه پاک و تنظیمات آن یکی پروفایل مورد "
+"استفاده قرار گیرد </b>."
 
 msgid "options_syncUnsupportedHelp"
 msgstr ""
-"Options syncing is not supported on your platform or browser. For now, only "
-"Chrome browser on desktop is supported."
+"همگام سازی تنظیمات بر روی پلتفورم یا مرورگر پشتیبانی نمیشود . تا کنون  ،تنها "
+"مرورگر کروم خانگی پشتیبانی میشود."
 
 msgid "options_profileSyncDisabled"
 msgstr "همگام سازی برای این پروفایل غیرفعال میباشد ."
 
 msgid "options_profileSyncDisabled_quotaPerItem"
-msgstr "Syncing is disabled for this profile for using too much storage space."
+msgstr ""
+"همگام سازی برای این پروفایل به دلیل استفاده ی زیاد از فضای حافظه غیرفعال شده "
+"است ."
 
 msgid "options_profileTabPrefix"
 msgstr "پروفایل :: "
@@ -430,16 +436,16 @@ msgid "options_profileExportRuleList"
 msgstr "انتشار لیست قوانین"
 
 msgid "options_profileExportRuleListHelp"
-msgstr "Export Switch Rules as text format for publishing."
+msgstr "قوانین تغییر را به صورت تکست برای انتشار خروجی بگیر ."
 
 msgid "options_profileExportPac"
 msgstr "خروج PAC"
 
 msgid "options_profileUnsupported"
-msgstr "Unsupported profile type $TYPE$!"
+msgstr "نوع $TYPE$! برای پروفایل پشتیبانی نمیشود!"
 
 msgid "options_profileUnsupportedHelp"
-msgstr "The options could be broken, or from a newer version of this program."
+msgstr "این گزینه ممکن است خراب شده باشد ، یا از یک ورژن جدیدی از برنامه باشد ."
 
 msgid "options_profileEditSource"
 msgstr "ویرایش سورس کد"
@@ -472,24 +478,24 @@ msgstr "تصدیق"
 
 msgid "options_proxy_authAllWarningPac"
 msgstr ""
-"Warning: The username/password may be sent to unexpected servers returned by "
-"the PAC script."
+"اخطار : نام کاربری / رمز عبور ممکن است برای سرور های غیرمنتظره توسط اسکریپت "
+"PAC بازگشتی فرستاده شود ."
 
 msgid "options_proxy_authAllWarningPacUrl"
 msgstr ""
-"Please make sure that you trust the script provided via the URL above before "
-"entering sensitive credentials."
+"لطفا از اعتبار اسکریپ فراهم شده در ادرس بالا اطمینان حاصل فرمایید ، قبل از "
+"ارسال هرگونه اطلاعات حساس ."
 
 msgid "options_proxy_authAllWarningPacScript"
 msgstr ""
-"Please make sure that you trust the script below before providing sensitive "
-"credentials."
+"لطفا از اعتبار اسکریپ فراهم شده در پایین اطمینان حاصل فرمایید ، قبل از ارسال "
+"هرگونه اطلاعات حساس ."
 
 msgid "options_proxy_authReferencedWarning"
 msgstr ""
-"Additionally, using this profile in other profiles (e.g. Switch Profile) may "
-"cause the username/password to be sent to proxy servers configured in other "
-"profiles."
+"در ضمن ، استفاده از این پروفایل در دیگر پروفایل ها ( به طور مثال : پروفایل "
+"متغیر ) ممکن است باعث ارسال نام کاربری / رمز به سرور های تعییت شده در دیگر "
+"پروفایل ها شود."
 
 msgid "options_scheme_default"
 msgstr "(پیش فرض)"
@@ -507,45 +513,45 @@ msgid "options_proxy_expand"
 msgstr "نمایش پیشرفته"
 
 msgid "options_group_bypassList"
-msgstr "Bypass List"
+msgstr "لیست استثنا"
 
 msgid "options_bypassListHelp"
 msgstr ""
-"Servers for which you do not want to use any proxy: (One server on each "
-"line.)"
+"سرورهایی که نمیخواهید برای آن ها از پروکسی استفاده کنید : ( هرکدام در یک خط "
+". )"
 
 msgid "options_bypassListHelpLinkText"
-msgstr "(Wildcards and more available…)"
+msgstr "( فرانویسه و بیشتر فراهم است .... )"
 
 msgid "options_group_pacUrl"
-msgstr "آدرس PAc"
+msgstr "آدرس PAC"
 
 msgid "options_pacUrlHelp"
 msgstr ""
-"The PAC script will be updated from this URL. If it is left blank, the "
-"following script will be used directly instead."
+"اسکریپ PAC از این آدرس بروزرسانی میشود . درصورت خالی بودن ، اسکریپت ذیل به "
+"صورت مستقیم استفاده میشود ."
 
 msgid "options_pacUrlFile"
 msgstr ""
-"PAC profiles with file: URLs can only be applied directly. They cannot be "
-"used as result profiles because local files cannot be accessed due to "
-"browser limitation."
+"پروفایل های PAC به همراه فایل : آدرس ها تنها میتوانند مستقیما اعمال شوند . "
+"به دلیل محدودیت مرورگر فایل های محلی دسترسی قابل دسترسی نمیباشند که سبب "
+"میشود که نتوان از آن ها به عنوان نتایج پروفایل استفاده کرد."
 
 msgid "options_pacUrlFileDisabled"
 msgstr ""
-"Therefore, you cannot use local PAC file for this profile. You can create a "
-"new PAC profile for that if you really want that."
+"از اینرو ، شما نمیتوانید از فایل های PAC محلی استفاده نمایید . شما میتوانید "
+"یک پروفایل PAC جدید بسازید اگر واقعا نیاز هست ."
 
 msgid "options_group_pacScript"
 msgstr "اسکریپت PAC"
 
 msgid "options_pacScriptLastUpdate"
-msgstr "PAC script downloaded at $TIME$:"
+msgstr "دانلود اسکریپت PAC در تاریخ $TIME$:"
 
 msgid "options_pacScriptObsolete"
 msgstr ""
-"PAC script is obsolete due to URL change. Press the download button above to "
-"update."
+"اسکریپ PAC به دلیل تغییر آدرس منسوخ میباشد . دکمه ی دانلود بالا را برای بروز "
+"رسانی فشاردهید ."
 
 msgid "options_group_virtualProfile"
 msgstr "پرووفایل مجازی"
@@ -555,27 +561,27 @@ msgstr "هدف"
 
 msgid "options_virtualProfileTargetHelp"
 msgstr ""
-"When this profile is applied, it acts exactly the same as the profile "
-"selected below."
+"در هنگام اعمال این پروفایل ، دقیقا همانند پروفایل انتخاب شده ی پایینی عمل "
+"میکند ."
 
 msgid "options_group_virtualProfileReplace"
-msgstr "Migrate to Virtual Profile"
+msgstr "مهاجرت به پروفایل مجازی"
 
 msgid "options_virtualProfileReplace"
-msgstr "Replace target profile"
+msgstr "پروفایل هدف را جایگزین کنید"
 
 msgid "options_virtualProfileReplaceHelp"
 msgstr ""
-"You can migrate existing options to use this virtual profile instead of "
-"$PROFILE$. Doing so will update all existing rules concerning $PROFILE$ and "
-"point them to this virtual profile, so that their result profile can be "
-"controlled here."
+"شما میتوانید با مهاجرت دادن تنظیمات موجود از پروفایل مجازی  بجای $PROFILE$ "
+"استفاده کنید . این عمل تمامی قوانین موجود در $PROFILE$ را بروزرسانی میکند و "
+"آن ها را ارجاع به پروفایل مجازی میدهد ، که این کارباعث میشود نتایج پروفایل "
+"را بتوان در این جا کنترل کرد."
 
 msgid "options_group_ruleListConfig"
-msgstr "Rule List Config"
+msgstr "تنظیمات لیست قوانین"
 
 msgid "options_ruleListFormat"
-msgstr "Rule List Format"
+msgstr "فرمت لیست قوانین"
 
 msgid "options_group_ruleListResult"
 msgstr "Rule list result profiles"
@@ -584,134 +590,132 @@ msgid "options_ruleListMatchProfile"
 msgstr "Match profile"
 
 msgid "options_ruleListDefaultProfile"
-msgstr "Default profile"
+msgstr "پروفایل پیش فرض"
 
 msgid "options_group_ruleListUrl"
-msgstr "Rule List URL"
+msgstr "آدرس لیست قوانین"
 
 msgid "options_ruleListUrlHelp"
 msgstr ""
-"The rule list will be updated from this URL. If it is left blank, the "
-"following text will be parsed instead."
+"لیست قوانین از این آدرس به روز رسانی میشود ، در صورت خالی بودن ، متن بعدی "
+"پردازش میشود."
 
 msgid "options_group_ruleListText"
-msgstr "Rule List Text"
+msgstr "متن لیست قوانین"
 
 msgid "options_ruleListLastUpdate"
-msgstr "Rule list downloaded at $TIME$:"
+msgstr "تاریخ دانلود لیست قوانین  $TIME$:"
 
 msgid "options_ruleListObsolete"
 msgstr ""
-"Rule list is obsolete due to URL change. Press the download button above to "
-"update."
+"لیست قوانین به دلیل تغییر آدرس منسوخ میباشد . دکمه ی دانلود بالا را برای "
+"بروز رسانی فشاردهید ."
 
 msgid "options_group_switchRules"
-msgstr "Switch rules"
+msgstr "قوانین سوییچ"
 
 msgid "options_sort"
-msgstr "Sort"
+msgstr "ترتیب"
 
 msgid "options_conditionType"
-msgstr "Condition Type"
+msgstr "نوع شرط"
 
 msgid "options_showConditionTypeHelp"
-msgstr "Show help"
+msgstr "نمایش کمک"
 
 msgid "options_conditionDetails"
 msgstr "Condition Details"
 
 msgid "options_resultProfile"
-msgstr "Profile"
+msgstr "پروفایل"
 
 msgid "options_conditionActions"
 msgstr "Actions"
 
 msgid "options_addCondition"
-msgstr "Add condition"
+msgstr "افزودن شرط"
 
 msgid "options_cloneRule"
-msgstr "Clone"
+msgstr "کپی"
 
 msgid "options_switchAttachedProfileInCondition"
-msgstr "Rule list rules"
+msgstr "قوانین لیست قوانین"
 
 msgid "options_switchAttachedProfileInConditionDetails"
-msgstr "(Any request matching the rule list below)"
+msgstr "( هرگونه درخواست منطبق بر لیست پایین )"
 
 msgid "options_switchAttachedProfileInConditionDisabled"
-msgstr "(Rule list rules are DISABLED)"
+msgstr "( قوانین لیست قوانین غیرفعالند )"
 
 msgid "options_switchDefaultProfile"
 msgstr "Default"
 
 msgid "options_hostLevelsBetween"
-msgstr "≤ host levels ≤"
+msgstr "≤ سطوح میزبان ≤"
 
 msgid "options_group_conditionHelp"
 msgstr "About Condition Types"
 
 msgid "options_group_attachProfile"
-msgstr "Import online rule lists"
+msgstr "واردکردن لیست های قوانین آنلاین"
 
 msgid "options_attachProfile"
-msgstr "Add a rule list"
+msgstr "افزوردن لیست قوانین"
 
 msgid "options_attachProfileHelp"
 msgstr ""
-"You can reuse an online collection of conditions published by others by "
-"adding a rule list."
+"شما میتوانید با افزودن لیست قوانین از مجموعه های آنلاین شروطی که توسط دیگران "
+"منتشر شده استفاده نمایید ."
 
 msgid "options_modalHeader_welcome"
-msgstr "Welcome to SwitchyOmega"
+msgstr "به SwitchyOmega خوش آمدید"
 
 msgid "options_welcomeNormal"
 msgstr ""
-"You have successfully installed SwitchyOmega, the ultimate proxy switcher."
+"شما با موفقیت SwitchyOmega را نصب نموده اید ، برترین تغییر دهنده ی پروکسی."
 
 msgid "options_welcomeNormalGuide"
 msgstr ""
-"Please tell SwitchyOmega about your proxies through the options page. Let's "
-"see how."
+"لطفا به SwitchyOmega از طریق صفجه ی تنظیمات ، پروکسی های خود را معرفی کنید ."
 
 msgid "options_welcomeUpgrade"
 msgstr ""
-"You have successfully upgraded to SwitchyOmega. Don't panic, your existing "
-"options are fully preserved."
+"شما با موفقیت به SwitchyOmega ارتقا پیدا کرده اید ، نگران نباشید ، تمامی "
+"تنظیمات شما به طور کامل حفظ شده اند ."
 
 msgid "options_welcomeUpgradeGuide"
-msgstr "Now let's go through a quick guide of the new options page."
+msgstr "خب بریم سراغ آموزش کوچیکی از صفحه ی تنظیمات جدید."
 
 msgid "options_guideNext"
-msgstr "Next"
+msgstr "بعدی"
 
 msgid "options_guideDone"
-msgstr "Done"
+msgstr "تمام"
 
 msgid "options_guideSkip"
-msgstr "Skip guide"
+msgstr "بیخیال آموزش"
 
 msgid "options_modalHeader_applyOptions"
-msgstr "Apply Options"
+msgstr "ثبت تنظیمات"
 
 msgid "options_optionsNotSaved"
 msgstr ""
-"Your modifications to the options have not been saved and will be lost if "
-"you proceed!"
+"تغییرات شما بر روی تنظیمات ذخیره نشده است و درصورت ادامه از بین خواهند رفت !"
 
 msgid "options_applyOptionsRequired"
-msgstr "Your changes to the options must be applied before you proceed."
+msgstr "قبل از ادامه دادن تنظمات خود را ثبت کنید."
 
 msgid "options_applyOptionsConfirm"
-msgstr "Do you want to save and apply the options?"
+msgstr "آیا میخواهید تنظیمات خود را ذخیره و اعمال کنید ؟"
 
 msgid "options_modalHeader_renameProfile"
-msgstr "Rename Profile"
+msgstr "تغییرنام پروفایل"
 
 msgid "options_renameProfileName"
-msgstr "New profile name"
+msgstr "اسم جدید پروفایل"
 
 msgid "options_profileNameConflict"
-msgstr "A profile with this name already exists."
+msgstr "یک پروفایل با این نام وجود دارد."
 
 msgid "options_profileNameReserved"
 msgstr "Profile names beginning with double-underscore are reserved."
@@ -722,10 +726,10 @@ msgstr ""
 "menu. However, they can still be used in places like switch profile results."
 
 msgid "options_modalHeader_replaceProfile"
-msgstr "Replace Profile"
+msgstr "جایگزینی پروفایل"
 
 msgid "options_replaceProfile"
-msgstr "Replace Profile"
+msgstr "جایگزینی پروفایل"
 
 msgid "options_replaceProfileConfirm"
 msgstr "Do you really want to replace $FromProfile$ with $ToProfile$?"
@@ -738,16 +742,16 @@ msgstr ""
 "will NOT be changed or deleted."
 
 msgid "options_replaceProfileSuccess"
-msgstr "Options updated."
+msgstr "تنظیمات بروزرسانی شد."
 
 msgid "options_modalHeader_deleteProfile"
-msgstr "Delete Profile"
+msgstr "حذف پروفایل"
 
 msgid "options_deleteProfileConfirm"
 msgstr "Do you really want to delete the following profile?"
 
 msgid "options_modalHeader_cannotDeleteProfile"
-msgstr "Unable to Delete Profile"
+msgstr "عدم موفقیت در حذف پروفایل"
 
 msgid "options_profileReferredBy"
 msgstr ""
@@ -760,16 +764,16 @@ msgstr ""
 "before you can delete it."
 
 msgid "options_profileNameEmpty"
-msgstr "The name of the profile must not be empty."
+msgstr "اسم پروفایل نمیتواند خالی باشد."
 
 msgid "popup_title"
-msgstr "SwitchyOmega Popup"
+msgstr "بالاپر SwitchyOmega"
 
 msgid "options_modalHeader_proxyAuth"
 msgstr "Proxy Authentication"
 
 msgid "options_proxyAuthUsername"
-msgstr "Username"
+msgstr "نام کاربری"
 
 msgid "options_proxyAuthPassword"
 msgstr "Password"
@@ -778,29 +782,29 @@ msgid "options_proxyAuthNone"
 msgstr "No Authentication"
 
 msgid "options_modalHeader_deleteRule"
-msgstr "Delete Rule"
+msgstr "حذف قانون"
 
 msgid "options_deleteRuleConfirm"
-msgstr "Do you really want to delete the following rule?"
+msgstr "واقعا قصد حذف نمودن قانون را دارید ؟"
 
 msgid "options_deleteRule"
 msgstr "Delete"
 
 msgid "options_modalHeader_resetRules"
-msgstr "Reset rules"
+msgstr "ریست کردن قوانین"
 
 msgid "options_resetRulesConfirm"
 msgstr ""
 "Are you sure to set the result profile of ALL rules to the following profile?"
 
 msgid "options_resetRules"
-msgstr "Reset rules"
+msgstr "ریست کردن قوانین"
 
 msgid "options_resetRules_help"
-msgstr "Set profile for all rules"
+msgstr "تنظیم پورفایل برای تمام کاربران"
 
 msgid "options_modalHeader_deleteAttached"
-msgstr "Remove Rule List"
+msgstr "حذف لیست قوانین"
 
 msgid "options_deleteAttachedConfirm"
 msgstr "Do you really want to remove the rule list from the current profile?"
@@ -812,10 +816,10 @@ msgid "options_deleteAttached"
 msgstr "Remove rule list"
 
 msgid "options_modalHeader_newProfile"
-msgstr "New Profile"
+msgstr "پروفایل جدید"
 
 msgid "options_newProfileName"
-msgstr "Profile name"
+msgstr "اسم پروفایل"
 
 msgid "options_profileType"
 msgstr "Please select the type of the profile:"
@@ -838,7 +842,7 @@ msgstr ""
 "to create one unless you have knowledge about PAC."
 
 msgid "options_profileTypeSwitchProfile"
-msgstr "Switch Profile"
+msgstr "پروفایل متغیر"
 
 msgid "options_profileDescSwitchProfile"
 msgstr ""
@@ -1090,7 +1094,7 @@ msgid "browserAction_titleExternalProxy"
 msgstr "Note: The proxy settings are currently controlled by other app(s)."
 
 msgid "browserAction_titleInspect"
-msgstr "[Inspect] $URL$"
+msgstr "[بررسی] $URL$"
 
 msgid "browserAction_defaultRuleDetails"
 msgstr "(default)"
