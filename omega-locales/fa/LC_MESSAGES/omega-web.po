@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-06-11 19:52+0200\n"
+"PO-Revision-Date: 2015-06-11 19:53+0200\n"
 "Last-Translator: Masoud <mrem71@gmail.com>\n"
 "Language-Team: Persian "
 "<https://hosted.weblate.org/projects/switchyomega/main/fa/>\n"
@@ -884,22 +884,22 @@ msgid "options_resetSuccess"
 msgstr "Options reset."
 
 msgid "options_saveSuccess"
-msgstr "Options saved."
+msgstr "تنظیمات ذخیره شد ."
 
 msgid "options_importSuccess"
-msgstr "Options imported."
+msgstr "تنظیمات با موفقیت فراگیری شدند ."
 
 msgid "options_importFormatError"
-msgstr "Invalid backup file!"
+msgstr "فایل پشتیبان غیرمعتبر !"
 
 msgid "options_importDownloadError"
-msgstr "Error downloading backup file!"
+msgstr "خطا در حین دانلود فایل پشتیبان !"
 
 msgid "options_profileDownloadSuccess"
-msgstr "Successfully updated profile."
+msgstr "پروفایل با موفقیت بروزسانی شد ."
 
 msgid "options_profileDownloadError"
-msgstr "Error downloading profile data!"
+msgstr "خطا در حین دانلود داده ی پروفایل !"
 
 msgid "options_downloadProfileNow"
 msgstr "Download Profile Now"
