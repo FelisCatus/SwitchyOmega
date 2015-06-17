@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-06-13 22:19+0200\n"
+"PO-Revision-Date: 2015-06-17 11:12+0200\n"
 "Last-Translator: Masoud <mrem71@gmail.com>\n"
 "Language-Team: Persian "
 "<https://hosted.weblate.org/projects/switchyomega/main/fa/>\n"
@@ -223,7 +223,7 @@ msgstr ""
 "context menu)."
 
 msgid "options_group_keyboardShortcut"
-msgstr "میانبرد های کیبرد"
+msgstr "میانبرهای کیبرد"
 
 msgid "options_menuShortcutHelp"
 msgstr "کلید میانبر برای باز کردن منوی popup . ( پیش فرض  Alt+Shift+O )."
@@ -261,7 +261,7 @@ msgstr "پروفایل های چرخشی"
 
 msgid "options_cycledProfilesHelp"
 msgstr ""
-"وقتی بر روی آیکون کلید میکند ( یا از میانبرهای بالا ) استفاده میکنید  ،"
+"وقتی بر روی آیکون کلید میکنید ( یا از میانبرهای بالا ) استفاده میکنید  ،"
 "پروفایل های زیر به ترتیب اجرا میشوند ."
 
 msgid "options_cycledProfilesTooFew"
@@ -365,7 +365,7 @@ msgid "options_restoreOnline"
 msgstr "بازگرداندن از فایل آنلاین"
 
 msgid "options_restoreOnlinePlaceholder"
-msgstr "Options file URL (e.g. 'http://example.com/switchy.bak')"
+msgstr "تنظیمات آدرس فایل ( به طور مثال 'http://example.com/switchy.bak' )"
 
 msgid "options_restoreOnlineSubmit"
 msgstr "بازگرداندن"
@@ -483,18 +483,18 @@ msgstr ""
 
 msgid "options_proxy_authAllWarningPacUrl"
 msgstr ""
-"لطفا از اعتبار اسکریپ فراهم شده در ادرس بالا اطمینان حاصل فرمایید ، قبل از "
-"ارسال هرگونه اطلاعات حساس ."
+"قبل از ارسال هرگونه اطلاعات حساس ، لطفا از اعتبار اسکریپ فراهم شده در ادرس "
+"بالا اطمینان حاصل فرمایید ."
 
 msgid "options_proxy_authAllWarningPacScript"
 msgstr ""
-"لطفا از اعتبار اسکریپ فراهم شده در پایین اطمینان حاصل فرمایید ، قبل از ارسال "
-"هرگونه اطلاعات حساس ."
+"قبل از ارسال هرگونه اطلاعات حساس ،لطفا از اعتبار اسکریپ فراهم شده در پایین "
+"اطمینان حاصل فرمایید ."
 
 msgid "options_proxy_authReferencedWarning"
 msgstr ""
 "در ضمن ، استفاده از این پروفایل در دیگر پروفایل ها ( به طور مثال : پروفایل "
-"متغیر ) ممکن است باعث ارسال نام کاربری / رمز به سرور های تعییت شده در دیگر "
+"متغیر ) ممکن است باعث ارسال نام کاربری / رمز به سرور های تعیین شده در دیگر "
 "پروفایل ها شود."
 
 msgid "options_scheme_default"
@@ -528,7 +528,7 @@ msgstr "آدرس PAC"
 
 msgid "options_pacUrlHelp"
 msgstr ""
-"اسکریپ PAC از این آدرس بروزرسانی میشود . درصورت خالی بودن ، اسکریپت ذیل به "
+"اسکریپ PAC از این آدرس بروزرسانی میشود . درصورت خالی بودن ، اسکریپت زیر به "
 "صورت مستقیم استفاده میشود ."
 
 msgid "options_pacUrlFile"
@@ -630,7 +630,7 @@ msgid "options_resultProfile"
 msgstr "پروفایل"
 
 msgid "options_conditionActions"
-msgstr "Actions"
+msgstr "عملیات ها"
 
 msgid "options_addCondition"
 msgstr "افزودن شرط"
@@ -648,7 +648,7 @@ msgid "options_switchAttachedProfileInConditionDisabled"
 msgstr "( قوانین لیست قوانین غیرفعالند )"
 
 msgid "options_switchDefaultProfile"
-msgstr "Default"
+msgstr "پیش فرض"
 
 msgid "options_hostLevelsBetween"
 msgstr "≤ سطوح میزبان ≤"
@@ -767,16 +767,16 @@ msgid "popup_title"
 msgstr "بالاپر SwitchyOmega"
 
 msgid "options_modalHeader_proxyAuth"
-msgstr "Proxy Authentication"
+msgstr "تصدیق پروکسی"
 
 msgid "options_proxyAuthUsername"
 msgstr "نام کاربری"
 
 msgid "options_proxyAuthPassword"
-msgstr "Password"
+msgstr "رمز عبور"
 
 msgid "options_proxyAuthNone"
-msgstr "No Authentication"
+msgstr "بدون تصدیق"
 
 msgid "options_modalHeader_deleteRule"
 msgstr "حذف قانون"
@@ -785,7 +785,7 @@ msgid "options_deleteRuleConfirm"
 msgstr "واقعا قصد حذف نمودن قانون را دارید ؟"
 
 msgid "options_deleteRule"
-msgstr "Delete"
+msgstr "پاک کردن"
 
 msgid "options_modalHeader_resetRules"
 msgstr "ریست کردن قوانین"
@@ -867,7 +867,7 @@ msgid "options_createProfile"
 msgstr "ساختن"
 
 msgid "options_modalHeader_resetOptions"
-msgstr "Reset Options"
+msgstr "ریست کردن تنظیمات"
 
 msgid "options_resetOptionsConfirm"
 msgstr ""
@@ -881,7 +881,7 @@ msgid "options_profileNotFound"
 msgstr "پروفایل $PROFILE$ وجود ندارد ! تنظیمات ممکن است خراب شده باشند ."
 
 msgid "options_resetSuccess"
-msgstr "Options reset."
+msgstr "تنظیمات ریست شد ."
 
 msgid "options_saveSuccess"
 msgstr "تنظیمات ذخیره شد ."
@@ -962,7 +962,7 @@ msgstr ""
 "ماندن</b> بر روی آیکون توضیحات اجمالی به شما نشان خواهد داد ."
 
 msgid "popup_externalProfile"
-msgstr "(پروفای خارجی)"
+msgstr "(پروفایل خارجی)"
 
 msgid "popup_externalProfileName"
 msgstr "نام پروفایل"
@@ -996,8 +996,8 @@ msgstr ""
 
 msgid "popup_proxyNotControllableDetails_upgrade"
 msgstr ""
-"You can't enable two (or more) versions of SwitchyOmega at the same time. "
-"Please disable one of them."
+"شما نمیتوانید از دو (یا چند) ورژن SwitchyOmega به طور همزمان استفاده کنید . "
+"لطفا یکی از آن ها را غیرفعال کنید ."
 
 msgid "popup_proxyNotControllableManage"
 msgstr "میدیریت افزونه"
@@ -1009,7 +1009,7 @@ msgid "popup_addCondition"
 msgstr "افزودن شرط"
 
 msgid "popup_showOptions"
-msgstr "Options"
+msgstr "تنظیمات"
 
 msgid "popup_reportIssues"
 msgstr "گزارش مشکلات"
@@ -1025,20 +1025,22 @@ msgstr "عدم موفقیت در بارگزاری منابع"
 
 msgid "popup_requestErrorWarning"
 msgstr ""
-"A few resources failed to load due to issues with your network, proxy server "
-"or the webpage."
+"بارگزاری تعدا کمی از منابع بخاطر مشکلات شبکه ، سرور پروکسی یا صفحه ی وب به "
+"مشکل برخورد ."
 
 msgid "popup_requestErrorWarningHelp"
 msgstr ""
-"SwitchyOmega is just the reporter of these issues, not the cause of them."
+"SwitchyOmega تنها گزارش دهنده یاین خطاها میباشد ، نه ایجاد کننده ی آن ها ."
 
 msgid "popup_requestErrorAddCondition"
 msgstr ""
-"You can review the following domains and use proxy for them when appropriate."
+"شما میتوانید دامین های زیر را بررسی کنید و در صورت نیاز از پروکسی برای آن ها "
+"استفاده نمایید ."
 
 msgid "popup_requestErrorCannotAddCondition"
 msgstr ""
-"You can add switch conditions for them only when using a Switch Profile."
+"شما در صورتی میتوانید شرط متغییر ( سوییچ) برای آن ها تعیین کنید که از "
+"پروفایل متغییر استفاده کرده باشید ."
 
 msgid "popup_configureMonitorWebRequests"
 msgstr "تنظیم مانیتور شبکه"
@@ -1059,7 +1061,7 @@ msgid "browserAction_profileDetails_PacProfile"
 msgstr "( اسکریپت PAC )"
 
 msgid "browserAction_profileDetails_SystemProfile"
-msgstr "(controlled by other extensions or environment)"
+msgstr "( کنترل شده توسط دیگر افزونه ها یا محیط )"
 
 msgid "browserAction_profileDetails_DirectProfile"
 msgstr "(عدم استفاده از هرگونه پروکسی)"
@@ -1071,12 +1073,12 @@ msgid "browserAction_profileDetails_RuleListProfile"
 msgstr "(جابه جایی بر اساس لیست قوانین)"
 
 msgid "browserAction_titleNormal"
-msgstr "SwitchyOmega:: $PROFILE$"
+msgstr "SwitchyOmega :: $PROFILE$"
 
 msgid "browserAction_titleWithResult"
 msgstr ""
-"SwitchyOmega:: $1:PROFILE$\n"
-"$3:DETAILS$"
+"SwitchyOmega ::  $1:PROFILE$\n"
+" $3:DETAILS$"
 
 msgid "browserAction_titleNewerOptions"
 msgstr ""
@@ -1097,16 +1099,16 @@ msgid "browserAction_titleInspect"
 msgstr "[بررسی] $URL$"
 
 msgid "browserAction_defaultRuleDetails"
-msgstr "(default)"
+msgstr "(پیش فرض)"
 
 msgid "browserAction_directResult"
-msgstr "DIRECT"
+msgstr "مستقیم"
 
 msgid "browserAction_attachedPrefix"
 msgstr "(RL) "
 
 msgid "browserAction_tempRulePrefix"
-msgstr "(TEMP) "
+msgstr "(موقت) "
 
 msgid "contextMenu_inspectPage"
 msgstr "بررسی پروکسی مورد استفاده برای این صفحه"
@@ -1121,4 +1123,4 @@ msgid "contextMenu_inspectElement"
 msgstr "بررسی پروکسی مورد استفاده برای این المان"
 
 msgid "contextMenu_enableQuickSwitch"
-msgstr "فعال سازی تغییر سریع"
+msgstr "فعال سازی تغییر سرعتی"
