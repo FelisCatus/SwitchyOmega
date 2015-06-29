@@ -3,15 +3,16 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-02-13 10:29+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-06-29 21:32+0200\n"
+"Last-Translator: Niklas Karstadt <niklas.karstadt@googlemail.com>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/switchyomega/main/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 2.2-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4-dev\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
@@ -19,17 +20,18 @@ msgstr "SwitchyOmega"
 msgid "manifest_app_name"
 msgstr "Proxy SwitchyOmega"
 
+#, fuzzy
 msgid "manifest_app_description"
-msgstr "Manage and switch between multiple proxies quickly & easily."
+msgstr "Einfach & schnell mehrere Proxies verwalten und wechseln"
 
 msgid "manifest_icon_default_title"
 msgstr "Loading…"
 
 msgid "upgrade_profile_auto"
-msgstr "Auto Switch"
+msgstr "Automatisches Wechseln"
 
 msgid "profile_direct"
-msgstr "[Direct]"
+msgstr "[Direkt]"
 
 msgid "profile_system"
 msgstr "[System Proxy]"
@@ -91,7 +93,7 @@ msgstr ""
 "achieved by any other condition type."
 
 msgid "condition_KeywordCondition"
-msgstr "Keyword"
+msgstr "Schlüsselwort"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
@@ -102,10 +104,10 @@ msgstr ""
 "blocking some keywords in the URL, by requesting such URLs through a proxy."
 
 msgid "condition_FalseCondition"
-msgstr "(Disabled)"
+msgstr "(Ausgeschaltet)"
 
 msgid "condition_details_FalseCondition"
-msgstr "(Condition ignored when matching)"
+msgstr "(Bedingung wird ignoriert wenn zutreffend)"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
@@ -125,7 +127,7 @@ msgid "condition_group_url"
 msgstr "Url"
 
 msgid "condition_group_special"
-msgstr "Special"
+msgstr "Spezial"
 
 msgid "ruleListFormat_Switchy"
 msgstr "Switchy"
@@ -140,7 +142,7 @@ msgid "ruleList_error_resultNotEnabled"
 msgstr "Missing '@with result' directive!"
 
 msgid "ruleList_error_unknownProfile"
-msgstr "Unknown profile: $PROFILE$"
+msgstr "Unbekanntes Profil: $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
 msgstr "Missing result profile name at Line $LNO$: $SOURCE$"
