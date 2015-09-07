@@ -408,5 +408,6 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
       getState = omegaTarget.state(['web.switchGuide', 'firstRun'])
       $q.all([rulesReady, getState]).then ([_, [switchGuide, firstRun]]) ->
         return if firstRun or switchGuide == 'shown'
+        return if $scope.profile.rules.length == 0
         $script 'js/switch_profile_guide.js'
         omegaTarget.state('web.switchGuide', 'shown')
