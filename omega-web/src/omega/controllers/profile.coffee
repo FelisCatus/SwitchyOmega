@@ -17,6 +17,7 @@ angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
     showInput: true
     showPalette: true
     showSelectionPalette: true
+    maxSelectionSize: 5
 
   $scope.getProfileColor = ->
     color = undefined
