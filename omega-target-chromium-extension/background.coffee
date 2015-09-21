@@ -273,7 +273,7 @@ encodeError = (obj) ->
   else
     obj
 
-chrome.runtime.onMessage.addListener (request, sender, respond) ->
+onMessageReceived = (request, sender, respond) ->
   options.ready.then ->
     target = options
     method = target[request.method]
@@ -300,3 +300,9 @@ chrome.runtime.onMessage.addListener (request, sender, respond) ->
 
   # Wait for my response!
   return true unless request.noReply
+
+chrome.runtime.onMessage.addListener (request, sender, respond) ->
+  onMessageReceived(request, sender, respond)
+
+chrome.runtime.onMessageExternal.addListener (request, sender, respond) ->
+  onMessageReceived(request, sender, respond)
