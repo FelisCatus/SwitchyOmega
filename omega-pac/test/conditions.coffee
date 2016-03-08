@@ -383,7 +383,98 @@ describe 'Conditions', ->
       result = Conditions.str(condition)
       result.should.equal('Ip: 127.0.0.1/16')
       cond = Conditions.fromStr(result)
+      console.log typeof cond.prefixLength
       cond.should.eql(condition)
+    it 'should provide sensible fallbacks for invalid IpCondition', ->
+      cond = Conditions.fromStr('Ip: foo/-233')
+      cond.should.eql(
+        conditionType: 'IpCondition'
+        ip: '0.0.0.0'
+        prefixLength: 0
+      )
+
+      cond = Conditions.fromStr('Ip: nonsense stuff')
+      cond.should.eql(
+        conditionType: 'IpCondition'
+        ip: '0.0.0.0'
+        prefixLength: 0
+      )
+    it 'should provide sensible fallbacks for invalid IpCondition', ->
+      cond = Conditions.fromStr('Ip: 0.0.0.0/-233')
+      cond.should.eql(
+        conditionType: 'IpCondition'
+        ip: '0.0.0.0'
+        prefixLength: 0
+      )
+    it 'should encode & decode HostLevelsCondition correctly', ->
+      condition =
+        conditionType: 'HostLevelsCondition'
+        minValue: 4
+        maxValue: 7
+      result = Conditions.str(condition)
+      result.should.equal('HostLevels: 4~7')
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+    it 'should provide sensible fallbacks for HostLevels out of range', ->
+      cond = Conditions.fromStr('HostLevels: A~-1')
+      cond.should.eql(
+        conditionType: 'HostLevelsCondition'
+        minValue: 1
+        maxValue: 1
+      )
+
+      cond = Conditions.fromStr('HostLevels: nonsense')
+      cond.should.eql(
+        conditionType: 'HostLevelsCondition'
+        minValue: 1
+        maxValue: 1
+      )
+    it 'should encode & decode WeekdayCondition correctly', ->
+      condition =
+        conditionType: 'WeekdayCondition'
+        startDay: 3
+        endDay: 6
+      result = Conditions.str(condition)
+      result.should.equal('Weekday: 3~6')
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+    it 'should provide sensible fallbacks for Weekday out of range', ->
+      cond = Conditions.fromStr('Weekday: -1~100')
+      cond.should.eql(
+        conditionType: 'WeekdayCondition'
+        startDay: 0
+        endDay: 0
+      )
+
+      cond = Conditions.fromStr('Weekday: nonsense')
+      cond.should.eql(
+        conditionType: 'WeekdayCondition'
+        startDay: 0
+        endDay: 0
+      )
+    it 'should encode & decode TimeCondition correctly', ->
+      condition =
+        conditionType: 'TimeCondition'
+        startHour: 7
+        endHour: 23
+      result = Conditions.str(condition)
+      result.should.equal('Hour: 7~23')
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+    it 'should provide sensible fallbacks for Hour out of range', ->
+      cond = Conditions.fromStr('Hour: -1~100')
+      cond.should.eql(
+        conditionType: 'TimeCondition'
+        startHour: 0
+        endHour: 0
+      )
+
+      cond = Conditions.fromStr('Hour: nonsense')
+      cond.should.eql(
+        conditionType: 'TimeCondition'
+        startHour: 0
+        endHour: 0
+      )
     it 'should parse conditions with extra spaces correctly', ->
       Conditions.fromStr('url:    *abcde*   ').should.eql({
         conditionType: 'UrlWildcardCondition'

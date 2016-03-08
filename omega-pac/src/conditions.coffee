@@ -524,7 +524,10 @@ module.exports = exports =
       fromStr: (str, condition) ->
         [ip, prefixLength] = str.split('/')
         condition.ip = ip
-        condition.prefixLength = parseInt(prefixLength)
+        addr = @parseIp ip
+        condition.ip = '0.0.0.0' unless addr?
+        condition.prefixLength = parseInt(prefixLength, 10)
+        condition.prefixLength = 0 unless condition.prefixLength >= 0
         condition
 
     'HostLevelsCondition':
@@ -555,8 +558,10 @@ module.exports = exports =
       str: (condition) -> condition.minValue + '~' + condition.maxValue
       fromStr: (str, condition) ->
         [minValue, maxValue] = str.split('~')
-        condition.minValue = minValue
-        condition.maxValue = maxValue
+        condition.minValue = parseInt(minValue, 10)
+        condition.maxValue = parseInt(maxValue, 10)
+        condition.minValue = 1 unless condition.minValue > 0
+        condition.maxValue = 1 unless condition.maxValue > 0
         condition
 
     'WeekdayCondition':
@@ -580,8 +585,10 @@ module.exports = exports =
       str: (condition) -> condition.startDay + '~' + condition.endDay
       fromStr: (str, condition) ->
         [startDay, endDay] = str.split('~')
-        condition.startDay = startDay
-        condition.endDay = endDay
+        condition.startDay = parseInt(startDay, 10)
+        condition.endDay = parseInt(endDay, 10)
+        condition.startDay = 0 unless 0 <= condition.startDay <= 6
+        condition.endDay = 0 unless 0 <= condition.endDay <= 6
         condition
     'TimeCondition':
       abbrs: ['T', 'Time', 'Hour']
@@ -604,7 +611,9 @@ module.exports = exports =
       str: (condition) -> condition.startHour + '~' + condition.endHour
       fromStr: (str, condition) ->
         [startHour, endHour] = str.split('~')
-        condition.startHour = startHour
-        condition.endHour = endHour
+        condition.startHour = parseInt(startHour, 10)
+        condition.endHour = parseInt(endHour, 10)
+        condition.startHour = 0 unless 0 <= condition.startHour < 24
+        condition.endHour = 0 unless 0 <= condition.endHour < 24
         condition
     # coffeelint: enable=missing_fat_arrows
