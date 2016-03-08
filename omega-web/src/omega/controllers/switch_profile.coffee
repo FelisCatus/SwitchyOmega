@@ -5,7 +5,10 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
   $scope.ruleListFormats = OmegaPac.Profiles.ruleListFormats
 
   exportRuleList = ->
-    text = OmegaPac.RuleList.Switchy.compose($scope.profile)
+    text = OmegaPac.RuleList.Switchy.compose(
+      rules: $scope.profile.rules
+      defaultProfileName: $scope.attachedOptions.defaultProfileName
+    )
 
     eol = '\r\n'
     info = '\n'
