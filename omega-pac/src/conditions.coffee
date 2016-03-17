@@ -352,7 +352,16 @@ module.exports = exports =
         return false if cache.ip? and not @match cache.ip, request
         if cache.host?
           if cache.host == '<local>'
-            return request.host in @localHosts
+            # https://code.google.com/p/chromium/codesearch#chromium/src/net/proxy/proxy_bypass_rules.cc&sq=package:chromium&l=67
+            # We align with Chromium's behavior of bypassing 127.0.0.1, ::1 as
+            # well as any host without dots.
+            #
+            # This, however, will match IPv6 literals who also don't have dots.
+            return (
+              request.host == '127.0.0.1' or
+              request.host == '::1' or
+              request.host.indexOf('.') < 0
+            )
           else
             return false if not cache.host.test(request.host)
         return false if cache.url? and !cache.url.test(request.url)
@@ -370,12 +379,22 @@ module.exports = exports =
           )
           return new U2.AST_Binary(
             left: new U2.AST_Binary(
-              left: hostEquals '[::1]'
+              left: hostEquals '127.0.0.1'
               operator: '||'
-              right: hostEquals 'localhost'
+              right: hostEquals '::1'
             )
             operator: '||'
-            right: hostEquals '127.0.0.1'
+            right: new U2.AST_Binary(
+              left: new U2.AST_Call(
+                expression: new U2.AST_Dot(
+                  expression: new U2.AST_SymbolRef name: 'host'
+                  property: 'indexOf'
+                )
+                args: [new U2.AST_String value: '.']
+              )
+              operator: '<'
+              right: new U2.AST_Number value: 0
+            )
           )
         if cache.scheme?
           conditions.push new U2.AST_Binary(

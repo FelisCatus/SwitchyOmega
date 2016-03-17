@@ -31,6 +31,7 @@ describe 'Conditions', ->
       printCond = JSON.stringify(condition)
       printCompiled = if compiled then 'COMPILED ' else ''
       printMatch = if should_match then 'to match' else 'not to match'
+      console.log(request)
       msg = ("expect #{printCompiled}condition #{printCond} " +
              "#{printMatch} request #{o_request}")
       chai.assert(false, msg)
@@ -218,6 +219,31 @@ describe 'Conditions', ->
         ip: '::'
         prefixLength: 0
       })
+
+    it 'should match 127.0.0.1 when <local> is used', ->
+      cond =
+        conditionType: 'BypassCondition'
+        pattern: '<local>'
+      testCond(cond, 'http://127.0.0.1:8080/', 'match')
+
+    it 'should match [::1] when <local> is used', ->
+      cond =
+        conditionType: 'BypassCondition'
+        pattern: '<local>'
+      testCond(cond, 'http://[::1]:8080/', 'match')
+
+    it 'should match any host without dots when <local> is used', ->
+      cond =
+        conditionType: 'BypassCondition'
+        pattern: '<local>'
+      testCond(cond, 'http://localhost:8080/', 'match')
+      testCond(cond, 'http://intranet:8080/', 'match')
+      testCond(cond, 'http://foobar/', 'match')
+      testCond(cond, 'http://example.com/', not 'match')
+
+      # Intended, see the corresponding code and comments for the reasoning.
+      testCond(cond, 'http://[::ffff:eeee]/', 'match')
+      testCond(cond, 'http://[::1.2.3.4]/', not 'match')
 
   describe 'IpCondition', ->
     # IpCondition requires isInNetEx or isInNet function provided by the PAC

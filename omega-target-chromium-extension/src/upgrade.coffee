@@ -122,8 +122,18 @@ module.exports = (oldOptions, i18n) ->
       exampleFixedProfileName = 'Example Profile'
       options[OmegaPac.Profiles.nameAsKey(exampleFixedProfileName)] =
         bypassList: [
-          pattern: "<local>"
-          conditionType: "BypassCondition"
+          {
+            pattern: "127.0.0.1"
+            conditionType: "BypassCondition"
+          }
+          {
+            pattern: "::1"
+            conditionType: "BypassCondition"
+          }
+          {
+            pattern: "localhost"
+            conditionType: "BypassCondition"
+          }
         ]
         profileType: "FixedProfile"
         name: exampleFixedProfileName

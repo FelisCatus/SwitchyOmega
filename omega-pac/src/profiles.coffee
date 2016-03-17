@@ -237,10 +237,20 @@ module.exports = exports =
     'FixedProfile':
       includable: true
       create: (profile) ->
-        profile.bypassList ?= [{
-          conditionType: 'BypassCondition'
-          pattern: '<local>'
-        }]
+        profile.bypassList ?= [
+          {
+            conditionType: 'BypassCondition'
+            pattern: '127.0.0.1'
+          }
+          {
+            conditionType: 'BypassCondition'
+            pattern: '::1'
+          }
+          {
+            conditionType: 'BypassCondition'
+            pattern: 'localhost'
+          }
+        ]
       match: (profile, request) ->
         if profile.bypassList
           for cond in profile.bypassList
