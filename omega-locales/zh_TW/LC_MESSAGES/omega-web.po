@@ -591,28 +591,28 @@ msgid "options_hostLevelsBetween"
 msgstr "≤ 主機層數 ≤"
 
 msgid "options_hourBetween"
-msgstr "≤ current hour ≤"
+msgstr "≤ 當前小時 ≤"
 
 msgid "options_weekDayShort_0"
-msgstr "Su"
+msgstr "日"
 
 msgid "options_weekDayShort_1"
-msgstr "Mo"
+msgstr "一"
 
 msgid "options_weekDayShort_2"
-msgstr "Tu"
+msgstr "二"
 
 msgid "options_weekDayShort_3"
-msgstr "We"
+msgstr "三"
 
 msgid "options_weekDayShort_4"
-msgstr "Th"
+msgstr "四"
 
 msgid "options_weekDayShort_5"
-msgstr "Fr"
+msgstr "五"
 
 msgid "options_weekDayShort_6"
-msgstr "Sa"
+msgstr "六"
 
 msgid "options_group_conditionHelp"
 msgstr "條件類型說明"
