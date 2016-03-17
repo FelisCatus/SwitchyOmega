@@ -67,6 +67,17 @@ div(ng-controller='SwitchProfileCtrl')
                 span {{'options_hostLevelsBetween' | tr}}
                 = ' '
                 input.form-control(type='number' max='99' min='1' ng-model='rule.condition.maxValue' required)
+              span.host-levels-details(ng-switch-when='TimeCondition')
+                input.form-control(type='number' min='0' max='23' ng-model='rule.condition.startHour' required)
+                = ' '
+                span {{'options_hourBetween' | tr}}
+                = ' '
+                input.form-control(type='number' min='0' max='23'
+                  ng-model='rule.condition.endHour' required)
+              span.host-levels-details(ng-switch-when='WeekdayCondition')
+                label.checkbox-inline(ng-repeat='selected in getWeekdayList(rule.condition) track by $index')
+                  input(type='checkbox' ng-model='selected' ng-change='updateDay(rule.condition, $index, selected)')
+                  = '{{"options_weekDayShort_" + $index | tr}} '
               input.form-control(ng-model='rule.condition.pattern' ng-switch-default required
                 ui-validate='{pattern: "validateCondition(rule.condition, $value)"}')
             td.switch-rule-row-target

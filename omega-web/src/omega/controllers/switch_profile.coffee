@@ -90,6 +90,8 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
     {
       group: 'special'
       types: [
+        'WeekdayCondition'
+        'TimeCondition'
         'FalseCondition'
       ]
     }
@@ -190,6 +192,15 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
       pattern = condition.pattern
       return pattern.indexOf(':') >= 0 || pattern.indexOf('/') >= 0
     return false
+
+  $scope.getWeekdayList = OmegaPac.Conditions.getWeekdayList
+  $scope.updateDay = (condition, i, selected) ->
+    condition.days ||= '-------'
+    char = if selected then 'SMTWtFs'[i] else '-'
+    condition.days = condition.days.substr(0, i) + char +
+      condition.days.substr(i + 1)
+    delete condition.startDay
+    delete condition.endDay
 
   $scope.removeRule = (index) ->
     removeForReal = ->

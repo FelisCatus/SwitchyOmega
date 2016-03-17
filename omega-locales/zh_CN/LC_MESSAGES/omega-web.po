@@ -100,6 +100,26 @@ msgstr ""
 "设置规则类型为<code>(禁用)</code>可以临时禁用某个条件。禁用的条件在匹配时视为不存在。<br>条件被禁用后，仍然保存有之前的数据（"
 "例如通配符或正则），因此当需要时，可以把条件类型改回之前的类型，以方便地重新启用条件。"
 
+msgid "condition_TimeCondition"
+msgstr "当前时间"
+
+msgid "condition_help_TimeCondition"
+msgstr ""
+"如果当前本地时间在某个范围内则匹配。此范围由<b>开始小时</b>和<b>结束小时</b>"
+"确定，包含开始的那个小时以及结束的那个小时。<br>"
+"本地时间、开始小时和结束小时均按照<b>24小时制</b>计算（从<b>0到23</b>）。<br>"
+"此条件大约在请求发出的瞬间，才计算是否匹配。"
+
+msgid "condition_WeekdayCondition"
+msgstr "每周几"
+
+msgid "condition_help_WeekdayCondition"
+msgstr ""
+"只在每周的某几天才匹配。可以在条件详情中勾选<b>星期几有效</b>。"
+"根据当地时区来计算现在是星期几，然后再查看当天是否选中。<br>"
+"假设在请求发送时是星期X：如果星期X被勾选，则匹配所有请求。否则不匹配任何请求。<br>"
+"除了日期以外，在匹配过程中不会参考请求的网址或任何其他信息。"
+
 msgid "condition_group_default"
 msgstr " "
 
@@ -569,6 +589,30 @@ msgstr "默认情景模式"
 
 msgid "options_hostLevelsBetween"
 msgstr "≤ 主机层数 ≤"
+
+msgid "options_hourBetween"
+msgstr "≤ 當前小時 ≤"
+
+msgid "options_weekDayShort_0"
+msgstr "日"
+
+msgid "options_weekDayShort_1"
+msgstr "一"
+
+msgid "options_weekDayShort_2"
+msgstr "二"
+
+msgid "options_weekDayShort_3"
+msgstr "三"
+
+msgid "options_weekDayShort_4"
+msgstr "四"
+
+msgid "options_weekDayShort_5"
+msgstr "五"
+
+msgid "options_weekDayShort_6"
+msgstr "六"
 
 msgid "options_group_conditionHelp"
 msgstr "条件类型说明"

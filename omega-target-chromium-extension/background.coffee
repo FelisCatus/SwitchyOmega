@@ -65,6 +65,8 @@ actionForUrl = (url) ->
     details = ''
     direct = false
     attached = false
+    condition2Str = (condition) ->
+      condition.pattern || OmegaPac.Conditions.str(condition)
     for result in results
       if Array.isArray(result)
         if not result[1]?
@@ -87,7 +89,7 @@ actionForUrl = (url) ->
         else if typeof result[1] == 'string'
           details += "#{result[1]} => #{result[0]}\n"
         else
-          condition = (result[1].condition ? result[1]).pattern ? ''
+          condition = condition2Str(result[1].condition ? result[1])
           details += "#{condition} => "
           if result[0] == 'DIRECT'
             details += chrome.i18n.getMessage('browserAction_directResult')
@@ -101,8 +103,7 @@ actionForUrl = (url) ->
         else if attached
           details += chrome.i18n.getMessage('browserAction_attachedPrefix')
           attached = false
-        condition = (result.source ? result.condition.pattern ?
-          result.condition.conditionType)
+        condition = result.source ? condition2Str(result.condition)
         details += "#{condition} => #{dispName(result.profileName)}\n"
 
     if not details

@@ -116,6 +116,27 @@ msgstr ""
 "the previous information (like patterns) and can be re-enabled by setting "
 "the condition type back to the previous type."
 
+msgid "condition_TimeCondition"
+msgstr "Current Time"
+
+msgid "condition_help_TimeCondition"
+msgstr ""
+"Matches if the current local time is in the range defined by "
+"<b>starting hour</b> and <b>ending hour</b>, both inclusive.<br>"
+"Local time, starting hour and ending hour are all calculated in "
+"<b>24-hour</b> format (from <b>0 to 23</b>). <br>"
+"The calculation happens roughly at the moment when the request is sent."
+
+msgid "condition_WeekdayCondition"
+msgstr "Day of the Week"
+
+msgid "condition_help_WeekdayCondition"
+msgstr ""
+"Matches if the <b>current day of week</b> is selected in condition details. "
+"Day is calculated according to local timezone.<br>"
+"The request and its URL don't matter to this condition. "
+"The result is solely based on the day of the week when the request is sent."
+
 msgid "condition_group_default"
 msgstr " "
 
@@ -646,6 +667,30 @@ msgstr "Default"
 
 msgid "options_hostLevelsBetween"
 msgstr "≤ host levels ≤"
+
+msgid "options_hourBetween"
+msgstr "≤ current hour ≤"
+
+msgid "options_weekDayShort_0"
+msgstr "Su"
+
+msgid "options_weekDayShort_1"
+msgstr "Mo"
+
+msgid "options_weekDayShort_2"
+msgstr "Tu"
+
+msgid "options_weekDayShort_3"
+msgstr "We"
+
+msgid "options_weekDayShort_4"
+msgstr "Th"
+
+msgid "options_weekDayShort_5"
+msgstr "Fr"
+
+msgid "options_weekDayShort_6"
+msgstr "Sa"
 
 msgid "options_group_conditionHelp"
 msgstr "About Condition Types"

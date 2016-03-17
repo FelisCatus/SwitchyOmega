@@ -197,6 +197,12 @@ module.exports = exports =
 
   localHosts: ["127.0.0.1", "[::1]", "localhost"]
 
+  getWeekdayList: (condition) ->
+    if condition.days
+      condition.days.charCodeAt(i) > 64 for i in [0...7]
+    else
+      condition.startDay <= i <= condition.endDay for i in [0...7]
+
   _condCache: new AttachedCache (condition) ->
     tag = exports._handler(condition.conditionType).tag
     result =
