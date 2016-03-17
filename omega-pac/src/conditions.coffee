@@ -84,7 +84,7 @@ module.exports = exports =
     return exports._abbrs[abbr.toUpperCase()]
 
   comment: (comment, node) ->
-    return unless comment
+    return node unless comment
     node.start ?= {}
     # This hack is needed to allow dumping comments in repeated print call.
     Object.defineProperty node.start, '_comments_dumped',
@@ -123,8 +123,10 @@ module.exports = exports =
       return exports.comment comment, new U2.AST_Binary(
         left: val
         operator: '==='
-        right: new U2.AST_Number value: min
+        right: min
       )
+    if min > max
+      return exports.comment comment, new U2.AST_False
     if exports.isInt(min) and exports.isInt(max) and max - min < 32
       comment ||= "#{min} <= value && value <= #{max}"
       tmpl = "0123456789abcdefghijklmnopqrstuvwxyz"
@@ -609,6 +611,7 @@ module.exports = exports =
         condition.startDay = 0 unless 0 <= condition.startDay <= 6
         condition.endDay = 0 unless 0 <= condition.endDay <= 6
         condition
+
     'TimeCondition':
       abbrs: ['T', 'Time', 'Hour']
       analyze: (condition) -> null

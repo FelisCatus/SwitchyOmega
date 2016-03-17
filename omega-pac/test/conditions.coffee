@@ -1,5 +1,6 @@
 chai = require 'chai'
 should = chai.should()
+lolex = require 'lolex';
 
 describe 'Conditions', ->
   Conditions = require '../src/conditions'
@@ -11,7 +12,7 @@ describe 'Conditions', ->
       request = Conditions.requestFromUrl(request)
 
     matchResult = Conditions.match(condition, request)
-    condExpr = Conditions.compile(condition, request)
+    condExpr = Conditions.compile(condition)
     testFunc = new U2.AST_Function(
       argnames: [
         new U2.AST_SymbolFunarg name: 'url'
@@ -31,7 +32,6 @@ describe 'Conditions', ->
       printCond = JSON.stringify(condition)
       printCompiled = if compiled then 'COMPILED ' else ''
       printMatch = if should_match then 'to match' else 'not to match'
-      console.log(request)
       msg = ("expect #{printCompiled}condition #{printCond} " +
              "#{printMatch} request #{o_request}")
       chai.assert(false, msg)
@@ -349,6 +349,124 @@ describe 'Conditions', ->
       testCond(cond, 'https://example.com/', not 'match')
       testCond(cond, 'https://example.net/', not 'match')
 
+  describe 'WeekdayCondition', ->
+    clock = null
+    before ->
+      clock = lolex.install 0, ['Date']
+    after ->
+      clock.uninstall()
+
+    testCondDay = (cond, day, match) ->
+      # Feb 2016 Calendar for testing:
+      # Su Mo Tu We Th Fr Sa
+      # .. 01 02 03 04 05 06
+      # 07 08 09 10 11 12 13
+      # (...)
+      date = if day > 0 then day else 7
+      clock.setSystemTime(new Date("2016-02-0#{date}T00:00:00Z").getTime())
+      testCond(cond, "http://weekday-#{day}/", match)
+
+    it 'should match requests based on date range', ->
+      cond =
+        conditionType: 'WeekdayCondition'
+        startDay: 3
+        endDay: 5
+
+      testCondDay(cond, 0, not 'match')
+      testCondDay(cond, 1, not 'match')
+      testCondDay(cond, 2, not 'match')
+      testCondDay(cond, 3, 'match')
+      testCondDay(cond, 4, 'match')
+      testCondDay(cond, 5, 'match')
+      testCondDay(cond, 6, not 'match')
+
+    it 'should match the day if startDay == endDay', ->
+      cond =
+        conditionType: 'WeekdayCondition'
+        startDay: 3
+        endDay: 3
+
+      testCondDay(cond, 0, not 'match')
+      testCondDay(cond, 1, not 'match')
+      testCondDay(cond, 2, not 'match')
+      testCondDay(cond, 3, 'match')
+      testCondDay(cond, 4, not 'match')
+      testCondDay(cond, 5, not 'match')
+      testCondDay(cond, 6, not 'match')
+
+    it 'should not match anything if startDay > endDay', ->
+      cond =
+        conditionType: 'WeekdayCondition'
+        startDay: 4
+        endDay: 3
+
+      testCondDay(cond, 0, not 'match')
+      testCondDay(cond, 1, not 'match')
+      testCondDay(cond, 2, not 'match')
+      testCondDay(cond, 3, not 'match')
+      testCondDay(cond, 4, not 'match')
+      testCondDay(cond, 5, not 'match')
+      testCondDay(cond, 6, not 'match')
+
+  describe 'TimeCondition', ->
+    clock = null
+    before ->
+      clock = lolex.install 0, ['Date']
+    after ->
+      clock.uninstall()
+
+    testCondTime = (cond, time, match) ->
+      # This uses RFC2822 format to make it in local time zone.
+      # ISO-8601 should be avoided because ES5 says it assumes UTC.
+      clock.setSystemTime(new Date("01 Feb 2016 #{time}").getTime())
+      testCond(cond, "http://time-#{time}/", match)
+
+    it 'should match requests based on hour range', ->
+      cond =
+        conditionType: 'TimeCondition'
+        startHour: 7
+        endHour: 9
+
+      testCondTime(cond, '00:00:00', not 'match')
+      testCondTime(cond, '06:00:00', not 'match')
+      testCondTime(cond, '07:00:00', 'match')
+      testCondTime(cond, '08:00:00', 'match')
+      testCondTime(cond, '09:00:00', 'match')
+      testCondTime(cond, '09:59:59', 'match')
+      testCondTime(cond, '10:00:00', not 'match')
+      testCondTime(cond, '19:00:00', not 'match')
+      testCondTime(cond, '23:00:00', not 'match')
+
+    it 'should match the hour if startHour == endHour', ->
+      cond =
+        conditionType: 'TimeCondition'
+        startHour: 7
+        endHour: 7
+
+      testCondTime(cond, '00:00:00', not 'match')
+      testCondTime(cond, '06:00:00', not 'match')
+      testCondTime(cond, '07:00:00', 'match')
+      testCondTime(cond, '07:00:01', 'match')
+      testCondTime(cond, '07:59:59', 'match')
+      testCondTime(cond, '08:00:00', not 'match')
+      testCondTime(cond, '19:00:00', not 'match')
+
+    it 'should not match anything if startHour > endHour', ->
+      cond =
+        conditionType: 'TimeCondition'
+        startHour: 7
+        endHour: 6
+
+      testCondTime(cond, '00:00:00', not 'match')
+      testCondTime(cond, '06:00:00', not 'match')
+      testCondTime(cond, '06:59:59', not 'match')
+      testCondTime(cond, '07:00:00', not 'match')
+      testCondTime(cond, '08:00:00', not 'match')
+      testCondTime(cond, '09:00:00', not 'match')
+      testCondTime(cond, '10:00:00', not 'match')
+      testCondTime(cond, '19:00:00', not 'match')
+      testCondTime(cond, '23:00:00', not 'match')
+
   describe '#typeFromAbbr', ->
     it 'should get condition types by abbrs', ->
       Conditions.typeFromAbbr('True').should.equal('TrueCondition')
@@ -409,7 +527,6 @@ describe 'Conditions', ->
       result = Conditions.str(condition)
       result.should.equal('Ip: 127.0.0.1/16')
       cond = Conditions.fromStr(result)
-      console.log typeof cond.prefixLength
       cond.should.eql(condition)
     it 'should provide sensible fallbacks for invalid IpCondition', ->
       cond = Conditions.fromStr('Ip: foo/-233')
