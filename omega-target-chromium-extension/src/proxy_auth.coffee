@@ -28,7 +28,7 @@ module.exports = class ProxyAuth
     )
     @listening = true
 
-  _keyForProxy: (proxy) -> "#{proxy.host}:#{proxy.port}"
+  _keyForProxy: (proxy) -> "#{proxy.host.toLowerCase()}:#{proxy.port}"
   setProxies: (profiles) ->
     @_proxies = {}
     @_fallbacks = []
