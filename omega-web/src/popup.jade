@@ -36,7 +36,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
             = ' '
             span(ng-show='!nameExternal.open') {{'popup_externalProfile' | tr}}
             input.form-control(ng-show='!!nameExternal.open' ng-model='externalProfile.name' ng-blur='nameExternalForm.submit()'
-              placeholder='{{"popup_externalProfileName" | tr}}' ui-validate='validateProfileName')
+              placeholder='{{"popup_externalProfileName" | tr}}' ui-validate='validateProfileName' autofocus)
       li.request-info(ng-show='!!requestInfoProvided' class='bg-warning')
         a(href='#' role='button' ng-click='showRequestInfo = true' data-shortcut='requestInfo')
           span.glyphicon.glyphicon-warning-sign.text-warning
@@ -105,7 +105,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
             option(value='KeywordCondition') {{'condition_KeywordCondition' | tr}}
         div.form-group
           label {{'options_conditionDetails' | tr}}
-          input.form-control.condition-details(type='text' required ng-model='rule.condition.pattern')
+          input.form-control.condition-details(type='text' required ng-model='rule.condition.pattern' autofocus)
         div.form-group
           label {{'options_resultProfile' | tr}}
           div(omega-profile-select='validResultProfiles' ng-model='rule.profileName'
@@ -135,9 +135,10 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
         .text-warning {{'popup_requestErrorWarning' | tr}}
         p.help-block {{'popup_requestErrorWarningHelp' | tr}}
         p.help-block(ng-show='!!currentProfileCanAddRule') {{'popup_requestErrorAddCondition' | tr}} 
-        .checkbox(ng-repeat='domain in requestInfo.domains')
+        .checkbox(ng-repeat='domain in requestInfo.domains track by domain.domain')
           label
-            input(type='checkbox' ng-model='domainsForCondition[domain.domain]')
+            input(type='checkbox' ng-model='domainsForCondition[domain.domain]' autofocus ng-if='$index === 0')
+            input(type='checkbox' ng-model='domainsForCondition[domain.domain]' ng-if='$index > 0')
             span.label.label-warning {{domain.errorCount}}
             =' {{domain.domain}}'
         div.form-group(ng-show='!!currentProfileCanAddRule')
