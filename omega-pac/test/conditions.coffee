@@ -1,6 +1,6 @@
 chai = require 'chai'
 should = chai.should()
-lolex = require 'lolex';
+lolex = require 'lolex'
 
 describe 'Conditions', ->
   Conditions = require '../src/conditions'
@@ -408,6 +408,46 @@ describe 'Conditions', ->
       testCondDay(cond, 5, not 'match')
       testCondDay(cond, 6, not 'match')
 
+    it 'should match according to .days', ->
+      cond =
+        conditionType: 'WeekdayCondition'
+        days: 'SMTWtFs'
+
+      testCondDay(cond, 0, 'match')
+      testCondDay(cond, 1, 'match')
+      testCondDay(cond, 2, 'match')
+      testCondDay(cond, 3, 'match')
+      testCondDay(cond, 4, 'match')
+      testCondDay(cond, 5, 'match')
+      testCondDay(cond, 6, 'match')
+
+      cond =
+        conditionType: 'WeekdayCondition'
+        days: 'S-TW-F-'
+
+      testCondDay(cond, 0, 'match')
+      testCondDay(cond, 1, not 'match')
+      testCondDay(cond, 2, 'match')
+      testCondDay(cond, 3, 'match')
+      testCondDay(cond, 4, not 'match')
+      testCondDay(cond, 5, 'match')
+      testCondDay(cond, 6, not 'match')
+
+    it 'should prefer .days to .startDay and .endDay', ->
+      cond =
+        conditionType: 'WeekdayCondition'
+        days: '--TW---'
+        startDay: 0
+        endDay: 0
+
+      testCondDay(cond, 0, not 'match')
+      testCondDay(cond, 1, not 'match')
+      testCondDay(cond, 2, 'match')
+      testCondDay(cond, 3, 'match')
+      testCondDay(cond, 4, not 'match')
+      testCondDay(cond, 5, not 'match')
+      testCondDay(cond, 6, not 'match')
+
   describe 'TimeCondition', ->
     clock = null
     before ->
@@ -595,6 +635,22 @@ describe 'Conditions', ->
         startDay: 0
         endDay: 0
       )
+    it 'should encode & decode WeekdayCondition with days', ->
+      condition =
+        conditionType: 'WeekdayCondition'
+        days: 'SMTWtFs'
+      result = Conditions.str(condition)
+      result.should.equal('Weekday: SMTWtFs')
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+
+      condition =
+        conditionType: 'WeekdayCondition'
+        days: 'SM-W-Fs'
+      result = Conditions.str(condition)
+      result.should.equal('Weekday: SM-W-Fs')
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
     it 'should encode & decode TimeCondition correctly', ->
       condition =
         conditionType: 'TimeCondition'

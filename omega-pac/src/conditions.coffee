@@ -590,9 +590,10 @@ module.exports = exports =
       analyze: (condition) -> null
       match: (condition, request) ->
         day = new Date().getDay()
+        return condition.days.charCodeAt(day) > 64 if condition.days
         return condition.startDay <= day and day <= condition.endDay
       compile: (condition) ->
-        val = new U2.AST_Call(
+        getDay = new U2.AST_Call(
           args: []
           expression: new U2.AST_Dot(
             property: 'getDay'
@@ -602,14 +603,34 @@ module.exports = exports =
             )
           )
         )
-        @between val, condition.startDay, condition.endDay
-      str: (condition) -> condition.startDay + '~' + condition.endDay
+        if condition.days
+          new U2.AST_Binary(
+            left: new U2.AST_Call(
+              expression: new U2.AST_Dot(
+                expression: new U2.AST_String value: condition.days
+                property: 'charCodeAt'
+              )
+              args: [getDay]
+            )
+            operator: '>'
+            right: new U2.AST_Number value: 64
+          )
+        else
+          @between getDay, condition.startDay, condition.endDay
+      str: (condition) ->
+        if condition.days
+          condition.days
+        else
+          condition.startDay + '~' + condition.endDay
       fromStr: (str, condition) ->
-        [startDay, endDay] = str.split('~')
-        condition.startDay = parseInt(startDay, 10)
-        condition.endDay = parseInt(endDay, 10)
-        condition.startDay = 0 unless 0 <= condition.startDay <= 6
-        condition.endDay = 0 unless 0 <= condition.endDay <= 6
+        if str.indexOf('~') < 0 and str.length == 7
+          condition.days = str
+        else
+          [startDay, endDay] = str.split('~')
+          condition.startDay = parseInt(startDay, 10)
+          condition.endDay = parseInt(endDay, 10)
+          condition.startDay = 0 unless 0 <= condition.startDay <= 6
+          condition.endDay = 0 unless 0 <= condition.endDay <= 6
         condition
 
     'TimeCondition':
