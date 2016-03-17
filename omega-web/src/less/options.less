@@ -420,7 +420,11 @@ main {
 
 .switch-attached {
   > tr > td {
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
+
+    .shepherd-active & {
+      background-color: transparent;
+    }
 
     &:first-child {
       text-align: center;

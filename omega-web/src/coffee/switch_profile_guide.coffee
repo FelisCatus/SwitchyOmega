@@ -1,15 +1,15 @@
 $script 'lib/tether/tether.js', ->
   $script 'lib/shepherd.js/shepherd.min.js', ->
+    return if jQuery('.switch-rule-row').length == 0
+    jQuery('html, body').scrollTop(0)
     tr = chrome.i18n.getMessage.bind(chrome.i18n)
     tour = new Shepherd.Tour
       defaults:
         classes: 'shepherd-theme-arrows'
-        scrollTo: true
 
     tour.addStep 'condition-step',
       text: tr('options_guide_conditionStep')
       attachTo: '.switch-rule-row bottom'
-      scrollTo: true
       buttons: [
         {
           text: tr('options_guideSkip')
@@ -28,7 +28,6 @@ $script 'lib/tether/tether.js', ->
       advanceOn:
         selector: '.close-condition-help'
         event: 'click'
-      scrollTo: true
       buttons: [
         text: tr('options_guideNext')
         action: tour.next
@@ -45,20 +44,24 @@ $script 'lib/tether/tether.js', ->
     tour.addStep 'condition-profile-step',
       text: tr('options_guide_conditionProfileStep')
       attachTo: '.switch-rule-row-target bottom'
-      scrollTo: true
       buttons: [
         text: tr('options_guideNext')
         action: tour.next
       ]
 
-    tour.addStep 'switch-default-step',
+    defaultStep = tour.addStep 'switch-default-step',
       text: tr('options_guide_switchDefaultStep')
       attachTo: '.switch-default-row top'
-      scrollTo: true
       buttons: [
         text: tr('options_guideNext')
         action: tour.next
       ]
+
+    defaultStep.on 'show', ->
+      row = jQuery('.switch-default-row')
+      scrollTop = row.offset().top + row.height() - $(window).height()
+      scrollTop = 0 if scrollTop < 0
+      jQuery('html, body').animate({scrollTop: scrollTop})
 
     tour.addStep 'apply-switch-profile-step',
       text: tr('options_guide_applySwitchProfileStep')
