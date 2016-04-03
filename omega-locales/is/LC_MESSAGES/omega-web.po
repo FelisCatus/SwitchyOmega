@@ -3,36 +3,37 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-02-17 07:02+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-04-03 03:49+0000\n"
+"Last-Translator: Simon Leonhardt <simonl@fastmail.com>\n"
+"Language-Team: Icelandic "
+"<https://hosted.weblate.org/projects/switchyomega/main/is/>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 msgid "appNameShort"
-msgstr ""
+msgstr "SwitchyOmega"
 
 msgid "manifest_app_name"
-msgstr ""
+msgstr "Proxy SwitchyOmega"
 
 msgid "manifest_app_description"
-msgstr ""
+msgstr "Stjórnaðu eða skiptu á milli margra proxy hratt og auðveldlega."
 
 msgid "manifest_icon_default_title"
-msgstr ""
+msgstr "Hleður…"
 
 msgid "upgrade_profile_auto"
-msgstr ""
+msgstr "Sjálfskipting"
 
 msgid "profile_direct"
-msgstr ""
+msgstr "[Beint]"
 
 msgid "profile_system"
-msgstr ""
+msgstr "[System Proxy]"
 
 msgid "condition_HostWildcardCondition"
 msgstr ""
@@ -71,7 +72,7 @@ msgid "condition_help_KeywordCondition"
 msgstr ""
 
 msgid "condition_FalseCondition"
-msgstr ""
+msgstr "(Slökkt)"
 
 msgid "condition_details_FalseCondition"
 msgstr ""
@@ -86,7 +87,7 @@ msgid "condition_help_TimeCondition"
 msgstr ""
 
 msgid "condition_WeekdayCondition"
-msgstr ""
+msgstr "Vikudagur"
 
 msgid "condition_help_WeekdayCondition"
 msgstr ""
@@ -104,13 +105,13 @@ msgid "condition_group_special"
 msgstr ""
 
 msgid "ruleListFormat_Switchy"
-msgstr ""
+msgstr "Switchy"
 
 msgid "ruleListFormat_AutoProxy"
-msgstr ""
+msgstr "AutoProxy"
 
 msgid "ruleList_usageUrl"
-msgstr ""
+msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
 msgstr ""
