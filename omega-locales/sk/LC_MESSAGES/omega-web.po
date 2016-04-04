@@ -1,0 +1,968 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SwitchyOmega 2.3.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-13 10:29+0000\n"
+"PO-Revision-Date: 2015-02-17 07:02+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.2-dev\n"
+
+msgid "appNameShort"
+msgstr ""
+
+msgid "manifest_app_name"
+msgstr ""
+
+msgid "manifest_app_description"
+msgstr ""
+
+msgid "manifest_icon_default_title"
+msgstr ""
+
+msgid "upgrade_profile_auto"
+msgstr ""
+
+msgid "profile_direct"
+msgstr ""
+
+msgid "profile_system"
+msgstr ""
+
+msgid "condition_HostWildcardCondition"
+msgstr ""
+
+msgid "condition_help_HostWildcardCondition"
+msgstr ""
+
+msgid "condition_HostRegexCondition"
+msgstr ""
+
+msgid "condition_help_HostRegexCondition"
+msgstr ""
+
+msgid "condition_HostLevelsCondition"
+msgstr ""
+
+msgid "condition_help_HostLevelsCondition"
+msgstr ""
+
+msgid "condition_UrlWildcardCondition"
+msgstr ""
+
+msgid "condition_help_UrlWildcardCondition"
+msgstr ""
+
+msgid "condition_UrlRegexCondition"
+msgstr ""
+
+msgid "condition_help_UrlRegexCondition"
+msgstr ""
+
+msgid "condition_KeywordCondition"
+msgstr ""
+
+msgid "condition_help_KeywordCondition"
+msgstr ""
+
+msgid "condition_FalseCondition"
+msgstr ""
+
+msgid "condition_details_FalseCondition"
+msgstr ""
+
+msgid "condition_help_FalseCondition"
+msgstr ""
+
+msgid "condition_TimeCondition"
+msgstr ""
+
+msgid "condition_help_TimeCondition"
+msgstr ""
+
+msgid "condition_WeekdayCondition"
+msgstr ""
+
+msgid "condition_help_WeekdayCondition"
+msgstr ""
+
+msgid "condition_group_default"
+msgstr ""
+
+msgid "condition_group_host"
+msgstr ""
+
+msgid "condition_group_url"
+msgstr ""
+
+msgid "condition_group_special"
+msgstr ""
+
+msgid "ruleListFormat_Switchy"
+msgstr ""
+
+msgid "ruleListFormat_AutoProxy"
+msgstr ""
+
+msgid "ruleList_usageUrl"
+msgstr ""
+
+msgid "ruleList_error_resultNotEnabled"
+msgstr ""
+
+msgid "ruleList_error_unknownProfile"
+msgstr ""
+
+msgid "ruleList_error_missingResultProfile"
+msgstr ""
+
+msgid "ruleList_error_invalidRule"
+msgstr ""
+
+msgid "ruleList_error_noDefaultRule"
+msgstr ""
+
+msgid "dialog_close"
+msgstr ""
+
+msgid "dialog_save"
+msgstr ""
+
+msgid "dialog_ok"
+msgstr ""
+
+msgid "dialog_cancel"
+msgstr ""
+
+msgid "inputClear_clear"
+msgstr ""
+
+msgid "inputClear_restore"
+msgstr ""
+
+msgid "options_title"
+msgstr ""
+
+msgid "options_navHeader_setting"
+msgstr ""
+
+msgid "options_navHeader_profiles"
+msgstr ""
+
+msgid "options_navHeader_actions"
+msgstr ""
+
+msgid "options_tab_ui"
+msgstr ""
+
+msgid "options_tab_general"
+msgstr ""
+
+msgid "options_tab_importExport"
+msgstr ""
+
+msgid "options_newProfile"
+msgstr ""
+
+msgid "options_apply"
+msgstr ""
+
+msgid "options_discard"
+msgstr ""
+
+msgid "options_reset"
+msgstr ""
+
+msgid "options_group_miscOptions"
+msgstr ""
+
+msgid "options_confirmDeletion"
+msgstr ""
+
+msgid "options_refreshOnProfileChange"
+msgstr ""
+
+msgid "options_showInspectMenu"
+msgstr ""
+
+msgid "options_group_keyboardShortcut"
+msgstr ""
+
+msgid "options_menuShortcutHelp"
+msgstr ""
+
+msgid "options_menuShortcutMore"
+msgstr ""
+
+msgid "options_menuShortcutConfigure"
+msgstr ""
+
+msgid "options_group_switchOptions"
+msgstr ""
+
+msgid "options_startupProfile"
+msgstr ""
+
+msgid "options_startupProfile_none"
+msgstr ""
+
+msgid "options_showConditionTypesAdvanced"
+msgstr ""
+
+msgid "options_showConditionTypesAdvancedHelp"
+msgstr ""
+
+msgid "options_quickSwitch"
+msgstr ""
+
+msgid "options_cycledProfiles"
+msgstr ""
+
+msgid "options_cycledProfilesHelp"
+msgstr ""
+
+msgid "options_cycledProfilesTooFew"
+msgstr ""
+
+msgid "options_notCycledProfiles"
+msgstr ""
+
+msgid "options_group_proxyChanges"
+msgstr ""
+
+msgid "options_revertProxyChanges"
+msgstr ""
+
+msgid "options_group_networkRequests"
+msgstr ""
+
+msgid "options_monitorWebRequests"
+msgstr ""
+
+msgid "options_monitorWebRequestsHelp"
+msgstr ""
+
+msgid "options_downloadOptions"
+msgstr ""
+
+msgid "options_downloadOptionsHelp"
+msgstr ""
+
+msgid "options_downloadInterval"
+msgstr ""
+
+msgid "options_downloadInterval_15"
+msgstr ""
+
+msgid "options_downloadInterval_60"
+msgstr ""
+
+msgid "options_downloadInterval_180"
+msgstr ""
+
+msgid "options_downloadInterval_360"
+msgstr ""
+
+msgid "options_downloadInterval_720"
+msgstr ""
+
+msgid "options_downloadInterval_1440"
+msgstr ""
+
+msgid "options_downloadInterval_never"
+msgstr ""
+
+msgid "options_group_importExportProfile"
+msgstr ""
+
+msgid "options_exportPacFile"
+msgstr ""
+
+msgid "options_exportPacFileHelp"
+msgstr ""
+
+msgid "options_exportProfileHelp"
+msgstr ""
+
+msgid "options_exportLegacyRuleList"
+msgstr ""
+
+msgid "options_exportLegacyRuleListHelp"
+msgstr ""
+
+msgid "options_group_importExportSettings"
+msgstr ""
+
+msgid "options_makeBackup"
+msgstr ""
+
+msgid "options_makeBackupHelp"
+msgstr ""
+
+msgid "options_restoreLocal"
+msgstr ""
+
+msgid "options_restoreLocalHelp"
+msgstr ""
+
+msgid "options_restoreOnline"
+msgstr ""
+
+msgid "options_restoreOnlinePlaceholder"
+msgstr ""
+
+msgid "options_restoreOnlineSubmit"
+msgstr ""
+
+msgid "options_group_syncing"
+msgstr ""
+
+msgid "options_syncEnable"
+msgstr ""
+
+msgid "options_syncEnableForce"
+msgstr ""
+
+msgid "options_syncDisable"
+msgstr ""
+
+msgid "options_syncReset"
+msgstr ""
+
+msgid "options_syncPristineHelp"
+msgstr ""
+
+msgid "options_syncSyncAlert"
+msgstr ""
+
+msgid "options_syncSyncHelp"
+msgstr ""
+
+msgid "options_syncConflictAlert"
+msgstr ""
+
+msgid "options_syncConflictHelp"
+msgstr ""
+
+msgid "options_syncUnsupportedHelp"
+msgstr ""
+
+msgid "options_profileSyncDisabled"
+msgstr ""
+
+msgid "options_profileSyncDisabled_quotaPerItem"
+msgstr ""
+
+msgid "options_profileTabPrefix"
+msgstr ""
+
+msgid "options_renameProfile"
+msgstr ""
+
+msgid "options_deleteProfile"
+msgstr ""
+
+msgid "options_profileExportRuleList"
+msgstr ""
+
+msgid "options_profileExportRuleListHelp"
+msgstr ""
+
+msgid "options_profileExportPac"
+msgstr ""
+
+msgid "options_profileUnsupported"
+msgstr ""
+
+msgid "options_profileUnsupportedHelp"
+msgstr ""
+
+msgid "options_profileEditSource"
+msgstr ""
+
+msgid "options_profileEditSourceHelp"
+msgstr ""
+
+msgid "options_profileEditSourceHelpUrl"
+msgstr ""
+
+msgid "options_group_proxyServers"
+msgstr ""
+
+msgid "options_proxy_scheme"
+msgstr ""
+
+msgid "options_proxy_protocol"
+msgstr ""
+
+msgid "options_proxy_server"
+msgstr ""
+
+msgid "options_proxy_port"
+msgstr ""
+
+msgid "options_proxy_auth"
+msgstr ""
+
+msgid "options_proxy_authAllWarningPac"
+msgstr ""
+
+msgid "options_proxy_authAllWarningPacUrl"
+msgstr ""
+
+msgid "options_proxy_authAllWarningPacScript"
+msgstr ""
+
+msgid "options_proxy_authReferencedWarning"
+msgstr ""
+
+msgid "options_scheme_default"
+msgstr ""
+
+msgid "options_protocol_direct"
+msgstr ""
+
+msgid "options_protocol_useDefault"
+msgstr ""
+
+msgid "options_proxy_single"
+msgstr ""
+
+msgid "options_proxy_expand"
+msgstr ""
+
+msgid "options_group_bypassList"
+msgstr ""
+
+msgid "options_bypassListHelp"
+msgstr ""
+
+msgid "options_bypassListHelpLinkText"
+msgstr ""
+
+msgid "options_group_pacUrl"
+msgstr ""
+
+msgid "options_pacUrlHelp"
+msgstr ""
+
+msgid "options_pacUrlFile"
+msgstr ""
+
+msgid "options_pacUrlFileDisabled"
+msgstr ""
+
+msgid "options_group_pacScript"
+msgstr ""
+
+msgid "options_pacScriptLastUpdate"
+msgstr ""
+
+msgid "options_pacScriptObsolete"
+msgstr ""
+
+msgid "options_group_virtualProfile"
+msgstr ""
+
+msgid "options_virtualProfileTarget"
+msgstr ""
+
+msgid "options_virtualProfileTargetHelp"
+msgstr ""
+
+msgid "options_group_virtualProfileReplace"
+msgstr ""
+
+msgid "options_virtualProfileReplace"
+msgstr ""
+
+msgid "options_virtualProfileReplaceHelp"
+msgstr ""
+
+msgid "options_group_ruleListConfig"
+msgstr ""
+
+msgid "options_ruleListFormat"
+msgstr ""
+
+msgid "options_group_ruleListResult"
+msgstr ""
+
+msgid "options_ruleListMatchProfile"
+msgstr ""
+
+msgid "options_ruleListDefaultProfile"
+msgstr ""
+
+msgid "options_group_ruleListUrl"
+msgstr ""
+
+msgid "options_ruleListUrlHelp"
+msgstr ""
+
+msgid "options_group_ruleListText"
+msgstr ""
+
+msgid "options_ruleListLastUpdate"
+msgstr ""
+
+msgid "options_ruleListObsolete"
+msgstr ""
+
+msgid "options_group_switchRules"
+msgstr ""
+
+msgid "options_sort"
+msgstr ""
+
+msgid "options_conditionType"
+msgstr ""
+
+msgid "options_showConditionTypeHelp"
+msgstr ""
+
+msgid "options_conditionDetails"
+msgstr ""
+
+msgid "options_resultProfile"
+msgstr ""
+
+msgid "options_conditionActions"
+msgstr ""
+
+msgid "options_addCondition"
+msgstr ""
+
+msgid "options_cloneRule"
+msgstr ""
+
+msgid "options_switchAttachedProfileInCondition"
+msgstr ""
+
+msgid "options_switchAttachedProfileInConditionDetails"
+msgstr ""
+
+msgid "options_switchAttachedProfileInConditionDisabled"
+msgstr ""
+
+msgid "options_switchDefaultProfile"
+msgstr ""
+
+msgid "options_hostLevelsBetween"
+msgstr ""
+
+msgid "options_hourBetween"
+msgstr ""
+
+msgid "options_weekDayShort_0"
+msgstr ""
+
+msgid "options_weekDayShort_1"
+msgstr ""
+
+msgid "options_weekDayShort_2"
+msgstr ""
+
+msgid "options_weekDayShort_3"
+msgstr ""
+
+msgid "options_weekDayShort_4"
+msgstr ""
+
+msgid "options_weekDayShort_5"
+msgstr ""
+
+msgid "options_weekDayShort_6"
+msgstr ""
+
+msgid "options_group_conditionHelp"
+msgstr ""
+
+msgid "options_group_attachProfile"
+msgstr ""
+
+msgid "options_attachProfile"
+msgstr ""
+
+msgid "options_attachProfileHelp"
+msgstr ""
+
+msgid "options_modalHeader_welcome"
+msgstr ""
+
+msgid "options_welcomeNormal"
+msgstr ""
+
+msgid "options_welcomeNormalGuide"
+msgstr ""
+
+msgid "options_welcomeUpgrade"
+msgstr ""
+
+msgid "options_welcomeUpgradeGuide"
+msgstr ""
+
+msgid "options_guideNext"
+msgstr ""
+
+msgid "options_guideDone"
+msgstr ""
+
+msgid "options_guideSkip"
+msgstr ""
+
+msgid "options_modalHeader_applyOptions"
+msgstr ""
+
+msgid "options_optionsNotSaved"
+msgstr ""
+
+msgid "options_applyOptionsRequired"
+msgstr ""
+
+msgid "options_applyOptionsConfirm"
+msgstr ""
+
+msgid "options_modalHeader_renameProfile"
+msgstr ""
+
+msgid "options_renameProfileName"
+msgstr ""
+
+msgid "options_profileNameConflict"
+msgstr ""
+
+msgid "options_profileNameReserved"
+msgstr ""
+
+msgid "options_profileNameHidden"
+msgstr ""
+
+msgid "options_modalHeader_replaceProfile"
+msgstr ""
+
+msgid "options_replaceProfile"
+msgstr ""
+
+msgid "options_replaceProfileConfirm"
+msgstr ""
+
+msgid "options_replaceProfileHelp"
+msgstr ""
+
+msgid "options_replaceProfileSuccess"
+msgstr ""
+
+msgid "options_modalHeader_deleteProfile"
+msgstr ""
+
+msgid "options_deleteProfileConfirm"
+msgstr ""
+
+msgid "options_modalHeader_cannotDeleteProfile"
+msgstr ""
+
+msgid "options_profileReferredBy"
+msgstr ""
+
+msgid "options_modifyReferringProfiles"
+msgstr ""
+
+msgid "options_profileNameEmpty"
+msgstr ""
+
+msgid "popup_title"
+msgstr ""
+
+msgid "options_modalHeader_proxyAuth"
+msgstr ""
+
+msgid "options_proxyAuthUsername"
+msgstr ""
+
+msgid "options_proxyAuthPassword"
+msgstr ""
+
+msgid "options_proxyAuthNone"
+msgstr ""
+
+msgid "options_modalHeader_deleteRule"
+msgstr ""
+
+msgid "options_deleteRuleConfirm"
+msgstr ""
+
+msgid "options_deleteRule"
+msgstr ""
+
+msgid "options_modalHeader_resetRules"
+msgstr ""
+
+msgid "options_resetRulesConfirm"
+msgstr ""
+
+msgid "options_resetRules"
+msgstr ""
+
+msgid "options_resetRules_help"
+msgstr ""
+
+msgid "options_modalHeader_deleteAttached"
+msgstr ""
+
+msgid "options_deleteAttachedConfirm"
+msgstr ""
+
+msgid "options_ruleListLineCount"
+msgstr ""
+
+msgid "options_deleteAttached"
+msgstr ""
+
+msgid "options_modalHeader_newProfile"
+msgstr ""
+
+msgid "options_newProfileName"
+msgstr ""
+
+msgid "options_profileType"
+msgstr ""
+
+msgid "options_profileTypeFixedProfile"
+msgstr ""
+
+msgid "options_profileDescFixedProfile"
+msgstr ""
+
+msgid "options_profileTypePacProfile"
+msgstr ""
+
+msgid "options_profileDescPacProfile"
+msgstr ""
+
+msgid "options_profileDescMorePacProfile"
+msgstr ""
+
+msgid "options_profileTypeSwitchProfile"
+msgstr ""
+
+msgid "options_profileDescSwitchProfile"
+msgstr ""
+
+msgid "options_profileTypeRuleListProfile"
+msgstr ""
+
+msgid "options_profileDescRuleListProfile"
+msgstr ""
+
+msgid "options_profileTypeVirtualProfile"
+msgstr ""
+
+msgid "options_profileDescVirtualProfile"
+msgstr ""
+
+msgid "options_createProfile"
+msgstr ""
+
+msgid "options_modalHeader_resetOptions"
+msgstr ""
+
+msgid "options_resetOptionsConfirm"
+msgstr ""
+
+msgid "options_formInvalid"
+msgstr ""
+
+msgid "options_profileNotFound"
+msgstr ""
+
+msgid "options_resetSuccess"
+msgstr ""
+
+msgid "options_saveSuccess"
+msgstr ""
+
+msgid "options_importSuccess"
+msgstr ""
+
+msgid "options_importFormatError"
+msgstr ""
+
+msgid "options_importDownloadError"
+msgstr ""
+
+msgid "options_profileDownloadSuccess"
+msgstr ""
+
+msgid "options_profileDownloadError"
+msgstr ""
+
+msgid "options_downloadProfileNow"
+msgstr ""
+
+msgid "options_guide_fixedProfileStep"
+msgstr ""
+
+msgid "options_guide_fixedServersStep"
+msgstr ""
+
+msgid "options_guide_autoSwitchProfileStep"
+msgstr ""
+
+msgid "options_guide_addMoreProfilesStep"
+msgstr ""
+
+msgid "options_guide_conditionStep"
+msgstr ""
+
+msgid "options_guide_conditionTypeStep"
+msgstr ""
+
+msgid "options_guide_conditionProfileStep"
+msgstr ""
+
+msgid "options_guide_switchDefaultStep"
+msgstr ""
+
+msgid "options_guide_applySwitchProfileStep"
+msgstr ""
+
+msgid "popup_externalProfile"
+msgstr ""
+
+msgid "popup_externalProfileName"
+msgstr ""
+
+msgid "popup_proxyNotControllable_app"
+msgstr ""
+
+msgid "popup_proxyNotControllable_policy"
+msgstr ""
+
+msgid "popup_proxyNotControllable_unknown"
+msgstr ""
+
+msgid "popup_proxyNotControllable_disabled"
+msgstr ""
+
+msgid "popup_proxyNotControllable_upgrade"
+msgstr ""
+
+msgid "popup_proxyNotControllableDetails"
+msgstr ""
+
+msgid "popup_proxyNotControllableDetails_upgrade"
+msgstr ""
+
+msgid "popup_proxyNotControllableManage"
+msgstr ""
+
+msgid "popup_addConditionTo"
+msgstr ""
+
+msgid "popup_addCondition"
+msgstr ""
+
+msgid "popup_showOptions"
+msgstr ""
+
+msgid "popup_reportIssues"
+msgstr ""
+
+msgid "popup_errorLog"
+msgstr ""
+
+msgid "popup_requestErrorCount"
+msgstr ""
+
+msgid "popup_requestErrorHeading"
+msgstr ""
+
+msgid "popup_requestErrorWarning"
+msgstr ""
+
+msgid "popup_requestErrorWarningHelp"
+msgstr ""
+
+msgid "popup_requestErrorAddCondition"
+msgstr ""
+
+msgid "popup_requestErrorCannotAddCondition"
+msgstr ""
+
+msgid "popup_configureMonitorWebRequests"
+msgstr ""
+
+msgid "options_resultProfileForSelectedDomains"
+msgstr ""
+
+msgid "popup_issueTemplate"
+msgstr ""
+
+msgid "browserAction_profileDetails_PacProfile"
+msgstr ""
+
+msgid "browserAction_profileDetails_SystemProfile"
+msgstr ""
+
+msgid "browserAction_profileDetails_DirectProfile"
+msgstr ""
+
+msgid "browserAction_profileDetails_SwitchProfile"
+msgstr ""
+
+msgid "browserAction_profileDetails_RuleListProfile"
+msgstr ""
+
+msgid "browserAction_titleNormal"
+msgstr ""
+
+msgid "browserAction_titleWithResult"
+msgstr ""
+
+msgid "browserAction_titleNewerOptions"
+msgstr ""
+
+msgid "browserAction_titleOptionError"
+msgstr ""
+
+msgid "browserAction_titleDownloadFail"
+msgstr ""
+
+msgid "browserAction_titleExternalProxy"
+msgstr ""
+
+msgid "browserAction_titleInspect"
+msgstr ""
+
+msgid "browserAction_defaultRuleDetails"
+msgstr ""
+
+msgid "browserAction_directResult"
+msgstr ""
+
+msgid "browserAction_attachedPrefix"
+msgstr ""
+
+msgid "browserAction_tempRulePrefix"
+msgstr ""
+
+msgid "contextMenu_inspectPage"
+msgstr ""
+
+msgid "contextMenu_inspectFrame"
+msgstr ""
+
+msgid "contextMenu_inspectLink"
+msgstr ""
+
+msgid "contextMenu_inspectElement"
+msgstr ""
+
+msgid "contextMenu_enableQuickSwitch"
+msgstr ""
