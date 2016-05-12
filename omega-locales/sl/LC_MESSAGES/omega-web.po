@@ -3,19 +3,20 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-02-17 07:02+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-05-12 10:47+0000\n"
+"Last-Translator: Štefan Baebler <stefan.baebler@gmail.com>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/switchyomega/main/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 msgid "appNameShort"
-msgstr ""
+msgstr "SwitchyOmega"
 
 msgid "manifest_app_name"
 msgstr ""
@@ -24,13 +25,13 @@ msgid "manifest_app_description"
 msgstr ""
 
 msgid "manifest_icon_default_title"
-msgstr ""
+msgstr "Nalaganje…"
 
 msgid "upgrade_profile_auto"
-msgstr ""
+msgstr "Samodejna izbira"
 
 msgid "profile_direct"
-msgstr ""
+msgstr "[Neposredno]"
 
 msgid "profile_system"
 msgstr ""
@@ -684,31 +685,31 @@ msgid "options_modalHeader_proxyAuth"
 msgstr ""
 
 msgid "options_proxyAuthUsername"
-msgstr ""
+msgstr "Uporabniško ime"
 
 msgid "options_proxyAuthPassword"
-msgstr ""
+msgstr "Geslo"
 
 msgid "options_proxyAuthNone"
-msgstr ""
+msgstr "Brez preverjanja pristnosti"
 
 msgid "options_modalHeader_deleteRule"
-msgstr ""
+msgstr "Izbriši pravilo"
 
 msgid "options_deleteRuleConfirm"
-msgstr ""
+msgstr "Ali res želite izbrisati to pravilo?"
 
 msgid "options_deleteRule"
-msgstr ""
+msgstr "Izbriši"
 
 msgid "options_modalHeader_resetRules"
-msgstr ""
+msgstr "Ponastavitev pravil"
 
 msgid "options_resetRulesConfirm"
 msgstr ""
 
 msgid "options_resetRules"
-msgstr ""
+msgstr "Ponastavitev pravil"
 
 msgid "options_resetRules_help"
 msgstr ""
@@ -726,13 +727,13 @@ msgid "options_deleteAttached"
 msgstr ""
 
 msgid "options_modalHeader_newProfile"
-msgstr ""
+msgstr "Nov profil"
 
 msgid "options_newProfileName"
-msgstr ""
+msgstr "Ime profila"
 
 msgid "options_profileType"
-msgstr ""
+msgstr "Izberite vrsto profila:"
 
 msgid "options_profileTypeFixedProfile"
 msgstr ""
