@@ -107,6 +107,7 @@ module.exports = (oldOptions, i18n) ->
         color = oldProfile['color']
         profile.color = colorTranslations[color] ? colorTranslations['']
         name = oldProfile['name'] ? oldProfile['id']
+        name = name.trim()
         if name[0] == '_'
           name = 'p' + name
         profile.name = name
