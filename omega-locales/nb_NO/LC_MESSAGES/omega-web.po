@@ -3,36 +3,38 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-02-17 07:02+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-06-05 03:53+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål "
+"<https://hosted.weblate.org/projects/switchyomega/main/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 msgid "appNameShort"
-msgstr ""
+msgstr "SwitchyOmega"
 
+#, fuzzy
 msgid "manifest_app_name"
-msgstr ""
+msgstr "Mellomtjeneren SwitchyOmega"
 
 msgid "manifest_app_description"
-msgstr ""
+msgstr "Behandle og bytt mellom flerfoldige mellomtjenere raskt og enkelt."
 
 msgid "manifest_icon_default_title"
-msgstr ""
+msgstr "Laster inn…"
 
 msgid "upgrade_profile_auto"
-msgstr ""
+msgstr "Automatisk bytte"
 
 msgid "profile_direct"
-msgstr ""
+msgstr "[Direkte]"
 
 msgid "profile_system"
-msgstr ""
+msgstr "[Systemmellomtjener]"
 
 msgid "condition_HostWildcardCondition"
 msgstr ""
@@ -59,34 +61,41 @@ msgid "condition_help_UrlWildcardCondition"
 msgstr ""
 
 msgid "condition_UrlRegexCondition"
-msgstr ""
+msgstr "Regulært uttrykk for URL"
 
+#, fuzzy
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
+"Samsvarer med URL-er i kraft av ekstremt mektige <a "
+"href='https://www.google.com/search?q=regular%20expression'>regulære "
+"uttrykk</a>.<br>Dog kan regulære uttrykk være vanskelige å lage (og "
+"lese).<br>Det er anbefalt å bruke wildcards i de fleste fall og bare bruke "
+"regulære uttrykk for tilstander som ikke kan oppnås av noen annen "
+"tilstandstype."
 
 msgid "condition_KeywordCondition"
-msgstr ""
+msgstr "Nøkkelord"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
 
 msgid "condition_FalseCondition"
-msgstr ""
+msgstr "(Avskrudd)"
 
 msgid "condition_details_FalseCondition"
-msgstr ""
+msgstr "(Tilstand sett bort fra ved jamførelse)"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
 
 msgid "condition_TimeCondition"
-msgstr ""
+msgstr "Gjeldende tid"
 
 msgid "condition_help_TimeCondition"
 msgstr ""
 
 msgid "condition_WeekdayCondition"
-msgstr ""
+msgstr "Ukedag"
 
 msgid "condition_help_WeekdayCondition"
 msgstr ""
@@ -95,28 +104,28 @@ msgid "condition_group_default"
 msgstr ""
 
 msgid "condition_group_host"
-msgstr ""
+msgstr "Vert"
 
 msgid "condition_group_url"
-msgstr ""
+msgstr "URL"
 
 msgid "condition_group_special"
-msgstr ""
+msgstr "Spesiell"
 
 msgid "ruleListFormat_Switchy"
-msgstr ""
+msgstr "Byttende"
 
 msgid "ruleListFormat_AutoProxy"
 msgstr ""
 
 msgid "ruleList_usageUrl"
-msgstr ""
+msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
 msgstr ""
 
 msgid "ruleList_error_unknownProfile"
-msgstr ""
+msgstr "Ukjent profil: $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
 msgstr ""
@@ -128,70 +137,70 @@ msgid "ruleList_error_noDefaultRule"
 msgstr ""
 
 msgid "dialog_close"
-msgstr ""
+msgstr "Lukk"
 
 msgid "dialog_save"
-msgstr ""
+msgstr "Lagre endringer"
 
 msgid "dialog_ok"
-msgstr ""
+msgstr "OK"
 
 msgid "dialog_cancel"
-msgstr ""
+msgstr "Avbryt"
 
 msgid "inputClear_clear"
-msgstr ""
+msgstr "Tøm"
 
 msgid "inputClear_restore"
-msgstr ""
+msgstr "Gjenopprett"
 
 msgid "options_title"
-msgstr ""
+msgstr "SwitchyOmega-valg"
 
 msgid "options_navHeader_setting"
-msgstr ""
+msgstr "Innstillinger"
 
 msgid "options_navHeader_profiles"
-msgstr ""
+msgstr "Profiler"
 
 msgid "options_navHeader_actions"
-msgstr ""
+msgstr "Handlinger"
 
 msgid "options_tab_ui"
-msgstr ""
+msgstr "Grensesnitt"
 
 msgid "options_tab_general"
 msgstr ""
 
 msgid "options_tab_importExport"
-msgstr ""
+msgstr "Importer/Exporter"
 
 msgid "options_newProfile"
-msgstr ""
+msgstr "Ny profil…"
 
 msgid "options_apply"
-msgstr ""
+msgstr "Legg til endringer"
 
 msgid "options_discard"
 msgstr ""
 
 msgid "options_reset"
-msgstr ""
+msgstr "Tilbakestill valg"
 
 msgid "options_group_miscOptions"
-msgstr ""
+msgstr "Ymse valg"
 
 msgid "options_confirmDeletion"
 msgstr ""
 
 msgid "options_refreshOnProfileChange"
-msgstr ""
+msgstr "Gjenoppfrisk gjeldende fane ved profilendring."
 
 msgid "options_showInspectMenu"
 msgstr ""
 
 msgid "options_group_keyboardShortcut"
-msgstr ""
+msgstr "Tastatursnarvei"
 
 msgid "options_menuShortcutHelp"
 msgstr ""
@@ -200,16 +209,16 @@ msgid "options_menuShortcutMore"
 msgstr ""
 
 msgid "options_menuShortcutConfigure"
-msgstr ""
+msgstr "Sett opp snarvei"
 
 msgid "options_group_switchOptions"
-msgstr ""
+msgstr "Bytt valg"
 
 msgid "options_startupProfile"
-msgstr ""
+msgstr "Oppstartsprofil"
 
 msgid "options_startupProfile_none"
-msgstr ""
+msgstr "(Gjeldende profil)"
 
 msgid "options_showConditionTypesAdvanced"
 msgstr ""
@@ -239,55 +248,60 @@ msgid "options_revertProxyChanges"
 msgstr ""
 
 msgid "options_group_networkRequests"
-msgstr ""
+msgstr "Nettverksforespørsler"
 
 msgid "options_monitorWebRequests"
-msgstr ""
+msgstr "Vis antall feilede nettforespørsler for ressurser i gjeldende fane."
 
 msgid "options_monitorWebRequestsHelp"
 msgstr ""
 
 msgid "options_downloadOptions"
-msgstr ""
+msgstr "Nedlastingsvalg"
 
 msgid "options_downloadOptionsHelp"
 msgstr ""
 
 msgid "options_downloadInterval"
-msgstr ""
+msgstr "Nedlastingsintervall"
 
 msgid "options_downloadInterval_15"
-msgstr ""
+msgstr "15 minutter"
 
 msgid "options_downloadInterval_60"
-msgstr ""
+msgstr "en time"
 
 msgid "options_downloadInterval_180"
-msgstr ""
+msgstr "tre timer"
 
 msgid "options_downloadInterval_360"
-msgstr ""
+msgstr "seks timer"
 
 msgid "options_downloadInterval_720"
-msgstr ""
+msgstr "12 timer"
 
 msgid "options_downloadInterval_1440"
-msgstr ""
+msgstr "Hver dag"
 
 msgid "options_downloadInterval_never"
-msgstr ""
+msgstr "Aldri"
 
 msgid "options_group_importExportProfile"
-msgstr ""
+msgstr "Profil"
 
 msgid "options_exportPacFile"
-msgstr ""
+msgstr "Eksporter som PAC-fil"
 
 msgid "options_exportPacFileHelp"
 msgstr ""
+"Eksporter gjeldende profil som PAC-fil, slik at du kan bruke den i andre "
+"nettlesere."
 
+#, fuzzy
 msgid "options_exportProfileHelp"
 msgstr ""
+"For å eksportere en profil, bruk handlingsfeltet øverst til høyre på "
+"profilsiden."
 
 msgid "options_exportLegacyRuleList"
 msgstr ""
@@ -296,40 +310,41 @@ msgid "options_exportLegacyRuleListHelp"
 msgstr ""
 
 msgid "options_group_importExportSettings"
-msgstr ""
+msgstr "Innstillinger"
 
 msgid "options_makeBackup"
-msgstr ""
+msgstr "Ta sikkerhetskopi"
 
 msgid "options_makeBackupHelp"
 msgstr ""
+"Ta full sikkerhetskopi av dine valg (inkludert profiler og alle andre valg)."
 
 msgid "options_restoreLocal"
-msgstr ""
+msgstr "Gjenopprett fra fil"
 
 msgid "options_restoreLocalHelp"
-msgstr ""
+msgstr "Gjennopprett dine SwitchyOmega-valg fra ei lokal fil."
 
 msgid "options_restoreOnline"
-msgstr ""
+msgstr "Gjenopprett fra nett"
 
 msgid "options_restoreOnlinePlaceholder"
-msgstr ""
+msgstr "URL til valg-fil (f.eks. 'http://eksempel.no/switchy.bak')"
 
 msgid "options_restoreOnlineSubmit"
-msgstr ""
+msgstr "Gjenopprett"
 
 msgid "options_group_syncing"
-msgstr ""
+msgstr "Synkroniserer (eksperimentelt)"
 
 msgid "options_syncEnable"
-msgstr ""
+msgstr "Skru på synkronisering"
 
 msgid "options_syncEnableForce"
 msgstr ""
 
 msgid "options_syncDisable"
-msgstr ""
+msgstr "Skru av synkronisering"
 
 msgid "options_syncReset"
 msgstr ""
@@ -362,55 +377,60 @@ msgid "options_profileTabPrefix"
 msgstr ""
 
 msgid "options_renameProfile"
-msgstr ""
+msgstr "Gi nytt navn"
 
 msgid "options_deleteProfile"
-msgstr ""
+msgstr "Slett"
 
 msgid "options_profileExportRuleList"
-msgstr ""
+msgstr "Offentliggjør regelliste"
 
 msgid "options_profileExportRuleListHelp"
 msgstr ""
 
 msgid "options_profileExportPac"
-msgstr ""
+msgstr "Eksporter PAC"
 
 msgid "options_profileUnsupported"
-msgstr ""
+msgstr "Ustøttet profiltype $TYPE$!"
 
 msgid "options_profileUnsupportedHelp"
-msgstr ""
+msgstr "Valg kan være skadelidende, eller fra en nyere versjon av programmet."
 
 msgid "options_profileEditSource"
-msgstr ""
+msgstr "Rediger kildekode"
 
 msgid "options_profileEditSourceHelp"
-msgstr ""
+msgstr "Vis hjelp om kildekodeformatet"
 
 msgid "options_profileEditSourceHelpUrl"
 msgstr ""
+"https://github.com/FelisCatus/SwitchyOmega/wiki/SwitchyOmega-conditions-"
+"format#result-profile"
 
 msgid "options_group_proxyServers"
-msgstr ""
+msgstr "Tjenere for mellomtjening"
 
 msgid "options_proxy_scheme"
 msgstr ""
 
 msgid "options_proxy_protocol"
-msgstr ""
+msgstr "Protokoll"
 
 msgid "options_proxy_server"
-msgstr ""
+msgstr "Tjener"
 
 msgid "options_proxy_port"
-msgstr ""
+msgstr "Port"
 
 msgid "options_proxy_auth"
-msgstr ""
+msgstr "Identitetsbekreftelse"
 
+#, fuzzy
 msgid "options_proxy_authAllWarningPac"
 msgstr ""
+"Advarsel: Brukernavn/passord kan bli sendt til uventede tjenere fra PAC-"
+"skriptet."
 
 msgid "options_proxy_authAllWarningPacUrl"
 msgstr ""
@@ -422,19 +442,20 @@ msgid "options_proxy_authReferencedWarning"
 msgstr ""
 
 msgid "options_scheme_default"
-msgstr ""
+msgstr "(forvalg)"
 
+#, fuzzy
 msgid "options_protocol_direct"
-msgstr ""
+msgstr "DIREKTE"
 
 msgid "options_protocol_useDefault"
-msgstr ""
+msgstr "(bruk forvalg)"
 
 msgid "options_proxy_single"
-msgstr ""
+msgstr "Bruk mellomtjeneren ovenfor for alle protokoller."
 
 msgid "options_proxy_expand"
-msgstr ""
+msgstr "Vis avanserte valg"
 
 msgid "options_group_bypassList"
 msgstr ""
@@ -470,7 +491,7 @@ msgid "options_group_virtualProfile"
 msgstr ""
 
 msgid "options_virtualProfileTarget"
-msgstr ""
+msgstr "Mål"
 
 msgid "options_virtualProfileTargetHelp"
 msgstr ""
@@ -560,25 +581,25 @@ msgid "options_hourBetween"
 msgstr ""
 
 msgid "options_weekDayShort_0"
-msgstr ""
+msgstr "Søn"
 
 msgid "options_weekDayShort_1"
-msgstr ""
+msgstr "Man"
 
 msgid "options_weekDayShort_2"
-msgstr ""
+msgstr "Tirs"
 
 msgid "options_weekDayShort_3"
-msgstr ""
+msgstr "Ons"
 
 msgid "options_weekDayShort_4"
-msgstr ""
+msgstr "Tors"
 
 msgid "options_weekDayShort_5"
-msgstr ""
+msgstr "Fre"
 
 msgid "options_weekDayShort_6"
-msgstr ""
+msgstr "Lør"
 
 msgid "options_group_conditionHelp"
 msgstr ""
@@ -587,13 +608,13 @@ msgid "options_group_attachProfile"
 msgstr ""
 
 msgid "options_attachProfile"
-msgstr ""
+msgstr "Legg til en regelliste"
 
 msgid "options_attachProfileHelp"
 msgstr ""
 
 msgid "options_modalHeader_welcome"
-msgstr ""
+msgstr "Velkommen til SwitchyOmega"
 
 msgid "options_welcomeNormal"
 msgstr ""
@@ -608,16 +629,16 @@ msgid "options_welcomeUpgradeGuide"
 msgstr ""
 
 msgid "options_guideNext"
-msgstr ""
+msgstr "Neste"
 
 msgid "options_guideDone"
-msgstr ""
+msgstr "Ferdig"
 
 msgid "options_guideSkip"
-msgstr ""
+msgstr "Hopp over guide"
 
 msgid "options_modalHeader_applyOptions"
-msgstr ""
+msgstr "Legg til valg"
 
 msgid "options_optionsNotSaved"
 msgstr ""
@@ -629,28 +650,28 @@ msgid "options_applyOptionsConfirm"
 msgstr ""
 
 msgid "options_modalHeader_renameProfile"
-msgstr ""
+msgstr "Gi profil nytt navn"
 
 msgid "options_renameProfileName"
-msgstr ""
+msgstr "Nytt profilnavn"
 
 msgid "options_profileNameConflict"
-msgstr ""
+msgstr "En profil ved dette navnet finnes allerede."
 
 msgid "options_profileNameReserved"
-msgstr ""
+msgstr "Profilnavn som begynner med dobbel understrek er reservert."
 
 msgid "options_profileNameHidden"
 msgstr ""
 
 msgid "options_modalHeader_replaceProfile"
-msgstr ""
+msgstr "Erstatt profil"
 
 msgid "options_replaceProfile"
-msgstr ""
+msgstr "Erstatt profil"
 
 msgid "options_replaceProfileConfirm"
-msgstr ""
+msgstr "Ønsker du virkelig å erstatte $FromProfile$ med $ToProfile$?"
 
 msgid "options_replaceProfileHelp"
 msgstr ""
@@ -659,16 +680,17 @@ msgid "options_replaceProfileSuccess"
 msgstr ""
 
 msgid "options_modalHeader_deleteProfile"
-msgstr ""
+msgstr "Slett profil"
 
 msgid "options_deleteProfileConfirm"
-msgstr ""
+msgstr "Ønsker du virkelig å slette følgende profil?"
 
 msgid "options_modalHeader_cannotDeleteProfile"
-msgstr ""
+msgstr "Kunne ikke slette profil"
 
 msgid "options_profileReferredBy"
 msgstr ""
+"Denne profilen kunne ikke slettes fordi den vises til av følgende profiler:"
 
 msgid "options_modifyReferringProfiles"
 msgstr ""
@@ -677,70 +699,70 @@ msgid "options_profileNameEmpty"
 msgstr ""
 
 msgid "popup_title"
-msgstr ""
+msgstr "Oppsprettsvindu for SwitchyOmega"
 
 msgid "options_modalHeader_proxyAuth"
-msgstr ""
+msgstr "Identitetsbekreftelse for mellomtjener"
 
 msgid "options_proxyAuthUsername"
-msgstr ""
+msgstr "Brukernavn"
 
 msgid "options_proxyAuthPassword"
-msgstr ""
+msgstr "Passord"
 
 msgid "options_proxyAuthNone"
-msgstr ""
+msgstr "Ingen identitetsbekreftelse"
 
 msgid "options_modalHeader_deleteRule"
-msgstr ""
+msgstr "Slett regel"
 
 msgid "options_deleteRuleConfirm"
-msgstr ""
+msgstr "Ønsker du virkelig å slette følgende regel?"
 
 msgid "options_deleteRule"
-msgstr ""
+msgstr "Slett"
 
 msgid "options_modalHeader_resetRules"
-msgstr ""
+msgstr "Tilbakestill regler"
 
 msgid "options_resetRulesConfirm"
 msgstr ""
 
 msgid "options_resetRules"
-msgstr ""
+msgstr "Tilbakestill regler"
 
 msgid "options_resetRules_help"
-msgstr ""
+msgstr "Sett profil for alle regler"
 
 msgid "options_modalHeader_deleteAttached"
-msgstr ""
+msgstr "Fjern regelliste"
 
 msgid "options_deleteAttachedConfirm"
-msgstr ""
+msgstr "Ønsker du virkelig å slette regellisten fra gjeldende profil?"
 
 msgid "options_ruleListLineCount"
-msgstr ""
+msgstr "$COUNT$ linje(r) med regler"
 
 msgid "options_deleteAttached"
-msgstr ""
+msgstr "Slett regelliste"
 
 msgid "options_modalHeader_newProfile"
-msgstr ""
+msgstr "Ny profil"
 
 msgid "options_newProfileName"
-msgstr ""
+msgstr "Profilnavn"
 
 msgid "options_profileType"
 msgstr ""
 
 msgid "options_profileTypeFixedProfile"
-msgstr ""
+msgstr "Mellomtjenerprofil"
 
 msgid "options_profileDescFixedProfile"
 msgstr ""
 
 msgid "options_profileTypePacProfile"
-msgstr ""
+msgstr "PAC-profil"
 
 msgid "options_profileDescPacProfile"
 msgstr ""
@@ -749,7 +771,7 @@ msgid "options_profileDescMorePacProfile"
 msgstr ""
 
 msgid "options_profileTypeSwitchProfile"
-msgstr ""
+msgstr "Bytt profil"
 
 msgid "options_profileDescSwitchProfile"
 msgstr ""
@@ -761,49 +783,51 @@ msgid "options_profileDescRuleListProfile"
 msgstr ""
 
 msgid "options_profileTypeVirtualProfile"
-msgstr ""
+msgstr "Virtuell profil"
 
 msgid "options_profileDescVirtualProfile"
 msgstr ""
 
 msgid "options_createProfile"
-msgstr ""
+msgstr "Opprett"
 
 msgid "options_modalHeader_resetOptions"
-msgstr ""
+msgstr "Tilbakestill valg"
 
 msgid "options_resetOptionsConfirm"
 msgstr ""
+"Lnsker du virkelig å tilbakestille valgene? Alle profiler og innstillinger "
+"vil gå TAPT!"
 
 msgid "options_formInvalid"
-msgstr ""
+msgstr "Korriger feilene på denne siden."
 
 msgid "options_profileNotFound"
-msgstr ""
+msgstr "Profilen $PROFILE$ finnes ikke! Valgene kan være skadet."
 
 msgid "options_resetSuccess"
-msgstr ""
+msgstr "Valg tilbakestilt."
 
 msgid "options_saveSuccess"
-msgstr ""
+msgstr "Valg lagret."
 
 msgid "options_importSuccess"
-msgstr ""
+msgstr "Valg importert."
 
 msgid "options_importFormatError"
-msgstr ""
+msgstr "Ugyldig sikkerhetskopifil!"
 
 msgid "options_importDownloadError"
 msgstr ""
 
 msgid "options_profileDownloadSuccess"
-msgstr ""
+msgstr "Vellykket oppdatering av profil."
 
 msgid "options_profileDownloadError"
-msgstr ""
+msgstr "Feil ved nedlasting av profildata!"
 
 msgid "options_downloadProfileNow"
-msgstr ""
+msgstr "Last ned profil nå"
 
 msgid "options_guide_fixedProfileStep"
 msgstr ""
@@ -833,10 +857,10 @@ msgid "options_guide_applySwitchProfileStep"
 msgstr ""
 
 msgid "popup_externalProfile"
-msgstr ""
+msgstr "(Ekstern profil)"
 
 msgid "popup_externalProfileName"
-msgstr ""
+msgstr "profilnavn"
 
 msgid "popup_proxyNotControllable_app"
 msgstr ""
@@ -860,7 +884,7 @@ msgid "popup_proxyNotControllableDetails_upgrade"
 msgstr ""
 
 msgid "popup_proxyNotControllableManage"
-msgstr ""
+msgstr "Behandle tillegg"
 
 msgid "popup_addConditionTo"
 msgstr ""
@@ -869,49 +893,60 @@ msgid "popup_addCondition"
 msgstr ""
 
 msgid "popup_showOptions"
-msgstr ""
+msgstr "Valg"
 
 msgid "popup_reportIssues"
-msgstr ""
+msgstr "Rapporter feil"
 
 msgid "popup_errorLog"
-msgstr ""
+msgstr "Lagre feilrettingslogg"
 
 msgid "popup_requestErrorCount"
-msgstr ""
+msgstr "$COUNT$ failede ressurser"
 
 msgid "popup_requestErrorHeading"
-msgstr ""
+msgstr "Ressurser som ikke kunne lastes inn"
 
 msgid "popup_requestErrorWarning"
 msgstr ""
+"En del ressurser kunne ikke lastes inn på grunn av feil med ditt nettverk, "
+"mellomtjeneren eller nettsiden."
 
 msgid "popup_requestErrorWarningHelp"
-msgstr ""
+msgstr "SwitchyOmega rapporterer bare disse feilene, det er ikke opphavet."
 
 msgid "popup_requestErrorAddCondition"
 msgstr ""
+"Du kan se over følgende domener og bruke mellomtjener for dem når det høver "
+"seg."
 
 msgid "popup_requestErrorCannotAddCondition"
 msgstr ""
 
+#, fuzzy
 msgid "popup_configureMonitorWebRequests"
-msgstr ""
+msgstr "Sett opp nettverksoversikt"
 
 msgid "options_resultProfileForSelectedDomains"
-msgstr ""
+msgstr "Bruk denne profilen for alle valgte domener"
 
 msgid "popup_issueTemplate"
 msgstr ""
+"\n"
+"\n"
+"\n"
+"<!-- Skriv kommentaren din OVER denne linjen. -->\n"
+"SwitchyOmega $projectVersion$\n"
+"$userAgent$"
 
 msgid "browserAction_profileDetails_PacProfile"
-msgstr ""
+msgstr "(PAC-skript)"
 
 msgid "browserAction_profileDetails_SystemProfile"
-msgstr ""
+msgstr "(styrt av andre tillegg eller miljø)"
 
 msgid "browserAction_profileDetails_DirectProfile"
-msgstr ""
+msgstr "(bruker ikke noen mellomtjener)"
 
 msgid "browserAction_profileDetails_SwitchProfile"
 msgstr ""
@@ -920,40 +955,44 @@ msgid "browserAction_profileDetails_RuleListProfile"
 msgstr ""
 
 msgid "browserAction_titleNormal"
-msgstr ""
+msgstr "SwitchyOmega:: $PROFILE$"
 
 msgid "browserAction_titleWithResult"
 msgstr ""
+"SwitchyOmega:: $1:PROFILE$\n"
+"$3:DETAILS$"
 
 msgid "browserAction_titleNewerOptions"
 msgstr ""
+"FEIL: En nyere versjon av SwitchOmega kreves for å laste de lagrede valgene."
 
 msgid "browserAction_titleOptionError"
-msgstr ""
+msgstr "FEIL: Lagrede valg skadet. Klikk her for å TILBAKESTILLE VALG."
 
 msgid "browserAction_titleDownloadFail"
-msgstr ""
+msgstr "Advarsel: Kunne ikke laste ned PAC-skript og/eller regellister."
 
 msgid "browserAction_titleExternalProxy"
 msgstr ""
 
 msgid "browserAction_titleInspect"
-msgstr ""
+msgstr "[Se over] $URL$"
 
 msgid "browserAction_defaultRuleDetails"
-msgstr ""
+msgstr "(forvalg)"
 
+#, fuzzy
 msgid "browserAction_directResult"
-msgstr ""
+msgstr "DIREKTE"
 
 msgid "browserAction_attachedPrefix"
 msgstr ""
 
 msgid "browserAction_tempRulePrefix"
-msgstr ""
+msgstr "(MIDLERTIDIG) "
 
 msgid "contextMenu_inspectPage"
-msgstr ""
+msgstr "Se over mellomtjenerbruk for denne siden"
 
 msgid "contextMenu_inspectFrame"
 msgstr ""
@@ -965,4 +1004,4 @@ msgid "contextMenu_inspectElement"
 msgstr ""
 
 msgid "contextMenu_enableQuickSwitch"
-msgstr ""
+msgstr "Skru på raskt bytte"
