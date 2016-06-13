@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-03-02 14:15+0200\n"
-"Last-Translator: Kleiver Fonseca <thekliver@gmail.com>\n"
-"Language-Team: Argentinean Spanish "
+"PO-Revision-Date: 2016-06-13 18:12+0000\n"
+"Last-Translator: Kcho Lorenzetti <kcholoren@gmail.com>\n"
+"Language-Team: Spanish (Argentina) "
 "<https://hosted.weblate.org/projects/switchyomega/main/es_AR/>\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 2.3-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
@@ -58,21 +58,22 @@ msgstr ""
 "dominio) por <a href='https://www.google.com/search?q=expresión%20regular'>"
 "expresión regular</a>.<br>Las expresiones regulares pueden ser difíciles de "
 "construir (y leer).<br>Es recomendado usar comodines para la mayoría de los "
-"casos y solo usar expresiones regulares para las condiciones que no ses "
+"casos y solo usar expresiones regulares para las condiciones que no se "
 "pueden expresar por ningún otro tipo de condición."
 
 msgid "condition_HostLevelsCondition"
-msgstr "Host levels"
+msgstr "Niveles de Host"
 
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
-"Matches the request if and only if the host level in within the given range."
-"<br>Host level is defined as the <b>number of dot-separated segments</b> of "
-"the host (domain name).<br>Example: <code>www.example.com</code> is with a "
-"host level of 3, while <code>internal</code> is of host level 1."
+"Encuentra una coincidencia si y sólo si el nivel del host está dentro del "
+"rango.<br>El nivel de host se define como el <b>número de porciones "
+"separadas por puntos</b> en el nombre de dominio del host. <br>Ejemplo: "
+"<code>www.ejemplo.com</code> tiene un nivel 3 de host, mientras que "
+"<code>interno</code> es un host de nivel 1."
 
 msgid "condition_UrlWildcardCondition"
-msgstr "URL wildcard"
+msgstr "Comodín de URL"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
@@ -83,7 +84,7 @@ msgstr ""
 "match http://example.com/."
 
 msgid "condition_UrlRegexCondition"
-msgstr "URL regex"
+msgstr "Expresión regular de URL"
 
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
@@ -94,7 +95,7 @@ msgstr ""
 "achieved by any other condition type."
 
 msgid "condition_KeywordCondition"
-msgstr "Keyword"
+msgstr "Palabra clave"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
@@ -105,10 +106,10 @@ msgstr ""
 "blocking some keywords in the URL, by requesting such URLs through a proxy."
 
 msgid "condition_FalseCondition"
-msgstr "(Disabled)"
+msgstr "(Deshabilitado)"
 
 msgid "condition_details_FalseCondition"
-msgstr "(Condition ignored when matching)"
+msgstr "(Condición ignorada cuando se haya coincidencia)"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
@@ -119,7 +120,7 @@ msgstr ""
 "the condition type back to the previous type."
 
 msgid "condition_TimeCondition"
-msgstr "Current Time"
+msgstr "Tiempo Actual"
 
 msgid "condition_help_TimeCondition"
 msgstr ""
@@ -149,22 +150,23 @@ msgid "condition_group_url"
 msgstr "Url"
 
 msgid "condition_group_special"
-msgstr "Special"
+msgstr "Especial"
 
 msgid "ruleListFormat_Switchy"
 msgstr "Switchy"
 
 msgid "ruleListFormat_AutoProxy"
-msgstr "AutoProxy"
+msgstr "Proxy Automático"
 
 msgid "ruleList_usageUrl"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
+#, fuzzy
 msgid "ruleList_error_resultNotEnabled"
-msgstr "Missing '@with result' directive!"
+msgstr "Falta la directiva '@with result'!"
 
 msgid "ruleList_error_unknownProfile"
-msgstr "Unknown profile: $PROFILE$"
+msgstr "Perfil desconocido: $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
 msgstr "Missing result profile name at Line $LNO$: $SOURCE$"
@@ -176,34 +178,34 @@ msgid "ruleList_error_noDefaultRule"
 msgstr "Missing default rule with catch-all '*' condition!"
 
 msgid "dialog_close"
-msgstr "Close"
+msgstr "Cerrar"
 
 msgid "dialog_save"
-msgstr "Save changes"
+msgstr "Guardar cambios"
 
 msgid "dialog_ok"
 msgstr "OK"
 
 msgid "dialog_cancel"
-msgstr "Cancel"
+msgstr "Cancelar"
 
 msgid "inputClear_clear"
-msgstr "Clear"
+msgstr "Borrar"
 
 msgid "inputClear_restore"
-msgstr "Restore"
+msgstr "Restaurar"
 
 msgid "options_title"
-msgstr "SwitchyOmega Options"
+msgstr "Opciones SwitchyOmega"
 
 msgid "options_navHeader_setting"
-msgstr "Settings"
+msgstr "Configuraciones"
 
 msgid "options_navHeader_profiles"
-msgstr "Profiles"
+msgstr "Perfiles"
 
 msgid "options_navHeader_actions"
-msgstr "Actions"
+msgstr "Acciones"
 
 msgid "options_tab_ui"
 msgstr "Interface"
@@ -212,22 +214,22 @@ msgid "options_tab_general"
 msgstr "General"
 
 msgid "options_tab_importExport"
-msgstr "Import/Export"
+msgstr "Importar/Exportar"
 
 msgid "options_newProfile"
-msgstr "New profile…"
+msgstr "Nuevo perfil…"
 
 msgid "options_apply"
-msgstr "Apply changes"
+msgstr "Aplicar cambios"
 
 msgid "options_discard"
-msgstr "Discard changes"
+msgstr "Descartar cambios"
 
 msgid "options_reset"
-msgstr "Reset options"
+msgstr "Reiniciar las opciones"
 
 msgid "options_group_miscOptions"
-msgstr "Misc Options"
+msgstr "Opciones misceláneas"
 
 msgid "options_confirmDeletion"
 msgstr "Confirm on condition deletion."
