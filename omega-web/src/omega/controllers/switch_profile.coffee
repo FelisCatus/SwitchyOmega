@@ -395,6 +395,11 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
       $scope.loadRules = true
     omegaTarget.state(stateEditorKey, {editSource: $scope.editSource})
 
+  $rootScope.$on '$stateChangeStart', (event, _, __, fromState) ->
+    if $scope.editSource and $scope.source.touched
+      sourceValid = parseSource()
+      event.preventDefault() unless sourceValid
+
   $scope.$on 'omegaApplyOptions', (event) ->
     if $scope.attached?.ruleList and not $scope.attached.sourceUrl
       $scope.attachedRuleListError = undefined
