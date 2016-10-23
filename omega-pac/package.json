@@ -28,6 +28,7 @@
     "uglify-js-real": "./uglifyjs.js"
   },
   "scripts": {
-    "dev": "npm link"
+    "dev": "npm link",
+    "test": "TZ=Europe/London grunt test"
   }
 }

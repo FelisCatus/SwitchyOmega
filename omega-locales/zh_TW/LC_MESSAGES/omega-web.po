@@ -62,6 +62,20 @@ msgstr ""
 "如果域名層數在設定的範圍內則匹配，否則不匹配。<br>域名層數是指 <b>域名共有幾段（以點分隔）</b>.<br>例如: <code>www."
 "example.com</code> 的域名層數為 3，而 <code>internal</code> 的域名層數為 1."
 
+msgid "condition_IpCondition"
+msgstr "IP 地址字面量"
+
+msgid "condition_help_IpCondition"
+msgstr ""
+"當且僅當主機是<b>字面的</b> IP 地址，且地址處於某個子網內時匹配。"
+"子網使用 <a href='"
+"http://www.ibm.com/support/knowledgecenter/zh/SS2MBL_9.0.2/PCAAdmin/PCA/Cfg/CIDRFormat_47.html'"
+">CIDR 格式</a>表示。<br>例如，規則 <code>127.0.0.1/16</code> 會匹配所有類似"
+"<code>127.0.*.*</code> 的地址。<br>"
+"因此地址 <code>127.0.0.1</code> 匹配而地址 <code>127.1.0.0</code> 不匹配。"
+"主機名稱，例如 <code>localhost</code> 不會被此類規則匹配，因為它們<b>不是</b> "
+"IP 地址字面量。"
+
 msgid "condition_UrlWildcardCondition"
 msgstr "網址通配符"
 

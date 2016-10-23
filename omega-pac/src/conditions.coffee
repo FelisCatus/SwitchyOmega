@@ -549,12 +549,13 @@ module.exports = exports =
         )
       str: (condition) -> condition.ip + '/' + condition.prefixLength
       fromStr: (str, condition) ->
-        [ip, prefixLength] = str.split('/')
-        condition.ip = ip
-        addr = @parseIp ip
-        condition.ip = '0.0.0.0' unless addr?
-        condition.prefixLength = parseInt(prefixLength, 10)
-        condition.prefixLength = 0 unless condition.prefixLength >= 0
+        addr = @parseIp str
+        if addr?
+          condition.ip = addr.addressMinusSuffix
+          condition.prefixLength = addr.subnetMask
+        else
+          condition.ip = '0.0.0.0'
+          condition.prefixLength = 0
         condition
 
     'HostLevelsCondition':

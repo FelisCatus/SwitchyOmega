@@ -582,6 +582,20 @@ describe 'Conditions', ->
         ip: '0.0.0.0'
         prefixLength: 0
       )
+    it 'should assume full match for IpCondition without prefixLength', ->
+      cond = Conditions.fromStr('Ip: 127.0.0.1')
+      cond.should.eql(
+        conditionType: 'IpCondition'
+        ip: '127.0.0.1'
+        prefixLength: 32
+      )
+
+      cond = Conditions.fromStr('Ip: ::1')
+      cond.should.eql(
+        conditionType: 'IpCondition'
+        ip: '::1'
+        prefixLength: 128
+      )
     it 'should provide sensible fallbacks for invalid IpCondition', ->
       cond = Conditions.fromStr('Ip: 0.0.0.0/-233')
       cond.should.eql(

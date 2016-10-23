@@ -46,3 +46,18 @@ angular.module('omega').directive 'omegaInt2str', ->
       parseInt(value)
     ngModel.$formatters.push (value) ->
       '' + value
+angular.module('omega').directive 'omegaIp2str', ->
+  restrict: 'A'
+  priority: 2 # Run post-link after input directive (0) and ngModel (1).
+  require: 'ngModel'
+  link: (scope, element, attr, ngModel) ->
+    ngModel.$parsers.push (value) ->
+      if value
+        OmegaPac.Conditions.fromStr('Ip: ' + value)
+      else
+        ({conditionType: 'IpCondition', ip: '0.0.0.0', prefixLength: 0})
+    ngModel.$formatters.push (value) ->
+      if value?.ip
+        OmegaPac.Conditions.str(value).split(' ', 2)[1]
+      else
+        ''

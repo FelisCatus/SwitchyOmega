@@ -77,6 +77,7 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
         'HostWildcardCondition'
         'HostRegexCondition'
         'HostLevelsCondition'
+        'IpCondition'
       ]
     }
     {
@@ -192,6 +193,11 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
       pattern = condition.pattern
       return pattern.indexOf(':') >= 0 || pattern.indexOf('/') >= 0
     return false
+
+  $scope.validateIpCondition = (condition, input) ->
+    return false unless input
+    ip = OmegaPac.Conditions.parseIp(input)
+    return ip?
 
   $scope.getWeekdayList = OmegaPac.Conditions.getWeekdayList
   $scope.updateDay = (condition, i, selected) ->

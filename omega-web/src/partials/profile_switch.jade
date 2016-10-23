@@ -67,6 +67,10 @@ div(ng-controller='SwitchProfileCtrl')
                 span {{'options_hostLevelsBetween' | tr}}
                 = ' '
                 input.form-control(type='number' max='99' min='1' ng-model='rule.condition.maxValue' required)
+              span(ng-switch-when='IpCondition')
+                input.form-control(type='text' ng-model='rule.condition' required
+                  omega-ip2str placeholder='127.0.0.1/8'
+                  ui-validate='{pattern: "validateIpCondition(rule.condition, $value)"}')
               span.host-levels-details(ng-switch-when='TimeCondition')
                 input.form-control(type='number' min='0' max='23' ng-model='rule.condition.startHour' required)
                 = ' '
