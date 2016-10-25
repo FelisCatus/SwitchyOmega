@@ -108,6 +108,8 @@ module.exports = exports =
 
   updateUrl: (profile) ->
     exports._handler(profile).updateUrl?.call(exports, profile)
+  updateContentTypeHints: (profile) ->
+    exports._handler(profile).updateContentTypeHints?.call(exports, profile)
   update: (profile, data) ->
     exports._handler(profile).update.call(exports, profile, data)
 
@@ -344,6 +346,12 @@ module.exports = exports =
           undefined
         else
           profile.pacUrl
+      updateContentTypeHints: -> [
+        '!text/html'
+        '!application/xhtml+xml'
+        'application/x-ns-proxy-autoconfig'
+        'application/x-javascript-config'
+      ]
       update: (profile, data) ->
         return false if profile.pacScript == data
         profile.pacScript = data
@@ -442,6 +450,12 @@ module.exports = exports =
       compile: (profile) ->
         exports.compile(profile, 'SwitchProfile')
       updateUrl: (profile) -> profile.sourceUrl
+      updateContentTypeHints: -> [
+        '!text/html'
+        '!application/xhtml+xml'
+        'text/plain'
+        '*'
+      ]
       update: (profile, data) ->
         data = data.trim()
         original = profile.format ? exports.formatByType[profile.profileType]

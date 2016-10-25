@@ -852,6 +852,21 @@ msgstr "情景模式已经更新成功。"
 msgid "options_profileDownloadError"
 msgstr "下载情景模式数据时出错！"
 
+msgid "options_profileDownloadError_NetworkError"
+msgstr "更新时发生网络错误。"
+
+msgid "options_profileDownloadError_HttpError"
+msgstr "更新时发生网络错误 (HTTP $STATUS$)."
+
+msgid "options_profileDownloadError_HttpNotFoundError"
+msgstr "在远程服务器上找不到情景模式网址对应的文件。请检查网址。"
+
+msgid "options_profileDownloadError_HttpServerError"
+msgstr "更新时远程服务器发生错误 ($STATUS$)。"
+
+msgid "options_profileDownloadError_ContentTypeRejectedError"
+msgstr "下载的数据不符合格式！建议您在浏览器中打开情景模式网址并检查其内容。"
+
 msgid "options_downloadProfileNow"
 msgstr "立即更新情景模式"
 

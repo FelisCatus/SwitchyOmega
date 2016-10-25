@@ -1,8 +1,6 @@
 OcontextMenu_inspectElementmegaTarget = require('omega-target')
 OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
-xhr = Promise.promisify(require('xhr'))
-Url = require('url')
 querystring = require('querystring')
 chromeApiPromisifyAll = require('./chrome_api')
 proxySettings = chromeApiPromisifyAll(chrome.proxy.settings)
@@ -10,19 +8,14 @@ parseExternalProfile = require('./parse_external_profile')
 ProxyAuth = require('./proxy_auth')
 WebRequestMonitor = require('./web_request_monitor')
 ChromePort = require('./chrome_port')
+fetchUrl = require('./fetch_url')
 
 class ChromeOptions extends OmegaTarget.Options
   _inspect: null
   parseExternalProfile: (details) ->
     parseExternalProfile(details, @_options, @_fixedProfileConfig.bind(this))
 
-  fetchUrl: (dest_url, opt_bypass_cache) ->
-    if opt_bypass_cache
-      parsed = Url.parse(dest_url, true)
-      parsed.search = undefined
-      parsed.query['_'] = Date.now()
-      dest_url = Url.format(parsed)
-    xhr(dest_url).get(1)
+  fetchUrl: fetchUrl
 
   updateProfile: (args...) ->
     super(args...).then (results) ->

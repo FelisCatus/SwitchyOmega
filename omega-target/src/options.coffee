@@ -642,7 +642,9 @@ class Options
           return unless profile.name == name
       url = OmegaPac.Profiles.updateUrl(profile)
       if url
-        results[key] = @fetchUrl(url, opt_bypass_cache).then((data) =>
+        type_hints = OmegaPac.Profiles.updateContentTypeHints(profile)
+        fetchResult = @fetchUrl(url, opt_bypass_cache, type_hints)
+        results[key] = fetchResult.then((data) =>
           # Errors and unsuccessful response codes shoud have been already
           # rejected by fetchUrl and will not end up here.
           # So empty data indicates success without any update (e.g. 304).
@@ -666,9 +668,10 @@ class Options
   # In base class, this method is not implemented and will always reject.
   # @param {string} url The name of the profiles,
   # @param {?bool} opt_bypass_cache Do not read from the cache if true
+  # @param {?string} opt_type_hints MIME type hints for downloaded content.
   # @returns {Promise<String>} The text content fetched from the url
   ###
-  fetchUrl: (url, opt_bypass_cache) ->
+  fetchUrl: (url, opt_bypass_cache, opt_type_hints) ->
     Promise.reject new Error('not implemented')
 
   _replaceRefChanges: (fromName, toName, changes) ->

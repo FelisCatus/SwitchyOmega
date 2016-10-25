@@ -954,6 +954,22 @@ msgstr "Successfully updated profile."
 msgid "options_profileDownloadError"
 msgstr "Error downloading profile data!"
 
+msgid "options_profileDownloadError_NetworkError"
+msgstr "A network error occurred when updating."
+
+msgid "options_profileDownloadError_HttpError"
+msgstr "An HTTP error ($STATUS$) occurred when updating."
+
+msgid "options_profileDownloadError_HttpNotFoundError"
+msgstr "The Profile URL was not found on the server. Please double-check."
+
+msgid "options_profileDownloadError_HttpServerError"
+msgstr "The remote server responded with error ($STATUS$) when updating."
+
+msgid "options_profileDownloadError_ContentTypeRejectedError"
+msgstr "The downloaded data is invalid! "
+"You may open the Profile URL in your browser to inspect it."
+
 msgid "options_downloadProfileNow"
 msgstr "Download Profile Now"
 

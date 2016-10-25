@@ -237,12 +237,24 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
             i18n: 'options_profileDownloadSuccess'
           )
         else
-          $q.reject(results)
+          if error == 1
+            singleErr = results[OmegaPac.Profiles.nameAsKey(name)]
+            if singleErr
+              return $q.reject(singleErr)
+          return $q.reject(results)
       ).catch((err) ->
-        $rootScope.showAlert(
-          type: 'error'
-          i18n: 'options_profileDownloadError'
-        )
+        message = tr('options_profileDownloadError_' + err.name,
+          [err.statusCode ? err.original?.statusCode ? ''])
+        if message
+          $rootScope.showAlert(
+            type: 'error'
+            message: message
+          )
+        else
+          $rootScope.showAlert(
+            type: 'error'
+            i18n: 'options_profileDownloadError'
+          )
       ).finally ->
         if name?
           $scope.updatingProfile[name] = false
