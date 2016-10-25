@@ -81,8 +81,8 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
       callBackground('patch', patch).then omegaTarget.refresh
     resetOptions: (opt) ->
       callBackground('reset', opt).then omegaTarget.refresh
-    updateProfile: (name) ->
-      callBackground('updateProfile', name).then((results) ->
+    updateProfile: (name, opt_bypass_cache) ->
+      callBackground('updateProfile', name, opt_bypass_cache).then((results) ->
         for own key, value of results
           results[key] = decodeError(value)
         results

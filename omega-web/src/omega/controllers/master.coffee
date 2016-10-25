@@ -223,7 +223,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
           if not profile.builtin
             $scope.updatingProfile[profile.name] = true
         
-      omegaTarget.updateProfile(name).then((results) ->
+      omegaTarget.updateProfile(name, 'bypass_cache').then((results) ->
         success = 0
         error = 0
         for own profileName, result of results
