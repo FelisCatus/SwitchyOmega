@@ -268,8 +268,8 @@ describe 'Conditions', ->
       Conditions.match(cond, request).should.be.true
 
       compiled = Conditions.compile(cond).print_to_string()
-      compiled_args = compiled.substr(compiled.lastIndexOf('('))
-      compiled_args.should.eql('(host,"fefe:13::abc","ffff:ffff:8000::")')
+      compiled.should.contain('isInNet(host,"fefe:13::abc","ffff:ffff:8000::")')
+      compiled.should.contain('isInNetEx(host,"fefe:13::abc/33")')
     it 'should support IPv6 subnet with zero prefixLength', ->
       cond =
         conditionType: "IpCondition"

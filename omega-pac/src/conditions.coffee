@@ -520,13 +520,15 @@ module.exports = exports =
             new U2.AST_String value: cache.mask
           ]
         )
-        if cache.addr.v6
+        if not cache.addr.v4
+          # Example: isInNetEx(host,"fefe:13::abc/33")
+          # For documentation on the isInNetEx function, see:
+          # https://msdn.microsoft.com/en-us/library/windows/desktop/gg308479(v=vs.85).aspx
           hostIsInNetEx = new U2.AST_Call(
             expression: new U2.AST_SymbolRef name: 'isInNetEx'
             args: [
               new U2.AST_SymbolRef name: 'host'
-              new U2.AST_String value: cache.normalized
-              new U2.AST_String value: cache.mask
+              new U2.AST_String value: cache.normalized + cache.addr.subnet
             ]
           )
           # Use isInNetEx if possible.
