@@ -9,6 +9,7 @@ ProxyAuth = require('./proxy_auth')
 WebRequestMonitor = require('./web_request_monitor')
 ChromePort = require('./chrome_port')
 fetchUrl = require('./fetch_url')
+Url = require('url')
 
 class ChromeOptions extends OmegaTarget.Options
   _inspect: null
