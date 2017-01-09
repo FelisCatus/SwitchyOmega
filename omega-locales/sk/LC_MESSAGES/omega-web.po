@@ -105,6 +105,13 @@ msgstr ""
 msgid "condition_help_WeekdayCondition"
 msgstr ""
 
+msgid "condition_alert_fullUrlLimitation"
+msgstr ""
+"Full URL matching is no longer possible for <code>https://</code> "
+"URLs as of Chrome 52. "
+"<a href='https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-Full-URL-Limitation'>"
+"Learn more...</a>"
+
 msgid "condition_group_default"
 msgstr ""
 

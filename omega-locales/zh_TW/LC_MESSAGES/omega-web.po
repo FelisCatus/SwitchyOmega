@@ -134,6 +134,12 @@ msgstr ""
 "假設在請求傳送時是星期X：如果星期X被勾選，則匹配所有請求。否則不匹配任何請求。<br>"
 "除了日期以外，在匹配過程中不會參考請求的網址或任何其他資訊。"
 
+msgid "condition_alert_fullUrlLimitation"
+msgstr ""
+"Chrome 52 起，<code>https://</code>協議下的完整網址無法正常匹配。"
+"<a href='https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-%E5%AE%8C%E6%95%B4%E7%BD%91%E5%9D%80%E9%99%90%E5%88%B6'>"
+"更多信息...</a>"
+
 msgid "condition_group_default"
 msgstr " "
 

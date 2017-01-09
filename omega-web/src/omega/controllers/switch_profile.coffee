@@ -116,9 +116,21 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
 
   $scope.showConditionTypes = 0
   $scope.hasConditionTypes = 0
+  $scope.hasUrlConditions = false
+  $scope.isUrlConditionType =
+    'UrlWildcardCondition': true
+    'UrlRegexCondition': true
+
   updateHasConditionTypes = ->
-    return unless $scope.hasConditionTypes == 0
     return unless $scope.profile?.rules?
+
+    $scope.hasUrlConditions = false
+    for rule in $scope.profile.rules
+      if $scope.isUrlConditionType[rule.condition.conditionType]
+        $scope.hasUrlConditions = true
+        break
+
+    return unless $scope.hasConditionTypes == 0
     for rule in $scope.profile.rules
       # Convert TrueCondition to a HostWildcardCondition with pattern '*'.
       if rule.condition.conditionType == 'TrueCondition'

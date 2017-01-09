@@ -13,7 +13,12 @@ div(ng-controller='SwitchProfileCtrl')
           | {{'condition_group_' + group.group | tr}}
       dl(ng-show='expandedSection.id == $index')
         dt(ng-repeat-start='type in group.types') {{'condition_' + type | tr}}
-        dd(ng-repeat-end ng-bind-html='"condition_help_" + type | tr')
+        dd(ng-repeat-end)
+          div(ng-bind-html='"condition_help_" + type | tr')
+          .text-danger(ng-if='isUrlConditionType[type]')
+            span.glyphicon.glyphicon-alert
+            = ' '
+            span(ng-bind-html='"condition_alert_fullUrlLimitation" | tr')
   section.settings-group
     h3
       | {{'options_group_switchRules' | tr}}
@@ -32,6 +37,10 @@ div(ng-controller='SwitchProfileCtrl')
       span.glyphicon.glyphicon-remove
       = ' '
       | {{source.error.message}}
+    .alert.alert-danger(ng-show='!!hasUrlConditions')
+      span.glyphicon.glyphicon-alert
+      = ' '
+      span(ng-bind-html='"condition_alert_fullUrlLimitation" | tr')
     .rules-source(ng-show='editSource')
       textarea.monospace.form-control.width-limit(ng-model='source.code' rows=20 ng-change='source.touched = true; $root.optionsDirty = true')
     .table-responsive.switch-rules-wrapper(ng-if='loadRules' ng-show='!editSource')
@@ -53,9 +62,10 @@ div(ng-controller='SwitchProfileCtrl')
           tr.switch-rule-row(ng-repeat='rule in profile.rules')
             td.sort-bar
               span.glyphicon.glyphicon-sort
-            td
+            td(ng-class='{"has-icon": isUrlConditionType[rule.condition.conditionType]}')
               select.form-control(ng-model='rule.condition.conditionType'
                 ng-options='type.type as ("condition_" + type.type | tr) group by (type.group | tr) for type in conditionTypes')
+              span.glyphicon.glyphicon-alert.text-danger(ng-if='isUrlConditionType[rule.condition.conditionType]')
             td(ng-switch='rule.condition.conditionType' ng-class='{"has-warning": conditionHasWarning(rule.condition)}')
               span(ng-switch-when='FalseCondition')
                 span(ng-show='!!rule.condition.pattern')
