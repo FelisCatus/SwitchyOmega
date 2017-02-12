@@ -367,7 +367,7 @@ module.exports = exports =
             # This, however, will match IPv6 literals who also don't have dots.
             return (
               request.host == '127.0.0.1' or
-              request.host == '::1' or
+              request.host == '[::1]' or
               request.host.indexOf('.') < 0
             )
           else
@@ -389,7 +389,7 @@ module.exports = exports =
             left: new U2.AST_Binary(
               left: hostEquals '127.0.0.1'
               operator: '||'
-              right: hostEquals '::1'
+              right: hostEquals '[::1]'
             )
             operator: '||'
             right: new U2.AST_Binary(
