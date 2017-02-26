@@ -34,19 +34,18 @@ drawIcon = (resultColor, profileColor) ->
   icon = iconCache[cacheKey]
   return icon if icon
   if not drawContext?
-    drawContext =
-      19: document.getElementById('canvas-icon').getContext('2d')
-      38: document.getElementById('canvas-icon-2x').getContext('2d')
-    for own size, ctx of drawContext
-      ctx.scale(size * 1, size * 1)
+    drawContext = document.getElementById('canvas-icon').getContext('2d')
 
   icon = {}
-  for own size, ctx of drawContext
+  for size in [16, 24, 32]
+    drawContext.scale(size, size)
+    drawContext.clearRect(0, 0, 1, 1)
     if resultColor?
-      drawOmega ctx, resultColor, profileColor
+      drawOmega drawContext, resultColor, profileColor
     else
-      drawOmega ctx, profileColor
-    icon[size] = ctx.getImageData(0, 0, size * 1, size * 1)
+      drawOmega drawContext, profileColor
+    drawContext.setTransform(1, 0, 0, 1, 0, 0)
+    icon[size] = drawContext.getImageData(0, 0, size, size)
 
   return iconCache[cacheKey] = icon
 
