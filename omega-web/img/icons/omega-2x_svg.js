@@ -7,28 +7,28 @@ var drawOmega2x = function (ctx, outerCircleColor, innerCircleColor) {
 
   if (innerCircleColor != null) {
     ctx.fillStyle = innerCircleColor;
-    ctx.moveTo(36.077892,19);
-    ctx.bezierCurveTo(36.077892,28.222652,28.431858,35.699084,19,35.699084);
-    ctx.bezierCurveTo(9.5681407,35.699084,1.922108,28.22265,1.922108,19);
-    ctx.bezierCurveTo(1.922108,9.77735,9.5681407,2.300916,19,2.300916);
-    ctx.bezierCurveTo(28.431858,2.300916,36.077892,9.77735,36.077892,19);
+    ctx.moveTo(29,19);
+    ctx.bezierCurveTo(29,24.53,24.52,29,19,29);
+    ctx.bezierCurveTo(13.47,29,9,24.52,9,19);
+    ctx.bezierCurveTo(9,13.47,13.48,9,19,9);
+    ctx.bezierCurveTo(24.53,9,29,13.48,29,19);
     ctx.closePath();
     ctx.fill();
   }
 
   ctx.fillStyle = outerCircleColor;
   ctx.beginPath();
-  ctx.moveTo(28.091374,19.0002);
-  ctx.bezierCurveTo(28.091374,23.909854,24.021026,27.889916,19,27.889916);
-  ctx.bezierCurveTo(13.978973,27.889916,9.9086265,23.909854,9.9086265,19.0002);
-  ctx.bezierCurveTo(9.9086265,14.090546,13.978973,10.110484,19,10.110484);
-  ctx.bezierCurveTo(24.021026,10.110484,28.091374000000002,14.090546,28.091374000000002,19.0002);
+  ctx.moveTo(29,19);
+  ctx.bezierCurveTo(29,24.53,24.52,29,19,29);
+  ctx.bezierCurveTo(13.47,29,9,24.52,9,19);
+  ctx.bezierCurveTo(9,13.47,13.48,9,19,9);
+  ctx.bezierCurveTo(24.53,9,29,13.48,29,19);
   ctx.closePath();
-  ctx.moveTo(36.077892,19);
-  ctx.bezierCurveTo(36.077892,28.222652,28.431858,35.699084,19,35.699084);
-  ctx.bezierCurveTo(9.5681407,35.699084,1.922108,28.22265,1.922108,19);
-  ctx.bezierCurveTo(1.922108,9.77735,9.5681407,2.300916,19,2.300916);
-  ctx.bezierCurveTo(28.431858,2.300916,36.077892,9.77735,36.077892,19);
+  ctx.moveTo(37.8,19);
+  ctx.bezierCurveTo(37.8,29.38,29.38,37.8,19,37.8);
+  ctx.bezierCurveTo(8.62,37.8,0.2,29.38,0.2,19);
+  ctx.bezierCurveTo(0.2,8.62,8.62,0.2,19,0.2);
+  ctx.bezierCurveTo(29.38,0.2,37.8,8.62,37.8,19);
   ctx.closePath();
   ctx.fill('evenodd');
 };
