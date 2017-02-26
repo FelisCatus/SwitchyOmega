@@ -28,21 +28,26 @@ Promise.onUnhandledRejectionHandled (promise) ->
   unhandledPromisesId.splice(index, 1)
 
 iconCache = {}
+drawContext = null
 drawIcon = (resultColor, profileColor) ->
   cacheKey = "omega+#{resultColor ? ''}+#{profileColor}"
   icon = iconCache[cacheKey]
   return icon if icon
-  ctx = document.getElementById('canvas-icon').getContext('2d')
-  ctx2x = document.getElementById('canvas-icon-2x').getContext('2d')
-  if resultColor?
-    drawOmega ctx, resultColor, profileColor
-    drawOmega2x ctx2x, resultColor, profileColor
-  else
-    drawOmega ctx, profileColor
-    drawOmega2x ctx2x, profileColor
-  icon =
-    19: ctx.getImageData(0, 0, 19, 19)
-    38: ctx2x.getImageData(0, 0, 38, 38)
+  if not drawContext?
+    drawContext =
+      19: document.getElementById('canvas-icon').getContext('2d')
+      38: document.getElementById('canvas-icon-2x').getContext('2d')
+    for own size, ctx of drawContext
+      ctx.scale(size * 1, size * 1)
+
+  icon = {}
+  for own size, ctx of drawContext
+    if resultColor?
+      drawOmega ctx, resultColor, profileColor
+    else
+      drawOmega ctx, profileColor
+    icon[size] = ctx.getImageData(0, 0, size * 1, size * 1)
+
   return iconCache[cacheKey] = icon
 
 charCodeUnderscore = '_'.charCodeAt(0)

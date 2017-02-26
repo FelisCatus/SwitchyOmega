@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   width="128"
+   height="128"
+   version="1.1">
+  <path
+     d="M 64 64 m -56 0 a 56 56 0 1 0 112 0 a 56 56 0 1 0 -112 0 M 64 64 m -28 0 a 28 28 0 1 0 56 0 a 28 28 0 1 0 -56 0"
+     fill-rule="evenodd"
+     fill="#31afec"
+     stroke="none" />
+</svg>
