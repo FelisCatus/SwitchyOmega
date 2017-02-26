@@ -246,7 +246,7 @@ module.exports = exports =
           }
           {
             conditionType: 'BypassCondition'
-            pattern: '::1'
+            pattern: '[::1]'
           }
           {
             conditionType: 'BypassCondition'

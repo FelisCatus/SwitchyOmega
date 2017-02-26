@@ -183,6 +183,13 @@ describe 'Conditions', ->
       result = Conditions.analyze(cond)
       testCond(cond, 'http://[::1]:8080/', 'match')
       testCond(cond, 'http://[1::1]:8080/', not 'match')
+    it 'should correctly support IPv6 canonicalization 2', ->
+      cond =
+        conditionType: 'BypassCondition'
+        pattern: '[::1]'
+      result = Conditions.analyze(cond)
+      testCond(cond, 'http://[::1]:8080/', 'match')
+      testCond(cond, 'http://[1::1]:8080/', not 'match')
 
     it 'should parse IPv4 CIDR notation', ->
       cond =
@@ -559,6 +566,32 @@ describe 'Conditions', ->
       result.should.equal('HostWildcard: ' + condition.pattern)
       cond = Conditions.fromStr(result)
       cond.should.eql(condition)
+    it 'should encode & decode BypassCondition correctly', ->
+      condition =
+        conditionType: 'BypassCondition'
+        pattern: '127.0.0.1/16'
+      result = Conditions.str(condition)
+      result.should.equal('Bypass: 127.0.0.1/16')
+      cond = Conditions.fromStr(result)
+      cond.should.eql(condition)
+    it 'should add brackets for IPv6 hosts in BypassCondition', ->
+      condition =
+        conditionType: 'BypassCondition'
+        pattern: '::1'
+      result = Conditions.str(condition)
+      result.should.equal('Bypass: [::1]')
+      cond = Conditions.fromStr(result)
+      cond.conditionType.should.equal('BypassCondition')
+      cond.pattern.should.equal('[::1]')
+    it 'should add brackets for IPv6 hosts with scheme in BypassCondition', ->
+      condition =
+        conditionType: 'BypassCondition'
+        pattern: 'http://::1'
+      result = Conditions.str(condition)
+      result.should.equal('Bypass: http://[::1]')
+      cond = Conditions.fromStr(result)
+      cond.conditionType.should.equal('BypassCondition')
+      cond.pattern.should.equal('http://[::1]')
     it 'should encode & decode IpCondition correctly', ->
       condition =
         conditionType: 'IpCondition'

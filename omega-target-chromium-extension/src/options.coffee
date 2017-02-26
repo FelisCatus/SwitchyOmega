@@ -74,6 +74,10 @@ class ChromeOptions extends OmegaTarget.Options
       chrome.browserAction.setBadgeText(text: '')
     return
 
+  _formatBypassItem: (condition) ->
+    str = OmegaPac.Conditions.str(condition)
+    i = str.indexOf(' ')
+    return str.substr(i + 1)
   _fixedProfileConfig: (profile) ->
     config = {}
     config['mode'] = 'fixed_servers'
@@ -101,8 +105,8 @@ class ChromeOptions extends OmegaTarget.Options
 
     if config['mode'] != 'direct'
       rules['bypassList'] = bypassList = []
-      for rule in profile.bypassList
-        bypassList.push(rule.pattern)
+      for condition in profile.bypassList
+        bypassList.push(@_formatBypassItem(condition))
       config['rules'] = rules
     return config
 

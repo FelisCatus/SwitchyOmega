@@ -306,6 +306,7 @@ module.exports = exports =
           ip: null
           scheme: null
           url: null
+          normalizedPattern: ''
         server = condition.pattern
         if server == '<local>'
           cache.host = server
@@ -313,6 +314,7 @@ module.exports = exports =
         parts = server.split '://'
         if parts.length > 1
           cache.scheme = parts[0]
+          cache.normalizedPattern = cache.scheme + '://'
           server = parts[1]
 
         parts = server.split '/'
@@ -322,36 +324,43 @@ module.exports = exports =
           if addr and not isNaN(prefixLen)
             cache.ip =
               conditionType: 'IpCondition'
-              ip: parts[0]
+              ip: @normalizeIp addr
               prefixLength: prefixLen
+            cache.normalizedPattern += cache.ip.ip + '/' + cache.ip.prefixLength
             return cache
-        if server.charCodeAt(server.length - 1) != ']'.charCodeAt(0)
+        # The server can be an IP address with or without brackets.
+        serverIp = @parseIp(server)
+        if not serverIp?
           pos = server.lastIndexOf(':')
           if pos >= 0
             matchPort = server.substring(pos + 1)
             server = server.substring(0, pos)
-        serverIp = @parseIp server
-        serverRegex = null
+          serverIp = @parseIp server
         if serverIp?
-          if serverIp.regularExpressionString?
-            regexStr = serverIp.regularExpressionString(true)
-            serverRegex = '\\[' + regexStr + '\\]'
+          server = @normalizeIp serverIp
+          if serverIp.v4
+            cache.normalizedPattern += server
           else
-            server = @normalizeIp serverIp
-        else if server.charCodeAt(0) == '.'.charCodeAt(0)
-          server = '*' + server
+            cache.normalizedPattern += '[' + server + ']'
+        else
+          if server.charCodeAt(0) == '.'.charCodeAt(0)
+            server = '*' + server
+          cache.normalizedPattern = server
+
         if matchPort
-          if not serverRegex?
-            serverRegex = shExp2RegExp(server)
-            serverRegex = serverRegex.substring(1, serverRegex.length - 1)
+          cache.port = matchPort
+          cache.normalizedPattern += ':' + cache.port
+          # In URL, IPv6 server addresses need to be bracketed.
+          if serverIp? and not serverIp.v4
+            server = '[' + server + ']'
+          serverRegex = shExp2RegExp(server)
+          serverRegex = serverRegex.substring(1, serverRegex.length - 1)
           scheme = cache.scheme ? '[^:]+'
           cache.url = @safeRegex('^' + scheme + ':\\/\\/' + serverRegex +
             ':' + matchPort + '\\/')
         else if server != '*'
-          if serverRegex
-            serverRegex = '^' + serverRegex + '$'
-          else
-            serverRegex = shExp2RegExp server, trimAsterisk: true
+          # In host, IPv6 server addresses are never bracketed.
+          serverRegex = shExp2RegExp server, trimAsterisk: true
           cache.host = @safeRegex(serverRegex)
         return cache
       match: (condition, request, cache) ->
@@ -374,6 +383,13 @@ module.exports = exports =
             return false if not cache.host.test(request.host)
         return false if cache.url? and !cache.url.test(request.url)
         return true
+      str: (condition) ->
+        analyze = @_handler(condition).analyze
+        cache = analyze.call(exports, condition)
+        if cache.normalizedPattern
+          return cache.normalizedPattern
+        else
+          return condition.pattern
       compile: (condition, cache) ->
         cache = cache.analyzed
         if cache.url?
