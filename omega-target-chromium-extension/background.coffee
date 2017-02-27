@@ -29,6 +29,7 @@ Promise.onUnhandledRejectionHandled (promise) ->
 
 iconCache = {}
 drawContext = null
+drawError = null
 drawIcon = (resultColor, profileColor) ->
   cacheKey = "omega+#{resultColor ? ''}+#{profileColor}"
   icon = iconCache[cacheKey]
@@ -47,7 +48,10 @@ drawIcon = (resultColor, profileColor) ->
         drawOmega drawContext, profileColor
       drawContext.setTransform(1, 0, 0, 1, 0, 0)
       icon[size] = drawContext.getImageData(0, 0, size, size)
-  catch
+  catch e
+    if not drawError?
+      drawError = e
+      Log.error(e)
     icon = null
 
   return iconCache[cacheKey] = icon
