@@ -33,19 +33,22 @@ drawIcon = (resultColor, profileColor) ->
   cacheKey = "omega+#{resultColor ? ''}+#{profileColor}"
   icon = iconCache[cacheKey]
   return icon if icon
-  if not drawContext?
-    drawContext = document.getElementById('canvas-icon').getContext('2d')
+  try
+    if not drawContext?
+      drawContext = document.getElementById('canvas-icon').getContext('2d')
 
-  icon = {}
-  for size in [16, 24, 32]
-    drawContext.scale(size, size)
-    drawContext.clearRect(0, 0, 1, 1)
-    if resultColor?
-      drawOmega drawContext, resultColor, profileColor
-    else
-      drawOmega drawContext, profileColor
-    drawContext.setTransform(1, 0, 0, 1, 0, 0)
-    icon[size] = drawContext.getImageData(0, 0, size, size)
+    icon = {}
+    for size in [16, 24, 32]
+      drawContext.scale(size, size)
+      drawContext.clearRect(0, 0, 1, 1)
+      if resultColor?
+        drawOmega drawContext, resultColor, profileColor
+      else
+        drawOmega drawContext, profileColor
+      drawContext.setTransform(1, 0, 0, 1, 0, 0)
+      icon[size] = drawContext.getImageData(0, 0, size, size)
+  catch
+    icon = null
 
   return iconCache[cacheKey] = icon
 

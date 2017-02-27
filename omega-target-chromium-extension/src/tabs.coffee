@@ -63,6 +63,7 @@ class ChromeTabs
     )
 
   setIcon: (icon, tabId) ->
+    return unless icon?
     if tabId?
       chrome.browserAction.setIcon({
         imageData: icon
@@ -72,6 +73,7 @@ class ChromeTabs
       chrome.browserAction.setIcon({imageData: icon}, @ignoreError)
 
   clearIcon: (tabId) ->
+    return unless @_defaultAction?.icon?
     chrome.browserAction.setIcon({
       imageData: @_defaultAction.icon
       tabId: tabId
