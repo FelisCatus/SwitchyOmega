@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg
    xmlns="http://www.w3.org/2000/svg"
-   width="38"
-   height="38"
+   width="32"
+   height="32"
    version="1.1">
   <path
-     d="M 19 19 m -19 0 a 19 19 0 1 0 38 0 a 19 19 0 1 0 -38 0 M 19 19 m -9.5 0 a 9.5 9.5 0 1 0 19 0 a 9.5 9.5 0 1 0 -19 0"
+     d="M 16 16 m -16 0 a 16 16 0 1 0 32 0 a 16 16 0 1 0 -32 0 M 16 16 m -8 0 a 8 8 0 1 0 16 0 a 8 8 0 1 0 -16 0"
      fill-rule="evenodd"
      fill="#31afec"
      stroke="none" />
