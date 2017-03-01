@@ -65,16 +65,27 @@ class ChromeTabs
   setIcon: (icon, tabId) ->
     return unless icon?
     if tabId?
-      chrome.browserAction.setIcon({
+      params = {
         imageData: icon
         tabId: tabId
-      }, @ignoreError)
+      }
     else
-      chrome.browserAction.setIcon({imageData: icon}, @ignoreError)
+      params = {
+        imageData: icon
+      }
+    @_chromeSetIcon(params)
+
+  _chromeSetIcon: (params) ->
+    try
+      chrome.browserAction.setIcon(params, @ignoreError)
+    catch
+      # Some legacy Chrome versions will panic if there are other icon sizes.
+      params.imageData = {19: params.imageData[19], 38: params.imageData[38]}
+      chrome.browserAction.setIcon(params, @ignoreError)
 
   clearIcon: (tabId) ->
     return unless @_defaultAction?.icon?
-    chrome.browserAction.setIcon({
+    @_chromeSetIcon({
       imageData: @_defaultAction.icon
       tabId: tabId
     }, @ignoreError)
