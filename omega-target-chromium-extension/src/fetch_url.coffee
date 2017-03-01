@@ -6,7 +6,7 @@ ContentTypeRejectedError = OmegaTarget.ContentTypeRejectedError
 xhrWrapper = (args...) ->
   xhr(args...).catch (err) ->
     throw err unless err.isOperational
-    if not err.statusCode?
+    if not err.statusCode
       throw new OmegaTarget.NetworkError(err)
     if err.statusCode == 404
       throw new OmegaTarget.HttpNotFoundError(err)
@@ -26,7 +26,7 @@ fetchUrl = (dest_url, opt_bypass_cache, opt_type_hints) ->
       'Unrecognized Content-Type: ' + contentType)
     return body
 
-  if opt_bypass_cache
+  if opt_bypass_cache and dest_url.indexOf('?') < 0
     parsed = Url.parse(dest_url, true)
     parsed.search = undefined
     parsed.query['_'] = Date.now()
