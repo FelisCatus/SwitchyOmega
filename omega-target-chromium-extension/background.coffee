@@ -39,7 +39,7 @@ drawIcon = (resultColor, profileColor) ->
       drawContext = document.getElementById('canvas-icon').getContext('2d')
 
     icon = {}
-    for size in [16, 24, 32]
+    for size in [16, 19, 24, 32, 38]
       drawContext.scale(size, size)
       drawContext.clearRect(0, 0, 1, 1)
       if resultColor?
