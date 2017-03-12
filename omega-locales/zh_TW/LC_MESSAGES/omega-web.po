@@ -1057,3 +1057,32 @@ msgstr "檢查此[元素]使用的代理"
 
 msgid "contextMenu_enableQuickSwitch"
 msgstr "啟用快速切換"
+
+msgid "about_title"
+msgstr "關於"
+
+msgid "about_app_description"
+msgstr "一個代理設置工具"
+
+msgid "about_version"
+msgstr "版本 $VERSION$"
+
+msgid "about_disclaimer_networkService"
+msgstr "SwitchyOmega 不提供代理伺服器、VPN等網絡服務。"
+
+msgid "about_disclaimer_privacy"
+msgstr "SwitchyOmega 不會跟蹤您的上網記錄，不在頁面中插入廣告。請參見我們的"
+"<a href='https://github.com/FelisCatus/SwitchyOmega/wiki/Privacy#%E4%B8%AD%E6%96%87'>隱私政策</a>。"
+
+msgid "about_help"
+msgstr "如有其他問題或者需要幫助，請參考"
+"<a href='https://github.com/FelisCatus/SwitchyOmega/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98'>常見問題</a>。"
+
+msgid "about_copyright"
+msgstr "版權所有 2012-2017 <a href='https://github.com/FelisCatus/SwitchyOmega/blob/master/AUTHORS'>The SwitchyOmega Authors</a>. 保留所有權利。"
+
+msgid "about_credits"
+msgstr "SwitchyOmega 的誕生離不開 <a href='https://github.com/FelisCatus/SwitchyOmega'>SwitchyOmega</a> 開源項目和其他<a href='https://github.com/FelisCatus/SwitchyOmega/blob/master/AUTHORS'>開源軟體</a>。"
+
+msgid "about_license"
+msgstr "SwitchyOmega 是<a href='https://www.gnu.org/philosophy/free-sw.zh-tw.html'>自由軟體</a>，使用<a href='https://www.gnu.org/licenses/gpl.html'>GNU General Public License</a> 版本 3 及以上授權。"

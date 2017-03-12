@@ -1,0 +1,10 @@
+.modal-header
+  button.close(type='button' ng-click='$dismiss()')
+    span(aria-hidden='true') ×
+    span.sr-only {{'dialog_close' | tr}}
+  h4.modal-title {{'options_modalHeader_resetOptions' | tr}}
+.modal-body
+  p.text-danger {{'options_resetOptionsConfirm' | tr}}
+.modal-footer
+  button.btn.btn-default(ng-click='$dismiss()') {{'dialog_cancel' | tr}}
+  button.btn.btn-danger(type='button' ng-click='$close("ok")') {{'options_reset' | tr}}

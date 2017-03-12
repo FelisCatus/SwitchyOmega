@@ -1,0 +1,50 @@
+.page-header
+  h2 {{'about_title' | tr}}
+section
+  .media(style='margin: 1em 0')
+    .media-left
+      img.media-object(src='img/icons/omega-action-32.png')
+    .media-body
+      h4.media-heading {{'appNameShort' | tr}}
+      p {{'about_app_description' | tr}}
+section
+  p
+    button.btn.btn-info(ng-click='reportIssue()')
+      span.glyphicon.glyphicon-comment
+      = ' '
+      | {{'popup_reportIssues' | tr}}
+    = ' '
+    button.btn.btn-default(ng-click='downloadLog()')
+      span.glyphicon.glyphicon-download
+      = ' '
+      | {{'popup_errorLog' | tr}}
+    = ' '
+    button.btn.btn-danger(ng-click='showResetOptionsModal()')
+      span.glyphicon.glyphicon-alert
+      = ' '
+      | {{'options_reset' | tr}}
+section
+  p
+    | {{'about_version' | tr:[version]}}
+  p.text-warning
+    span.glyphicon.glyphicon-info-sign
+    = ' '
+    span(ng-bind-html='"about_disclaimer_networkService" | tr')
+  p.text-success
+    span.glyphicon.glyphicon-eye-close
+    = ' '
+    span(ng-bind-html='"about_disclaimer_privacy" | tr')
+  p.text-info
+    span.glyphicon.glyphicon-question-sign
+    = ' '
+    span(ng-bind-html='"about_help" | tr')
+
+section(style='margin-top: 7em')
+  p
+    | {{'appNameShort' | tr}}
+    br
+    span(ng-bind-html='"about_copyright" | tr')
+    br
+    span(ng-bind-html='"about_license" | tr')
+    br
+    span(ng-bind-html='"about_credits" | tr')

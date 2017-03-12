@@ -123,16 +123,18 @@ class Options
             'web.switchGuide': 'showOnFirstUse'
           }).then (items) => @_state.set(items)
           return null unless @sync?
-          # Try to fetch options from sync storage.
-          return @sync.storage.get(null).then (options) =>
-            if not options['schemaVersion']
-              @_state.set({'syncOptions': 'pristine'})
-              return null
-            else
-              @_state.set({'syncOptions': 'sync'})
-              @sync.enabled = true
-              @log.log('Options#loadOptions::fromSync', options)
-              options
+          @_state.get({'syncOptions': ''}).then ({syncOptions}) =>
+            return if syncOptions == 'conflict'
+            # Try to fetch options from sync storage.
+            return @sync.storage.get(null).then (options) =>
+              if not options['schemaVersion']
+                @_state.set({'syncOptions': 'pristine'})
+                return null
+              else
+                @_state.set({'syncOptions': 'sync'})
+                @sync.enabled = true
+                @log.log('Options#loadOptions::fromSync', options)
+                options
         else
           @log.error(e.stack)
           # Some serious error happened when loading options. Disable syncing
@@ -260,7 +262,7 @@ class Options
   ###
   reset: (options) ->
     @log.method('Options#reset', this, arguments)
-    options ?= getDefaultOptions()
+    options ?= @getDefaultOptions()
     @upgrade(@parseOptions(options)).then ([opt]) =>
       # Disable syncing when resetting to avoid affecting sync storage.
       @sync.enabled = false if @sync?

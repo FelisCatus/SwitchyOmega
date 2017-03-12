@@ -12,7 +12,8 @@ html(lang='en' ng-controller='MasterCtrl' ng-csp)
   body(style='display: none;' ng-style='{display: options ? "block" : "none"}')
     .container-fluid
       header.col-lg-2.col-sm-3.side-nav
-        h1 {{'appNameShort' | tr}}
+        h1
+          a(ui-sref='about' title='{{"about_title" | tr}}') {{'appNameShort' | tr}}
         nav.nav.nav-pills.nav-stacked
           li.nav-header {{'options_navHeader_setting' | tr}}
           li(ui-sref-active='active'): a(ui-sref='ui')
@@ -63,6 +64,7 @@ html(lang='en' ng-controller='MasterCtrl' ng-csp)
         span.glyphicon(class="{{alertIcons[alert.type]}}")
         = ' '
         | {{alert.i18n ? (alert.i18n | tr) : alert.message}}
+    script(src='js/omega_debug.js')
     script(src='js/log_error.js')
     script(src='lib/script.js/script.min.js')
     script(src='js/options.js')

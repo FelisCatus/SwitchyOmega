@@ -20,37 +20,11 @@ if chrome.i18n.getUILanguage?
 chrome.contextMenus.create({
   title: chrome.i18n.getMessage('popup_reportIssues')
   contexts: ["browser_action"]
-  onclick: ->
-    url = 'https://github.com/FelisCatus/SwitchyOmega/issues/new?title=&body='
-    finalUrl = url
-    try
-      extensionVersion = chrome.runtime.getManifest().version
-      env =
-        extensionVersion: extensionVersion
-        projectVersion: extensionVersion
-        userAgent: navigator.userAgent
-      body = chrome.i18n.getMessage('popup_issueTemplate', [
-        env.projectVersion, env.userAgent
-      ])
-      body ||= """
-        \n\n
-        <!-- Please write your comment ABOVE this line. -->
-        SwitchyOmega #{env.projectVersion}
-        #{env.userAgent}
-      """
-      finalUrl = url + encodeURIComponent(body)
-      err = localStorage['logLastError']
-      if err
-        body += "\n```\n#{err}\n```"
-        finalUrl = (url + encodeURIComponent(body)).substr(0, 2000)
-
-    chrome.tabs.create(url: finalUrl)
+  onclick: OmegaDebug.reportIssue
 })
 
 chrome.contextMenus.create({
   title: chrome.i18n.getMessage('popup_errorLog')
   contexts: ["browser_action"]
-  onclick: ->
-    blob = new Blob [localStorage['log']], {type: "text/plain;charset=utf-8"}
-    saveAs(blob, "OmegaLog_#{Date.now()}.txt")
+  onclick: OmegaDebug.downloadLog
 })

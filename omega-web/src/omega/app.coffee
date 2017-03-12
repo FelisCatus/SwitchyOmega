@@ -35,13 +35,13 @@ angular.module('omega').config ($stateProvider, $urlRouterProvider,
     /^\s*(https?|ftp|mailto|chrome-extension):/)
   $animateProvider.classNameFilter(/angular-animate/)
 
-  $urlRouterProvider.otherwise '/ui'
+  $urlRouterProvider.otherwise '/about'
   
   $urlRouterProvider.otherwise ($injector, $location) ->
     if $location.path() == ''
-      $injector.get('omegaTarget').lastUrl() || '/ui'
+      $injector.get('omegaTarget').lastUrl() || '/about'
     else
-      '/ui'
+      '/about'
   
   $stateProvider
     .state('ui',
@@ -63,4 +63,22 @@ angular.module('omega').config ($stateProvider, $urlRouterProvider,
     ).state('about',
       url: '/about'
       templateUrl: 'partials/about.html'
+      controller: 'AboutCtrl'
     )
+
+angular.module('omega').factory 'omegaDebug', ($window, $rootScope) ->
+  omegaDebug = $window.OmegaDebug ? {}
+
+  omegaDebug.downloadLog ?= ->
+    blob = new Blob [localStorage['log']], {type: "text/plain;charset=utf-8"}
+    saveAs(blob, "OmegaLog_#{Date.now()}.txt")
+
+  omegaDebug.reportIssue ?= ->
+    $window.open(
+      'https://github.com/FelisCatus/SwitchyOmega/issues/new?title=&body=')
+    return
+
+  omegaDebug.resetOptions ?= ->
+    $rootScope.resetOptions()
+
+  omegaDebug
