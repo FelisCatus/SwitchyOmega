@@ -285,6 +285,12 @@ encodeError = (obj) ->
   else
     obj
 
+refreshActivePageIfEnabled = ->
+  return unless localStorage['omega.local.refreshOnProfileChange']
+  chrome.tabs.query {active: true, lastFocusedWindow: true}, (tabs) ->
+    if tabs[0].url and tabs[0].url.substr(0, 6) != 'chrome'
+      chrome.tabs.reload(tabs[0].id, {bypassCache: true})
+
 chrome.runtime.onMessage.addListener (request, sender, respond) ->
   options.ready.then ->
     target = options
@@ -298,6 +304,8 @@ chrome.runtime.onMessage.addListener (request, sender, respond) ->
       return
 
     promise = Promise.resolve().then -> method.apply(target, request.args)
+    if request.refreshActivePage
+      promise.then refreshActivePageIfEnabled
     return if request.noReply
 
     promise.then (result) ->

@@ -21,7 +21,7 @@
       "32": "img/icons/omega-action-32.png"
     },
     "default_title": "__MSG_manifest_icon_default_title__",
-    "default_popup": "popup.html"
+    "default_popup": "popup/index.html"
   },
   "background": {
     "page": "background.html"

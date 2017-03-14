@@ -131,7 +131,7 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
           connectBackground('tabRequestInfo', args,
             requestInfoCallback)
         d.resolve(callBackground('getPageInfo', args))
-      return d.promise
+      return d.promise.then (info) -> if info?.url then info else null
     refreshActivePage: ->
       d = $q['defer']()
       chrome.tabs.query {active: true, lastFocusedWindow: true}, (tabs) ->

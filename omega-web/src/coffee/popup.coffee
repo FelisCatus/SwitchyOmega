@@ -184,7 +184,19 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
         omegaTarget.applyProfile(name).then ->
           refresh()
 
+  $scope.returnToMenu = ->
+    if location.hash.indexOf('!') >= 0
+      location.href = 'popup/index.html'
+      return
+    $scope.showConditionForm = false
+    $scope.showRequestInfo = false
+
   preselectedProfileNameForCondition = 'direct'
+
+  if $window.location.hash == '#!requestInfo'
+    $scope.showRequestInfo = true
+  else if $window.location.hash == '#!external'
+    $scope.nameExternal = {open: true}
 
   omegaTarget.state([
     'availableProfiles', 'currentProfileName', 'isSystemProfile',
@@ -257,6 +269,8 @@ module.controller 'PopupCtrl', ($scope, $window, $q, omegaTarget,
       if $scope.currentTempRuleProfile
         preselectedProfileNameForCondition = $scope.currentTempRuleProfile
       $scope.currentDomain = info.domain
+      if $window.location.hash == '#!addRule'
+        $scope.prepareConditionForm()
 
   $scope.prepareConditionForm = ->
     currentDomain = $scope.currentDomain

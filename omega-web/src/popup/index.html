@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SwitchyOmega Popup</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <ul class="om-nav">
+    <li class="om-nav-item" id="js-profile-tpl">
+      <a href="#" id="js-direct" role="button">
+        <span class="glyphicon glyphicon-transfer" style="color: #aaa;"></span>
+        <span class="om-profile-name"></span>
+      </a>
+    </li>
+    <li class="om-nav-item">
+      <a href="#" id="js-system" role="button">
+        <span class="glyphicon glyphicon-off" style="color: #000;"></span>
+        <span class="om-profile-name"></span>
+      </a>
+    </li>
+    <li class="om-nav-item om-reqinfo om-hidden">
+      <a href="../popup.html#!requestInfo" id="js-reqinfo" role="button">
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <span class="om-reqinfo-text"></span>
+      </a>
+    </li>
+    <li class="om-divider"></li>
+    <li class="om-divider" id="js-profiles-end"></li>
+    <li class="om-nav-item om-nav-addrule">
+      <a href="../popup.html#!addRule" id="js-addrule" role="button">
+        <span class="glyphicon glyphicon-plus"></span>
+        <span id="js-addrule-label"></span>
+      </a>
+    </li>
+    <li class="om-nav-item om-nav-temprule om-has-dropdown">
+      <a href="#" id="js-temprule" role="button">
+        <span class="glyphicon glyphicon-filter"></span>
+        <span>
+          <span class="om-page-domain"></span>
+          <span class="om-caret"></span>
+        </span>
+      </a>
+    </li>
+    <li class="om-divider"></li>
+    <li class="om-nav-item">
+      <a href="#" id="js-option" role="button">
+        <span class="glyphicon glyphicon-wrench"></span>
+        <span id="js-option-label"></span>
+      </a>
+    </li>
+  </ul>
+  <script src="../../lib/script.js/script.min.js"></script>
+  <script src="js/loader.js"></script>
+</body>
+</html>

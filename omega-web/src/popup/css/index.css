@@ -1,0 +1,220 @@
+/*!
+ * Copyright 2017 The SwitchyOmega Authors. Please see the AUTHORS file
+ * for details.
+ * Based on Bootstrap v3.3.2 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+*/
+
+/* Layout */
+
+html, body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-width: 12em;
+}
+
+.om-hidden {
+  display: none !important;
+}
+
+/* Menu */
+
+.om-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+  .om-nav-item {
+    display: block;
+    margin: 2px 0;
+  }
+
+    .om-nav-item > a > .glyphicon {
+      margin-right: 8px;
+    }
+
+    .om-nav-item > a {
+      display: block;
+      padding: 5px 25px 5px 8px;
+      border-radius: 4px;
+      line-height: 1.5em;
+      font-size: 1em;
+      color: #337ab7;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .om-nav-item > a:hover {
+      text-decoration: none;
+      background-color: #eee;
+    }
+    .om-nav-item > a:hover {
+      color: #23527c;
+    }
+    .om-nav-item.om-effective > a {
+      background-color: #d9edf7;
+    }
+    .om-nav-item.om-active > a {
+      color: #fff;
+      background-color: #337ab7;
+    }
+
+  .om-divider {
+    height: 1px;
+    overflow: hidden;
+    background-color: #E5E5E5;
+  }
+
+  .om-reqinfo {
+    background-color: #fcf8e3;
+  }
+
+  .glyphicon-warning-sign {
+    color: #8a6d3b;
+  }
+
+/* Dropdown */
+
+.om-dropdown {
+  display: none;
+  list-style: none;
+  padding: 5px 0;
+  margin: 0 5px !important;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.om-open .om-dropdown {
+  display: block;
+}
+
+.om-dropdown .om-nav-item {
+  margin: 0;
+}
+
+.om-dropdown .om-nav-item > a {
+  padding: 3px 20px;
+  line-height: 1.3em;
+  margin: 0;
+}
+
+.om-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.om-virtual-profile-icon {
+  border: dotted 1px;
+  margin: -1px;
+}
+
+/* Default Edit */
+
+.om-has-edit {
+  padding-right: 32px;
+  position: relative;
+}
+
+  .om-edit-toggle {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #337ab7;
+    display: inline-block;
+    margin: -5px 0;
+    text-align: center;
+    padding: 5px 8px 3px;
+    position: absolute;
+    right: 0;
+  }
+
+  .om-edit-toggle:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+  }
+
+/* Keyboard */
+
+.om-keyboard-help {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  border: solid 1px #000;
+  border-radius: 2px;
+  display: inline-block;
+  color: #000;
+  box-shadow: 1px 1px;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  text-align: center;
+  margin-top: -3px;
+}
+
+/* Glyphicons */
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(../../../lib/bootstrap/fonts/glyphicons-halflings-regular.eot);
+  src: url(../../../lib/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(../../../lib/bootstrap/fonts/glyphicons-halflings-regular.woff2) format('woff2'),url(../../../lib/bootstrap/fonts/glyphicons-halflings-regular.woff) format('woff'),url(../../../lib/bootstrap/fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(../../../lib/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
+}
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-transfer:before {
+  content: "\e178";
+}
+.glyphicon-off:before {
+  content: "\e017";
+}
+.glyphicon-warning-sign:before {
+    content: "\e107";
+}
+.glyphicon-file:before {
+    content: "\e022"
+}
+.glyphicon-globe:before {
+    content: "\e135"
+}
+.glyphicon-question-sign:before {
+    content: "\e085"
+}
+.glyphicon-list:before {
+    content: "\e056"
+}
+.glyphicon-retweet:before {
+    content: "\e115"
+}
+.glyphicon-plus:before {
+    content: "\2b"
+}
+.glyphicon-filter:before {
+    content: "\e138"
+}
+.glyphicon-wrench:before {
+  content: "\e136"
+}
+.glyphicon-chevron-down:before {
+    content: "\e114";
+}

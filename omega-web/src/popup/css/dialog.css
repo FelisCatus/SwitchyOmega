@@ -1,0 +1,97 @@
+/*!
+ * Copyright 2017 The SwitchyOmega Authors. Please see the AUTHORS file
+ * for details.
+ * Based on Bootstrap v3.3.2 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+*/
+
+/* Dialog */
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+.om-dialog {
+  min-width: 400px;
+  padding: 10px 10px;
+  font-size: 14px;
+}
+
+  .om-text-danger {
+    color: #a94442;
+  }
+
+  .om-dialog-help {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #737373;
+  }
+
+  .om-dialog-controls {
+    margin-bottom: 0;
+  }
+
+  .om-dialog-controls .om-btn-primary {
+    float: right;
+  }
+
+/* Button */
+
+.om-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px
+}
+
+.om-btn.active, .om-btn:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+  box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+}
+
+.om-btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.om-btn-default:hover {
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+.om-btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.om-btn-primary:hover {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}

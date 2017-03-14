@@ -11,6 +11,9 @@ module.exports =
   target_self:
     src: 'omega_target_chromium_extension.min.js'
     dest: 'build/js/'
+  target_popup:
+    src: 'omega_target_popup.js'
+    dest: 'build/js/'
   overlay:
     expand: true
     cwd: 'overlay'

@@ -1,6 +1,6 @@
 doctype html
 //
-  Copyright (C) 2012-2013, The SwitchyOmega Authors. Please see the AUTHORS file
+  Copyright 2017 The SwitchyOmega Authors. Please see the AUTHORS file
   for details.
 
   This file is part of SwitchyOmega.
@@ -111,7 +111,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           div(omega-profile-select='validResultProfiles' ng-model='rule.profileName'
             disp-name='dispNameFilter' options='availableProfiles')
         div.condition-controls
-          button.btn.btn-default(type='button' ng-click='showConditionForm = false')
+          button.btn.btn-default(type='button' ng-click='returnToMenu()')
             | {{'dialog_cancel' | tr}}
           button.btn.btn-primary(type='submit' ng-disabled='conditionForm.$invalid') {{'popup_addCondition' | tr}}
     div.proxy-not-controllable(ng-show='proxyNotControllable')
@@ -148,7 +148,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
         p.help-block(ng-show='!currentProfileCanAddRule')
           | {{'popup_requestErrorCannotAddCondition' | tr}}
         div.condition-controls
-          button.btn.btn-default(type='button' ng-click='showRequestInfo = false')
+          button.btn.btn-default(type='button' ng-click='returnToMenu()')
             | {{'dialog_cancel' | tr}}
           button.btn.btn-primary(type='submit' ng-show='!!currentProfileCanAddRule') {{'popup_addCondition' | tr}}
           button.btn.btn-default.pull-right(type='button' ng-show='!currentProfileCanAddRule'

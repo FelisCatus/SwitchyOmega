@@ -17,6 +17,10 @@ module.exports =
     files:
       'img/**/*'
     tasks: 'copy:img'
+  copy_popup:
+    files:
+      'src/popup/**/*'
+    tasks: 'copy:popup'
   jade:
     files: ['src/**/*.jade']
     tasks: 'jade'

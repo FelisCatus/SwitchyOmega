@@ -197,7 +197,7 @@ class ChromeOptions extends OmegaTarget.Options
               if tab.url and tab.url.indexOf('chrome') != 0
                 chrome.tabs.reload(tab.id)
     else
-      chrome.browserAction.setPopup({popup: 'popup.html'})
+      chrome.browserAction.setPopup({popup: 'popup/index.html'})
     Promise.resolve()
 
   setInspect: (settings) ->
@@ -329,6 +329,8 @@ class ChromeOptions extends OmegaTarget.Options
     chrome.tabs.create url: chrome.extension.getURL('options.html')
 
   getPageInfo: ({tabId, url}) ->
+    errorCount = @_requestMonitor.tabInfo[tabId]?.errorCount
+    result = if errorCount then {errorCount: errorCount} else null
     getBadge = new Promise (resolve, reject) ->
       chrome.browserAction.getBadgeText {tabId: tabId}, (result) ->
         resolve(result)
@@ -339,19 +341,21 @@ class ChromeOptions extends OmegaTarget.Options
         url = inspectUrl
       else
         @clearBadge()
-      return null if not url
+      return result if not url
       if url.substr(0, 6) == 'chrome'
         errorPagePrefix = 'chrome://errorpage/'
         if url.substr(0, errorPagePrefix.length) == errorPagePrefix
           url = querystring.parse(url.substr(url.indexOf('?') + 1)).lasturl
-          return null if not url
+          return result if not url
         else
-          return null
+          return result
       domain = OmegaPac.getBaseDomain(Url.parse(url).hostname)
+
       return {
         url: url
         domain: domain
         tempRuleProfileName: @queryTempRule(domain)
+        errorCount: errorCount
       }
 
 module.exports = ChromeOptions

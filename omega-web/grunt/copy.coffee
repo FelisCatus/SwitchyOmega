@@ -12,3 +12,8 @@ module.exports =
     cwd: 'img'
     src: ['**/*']
     dest: 'build/img/'
+  popup:
+    expand: true
+    cwd: 'src/popup'
+    src: ['**/*']
+    dest: 'build/popup/'
