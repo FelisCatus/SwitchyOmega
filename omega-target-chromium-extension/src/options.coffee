@@ -329,7 +329,7 @@ class ChromeOptions extends OmegaTarget.Options
     chrome.tabs.create url: chrome.extension.getURL('options.html')
 
   getPageInfo: ({tabId, url}) ->
-    errorCount = @_requestMonitor.tabInfo[tabId]?.errorCount
+    errorCount = @_requestMonitor?.tabInfo[tabId]?.errorCount
     result = if errorCount then {errorCount: errorCount} else null
     getBadge = new Promise (resolve, reject) ->
       chrome.browserAction.getBadgeText {tabId: tabId}, (result) ->
