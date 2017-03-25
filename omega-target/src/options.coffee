@@ -126,7 +126,7 @@ class Options
           @_state.get({'syncOptions': ''}).then ({syncOptions}) =>
             return if syncOptions == 'conflict'
             # Try to fetch options from sync storage.
-            return @sync.storage.get(null).then (options) =>
+            return @sync.storage.get(null).then((options) =>
               if not options['schemaVersion']
                 @_state.set({'syncOptions': 'pristine'})
                 return null
@@ -135,6 +135,7 @@ class Options
                 @sync.enabled = true
                 @log.log('Options#loadOptions::fromSync', options)
                 options
+            ).catch(-> null)
         else
           @log.error(e.stack)
           # Some serious error happened when loading options. Disable syncing
