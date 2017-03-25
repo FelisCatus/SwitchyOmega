@@ -1,7 +1,7 @@
 angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   $q, $modal, $state, profileColors, profileIcons, omegaTarget,
   $timeout, $location, $filter, getAttachedName, isProfileNameReserved,
-  isProfileNameHidden, dispNameFilter) ->
+  isProfileNameHidden, dispNameFilter, downloadFile) ->
 
   tr = $filter('tr')
 
@@ -42,7 +42,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
       pac = OmegaPac.PacGenerator.ascii(pac)
       blob = new Blob [pac], {type: "text/plain;charset=utf-8"}
       fileName = profileName.replace(/\W+/g, '_')
-      saveAs(blob, "OmegaProfile_#{fileName}.pac")
+      downloadFile(blob, "OmegaProfile_#{fileName}.pac")
       if missingProfile
         $timeout ->
           $rootScope.showAlert(

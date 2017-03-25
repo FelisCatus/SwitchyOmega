@@ -1,5 +1,5 @@
 angular.module('omega').controller 'IoCtrl', ($scope, $rootScope,
-  $window, $http, omegaTarget) ->
+  $window, $http, omegaTarget, downloadFile) ->
 
   omegaTarget.state('web.restoreOnlineUrl').then (url) ->
     if url
@@ -10,7 +10,7 @@ angular.module('omega').controller 'IoCtrl', ($scope, $rootScope,
       plainOptions = angular.fromJson(angular.toJson($rootScope.options))
       content = JSON.stringify(plainOptions)
       blob = new Blob [content], {type: "text/plain;charset=utf-8"}
-      saveAs(blob, "OmegaOptions.bak")
+      downloadFile(blob, "OmegaOptions.bak")
 
   $scope.importSuccess = ->
     $rootScope.showAlert(
