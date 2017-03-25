@@ -13,6 +13,9 @@ module.exports = class ProxyAuth
     if not chrome.webRequest
       @options.log.error('Proxy auth disabled! No webRequest permission.')
       return
+    if not chrome.webRequest.onAuthRequired
+      @options.log.error('Proxy auth disabled! onAuthRequired not available.')
+      return
     chrome.webRequest.onAuthRequired.addListener(
       @authHandler.bind(this)
       {urls: ['<all_urls>']}

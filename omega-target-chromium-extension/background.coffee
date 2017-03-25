@@ -147,11 +147,11 @@ actionForUrl = (url) ->
     }
 
 
-storage = new OmegaTargetCurrent.Storage(chrome.storage.local, 'local')
+storage = new OmegaTargetCurrent.Storage('local')
 state = new OmegaTargetCurrent.BrowserStorage(localStorage, 'omega.local.')
 
-if chrome.storage.sync
-  syncStorage = new OmegaTargetCurrent.Storage(chrome.storage.sync, 'sync')
+if chrome?.storage?.sync or browser?.storage?.sync
+  syncStorage = new OmegaTargetCurrent.Storage('sync')
   sync = new OmegaTargetCurrent.OptionsSync(syncStorage)
   if localStorage['omega.local.syncOptions'] != '"sync"'
     sync.enabled = false

@@ -28,27 +28,40 @@ class ChromeStorage extends OmegaTarget.Storage
         # This could happen if the storage area is not available. For example,
         # some Chromium-based browsers disable access to the sync storage.
         err = new OmegaTarget.Storage.StorageUnavailableError()
+      else if err.message.indexOf(
+        'Please set webextensions.storage.sync.enabled to true') >= 0
+        # This happens when sync storage is disabled in flags.
+        err = new OmegaTarget.Storage.StorageUnavailableError()
 
     return Promise.reject(err)
 
-  constructor: (storage, @areaName) ->
-    @storage = chromeApiPromisifyAll(storage)
+  constructor: (@areaName) ->
+    if browser?.storage?[@areaName]
+      @storage = browser.storage[@areaName]
+    else
+      wrapper = chromeApiPromisifyAll(chrome.storage[@areaName])
+      @storage =
+        get: wrapper.getAsync.bind(wrapper),
+        set: wrapper.setAsync.bind(wrapper),
+        remove: wrapper.removeAsync.bind(wrapper),
+        clear: wrapper.clearAsync.bind(wrapper),
 
   get: (keys) ->
     keys ?= null
-    @storage.getAsync(keys).catch(ChromeStorage.parseStorageErrors)
+    Promise.resolve(@storage.get(keys)).catch(ChromeStorage.parseStorageErrors)
 
   set: (items) ->
     if Object.keys(items).length == 0
       return Promise.resolve({})
-    @storage.setAsync(items).catch(ChromeStorage.parseStorageErrors)
+    Promise.resolve(@storage.set(items)).catch(ChromeStorage.parseStorageErrors)
 
   remove: (keys) ->
     if not keys?
-      return @storage.clearAsync()
+      return Promise.resolve(@storage.clear())
     if Array.isArray(keys) and keys.length == 0
       return Promise.resolve({})
-    @storage.removeAsync(keys).catch(ChromeStorage.parseStorageErrors)
+    Promise.resolve(@storage.remove(keys))
+      .catch(ChromeStorage.parseStorageErrors)
 
   watch: (keys, callback) ->
     ChromeStorage.watchers[@areaName] ?= {}

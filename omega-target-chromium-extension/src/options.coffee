@@ -3,7 +3,14 @@ OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 querystring = require('querystring')
 chromeApiPromisifyAll = require('./chrome_api')
-proxySettings = chromeApiPromisifyAll(chrome.proxy.settings)
+if chrome?.proxy?.settings
+  proxySettings = chromeApiPromisifyAll(chrome.proxy.settings)
+else
+  proxySettings =
+    setAsync: -> Promise.resolve()
+    clearAsync: -> Promise.resolve()
+    get: -> null
+    onChange: addListener: -> null
 parseExternalProfile = require('./parse_external_profile')
 ProxyAuth = require('./proxy_auth')
 WebRequestMonitor = require('./web_request_monitor')
@@ -118,14 +125,14 @@ class ChromeOptions extends OmegaTarget.Options
       @_proxyChangeListener = (details) =>
         for watcher in @_proxyChangeWatchers
           watcher(details)
-      chrome.proxy.settings.onChange.addListener @_proxyChangeListener
+      proxySettings.onChange.addListener @_proxyChangeListener
     @_proxyChangeWatchers.push(callback)
   applyProfileProxy: (profile, meta) ->
     meta ?= profile
     if profile.profileType == 'SystemProfile'
       # Clear proxy settings, returning proxy control to Chromium.
       return proxySettings.clearAsync({}).then =>
-        chrome.proxy.settings.get {}, @_proxyChangeListener
+        proxySettings.get {}, @_proxyChangeListener
         return
     config = {}
     if profile.profileType == 'DirectProfile'
@@ -161,7 +168,7 @@ class ChromeOptions extends OmegaTarget.Options
       @_proxyAuth.setProxies(@_watchingProfiles)
       proxySettings.setAsync({value: config})
     ).then =>
-      chrome.proxy.settings.get {}, @_proxyChangeListener
+      proxySettings.get {}, @_proxyChangeListener
       return
 
   _quickSwitchInit: false
