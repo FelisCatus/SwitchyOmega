@@ -40,7 +40,8 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
     port.onMessage.addListener(callback)
     return
 
-  isChromeUrl = (url) -> url.substr(0, 6) == 'chrome'
+  isChromeUrl = (url) -> url.substr(0, 6) == 'chrome' or
+    url.substr(0, 4) == 'moz-' or url.substr(0, 6) == 'about:'
 
   optionsChangeCallback = []
   requestInfoCallback = null

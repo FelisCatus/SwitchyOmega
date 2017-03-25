@@ -89,6 +89,8 @@ module.exports = class WebRequestMonitor
     return if req.error.indexOf('net::ERR_FILE_') == 0
     return if req.url.indexOf('file:') == 0
     return if req.url.indexOf('chrome') == 0
+    return if req.url.indexOf('about:') == 0
+    return if req.url.indexOf('moz-') == 0
     # Some ad-blocking extensions may redirect requests to 127.0.0.1.
     return if req.url.indexOf('://127.0.0.1') > 0
     return unless reqInfo

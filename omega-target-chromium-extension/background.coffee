@@ -288,8 +288,12 @@ encodeError = (obj) ->
 refreshActivePageIfEnabled = ->
   return if localStorage['omega.local.refreshOnProfileChange'] == 'false'
   chrome.tabs.query {active: true, lastFocusedWindow: true}, (tabs) ->
-    if tabs[0].url and tabs[0].url.substr(0, 6) != 'chrome'
-      chrome.tabs.reload(tabs[0].id, {bypassCache: true})
+    url = tabs[0].url
+    return if not url
+    return if url.substr(0, 6) == 'chrome'
+    return if url.substr(0, 6) == 'about:'
+    return if url.substr(0, 4) == 'moz-'
+    chrome.tabs.reload(tabs[0].id, {bypassCache: true})
 
 chrome.runtime.onMessage.addListener (request, sender, respond) ->
   options.ready.then ->

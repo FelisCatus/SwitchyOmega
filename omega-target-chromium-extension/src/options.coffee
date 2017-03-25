@@ -201,8 +201,12 @@ class ChromeOptions extends OmegaTarget.Options
           index = (index + 1) % profiles.length
           @applyProfile(profiles[index]).then =>
             if @_options['-refreshOnProfileChange']
-              if tab.url and tab.url.indexOf('chrome') != 0
-                chrome.tabs.reload(tab.id)
+              url = tab.url
+              return if not url
+              return if url.substr(0, 6) == 'chrome'
+              return if url.substr(0, 6) == 'about:'
+              return if url.substr(0, 4) == 'moz-'
+              chrome.tabs.reload(tab.id)
     else
       chrome.browserAction.setPopup({popup: 'popup/index.html'})
     Promise.resolve()
@@ -356,6 +360,8 @@ class ChromeOptions extends OmegaTarget.Options
           return result if not url
         else
           return result
+      return result if url.substr(0, 6) == 'about:'
+      return result if url.substr(0, 4) == 'moz-'
       domain = OmegaPac.getBaseDomain(Url.parse(url).hostname)
 
       return {
