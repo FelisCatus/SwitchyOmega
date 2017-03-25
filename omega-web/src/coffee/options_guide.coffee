@@ -19,9 +19,7 @@ $script 'lib/tether/tether.js', ->
         text: tr('options_guideNext')
         action: tour.next
       ]
-    ).on 'show', ->
-      location.href = document.querySelector(
-        '.nav-profile[data-profile-type="FixedProfile"] a').href
+    )
 
     tour.addStep 'fixed-servers-step',
       text: tr('options_guide_fixedServersStep')

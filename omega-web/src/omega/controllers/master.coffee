@@ -16,6 +16,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
 
     $timeout ->
       $rootScope.optionsDirty = false
+      showFirstRun()
   
   $rootScope.revertOptions = ->
     $window.location.reload()
@@ -308,22 +309,35 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
 
   $scope.openShortcutConfig = omegaTarget.openShortcutConfig.bind(omegaTarget)
 
+  showFirstRunOnce = true
+  showFirstRun = ->
+    return unless showFirstRunOnce
+    showFirstRunOnce = false
+    omegaTarget.state('firstRun').then (firstRun) ->
+      return unless firstRun
+      omegaTarget.state('firstRun', '')
+
+      profileName = null
+      OmegaPac.Profiles.each $rootScope.options, (key, profile) ->
+        if not profileName and profile.profileType == 'FixedProfile'
+          profileName = profile.name
+      return unless profileName
+
+      scope = $rootScope.$new('isolate')
+      scope.upgrade = (firstRun == 'upgrade')
+      $modal.open(
+        templateUrl: 'partials/options_welcome.html'
+        keyboard: false
+        scope: scope
+        backdrop: 'static'
+        backdropClass: 'opacity-half'
+      ).result.then (r) ->
+        switch r
+          when 'later'
+            return
+          when 'show'
+            $state.go('profile', {name: profileName}).then ->
+              $script 'js/options_guide.js'
+
   omegaTarget.refresh()
 
-  omegaTarget.state('firstRun').then (firstRun) ->
-    return unless firstRun
-    scope = $rootScope.$new('isolate')
-    scope.upgrade = (firstRun == 'upgrade')
-    omegaTarget.state('firstRun', '')
-    $modal.open(
-      templateUrl: 'partials/options_welcome.html'
-      keyboard: false
-      scope: scope
-      backdrop: 'static'
-      backdropClass: 'opacity-half'
-    ).result.then (r) ->
-      switch r
-        when 'later'
-          return
-        when 'show'
-          $script 'js/options_guide.js'
