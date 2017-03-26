@@ -7,7 +7,7 @@
     "chai": "~1.9.1",
     "coffee-script": "^1.7.1",
     "coffeeify": "^0.7.0",
-    "coffeelint": "~1.11.1",
+    "coffeelint": "^1.16.0",
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.0.0",
     "grunt-coffeelint": "^0.0.13",

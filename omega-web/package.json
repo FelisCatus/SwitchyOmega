@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "chai": "~1.9.1",
-    "coffeelint": "~1.11.1",
+    "coffeelint": "^1.16.0",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^1.0.1",
     "grunt-bower-task": "^0.4.0",
