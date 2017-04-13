@@ -6,8 +6,8 @@
     39: openDropdown, // Right
 
     72: closeDropdown, // h
-    74: moveUp, // j
-    75: moveDown, // k
+    74: moveDown, // j
+    75: moveUp, // k
     76: openDropdown, // l
 
     191: showKeyboardHelp, // /
