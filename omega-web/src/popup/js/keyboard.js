@@ -48,6 +48,11 @@
         handler();
       }
     });
+
+    $script.ready('om-profile-items', function() {
+      var activeNavLink = document.querySelector('.om-nav-item.om-active > a');
+      if (activeNavLink) activeNavLink.focus();
+    });
   }
 
   function tabbableElementsOnly(node) {

@@ -5,7 +5,7 @@
 
   var profileTemplate = document.getElementById('js-profile-tpl')
     .cloneNode(true);
-  profileTemplate.classList.remove('om-profile-tpl');
+  profileTemplate.removeAttribute('id');
 
   var iconForProfileType = {
     'DirectProfile': 'glyphicon-transfer',
@@ -34,6 +34,7 @@
       return;
     }
     addProfilesItems(state);
+    $script.done('om-profile-items');
     updateOtherItems(state);
   }
 
