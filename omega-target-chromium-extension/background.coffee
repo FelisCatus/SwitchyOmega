@@ -296,6 +296,7 @@ refreshActivePageIfEnabled = ->
     chrome.tabs.reload(tabs[0].id, {bypassCache: true})
 
 chrome.runtime.onMessage.addListener (request, sender, respond) ->
+  return unless request and request.method
   options.ready.then ->
     target = options
     method = target[request.method]

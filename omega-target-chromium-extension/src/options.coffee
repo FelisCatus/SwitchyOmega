@@ -128,6 +128,14 @@ class ChromeOptions extends OmegaTarget.Options
       proxySettings.onChange.addListener @_proxyChangeListener
     @_proxyChangeWatchers.push(callback)
   applyProfileProxy: (profile, meta) ->
+    if chrome?.proxy?.settings?
+      return @applyProfileProxySettings(profile, meta)
+    else if browser?.proxy?.registerProxyScript?
+      return @applyProfileProxyScript(profile, meta)
+    else
+      ex = new Error('Your browser does not support proxy settings!')
+      return Promise.reject ex
+  applyProfileProxySettings: (profile, meta) ->
     meta ?= profile
     if profile.profileType == 'SystemProfile'
       # Clear proxy settings, returning proxy control to Chromium.
@@ -170,6 +178,71 @@ class ChromeOptions extends OmegaTarget.Options
     ).then =>
       proxySettings.get {}, @_proxyChangeListener
       return
+
+  _proxyScriptUrl: 'js/omega_webext_proxy_script.min.js'
+  _proxyScriptDisabled: false
+  applyProfileProxyScript: (profile, state) ->
+    state = state ? {}
+    state.currentProfileName = profile.name
+    if profile.name == ''
+      state.tempProfile = @_tempProfile
+    if profile.profileType == 'SystemProfile'
+      # MOZ: SystemProfile cannot be done now due to lack of "PASS" support.
+      # https://bugzilla.mozilla.org/show_bug.cgi?id=1319634
+      # In the mean time, let's just set an invalid script to unregister it.
+      browser.proxy.registerProxyScript('js/omega_invalid_proxy_script.min.js')
+      @_proxyScriptDisabled = true
+    else
+      @_proxyScriptState = state
+      @_initWebextProxyScript().then => @_proxyScriptStateChanged()
+    # Proxy authentication is not covered in WebExtensions standard now.
+    # MOZ: Mozilla has a bug tracked to implemented it in PAC return value.
+    # https://bugzilla.mozilla.org/show_bug.cgi?id=1319641
+    return Promise.resolve()
+
+  _proxyScriptInitialized: false
+  _proxyScriptState: {}
+  _initWebextProxyScript: ->
+    if not @_proxyScriptInitialized
+      browser.proxy.onProxyError.addListener (err) =>
+        if err and err.message.indexOf('Invalid Proxy Rule: DIRECT') >= 0
+          # MOZ: DIRECT cannot be correctly parsed due to a bug. Even though it
+          # throws, it actually falls back to direct connection so it works.
+          # https://bugzilla.mozilla.org/show_bug.cgi?id=1355198
+          return
+        @log.error(err)
+      browser.runtime.onMessage.addListener (message) =>
+        return unless message.event == 'proxyScriptLog'
+        if message.level == 'error'
+          @log.error(message)
+        else if message.level == 'warn'
+          @log.warn(message)
+        else
+          @log.log(message)
+
+    if not @_proxyScriptInitialized or @_proxyScriptDisabled
+      promise = new Promise (resolve) ->
+        onMessage = (message) ->
+          return unless message.event == 'proxyScriptLoaded'
+          resolve()
+          browser.runtime.onMessage.removeListener onMessage
+          return
+        browser.runtime.onMessage.addListener onMessage
+      browser.proxy.registerProxyScript(@_proxyScriptUrl)
+      @_proxyScriptDisabled = false
+    else
+      promise = Promise.resolve()
+    @_proxyScriptInitialized = true
+    return promise
+
+  _proxyScriptStateChanged: ->
+    browser.runtime.sendMessage({
+      event: 'proxyScriptStateChanged'
+      state: @_proxyScriptState
+      options: @_options
+    }, {
+      toProxyScript: true
+    })
 
   _quickSwitchInit: false
   _quickSwitchContextMenuCreated: false

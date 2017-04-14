@@ -24,12 +24,13 @@
     "heap": "^0.2.6",
     "omega-target": "../omega-target",
     "omega-web": "../omega-web",
+    "omega-pac": "../omega-pac",
     "xhr": "^1.16.0"
   },
   "browser": {
     "omega-target": "./omega_target_shim.js"
   },
   "scripts": {
-    "dev": "npm link omega-target && npm link omega-web"
+    "dev": "npm link omega-target && npm link omega-web && npm link omega-pac"
   }
 }

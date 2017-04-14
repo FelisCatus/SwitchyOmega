@@ -23,6 +23,9 @@ module.exports =
   src:
     files: ['src/**/*.coffee']
     tasks: ['coffeelint:src', 'browserify', 'copy:target_self']
+  browserify_omega_webext_proxy_script:
+    files: ['omega_webext_proxy_script.js']
+    tasks: ['browserify:omega_webext_proxy_script']
   coffee:
     files: ['src/**/*.coffee', '*.coffee']
     tasks: ['coffeelint:src', 'coffee', 'copy:target_self']
