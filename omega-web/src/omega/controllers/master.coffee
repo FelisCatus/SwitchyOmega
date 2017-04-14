@@ -3,6 +3,9 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   $timeout, $location, $filter, getAttachedName, isProfileNameReserved,
   isProfileNameHidden, dispNameFilter, downloadFile) ->
 
+  if not chrome?.proxy?.settings?
+    $scope.isExperimental = true
+
   tr = $filter('tr')
 
   $rootScope.options = null
