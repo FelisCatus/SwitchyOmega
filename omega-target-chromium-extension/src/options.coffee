@@ -216,7 +216,7 @@ class ChromeOptions extends OmegaTarget.Options
         if message.level == 'error'
           @log.error(message)
         else if message.level == 'warn'
-          @log.warn(message)
+          @log.error(message)
         else
           @log.log(message)
 
