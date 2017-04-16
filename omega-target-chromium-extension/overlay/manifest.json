@@ -40,7 +40,6 @@
 
     "http://*/*",
     "https://*/*",
-    "ftp://*/*",
     "<all_urls>"
   ],
   "commands": {
