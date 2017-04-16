@@ -27,8 +27,6 @@ FindProxyForURL = (function () {
       if (!matchResult) {
         if (profile.profileType === 'DirectProfile') {
           return 'DIRECT';
-        } else if (profile.pacScript) {
-          return runPacProfile(profile.pacScript);
         } else {
           warn('Warning: Unsupported profile: ' + profile.profileType);
           return fallbackResult;
@@ -57,32 +55,6 @@ FindProxyForURL = (function () {
     }
     warn('Warning: Cannot find profile: ' + next);
     return fallbackResult;
-  }
-
-  function runPacProfile(profile) {
-    var cached = pacCache[profile.name];
-    if (!cached || cached.revision !== profile.revision) {
-      // https://github.com/FelisCatus/SwitchyOmega/issues/390
-      var body = ';\n' + profile.pacScript + '\n\n/* End of PAC */;'
-      body += 'return FindProxyForURL';
-      var func = new Function(body).call(this);
-
-      if (typeof func !== 'function') {
-        warn('Warning: Cannot compile pacScript: ' + profile.name);
-        func = function() { return fallbackResult; };
-      }
-      cached = {func: func, revision: profile.revision}
-      pacCache[cacheKey] = cached;
-    }
-    try {
-      // Moz: Most scripts probably won't run without global PAC functions.
-      // Example: dnsDomainIs, shExpMatch, isInNet.
-      // https://bugzilla.mozilla.org/show_bug.cgi?id=1353510
-      return cached.func.call(this);
-    } catch (ex) {
-      warn('Warning: Error occured in pacScript: ' + profile.name, ex);
-      return fallbackResult;
-    }
   }
 
   function warn(message, error) {
