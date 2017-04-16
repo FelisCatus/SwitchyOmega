@@ -14,6 +14,7 @@
   },
   "default_locale": "en",
   "browser_action": {
+    "browser_style": false,
     "default_icon": {
       "16": "img/icons/omega-action-16.png",
       "19": "img/icons/omega-action-19.png",
@@ -28,6 +29,11 @@
   },
   "minimum_chrome_version": "22.0.0",
   "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": false,
+    "open_in_tab": true
+  },
   "permissions": [
     "proxy",
     "tabs",
