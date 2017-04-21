@@ -51,10 +51,10 @@ $script.ready ['jquery'], ->
   $script 'lib/spectrum/spectrum.js', 'spectrum'
 
 $script.ready ['angular-loader', 'jquery'], ->
-  $script 'lib/angular/angular.js', 'angular'
+  $script 'lib/angular/angular.min.js', 'angular'
 
 $script.ready ['angular'], ->
-  $script 'lib/angular-ui-router/angular-ui-router.js', 'angular-ui-router'
+  $script 'lib/angular-ui-router/angular-ui-router.min.js', 'angular-ui-router'
   $script 'lib/angular-sanitize/angular-sanitize.min.js', 'angular-sanitize'
 
 $script.ready ['angular', 'omega', 'omega-deps', 'angular-ui-router',

@@ -51,10 +51,10 @@
       "": []
     },
     "angular": {
-      "": "angular.js"
+      "": "angular.min.js"
     },
     "angular-animate": {
-      "": "*.min.*"
+      "": "*.min.js"
     },
     "angular-bootstrap": {
       "": "ui-bootstrap-tpls.min.js"
@@ -77,16 +77,16 @@
       "": "dist/*.min.js"
     },
     "angular-ui-router": {
-      "": "release/*.js"
+      "": "release/*.min.js"
     },
     "angular-ui-sortable": {
-      "": "*.js"
+      "": "*.min.js"
     },
     "angular-ui-utils": {
-      "": "*.js"
+      "": "*.min.js"
     },
     "bootstrap": {
-      "css": "dist/css/*.min.*",
+      "css": "dist/css/bootstrap.min.css",
       "fonts": "dist/fonts/*",
       "js": "js/dropdown.*"
     },
@@ -99,7 +99,7 @@
     "shepherd.js": {
       "": [
         "*.min.js",
-        "css/*.css"
+        "css/shepherd-theme-arrows.css"
       ]
     },
     "spectrum": {
