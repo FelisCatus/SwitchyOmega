@@ -40,11 +40,20 @@ FindProxyForURL = (function () {
         // MOZ: Mozilla has a bug tracked for user/pass in PAC return value.
         // https://bugzilla.mozilla.org/show_bug.cgi?id=1319641
         if (next.charCodeAt(0) !== 43) {
-          // MOZ: HTTPS proxies are supported under the prefix PROXY.
           // MOZ: SOCKS5 proxies are supported under the prefix SOCKS.
-          // https://dxr.mozilla.org/mozilla-central/source/toolkit/components/extensions/ProxyScriptContext.jsm#180
-          return next.replace(/HTTPS /g, 'PROXY ')
-            .replace(/SOCKS5 /g, 'SOCKS ');
+          // https://dxr.mozilla.org/mozilla-central/source/toolkit/components/extensions/ProxyScriptContext.jsm#178
+          // Note: We have to replace this because MOZ won't process the rest of
+          //       the list if the syntax of the first item is not recognized.
+          next = next.replace(/SOCKS5 /g, 'SOCKS ');
+
+          // MOZ: HTTP proxies are wrongly treated as HTTPS proxies!
+          //      There is no workaround now. Therefore, they won't work.
+          // MOZ: HTTPS proxies are (wrongly) supported under the prefix PROXY.
+          // XXX: Remove the following hack once they are properly supported.
+          // https://bugzilla.mozilla.org/show_bug.cgi?id=1359417
+          next = next.replace(/HTTPS /g, 'PROXY ');
+
+          return next;
         }
       } else if (matchResult.profileName) {
         next = OmegaPac.Profiles.nameAsKey(matchResult.profileName)
