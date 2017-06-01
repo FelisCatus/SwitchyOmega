@@ -46,13 +46,6 @@ FindProxyForURL = (function () {
           //       the list if the syntax of the first item is not recognized.
           next = next.replace(/SOCKS5 /g, 'SOCKS ');
 
-          // MOZ: HTTP proxies are wrongly treated as HTTPS proxies!
-          //      There is no workaround now. Therefore, they won't work.
-          // MOZ: HTTPS proxies are (wrongly) supported under the prefix PROXY.
-          // XXX: Remove the following hack once they are properly supported.
-          // https://bugzilla.mozilla.org/show_bug.cgi?id=1359417
-          next = next.replace(/HTTPS /g, 'PROXY ');
-
           return next;
         }
       } else if (matchResult.profileName) {
