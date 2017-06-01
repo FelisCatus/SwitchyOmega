@@ -103,6 +103,9 @@ msgstr ""
 msgid "condition_alert_fullUrlLimitation"
 msgstr ""
 
+msgid "condition_alert_fullUrlLimitationLink"
+msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-Full-URL-Limitation"
+
 msgid "condition_group_default"
 msgstr ""
 

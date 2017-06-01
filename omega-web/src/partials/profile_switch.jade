@@ -65,7 +65,8 @@ div(ng-controller='SwitchProfileCtrl')
             td(ng-class='{"has-icon": isUrlConditionType[rule.condition.conditionType]}')
               select.form-control(ng-model='rule.condition.conditionType'
                 ng-options='type.type as ("condition_" + type.type | tr) group by (type.group | tr) for type in conditionTypes')
-              span.glyphicon.glyphicon-alert.text-danger(ng-if='isUrlConditionType[rule.condition.conditionType]')
+              a.icon-wrapper(ng-href='{{"condition_alert_fullUrlLimitationLink" | tr}}' target='_blank' ng-if='isUrlConditionType[rule.condition.conditionType]')
+                span.glyphicon.glyphicon-alert.text-danger
             td(ng-switch='rule.condition.conditionType' ng-class='{"has-warning": conditionHasWarning(rule.condition)}')
               span(ng-switch-when='FalseCondition')
                 span(ng-show='!!rule.condition.pattern')
