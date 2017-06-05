@@ -128,7 +128,7 @@ module.exports = (oldOptions, i18n) ->
             conditionType: "BypassCondition"
           }
           {
-            pattern: "::1"
+            pattern: "[::1]"
             conditionType: "BypassCondition"
           }
           {
