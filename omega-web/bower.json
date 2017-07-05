@@ -21,12 +21,12 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.6.4",
+    "angular": "~1.6.5",
     "angular-bootstrap": "~0.12.0",
-    "angular-animate": "~1.6.4",
+    "angular-animate": "~1.6.5",
     "angular-ui-router": "~0.2.18",
-    "angular-loader": "~1.6.4",
-    "angular-i18n": "~1.6.4",
+    "angular-loader": "~1.6.5",
+    "angular-i18n": "~1.6.5",
     "bootstrap": "~3.3.2",
     "script.js": "~2.5.3",
     "ngprogress": "~1.0.4",
@@ -37,7 +37,7 @@
     "FileSaver": "*",
     "angular-ui-utils": "bower-validate",
     "angular-ladda": "~0.2.1",
-    "angular-sanitize": "~1.6.4",
+    "angular-sanitize": "~1.6.5",
     "shepherd.js": "~0.5.1"
   },
   "exportsOverride": {
@@ -122,6 +122,6 @@
     }
   },
   "resolutions": {
-    "angular": "1.6.4"
+    "angular": "~1.6.5"
   }
 }
