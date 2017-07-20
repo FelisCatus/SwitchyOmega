@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2017-07-19 20:35+0000\n"
+"PO-Revision-Date: 2017-07-20 12:16+0000\n"
 "Last-Translator: Goudarz Jafari <goudarz.jafari@gmail.com>\n"
 "Language-Team: Persian "
 "<https://hosted.weblate.org/projects/switchyomega/main/fa/>\n"
@@ -22,10 +22,10 @@ msgstr "پروکسی SwitchyOmega"
 
 msgid "manifest_app_description"
 msgstr ""
-"به راحتی و با سرعت بین پروکسی های خود جابهجا شوید و آنها را مدیریت کنید ."
+"به راحتی و با سرعت بین پروکسی های خود جابه‌جا شوید و آنها را مدیریت کنید."
 
 msgid "manifest_icon_default_title"
-msgstr "درحال بارگذاری .…"
+msgstr "درحال بارگذاری…"
 
 msgid "upgrade_profile_auto"
 msgstr "سوییچ خودکار"
@@ -37,7 +37,7 @@ msgid "profile_system"
 msgstr "[پروکسی سیستم]"
 
 msgid "condition_HostWildcardCondition"
-msgstr "فرانویسه (Wildcard) میزبان"
+msgstr "Wildcard میزبان"
 
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
@@ -699,7 +699,7 @@ msgid "options_hostLevelsBetween"
 msgstr "≤ سطوح میزبان ≤"
 
 msgid "options_hourBetween"
-msgstr "≤ current hour ≤"
+msgstr "≤ ساعت کنونی ≤"
 
 msgid "options_weekDayShort_0"
 msgstr "Su"
@@ -971,7 +971,7 @@ msgid "options_profileDownloadError"
 msgstr "خطا در حین دانلود داده ی پروفایل !"
 
 msgid "options_profileDownloadError_NetworkError"
-msgstr "A network error occurred when updating."
+msgstr "هنگام به‌روز رسانی خطای در شبکه اینترنت رخ داد."
 
 msgid "options_profileDownloadError_HttpError"
 msgstr "An HTTP error ($STATUS$) occurred when updating."
@@ -1211,13 +1211,13 @@ msgid "contextMenu_enableQuickSwitch"
 msgstr "فعال سازی تغییر سرعتی"
 
 msgid "about_title"
-msgstr "About"
+msgstr "درباره"
 
 msgid "about_app_description"
-msgstr "A proxy configuration tool"
+msgstr "ابزار پیکربندی پراکسی"
 
 msgid "about_version"
-msgstr "Version $VERSION$"
+msgstr "نسخه $VERSION$"
 
 msgid "about_disclaimer_networkService"
 msgstr "SwitchyOmega does not provide proxies, VPNs, or other network services."
@@ -1231,7 +1231,11 @@ msgstr "Other questions? Need help with using SwitchyOmega? Please see our "
 "<a href='https://github.com/FelisCatus/SwitchyOmega/wiki/FAQ'>FAQ</a>."
 
 msgid "about_copyright"
-msgstr "Copyright 2012-2017 <a href='https://github.com/FelisCatus/SwitchyOmega/blob/master/AUTHORS'>The SwitchyOmega Authors</a>. All rights reserved."
+msgstr ""
+"کپی رایت 2012-2017 <a "
+"href='https://github.com/FelisCatus/SwitchyOmega/blob/master/AUTHORS'>"
+"نویسندگان The SwitchyOmega </a>. کلیه حقوق محفوظ است. <a "
+"href='http://GoudarzJafari.com'> ترجمه شده به فارسی توسط گودرز جعفری </a>."
 
 msgid "about_credits"
 msgstr "SwitchyOmega is made possible by the <a href='https://github.com/FelisCatus/SwitchyOmega'>SwitchyOmega</a> open source project and other <a href='https://github.com/FelisCatus/SwitchyOmega/blob/master/AUTHORS'>open source software</a>."
