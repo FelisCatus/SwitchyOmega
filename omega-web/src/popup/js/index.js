@@ -16,10 +16,14 @@
     window.close();
   }
 
-  function showOptions() {
-    $script.ready('om-target', function() {
-      OmegaTargetPopup.openOptions(null, closePopup);
-    });
+  function showOptions(e) {
+    if (typeof OmegaTargetPopup !== 'undefined') {
+      try {
+        OmegaTargetPopup.openOptions(null, closePopup);
+        e.preventDefault();
+      } catch (_) {
+      }
+    }
   }
 
   function applyProfile(profileName) {
