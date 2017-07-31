@@ -189,8 +189,13 @@ class ChromeOptions extends OmegaTarget.Options
     if profile.profileType == 'SystemProfile'
       # MOZ: SystemProfile cannot be done now due to lack of "PASS" support.
       # https://bugzilla.mozilla.org/show_bug.cgi?id=1319634
-      # In the mean time, let's just set an invalid script to unregister it.
-      browser.proxy.registerProxyScript('js/omega_invalid_proxy_script.min.js')
+      # In the mean time, let's just unregister the script.
+      if browser.proxy.unregister?
+        browser.proxy.unregister()
+      else
+        # Some older browers may not ship with .unregister API.
+        # In that case, let's just set an invalid script to unregister it.
+        browser.proxy.registerProxyScript('js/omega_invalid_proxy_script.js')
       @_proxyScriptDisabled = true
     else
       @_proxyScriptState = state
@@ -206,8 +211,8 @@ class ChromeOptions extends OmegaTarget.Options
     if not @_proxyScriptInitialized
       browser.proxy.onProxyError.addListener (err) =>
         if err and err.message.indexOf('Invalid Proxy Rule: DIRECT') >= 0
-          # MOZ: DIRECT cannot be correctly parsed due to a bug. Even though it
-          # throws, it actually falls back to direct connection so it works.
+          # DIRECT cannot be parsed in Mozilla earlier due to a bug. Even though
+          # it throws, it actually falls back to direct connection so it works.
           # https://bugzilla.mozilla.org/show_bug.cgi?id=1355198
           return
         @log.error(err)
@@ -228,7 +233,11 @@ class ChromeOptions extends OmegaTarget.Options
           browser.runtime.onMessage.removeListener onMessage
           return
         browser.runtime.onMessage.addListener onMessage
-      browser.proxy.registerProxyScript(@_proxyScriptUrl)
+      # The API has been renamed to .register but for some old browsers' sake:
+      if browser.proxy.register?
+        browser.proxy.register(@_proxyScriptUrl)
+      else
+        browser.proxy.registerProxyScript(@_proxyScriptUrl)
       @_proxyScriptDisabled = false
     else
       promise = Promise.resolve()
