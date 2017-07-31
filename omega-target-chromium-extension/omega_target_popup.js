@@ -43,7 +43,7 @@ OmegaTargetPopup = {
     chrome.tabs.query({
       url: options_url
     }, function(tabs) {
-      if (tabs.length > 0) {
+      if (!chrome.runtime.lastError && tabs && tabs.length > 0) {
         var props = {
           active: true
         };
