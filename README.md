@@ -35,6 +35,8 @@ Please make sure that you are using the latest Nightly build before you
 [report issues](https://github.com/FelisCatus/SwitchyOmega/issues).
 Build number AND build date should be mentioned somewhere in the issue.
 
+NOTE: PAC Profiles DO NOT work on Firefox due to AMO review policies. We will see what we can do.
+
 Development status
 ------------------
 
