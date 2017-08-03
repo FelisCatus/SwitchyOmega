@@ -21,12 +21,12 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.16",
+    "angular": "~1.6.5",
     "angular-bootstrap": "~0.12.0",
-    "angular-animate": "~1.2.16",
-    "angular-ui-router": "~0.2.10",
-    "angular-loader": "~1.2.16",
-    "angular-i18n": "~1.2.16",
+    "angular-animate": "~1.6.5",
+    "angular-ui-router": "~0.2.18",
+    "angular-loader": "~1.6.5",
+    "angular-i18n": "~1.6.5",
     "bootstrap": "~3.3.2",
     "script.js": "~2.5.3",
     "ngprogress": "~1.0.4",
@@ -37,7 +37,7 @@
     "FileSaver": "*",
     "angular-ui-utils": "bower-validate",
     "angular-ladda": "~0.2.1",
-    "angular-sanitize": "~1.2.26",
+    "angular-sanitize": "~1.6.5",
     "shepherd.js": "~0.5.1"
   },
   "exportsOverride": {
@@ -51,10 +51,10 @@
       "": []
     },
     "angular": {
-      "": "*.min.js"
+      "": "angular.min.js"
     },
     "angular-animate": {
-      "": "*.min.*"
+      "": "*.min.js"
     },
     "angular-bootstrap": {
       "": "ui-bootstrap-tpls.min.js"
@@ -77,16 +77,16 @@
       "": "dist/*.min.js"
     },
     "angular-ui-router": {
-      "": "release/*.js"
+      "": "release/*.min.js"
     },
     "angular-ui-sortable": {
-      "": "*.js"
+      "": "*.min.js"
     },
     "angular-ui-utils": {
-      "": "*.js"
+      "": "*.min.js"
     },
     "bootstrap": {
-      "css": "dist/css/*.min.*",
+      "css": "dist/css/bootstrap.min.css",
       "fonts": "dist/fonts/*",
       "js": "js/dropdown.*"
     },
@@ -99,7 +99,7 @@
     "shepherd.js": {
       "": [
         "*.min.js",
-        "css/*.css"
+        "css/shepherd-theme-arrows.css"
       ]
     },
     "spectrum": {
@@ -120,5 +120,8 @@
         "dist/ladda.min.js"
       ]
     }
+  },
+  "resolutions": {
+    "angular": "~1.6.5"
   }
 }

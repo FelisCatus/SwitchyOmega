@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
 "PO-Revision-Date: 2015-02-17 07:02+0200\n"
-"Last-Translator: FelisCatus <shyc2010@gmail.com>\n"
+"Last-Translator: FelisCatus <catux@gmail.com>\n"
 "Language-Team: English (United States) "
 "<https://hosted.weblate.org/projects/switchyomega/main/en_US/>\n"
 "Language: en_US\n"
@@ -217,6 +217,9 @@ msgstr "Restore"
 
 msgid "options_title"
 msgstr "SwitchyOmega Options"
+
+msgid "options_experimental_badge"
+msgstr "α"
 
 msgid "options_navHeader_setting"
 msgstr "Settings"
@@ -1193,6 +1196,9 @@ msgstr "A proxy configuration tool"
 
 msgid "about_version"
 msgstr "Version $VERSION$"
+
+msgid "about_experimental_warning_moz"
+msgstr "Mozilla Firefox support is highly experimental! If you encounter issues, please report using the buttons below."
 
 msgid "about_disclaimer_networkService"
 msgstr "SwitchyOmega does not provide proxies, VPNs, or other network services."

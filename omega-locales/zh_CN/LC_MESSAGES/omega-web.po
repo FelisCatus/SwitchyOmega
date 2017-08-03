@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 11:05+0000\n"
 "PO-Revision-Date: 2015-02-15 14:52+0200\n"
-"Last-Translator: FelisCatus <shyc2010@gmail.com>\n"
+"Last-Translator: FelisCatus <catusx@gmail.com>\n"
 "Language-Team: Chinese (China) "
 "<https://hosted.weblate.org/projects/switchyomega/main/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -199,6 +199,9 @@ msgstr "还原"
 
 msgid "options_title"
 msgstr "SwitchyOmega 选项"
+
+msgid "options_experimental_badge"
+msgstr "测试版"
 
 msgid "options_navHeader_setting"
 msgstr "设定"
@@ -1069,6 +1072,9 @@ msgstr "一个代理设置工具"
 
 msgid "about_version"
 msgstr "版本 $VERSION$"
+
+msgid "about_experimental_warning_moz"
+msgstr "Mozilla Firefox 浏览器支持目前仍处于早期实验阶段！如果您遇到任何问题，请使用下方的按钮进行反馈。"
 
 msgid "about_disclaimer_networkService"
 msgstr "SwitchyOmega 不提供代理服务器、VPN等网络服务。"

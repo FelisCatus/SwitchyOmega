@@ -10,6 +10,7 @@ module.exports = class ExternalApi
     'padekgcemlokbadohgkifijomclgjgif': 32
   disabled: false
   listen: ->
+    return unless chrome.runtime.onConnectExternal
     chrome.runtime.onConnectExternal.addListener (rawPort) =>
       port = new ChromePort(rawPort)
       port.onMessage.addListener (msg) => @onMessage(msg, port)

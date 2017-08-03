@@ -3,7 +3,14 @@ OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 querystring = require('querystring')
 chromeApiPromisifyAll = require('./chrome_api')
-proxySettings = chromeApiPromisifyAll(chrome.proxy.settings)
+if chrome?.proxy?.settings
+  proxySettings = chromeApiPromisifyAll(chrome.proxy.settings)
+else
+  proxySettings =
+    setAsync: -> Promise.resolve()
+    clearAsync: -> Promise.resolve()
+    get: -> null
+    onChange: addListener: -> null
 parseExternalProfile = require('./parse_external_profile')
 ProxyAuth = require('./proxy_auth')
 WebRequestMonitor = require('./web_request_monitor')
@@ -118,14 +125,22 @@ class ChromeOptions extends OmegaTarget.Options
       @_proxyChangeListener = (details) =>
         for watcher in @_proxyChangeWatchers
           watcher(details)
-      chrome.proxy.settings.onChange.addListener @_proxyChangeListener
+      proxySettings.onChange.addListener @_proxyChangeListener
     @_proxyChangeWatchers.push(callback)
   applyProfileProxy: (profile, meta) ->
+    if chrome?.proxy?.settings?
+      return @applyProfileProxySettings(profile, meta)
+    else if browser?.proxy?.registerProxyScript?
+      return @applyProfileProxyScript(profile, meta)
+    else
+      ex = new Error('Your browser does not support proxy settings!')
+      return Promise.reject ex
+  applyProfileProxySettings: (profile, meta) ->
     meta ?= profile
     if profile.profileType == 'SystemProfile'
       # Clear proxy settings, returning proxy control to Chromium.
       return proxySettings.clearAsync({}).then =>
-        chrome.proxy.settings.get {}, @_proxyChangeListener
+        proxySettings.get {}, @_proxyChangeListener
         return
     config = {}
     if profile.profileType == 'DirectProfile'
@@ -161,8 +176,82 @@ class ChromeOptions extends OmegaTarget.Options
       @_proxyAuth.setProxies(@_watchingProfiles)
       proxySettings.setAsync({value: config})
     ).then =>
-      chrome.proxy.settings.get {}, @_proxyChangeListener
+      proxySettings.get {}, @_proxyChangeListener
       return
+
+  _proxyScriptUrl: 'js/omega_webext_proxy_script.min.js'
+  _proxyScriptDisabled: false
+  applyProfileProxyScript: (profile, state) ->
+    state = state ? {}
+    state.currentProfileName = profile.name
+    if profile.name == ''
+      state.tempProfile = @_tempProfile
+    if profile.profileType == 'SystemProfile'
+      # MOZ: SystemProfile cannot be done now due to lack of "PASS" support.
+      # https://bugzilla.mozilla.org/show_bug.cgi?id=1319634
+      # In the mean time, let's just unregister the script.
+      if browser.proxy.unregister?
+        browser.proxy.unregister()
+      else
+        # Some older browers may not ship with .unregister API.
+        # In that case, let's just set an invalid script to unregister it.
+        browser.proxy.registerProxyScript('js/omega_invalid_proxy_script.js')
+      @_proxyScriptDisabled = true
+    else
+      @_proxyScriptState = state
+      @_initWebextProxyScript().then => @_proxyScriptStateChanged()
+    # Proxy authentication is not covered in WebExtensions standard now.
+    # MOZ: Mozilla has a bug tracked to implemented it in PAC return value.
+    # https://bugzilla.mozilla.org/show_bug.cgi?id=1319641
+    return Promise.resolve()
+
+  _proxyScriptInitialized: false
+  _proxyScriptState: {}
+  _initWebextProxyScript: ->
+    if not @_proxyScriptInitialized
+      browser.proxy.onProxyError.addListener (err) =>
+        if err and err.message.indexOf('Invalid Proxy Rule: DIRECT') >= 0
+          # DIRECT cannot be parsed in Mozilla earlier due to a bug. Even though
+          # it throws, it actually falls back to direct connection so it works.
+          # https://bugzilla.mozilla.org/show_bug.cgi?id=1355198
+          return
+        @log.error(err)
+      browser.runtime.onMessage.addListener (message) =>
+        return unless message.event == 'proxyScriptLog'
+        if message.level == 'error'
+          @log.error(message)
+        else if message.level == 'warn'
+          @log.error(message)
+        else
+          @log.log(message)
+
+    if not @_proxyScriptInitialized or @_proxyScriptDisabled
+      promise = new Promise (resolve) ->
+        onMessage = (message) ->
+          return unless message.event == 'proxyScriptLoaded'
+          resolve()
+          browser.runtime.onMessage.removeListener onMessage
+          return
+        browser.runtime.onMessage.addListener onMessage
+      # The API has been renamed to .register but for some old browsers' sake:
+      if browser.proxy.register?
+        browser.proxy.register(@_proxyScriptUrl)
+      else
+        browser.proxy.registerProxyScript(@_proxyScriptUrl)
+      @_proxyScriptDisabled = false
+    else
+      promise = Promise.resolve()
+    @_proxyScriptInitialized = true
+    return promise
+
+  _proxyScriptStateChanged: ->
+    browser.runtime.sendMessage({
+      event: 'proxyScriptStateChanged'
+      state: @_proxyScriptState
+      options: @_options
+    }, {
+      toProxyScript: true
+    })
 
   _quickSwitchInit: false
   _quickSwitchContextMenuCreated: false
@@ -194,8 +283,12 @@ class ChromeOptions extends OmegaTarget.Options
           index = (index + 1) % profiles.length
           @applyProfile(profiles[index]).then =>
             if @_options['-refreshOnProfileChange']
-              if tab.url and tab.url.indexOf('chrome') != 0
-                chrome.tabs.reload(tab.id)
+              url = tab.url
+              return if not url
+              return if url.substr(0, 6) == 'chrome'
+              return if url.substr(0, 6) == 'about:'
+              return if url.substr(0, 4) == 'moz-'
+              chrome.tabs.reload(tab.id)
     else
       chrome.browserAction.setPopup({popup: 'popup/index.html'})
     Promise.resolve()
@@ -349,6 +442,8 @@ class ChromeOptions extends OmegaTarget.Options
           return result if not url
         else
           return result
+      return result if url.substr(0, 6) == 'about:'
+      return result if url.substr(0, 4) == 'moz-'
       domain = OmegaPac.getBaseDomain(Url.parse(url).hostname)
 
       return {

@@ -1,6 +1,6 @@
 angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
   $location, $timeout, $q, $modal, profileIcons, getAttachedName, omegaTarget,
-  trFilter) ->
+  trFilter, downloadFile) ->
   # == Rule list ==
   $scope.ruleListFormats = OmegaPac.Profiles.ruleListFormats
 
@@ -20,7 +20,7 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
 
     blob = new Blob [text], {type: "text/plain;charset=utf-8"}
     fileName = $scope.profile.name.replace(/\W+/g, '_')
-    saveAs(blob, "OmegaRules_#{fileName}.sorl")
+    downloadFile(blob, "OmegaRules_#{fileName}.sorl")
 
   exportLegacyRuleList = ->
     wildcardRules = ''
@@ -52,7 +52,7 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
     """
     blob = new Blob [text], {type: "text/plain;charset=utf-8"}
     fileName = $scope.profile.name.replace(/\W+/g, '_')
-    saveAs(blob, "SwitchyRules_#{fileName}.ssrl")
+    downloadFile(blob, "SwitchyRules_#{fileName}.ssrl")
 
   # == Condition types ==
   $scope.conditionHelp =

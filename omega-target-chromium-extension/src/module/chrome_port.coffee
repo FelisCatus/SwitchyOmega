@@ -34,8 +34,10 @@ class TrackedEvent
   constructor: (@event) ->
     @callbacks = []
     mes = ['hasListener', 'hasListeners', 'addRules', 'getRules', 'removeRules']
-    for method in mes
-      this[method] = @event[method].bind(@event)
+    for methodName in mes
+      method = @event[methodName]
+      if method?
+        this[methodName] = method.bind(@event)
 
   addListener: (callback) ->
     @event.addListener(callback)
@@ -69,7 +71,7 @@ class TrackedEvent
   ###
   dispose: ->
     @removeAllListeners()
-    if @event.hasListeners()
+    if @event.hasListeners?()
       throw new Error("Underlying Event still has listeners!")
     @event = null
     @callbacks = null

@@ -219,6 +219,9 @@ msgstr "Obnovit"
 msgid "options_title"
 msgstr "SwitchyOmega Nastavení"
 
+msgid "options_experimental_badge"
+msgstr "α"
+
 msgid "options_navHeader_setting"
 msgstr "Nastavení"
 
@@ -1207,6 +1210,9 @@ msgstr "A proxy configuration tool"
 
 msgid "about_version"
 msgstr "Version $VERSION$"
+
+msgid "about_experimental_warning_moz"
+msgstr "Mozilla Firefox support is highly experimental! If you encounter issues, please report using the buttons below."
 
 msgid "about_disclaimer_networkService"
 msgstr "SwitchyOmega does not provide proxies, VPNs, or other network services."

@@ -1,4 +1,5 @@
-angular.module('omega').controller 'FixedProfileCtrl', ($scope, $modal) ->
+angular.module('omega').controller 'FixedProfileCtrl', ($scope, $modal,
+  trFilter) ->
   $scope.urlSchemes = ['', 'http', 'https', 'ftp']
   $scope.urlSchemeDefault = 'fallbackProxy'
   proxyProperties =
@@ -19,6 +20,21 @@ angular.module('omega').controller 'FixedProfileCtrl', ($scope, $modal) ->
     'socks5': 1080
 
   $scope.showAdvanced = false
+
+  $scope.optionsForScheme = {}
+  for scheme in $scope.urlSchemes
+    defaultLabel =
+      if scheme
+        trFilter('options_protocol_useDefault')
+      else
+        trFilter('options_protocol_direct')
+    $scope.optionsForScheme[scheme] = [
+      {label: defaultLabel, value: undefined},
+      {label: 'HTTP', value: 'http'},
+      {label: 'HTTPS', value: 'https'},
+      {label: 'SOCKS4', value: 'socks4'},
+      {label: 'SOCKS5', value: 'socks5'},
+    ]
 
   $scope.proxyEditors = {}
 

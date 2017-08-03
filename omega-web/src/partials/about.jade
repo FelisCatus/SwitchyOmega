@@ -1,5 +1,10 @@
 .page-header
   h2 {{'about_title' | tr}}
+section.omega-experimental(ng-show='isExperimental')
+  p.alert.alert-danger
+    span.glyphicon.glyphicon-warning-sign
+    = ' '
+    span {{'about_experimental_warning_moz' | tr}}
 section
   .media(style='margin: 1em 0')
     .media-left

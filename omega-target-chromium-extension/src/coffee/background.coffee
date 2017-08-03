@@ -147,11 +147,11 @@ actionForUrl = (url) ->
     }
 
 
-storage = new OmegaTargetCurrent.Storage(chrome.storage.local, 'local')
+storage = new OmegaTargetCurrent.Storage('local')
 state = new OmegaTargetCurrent.BrowserStorage(localStorage, 'omega.local.')
 
-if chrome.storage.sync
-  syncStorage = new OmegaTargetCurrent.Storage(chrome.storage.sync, 'sync')
+if chrome?.storage?.sync or browser?.storage?.sync
+  syncStorage = new OmegaTargetCurrent.Storage('sync')
   sync = new OmegaTargetCurrent.OptionsSync(syncStorage)
   if localStorage['omega.local.syncOptions'] != '"sync"'
     sync.enabled = false
@@ -288,10 +288,15 @@ encodeError = (obj) ->
 refreshActivePageIfEnabled = ->
   return if localStorage['omega.local.refreshOnProfileChange'] == 'false'
   chrome.tabs.query {active: true, lastFocusedWindow: true}, (tabs) ->
-    if tabs[0].url and tabs[0].url.substr(0, 6) != 'chrome'
-      chrome.tabs.reload(tabs[0].id, {bypassCache: true})
+    url = tabs[0].url
+    return if not url
+    return if url.substr(0, 6) == 'chrome'
+    return if url.substr(0, 6) == 'about:'
+    return if url.substr(0, 4) == 'moz-'
+    chrome.tabs.reload(tabs[0].id, {bypassCache: true})
 
 chrome.runtime.onMessage.addListener (request, sender, respond) ->
+  return unless request and request.method
   options.ready.then ->
     target = options
     method = target[request.method]

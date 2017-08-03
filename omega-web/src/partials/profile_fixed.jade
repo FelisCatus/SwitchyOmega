@@ -14,13 +14,8 @@ div(ng-controller='FixedProfileCtrl')
           tr(ng-repeat='scheme in urlSchemes' ng-show='scheme == "" || showAdvanced')
             td {{schemeDisp[scheme] || ('options_scheme_default' | tr)}}
             td
-              select.form-control(ng-model='proxyEditors[scheme].scheme')
-                option(value='')
-                  | {{(scheme ? 'options_protocol_useDefault' : 'options_protocol_direct') | tr}}
-                option(value='http') HTTP
-                option(value='https') HTTPS
-                option(value='socks4') SOCKS4
-                option(value='socks5') SOCKS5
+              select.form-control(ng-model='proxyEditors[scheme].scheme'
+                ng-options='opt.value as opt.label for opt in optionsForScheme[scheme]')
             td(ng-if='proxyEditors[scheme].scheme')
               input.form-control(type='text' ng-model='proxyEditors[scheme].host' required)
             td(ng-if='!proxyEditors[scheme].scheme')
