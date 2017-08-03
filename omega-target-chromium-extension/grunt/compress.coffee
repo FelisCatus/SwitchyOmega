@@ -3,7 +3,16 @@ module.exports =
     archive: './release.zip'
     mode: 'zip'
   build:
-    cwd: 'build'
-    src: ['**']
-    expand: true
-    filter: 'isFile'
+    files: [
+      {
+        cwd: 'build'
+        src: ['**', '!manifest.json']
+        expand: true
+        filter: 'isFile'
+      }
+      {
+        cwd: 'tmp/'
+        src: 'manifest.json'
+        expand: true
+      }
+    ]
