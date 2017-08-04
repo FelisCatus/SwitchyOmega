@@ -38,7 +38,8 @@
     "angular-ui-utils": "bower-validate",
     "angular-ladda": "~0.2.1",
     "angular-sanitize": "~1.6.5",
-    "shepherd.js": "~0.5.1"
+    "shepherd.js": "~0.5.1",
+    "jqueryui-touch-punch": "*"
   },
   "exportsOverride": {
     "script.js": {
@@ -49,6 +50,9 @@
     },
     "jquery-ui": {
       "": []
+    },
+    "jqueryui-touch-punch": {
+      "": "jquery.ui.touch-punch.min.js"
     },
     "angular": {
       "": "angular.min.js"

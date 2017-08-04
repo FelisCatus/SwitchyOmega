@@ -47,8 +47,10 @@ $script.ready ['angular-loader'], ->
     'lib/angular-spectrum-colorpicker/angular-spectrum-colorpicker.min.js'
   ], 'omega-deps')
 $script.ready ['jquery'], ->
-  $script 'lib/jquery-ui-1.10.4.custom.min.js', 'jquery-ui'
+  $script 'lib/jquery-ui-1.10.4.custom.min.js', 'jquery-ui-base'
   $script 'lib/spectrum/spectrum.js', 'spectrum'
+$script.ready ['jquery-ui-base'], ->
+  $script 'lib/jqueryui-touch-punch/jquery.ui.touch-punch.min.js', 'jquery-ui'
 
 $script.ready ['angular-loader', 'jquery'], ->
   $script 'lib/angular/angular.min.js', 'angular'
