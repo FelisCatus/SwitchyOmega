@@ -272,12 +272,17 @@ class ChromeOptions extends OmegaTarget.Options
               url: chrome.extension.getURL('options.html#/ui')
             )
 
-    if quickSwitch
+    if quickSwitch or not chrome.browserAction.setPopup?
       chrome.browserAction.setPopup?({popup: ''})
       if not @_quickSwitchInit
         @_quickSwitchInit = true
         chrome.browserAction.onClicked.addListener (tab) =>
           @clearBadge()
+          if not @_options['-enableQuickSwitch']
+            # If we reach here, then the browser does not support popup.
+            # Let's open the popup page in a tab.
+            chrome.tabs.create(url: 'popup/index.html')
+            return
           profiles = @_options['-quickSwitchProfiles']
           index = profiles.indexOf(@_currentProfileName)
           index = (index + 1) % profiles.length
@@ -290,7 +295,7 @@ class ChromeOptions extends OmegaTarget.Options
               return if url.substr(0, 4) == 'moz-'
               chrome.tabs.reload(tab.id)
     else
-      chrome.browserAction.setPopup?({popup: 'popup/index.html'})
+      chrome.browserAction.setPopup({popup: 'popup/index.html'})
     Promise.resolve()
 
   setInspect: (settings) ->
