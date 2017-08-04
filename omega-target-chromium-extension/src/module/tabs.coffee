@@ -25,7 +25,10 @@ class ChromeTabs
       tabs.forEach (tab) =>
         @_dirtyTabs[tab.id] = tab.id
         @onUpdated tab.id, {}, tab if tab.active
-    chrome.browserAction.setTitle({title: action.title})
+    if chrome.browserAction.setPopup?
+      chrome.browserAction.setTitle({title: action.title})
+    else
+      chrome.browserAction.setTitle({title: action.shortTitle})
     @setIcon(action.icon)
 
   onUpdated: (tabId, changeInfo, tab) ->
@@ -41,6 +44,11 @@ class ChromeTabs
       for own id of @_badgeTab
         try chrome.browserAction.setBadgeText?(text: '', tabId: id)
         @_badgeTab = null
+
+    if not chrome.browserAction.setPopup?
+      # TODO: Is there a way to show current proxy for page? Is there even
+      #       enough space?
+      return
     if not tab.url? or tab.url.indexOf("chrome") == 0
       if @_defaultAction
         chrome.browserAction.setTitle({
