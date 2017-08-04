@@ -8,6 +8,7 @@ module.exports = class Inspect
     @onInspect = onInspect
 
   enable: ->
+    return unless chrome.contextMenus?
     # We don't need this API. However its presence indicates that Chrome >= 35,
     # which provides the menuItemId we need in contextMenu callback.
     # https://developer.chrome.com/extensions/contextMenus

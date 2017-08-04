@@ -39,7 +39,7 @@ class ChromeTabs
   processTab: (tab, changeInfo) ->
     if @_badgeTab
       for own id of @_badgeTab
-        try chrome.browserAction.setBadgeText(text: '', tabId: id)
+        try chrome.browserAction.setBadgeText?(text: '', tabId: id)
         @_badgeTab = null
     if not tab.url? or tab.url.indexOf("chrome") == 0
       if @_defaultAction
@@ -56,8 +56,8 @@ class ChromeTabs
   setTabBadge: (tab, badge) ->
     @_badgeTab ?= {}
     @_badgeTab[tab.id] = true
-    chrome.browserAction.setBadgeText(text: badge.text, tabId: tab.id)
-    chrome.browserAction.setBadgeBackgroundColor(
+    chrome.browserAction.setBadgeText?(text: badge.text, tabId: tab.id)
+    chrome.browserAction.setBadgeBackgroundColor?(
       color: badge.color
       tabId: tab.id
     )
@@ -77,11 +77,11 @@ class ChromeTabs
 
   _chromeSetIcon: (params) ->
     try
-      chrome.browserAction.setIcon(params, @ignoreError)
+      chrome.browserAction.setIcon?(params, @ignoreError)
     catch
       # Some legacy Chrome versions will panic if there are other icon sizes.
       params.imageData = {19: params.imageData[19], 38: params.imageData[38]}
-      chrome.browserAction.setIcon(params, @ignoreError)
+      chrome.browserAction.setIcon?(params, @ignoreError)
 
   clearIcon: (tabId) ->
     return unless @_defaultAction?.icon?

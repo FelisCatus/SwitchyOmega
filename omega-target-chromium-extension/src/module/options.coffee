@@ -78,7 +78,7 @@ class ChromeOptions extends OmegaTarget.Options
     if @_proxyNotControllable
       @setBadge()
     else
-      chrome.browserAction.setBadgeText(text: '')
+      chrome.browserAction.setBadgeText?(text: '')
     return
 
   _formatBypassItem: (condition) ->
@@ -261,7 +261,7 @@ class ChromeOptions extends OmegaTarget.Options
     if not @_quickSwitchContextMenuCreated
       @_quickSwitchContextMenuCreated = true
       if quickSwitch
-        chrome.contextMenus.update('enableQuickSwitch', {checked: true})
+        chrome.contextMenus?.update('enableQuickSwitch', {checked: true})
       window.OmegaContextMenuQuickSwitchHandler = (info) =>
         changes = {}
         changes['-enableQuickSwitch'] = info.checked
@@ -273,7 +273,7 @@ class ChromeOptions extends OmegaTarget.Options
             )
 
     if quickSwitch
-      chrome.browserAction.setPopup({popup: ''})
+      chrome.browserAction.setPopup?({popup: ''})
       if not @_quickSwitchInit
         @_quickSwitchInit = true
         chrome.browserAction.onClicked.addListener (tab) =>
@@ -290,7 +290,7 @@ class ChromeOptions extends OmegaTarget.Options
               return if url.substr(0, 4) == 'moz-'
               chrome.tabs.reload(tab.id)
     else
-      chrome.browserAction.setPopup({popup: 'popup/index.html'})
+      chrome.browserAction.setPopup?({popup: 'popup/index.html'})
     Promise.resolve()
 
   setInspect: (settings) ->
