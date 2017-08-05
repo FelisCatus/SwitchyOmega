@@ -10,9 +10,32 @@ Chromium Extension
 The project is available as a Chromium Extension.
 
 You can try it on [Chrome Web Store](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif),
-or grab a packaged extension file for offline installation on the [Releases page](https://github.com/FelisCatus/SwitchyOmega/releases).
+or grab a packaged extension file (CRX) for offline installation on the [Releases page](https://github.com/FelisCatus/SwitchyOmega/releases).
 
 Please [report issues on the issue tracker.](https://github.com/FelisCatus/SwitchyOmega/issues)
+
+Firefox Addon (Experimental)
+----------------------------
+
+There is also an experimental WebExtension port, which allows installing in
+**Firefox Nightly Version >= 56**.
+
+**Since the WebExtensions API is still under heavy development on Mozilla's side,
+we strongly recommended using the Nightly channel (>= 56.0) and update frequently.**
+
+The Developer Edition and Beta channels will not receive fixes as often and
+therefore unsupported by SwitchyOmega. Some users report that it works with the
+Firefox Developer Edition (>= 55) as well, but we strongly advise against doing
+so. It won't work at all in Firefox 54 Stable.
+
+You can try it on [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/switchyomega/),
+or grab a packaged extension file (XPI) for offline installation on the [Releases page](https://github.com/FelisCatus/SwitchyOmega/releases).
+
+Please make sure that you are using the latest Nightly build before you
+[report issues](https://github.com/FelisCatus/SwitchyOmega/issues).
+Build number AND build date should be mentioned somewhere in the issue.
+
+NOTE: PAC Profiles DO NOT work on Firefox due to AMO review policies. We will see what we can do.
 
 Development status
 ------------------
@@ -54,13 +77,9 @@ file as described in the Options manager section.
 Additionally, each target can contain other files and resources required for the
 target, such as background pages and extension manifests.
 
-For now, only one target has been implemented: The Chromium Extension target.
+For now, only one target has been implemented: The WebExtension target.
 This target allows the project to be used as a Chromium extension in most
-Chromium-based browsers.
-
-However, the project architecture allows more targets to be added in the future.
-The first step would be adapting more browsers including Firefox. I don't have
-time for that now. Feel free to open a pull request if you want to help.
+Chromium-based browsers and also as a Firefox Addon as mentioned above.
 
 ## Translation
 
