@@ -1,6 +1,14 @@
 ### @module omega-target/log ###
 Log = require './log'
 
+replacer = (key, value) =>
+  switch key
+    # Hide values for a few keys with privacy concerns.
+    when "username", "password", "host", "port"
+      return "<secret>"
+    else
+      value
+
 # Log is used as singleton.
 # coffeelint: disable=missing_fat_arrows
 module.exports = Log =
@@ -20,7 +28,7 @@ module.exports = Log =
       else if obj instanceof Error
         obj.stack || obj.message
       else
-        JSON.stringify(obj, null, 4)
+        JSON.stringify(obj, replacer, 4)
     else if typeof obj == 'function'
       if obj.name
         "<f: #{obj.name}>"
