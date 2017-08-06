@@ -3,7 +3,7 @@ $script 'lib/angular-loader/angular-loader.min.js',
   'angular-loader'
 $script 'lib/jquery/jquery.min.js', 'jquery'
 $script 'js/omega_pac.min.js', 'omega-pac'
-$script 'lib/FileSaver/FileSaver.js', 'filesaver'
+$script 'lib/FileSaver/FileSaver.min.js', 'filesaver'
 $script 'lib/blob/Blob.js', 'blob'
 $script 'lib/spin.js/spin.js', ->
   $script 'lib/ladda/ladda.min.js', ->

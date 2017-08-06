@@ -1,4 +1,6 @@
 module.exports =
+  options:
+    pretty: true
   web:
     files: [
       {

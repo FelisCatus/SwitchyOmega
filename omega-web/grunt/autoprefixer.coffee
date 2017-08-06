@@ -1,6 +1,6 @@
 module.exports =
   options:
-    map: true
+    map: false
   unprefixed:
     expand: true
     cwd: 'tmp/css'
