@@ -244,14 +244,28 @@ class ChromeOptions extends OmegaTarget.Options
     @_proxyScriptInitialized = true
     return promise
 
+  _sendProxyScriptStateRetry: 0
   _proxyScriptStateChanged: ->
-    browser.runtime.sendMessage({
-      event: 'proxyScriptStateChanged'
-      state: @_proxyScriptState
-      options: @_options
-    }, {
-      toProxyScript: true
-    })
+    # XXX(catus): Let's try this 10 times to see if there is a race condition.
+    @_sendProxyScriptStateRetry = 10
+    return @_sendProxyScriptState()
+
+  _sendProxyScriptState: ->
+    return unless @_sendProxyScriptStateRetry > 0
+    @_sendProxyScriptStateRetry -= 1
+    return Promise.try(=>
+      return browser.runtime.sendMessage({
+        event: 'proxyScriptStateChanged'
+        state: @_proxyScriptState
+        options: @_options
+      }, {
+        toProxyScript: true
+      })
+    ).catch((err) =>
+      @log.error(err)
+      return Promise.delay(1000).then =>
+        return @_sendProxyScriptState()
+    )
 
   _quickSwitchInit: false
   _quickSwitchContextMenuCreated: false
