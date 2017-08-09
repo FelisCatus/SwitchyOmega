@@ -1,4 +1,8 @@
 div(ng-controller='PacProfileCtrl')
+  p.alert.alert-danger.width-limit(ng-show='pacProfilesUnsupported')
+    span.glyphicon.glyphicon-remove
+    = ' '
+    | {{'options_pac_profile_unsupported_moz' | tr}}
   section.settings-group
     h3 {{'options_group_pacUrl' | tr}}
     .width-limit(input-group-clear type='text' model='profile.pacUrl'

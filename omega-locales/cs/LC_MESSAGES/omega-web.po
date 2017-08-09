@@ -1123,6 +1123,9 @@ msgstr "Konfigurovat monitor sítě"
 msgid "options_resultProfileForSelectedDomains"
 msgstr "Použít tento profil pro všechny vybrané domény"
 
+msgid "options_pac_profile_unsupported_moz"
+msgstr "PAC Profiles WILL NOT work in Mozilla Firefox due to technical limitations!"
+
 msgid "popup_issueTemplate"
 msgstr ""
 "\n"

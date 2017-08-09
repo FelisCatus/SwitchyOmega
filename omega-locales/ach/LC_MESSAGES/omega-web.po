@@ -1131,6 +1131,9 @@ msgstr "Configure Network Monitor"
 msgid "options_resultProfileForSelectedDomains"
 msgstr "Use this profile for all selected domains"
 
+msgid "options_pac_profile_unsupported_moz"
+msgstr "PAC Profiles WILL NOT work in Mozilla Firefox due to technical limitations!"
+
 msgid "popup_issueTemplate"
 msgstr ""
 "\n"

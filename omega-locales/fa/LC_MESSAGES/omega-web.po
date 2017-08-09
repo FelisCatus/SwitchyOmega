@@ -1136,6 +1136,9 @@ msgstr "تنظیم مانیتور شبکه"
 msgid "options_resultProfileForSelectedDomains"
 msgstr "از این پروفایل برای تمامی دامنه های منتخب استفاده کن"
 
+msgid "options_pac_profile_unsupported_moz"
+msgstr "PAC Profiles WILL NOT work in Mozilla Firefox due to technical limitations!"
+
 msgid "popup_issueTemplate"
 msgstr ""
 "\n"
