@@ -990,6 +990,9 @@ msgstr "设置网络检测选项"
 msgid "options_resultProfileForSelectedDomains"
 msgstr "对所有选中域名使用此情景模式："
 
+msgid "options_pac_profile_unsupported_moz"
+msgstr "由于技术限制，PAC 情景模式无法在 Mozilla Firefox 上工作！"
+
 msgid "popup_issueTemplate"
 msgstr ""
 "\n"

@@ -5,6 +5,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
 
   if not chrome?.proxy?.settings?
     $scope.isExperimental = true
+    $scope.pacProfilesUnsupported = true
 
   tr = $filter('tr')
 
@@ -125,6 +126,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
     scope.profileIcons = profileIcons
     scope.dispNameFilter = dispNameFilter
     scope.options = $scope.options
+    scope.pacProfilesUnsupported = $scope.pacProfilesUnsupported
     $modal.open(
       templateUrl: 'partials/new_profile.html'
       scope: scope
