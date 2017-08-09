@@ -45,10 +45,6 @@ class ChromeTabs
         try chrome.browserAction.setBadgeText?(text: '', tabId: id)
         @_badgeTab = null
 
-    if not chrome.browserAction.setPopup?
-      # TODO: Is there a way to show current proxy for page? Is there even
-      #       enough space?
-      return
     if not tab.url? or tab.url.indexOf("chrome") == 0
       if @_defaultAction
         chrome.browserAction.setTitle({
@@ -59,7 +55,10 @@ class ChromeTabs
       return
     @actionForUrl(tab.url).then (action) =>
       @setIcon(action.icon, tab.id)
-      chrome.browserAction.setTitle(title: action.title, tabId: tab.id)
+      if chrome.browserAction.setPopup?
+        chrome.browserAction.setTitle({title: action.title, tabId: tab.id})
+      else
+        chrome.browserAction.setTitle({title: action.shortTitle, tabId: tab.id})
 
   setTabBadge: (tab, badge) ->
     @_badgeTab ?= {}

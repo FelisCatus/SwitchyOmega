@@ -135,12 +135,19 @@ actionForUrl = (url) ->
       profileColor = current.color
 
     icon ?= drawIcon(resultColor, profileColor)
+
+    shortTitle = 'Omega: ' + currentName # TODO: I18n.
+    if profile.name != currentName
+      shortTitle += ' => ' + profile.name # TODO: I18n.
+
     return {
       title: chrome.i18n.getMessage('browserAction_titleWithResult', [
         currentName
         dispName(profile.name)
         details
       ])
+
+      shortTitle: shortTitle
       icon: icon
       resultColor: resultColor
       profileColor: profileColor

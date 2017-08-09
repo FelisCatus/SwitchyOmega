@@ -430,6 +430,9 @@ class ChromeOptions extends OmegaTarget.Options
     errorCount = @_requestMonitor?.tabInfo[tabId]?.errorCount
     result = if errorCount then {errorCount: errorCount} else null
     getBadge = new Promise (resolve, reject) ->
+      if not chrome.browserAction.getBadgeText?
+        resolve('')
+        return
       chrome.browserAction.getBadgeText {tabId: tabId}, (result) ->
         resolve(result)
 
