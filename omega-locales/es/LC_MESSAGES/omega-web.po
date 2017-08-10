@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2017-08-09 21:52+0000\n"
+"PO-Revision-Date: 2017-08-10 11:24+0000\n"
 "Last-Translator: Vick Airfull <perdigano@perdigano.com>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/switchyomega/main/es/>\n"
@@ -43,326 +43,414 @@ msgid "condition_help_HostWildcardCondition"
 msgstr ""
 "Detecta servidores (nombres de dominio) según patrones.<br><b>El asterisco "
 "<code>*</code></b> equivale a cero o más caracteres.<br><b>La interrogación "
-"<code>?</code></b> equivale exactamente a un carácter.<br><br>Note that "
-"rules beginning with <code>*.</code> are specially treated only in Host "
-"wildcard conditions.<br>Example: <code>*.example.com</code> will match "
-"www.example.com <b>AND example.com as well.</b><br>To match subdomains "
-"<b>only</b>, use <b>two</b> asterisks like <code>**.example.com</code>."
+"<code>?</code></b> equivale exactamente a un carácter.<br><br>Tenga en "
+"cuenta que reglas que comienzan con <code>*.</code> se tratan de forma "
+"especial únicamente al usar patrones de sevidor.<br>Ejemplo: "
+"<code>*.example.com</code> detecta  www.example.com <b> Y example.com "
+"también.</b><br>Para detectar <b>únicamente</b> subdominios, utilice "
+"<b>dos</b> asteriscos <code>**.example.com</code>."
 
 msgid "condition_HostRegexCondition"
-msgstr "Expresión regular servidor"
+msgstr "Expresión regular de servidor"
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
+"Igual que los patrones de servidor, pero detecta servidores (nombres de "
+"dominio) mediante <a "
+"href='https://www.google.com/search?q=regular%20expression'>expresiones "
+"regulares</a>.<br>Las expresiones regulares pueden ser díficiles de crear (e "
+"interpretar).<br>Generalmente se recomienda usar patrones y utilizar "
+"expresiones regulares para condiciones que no se puedan detectar de ninguna "
+"otra forma."
 
 msgid "condition_HostLevelsCondition"
-msgstr ""
+msgstr "Niveles de servidor"
 
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
+"Detecta la petición únicamente si tiene un determinado nivel de servidor.<br>"
+"El nivel de servidor se define como el <b>número de componentes separados "
+"por punto</b> en el nombre de dominio.<br>Ejemplo: "
+"<code>www.example.com</code> tiene 3 niveles, ,mientras que "
+"<code>internal</code> tiene sólo 1."
 
 msgid "condition_IpCondition"
-msgstr ""
+msgstr "Literales IP"
 
 msgid "condition_help_IpCondition"
 msgstr ""
+"Detecta peticiones únicamente por direcciones IP <b>literales</b> y en una "
+"determinada red especificada en <a href='https://en.wikipedia.org/wiki"
+"/Classless_Inter-Domain_Routing#CIDR_notation'>notación CIDR</a>.<br>Por "
+"ejemplo, la regla <code>127.0.0.1/16</code>, detecta todas las direcciones "
+"IP de tipo <code>127.0.*.*</code>.<br>La IP <code>127.0.0.1</code> cumple la "
+"regla, mientras que <code>127.1.0.0</code> no la cumple. Nombres como "
+"<code>localhost</code> nunca cumplirán la regla porque <b>no</b> son "
+"literales IP."
 
 msgid "condition_UrlWildcardCondition"
-msgstr ""
+msgstr "Patrones de URL"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
+"Detecta patrones en la URL de la petición.<br>Consulte la sección de "
+"patrones de servidor para tener una referencia rápida sobre patrones.<br>"
+"Tenga presente que para los patrones URL no hay casos especiales (como el de "
+"subdominios en los patrones de servidor).<br>Así que "
+"<code>*://*.example.com/*</code> detecta http://www.example.com/ "
+"pero<b>no</b> detecta http://example.com/."
 
 msgid "condition_UrlRegexCondition"
-msgstr ""
+msgstr "Expresión regular URL"
 
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
+"Detecta URL con la potencia de las <a "
+"href='https://www.google.com/search?q=regular%20expression'>expresiones "
+"regulares</a>.<br>De todas formas,las expresiones regulares son difíciles de "
+"crear (e interpretar).<br>Se recomienda utilizar patrones en la mayoría de "
+"las situaciones y usar sólo las expresiones regulares cuando no funcionen "
+"otros tipos de condiciones."
 
 msgid "condition_KeywordCondition"
-msgstr ""
+msgstr "Palabra clave"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
+"Detecta palabras clave que aparezcan como subcadenas en la URL de peticiones "
+"que usen el protocolo HTTP.<br>Funcionan igual que el patrón "
+"<code>http://*<b>texto</b>*</code>, donde <b>texto</b> es la palabra clave "
+".<br>Es útil para burlar cortafuegos que bloquean algunas palabras clave en "
+"la URL, realizando esas peticiones a través de proxy."
 
 msgid "condition_FalseCondition"
-msgstr ""
+msgstr "(Deshabilitado)"
 
 msgid "condition_details_FalseCondition"
-msgstr ""
+msgstr "(Condición ignorada al procesar)"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
+"Puede anular una condición cambiando su tipo a <code>(Deshabilitada)</code>. "
+"Será como si esa condición no existiera.<br>Esto permite anular condiciones "
+"temporalmente.<br>Las condiciones deshabilitadas conservan toda la "
+"información (patrones) y se pueden habilitar de nuevo cambiando su tipo al "
+"que tuvieran antes."
 
 msgid "condition_TimeCondition"
-msgstr ""
+msgstr "Hora actual"
 
 msgid "condition_help_TimeCondition"
 msgstr ""
+"Detecta si la hora actual está en el intervalo definido por <b>hora "
+"inicio</b> y <b>hora fin</b>, incluyendo ambas.<br>La hora local, la de "
+"inicio y la de fin se calculan en formato de <b>24-horas</b> (entre <b>0 y "
+"23</b>). <br>El cálculo se realiza en el momento en que se envía la petición."
 
 msgid "condition_WeekdayCondition"
-msgstr ""
+msgstr "Día de la semana"
 
 msgid "condition_help_WeekdayCondition"
 msgstr ""
+"Detecta si el <b>día de la semana</b> es uno de los seleccionados en el "
+"detalle de la condición. El día se calcula según la zona horaria local.<br>"
+"La petición y su URL se ignoran. El resultado se basa únicamente en el día "
+"de la semana en  que se envía la petición."
 
 msgid "condition_alert_fullUrlLimitation"
 msgstr ""
+"La detección sobre URL completas no es posible al usar direcciones "
+"<code>https://</code> desde la versión 52 de Chrome. <a "
+"href='https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-Full-URL-"
+"Limitation'>Más información...</a>"
 
 msgid "condition_alert_fullUrlLimitationLink"
 msgstr ""
+"https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-Full-URL-Limitation"
 
 msgid "condition_group_default"
-msgstr ""
+msgstr " - "
 
 msgid "condition_group_host"
-msgstr ""
+msgstr "Servidor"
 
 msgid "condition_group_url"
-msgstr ""
+msgstr "Url"
 
 msgid "condition_group_special"
-msgstr ""
+msgstr "Especial"
 
+#, fuzzy
 msgid "ruleListFormat_Switchy"
-msgstr ""
+msgstr "Switchy"
 
 msgid "ruleListFormat_AutoProxy"
-msgstr ""
+msgstr "Proxy Automático"
 
+#, fuzzy
 msgid "ruleList_usageUrl"
-msgstr ""
+msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
-msgstr ""
+msgstr "¡ Falta directiva '@with result' !"
 
 msgid "ruleList_error_unknownProfile"
-msgstr ""
+msgstr "Perfil $PROFILE$ desconocido"
 
 msgid "ruleList_error_missingResultProfile"
-msgstr ""
+msgstr "Falta nombre del perfil en la línea $LNO$: $SOURCE$"
 
 msgid "ruleList_error_invalidRule"
-msgstr ""
+msgstr "Regla no válida en la línea $LNO$: $SOURCE$"
 
 msgid "ruleList_error_noDefaultRule"
-msgstr ""
+msgstr "¡ Falta regla por defecto con condición universal '*' !"
 
 msgid "dialog_close"
-msgstr ""
+msgstr "Cerrar"
 
 msgid "dialog_save"
-msgstr ""
+msgstr "Guardar cambios"
 
 msgid "dialog_ok"
-msgstr ""
+msgstr "OK"
 
 msgid "dialog_cancel"
-msgstr ""
+msgstr "Cancelar"
 
 msgid "inputClear_clear"
-msgstr ""
+msgstr "Borrar"
 
 msgid "inputClear_restore"
-msgstr ""
+msgstr "Deshacer"
 
 msgid "options_title"
-msgstr ""
+msgstr "Opciones SwitchyOmega"
 
+#, fuzzy
 msgid "options_experimental_badge"
-msgstr ""
+msgstr "α"
 
 msgid "options_navHeader_setting"
-msgstr ""
+msgstr "Ajustes"
 
 msgid "options_navHeader_profiles"
-msgstr ""
+msgstr "Perfiles"
 
 msgid "options_navHeader_actions"
-msgstr ""
+msgstr "Acciones"
 
 msgid "options_tab_ui"
-msgstr ""
+msgstr "Interfaz"
 
 msgid "options_tab_general"
-msgstr ""
+msgstr "General"
 
 msgid "options_tab_importExport"
-msgstr ""
+msgstr "Importar/Exportar"
 
 msgid "options_newProfile"
-msgstr ""
+msgstr "Nuevo perfil…"
 
 msgid "options_apply"
-msgstr ""
+msgstr "Aplicar cambios"
 
 msgid "options_discard"
-msgstr ""
+msgstr "Descartar cambios"
 
 msgid "options_reset"
-msgstr ""
+msgstr "Opciones por defecto"
 
 msgid "options_group_miscOptions"
-msgstr ""
+msgstr "Opciones adicionales"
 
 msgid "options_confirmDeletion"
-msgstr ""
+msgstr "Confirmar al borrar condición."
 
 msgid "options_refreshOnProfileChange"
-msgstr ""
+msgstr "Recargar pestaña actual al cambiar perfil."
 
 msgid "options_showInspectMenu"
 msgstr ""
+"Permitir inspeccionar el proxy utilizado por cada elemento de la página a "
+"través del menú contextual."
 
 msgid "options_group_keyboardShortcut"
-msgstr ""
+msgstr "Atajo de teclado"
 
 msgid "options_menuShortcutHelp"
 msgstr ""
+"Al utilizar el atajo se abrirá el menú emergente. (Predeterminado Alt+May+O)."
 
 msgid "options_menuShortcutMore"
 msgstr ""
+"Los elementos del menú emergente también son accesibles usando el teclado. "
+"Pulse ? (o /) en el menú para más información."
 
 msgid "options_menuShortcutConfigure"
-msgstr ""
+msgstr "Configurar atajo"
 
 msgid "options_group_switchOptions"
-msgstr ""
+msgstr "Opciones"
 
 msgid "options_startupProfile"
-msgstr ""
+msgstr "Perfil inicial"
 
 msgid "options_startupProfile_none"
-msgstr ""
+msgstr "(Perfil actual)"
 
 msgid "options_showConditionTypesAdvanced"
-msgstr ""
+msgstr "Mostrar tipos de condición avanzados"
 
 msgid "options_showConditionTypesAdvancedHelp"
 msgstr ""
+"Habilita nuevos tipos de condiciones avanzadas pero más complicadas. En la "
+"mayoría de las situaciones los tipos básicos son más que suficientes, por lo "
+"que no se recomienda habilitar los avanzados."
 
 msgid "options_quickSwitch"
-msgstr ""
+msgstr "Cambio rápido"
 
 msgid "options_cycledProfiles"
-msgstr ""
+msgstr "Perfiles cíclicos"
 
 msgid "options_cycledProfilesHelp"
 msgstr ""
+"Al  usar este icono (o el atajo superior), los siguientes perfiles se "
+"aplicarán en el orden indicado."
 
 msgid "options_cycledProfilesTooFew"
 msgstr ""
+"¡Para habilitar esta función necesita al menos 2 perfiles! Puede moverlos "
+"desde la lista inferior."
 
 msgid "options_notCycledProfiles"
-msgstr ""
+msgstr "Perfiles no cíclicos"
 
 msgid "options_group_proxyChanges"
-msgstr ""
+msgstr "Cambios Proxy"
 
 msgid "options_revertProxyChanges"
-msgstr ""
+msgstr "Deshacer cambios de proxy realizados por otras aplicaciones."
 
 msgid "options_group_networkRequests"
-msgstr ""
+msgstr "Peticiones de red"
 
 msgid "options_monitorWebRequests"
-msgstr ""
+msgstr "Muestra el número de peticiones web con error en la pestaña actual."
 
 msgid "options_monitorWebRequestsHelp"
 msgstr ""
+"Aparecerá un marcador amarillo sobre el icono si no pudieron cargarse "
+"algunos recursos,<br> y podrá actualizar el perfil a utilizar para ellos "
+"desde el menú emergente."
 
 msgid "options_downloadOptions"
-msgstr ""
+msgstr "Opciones de descarga"
 
 msgid "options_downloadOptionsHelp"
 msgstr ""
+"Configurar la frecuencia de actualización en línea de reglas y archivos PAC."
 
 msgid "options_downloadInterval"
-msgstr ""
+msgstr "Intervalo de descarga"
 
 msgid "options_downloadInterval_15"
-msgstr ""
+msgstr "15 minutos"
 
 msgid "options_downloadInterval_60"
-msgstr ""
+msgstr "1 hora"
 
 msgid "options_downloadInterval_180"
-msgstr ""
+msgstr "3 horas"
 
 msgid "options_downloadInterval_360"
-msgstr ""
+msgstr "6 horas"
 
 msgid "options_downloadInterval_720"
-msgstr ""
+msgstr "12 horas"
 
 msgid "options_downloadInterval_1440"
-msgstr ""
+msgstr "a diario"
 
 msgid "options_downloadInterval_never"
-msgstr ""
+msgstr "Nunca"
 
 msgid "options_group_importExportProfile"
-msgstr ""
+msgstr "Perfil"
 
 msgid "options_exportPacFile"
-msgstr ""
+msgstr "Exportar como archivo PAC"
 
 msgid "options_exportPacFileHelp"
 msgstr ""
+"Exporta el perfil actual como un archivo PAC, para poder utilizarlo en otros "
+"navegadores."
 
 msgid "options_exportProfileHelp"
 msgstr ""
+"Para exportar un perfil, utilice la barra de acción  en la página del "
+"perfil, arriba a la derecha."
 
 msgid "options_exportLegacyRuleList"
 msgstr ""
+"Exporta la lista de reglas utilizando, si es posible, un formato compatible "
+"con Proxy Switchy!/SwitchyPlus/SwitchySharp."
 
 msgid "options_exportLegacyRuleListHelp"
 msgstr ""
+"Habilite esta opción si publica listas de reglas para usuarios de esos "
+"proyectos.<br> Le agradeceríamos que recomendara a sus contactos actualizar "
+"a SwitchyOmega para disfrutar de las mejoras."
 
 msgid "options_group_importExportSettings"
-msgstr ""
+msgstr "Ajustes"
 
 msgid "options_makeBackup"
-msgstr ""
+msgstr "Copia de respaldo"
 
 msgid "options_makeBackupHelp"
 msgstr ""
+"Haga una copia de respaldo de sus opciones (incluye perfiles y resto de "
+"opciones)."
 
 msgid "options_restoreLocal"
-msgstr ""
+msgstr "Restaurar desde archivo"
 
 msgid "options_restoreLocalHelp"
-msgstr ""
+msgstr "Restaura las opciones de SwitchyOmega desde un archivo local."
 
 msgid "options_restoreOnline"
-msgstr ""
+msgstr "Restaurar en línea"
 
 msgid "options_restoreOnlinePlaceholder"
-msgstr ""
+msgstr "URL del archivo de opciones (p.e. 'http://example.com/switchy.bak')"
 
 msgid "options_restoreOnlineSubmit"
-msgstr ""
+msgstr "Restaurar"
 
 msgid "options_group_syncing"
-msgstr ""
+msgstr "Sincronizando (experimental)"
 
 msgid "options_syncEnable"
-msgstr ""
+msgstr "Habilitar sincronización"
 
 msgid "options_syncEnableForce"
-msgstr ""
+msgstr "Descargar y sincronizar"
 
 msgid "options_syncDisable"
-msgstr ""
+msgstr "Deshabilitar sincronización"
 
 msgid "options_syncReset"
-msgstr ""
+msgstr "Borrar copia remota"
 
 msgid "options_syncPristineHelp"
 msgstr ""
+"Puede sincronizar automáticamente sus ajustes y perfiles en todos los "
+"dispositivos donde utilice el navegador Chrome."
 
 msgid "options_syncSyncAlert"
-msgstr ""
+msgstr "Sus opciones se sincronizan automáticamente en todos sus equipos."
 
 msgid "options_syncSyncHelp"
 msgstr ""
