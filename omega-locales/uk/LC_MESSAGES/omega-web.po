@@ -3,97 +3,169 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-02-17 07:02+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-08-11 15:09+0000\n"
+"Last-Translator: Alexander Petrichka (Olloff) <olloff@gmail.com>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/switchyomega/main/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.16\n"
 
 msgid "appNameShort"
-msgstr ""
+msgstr "SwitchyOmega"
 
 msgid "manifest_app_name"
-msgstr ""
+msgstr "Proxy SwitchyOmega"
 
+#, fuzzy
 msgid "manifest_app_description"
-msgstr ""
+msgstr "Легке і швидке керування та перемикання декількох проксі-серверів"
 
 msgid "manifest_icon_default_title"
-msgstr ""
+msgstr "Завантаження…"
 
 msgid "upgrade_profile_auto"
-msgstr ""
+msgstr "Автоперемикання"
 
 msgid "profile_direct"
-msgstr ""
+msgstr "[Напряму]"
 
+#, fuzzy
 msgid "profile_system"
-msgstr ""
+msgstr "[Системний проксі]"
 
 msgid "condition_HostWildcardCondition"
-msgstr ""
+msgstr "За підстановкою у назві"
 
+#, fuzzy
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
+"Співставляє назви (доменні імена) з підстановками.<br><b>Зірочка "
+"<code>*</code></b> співпадає з 0 або більшим числом знаків.<br><b>Знак "
+"питання <code>?</code></b> співпадає лише з одним знаком.<br><br>Зверніть "
+"увагу, что правила, що починаються з <code>*.</code> мають особливе значення "
+"лише в умовах Підстановки у назві.<br>Наприклад: <code>*.example.com</code> "
+"співпаде із www.example.com <b>та example.com as well.</b><br>Щоб знаходити "
+"<b>лише</b> піддомени, використовуйте <b>дві</b> зірочки, як у "
+"<code>**.example.com</code>."
 
+#, fuzzy
 msgid "condition_HostRegexCondition"
-msgstr ""
+msgstr "За регулярним виразом у назві"
 
+#, fuzzy
 msgid "condition_help_HostRegexCondition"
 msgstr ""
+"Схоже на режим Підстановки у назві, але співстваляє назви (доменні імена) з <"
+"a href='https://www.google.com/search?q=regular%20expression'>регулярними "
+"виразами</a>. <br>Регулярні вирази можуть бути складними для складання (та "
+"читання).<br>Рекомендуємо використовувати підстановки для більшості випадків "
+"та використовувати регулярні вирази лише для умов, шо не можуть бути "
+"задоволені жодним іншим типом умов."
 
+#, fuzzy
 msgid "condition_HostLevelsCondition"
-msgstr ""
+msgstr "За доменними рівнями"
 
+#, fuzzy
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
+"Співпадає із запитом тоді і лише тоді, коли доменний рівень знаходиться у "
+"заданому проміжку.<br>Доменний рівень визначено як <b>число частин назви "
+"сторінки (доменного імені), що розділені точками</b>.<br>Наприклад: "
+"<code>www.example.com</code> має доменний рівень 3, тоді як "
+"<code>internal</code> - лише доменний рівень 1."
 
+#, fuzzy
 msgid "condition_IpCondition"
-msgstr ""
+msgstr "За IP адресою"
 
+#, fuzzy
 msgid "condition_help_IpCondition"
 msgstr ""
+"Співпадає із запитом тоді і лише тоді, коли назва сторінки <b>є IP "
+"адресою</b> та входить до підмережі, визначеної <a "
+"href='https://en.wikipedia.org/wiki/Classless_Inter-"
+"Domain_Routing#CIDR_notation'>CIDR записом</a>.<br>Наприклад, правило "
+"<code>127.0.0.1/16</code>, співпадає з усіма адресами накшталт "
+"<code>127.0.*.*</code>.<br>Таким чином, <code>127.0.0.1</code> підпадає під "
+"правило, а <code>127.1.0.0</code> - ні. Назви сторінок, такі як "
+"<code>localhost</code> ніколи не підпадуть під таке правило, оскільки вони "
+"<b>не є</b> IP адресами."
 
+#, fuzzy
 msgid "condition_UrlWildcardCondition"
-msgstr ""
+msgstr "За підстановкою у адресі"
 
+#, fuzzy
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
+"Співпадає із запитами, у яких є адреси сторінок із підстановками.<br>"
+"Дивіться розділ Назви сторінок із підстановками для швидкого ознакомлення з "
+"підстановками.<br>Зверніть увагу, що Підстановки у адресах не обробляються "
+"особливим чином (немає таких чарівних засобів для роботи із піддоменами, як "
+"для Назв із підстановками).<br>Так що правило "
+"<code>*://*.example.com/*</code> співпадає з http://www.example.com/ але "
+"<b>не</b> співпадає з http://example.com/."
 
+#, fuzzy
 msgid "condition_UrlRegexCondition"
-msgstr ""
+msgstr "За регулярним виразом у адресі"
 
+#, fuzzy
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
+"Співставляє адреси сторінок, використовуючи грандіозні можливості <a "
+"href='https://www.google.com/search?q=regular%20expression'>регулярних "
+"виразів</a>. <br>Назважаючи на це, регулярні вирази можуть бути складними "
+"для складання (та читання).<br>Рекомендуємо використовувати підстановки для "
+"більшості випадків та використовувати регулярні вирази лише для умов, шо не "
+"можуть бути задоволені жодним іншим типом умов."
 
+#, fuzzy
 msgid "condition_KeywordCondition"
-msgstr ""
+msgstr "За ключовим виразом"
 
+#, fuzzy
 msgid "condition_help_KeywordCondition"
 msgstr ""
+"Ключовий вираз вважається таким, що співпав, якщо сторінка відкрита за "
+"протоколом HTTP, а зразок точно повторює частину строки адреси сторінки.<br>"
+"Така умова поводиться як умова За підстановкою у адресі, що виглядає як "
+"<code>http://*<b>зразок</b>*</code>, де <b>зразок</b> - це і є шуканий "
+"зразок.<br>Умови з ключовими виразами корисні, якщо ви хочете обійти "
+"мережевий екран, що блокує деякі ключові вирази у адреса сторінок, "
+"завантажуючи такі сторінки через проксі-сервер."
 
+#, fuzzy
 msgid "condition_FalseCondition"
-msgstr ""
+msgstr "(Вимкнена)"
 
+#, fuzzy
 msgid "condition_details_FalseCondition"
-msgstr ""
+msgstr "(Умова ігнорується при перевірках)"
 
+#, fuzzy
 msgid "condition_help_FalseCondition"
 msgstr ""
+"Ви можете вимкнути умову, змінивши її тип на <code>(Вимкнено)</code>. "
+"Вимкнена умова поводиться так, ніби вона не існує.<br>Ця особливість може "
+"бути використана для тимчасового вимикання умов.<br>Вимкнені умови все ще "
+"зберігають попередню інформацію (таку як зразки) та можуть бути ввімкнені, "
+"якщо їх тип буде знову змінено на попередній."
 
 msgid "condition_TimeCondition"
-msgstr ""
+msgstr "Поточний час"
 
 msgid "condition_help_TimeCondition"
 msgstr ""
 
 msgid "condition_WeekdayCondition"
-msgstr ""
+msgstr "День тижня"
 
 msgid "condition_help_WeekdayCondition"
 msgstr ""
@@ -103,210 +175,251 @@ msgstr ""
 
 msgid "condition_alert_fullUrlLimitationLink"
 msgstr ""
+"https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-Full-URL-Limitation"
 
+#, fuzzy
 msgid "condition_group_default"
-msgstr ""
+msgstr " "
 
+#, fuzzy
 msgid "condition_group_host"
-msgstr ""
+msgstr "Назва"
 
 msgid "condition_group_url"
-msgstr ""
+msgstr "Адреса"
 
+#, fuzzy
 msgid "condition_group_special"
-msgstr ""
+msgstr "Особлива"
 
 msgid "ruleListFormat_Switchy"
-msgstr ""
+msgstr "Switchy"
 
 msgid "ruleListFormat_AutoProxy"
-msgstr ""
+msgstr "AutoProxy"
 
 msgid "ruleList_usageUrl"
-msgstr ""
+msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
-msgstr ""
+msgstr "Не вистачає директиви '@with result'!"
 
 msgid "ruleList_error_unknownProfile"
-msgstr ""
+msgstr "Невідомий профіль: $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
 msgstr ""
 
+#, fuzzy
 msgid "ruleList_error_invalidRule"
-msgstr ""
+msgstr "Некоректне правило на стрічці $LNO$: $SOURCE$"
 
+#, fuzzy
 msgid "ruleList_error_noDefaultRule"
-msgstr ""
+msgstr "Не вистачає звичайного правила з умовою \"будь-яке-значення\" '*'!"
 
 msgid "dialog_close"
-msgstr ""
+msgstr "Зачинити"
 
 msgid "dialog_save"
-msgstr ""
+msgstr "Зберегти зміни"
 
 msgid "dialog_ok"
-msgstr ""
+msgstr "Згоден"
 
 msgid "dialog_cancel"
-msgstr ""
+msgstr "Відмінити"
 
 msgid "inputClear_clear"
-msgstr ""
+msgstr "Очистити"
 
 msgid "inputClear_restore"
-msgstr ""
+msgstr "Відновити"
 
 msgid "options_title"
-msgstr ""
+msgstr "Налаштування SwitchyOmega"
 
 msgid "options_experimental_badge"
-msgstr ""
+msgstr "α"
 
 msgid "options_navHeader_setting"
-msgstr ""
+msgstr "Налаштування"
 
 msgid "options_navHeader_profiles"
-msgstr ""
+msgstr "Профілі"
 
 msgid "options_navHeader_actions"
-msgstr ""
+msgstr "Дії"
 
+#, fuzzy
 msgid "options_tab_ui"
-msgstr ""
+msgstr "Інтерфейс"
 
 msgid "options_tab_general"
-msgstr ""
+msgstr "Загальні"
 
 msgid "options_tab_importExport"
-msgstr ""
+msgstr "Імпорт/Експорт"
 
 msgid "options_newProfile"
-msgstr ""
+msgstr "Новий профіль…"
 
 msgid "options_apply"
-msgstr ""
+msgstr "Задіяти зміни"
 
 msgid "options_discard"
-msgstr ""
+msgstr "Відхилити зміни"
 
 msgid "options_reset"
-msgstr ""
+msgstr "Скинути налаштування"
 
 msgid "options_group_miscOptions"
-msgstr ""
+msgstr "Інші налаштування"
 
 msgid "options_confirmDeletion"
-msgstr ""
+msgstr "Підтвердити при видаленні умови."
 
 msgid "options_refreshOnProfileChange"
-msgstr ""
+msgstr "Перезавантажити активну вкладинку при зміні профілю."
 
+#, fuzzy
 msgid "options_showInspectMenu"
 msgstr ""
+"Дозволити з'ясування, які проксі-сервери використовуватимуться для елементів "
+"сторінки за допомогою контекстного меню."
 
 msgid "options_group_keyboardShortcut"
-msgstr ""
+msgstr "Клавіатурні скорочення"
 
+#, fuzzy
 msgid "options_menuShortcutHelp"
 msgstr ""
+"Натискання клавіатурного скорочення відкриє спливаюче меню умов перемикання. "
+"(За замовчуванням Alt+Shift+O)."
 
 msgid "options_menuShortcutMore"
 msgstr ""
+"Елементи спливаючого меню також можуть бути доступні за допомогою "
+"клавіатури. Натисніть ? (або /) знаходячись у меню, щоб дізнатися більше."
 
 msgid "options_menuShortcutConfigure"
-msgstr ""
+msgstr "Налаштувати скорочення"
 
+#, fuzzy
 msgid "options_group_switchOptions"
-msgstr ""
+msgstr "Налаштуванння перемикань"
 
 msgid "options_startupProfile"
-msgstr ""
+msgstr "Стартовий профіль"
 
 msgid "options_startupProfile_none"
-msgstr ""
+msgstr "(Поточний профіль)"
 
 msgid "options_showConditionTypesAdvanced"
-msgstr ""
+msgstr "Показувати складніші типи умов"
 
+#, fuzzy
 msgid "options_showConditionTypesAdvancedHelp"
 msgstr ""
+"Відкриває нові типи розширених, але складніших умов перемикання. Для "
+"більшості сценаріїв достатньо базових типів, тому це використовувати це "
+"налаштування не рекомендується."
 
 msgid "options_quickSwitch"
-msgstr ""
+msgstr "Швидке перемикання"
 
+#, fuzzy
 msgid "options_cycledProfiles"
-msgstr ""
+msgstr "Профілі, що повторюватимуться по колу"
 
+#, fuzzy
 msgid "options_cycledProfilesHelp"
 msgstr ""
+"Коли ви натискаєте на піктограму (або використовуєте скорочення, що ви "
+"бачете вище), наступні профілі будуть застосовуватися по черзі."
 
+#, fuzzy
 msgid "options_cycledProfilesTooFew"
 msgstr ""
+"Вам потрібно обрати щонайменше 2 профілі, щоб задіяти цю функцію! Ви можете "
+"перетягнути їх з поля вище."
 
+#, fuzzy
 msgid "options_notCycledProfiles"
-msgstr ""
+msgstr "Профілі, що не повторюватимуться по колу"
 
+#, fuzzy
 msgid "options_group_proxyChanges"
-msgstr ""
+msgstr "Зміни проксі-серверів"
 
 msgid "options_revertProxyChanges"
-msgstr ""
+msgstr "Відмінити зміни проксі-серверів, що зроблені іншими додатками."
 
 msgid "options_group_networkRequests"
-msgstr ""
+msgstr "Мережеві запити"
 
 msgid "options_monitorWebRequests"
-msgstr ""
+msgstr "Показувати число невдалих мережевих запитів на поточній вкладинці."
 
 msgid "options_monitorWebRequestsHelp"
 msgstr ""
+"Жовта позначка відобразиться на піктограмі, якщо деякі з ресурсів не "
+"вдасться завантажити, <br>для зручності ви можете призначити профіль таким "
+"ресурсам через спливаюче меню."
 
 msgid "options_downloadOptions"
-msgstr ""
+msgstr "Налаштування завантаження"
 
 msgid "options_downloadOptionsHelp"
 msgstr ""
+"Налаштування частоти, з якою збережені у мережі списки правил та PAC-скрипти "
+"будуть оновлюватися."
 
 msgid "options_downloadInterval"
-msgstr ""
+msgstr "Періодичність завантаження"
 
 msgid "options_downloadInterval_15"
-msgstr ""
+msgstr "15 хвилин"
 
 msgid "options_downloadInterval_60"
-msgstr ""
+msgstr "1 година"
 
 msgid "options_downloadInterval_180"
-msgstr ""
+msgstr "3 години"
 
 msgid "options_downloadInterval_360"
-msgstr ""
+msgstr "6 годин"
 
 msgid "options_downloadInterval_720"
-msgstr ""
+msgstr "12 годин"
 
 msgid "options_downloadInterval_1440"
-msgstr ""
+msgstr "Кожен день"
 
 msgid "options_downloadInterval_never"
-msgstr ""
+msgstr "Ніколи"
 
 msgid "options_group_importExportProfile"
-msgstr ""
+msgstr "Профіль"
 
 msgid "options_exportPacFile"
-msgstr ""
+msgstr "Вивантажити як PAC-файл"
 
+#, fuzzy
 msgid "options_exportPacFileHelp"
 msgstr ""
+"Вивантажити поточній профіль у вигляді PAC-файлу, щоб ви могли користуватися "
+"ним у інших браузерах."
 
 msgid "options_exportProfileHelp"
 msgstr ""
+"Щоб вивантажити профіль, використайте панель дій у верхньому правому кутку "
+"сторінки профіля."
 
 msgid "options_exportLegacyRuleList"
 msgstr ""
+"Вивантажити список правил у сумісному з Proxy Switchy!/SwitchyPlus/"
+"SwitchySharp форматі, якщо це можливо."
 
 msgid "options_exportLegacyRuleListHelp"
 msgstr ""
@@ -315,52 +428,66 @@ msgid "options_group_importExportSettings"
 msgstr ""
 
 msgid "options_makeBackup"
-msgstr ""
+msgstr "Зробити резервну копію"
 
 msgid "options_makeBackupHelp"
 msgstr ""
+"Зробити повну резервну копію ваших налаштувань (включно з профілями та усіма "
+"іншими налаштуваннями)."
 
 msgid "options_restoreLocal"
-msgstr ""
+msgstr "Відновити з файлу"
 
+#, fuzzy
 msgid "options_restoreLocalHelp"
 msgstr ""
+"Відновити ваші налаштування SwitchyOmega, використавши файл, збережений на "
+"цьому комп'ютері."
 
+#, fuzzy
 msgid "options_restoreOnline"
-msgstr ""
+msgstr "Відновити, використавши дані, завантажені з мережі"
 
 msgid "options_restoreOnlinePlaceholder"
-msgstr ""
+msgstr "Адреса файла налаштувань (наприклад, 'http://example.com/switchy.bak')"
 
 msgid "options_restoreOnlineSubmit"
-msgstr ""
+msgstr "Відновити"
 
+#, fuzzy
 msgid "options_group_syncing"
-msgstr ""
+msgstr "Синхронізація (експериментально)"
 
 msgid "options_syncEnable"
-msgstr ""
+msgstr "Вмикнути синхронізацію"
 
 msgid "options_syncEnableForce"
-msgstr ""
+msgstr "Завантаження синхронізованих налаштувань"
 
 msgid "options_syncDisable"
-msgstr ""
+msgstr "Вимкнути синхронізацію"
 
+#, fuzzy
 msgid "options_syncReset"
-msgstr ""
+msgstr "Чиста віддалена копія"
 
+#, fuzzy
 msgid "options_syncPristineHelp"
 msgstr ""
+"Зараз ви можете автоматично синхронізувати ваші налаштування та профілі з "
+"усіма настільними пристроями, що використовують браузер Chrome."
 
 msgid "options_syncSyncAlert"
 msgstr ""
+"Ваші налаштування автоматично синхронізовані поміж усіма вашими пристроями."
 
 msgid "options_syncSyncHelp"
 msgstr ""
 
 msgid "options_syncConflictAlert"
 msgstr ""
+"Ви вивантажили копію ваших налаштувань до іншого пристрою за допомогою "
+"синхронізації."
 
 msgid "options_syncConflictHelp"
 msgstr ""
@@ -368,65 +495,79 @@ msgstr ""
 msgid "options_syncUnsupportedHelp"
 msgstr ""
 
+#, fuzzy
 msgid "options_profileSyncDisabled"
-msgstr ""
+msgstr "Синхронізація вимкнена у вашому профілі браузера."
 
 msgid "options_profileSyncDisabled_quotaPerItem"
 msgstr ""
+"Синхронізація вимкнена для цього профіля, тому що він використовує забагато "
+"місця."
 
 msgid "options_profileTabPrefix"
-msgstr ""
+msgstr "Профіль :: "
 
 msgid "options_renameProfile"
-msgstr ""
+msgstr "Змінити назву"
 
 msgid "options_deleteProfile"
-msgstr ""
+msgstr "Видалити"
 
 msgid "options_profileExportRuleList"
-msgstr ""
+msgstr "Опублікувати список правил"
 
 msgid "options_profileExportRuleListHelp"
-msgstr ""
+msgstr "Вивантажити Правила перемикань у текстовому форматі для публікації."
 
 msgid "options_profileExportPac"
-msgstr ""
+msgstr "Вивантажити PAC"
 
 msgid "options_profileUnsupported"
-msgstr ""
+msgstr "Непідтримуваний тип профілю $TYPE$!"
 
 msgid "options_profileUnsupportedHelp"
 msgstr ""
+"Налаштування можуть бути пошкоджені або належати до новішої версії цієї "
+"програми."
 
+#, fuzzy
 msgid "options_profileEditSource"
-msgstr ""
+msgstr "Редагувати код"
 
+#, fuzzy
 msgid "options_profileEditSourceHelp"
-msgstr ""
+msgstr "Показати допомогу щодо формату коду"
 
 msgid "options_profileEditSourceHelpUrl"
 msgstr ""
+"https://github.com/FelisCatus/SwitchyOmega/wiki/SwitchyOmega-conditions-"
+"format#result-profile"
 
 msgid "options_group_proxyServers"
-msgstr ""
+msgstr "Проксі-сервери"
 
 msgid "options_proxy_scheme"
-msgstr ""
+msgstr "Схема"
 
 msgid "options_proxy_protocol"
-msgstr ""
+msgstr "Протокол"
 
 msgid "options_proxy_server"
-msgstr ""
+msgstr "Сервер"
 
 msgid "options_proxy_port"
-msgstr ""
+msgstr "Порт"
 
+#, fuzzy
 msgid "options_proxy_auth"
-msgstr ""
+msgstr "Дані для входу"
 
+#, fuzzy
 msgid "options_proxy_authAllWarningPac"
 msgstr ""
+"Попередження: ім'я користувача та пароль можуть бути надіслані до серверів, "
+"що не були передбачені вами та адреси яких було завантажено разом з "
+"PAC-скриптом."
 
 msgid "options_proxy_authAllWarningPacUrl"
 msgstr ""
@@ -438,34 +579,41 @@ msgid "options_proxy_authReferencedWarning"
 msgstr ""
 
 msgid "options_scheme_default"
-msgstr ""
+msgstr "(за замовчуванням)"
 
+#, fuzzy
 msgid "options_protocol_direct"
-msgstr ""
+msgstr "Напряму"
 
+#, fuzzy
 msgid "options_protocol_useDefault"
-msgstr ""
+msgstr "(використовувати призначений за замовчуванням)"
 
 msgid "options_proxy_single"
-msgstr ""
+msgstr "Використовуати цей проксі для усіх протоколів."
 
 msgid "options_proxy_expand"
-msgstr ""
+msgstr "Показати розширені налаштування"
 
 msgid "options_group_bypassList"
-msgstr ""
+msgstr "Список ігнорованих вузлів"
 
 msgid "options_bypassListHelp"
 msgstr ""
 
+#, fuzzy
 msgid "options_bypassListHelpLinkText"
-msgstr ""
+msgstr "(Доступні підстановки та інше...)"
 
+#, fuzzy
 msgid "options_group_pacUrl"
-msgstr ""
+msgstr "Адреса PAC-скрипту"
 
+#, fuzzy
 msgid "options_pacUrlHelp"
 msgstr ""
+"PAC-скрипт буде оновлюватися за цією адресою. Якщо це поле залишиться "
+"порожнім, замість цього буде використовуватися наявний скрипт."
 
 msgid "options_pacUrlFile"
 msgstr ""
@@ -474,145 +622,157 @@ msgid "options_pacUrlFileDisabled"
 msgstr ""
 
 msgid "options_group_pacScript"
-msgstr ""
+msgstr "PAC-скрипт"
 
+#, fuzzy
 msgid "options_pacScriptLastUpdate"
-msgstr ""
+msgstr "PAC-скрипт було завантажено о $TIME$:"
 
+#, fuzzy
 msgid "options_pacScriptObsolete"
 msgstr ""
+"PAC-скрипт застарів через зміну адреси. Натисніть на кнопку завантаження "
+"вище, щоб оновити його."
 
 msgid "options_group_virtualProfile"
-msgstr ""
+msgstr "Віртуальний профіль"
 
 msgid "options_virtualProfileTarget"
-msgstr ""
+msgstr "Мета"
 
 msgid "options_virtualProfileTargetHelp"
 msgstr ""
 
+#, fuzzy
 msgid "options_group_virtualProfileReplace"
-msgstr ""
+msgstr "Перенести до Віртуального профілю"
 
 msgid "options_virtualProfileReplace"
-msgstr ""
+msgstr "Замінити цільовий профіль"
 
 msgid "options_virtualProfileReplaceHelp"
 msgstr ""
 
 msgid "options_group_ruleListConfig"
-msgstr ""
+msgstr "Налаштування списку правил"
 
 msgid "options_ruleListFormat"
-msgstr ""
+msgstr "Формат списку правил"
 
 msgid "options_group_ruleListResult"
 msgstr ""
 
 msgid "options_ruleListMatchProfile"
-msgstr ""
+msgstr "Зіставлений профіль"
 
 msgid "options_ruleListDefaultProfile"
-msgstr ""
+msgstr "Профіль за-замовчуванням"
 
 msgid "options_group_ruleListUrl"
-msgstr ""
+msgstr "Адреса списку правил"
 
 msgid "options_ruleListUrlHelp"
 msgstr ""
 
 msgid "options_group_ruleListText"
-msgstr ""
+msgstr "Текст списку правил"
 
 msgid "options_ruleListLastUpdate"
-msgstr ""
+msgstr "Список правил завантажено о $TIME$:"
 
 msgid "options_ruleListObsolete"
 msgstr ""
 
 msgid "options_group_switchRules"
-msgstr ""
+msgstr "Правила перемикання"
 
 msgid "options_sort"
-msgstr ""
+msgstr "Впорядкувати"
 
 msgid "options_conditionType"
-msgstr ""
+msgstr "Тип умови"
 
 msgid "options_showConditionTypeHelp"
-msgstr ""
+msgstr "Показати допомогу"
 
 msgid "options_conditionDetails"
-msgstr ""
+msgstr "Деталі умови"
 
 msgid "options_resultProfile"
-msgstr ""
+msgstr "Профіль"
 
 msgid "options_conditionActions"
-msgstr ""
+msgstr "Дії"
 
 msgid "options_addCondition"
-msgstr ""
+msgstr "Додати умову"
 
 msgid "options_cloneRule"
-msgstr ""
+msgstr "Дублювати"
 
+#, fuzzy
 msgid "options_switchAttachedProfileInCondition"
-msgstr ""
+msgstr "Правила списку правил"
 
 msgid "options_switchAttachedProfileInConditionDetails"
-msgstr ""
+msgstr "(Будь-який запит, що співпадає зі списком правил нижче)"
 
+#, fuzzy
 msgid "options_switchAttachedProfileInConditionDisabled"
-msgstr ""
+msgstr "(Правила спуску правил ВИМКНЕНО)"
 
 msgid "options_switchDefaultProfile"
-msgstr ""
+msgstr "За замовчуванням"
 
+#, fuzzy
 msgid "options_hostLevelsBetween"
-msgstr ""
+msgstr "≤ рівні назви ≤"
 
+#, fuzzy
 msgid "options_hourBetween"
-msgstr ""
+msgstr "≤ поточна година ≤"
 
 msgid "options_weekDayShort_0"
-msgstr ""
+msgstr "Нд"
 
 msgid "options_weekDayShort_1"
-msgstr ""
+msgstr "Пн"
 
 msgid "options_weekDayShort_2"
-msgstr ""
+msgstr "Вв"
 
 msgid "options_weekDayShort_3"
-msgstr ""
+msgstr "Ср"
 
 msgid "options_weekDayShort_4"
-msgstr ""
+msgstr "Чт"
 
 msgid "options_weekDayShort_5"
-msgstr ""
+msgstr "Пт"
 
 msgid "options_weekDayShort_6"
-msgstr ""
+msgstr "Сб"
 
 msgid "options_group_conditionHelp"
-msgstr ""
+msgstr "Про типи умов"
 
 msgid "options_group_attachProfile"
-msgstr ""
+msgstr "Завантажити список правил з мережі"
 
 msgid "options_attachProfile"
-msgstr ""
+msgstr "Додати список правил"
 
 msgid "options_attachProfileHelp"
 msgstr ""
 
 msgid "options_modalHeader_welcome"
-msgstr ""
+msgstr "Вітаємо у SwitchyOmega"
 
+#, fuzzy
 msgid "options_welcomeNormal"
 msgstr ""
+"Ви успішно встановили SwitchyOmega, найпотужнішу програму для керування "
+"проксі-серверами."
 
 msgid "options_welcomeNormalGuide"
 msgstr ""
@@ -624,16 +784,16 @@ msgid "options_welcomeUpgradeGuide"
 msgstr ""
 
 msgid "options_guideNext"
-msgstr ""
+msgstr "Далі"
 
 msgid "options_guideDone"
-msgstr ""
+msgstr "Готово"
 
 msgid "options_guideSkip"
-msgstr ""
+msgstr "Пропустити навчання"
 
 msgid "options_modalHeader_applyOptions"
-msgstr ""
+msgstr "Застосувати налаштування"
 
 msgid "options_optionsNotSaved"
 msgstr ""
@@ -645,43 +805,43 @@ msgid "options_applyOptionsConfirm"
 msgstr ""
 
 msgid "options_modalHeader_renameProfile"
-msgstr ""
+msgstr "Перейменувати профіль"
 
 msgid "options_renameProfileName"
-msgstr ""
+msgstr "Нова назва профілю"
 
 msgid "options_profileNameConflict"
-msgstr ""
+msgstr "Профіль з такою назвою вже існує."
 
 msgid "options_profileNameReserved"
-msgstr ""
+msgstr "Назви профілів з подвійним підкреслюванням зарезервовані."
 
 msgid "options_profileNameHidden"
 msgstr ""
 
 msgid "options_modalHeader_replaceProfile"
-msgstr ""
+msgstr "Замінити профіль"
 
 msgid "options_replaceProfile"
-msgstr ""
+msgstr "Замінити профіль"
 
 msgid "options_replaceProfileConfirm"
-msgstr ""
+msgstr "Ви дійсно бажаєте замінити $FromProfile$ на $ToProfile$?"
 
 msgid "options_replaceProfileHelp"
 msgstr ""
 
 msgid "options_replaceProfileSuccess"
-msgstr ""
+msgstr "Налаштування оновлено."
 
 msgid "options_modalHeader_deleteProfile"
-msgstr ""
+msgstr "Видалити профіль"
 
 msgid "options_deleteProfileConfirm"
 msgstr ""
 
 msgid "options_modalHeader_cannotDeleteProfile"
-msgstr ""
+msgstr "Не вдалося видалити профіль"
 
 msgid "options_profileReferredBy"
 msgstr ""
@@ -693,70 +853,70 @@ msgid "options_profileNameEmpty"
 msgstr ""
 
 msgid "popup_title"
-msgstr ""
+msgstr "Спиваюче вікно SwitchyOmega"
 
 msgid "options_modalHeader_proxyAuth"
 msgstr ""
 
 msgid "options_proxyAuthUsername"
-msgstr ""
+msgstr "Ім'я користувача"
 
 msgid "options_proxyAuthPassword"
-msgstr ""
+msgstr "Пароль"
 
 msgid "options_proxyAuthNone"
 msgstr ""
 
 msgid "options_modalHeader_deleteRule"
-msgstr ""
+msgstr "Видалити правило"
 
 msgid "options_deleteRuleConfirm"
 msgstr ""
 
 msgid "options_deleteRule"
-msgstr ""
+msgstr "Видалити"
 
 msgid "options_modalHeader_resetRules"
-msgstr ""
+msgstr "Скинути правила"
 
 msgid "options_resetRulesConfirm"
 msgstr ""
 
 msgid "options_resetRules"
-msgstr ""
+msgstr "Скинути правила"
 
 msgid "options_resetRules_help"
-msgstr ""
+msgstr "Призначити профіль для усіх правил"
 
 msgid "options_modalHeader_deleteAttached"
-msgstr ""
+msgstr "Видалити список правил"
 
 msgid "options_deleteAttachedConfirm"
 msgstr ""
 
 msgid "options_ruleListLineCount"
-msgstr ""
+msgstr "$COUNT$ строчок правил"
 
 msgid "options_deleteAttached"
-msgstr ""
+msgstr "Видалити список правил"
 
 msgid "options_modalHeader_newProfile"
-msgstr ""
+msgstr "Новий профіль"
 
 msgid "options_newProfileName"
-msgstr ""
+msgstr "Назва профілю"
 
 msgid "options_profileType"
-msgstr ""
+msgstr "Будь ласка, оберіть тип профілю:"
 
 msgid "options_profileTypeFixedProfile"
-msgstr ""
+msgstr "Профіль проксі-серверів"
 
 msgid "options_profileDescFixedProfile"
 msgstr ""
 
 msgid "options_profileTypePacProfile"
-msgstr ""
+msgstr "PAC профіль"
 
 msgid "options_profileDescPacProfile"
 msgstr ""
@@ -765,28 +925,28 @@ msgid "options_profileDescMorePacProfile"
 msgstr ""
 
 msgid "options_profileTypeSwitchProfile"
-msgstr ""
+msgstr "Профіль перемикання"
 
 msgid "options_profileDescSwitchProfile"
 msgstr ""
 
 msgid "options_profileTypeRuleListProfile"
-msgstr ""
+msgstr "Профіль списку правил"
 
 msgid "options_profileDescRuleListProfile"
 msgstr ""
 
 msgid "options_profileTypeVirtualProfile"
-msgstr ""
+msgstr "Віртуальний профіль"
 
 msgid "options_profileDescVirtualProfile"
 msgstr ""
 
 msgid "options_createProfile"
-msgstr ""
+msgstr "Створити"
 
 msgid "options_modalHeader_resetOptions"
-msgstr ""
+msgstr "Скинути налаштування"
 
 msgid "options_resetOptionsConfirm"
 msgstr ""
@@ -798,31 +958,31 @@ msgid "options_profileNotFound"
 msgstr ""
 
 msgid "options_resetSuccess"
-msgstr ""
+msgstr "Налаштування скинуто."
 
 msgid "options_saveSuccess"
-msgstr ""
+msgstr "Налаштування збережено."
 
 msgid "options_importSuccess"
-msgstr ""
+msgstr "Налаштування завантажено."
 
 msgid "options_importFormatError"
-msgstr ""
+msgstr "Некорректний файл резервної копії!"
 
 msgid "options_importDownloadError"
-msgstr ""
+msgstr "Помилка при заватнаженні файлу резервної копії!"
 
 msgid "options_profileDownloadSuccess"
-msgstr ""
+msgstr "Профіль успешно оновлено."
 
 msgid "options_profileDownloadError"
-msgstr ""
+msgstr "Помилка при завантаженні даних профіля!"
 
 msgid "options_profileDownloadError_NetworkError"
-msgstr ""
+msgstr "При оновленні сталася мережева помилка."
 
 msgid "options_profileDownloadError_HttpError"
-msgstr ""
+msgstr "Помилка HTTP ($STATUS$) сталася при оновленні."
 
 msgid "options_profileDownloadError_HttpNotFoundError"
 msgstr ""
@@ -834,7 +994,7 @@ msgid "options_profileDownloadError_ContentTypeRejectedError"
 msgstr ""
 
 msgid "options_downloadProfileNow"
-msgstr ""
+msgstr "Завантажити профіль зараз"
 
 msgid "options_guide_fixedProfileStep"
 msgstr ""
@@ -864,10 +1024,11 @@ msgid "options_guide_applySwitchProfileStep"
 msgstr ""
 
 msgid "popup_externalProfile"
-msgstr ""
+msgstr "(Зовнішній профіль)"
 
+#, fuzzy
 msgid "popup_externalProfileName"
-msgstr ""
+msgstr "назва профілю"
 
 msgid "popup_proxyNotControllable_app"
 msgstr ""
@@ -877,6 +1038,8 @@ msgstr ""
 
 msgid "popup_proxyNotControllable_unknown"
 msgstr ""
+"Налаштуваннями проксі-серверу наразі керувати неможливо. Будь ласка, "
+"перевірте налаштування системи та браузеру."
 
 msgid "popup_proxyNotControllable_disabled"
 msgstr ""
@@ -891,28 +1054,28 @@ msgid "popup_proxyNotControllableDetails_upgrade"
 msgstr ""
 
 msgid "popup_proxyNotControllableManage"
-msgstr ""
+msgstr "Керувати розширеннями"
 
 msgid "popup_addConditionTo"
-msgstr ""
+msgstr "Додати умову до"
 
 msgid "popup_addCondition"
-msgstr ""
+msgstr "Додати умову"
 
 msgid "popup_showOptions"
-msgstr ""
+msgstr "Налаштування"
 
 msgid "popup_reportIssues"
-msgstr ""
+msgstr "Повідомити про проблеми"
 
 msgid "popup_errorLog"
-msgstr ""
+msgstr "Зберегти журнал помилок"
 
 msgid "popup_requestErrorCount"
-msgstr ""
+msgstr "$COUNT$ невдало завантажених ресурсів"
 
 msgid "popup_requestErrorHeading"
-msgstr ""
+msgstr "Ресурси, шо не вдалося завантажити"
 
 msgid "popup_requestErrorWarning"
 msgstr ""
@@ -927,37 +1090,49 @@ msgid "popup_requestErrorCannotAddCondition"
 msgstr ""
 
 msgid "popup_configureMonitorWebRequests"
-msgstr ""
+msgstr "Налаштувати Network Monitor"
 
 msgid "options_resultProfileForSelectedDomains"
-msgstr ""
+msgstr "Використати цей профіль для усіх обраних деменів"
 
 msgid "options_pac_profile_unsupported_moz"
 msgstr ""
 
+#, fuzzy
 msgid "popup_issueTemplate"
 msgstr ""
+"\n"
+"\n"
+"\n"
+"<!-- Please write your comment ABOVE this line. -->\n"
+"SwitchyOmega $projectVersion$\n"
+"$userAgent$"
 
 msgid "browserAction_profileDetails_PacProfile"
-msgstr ""
+msgstr "(PAC-скрипт)"
 
+#, fuzzy
 msgid "browserAction_profileDetails_SystemProfile"
-msgstr ""
+msgstr "(керовано іншими розширеннями чи середою)"
 
 msgid "browserAction_profileDetails_DirectProfile"
-msgstr ""
+msgstr "(не використовується жоден проксі)"
 
 msgid "browserAction_profileDetails_SwitchProfile"
-msgstr ""
+msgstr "(перемикання за умовами)"
 
 msgid "browserAction_profileDetails_RuleListProfile"
-msgstr ""
+msgstr "(перемикання за списком правил)"
 
+#, fuzzy
 msgid "browserAction_titleNormal"
-msgstr ""
+msgstr "SwitchyOmega:: $PROFILE$"
 
+#, fuzzy
 msgid "browserAction_titleWithResult"
 msgstr ""
+"SwitchyOmega:: $1:PROFILE$\n"
+"$3:DETAILS$"
 
 msgid "browserAction_titleNewerOptions"
 msgstr ""
@@ -972,19 +1147,20 @@ msgid "browserAction_titleExternalProxy"
 msgstr ""
 
 msgid "browserAction_titleInspect"
-msgstr ""
+msgstr "[Перевірити] $URL$"
 
 msgid "browserAction_defaultRuleDetails"
-msgstr ""
+msgstr "(за замовчуванням)"
 
 msgid "browserAction_directResult"
-msgstr ""
+msgstr "НАПРЯМУ"
 
 msgid "browserAction_attachedPrefix"
 msgstr ""
 
+#, fuzzy
 msgid "browserAction_tempRulePrefix"
-msgstr ""
+msgstr "(ТИМЧ.) "
 
 msgid "contextMenu_inspectPage"
 msgstr ""
@@ -996,25 +1172,29 @@ msgid "contextMenu_inspectLink"
 msgstr ""
 
 msgid "contextMenu_inspectElement"
-msgstr ""
+msgstr "Перевірити проксі для цього елементу сторінки"
 
 msgid "contextMenu_enableQuickSwitch"
-msgstr ""
+msgstr "Включити Швидке перемикання"
 
 msgid "about_title"
-msgstr ""
+msgstr "Інформація"
 
 msgid "about_app_description"
-msgstr ""
+msgstr "Інструмент для налаштування проксі-серверів"
 
 msgid "about_version"
-msgstr ""
+msgstr "Версія $VERSION$"
 
 msgid "about_experimental_warning_moz"
 msgstr ""
+"Підтримка браузеру Mozilla Firefox вкрай експериментальна! Якщо ви "
+"стикнетися із проблемами, повідомте про це, використовуючи кнопки нижче."
 
 msgid "about_disclaimer_networkService"
 msgstr ""
+"SwitchyOmega не надає адреси проксі-серверів, VPN-серверів або інших "
+"мережевих сервісів."
 
 msgid "about_disclaimer_privacy"
 msgstr ""
