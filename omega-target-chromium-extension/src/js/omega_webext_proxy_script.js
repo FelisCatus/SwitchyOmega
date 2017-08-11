@@ -72,18 +72,22 @@ FindProxyForURL = (function () {
   }
 
   function init() {
-    browser.runtime.sendMessage({event: 'proxyScriptLoaded'});
     browser.runtime.onMessage.addListener(function(message) {
-      if (message.event === 'proxyScriptStateChanged') {
-        state = message.state;
-        options = message.options;
-        if (!state.currentProfileName) {
-          activeProfile = state.tempProfile;
-        } else {
-          activeProfile = OmegaPac.Profiles.byName(state.currentProfileName,
-            options);
+      try {
+        if (message.event === 'proxyScriptStateChanged') {
+          state = message.state;
+          options = message.options;
+          if (!state.currentProfileName) {
+            activeProfile = state.tempProfile;
+          } else {
+            activeProfile = OmegaPac.Profiles.byName(state.currentProfileName,
+              options);
+          }
         }
+      } catch (err) {
+        warn('error on event: ' + message, err)
       }
     });
+    browser.runtime.sendMessage({event: 'proxyScriptLoaded'});
   }
 })();
