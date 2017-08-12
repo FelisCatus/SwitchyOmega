@@ -72,7 +72,6 @@ FindProxyForURL = (function () {
   }
 
   function init() {
-    browser.runtime.sendMessage({event: 'proxyScriptLoaded'});
     browser.runtime.onMessage.addListener(function(message) {
       if (message.event === 'proxyScriptStateChanged') {
         state = message.state;
@@ -85,5 +84,6 @@ FindProxyForURL = (function () {
         }
       }
     });
+    browser.runtime.sendMessage({event: 'proxyScriptLoaded'});
   }
 })();
