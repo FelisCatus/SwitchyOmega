@@ -54,6 +54,9 @@ class ChromeTabs
         @clearIcon tab.id
       return
     @actionForUrl(tab.url).then (action) =>
+      if not action
+        @clearIcon tab.id
+        return
       @setIcon(action.icon, tab.id)
       if chrome.browserAction.setPopup?
         chrome.browserAction.setTitle({title: action.title, tabId: tab.id})

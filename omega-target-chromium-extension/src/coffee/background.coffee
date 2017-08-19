@@ -66,7 +66,7 @@ actionForUrl = (url) ->
   options.ready.then(->
     request = OmegaPac.Conditions.requestFromUrl(url)
     options.matchProfile(request)
-  ).then ({profile, results}) ->
+  ).then(({profile, results}) ->
     current = options.currentProfile()
     currentName = dispName(current.name)
     if current.profileType == 'VirtualProfile'
@@ -152,6 +152,7 @@ actionForUrl = (url) ->
       resultColor: resultColor
       profileColor: profileColor
     }
+  ).catch -> return null
 
 
 storage = new OmegaTargetCurrent.Storage('local')
@@ -185,6 +186,7 @@ options._inspect = new OmegaTargetCurrent.Inspect (url, tab) ->
   state.set({inspectUrl: url})
 
   actionForUrl(url).then (action) ->
+    return if not action
     parsedUrl = OmegaTargetCurrent.Url.parse(url)
     if parsedUrl.hostname == OmegaTargetCurrent.Url.parse(tab.url).hostname
       urlDisp = parsedUrl.path
