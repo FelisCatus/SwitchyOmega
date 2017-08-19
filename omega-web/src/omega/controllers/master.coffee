@@ -108,6 +108,13 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   $rootScope.profileByName = (name) ->
     OmegaPac.Profiles.byName(name, $rootScope.options)
 
+  $rootScope.systemProfile = $rootScope.profileByName('system')
+  $rootScope.externalProfile =
+    color: '#49afcd'
+    name: tr('popup_externalProfile')
+    profileType: 'FixedProfile'
+    fallbackProxy: {host: "127.0.0.1", port: 42, scheme: "http"}
+
   $rootScope.applyOptionsConfirm = ->
     return $q.reject 'form_invalid' unless checkFormValid()
     return $q.when(true) unless $rootScope.optionsDirty

@@ -293,6 +293,35 @@ msgstr "代理設定變化"
 msgid "options_revertProxyChanges"
 msgstr "撤消其他擴展對代理的更改。"
 
+msgid "options_group_conflicts"
+msgstr "衝突"
+
+msgid "options_conflicts_introduction"
+msgstr ""
+"有時其他應用也會試圖控制代理設置，從而導致衝突。請注意，去廣告等其他擴展也可能"
+"利用了代理設置來實現功能。此類衝突是由瀏覽器的工作原理引起的，所以無法避免。"
+
+msgid "options_conflicts_lowerPriority"
+msgstr ""
+"如果 SwitchyOmega 圖標上顯示這樣的紅色徽章，表示另一個應用優先級較高，因此"
+"SwitchyOmega 無法控制代理設置。請嘗試卸載 SwitchyOmega 再重新安裝，這樣可能可"
+"以提高 SwitchyOmega 的優先級。如果重裝後您仍然看到衝突，那麼請考慮移除那個"
+"導致衝突的應用。"
+
+msgid "options_conflicts_higherPriority"
+msgstr ""
+"如果 SwitchyOmega 的優先級較高，那麼您可以在彈出菜單中選擇 $SYSTEMPROFILE$ 來"
+"把控制權還給其他應用或系統設置。"
+
+msgid "options_showExternalProfile"
+msgstr "在彈出菜單中顯示菜單項，以導入其他應用提供的代理設置。"
+
+msgid "options_showExternalProfileHelp"
+msgstr ""
+"選擇了 $SYSTEMPROFILE$ 的情況下，您可以在彈出菜單中選擇 $EXTERNALPROFILE$ 來"
+"導入其他應用提供的代理設置。導入的設置將會成為一個新的情景模式，其名稱由您決"
+"定。請注意導入的情景模式只是當時的一個快照，導入後不會隨著原來的應用更新。"
+
 msgid "options_group_networkRequests"
 msgstr "網路請求"
 

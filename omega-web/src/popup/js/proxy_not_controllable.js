@@ -1,12 +1,26 @@
 (function() {
+  function closePopup() {
+    window.close();
+    // If the popup is opened as a tab, the above won't work. Let's reload then.
+    document.body.style.opacity = 0;
+    setTimeout(function() { history.go(0); }, 300);
+  }
   var closeButton = document.getElementById('js-close');
-  closeButton.addEventListener('click', window.close.bind(window), false);
+  closeButton.addEventListener('click', closePopup, false);
 
   var manageButton = document.getElementById('js-manage-ext');
-  manageButton.addEventListener('click',
-    OmegaTargetPopup.openManage.bind(OmegaTargetPopup), false);
+  manageButton.addEventListener('click', function () {
+    OmegaTargetPopup.openManage(closePopup);
+  }, false);
+
+  var learnMoreButton = document.getElementById('js-nc-learn-more');
+  learnMoreButton.addEventListener('click', function () {
+    OmegaTargetPopup.openOptions('#!/general', closePopup);
+  }, false);
 
   closeButton.textContent = OmegaTargetPopup.getMessage('dialog_cancel');
+  learnMoreButton.textContent = 'Learn More'
+    //OmegaTargetPopup.getMessage('popup_proxyNotControllableLearnMore');
   manageButton.textContent = OmegaTargetPopup.getMessage(
     'popup_proxyNotControllableManage');
 

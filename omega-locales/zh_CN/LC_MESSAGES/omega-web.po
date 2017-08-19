@@ -293,6 +293,35 @@ msgstr "代理设置变化"
 msgid "options_revertProxyChanges"
 msgstr "撤消其他扩展对代理的更改。"
 
+msgid "options_group_conflicts"
+msgstr "冲突"
+
+msgid "options_conflicts_introduction"
+msgstr ""
+"有时其他应用也会试图控制代理设置，从而导致冲突。请注意，去广告等其他扩展也可能"
+"利用了代理设置来实现功能。此类冲突是由浏览器的工作原理引起的，所以无法避免。"
+
+msgid "options_conflicts_lowerPriority"
+msgstr ""
+"如果 SwitchyOmega 图标上显示这样的红色徽章，表示另一个应用优先级较高，因此"
+"SwitchyOmega 无法控制代理设置。请尝试卸载 SwitchyOmega 再重新安装，这样可能可"
+"以提高 SwitchyOmega 的优先级。如果重装后您仍然看到冲突，那么请考虑移除那个"
+"导致冲突的应用。"
+
+msgid "options_conflicts_higherPriority"
+msgstr ""
+"如果 SwitchyOmega 的优先级较高，那么您可以在弹出菜单中选择 $SYSTEMPROFILE$ 来"
+"把控制权还给其他应用或系统设置。"
+
+msgid "options_showExternalProfile"
+msgstr "在弹出菜单中显示菜单项，以导入其他应用提供的代理设置。"
+
+msgid "options_showExternalProfileHelp"
+msgstr ""
+"选择了 $SYSTEMPROFILE$ 的情况下，您可以在弹出菜单中选择 $EXTERNALPROFILE$ 来"
+"导入其他应用提供的代理设置。导入的设置将会成为一个新的情景模式，其名称由您决"
+"定。请注意导入的情景模式只是当时的一个快照，导入后不会随着原来的应用更新。"
+
 msgid "options_group_networkRequests"
 msgstr "网络请求"
 

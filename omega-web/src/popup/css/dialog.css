@@ -84,6 +84,28 @@ p {
   border-color: #adadad;
 }
 
+.om-btn-link {
+  font-weight: 400;
+  color: #337ab7;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.om-btn-link:hover {
+  color: #23527c;
+  text-decoration: underline;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.om-btn-link:active {
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 .om-btn-primary {
   color: #fff;
   background-color: #337ab7;

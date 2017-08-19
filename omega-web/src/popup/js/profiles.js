@@ -66,7 +66,8 @@
   function updateMenuByStateAndPageInfo() {
     var state = OmegaPopup.state;
     var info = OmegaPopup.pageInfo;
-    if (state.externalProfile && (!info || !info.errorCount)) {
+    if (state.showExternalProfile && state.externalProfile &&
+        (!info || !info.errorCount)) {
       showMenuForExternalProfile(state);
     }
     if (!info || !info.url) return updateOtherItems(null);

@@ -1,22 +1,33 @@
 .page-header
   h2 {{'options_tab_general' | tr}}
 section.settings-group
-  h3 {{'options_group_proxyChanges' | tr}}
-  div.checkbox
-    label
-      input#revert-proxy-changes(type='checkbox' ng-model='options["-revertProxyChanges"]')
-      span {{'options_revertProxyChanges' | tr}}
-section.settings-group
   h3 {{'options_group_networkRequests' | tr}}
   div.checkbox
     label
       input#revert-proxy-changes(type='checkbox' ng-model='options["-monitorWebRequests"]')
       span {{'options_monitorWebRequests' | tr}}
     p.help-block(omega-html="'options_monitorWebRequestsHelp' | tr")
-section.settings-group
+section.settings-group.width-limit
   h3 {{'options_downloadOptions' | tr}}
   p.help-block {{'options_downloadOptionsHelp' | tr}}
   .form-group
     label(for='download-interval') {{'options_downloadInterval' | tr}}
     select#download-interval.form-control.inline-form-control(ng-model='options["-downloadInterval"]'
       ng-options='interval as (downloadIntervalI18n(interval) | tr) for interval in downloadIntervals')
+section.settings-group.width-limit
+  h3 {{'options_group_conflicts' | tr}}
+  p {{'options_conflicts_introduction' | tr}}
+  p.help-text.text-danger
+    span(style='padding: 1px 4px; background: #da4f49; color: #fff; box-shadow: #ccc 1px 1px 1px 1px;') =
+    = ' '
+    | {{'options_conflicts_lowerPriority' | tr}}
+  p.help-text.text-info
+    span.glyphicon.glyphicon-info-sign
+    = ' '
+    span(omega-html="'options_conflicts_higherPriority' | tr:[$profile('systemProfile')]")
+
+  div.checkbox
+    label
+      input#revert-proxy-changes(type='checkbox' ng-model='options["-showExternalProfile"]')
+      span {{'options_showExternalProfile' | tr}}
+  p.help-block(omega-html="'options_showExternalProfileHelp' | tr:[$profile('systemProfile'), $profile('externalProfile')]")

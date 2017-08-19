@@ -14,6 +14,7 @@ $script('../js/omega_target_popup.js', 'om-target', function() {
     'currentProfileCanAddRule',
     'proxyNotControllable',
     'externalProfile',
+    'showExternalProfile',
   ], function(err, state) {
     window.OmegaPopup.state = state;
     $script.done('om-state');
