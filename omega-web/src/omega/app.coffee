@@ -66,6 +66,14 @@ angular.module('omega').config ($stateProvider, $urlRouterProvider,
       controller: 'AboutCtrl'
     )
 
+angular.module('omega').factory '$exceptionHandler', ($log) ->
+  return (exception, cause) ->
+    return if exception.message == 'transition aborted'
+    return if exception.message == 'transition superseded'
+    return if exception.message == 'transition prevented'
+    return if exception.message == 'transition failed'
+    $log.error(exception, cause)
+
 angular.module('omega').factory 'omegaDebug', ($window, $rootScope,
   $injector) ->
   omegaDebug = $window.OmegaDebug ? {}
