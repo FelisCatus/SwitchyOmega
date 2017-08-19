@@ -7,6 +7,7 @@ module.exports = ->
   "-revertProxyChanges": true
   "-confirmDeletion": true
   "-showInspectMenu": true
+  "-addConditionsToBottom": false
   "-showExternalProfile": true
   "-downloadInterval": 1440
   "+proxy":

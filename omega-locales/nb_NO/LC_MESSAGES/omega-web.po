@@ -226,6 +226,9 @@ msgstr "Gjenoppfrisk gjeldende fane ved profilendring."
 msgid "options_showInspectMenu"
 msgstr ""
 
+msgid "options_addConditionsToBottom"
+msgstr "Put new conditions added using the popup to the bottom of the list."
+
 msgid "options_group_keyboardShortcut"
 msgstr "Tastatursnarvei"
 

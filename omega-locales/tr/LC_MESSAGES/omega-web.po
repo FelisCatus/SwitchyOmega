@@ -266,6 +266,9 @@ msgstr "Refresh current tab on profile change."
 msgid "options_showInspectMenu"
 msgstr "Allow inspecting proxy used for page elements via context menu."
 
+msgid "options_addConditionsToBottom"
+msgstr "Put new conditions added using the popup to the bottom of the list."
+
 msgid "options_group_keyboardShortcut"
 msgstr "Keyboard Shortcut"
 

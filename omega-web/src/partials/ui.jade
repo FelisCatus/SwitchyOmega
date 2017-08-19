@@ -14,6 +14,10 @@ section.settings-group
     label
       input(type='checkbox' ng-model='options["-showInspectMenu"]')
       span {{'options_showInspectMenu' | tr}}
+  div.checkbox
+    label
+      input(type='checkbox' ng-model='options["-addConditionsToBottom"]')
+      span {{'options_addConditionsToBottom' | tr}}
 section.settings-group
   h3 {{'options_group_keyboardShortcut' | tr}}
   p

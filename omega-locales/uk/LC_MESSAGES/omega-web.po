@@ -288,6 +288,9 @@ msgstr ""
 "Дозволити з'ясування, які проксі-сервери використовуватимуться для елементів "
 "сторінки за допомогою контекстного меню."
 
+msgid "options_addConditionsToBottom"
+msgstr "Put new conditions added using the popup to the bottom of the list."
+
 msgid "options_group_keyboardShortcut"
 msgstr "Клавіатурні скорочення"
 

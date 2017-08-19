@@ -245,6 +245,9 @@ msgstr "当更改情景模式时刷新当前标签。"
 msgid "options_showInspectMenu"
 msgstr "右键菜单中，可检查网页元素所使用的代理。"
 
+msgid "options_addConditionsToBottom"
+msgstr "把以弹出菜单创建的规则添加到列表末尾。"
+
 msgid "options_group_keyboardShortcut"
 msgstr "键盘快捷键"
 

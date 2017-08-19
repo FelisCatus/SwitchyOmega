@@ -275,6 +275,9 @@ msgstr ""
 "Permitir inspeccionar el proxy utilizado por cada elemento de la página a "
 "través del menú contextual."
 
+msgid "options_addConditionsToBottom"
+msgstr "Put new conditions added using the popup to the bottom of the list."
+
 msgid "options_group_keyboardShortcut"
 msgstr "Atajo de teclado"
 

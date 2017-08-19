@@ -270,6 +270,9 @@ msgstr ""
 "مجوز برای بررسی پروکسی مورد استفاده برای یک المان صفحه در منوی زمنیه ("
 "context menu)."
 
+msgid "options_addConditionsToBottom"
+msgstr "Put new conditions added using the popup to the bottom of the list."
+
 msgid "options_group_keyboardShortcut"
 msgstr "میانبرهای کیبرد"
 
