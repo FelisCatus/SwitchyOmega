@@ -2,7 +2,6 @@ angular.module('omega').directive 'inputGroupClear', ($timeout) ->
   restrict: 'A'
   templateUrl: 'partials/input_group_clear.html'
   scope:
-    'model': '=model'
     'type': '@type'
     'ngPattern': '=?ngPattern'
     'placeholder': '@placeholder'
@@ -37,15 +36,6 @@ angular.module('omega').directive 'omegaUpload', ->
             scope.error({'$error': e.target.error})
         reader.readAsText(input.files[0])
         input.value = ''
-angular.module('omega').directive 'omegaInt2str', ->
-  restrict: 'A'
-  priority: 2 # Run post-link after input directive (0) and ngModel (1).
-  require: 'ngModel'
-  link: (scope, element, attr, ngModel) ->
-    ngModel.$parsers.push (value) ->
-      parseInt(value)
-    ngModel.$formatters.push (value) ->
-      '' + value
 angular.module('omega').directive 'omegaIp2str', ->
   restrict: 'A'
   priority: 2 # Run post-link after input directive (0) and ngModel (1).
