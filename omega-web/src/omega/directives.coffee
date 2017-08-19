@@ -2,6 +2,7 @@ angular.module('omega').directive 'inputGroupClear', ($timeout) ->
   restrict: 'A'
   templateUrl: 'partials/input_group_clear.html'
   scope:
+    'model': '=model'
     'type': '@type'
     'ngPattern': '=?ngPattern'
     'placeholder': '@placeholder'
