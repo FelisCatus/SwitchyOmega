@@ -60,7 +60,6 @@ jobs:
 
       - run: (cd omega-build && sudo npm run dev)
       - run: (cd omega-pac && npm test)
-      - run: (cd omega-pac && npm test)
       - run: (cd omega-target && npm test)
       - run: (cd omega-build && grunt)
 
@@ -79,7 +78,8 @@ jobs:
           command: |
             cd omega-target-chromium-extension
             grunt release
-            mv build.zip "packages/SwitchyOmega_${FULL_VER}_Chromium_UNSIGNED.zip"
+            dest_file="packages/SwitchyOmega_${FULL_VER}_Chromium_UNSIGNED.zip"
+            mv release.zip "$dest_file"
             cd ..
 
       - run: (cd omega-target-chromium-extension && web-ext -s build lint)

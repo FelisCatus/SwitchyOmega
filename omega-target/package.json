@@ -29,6 +29,7 @@
     "omega-pac": "./omega_pac_shim.js"
   },
   "scripts": {
-    "dev": "npm link omega-pac && npm link"
+    "dev": "npm link omega-pac && npm link",
+    "test": "grunt test"
   }
 }
