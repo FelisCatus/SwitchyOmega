@@ -176,5 +176,6 @@ module.exports = (oldOptions, i18n) ->
       auto.rules = for own _, rule of rules
         profileName: nameMap[rule['profileId']] || 'direct'
         condition: conditionFromRule(rule)
+        note: rule.name
     return options
   return
