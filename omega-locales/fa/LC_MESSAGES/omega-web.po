@@ -723,6 +723,9 @@ msgstr "افزودن شرط"
 msgid "options_cloneRule"
 msgstr "کپی"
 
+msgid "options_ruleNote"
+msgstr "Note"
+
 msgid "options_switchAttachedProfileInCondition"
 msgstr "قوانین لیست قوانین"
 

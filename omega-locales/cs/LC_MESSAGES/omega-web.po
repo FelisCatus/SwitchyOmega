@@ -717,6 +717,9 @@ msgstr "Přidat podmínku"
 msgid "options_cloneRule"
 msgstr "Klonovat"
 
+msgid "options_ruleNote"
+msgstr "Note"
+
 msgid "options_switchAttachedProfileInCondition"
 msgstr "Pravidlo seznamu pravidel"
 

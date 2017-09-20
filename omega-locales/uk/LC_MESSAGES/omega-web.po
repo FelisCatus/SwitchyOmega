@@ -747,6 +747,9 @@ msgstr "Додати умову"
 msgid "options_cloneRule"
 msgstr "Дублювати"
 
+msgid "options_ruleNote"
+msgstr "Note"
+
 #, fuzzy
 msgid "options_switchAttachedProfileInCondition"
 msgstr "Правила списку правил"

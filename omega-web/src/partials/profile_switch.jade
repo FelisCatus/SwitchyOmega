@@ -58,6 +58,7 @@ div(ng-controller='SwitchProfileCtrl')
             th {{'options_conditionDetails' | tr}}
             th {{'options_resultProfile' | tr}}
             th {{'options_conditionActions' | tr}}
+            th(ng-if='showNotes') {{'options_ruleNote' | tr}}
         tbody(ui-sortable='sortableOptions' ng-model='profile.rules')
           tr.switch-rule-row(ng-repeat='rule in profile.rules')
             td.sort-bar
@@ -105,10 +106,14 @@ div(ng-controller='SwitchProfileCtrl')
               = ' '
               button.btn.btn-default.btn-sm(title="{{'options_cloneRule' | tr}}" ng-click='cloneRule($index)')
                 span.glyphicon.glyphicon-duplicate
+              button.btn.btn-default.btn-sm(title="{{'options_ruleNote' | tr}}" ng-if='!showNotes' ng-click='addNote($index)')
+                span.glyphicon.glyphicon-comment
+            td(ng-if='showNotes')
+              input.form-control(ng-model='rule.note')
         tbody
           tr
             td(style='border-right: none;')
-            td(style='border-left: none;', colspan='4')
+            td(style='border-left: none;' colspan='4' ng-attr-colspan='{{showNotes ? 5 : 4}}')
               button.btn.btn-default.btn-sm(ng-click='addRule()')
                 span.glyphicon.glyphicon-plus
                 = ' '
@@ -133,6 +138,7 @@ div(ng-controller='SwitchProfileCtrl')
             td
               button.btn.btn-danger.btn-sm(title="{{'options_deleteAttached' | tr}}" ng-click='removeAttached()')
                 span.glyphicon.glyphicon-trash
+            td(ng-if='showNotes')
         tbody
           tr.switch-default-row
             td
@@ -143,6 +149,7 @@ div(ng-controller='SwitchProfileCtrl')
             td
               button.btn.btn-info.btn-sm(title="{{'options_resetRules_help' | tr}}" ng-click='resetRules()')
                 span.glyphicon.glyphicon-chevron-up
+            td(ng-if='showNotes')
   section.settings-group(ng-if='!attached')
     h3 {{'options_group_attachProfile' | tr}}
     p.help-block {{'options_attachProfileHelp' | tr}}

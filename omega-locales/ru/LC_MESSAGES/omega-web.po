@@ -721,6 +721,9 @@ msgstr "Add condition"
 msgid "options_cloneRule"
 msgstr "Clone"
 
+msgid "options_ruleNote"
+msgstr "Note"
+
 msgid "options_switchAttachedProfileInCondition"
 msgstr "Rule list rules"
 

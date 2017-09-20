@@ -633,6 +633,9 @@ msgstr "添加條件"
 msgid "options_cloneRule"
 msgstr "克隆"
 
+msgid "options_ruleNote"
+msgstr "備註"
+
 msgid "options_switchAttachedProfileInCondition"
 msgstr "規則列表規則"
 

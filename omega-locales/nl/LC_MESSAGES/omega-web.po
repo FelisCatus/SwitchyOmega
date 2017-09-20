@@ -596,6 +596,9 @@ msgstr ""
 msgid "options_cloneRule"
 msgstr ""
 
+msgid "options_ruleNote"
+msgstr "Note"
+
 msgid "options_switchAttachedProfileInCondition"
 msgstr ""
 

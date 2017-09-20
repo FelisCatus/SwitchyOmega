@@ -244,6 +244,16 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
       input[0]?.focus()
       input[0]?.select()
 
+  $scope.showNotes = false
+  $scope.addNote = (index) ->
+    $scope.showNotes = true
+    unwatchRulesShowNote()
+  unwatchRulesShowNote = $scope.$watch 'profile.rules', ((rules) ->
+    if rules and rules.some((rule) -> !!rule.note)
+      $scope.showNotes = true
+      unwatchRulesShowNote()
+  ), true
+
   $scope.resetRules = ->
     scope = $scope.$new('isolate')
     scope.ruleProfile =
