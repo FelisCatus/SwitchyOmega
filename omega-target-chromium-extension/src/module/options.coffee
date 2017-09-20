@@ -207,9 +207,8 @@ class ChromeOptions extends OmegaTarget.Options
           # MOZ: Legacy proxy support expects PAC-like string return type.
           # TODO(catus): Remove support for string return type.
           @log.error(
-            'WARNING: Your browser is outdated! SOCKS5 DNS/Auth unsupported!')
-          @log.error('Please update your browser ASAP!')
-          @log.error("useLegacyStringReturn=true for Build: #{info.buildID}.")
+            'Your browser is outdated! SOCKS5 DNS/Auth unsupported! ' +
+            "Please update your browser ASAP! (Current Build #{info.buildID})")
           @_proxyScriptState.useLegacyStringReturn = true
         @_proxyScriptStateChanged()
     @_proxyAuth ?= new ProxyAuth(this)
@@ -232,9 +231,10 @@ class ChromeOptions extends OmegaTarget.Options
           if err.message.indexOf('Return type must be a string') >= 0
             # MOZ: Legacy proxy support expects PAC-like string return type.
             # TODO(catus): Remove support for string return type.
+            #
             @log.error(
-              'WARNING: Your browser is outdated! Remote DNS is unsupported!')
-            @log.error('Please update your browser ASAP!')
+              'Your browser is outdated! SOCKS5 DNS/Auth unsupported! ' +
+              'Please update your browser ASAP!')
             @_proxyScriptState.useLegacyStringReturn = true
             @_proxyScriptStateChanged()
             return
