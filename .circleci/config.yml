@@ -68,9 +68,10 @@ jobs:
           command: |
             cd omega-target-chromium-extension
             mkdir packages
-            base_ver=$(json "build/package.json" version)
-            FULL_VER="${base_ver}-ci.${CIRCLE_BUILD_NUM}+${CIRCLE_SHA1}"
-            echo "export FULL_VER=$FULL_VER" >> $BASH_ENV
+            base_ver=$(json -f "overlay/manifest.json" version)
+            commit_rev=$(git rev-parse --short HEAD)
+            FULL_VER="${base_ver}-${CIRCLE_BUILD_NUM}.ci.${commit_rev}"
+            echo "export FULL_VER='$FULL_VER'" >> $BASH_ENV
             cd ..
 
       - run:
