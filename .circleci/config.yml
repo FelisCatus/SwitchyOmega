@@ -1,0 +1,97 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:7.10
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-build-{{ checksum "omega-build/package.json" }}
+          - v1-dependencies-build
+      - restore_cache:
+          keys:
+          - v1-dependencies-pac-{{ checksum "omega-pac/package.json" }}
+          - v1-dependencies-pac
+      - restore_cache:
+          keys:
+          - v1-dependencies-target-{{ checksum "omega-target/package.json" }}
+          - v1-dependencies-target
+      - restore_cache:
+          keys:
+          - v1-dependencies-web-{{ checksum "omega-web/package.json" }}
+          - v1-dependencies-web
+      - restore_cache:
+          keys:
+          - v1-dependencies-webbower-{{ checksum "omega-web/bower.json" }}
+          - v1-dependencies-webbower
+      - restore_cache:
+          keys:
+          - v1-dependencies-targetchromium-{{ checksum "omega-target-chromium-extension/package.json" }}
+          - v1-dependencies-targetchromium
+
+      - run: sudo npm install -g grunt-cli bower web-ext json
+      - run: (cd omega-build && npm run deps)
+
+      - save_cache:
+          paths:
+            - omega-build/node_modules
+          key: v1-dependencies-build-{{ checksum "omega-build/package.json" }}
+      - save_cache:
+          paths:
+            - omega-pac/node_modules
+          key: v1-dependencies-pac-{{ checksum "omega-pac/package.json" }}
+      - save_cache:
+          paths:
+            - omega-web/node_modules
+          key: v1-dependencies-web-{{ checksum "omega-web/package.json" }}
+      - save_cache:
+          paths:
+            - omega-web/bower_components
+          key: v1-dependencies-webbower-{{ checksum "omega-web/bower.json" }}
+      - save_cache:
+          paths:
+            - omega-target-chromium-extension/node_modules
+          key: v1-dependencies-targetchromium-{{ checksum "omega-target-chromium-extension/package.json" }}
+
+      - run: (cd omega-build && sudo npm run dev)
+      - run: (cd omega-pac && npm test)
+      - run: (cd omega-pac && npm test)
+      - run: (cd omega-target && npm test)
+      - run: (cd omega-build && grunt)
+
+      - run: 
+          name: Prepare for package builds
+          command: |
+            cd omega-target-chromium-extension
+            mkdir packages
+            base_ver=$(json "build/package.json" version)
+            FULL_VER="${base_ver}-ci.${CIRCLE_BUILD_NUM}+${CIRCLE_SHA1}"
+            echo "export FULL_VER=$FULL_VER" >> $BASH_ENV
+            cd ..
+
+      - run:
+          name: Build unsigned ZIP package for Chromium
+          command: |
+            cd omega-target-chromium-extension
+            grunt release
+            mv build.zip "packages/SwitchyOmega_${FULL_VER}_Chromium_UNSIGNED.zip"
+            cd ..
+
+      - run: (cd omega-target-chromium-extension && web-ext -s build lint)
+
+      - run:
+          name: Build unsigned ZIP package for Firefox
+          command: |
+            cd omega-target-chromium-extension
+            web-ext -s build build
+            dest_file="packages/SwitchyOmega_${FULL_VER}_Firefox_UNSIGNED.zip"
+            mv web-ext-artifacts/*.zip "$dest_file"
+            cd ..
+      - store_artifacts:
+          path: omega-target-chromium-extension/packages
+          destination: packages
