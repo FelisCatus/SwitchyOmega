@@ -257,7 +257,7 @@ module.exports = exports =
         if profile.bypassList
           for cond in profile.bypassList
             if Conditions.match(cond, request)
-              return [@pacResult(), cond, {scheme: 'direct'}, null]
+              return [@pacResult(), cond, {scheme: 'direct'}, undefined]
         for s in @schemes when s.scheme == request.scheme and profile[s.prop]
           return [
             @pacResult(profile[s.prop]),

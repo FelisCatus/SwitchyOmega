@@ -97,22 +97,34 @@ describe 'Profiles', ->
         conditionType: 'BypassCondition'
         pattern: '<local>'
       }]
-      proxyForHttps:
-        scheme: 'http'
-        host: '127.0.0.1'
-        port: 1234
-      fallbackProxy:
+      proxyForHttp:
         scheme: 'socks4'
         host: '127.0.0.1'
         port: 1234
+      proxyForHttps:
+        scheme: 'http'
+        host: '127.0.0.1'
+        port: 2345
+      fallbackProxy:
+        scheme: 'socks4'
+        host: '127.0.0.1'
+        port: 3456
+      auth:
+        proxyForHttps:
+          username: 'test'
+          password: 'cheesecake'
     it 'should use protocol-specific proxies if suitable', ->
-      testProfile(profile, 'https://www.example.com/',
-        ['PROXY 127.0.0.1:1234', 'https'])
+      testProfile(profile, 'https://www.example.com/', ['PROXY 127.0.0.1:2345',
+        'https', profile.proxyForHttps, profile.auth.proxyForHttps])
     it 'should use fallback proxies for other protocols', ->
       testProfile(profile, 'ftp://www.example.com/',
-        ['SOCKS 127.0.0.1:1234', ''])
+        ['SOCKS 127.0.0.1:3456', '', profile.fallbackProxy, undefined])
+    it 'should not return authentication if not provided for protocol', ->
+      testProfile(profile, 'http://www.example.com/',
+        ['SOCKS 127.0.0.1:1234', 'http', profile.proxyForHttp, undefined])
     it 'should not use any proxy for requests matching the bypassList', ->
-      testProfile profile, 'ftp://localhost/', ['DIRECT', profile.bypassList[0]]
+      testProfile profile, 'ftp://localhost/',
+        ['DIRECT', profile.bypassList[0], {scheme: 'direct'}, undefined]
   describe 'PacProfile', ->
     profile = Profiles.create('test', 'PacProfile')
     profile.pacScript = '''
