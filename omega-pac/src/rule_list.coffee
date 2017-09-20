@@ -95,6 +95,8 @@ module.exports = exports =
         ruleList += eol
       specialLineStart = exports['Switchy'].specialLineStart + '+'
       for rule in rules
+        if rule.note
+          ruleList += '@note ' + rule.note + eol
         line = Conditions.str(rule.condition)
         if useExclusive and rule.profileName == defaultProfileName
           line = '!' + line
@@ -185,6 +187,7 @@ module.exports = exports =
       rulesWithDefaultProfile = []
       withResult = false
       exclusiveProfile = null
+      noteForNextRule = null
       lno = 0
       for line in text.split(/\n|\r/)
         lno++
@@ -205,6 +208,8 @@ module.exports = exports =
                 feature = line.toUpperCase()
                 if feature == 'RESULT' or feature == 'RESULTS'
                   withResult = true
+              when 'NOTE'
+                noteForNextRule = line
             continue
 
         source = null
@@ -243,6 +248,9 @@ module.exports = exports =
           condition: cond
           profileName: profile
           source: if includeSource then source ? line
+        if noteForNextRule?
+          rule.note = noteForNextRule
+          noteForNextRule = null
         rules.push(rule)
         if not profile
           rulesWithDefaultProfile.push(rule)
