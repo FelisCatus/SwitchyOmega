@@ -35,18 +35,35 @@ FindProxyForURL = (function () {
 
       if (Array.isArray(matchResult)) {
         next = matchResult[0];
-        // TODO: Maybe also return user/pass if Mozilla supports it or it ends
-        //       up standardized in WebExtensions in the future.
-        // MOZ: Mozilla has a bug tracked for user/pass in PAC return value.
-        // https://bugzilla.mozilla.org/show_bug.cgi?id=1319641
-        if (next.charCodeAt(0) !== 43) {
+        var proxy = matchResult[2];
+        var auth = matchResult[3];
+        if (proxy && !state.useLegacyStringReturn) {
+          var proxyInfo = {
+            type: proxy.scheme,
+            host: proxy.host,
+            port: proxy.port,
+          };
+          if (proxyInfo.type === 'socks5') {
+            // MOZ: SOCKS5 proxies are identified by "type": "socks".
+            // https://dxr.mozilla.org/mozilla-central/rev/ffe6cc09ccf38cca6f0e727837bbc6cb722d1e71/toolkit/components/extensions/ProxyScriptContext.jsm#51
+            proxyInfo.type = 'socks';
+            // Enable SOCKS5 remote DNS.
+            // TODO(catus): Maybe allow the users to configure this?
+            proxyInfo.proxyDNS = true;
+          }
+          if (auth) {
+            proxyInfo.username = auth.username;
+            proxyInfo.password = auth.password;
+          }
+          return [proxyInfo];
+        } else if (next.charCodeAt(0) !== 43) {
+          // MOZ: Legacy proxy support expects PAC-like string return type.
+          // TODO(catus): Remove support for string return type.
           // MOZ: SOCKS5 proxies are supported under the prefix SOCKS.
-          // https://dxr.mozilla.org/mozilla-central/source/toolkit/components/extensions/ProxyScriptContext.jsm#178
+          // https://dxr.mozilla.org/mozilla-central/rev/ffe6cc09ccf38cca6f0e727837bbc6cb722d1e71/toolkit/components/extensions/ProxyScriptContext.jsm#51
           // Note: We have to replace this because MOZ won't process the rest of
           //       the list if the syntax of the first item is not recognized.
-          next = next.replace(/SOCKS5 /g, 'SOCKS ');
-
-          return next;
+          return next.replace(/SOCKS5 /g, 'SOCKS ');
         }
       } else if (matchResult.profileName) {
         next = OmegaPac.Profiles.nameAsKey(matchResult.profileName)

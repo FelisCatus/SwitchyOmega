@@ -38,7 +38,12 @@ angular.module('omega').controller 'FixedProfileCtrl', ($scope, $modal,
 
   $scope.proxyEditors = {}
 
-  $scope.authSupported = {"http": true, "https": true}
+  socks5AuthSupported = (browser?.proxy?.register?)
+  $scope.authSupported = {
+    "http": true,
+    "https": true,
+    "socks5": socks5AuthSupported,
+  }
   $scope.isProxyAuthActive = (scheme) ->
     return $scope.profile.auth?[proxyProperties[scheme]]?
   $scope.editProxyAuth = (scheme) ->

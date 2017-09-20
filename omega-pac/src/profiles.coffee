@@ -257,10 +257,20 @@ module.exports = exports =
         if profile.bypassList
           for cond in profile.bypassList
             if Conditions.match(cond, request)
-              return [@pacResult(), cond]
+              return [@pacResult(), cond, {scheme: 'direct'}, null]
         for s in @schemes when s.scheme == request.scheme and profile[s.prop]
-          return [@pacResult(profile[s.prop]), s.scheme]
-        return [@pacResult(profile.fallbackProxy), '']
+          return [
+            @pacResult(profile[s.prop]),
+            s.scheme,
+            profile[s.prop],
+            profile.auth?[s.prop] ? profile.auth?['all']
+          ]
+        return [
+          @pacResult(profile.fallbackProxy),
+          '',
+          profile.fallbackProxy,
+          profile.auth?.fallbackProxy ? profile.auth?['all']
+        ]
       compile: (profile) ->
         if ((not profile.bypassList or not profile.fallbackProxy) and
             not profile.proxyForHttp and not profile.proxyForHttps and
