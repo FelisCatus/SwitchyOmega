@@ -87,6 +87,8 @@ module.exports = class WebRequestMonitor
     return if req.error == 'net::ERR_INCOMPLETE_CHUNKED_ENCODING'
     return if req.error.indexOf('BLOCKED') >= 0
     return if req.error.indexOf('net::ERR_FILE_') == 0
+    # Blocked by other extensions in Firefox.
+    return if req.error.indexOf('NS_ERROR_ABORT') == 0
     return if req.url.indexOf('file:') == 0
     return if req.url.indexOf('chrome') == 0
     return if req.url.indexOf('about:') == 0
