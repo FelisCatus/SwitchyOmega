@@ -90,7 +90,7 @@ jobs:
           command: |
             cd omega-target-chromium-extension
             web-ext -s build build
-            dest_file="packages/SwitchyOmega_${FULL_VER}_Firefox_UNSIGNED.zip"
+            dest_file="packages/SwitchyOmega_${FULL_VER}_Firefox_UNSIGNED.xpi"
             mv web-ext-artifacts/*.zip "$dest_file"
             cd ..
       - store_artifacts:
