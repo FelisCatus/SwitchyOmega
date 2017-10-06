@@ -277,14 +277,12 @@ class ChromeOptions extends OmegaTarget.Options
     })
 
   _quickSwitchInit: false
-  _quickSwitchContextMenuCreated: false
+  _quickSwitchHandlerReady: false
   _quickSwitchCanEnable: false
   setQuickSwitch: (quickSwitch, canEnable) ->
     @_quickSwitchCanEnable = canEnable
-    if not @_quickSwitchContextMenuCreated
-      @_quickSwitchContextMenuCreated = true
-      if quickSwitch
-        chrome.contextMenus?.update('enableQuickSwitch', {checked: true})
+    if not @_quickSwitchHandlerReady
+      @_quickSwitchHandlerReady = true
       window.OmegaContextMenuQuickSwitchHandler = (info) =>
         changes = {}
         changes['-enableQuickSwitch'] = info.checked
@@ -319,6 +317,8 @@ class ChromeOptions extends OmegaTarget.Options
               chrome.tabs.reload(tab.id)
     else
       chrome.browserAction.setPopup({popup: 'popup/index.html'})
+
+    chrome.contextMenus?.update('enableQuickSwitch', {checked: !!quickSwitch})
     Promise.resolve()
 
   setInspect: (settings) ->
