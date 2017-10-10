@@ -374,7 +374,9 @@ class Options
         @_setOptions({'-showExternalProfile': true}, {persist: true})
       @_state.set({'showExternalProfile': showExternal})
 
-      if changes['-enableQuickSwitch']? or changes['-quickSwitchProfiles']?
+      quickSwitchProfiles = changes['-quickSwitchProfiles']
+      quickSwitchProfiles = @_cleanUpQuickSwitchProfiles(quickSwitchProfiles)
+      if changes['-enableQuickSwitch']? or quickSwitchProfiles?
         @reloadQuickSwitch()
       if changes['-downloadInterval']?
         @schedule 'updateProfile', @_options['-downloadInterval'], =>
@@ -394,6 +396,20 @@ class Options
 
     handler()
     @_storage.watch null, handler
+
+  _cleanUpQuickSwitchProfiles: (quickSwitchProfiles) ->
+    return unless quickSwitchProfiles?
+    seenQuickSwitchProfile = {}
+    validQuickSwitchProfiles = quickSwitchProfiles.filter (name) =>
+      key = OmegaPac.Profiles.nameAsKey(name)
+      return false if seenQuickSwitchProfile[key]
+      return false if not OmegaPac.Profiles.byName(name, @_options)
+      seenQuickSwitchProfile[key] = true
+      return true
+    if validQuickSwitchProfiles.length != quickSwitchProfiles.length
+      @_setOptions(
+        {'-quickSwitchProfiles': validQuickSwitchProfiles}, {persist: true})
+    return validQuickSwitchProfiles
 
   ###*
   # Reload the quick switch according to settings.
@@ -695,10 +711,13 @@ class Options
     if @_options['-startupProfileName'] == fromName
       changes['-startupProfileName'] = toName
     quickSwitch = @_options['-quickSwitchProfiles']
-    for i in [0...quickSwitch.length]
-      if quickSwitch[i] == fromName
-        quickSwitch[i] = toName
-        changes['-quickSwitchProfiles'] = quickSwitch
+    # Change fromName to toName in Quick Switch, but only if it does not contain
+    # toName already. Otherwise it may cause duplicates.
+    if quickSwitch.indexOf(toName) < 0
+      for i in [0...quickSwitch.length]
+        if quickSwitch[i] == fromName
+          quickSwitch[i] = toName
+          changes['-quickSwitchProfiles'] = quickSwitch
 
     return changes
 
