@@ -311,8 +311,12 @@ refreshActivePageIfEnabled = ->
 chrome.runtime.onMessage.addListener (request, sender, respond) ->
   return unless request and request.method
   options.ready.then ->
-    target = options
-    method = target[request.method]
+    if request.method == 'getState'
+      target = state
+      method = state.get
+    else
+      target = options
+      method = target[request.method]
     if typeof method != 'function'
       Log.error("No such method #{request.method}!")
       respond(

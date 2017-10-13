@@ -24,6 +24,10 @@ var requestInfoCallback = null;
 
 OmegaTargetPopup = {
   getState: function (keys, cb) {
+    if (typeof localStorage === 'undefined' || !localStorage.length) {
+      callBackground('getState', [keys], cb);
+      return;
+    }
     var results = {};
     keys.forEach(function(key) {
       try {
