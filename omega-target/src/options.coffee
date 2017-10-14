@@ -401,6 +401,7 @@ class Options
     return unless quickSwitchProfiles?
     seenQuickSwitchProfile = {}
     validQuickSwitchProfiles = quickSwitchProfiles.filter (name) =>
+      return false if not name
       key = OmegaPac.Profiles.nameAsKey(name)
       return false if seenQuickSwitchProfile[key]
       return false if not OmegaPac.Profiles.byName(name, @_options)
