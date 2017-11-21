@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2017-11-21 00:43+0000\n"
+"PO-Revision-Date: 2017-11-22 01:48+0000\n"
 "Last-Translator: Сухарик <suhr@i2pmail.org>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/switchyomega/main/ru/>\n"
@@ -34,31 +34,32 @@ msgid "profile_direct"
 msgstr "[Напрямую]"
 
 msgid "profile_system"
-msgstr "[Системный Proxy]"
+msgstr "[Системный прокси]"
 
 msgid "condition_HostWildcardCondition"
-msgstr "Подстановочный хост"
+msgstr "Шаблон хоста"
 
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
-"Matches hosts (domain names) by wildcard.<br><b>The asterisk <code>*</code></"
-"b> matches zero or more characters.<br><b>The question mark <code>?</code></"
-"b> matches exactly one character.<br><br>Note that rules beginning with "
-"<code>*.</code> are specially treated only in Host wildcard conditions."
-"<br>Example: <code>*.example.com</code> will match www.example.com <b>AND "
-"example.com as well.</b><br>To match subdomains <b>only</b>, use <b>two</b> "
-"asterisks like <code>**.example.com</code>."
+"Сопоставляет хосты (доменные имена) с шаблоном.<br><b>Звёздочка "
+"<code>*</code></b> сопоставляет нуль или более символов.<br><b>Знак вопроса "
+"<code>?</code></b> сопоставляет ровно один символ.<br><br>Обратите внимания, "
+"что правила, начинающиеся с <code>*.</code> обрабатываются особо только в "
+"шаблонах хоста.<br>Пример: <code>*.example.com</code> сопоставит как "
+"www.example.com, <b>ТАК И example.com.</b><br>Для того, чтобы сопоставить "
+"<b>только</b> поддомены, используйте <b>две</b> звёздочки: "
+"<code>**.example.com</code>."
 
 msgid "condition_HostRegexCondition"
-msgstr "Host regex"
+msgstr "Регулярное выражение хоста"
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
-"Like Host wildcard condition, but matches hosts (domain names) by <a "
-"href='https://www.google.com/search?q=regular%20expression'>regular "
-"expression</a>.<br>Regular expressions can be hard to construct (and read)."
-"<br>It is recommended to use wildcards for most cases and only use regex for "
-"conditions that cannot be achieved by any other condition type."
+"Подобно шаблону хоста, но сопоставляет хосты (доменные имена) с <a "
+"href='https://www.google.ru/search?q=регулярное%20выражение'>регулярным "
+"выражением</a>.<br>Регулярные выражения бывает трудно построить (и "
+"читать).<br>Поэтому регулярные выражения рекомендуется использовать только "
+"для тех условий, что не могут быть выражены другими методами."
 
 msgid "condition_HostLevelsCondition"
 msgstr "Host levels"
@@ -85,7 +86,7 @@ msgstr ""
 "<b>not</b> IP literals."
 
 msgid "condition_UrlWildcardCondition"
-msgstr "URL wildcard"
+msgstr "Шаблон URL"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
@@ -96,7 +97,7 @@ msgstr ""
 "match http://example.com/."
 
 msgid "condition_UrlRegexCondition"
-msgstr "URL regex"
+msgstr "Регулярное выражение URL"
 
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
@@ -118,10 +119,10 @@ msgstr ""
 "blocking some keywords in the URL, by requesting such URLs through a proxy."
 
 msgid "condition_FalseCondition"
-msgstr "(Disabled)"
+msgstr "(Отключено)"
 
 msgid "condition_details_FalseCondition"
-msgstr "(Condition ignored when matching)"
+msgstr "(Условие игнорируется при сопоставлении)"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
@@ -199,64 +200,64 @@ msgid "ruleList_error_noDefaultRule"
 msgstr "Missing default rule with catch-all '*' condition!"
 
 msgid "dialog_close"
-msgstr "Close"
+msgstr "Закрыть"
 
 msgid "dialog_save"
-msgstr "Save changes"
+msgstr "Сохранить изменения"
 
 msgid "dialog_ok"
-msgstr "OK"
+msgstr "ОК"
 
 msgid "dialog_cancel"
-msgstr "Cancel"
+msgstr "Отмена"
 
 msgid "inputClear_clear"
-msgstr "Clear"
+msgstr "Очистить"
 
 msgid "inputClear_restore"
-msgstr "Restore"
+msgstr "Восстановить"
 
 msgid "options_title"
-msgstr "SwitchyOmega Options"
+msgstr "Настройки SwitchyOmega"
 
 msgid "options_experimental_badge"
 msgstr "α"
 
 msgid "options_navHeader_setting"
-msgstr "Settings"
+msgstr "Параметры"
 
 msgid "options_navHeader_profiles"
-msgstr "Profiles"
+msgstr "Профили"
 
 msgid "options_navHeader_actions"
-msgstr "Actions"
+msgstr "Действия"
 
 msgid "options_tab_ui"
-msgstr "Interface"
+msgstr "Интерфейс"
 
 msgid "options_tab_general"
-msgstr "General"
+msgstr "Основные"
 
 msgid "options_tab_importExport"
-msgstr "Import/Export"
+msgstr "Импорт и экспорт"
 
 msgid "options_newProfile"
-msgstr "New profile…"
+msgstr "Новый профиль…"
 
 msgid "options_apply"
-msgstr "Apply changes"
+msgstr "Применить изменения"
 
 msgid "options_discard"
-msgstr "Discard changes"
+msgstr "Отклонить изменения"
 
 msgid "options_reset"
-msgstr "Reset options"
+msgstr "Сбросить настройки"
 
 msgid "options_group_miscOptions"
-msgstr "Misc Options"
+msgstr "Прочие настройки"
 
 msgid "options_confirmDeletion"
-msgstr "Confirm on condition deletion."
+msgstr "Подтвердите удаление условия."
 
 msgid "options_refreshOnProfileChange"
 msgstr "Refresh current tab on profile change."
@@ -268,7 +269,7 @@ msgid "options_addConditionsToBottom"
 msgstr "Put new conditions added using the popup to the bottom of the list."
 
 msgid "options_group_keyboardShortcut"
-msgstr "Keyboard Shortcut"
+msgstr "Горячие клавиши"
 
 msgid "options_menuShortcutHelp"
 msgstr ""
@@ -284,13 +285,13 @@ msgid "options_menuShortcutConfigure"
 msgstr "Configure shortcut"
 
 msgid "options_group_switchOptions"
-msgstr "Switch Options"
+msgstr "Настройки переключения"
 
 msgid "options_startupProfile"
-msgstr "Startup Profile"
+msgstr "Стартовый профиль"
 
 msgid "options_startupProfile_none"
-msgstr "(Current profile)"
+msgstr "(Текущий профиль)"
 
 msgid "options_showConditionTypesAdvanced"
 msgstr "Show advanced condition types"
