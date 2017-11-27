@@ -2,9 +2,12 @@ OcontextMenu_inspectElementmegaTarget = require('omega-target')
 OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 querystring = require('querystring')
-chromeApiPromisifyAll = require('./chrome_api')
+chromeApiPromisify = require('./chrome_api').chromeApiPromisify
 if chrome?.proxy?.settings
-  proxySettings = chromeApiPromisifyAll(chrome.proxy.settings)
+  proxySettings =
+    clearAsync: chromeApiPromisify(chrome.proxy.settings, 'clear')
+    setAsync: chromeApiPromisify(chrome.proxy.settings, 'set')
+    get: chrome.proxy.settings.get.bind(chrome.proxy.settings)
 else
   proxySettings =
     setAsync: -> Promise.resolve()
@@ -139,7 +142,7 @@ class ChromeOptions extends OmegaTarget.Options
     meta ?= profile
     if profile.profileType == 'SystemProfile'
       # Clear proxy settings, returning proxy control to Chromium.
-      return proxySettings.clearAsync({}).then =>
+      return chromeApiPromisify(chrome.proxy.settings, 'clear')({}).then =>
         proxySettings.get {}, @_proxyChangeListener
         return
     config = {}

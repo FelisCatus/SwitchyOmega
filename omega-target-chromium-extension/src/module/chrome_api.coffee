@@ -1,9 +1,9 @@
 OmegaTarget = require('omega-target')
 Promise = OmegaTarget.Promise
 
-chromeApiPromisifer = (originalMethod) ->
+exports.chromeApiPromisify = (target, method) ->
   return (args...) ->
-    new Promise (resolve, reject) =>
+    new Promise (resolve, reject) ->
       callback = (callbackArgs...) ->
         if chrome.runtime.lastError?
           error = new Error(chrome.runtime.lastError.message)
@@ -15,7 +15,4 @@ chromeApiPromisifer = (originalMethod) ->
           resolve(callbackArgs)
 
       args.push(callback)
-      originalMethod.apply(this, args)
-
-module.exports = (obj) ->
-  Promise.promisifyAll(Object.create(obj), {promisifier: chromeApiPromisifer})
+      target[method].apply(target, args)

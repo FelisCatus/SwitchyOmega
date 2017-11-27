@@ -1,4 +1,4 @@
-chromeApiPromisifyAll = require('./chrome_api')
+chromeApiPromisify = require('./chrome_api').chromeApiPromisify
 OmegaTarget = require('omega-target')
 Promise = OmegaTarget.Promise
 
@@ -39,12 +39,11 @@ class ChromeStorage extends OmegaTarget.Storage
     if browser?.storage?[@areaName]
       @storage = browser.storage[@areaName]
     else
-      wrapper = chromeApiPromisifyAll(chrome.storage[@areaName])
       @storage =
-        get: wrapper.getAsync.bind(wrapper),
-        set: wrapper.setAsync.bind(wrapper),
-        remove: wrapper.removeAsync.bind(wrapper),
-        clear: wrapper.clearAsync.bind(wrapper),
+        get: chromeApiPromisify(chrome.storage[@areaName], 'get')
+        set: chromeApiPromisify(chrome.storage[@areaName], 'set')
+        remove: chromeApiPromisify(chrome.storage[@areaName], 'remove')
+        clear: chromeApiPromisify(chrome.storage[@areaName], 'clear')
 
   get: (keys) ->
     keys ?= null
