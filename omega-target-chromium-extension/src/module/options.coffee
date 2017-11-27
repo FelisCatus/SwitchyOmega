@@ -10,7 +10,6 @@ else
     setAsync: -> Promise.resolve()
     clearAsync: -> Promise.resolve()
     get: -> null
-    onChange: addListener: -> null
 parseExternalProfile = require('./parse_external_profile')
 ProxyAuth = require('./proxy_auth')
 WebRequestMonitor = require('./web_request_monitor')
@@ -125,7 +124,8 @@ class ChromeOptions extends OmegaTarget.Options
       @_proxyChangeListener = (details) =>
         for watcher in @_proxyChangeWatchers
           watcher(details)
-      proxySettings.onChange.addListener @_proxyChangeListener
+      if chrome?.proxy?.settings?.onChange?
+        chrome.proxy.settings.onChange.addListener @_proxyChangeListener
     @_proxyChangeWatchers.push(callback)
   applyProfileProxy: (profile, meta) ->
     if chrome?.proxy?.settings?
