@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2016-06-05 03:53+0000\n"
+"PO-Revision-Date: 2017-12-26 03:39+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/switchyomega/main/nb_NO/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
@@ -37,19 +37,19 @@ msgid "profile_system"
 msgstr "[Systemmellomtjener]"
 
 msgid "condition_HostWildcardCondition"
-msgstr ""
+msgstr "Vertsjokertegn"
 
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
 
 msgid "condition_HostRegexCondition"
-msgstr ""
+msgstr "Regulært uttrykk for vert"
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
 
 msgid "condition_HostLevelsCondition"
-msgstr ""
+msgstr "Vertsnivåer"
 
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
@@ -69,7 +69,7 @@ msgstr ""
 "<b>not</b> IP literals."
 
 msgid "condition_UrlWildcardCondition"
-msgstr ""
+msgstr "Nettadressejokertegn"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
@@ -209,7 +209,7 @@ msgid "options_apply"
 msgstr "Legg til endringer"
 
 msgid "options_discard"
-msgstr ""
+msgstr "Forkast endringer"
 
 msgid "options_reset"
 msgstr "Tilbakestill valg"
@@ -272,10 +272,10 @@ msgid "options_notCycledProfiles"
 msgstr ""
 
 msgid "options_group_proxyChanges"
-msgstr ""
+msgstr "Mellomtjenerendringer"
 
 msgid "options_revertProxyChanges"
-msgstr ""
+msgstr "Tilbakestill mellomtjenerinnstillinger gjort av andre programmer."
 
 msgid "options_group_conflicts"
 msgstr "Conflicts"
@@ -324,7 +324,7 @@ msgid "options_downloadOptions"
 msgstr "Nedlastingsvalg"
 
 msgid "options_downloadOptionsHelp"
-msgstr ""
+msgstr "Sett oppdateringsfrekvensen for nettbaserte regellister og PAC-skript."
 
 msgid "options_downloadInterval"
 msgstr "Nedlastingsintervall"
