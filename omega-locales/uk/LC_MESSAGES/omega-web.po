@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2017-11-29 12:50+0000\n"
-"Last-Translator: Сергій Дубик <serhijdubyk@gmail.com>\n"
+"PO-Revision-Date: 2018-01-29 18:42+0000\n"
+"Last-Translator: Марс Ямбар <mjambarmeta@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/switchyomega/main/uk/>\n"
 "Language: uk\n"
@@ -13,13 +13,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
 
 msgid "manifest_app_name"
-msgstr "Proxy SwitchyOmega"
+msgstr "Проксі SwitchyOmega"
 
 #, fuzzy
 msgid "manifest_app_description"
@@ -198,10 +198,10 @@ msgid "condition_group_special"
 msgstr "Особлива"
 
 msgid "ruleListFormat_Switchy"
-msgstr "Switchy"
+msgstr "Перемикач"
 
 msgid "ruleListFormat_AutoProxy"
-msgstr "AutoProxy"
+msgstr "Авто проксі"
 
 msgid "ruleList_usageUrl"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
@@ -364,7 +364,7 @@ msgid "options_revertProxyChanges"
 msgstr "Відмінити зміни проксі-серверів, що зроблені іншими додатками."
 
 msgid "options_group_conflicts"
-msgstr "Conflicts"
+msgstr "Конфлікти"
 
 msgid "options_conflicts_introduction"
 msgstr ""
