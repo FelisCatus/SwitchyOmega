@@ -3,7 +3,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   $timeout, $location, $filter, getAttachedName, isProfileNameReserved,
   isProfileNameHidden, dispNameFilter, downloadFile) ->
 
-  if not chrome?.proxy?.settings?
+  if browser?.proxy?.register? or browser?.proxy?.registerProxyScript?
     $scope.isExperimental = true
     $scope.pacProfilesUnsupported = true
 

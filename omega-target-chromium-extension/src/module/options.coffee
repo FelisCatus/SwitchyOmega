@@ -3,16 +3,6 @@ OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 querystring = require('querystring')
 chromeApiPromisify = require('./chrome_api').chromeApiPromisify
-if chrome?.proxy?.settings
-  proxySettings =
-    clearAsync: chromeApiPromisify(chrome.proxy.settings, 'clear')
-    setAsync: chromeApiPromisify(chrome.proxy.settings, 'set')
-    get: chrome.proxy.settings.get.bind(chrome.proxy.settings)
-else
-  proxySettings =
-    setAsync: -> Promise.resolve()
-    clearAsync: -> Promise.resolve()
-    get: -> null
 parseExternalProfile = require('./parse_external_profile')
 ProxyAuth = require('./proxy_auth')
 WebRequestMonitor = require('./web_request_monitor')
@@ -131,10 +121,10 @@ class ChromeOptions extends OmegaTarget.Options
         chrome.proxy.settings.onChange.addListener @_proxyChangeListener
     @_proxyChangeWatchers.push(callback)
   applyProfileProxy: (profile, meta) ->
-    if chrome?.proxy?.settings?
-      return @applyProfileProxySettings(profile, meta)
-    else if browser?.proxy?.registerProxyScript?
+    if browser?.proxy?.register? or browser?.proxy?.registerProxyScript?
       return @applyProfileProxyScript(profile, meta)
+    else if chrome?.proxy?.settings?
+      return @applyProfileProxySettings(profile, meta)
     else
       ex = new Error('Your browser does not support proxy settings!')
       return Promise.reject ex
@@ -143,7 +133,7 @@ class ChromeOptions extends OmegaTarget.Options
     if profile.profileType == 'SystemProfile'
       # Clear proxy settings, returning proxy control to Chromium.
       return chromeApiPromisify(chrome.proxy.settings, 'clear')({}).then =>
-        proxySettings.get {}, @_proxyChangeListener
+        chrome.proxy.settings.get {}, @_proxyChangeListener
         return
     config = {}
     if profile.profileType == 'DirectProfile'
@@ -177,9 +167,9 @@ class ChromeOptions extends OmegaTarget.Options
       @_proxyAuth ?= new ProxyAuth(this)
       @_proxyAuth.listen()
       @_proxyAuth.setProxies(@_watchingProfiles)
-      proxySettings.setAsync({value: config})
+      chromeApiPromisify(chrome.proxy.settings, 'set')({value: config})
     ).then =>
-      proxySettings.get {}, @_proxyChangeListener
+      chrome.proxy.settings.get {}, @_proxyChangeListener
       return
 
   _proxyScriptUrl: 'js/omega_webext_proxy_script.min.js'
