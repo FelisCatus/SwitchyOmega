@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 11:15+0000\n"
-"PO-Revision-Date: 2018-05-18 12:47+0000\n"
+"PO-Revision-Date: 2018-05-18 12:48+0000\n"
 "Last-Translator: zhtw <zhtw2013@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "switchyomega/main/zh_Hant/>\n"
@@ -241,7 +241,7 @@ msgid "options_showInspectMenu"
 msgstr "右鍵選單中，可檢查網頁元素所使用的代理。"
 
 msgid "options_addConditionsToBottom"
-msgstr "把以彈出式選單創建的規則加入到列表末尾。"
+msgstr "把以彈出式選單創建的規則加入到清單末尾。"
 
 msgid "options_group_keyboardShortcut"
 msgstr "鍵盤快速鍵"
@@ -329,7 +329,7 @@ msgid "options_downloadOptions"
 msgstr "下載選項"
 
 msgid "options_downloadOptionsHelp"
-msgstr "設定規則列表和PAC指令碼的更新間隔。"
+msgstr "設定規則清單和PAC指令碼的更新間隔。"
 
 msgid "options_downloadInterval"
 msgstr "更新間隔"
@@ -368,10 +368,10 @@ msgid "options_exportProfileHelp"
 msgstr "如需匯出情景模式，請使用情景模式設定頁面右上角的工具欄。"
 
 msgid "options_exportLegacyRuleList"
-msgstr "匯出規則列表時使用 Proxy Switchy!/SwitchyPlus/SwitchySharp 相容格式。"
+msgstr "匯出規則清單時使用 Proxy Switchy!/SwitchyPlus/SwitchySharp 相容格式。"
 
 msgid "options_exportLegacyRuleListHelp"
-msgstr "如果您需要釋出規則列表給那些軟體的使用者，請啟用此選項。<br>建議您提醒訂閱者升級到 SwitchyOmega 以享受新版功能。"
+msgstr "如果您需要釋出規則清單給那些軟體的使用者，請啟用此選項。<br>建議您提醒訂閱者升級到 SwitchyOmega 以享受新版功能。"
 
 msgid "options_group_importExportSettings"
 msgstr "選項"
@@ -446,7 +446,7 @@ msgid "options_deleteProfile"
 msgstr "刪除"
 
 msgid "options_profileExportRuleList"
-msgstr "釋出規則列表"
+msgstr "釋出規則清單"
 
 msgid "options_profileExportRuleListHelp"
 msgstr "將切換規則匯出為文字格式以便釋出。"
@@ -517,10 +517,10 @@ msgid "options_proxy_expand"
 msgstr "顯示高階設定"
 
 msgid "options_group_bypassList"
-msgstr "不代理的地址列表"
+msgstr "不代理的地址清單"
 
 msgid "options_bypassListHelp"
-msgstr "不經過代理連線的主機列表: (每行一個主機)"
+msgstr "不經過代理連線的主機清單: (每行一個主機)"
 
 msgid "options_bypassListHelpLinkText"
 msgstr "(可使用萬用字元等比對規則…)"
@@ -567,13 +567,13 @@ msgstr ""
 "相關的切換規則改為使用此虛情景模式。這樣一來，就可以通過此虛情景模式來控制那些切換條件對應的結果。"
 
 msgid "options_group_ruleListConfig"
-msgstr "規則列表設定"
+msgstr "規則清單設定"
 
 msgid "options_ruleListFormat"
-msgstr "規則列表格式"
+msgstr "規則清單格式"
 
 msgid "options_group_ruleListResult"
-msgstr "規則列表結果情景模式"
+msgstr "規則清單結果情景模式"
 
 msgid "options_ruleListMatchProfile"
 msgstr "比對則使用情景模式"
@@ -582,19 +582,19 @@ msgid "options_ruleListDefaultProfile"
 msgstr "不比對則使用情景模式"
 
 msgid "options_group_ruleListUrl"
-msgstr "規則列表網址"
+msgstr "規則清單網址"
 
 msgid "options_ruleListUrlHelp"
-msgstr "應用將從此網址下載規則列表。如果網址留空，則以下文字會被直接處理後作為規則列表使用。"
+msgstr "應用將從此網址下載規則清單。如果網址留空，則以下文字會被直接處理後作為規則清單使用。"
 
 msgid "options_group_ruleListText"
-msgstr "規則列表正文"
+msgstr "規則清單正文"
 
 msgid "options_ruleListLastUpdate"
-msgstr "規則列表最後更新時間：$TIME$"
+msgstr "規則清單最後更新時間：$TIME$"
 
 msgid "options_ruleListObsolete"
-msgstr "修改網址後尚未下載更新，因此規則列表已經過時。請使用上方的更新按鈕進行下載。"
+msgstr "修改網址後尚未下載更新，因此規則清單已經過時。請使用上方的更新按鈕進行下載。"
 
 msgid "options_group_switchRules"
 msgstr "切換規則"
@@ -627,13 +627,13 @@ msgid "options_ruleNote"
 msgstr "備註"
 
 msgid "options_switchAttachedProfileInCondition"
-msgstr "規則列表規則"
+msgstr "規則清單規則"
 
 msgid "options_switchAttachedProfileInConditionDetails"
-msgstr "(按照規則列表比對請求)"
+msgstr "(按照規則清單比對請求)"
 
 msgid "options_switchAttachedProfileInConditionDisabled"
-msgstr "(規則列表已停用！)"
+msgstr "(規則清單已停用！)"
 
 msgid "options_switchDefaultProfile"
 msgstr "預設情景模式"
@@ -669,13 +669,13 @@ msgid "options_group_conditionHelp"
 msgstr "條件類型說明"
 
 msgid "options_group_attachProfile"
-msgstr "匯入線上規則列表"
+msgstr "匯入線上規則清單"
 
 msgid "options_attachProfile"
-msgstr "加入規則列表"
+msgstr "加入規則清單"
 
 msgid "options_attachProfileHelp"
-msgstr "可以加入規則列表，以便引用他人線上釋出的一組規則。"
+msgstr "可以加入規則清單，以便引用他人線上釋出的一組規則。"
 
 msgid "options_modalHeader_welcome"
 msgstr "歡迎使用 SwitchyOmega"
@@ -800,16 +800,16 @@ msgid "options_resetRules_help"
 msgstr "批量設定所有規則的情景模式"
 
 msgid "options_modalHeader_deleteAttached"
-msgstr "移除規則列表"
+msgstr "移除規則清單"
 
 msgid "options_deleteAttachedConfirm"
-msgstr "真的要移除當前情景模式的線上規則列表嗎？"
+msgstr "真的要移除當前情景模式的線上規則清單嗎？"
 
 msgid "options_ruleListLineCount"
 msgstr "共計$COUNT$行規則"
 
 msgid "options_deleteAttached"
-msgstr "移除規則列表"
+msgstr "移除規則清單"
 
 msgid "options_modalHeader_newProfile"
 msgstr "新建情景模式"
@@ -839,13 +839,13 @@ msgid "options_profileTypeSwitchProfile"
 msgstr "自動切換模式"
 
 msgid "options_profileDescSwitchProfile"
-msgstr "根據多種條件，如域名或網址等自動選擇情景模式。您也可以匯入線上釋出的切換規則（如 AutoProxy 列表）以簡化設定。"
+msgstr "根據多種條件，如域名或網址等自動選擇情景模式。您也可以匯入線上釋出的切換規則（如 AutoProxy 清單）以簡化設定。"
 
 msgid "options_profileTypeRuleListProfile"
-msgstr "規則列表"
+msgstr "規則清單"
 
 msgid "options_profileDescRuleListProfile"
-msgstr "使用他人釋出的線上規則列表來切換情景模式。"
+msgstr "使用他人釋出的線上規則清單來切換情景模式。"
 
 msgid "options_profileTypeVirtualProfile"
 msgstr "虛擬情景模式"
@@ -996,7 +996,7 @@ msgid "popup_requestErrorCount"
 msgstr "$COUNT$個資源未載入"
 
 msgid "popup_requestErrorHeading"
-msgstr "載入失敗的資源列表"
+msgstr "載入失敗的資源清單"
 
 msgid "popup_requestErrorWarning"
 msgstr "由於網路原因，此頁面部分資源載入失敗。這些問題可能是由您的網路、代理伺服器或網站本身引起的。"
@@ -1041,7 +1041,7 @@ msgid "browserAction_profileDetails_SwitchProfile"
 msgstr "(根據條件切換)"
 
 msgid "browserAction_profileDetails_RuleListProfile"
-msgstr "(根據規則列表切換)"
+msgstr "(根據規則清單切換)"
 
 msgid "browserAction_titleNormal"
 msgstr "SwitchyOmega:: $PROFILE$"
@@ -1058,7 +1058,7 @@ msgid "browserAction_titleOptionError"
 msgstr "錯誤：選項檔案已經損壞，點選此處重置選項。"
 
 msgid "browserAction_titleDownloadFail"
-msgstr "警告：更新PAC檔案或規則列表失敗。"
+msgstr "警告：更新PAC檔案或規則清單失敗。"
 
 msgid "browserAction_titleExternalProxy"
 msgstr "注意：其他應用正在控制當前代理設定。"
@@ -1073,7 +1073,7 @@ msgid "browserAction_directResult"
 msgstr "直接連線"
 
 msgid "browserAction_attachedPrefix"
-msgstr "(列表) "
+msgstr "(清單) "
 
 msgid "browserAction_tempRulePrefix"
 msgstr "(臨時) "
