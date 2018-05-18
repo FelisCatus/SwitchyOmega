@@ -308,12 +308,12 @@ msgid "options_conflicts_higherPriority"
 msgstr "如果 SwitchyOmega 的優先級較高，那麼您可以在彈出菜單中選擇 $SYSTEMPROFILE$ 來把控制權還給其他應用或系統設定。"
 
 msgid "options_showExternalProfile"
-msgstr "在彈出菜單中顯示菜單項，以導入其他應用提供的代理設定。"
+msgstr "在彈出菜單中顯示菜單項，以匯入其他應用提供的代理設定。"
 
 msgid "options_showExternalProfileHelp"
 msgstr ""
 "選擇了 $SYSTEMPROFILE$ 的情況下，您可以在彈出菜單中選擇 $EXTERNALPROFILE$ "
-"來導入其他應用提供的代理設定。導入的設定將會成為一個新的情景模式，其名稱由您決定。請注意導入的情景模式只是當時的一個快照，導入後不會隨著原來的應用更新。"
+"來匯入其他應用提供的代理設定。匯入的設定將會成為一個新的情景模式，其名稱由您決定。請注意匯入的情景模式只是當時的一個快照，匯入後不會隨著原來的應用更新。"
 
 msgid "options_group_networkRequests"
 msgstr "網路請求"
