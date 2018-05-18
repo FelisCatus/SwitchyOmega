@@ -301,10 +301,8 @@ msgstr ""
 
 msgid "options_conflicts_lowerPriority"
 msgstr ""
-"如果 SwitchyOmega 圖標上顯示這樣的紅色徽章，表示另一個應用優先級較高，因此"
-"SwitchyOmega 無法控制代理設置。請嘗試卸載 SwitchyOmega 再重新安裝，這樣可能可"
-"以提高 SwitchyOmega 的優先級。如果重裝後您仍然看到衝突，那麼請考慮移除那個"
-"導致衝突的應用。"
+"如果 SwitchyOmega 圖示上顯示這樣的紅色徽章，表示另一個應用優先級較高，因此SwitchyOmega 無法控制代理設置。請嘗試卸載 "
+"SwitchyOmega 再重新安裝，這樣可能可以提高 SwitchyOmega 的優先級。如果重裝後您仍然看到衝突，那麼請考慮移除那個導致衝突的應用。"
 
 msgid "options_conflicts_higherPriority"
 msgstr ""
