@@ -923,7 +923,7 @@ msgstr ""
 "裡的設定介面，來瞭解如何使用自動切換功能。"
 
 msgid "options_guide_addMoreProfilesStep"
-msgstr "如果您需要更多的情景模式，可以隨時在這裡建立<b>代理、切換和其他情景模式</b>。<br>教學到此結束，您可以繼續自定義設定。"
+msgstr "如果您需要更多的情景模式，可以隨時在這裡建立<b>代理、切換和其他情景模式</b>。<br>教學到此結束，您可以繼續自訂設定。"
 
 msgid "options_guide_conditionStep"
 msgstr ""
