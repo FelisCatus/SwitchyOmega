@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 11:15+0000\n"
-"PO-Revision-Date: 2018-05-18 13:01+0000\n"
+"PO-Revision-Date: 2018-05-18 13:04+0000\n"
 "Last-Translator: zhtw <zhtw2013@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "switchyomega/main/zh_Hant/>\n"
@@ -383,19 +383,19 @@ msgid "options_makeBackupHelp"
 msgstr "匯出一份包括情景模式和其他所有選項的備份檔案。"
 
 msgid "options_restoreLocal"
-msgstr "從備份檔案恢復"
+msgstr "從備份檔案還原"
 
 msgid "options_restoreLocalHelp"
-msgstr "匯入本地的備份檔案以恢復所有選項。"
+msgstr "匯入本地的備份檔案以還原所有選項。"
 
 msgid "options_restoreOnline"
-msgstr "線上恢復"
+msgstr "線上還原"
 
 msgid "options_restoreOnlinePlaceholder"
 msgstr "備份檔案地址 (如：http://example.com/switchy.bak)"
 
 msgid "options_restoreOnlineSubmit"
-msgstr "恢復"
+msgstr "還原"
 
 msgid "options_group_syncing"
 msgstr "選項同步 (測試中)"
