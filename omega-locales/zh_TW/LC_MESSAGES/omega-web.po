@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 11:15+0000\n"
-"PO-Revision-Date: 2018-05-18 12:50+0000\n"
+"PO-Revision-Date: 2018-05-18 12:51+0000\n"
 "Last-Translator: zhtw <zhtw2013@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "switchyomega/main/zh_Hant/>\n"
@@ -114,11 +114,11 @@ msgstr ""
 "元或正則），因此當需要時，可以把條件類型改回之前的類型，以方便地重新啟用條件。"
 
 msgid "condition_TimeCondition"
-msgstr "當前時間"
+msgstr "目前時間"
 
 msgid "condition_help_TimeCondition"
 msgstr ""
-"如果當前本地時間在某個範圍內則比對。此範圍由<b>開始小時</b>和<b>結束小時</b>確定，包含開始的那個小時以及結束的那個小時。<br>本地時間、開"
+"如果目前本地時間在某個範圍內則比對。此範圍由<b>開始小時</b>和<b>結束小時</b>確定，包含開始的那個小時以及結束的那個小時。<br>本地時間、開"
 "始小時和結束小時均按照<b>24小時制</b>計算（從<b>0到23</b>）。<br>此條件大約在請求發出的瞬間，才計算是否比對。"
 
 msgid "condition_WeekdayCondition"
@@ -262,7 +262,7 @@ msgid "options_startupProfile"
 msgstr "初始情景模式"
 
 msgid "options_startupProfile_none"
-msgstr "(當前情景模式)"
+msgstr "(目前情景模式)"
 
 msgid "options_showConditionTypesAdvanced"
 msgstr "顯示進階切換條件"
@@ -319,7 +319,7 @@ msgid "options_group_networkRequests"
 msgstr "網路請求"
 
 msgid "options_monitorWebRequests"
-msgstr "在圖示上顯示當前頁面中由於網路原因而未載入的資源數量。"
+msgstr "在圖示上顯示目前頁面中由於網路原因而未載入的資源數量。"
 
 msgid "options_monitorWebRequestsHelp"
 msgstr "啟用此選項後，如有資源載入失敗，則圖示上會顯示數字提示。<br>"
@@ -458,7 +458,7 @@ msgid "options_profileUnsupported"
 msgstr "不支援的情景模式類型： $TYPE$!"
 
 msgid "options_profileUnsupportedHelp"
-msgstr "選項檔案已經損壞，或者當前版本過低無法處理選項。"
+msgstr "選項檔案已經損壞，或者目前版本過低無法處理選項。"
 
 msgid "options_profileEditSource"
 msgstr "編輯原始碼"
@@ -642,7 +642,7 @@ msgid "options_hostLevelsBetween"
 msgstr "≤ 主機層數 ≤"
 
 msgid "options_hourBetween"
-msgstr "≤ 當前小時 ≤"
+msgstr "≤ 目前小時 ≤"
 
 msgid "options_weekDayShort_0"
 msgstr "日"
@@ -705,10 +705,10 @@ msgid "options_modalHeader_applyOptions"
 msgstr "應用選項"
 
 msgid "options_optionsNotSaved"
-msgstr "當前設定還未儲存。如果您繼續此操作，則剛纔的所有修改都會丟失！"
+msgstr "目前設定還未儲存。如果您繼續此操作，則剛纔的所有修改都會丟失！"
 
 msgid "options_applyOptionsRequired"
-msgstr "必須儲存當前選項才能繼續操作。"
+msgstr "必須儲存目前選項才能繼續操作。"
 
 msgid "options_applyOptionsConfirm"
 msgstr "是否儲存並應用現在的選項？"
@@ -803,7 +803,7 @@ msgid "options_modalHeader_deleteAttached"
 msgstr "移除規則清單"
 
 msgid "options_deleteAttachedConfirm"
-msgstr "真的要移除當前情景模式的線上規則清單嗎？"
+msgstr "真的要移除目前情景模式的線上規則清單嗎？"
 
 msgid "options_ruleListLineCount"
 msgstr "共計$COUNT$行規則"
@@ -1052,7 +1052,7 @@ msgstr ""
 "$3:DETAILS$"
 
 msgid "browserAction_titleNewerOptions"
-msgstr "錯誤：需要新版本的SwitchyOmega才能載入當前選項。"
+msgstr "錯誤：需要新版本的SwitchyOmega才能載入目前選項。"
 
 msgid "browserAction_titleOptionError"
 msgstr "錯誤：選項檔案已經損壞，點選此處重置選項。"
@@ -1061,7 +1061,7 @@ msgid "browserAction_titleDownloadFail"
 msgstr "警告：更新PAC檔案或規則清單失敗。"
 
 msgid "browserAction_titleExternalProxy"
-msgstr "注意：其他應用正在控制當前代理設定。"
+msgstr "注意：其他應用正在控制目前代理設定。"
 
 msgid "browserAction_titleInspect"
 msgstr "[檢查] $URL$"
