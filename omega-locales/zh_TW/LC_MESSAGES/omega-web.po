@@ -896,10 +896,10 @@ msgid "options_profileDownloadError_HttpError"
 msgstr "更新時發生網路錯誤 (HTTP $STATUS$)."
 
 msgid "options_profileDownloadError_HttpNotFoundError"
-msgstr "在遠端服務器上找不到情景模式網址對應的檔案。請檢查網址。"
+msgstr "在遠端伺服器上找不到情景模式網址對應的檔案。請檢查網址。"
 
 msgid "options_profileDownloadError_HttpServerError"
-msgstr "更新時遠端服務器發生錯誤 ($STATUS$)。"
+msgstr "更新時遠端伺服器發生錯誤 ($STATUS$)。"
 
 msgid "options_profileDownloadError_ContentTypeRejectedError"
 msgstr "下載的數據不符合格式！建議您在瀏覽器中打開情景模式網址並檢查其內容。"
