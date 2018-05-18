@@ -296,27 +296,24 @@ msgstr "衝突"
 
 msgid "options_conflicts_introduction"
 msgstr ""
-"有時其他應用也會試圖控制代理設置，從而導致衝突。請注意，去廣告等其他擴充功能也可能利用了代理設置來實現功能。此類衝突是由瀏覽器的工作原理引起的，所以無法避"
+"有時其他應用也會試圖控制代理設定，從而導致衝突。請注意，去廣告等其他擴充功能也可能利用了代理設定來實現功能。此類衝突是由瀏覽器的工作原理引起的，所以無法避"
 "免。"
 
 msgid "options_conflicts_lowerPriority"
 msgstr ""
-"如果 SwitchyOmega 圖示上顯示這樣的紅色徽章，表示另一個應用優先級較高，因此SwitchyOmega 無法控制代理設置。請嘗試卸載 "
+"如果 SwitchyOmega 圖示上顯示這樣的紅色徽章，表示另一個應用優先級較高，因此SwitchyOmega 無法控制代理設定。請嘗試卸載 "
 "SwitchyOmega 再重新安裝，這樣可能可以提高 SwitchyOmega 的優先級。如果重裝後您仍然看到衝突，那麼請考慮移除那個導致衝突的應用。"
 
 msgid "options_conflicts_higherPriority"
-msgstr ""
-"如果 SwitchyOmega 的優先級較高，那麼您可以在彈出菜單中選擇 $SYSTEMPROFILE$ 來"
-"把控制權還給其他應用或系統設置。"
+msgstr "如果 SwitchyOmega 的優先級較高，那麼您可以在彈出菜單中選擇 $SYSTEMPROFILE$ 來把控制權還給其他應用或系統設定。"
 
 msgid "options_showExternalProfile"
-msgstr "在彈出菜單中顯示菜單項，以導入其他應用提供的代理設置。"
+msgstr "在彈出菜單中顯示菜單項，以導入其他應用提供的代理設定。"
 
 msgid "options_showExternalProfileHelp"
 msgstr ""
-"選擇了 $SYSTEMPROFILE$ 的情況下，您可以在彈出菜單中選擇 $EXTERNALPROFILE$ 來"
-"導入其他應用提供的代理設置。導入的設置將會成為一個新的情景模式，其名稱由您決"
-"定。請注意導入的情景模式只是當時的一個快照，導入後不會隨著原來的應用更新。"
+"選擇了 $SYSTEMPROFILE$ 的情況下，您可以在彈出菜單中選擇 $EXTERNALPROFILE$ "
+"來導入其他應用提供的代理設定。導入的設定將會成為一個新的情景模式，其名稱由您決定。請注意導入的情景模式只是當時的一個快照，導入後不會隨著原來的應用更新。"
 
 msgid "options_group_networkRequests"
 msgstr "網路請求"
@@ -966,10 +963,10 @@ msgid "popup_proxyNotControllable_unknown"
 msgstr "無法設定代理設定。請檢查系統和瀏覽器設定。"
 
 msgid "popup_proxyNotControllable_disabled"
-msgstr "在其他程式或擴充功能的要求下，SwitchyOmega 已經禁用代理設置。"
+msgstr "在其他程式或擴充功能的要求下，SwitchyOmega 已經禁用代理設定。"
 
 msgid "popup_proxyNotControllable_upgrade"
-msgstr "代理設置現在由新版本的 SwitchyOmega 控制。"
+msgstr "代理設定現在由新版本的 SwitchyOmega 控制。"
 
 msgid "popup_proxyNotControllableDetails"
 msgstr "如果不解決以上問題，則無法使用SwitchyOmega切換代理。"
@@ -1100,7 +1097,7 @@ msgid "about_title"
 msgstr "關於"
 
 msgid "about_app_description"
-msgstr "一個代理設置工具"
+msgstr "一個代理設定工具"
 
 msgid "about_version"
 msgstr "版本 $VERSION$"
