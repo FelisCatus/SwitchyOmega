@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 11:15+0000\n"
-"PO-Revision-Date: 2018-05-18 12:42+0000\n"
+"PO-Revision-Date: 2018-05-18 12:43+0000\n"
 "Last-Translator: zhtw <zhtw2013@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "switchyomega/main/zh_Hant/>\n"
@@ -178,7 +178,7 @@ msgid "dialog_close"
 msgstr "關閉"
 
 msgid "dialog_save"
-msgstr "儲存更改"
+msgstr "儲存變更"
 
 msgid "dialog_ok"
 msgstr "確定"
@@ -289,7 +289,7 @@ msgid "options_group_proxyChanges"
 msgstr "代理設定變化"
 
 msgid "options_revertProxyChanges"
-msgstr "還原其他擴充功能對代理的更改。"
+msgstr "還原其他擴充功能對代理的變更。"
 
 msgid "options_group_conflicts"
 msgstr "衝突"
@@ -445,7 +445,7 @@ msgid "options_profileTabPrefix"
 msgstr "情景模式： "
 
 msgid "options_renameProfile"
-msgstr "更改名稱"
+msgstr "變更名稱"
 
 msgid "options_deleteProfile"
 msgstr "刪除"
@@ -568,8 +568,8 @@ msgstr "取代目標情景模式"
 
 msgid "options_virtualProfileReplaceHelp"
 msgstr ""
-"通過此功能可以更改現有的選項，使用此虛情景模式來取代 $PROFILE$ 。此功能會把所有和 $PROFILE$ 相關的切換規則改為使用此虛情景模式。"
-"這樣一來，就可以通過此虛情景模式來控制那些切換條件對應的結果。"
+"通過此功能可以變更現有的選項，使用此虛情景模式來取代 $PROFILE$ 。此功能會把所有和 $PROFILE$ "
+"相關的切換規則改為使用此虛情景模式。這樣一來，就可以通過此虛情景模式來控制那些切換條件對應的結果。"
 
 msgid "options_group_ruleListConfig"
 msgstr "規則列表設定"
@@ -748,7 +748,7 @@ msgstr ""
 "但請注意，此操作不影響這兩個情景模式本身。"
 
 msgid "options_replaceProfileSuccess"
-msgstr "更改選項成功。"
+msgstr "變更選項成功。"
 
 msgid "options_modalHeader_deleteProfile"
 msgstr "刪除情景模式"
@@ -856,7 +856,7 @@ msgid "options_profileTypeVirtualProfile"
 msgstr "虛擬情景模式"
 
 msgid "options_profileDescVirtualProfile"
-msgstr "虛擬情景模式可以作為某個其他情景模式使用，並可以根據需要更改目標。一般用在自動切換中，這樣就可以一次性更改多個條件對應的代理。"
+msgstr "虛擬情景模式可以作為某個其他情景模式使用，並可以根據需要變更目標。一般用在自動切換中，這樣就可以一次性變更多個條件對應的代理。"
 
 msgid "options_createProfile"
 msgstr "創建"
@@ -945,7 +945,7 @@ msgstr ""
 
 msgid "options_guide_switchDefaultStep"
 msgstr ""
-"如果請求不比對任何條件，則使用默認情景模式。<br>條件的比對順序總是按此頁面<b>從上到下</b>。<br>您可以拖動排序圖示來更改條件的順序。"
+"如果請求不比對任何條件，則使用默認情景模式。<br>條件的比對順序總是按此頁面<b>從上到下</b>。<br>您可以拖動排序圖示來變更條件的順序。"
 
 msgid "options_guide_applySwitchProfileStep"
 msgstr ""
