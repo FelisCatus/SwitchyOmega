@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 11:15+0000\n"
-"PO-Revision-Date: 2018-05-18 12:52+0000\n"
+"PO-Revision-Date: 2018-05-18 12:55+0000\n"
 "Last-Translator: zhtw <zhtw2013@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "switchyomega/main/zh_Hant/>\n"
@@ -253,7 +253,7 @@ msgid "options_menuShortcutMore"
 msgstr "彈出選單中的選單項也可以用鍵盤進行選擇。在彈出選單中按下? (問號鍵，或/斜槓鍵) 檢視幫助。"
 
 msgid "options_menuShortcutConfigure"
-msgstr "修改快捷鍵"
+msgstr "變更快捷鍵"
 
 msgid "options_group_switchOptions"
 msgstr "切換選項"
@@ -788,13 +788,13 @@ msgid "options_deleteRule"
 msgstr "刪除"
 
 msgid "options_modalHeader_resetRules"
-msgstr "重置全部規則"
+msgstr "重設全部規則"
 
 msgid "options_resetRulesConfirm"
 msgstr "真的要設定所有規則對應的情景模式為以下情景模式嗎？"
 
 msgid "options_resetRules"
-msgstr "重置規則"
+msgstr "重設規則"
 
 msgid "options_resetRules_help"
 msgstr "批量設定所有規則的情景模式"
@@ -857,10 +857,10 @@ msgid "options_createProfile"
 msgstr "建立"
 
 msgid "options_modalHeader_resetOptions"
-msgstr "重置選項"
+msgstr "重設選項"
 
 msgid "options_resetOptionsConfirm"
-msgstr "真的確定要重置選項嗎？如果繼續，現有的所有情景模式和選項將會遺失！"
+msgstr "真的確定要重設選項嗎？如果繼續，現有的所有情景模式和選項將會遺失！"
 
 msgid "options_formInvalid"
 msgstr "請更正這個頁面中的錯誤。"
@@ -869,7 +869,7 @@ msgid "options_profileNotFound"
 msgstr "情景模式 $PROFILE$ 不存在！選項可能已經損壞。"
 
 msgid "options_resetSuccess"
-msgstr "選項已經重置。"
+msgstr "選項已經重設。"
 
 msgid "options_saveSuccess"
 msgstr "儲存選項成功。"
@@ -1055,7 +1055,7 @@ msgid "browserAction_titleNewerOptions"
 msgstr "錯誤：需要新版本的SwitchyOmega才能載入目前選項。"
 
 msgid "browserAction_titleOptionError"
-msgstr "錯誤：選項檔案已經損壞，點選此處重置選項。"
+msgstr "錯誤：選項檔案已經損壞，點選此處重設選項。"
 
 msgid "browserAction_titleDownloadFail"
 msgstr "警告：更新PAC檔案或規則清單失敗。"
