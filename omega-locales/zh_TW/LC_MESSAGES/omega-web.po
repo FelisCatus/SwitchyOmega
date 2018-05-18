@@ -990,7 +990,7 @@ msgid "popup_reportIssues"
 msgstr "反饋問題"
 
 msgid "popup_errorLog"
-msgstr "儲存错误日志"
+msgstr "儲存錯誤記錄"
 
 msgid "popup_requestErrorCount"
 msgstr "$COUNT$個資源未載入"
