@@ -241,7 +241,7 @@ msgid "options_showInspectMenu"
 msgstr "右鍵選單中，可檢查網頁元素所使用的代理。"
 
 msgid "options_addConditionsToBottom"
-msgstr "把以彈出式選單創建的規則添加到列表末尾。"
+msgstr "把以彈出式選單創建的規則加入到列表末尾。"
 
 msgid "options_group_keyboardShortcut"
 msgstr "鍵盤快速鍵"
@@ -618,7 +618,7 @@ msgid "options_conditionActions"
 msgstr "操作"
 
 msgid "options_addCondition"
-msgstr "添加條件"
+msgstr "加入條件"
 
 msgid "options_cloneRule"
 msgstr "克隆"
@@ -672,10 +672,10 @@ msgid "options_group_attachProfile"
 msgstr "匯入線上規則列表"
 
 msgid "options_attachProfile"
-msgstr "添加規則列表"
+msgstr "加入規則列表"
 
 msgid "options_attachProfileHelp"
-msgstr "可以添加規則列表，以便引用他人線上釋出的一組規則。"
+msgstr "可以加入規則列表，以便引用他人線上釋出的一組規則。"
 
 msgid "options_modalHeader_welcome"
 msgstr "歡迎使用 SwitchyOmega"
@@ -978,10 +978,10 @@ msgid "popup_proxyNotControllableManage"
 msgstr "管理擴充功能"
 
 msgid "popup_addConditionTo"
-msgstr "添加條件到情景模式"
+msgstr "加入條件到情景模式"
 
 msgid "popup_addCondition"
-msgstr "添加條件"
+msgstr "加入條件"
 
 msgid "popup_showOptions"
 msgstr "選項"
