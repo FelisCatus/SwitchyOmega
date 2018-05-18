@@ -289,7 +289,7 @@ msgid "options_group_proxyChanges"
 msgstr "代理設定變化"
 
 msgid "options_revertProxyChanges"
-msgstr "撤消其他擴充功能對代理的更改。"
+msgstr "還原其他擴充功能對代理的更改。"
 
 msgid "options_group_conflicts"
 msgstr "衝突"
