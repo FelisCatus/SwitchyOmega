@@ -377,7 +377,7 @@ msgid "options_group_importExportSettings"
 msgstr "選項"
 
 msgid "options_makeBackup"
-msgstr "生成備份檔案"
+msgstr "輸出備份檔案"
 
 msgid "options_makeBackupHelp"
 msgstr "匯出一份包括情景模式和其他所有選項的備份檔案。"
