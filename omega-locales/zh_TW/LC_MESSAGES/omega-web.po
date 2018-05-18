@@ -621,7 +621,7 @@ msgid "options_addCondition"
 msgstr "加入條件"
 
 msgid "options_cloneRule"
-msgstr "克隆"
+msgstr "複製"
 
 msgid "options_ruleNote"
 msgstr "備註"
