@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 11:15+0000\n"
-"PO-Revision-Date: 2018-05-18 13:15+0000\n"
+"PO-Revision-Date: 2018-05-18 13:16+0000\n"
 "Last-Translator: zhtw <zhtw2013@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "switchyomega/main/zh_Hant/>\n"
@@ -250,7 +250,7 @@ msgid "options_menuShortcutHelp"
 msgstr "按下快速鍵即可開啟彈出選單來切換情景模式。(預設快速鍵: Alt+Shift+O)."
 
 msgid "options_menuShortcutMore"
-msgstr "彈出選單中的選單項也可以用鍵盤進行選擇。在彈出選單中按下? (問號鍵，或/斜槓鍵) 檢視幫助。"
+msgstr "彈出選單中的選單項也可以用鍵盤進行選擇。在彈出選單中按下? (問號鍵，或/斜槓鍵) 檢視說明。"
 
 msgid "options_menuShortcutConfigure"
 msgstr "變更快速鍵"
@@ -464,7 +464,7 @@ msgid "options_profileEditSource"
 msgstr "編輯原始碼"
 
 msgid "options_profileEditSourceHelp"
-msgstr "顯示原始碼格式相關的幫助"
+msgstr "顯示原始碼格式相關的說明"
 
 msgid "options_profileEditSourceHelpUrl"
 msgstr ""
@@ -606,7 +606,7 @@ msgid "options_conditionType"
 msgstr "條件類型"
 
 msgid "options_showConditionTypeHelp"
-msgstr "顯示幫助"
+msgstr "顯示說明"
 
 msgid "options_conditionDetails"
 msgstr "條件設定"
@@ -1113,8 +1113,9 @@ msgstr "SwitchyOmega 不會跟蹤您的上網記錄，不在頁面中插入廣�
 "<a href='https://github.com/FelisCatus/SwitchyOmega/wiki/Privacy#%E4%B8%AD%E6%96%87'>隱私政策</a>。"
 
 msgid "about_help"
-msgstr "如有其他問題或者需要幫助，請參考"
-"<a href='https://github.com/FelisCatus/SwitchyOmega/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98'>常見問題</a>。"
+msgstr ""
+"如有其他問題或者需要說明，請參考<a href='https://github.com/FelisCatus/SwitchyOmega/wiki/"
+"%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98'>常見問題</a>。"
 
 msgid "about_copyright"
 msgstr "版權所有 2012-2017 <a href='https://github.com/FelisCatus/SwitchyOmega/blob/master/AUTHORS'>The SwitchyOmega Authors</a>. 保留所有權利。"
