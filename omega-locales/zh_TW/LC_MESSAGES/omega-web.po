@@ -705,7 +705,7 @@ msgid "options_modalHeader_applyOptions"
 msgstr "應用選項"
 
 msgid "options_optionsNotSaved"
-msgstr "目前設定還未儲存。如果您繼續此操作，則剛纔的所有修改都會丟失！"
+msgstr "目前設定還未儲存。如果您繼續此操作，則剛才的所有修改都會丟失！"
 
 msgid "options_applyOptionsRequired"
 msgstr "必須儲存目前選項才能繼續操作。"
