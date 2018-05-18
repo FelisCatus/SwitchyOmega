@@ -890,10 +890,10 @@ msgid "options_profileDownloadError"
 msgstr "下載情景模式資料時出錯！"
 
 msgid "options_profileDownloadError_NetworkError"
-msgstr "更新時發生網絡錯誤。"
+msgstr "更新時發生網路錯誤。"
 
 msgid "options_profileDownloadError_HttpError"
-msgstr "更新時發生網絡錯誤 (HTTP $STATUS$)."
+msgstr "更新時發生網路錯誤 (HTTP $STATUS$)."
 
 msgid "options_profileDownloadError_HttpNotFoundError"
 msgstr "在遠程服務器上找不到情景模式網址對應的文件。請檢查網址。"
@@ -1106,7 +1106,7 @@ msgid "about_experimental_warning_moz"
 msgstr "Mozilla Firefox 瀏覽器支持目前仍處於早期實驗階段！如果您遇到任何問題，請使用下方的按鈕進行回報。"
 
 msgid "about_disclaimer_networkService"
-msgstr "SwitchyOmega 不提供代理伺服器、VPN等網絡服務。"
+msgstr "SwitchyOmega 不提供代理伺服器、VPN等網路服務。"
 
 msgid "about_disclaimer_privacy"
 msgstr "SwitchyOmega 不會跟蹤您的上網記錄，不在頁面中插入廣告。請參見我們的"
