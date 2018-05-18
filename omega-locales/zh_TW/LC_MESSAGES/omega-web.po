@@ -779,7 +779,7 @@ msgid "options_proxyAuthPassword"
 msgstr "密碼"
 
 msgid "options_proxyAuthNone"
-msgstr "(无密碼)"
+msgstr "(無密碼)"
 
 msgid "options_deleteRuleConfirm"
 msgstr "真的要刪除這個規則嗎?"
