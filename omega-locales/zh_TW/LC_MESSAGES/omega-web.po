@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 11:15+0000\n"
-"PO-Revision-Date: 2018-05-18 12:43+0000\n"
+"PO-Revision-Date: 2018-05-18 12:44+0000\n"
 "Last-Translator: zhtw <zhtw2013@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "switchyomega/main/zh_Hant/>\n"
@@ -505,13 +505,13 @@ msgid "options_proxy_authReferencedWarning"
 msgstr "此外，在其他情景模式（如自動切換）中使用此情景時，可能會導致用戶名和密碼被髮送至其他情景模式中設定的伺服器。"
 
 msgid "options_scheme_default"
-msgstr "(默認)"
+msgstr "(預設)"
 
 msgid "options_protocol_direct"
 msgstr "直接連線"
 
 msgid "options_protocol_useDefault"
-msgstr "(同默認)"
+msgstr "(同預設)"
 
 msgid "options_proxy_single"
 msgstr "對於所有代理使用相同伺服器。"
@@ -639,7 +639,7 @@ msgid "options_switchAttachedProfileInConditionDisabled"
 msgstr "(規則列表已禁用！)"
 
 msgid "options_switchDefaultProfile"
-msgstr "默認情景模式"
+msgstr "預設情景模式"
 
 msgid "options_hostLevelsBetween"
 msgstr "≤ 主機層數 ≤"
@@ -912,8 +912,8 @@ msgstr "立即更新情景模式"
 
 msgid "options_guide_fixedProfileStep"
 msgstr ""
-"<b>代理情景</b>包含了伺服器地址、埠等代理的資訊。<br>在 SwitchyOmega 中，情景模式是代理設定的基本單元。<br>"
-"默認設定中已經建立了一個代理情景模式作為樣例。試著開啟它吧。"
+"<b>代理情景</b>包含了伺服器地址、埠等代理的資訊。<br>在 SwitchyOmega "
+"中，情景模式是代理設定的基本單元。<br>預設設定中已經建立了一個代理情景模式作為樣例。試著開啟它吧。"
 
 msgid "options_guide_fixedServersStep"
 msgstr ""
@@ -943,7 +943,7 @@ msgstr ""
 
 msgid "options_guide_switchDefaultStep"
 msgstr ""
-"如果請求不比對任何條件，則使用默認情景模式。<br>條件的比對順序總是按此頁面<b>從上到下</b>。<br>您可以拖動排序圖示來變更條件的順序。"
+"如果請求不比對任何條件，則使用預設情景模式。<br>條件的比對順序總是按此頁面<b>從上到下</b>。<br>您可以拖動排序圖示來變更條件的順序。"
 
 msgid "options_guide_applySwitchProfileStep"
 msgstr ""
@@ -1070,7 +1070,7 @@ msgid "browserAction_titleInspect"
 msgstr "[檢查] $URL$"
 
 msgid "browserAction_defaultRuleDetails"
-msgstr "(默認)"
+msgstr "(預設)"
 
 msgid "browserAction_directResult"
 msgstr "直接連線"
