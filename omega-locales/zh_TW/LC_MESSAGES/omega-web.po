@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 11:15+0000\n"
-"PO-Revision-Date: 2018-05-18 12:55+0000\n"
+"PO-Revision-Date: 2018-05-18 13:01+0000\n"
 "Last-Translator: zhtw <zhtw2013@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "switchyomega/main/zh_Hant/>\n"
@@ -247,13 +247,13 @@ msgid "options_group_keyboardShortcut"
 msgstr "鍵盤快速鍵"
 
 msgid "options_menuShortcutHelp"
-msgstr "按下快捷鍵即可開啟彈出選單來切換情景模式。(預設快捷鍵: Alt+Shift+O)."
+msgstr "按下快速鍵即可開啟彈出選單來切換情景模式。(預設快速鍵: Alt+Shift+O)."
 
 msgid "options_menuShortcutMore"
 msgstr "彈出選單中的選單項也可以用鍵盤進行選擇。在彈出選單中按下? (問號鍵，或/斜槓鍵) 檢視幫助。"
 
 msgid "options_menuShortcutConfigure"
-msgstr "變更快捷鍵"
+msgstr "變更快速鍵"
 
 msgid "options_group_switchOptions"
 msgstr "切換選項"
@@ -277,7 +277,7 @@ msgid "options_cycledProfiles"
 msgstr "循環切換以下情景模式:"
 
 msgid "options_cycledProfilesHelp"
-msgstr "點選圖示或按下快捷鍵時，依次迴圈切換到以下情景模式。"
+msgstr "點選圖示或按下快速鍵時，依次迴圈切換到以下情景模式。"
 
 msgid "options_cycledProfilesTooFew"
 msgstr "必須至少選擇2個情景模式才能進行切換。請從下方框中拖動情景模式到此框。"
