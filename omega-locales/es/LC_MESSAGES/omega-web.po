@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2018-03-22 02:40+0000\n"
-"Last-Translator: Pablo Andrijasevic <PABLO.ANDRIJASEVIC@gmail.com>\n"
+"PO-Revision-Date: 2018-05-23 13:42+0000\n"
+"Last-Translator: Jesús Parrillas <jesusparrillas@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/switchyomega/"
 "main/es/>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
@@ -169,7 +169,7 @@ msgstr ""
 "https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-Full-URL-Limitation"
 
 msgid "condition_group_default"
-msgstr " - "
+msgstr " . "
 
 msgid "condition_group_host"
 msgstr "Servidor"
@@ -195,7 +195,7 @@ msgid "ruleList_error_resultNotEnabled"
 msgstr "¡ Falta directiva '@with result' !"
 
 msgid "ruleList_error_unknownProfile"
-msgstr "Perfil $PROFILE$ desconocido"
+msgstr "Perfil desconocido: $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
 msgstr "Falta nombre del perfil en la línea $LNO$: $SOURCE$"
@@ -227,7 +227,6 @@ msgstr "Deshacer"
 msgid "options_title"
 msgstr "Opciones SwitchyOmega"
 
-#, fuzzy
 msgid "options_experimental_badge"
 msgstr "α"
 
@@ -276,7 +275,8 @@ msgstr ""
 "través del menú contextual."
 
 msgid "options_addConditionsToBottom"
-msgstr "Put new conditions added using the popup to the bottom of the list."
+msgstr ""
+"Agregue nuevas condiciones usando la ventana emergente al final de la lista."
 
 msgid "options_group_keyboardShortcut"
 msgstr "Atajo de teclado"
@@ -294,7 +294,7 @@ msgid "options_menuShortcutConfigure"
 msgstr "Configurar atajo"
 
 msgid "options_group_switchOptions"
-msgstr "Opciones"
+msgstr "Cambiar opciones"
 
 msgid "options_startupProfile"
 msgstr "Perfil inicial"
@@ -319,13 +319,13 @@ msgstr "Perfiles cíclicos"
 
 msgid "options_cycledProfilesHelp"
 msgstr ""
-"Al  usar este icono (o el atajo superior), los siguientes perfiles se "
+"Cuando pulses el icono(o el atajo superior), los siguientes perfiles se "
 "aplicarán en el orden indicado."
 
 msgid "options_cycledProfilesTooFew"
 msgstr ""
-"¡Para habilitar esta función necesita al menos 2 perfiles! Puede moverlos "
-"desde la lista inferior."
+"¡Necesitas seleccionar al menos 2 perfiles para habilitar esta función! "
+"Puedes arrastrarlos desde el cuadro inferior."
 
 msgid "options_notCycledProfiles"
 msgstr "Perfiles no cíclicos"
@@ -337,38 +337,44 @@ msgid "options_revertProxyChanges"
 msgstr "Deshacer cambios de proxy realizados por otras aplicaciones."
 
 msgid "options_group_conflicts"
-msgstr "Conflicts"
+msgstr "Conflictos"
 
 msgid "options_conflicts_introduction"
 msgstr ""
-"Sometimes, other apps will also try to control the proxy settings, resulting "
-"in conflicts. Note that ad blockers and other extensions may also use proxy "
-"settings under the hood. Such conflicts cannot be avoided due to how the "
-"browser works."
+"Algunas veces, otras aplicaciones también intentarán controlar la "
+"configuración del proxy, lo que generará conflictos. Tenga en cuenta que los "
+"bloqueadores de anuncios y otras extensiones también pueden usar "
+"configuraciones de proxy. Dichos conflictos no se pueden evitar debido a la "
+"forma en que funciona el navegador."
 
 msgid "options_conflicts_lowerPriority"
 msgstr ""
-"A red badge like this on the SwitchyOmega icon indicates that another app has "
-"higher priority so SwitchyOmega cannot control the settings. Please try to "
-"uninstall SwitchyOmega and reinstall, which should raise SwitchyOmega's "
-"priority. If you still see conflicts after reinstallation, please consider "
-"removing the other app causing the conflict."
+"Una insignia roja como esta en el icono de SwitchyOmega indica que otra "
+"aplicación tiene mayor prioridad, por lo que SwitchyOmega no puede controlar "
+"la configuración. Intente desinstalar SwitchyOmega y reinstalar, lo que "
+"debería aumentar la prioridad de SwitchyOmega. Si sigue viendo conflictos "
+"después de la reinstalación, considere eliminar la otra aplicación que causa "
+"el conflicto."
 
 msgid "options_conflicts_higherPriority"
 msgstr ""
-"If SwitchyOmega has higher priority, you can give the control back to other "
-"apps or system settings by selecting $SYSTEMPROFILE$ in the popup menu."
+"Si SwitchyOmega tiene una prioridad más alta, puede devolver el control a "
+"otras aplicaciones o configuraciones del sistema seleccionando "
+"$SYSTEMPROFILE$ en el menú emergente."
 
 msgid "options_showExternalProfile"
-msgstr "Show popup menu item to import proxy settings from other apps."
+msgstr ""
+"Mostrar el elemento del menú emergente para importar configuraciones proxy "
+"de otras aplicaciones."
 
 msgid "options_showExternalProfileHelp"
 msgstr ""
-"When $SYSTEMPROFILE$ is selected, you can import the effective proxy settings "
-"from other apps by selecting $EXTERNALPROFILE$ on the popup menu. "
-"The settings will be imported as a profile using the name you provide. "
-"Please note that the imported profile is a snapshot and will not reflect "
-"any changes from the source app thereafter."
+"Cuando se selecciona $SYSTEMPROFILE$, puede importar la configuración "
+"efectiva del proxy de otras aplicaciones seleccionando $EXTERNALPROFILE$ en "
+"el menú emergente. La configuración se importará como un perfil con el "
+"nombre que proporcione. Tenga en cuenta que el perfil importado es una "
+"instantánea y no reflejará ningún cambio desde la aplicación de origen a "
+"partir de entonces."
 
 msgid "options_group_networkRequests"
 msgstr "Peticiones de red"
@@ -387,7 +393,7 @@ msgstr "Opciones de descarga"
 
 msgid "options_downloadOptionsHelp"
 msgstr ""
-"Configurar la frecuencia de actualización en línea de reglas y archivos PAC."
+"Configurar la frecuencia de actualización en línea de reglas y scripts PAC."
 
 msgid "options_downloadInterval"
 msgstr "Intervalo de descarga"
@@ -396,16 +402,16 @@ msgid "options_downloadInterval_15"
 msgstr "15 minutos"
 
 msgid "options_downloadInterval_60"
-msgstr "1 hora"
+msgstr "1 Hora"
 
 msgid "options_downloadInterval_180"
-msgstr "3 horas"
+msgstr "3 Horas"
 
 msgid "options_downloadInterval_360"
-msgstr "6 horas"
+msgstr "6 Horas"
 
 msgid "options_downloadInterval_720"
-msgstr "12 horas"
+msgstr "12 Horas"
 
 msgid "options_downloadInterval_1440"
 msgstr "a diario"
@@ -426,8 +432,8 @@ msgstr ""
 
 msgid "options_exportProfileHelp"
 msgstr ""
-"Para exportar un perfil, utilice la barra de acción  en la página del "
-"perfil, arriba a la derecha."
+"Para exportar un perfil, utilice la barra de acción de arriba a la derecha "
+"en la página del perfil."
 
 msgid "options_exportLegacyRuleList"
 msgstr ""
@@ -444,11 +450,11 @@ msgid "options_group_importExportSettings"
 msgstr "Ajustes"
 
 msgid "options_makeBackup"
-msgstr "Copia de respaldo"
+msgstr "Crear copia de seguridad"
 
 msgid "options_makeBackupHelp"
 msgstr ""
-"Haga una copia de respaldo de sus opciones (incluye perfiles y resto de "
+"Haga una copia de seguridad de sus opciones (incluye perfiles y el resto de "
 "opciones)."
 
 msgid "options_restoreLocal"
@@ -467,13 +473,13 @@ msgid "options_restoreOnlineSubmit"
 msgstr "Restaurar"
 
 msgid "options_group_syncing"
-msgstr "Sincronizando (experimental)"
+msgstr "Sincronizando (Experimental)"
 
 msgid "options_syncEnable"
 msgstr "Habilitar sincronización"
 
 msgid "options_syncEnableForce"
-msgstr "Descargar y sincronizar"
+msgstr "Descargar desde la sincronización"
 
 msgid "options_syncDisable"
 msgstr "Deshabilitar sincronización"
@@ -509,102 +515,121 @@ msgstr ""
 
 msgid "options_syncUnsupportedHelp"
 msgstr ""
+"Las opciones de sincronización no son soportadas por su plataforma o "
+"navegador. Por ahora, solo el navegador Chrome en el escritorio las soporta."
 
 msgid "options_profileSyncDisabled"
-msgstr ""
+msgstr "La sincronización esta inhabilitada para este perfil."
 
 msgid "options_profileSyncDisabled_quotaPerItem"
 msgstr ""
+"La sincronización esta inhabilitada para este perfil por usar mucho espacio "
+"de almacenamiento."
 
 msgid "options_profileTabPrefix"
-msgstr ""
+msgstr "Perfil :: "
 
 msgid "options_renameProfile"
-msgstr ""
+msgstr "Renombrar"
 
 msgid "options_deleteProfile"
-msgstr ""
+msgstr "Borrar"
 
 msgid "options_profileExportRuleList"
-msgstr ""
+msgstr "Publicar lista de reglas"
 
 msgid "options_profileExportRuleListHelp"
-msgstr ""
+msgstr "Exportar reglas Switch para publicar en formato texto."
 
 msgid "options_profileExportPac"
-msgstr ""
+msgstr "Exportar PAC"
 
 msgid "options_profileUnsupported"
-msgstr ""
+msgstr "¡Tipo de perfil no soportado $TYPE$!"
 
 msgid "options_profileUnsupportedHelp"
 msgstr ""
+"Las opciones pueden haber fallado, o de una versión mas reciente de este "
+"programa."
 
 msgid "options_profileEditSource"
-msgstr ""
+msgstr "Editar código fuente"
 
 msgid "options_profileEditSourceHelp"
-msgstr ""
+msgstr "Mostrar ayuda sobre el formato del código fuente"
 
 msgid "options_profileEditSourceHelpUrl"
 msgstr ""
+"https://github.com/FelisCatus/SwitchyOmega/wiki/SwitchyOmega-conditions-"
+"format#result-profile"
 
 msgid "options_group_proxyServers"
-msgstr ""
+msgstr "Servidores proxy"
 
 msgid "options_proxy_scheme"
-msgstr ""
+msgstr "Esquema"
 
 msgid "options_proxy_protocol"
-msgstr ""
+msgstr "Protocolo"
 
 msgid "options_proxy_server"
-msgstr ""
+msgstr "Servidor"
 
 msgid "options_proxy_port"
-msgstr ""
+msgstr "Puerto"
 
 msgid "options_proxy_auth"
-msgstr ""
+msgstr "Autenticación"
 
 msgid "options_proxy_authAllWarningPac"
 msgstr ""
+"Advertencia: El nombre usuario/contraseña pueden enviarse a servidores "
+"inesperados devueltos por el script PAC."
 
 msgid "options_proxy_authAllWarningPacUrl"
 msgstr ""
+"Asegúrese de confiar en el script proporcionado a través de la URL anterior "
+"antes de ingresar credenciales confidenciales."
 
 msgid "options_proxy_authAllWarningPacScript"
 msgstr ""
+"Asegúrese de confiar en el script de a continuación antes de proporcionar "
+"credenciales confidenciales."
 
 msgid "options_proxy_authReferencedWarning"
 msgstr ""
+"Además, el uso de este perfil en otros perfiles (por ejemplo, perfil Switch) "
+"puede hacer que el nombre de usuario/contraseña se envíe a los servidores "
+"proxy configurados en otros perfiles."
 
 msgid "options_scheme_default"
-msgstr ""
+msgstr "(por defecto)"
 
 msgid "options_protocol_direct"
-msgstr ""
+msgstr "DIRECTO"
 
 msgid "options_protocol_useDefault"
-msgstr ""
+msgstr "(usa por defecto)"
 
 msgid "options_proxy_single"
-msgstr ""
+msgstr "Use el proxy anterior para todos los protocolos."
 
 msgid "options_proxy_expand"
-msgstr ""
+msgstr "Mostrar avanzado"
 
 msgid "options_group_bypassList"
-msgstr ""
+msgstr "Lista de omisión"
 
 msgid "options_bypassListHelp"
 msgstr ""
+"Servidores para los cuales no desea usar ningún proxy: (Un servidor en cada "
+"línea)"
 
 msgid "options_bypassListHelpLinkText"
-msgstr ""
+msgstr "(Comodines y más disponible ...)"
 
 msgid "options_group_pacUrl"
-msgstr ""
+msgstr "URL PAC"
 
 msgid "options_pacUrlHelp"
 msgstr ""
