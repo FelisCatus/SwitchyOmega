@@ -1,4 +1,4 @@
-OcontextMenu_inspectElementmegaTarget = require('omega-target')
+OmegaTarget = require('omega-target')
 OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 querystring = require('querystring')
