@@ -387,6 +387,14 @@ main {
   }
 }
 
+@media (max-width: 767px) {
+  // Try to make sure that the dropdown fits in the table-responsive scroll box.
+  // It effectively inlines the whole dropdown menu. Ugly, but at least working.
+  .table-responsive .dropdown-menu {
+    position: static !important;
+  }
+}
+
 .fixed-servers,
 .switch-rules {
   td {
