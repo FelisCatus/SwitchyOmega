@@ -187,7 +187,8 @@
 
   function createMenuItemForProfile(profile, profiles) {
     var profileDisp = profileTemplate.cloneNode(true);
-    var text = profile.name;
+    var text = OmegaTargetPopup.getMessage('profile_' + profile.name) ||
+      profile.name;
     if (profile.defaultProfileName) {
       text += ' [' + profile.defaultProfileName + ']';
     }
