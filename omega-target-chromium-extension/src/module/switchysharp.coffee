@@ -8,7 +8,8 @@ module.exports = class SwitchySharp
   port: null
 
   monitor: (action) ->
-    if not port? and not @_monitorTimerId
+    return if location.href.substr(4) == 'moz-'
+    if not port? and not @_monitorTimerId?
       @_monitorTimerId = setInterval @_connect.bind(this), 5000
       if action != 'reconnect'
         @_connect()
