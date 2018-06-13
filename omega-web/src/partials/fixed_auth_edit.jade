@@ -5,6 +5,11 @@ form(ng-submit='authForm.$valid && $close(auth)' name='authForm')
       span.sr-only Close
     h4.modal-title {{'options_modalHeader_proxyAuth' | tr}}
   .modal-body(style='padding-bottom: 0;')
+    .form-group(ng-show='!authSupported')
+      .alert.alert-danger
+        span.glyphicon.glyphicon-warning-sign
+        = ' '
+        | {{"options_proxy_authNotSupported" | tr:[protocolDisp]}}
     .form-group
       label.sr-only {{'options_proxyAuthUsername' | tr}}
       div(input-group-clear type='text' model='auth.username' autofocus

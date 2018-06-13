@@ -556,6 +556,11 @@ msgstr "Port"
 msgid "options_proxy_auth"
 msgstr "Authentication"
 
+msgid "options_proxy_authNotSupported"
+msgstr "Your browser DOES NOT support $PROTOCOLDISP$ proxy authentication! "
+"Please do not report this issue to SwitchyOmega. Contact the support for "
+"your browser instead."
+
 msgid "options_proxy_authAllWarningPac"
 msgstr ""
 "Warning: The username/password may be sent to unexpected servers returned by "

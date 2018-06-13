@@ -604,6 +604,11 @@ msgstr "Порт"
 msgid "options_proxy_auth"
 msgstr "Дані для входу"
 
+msgid "options_proxy_authNotSupported"
+msgstr "Your browser DOES NOT support $PROTOCOLDISP$ proxy authentication! "
+"Please do not report this issue to SwitchyOmega. Contact the support for "
+"your browser instead."
+
 #, fuzzy
 msgid "options_proxy_authAllWarningPac"
 msgstr ""

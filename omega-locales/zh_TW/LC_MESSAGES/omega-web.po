@@ -489,6 +489,10 @@ msgstr "連接埠"
 msgid "options_proxy_auth"
 msgstr "代理認證"
 
+msgid "options_proxy_authNotSupported"
+msgstr "您的瀏覽器不支持 $PROTOCOLDISP$ 代理認證！如有問題請聯繫您的瀏覽器支持，"
+"請勿反饋此問題給 SwitchyOmega."
+
 msgid "options_proxy_authAllWarningPac"
 msgstr "警告: 用戶名密碼將會提供給PAC指令碼返回的任何伺服器，有時目標伺服器會出乎您的預料。"
 

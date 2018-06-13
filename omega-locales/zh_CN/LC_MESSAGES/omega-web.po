@@ -499,6 +499,10 @@ msgstr "代理端口"
 msgid "options_proxy_auth"
 msgstr "代理登录"
 
+msgid "options_proxy_authNotSupported"
+msgstr "您的浏览器不支持 $PROTOCOLDISP$ 代理认证！如有问题请联系您的浏览器支持，"
+"请勿反馈此问题给 SwitchyOmega."
+
 msgid "options_proxy_authAllWarningPac"
 msgstr "警告: 用户名密码将会提供给PAC脚本返回的任何服务器，有时目标服务器会出乎您的预料。"
 

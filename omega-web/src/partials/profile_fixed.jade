@@ -26,7 +26,7 @@ div(ng-controller='FixedProfileCtrl')
             td(ng-if='!proxyEditors[scheme].scheme')
               input.form-control(type='number' value='' placeholder='{{proxyEditors[""].port}}' disabled)
             td.proxy-actions
-              button.btn.btn-xs.proxy-auth-toggle(ng-show='authSupported[proxyEditors[scheme].scheme]'
+              button.btn.btn-xs.proxy-auth-toggle(
                 ng-class='isProxyAuthActive(scheme) ? "btn-success" : "btn-default"'
                 type='button' role='button' ng-click='editProxyAuth(scheme)' title='{{"options_proxy_auth" | tr}}')
                 span.glyphicon.glyphicon-lock

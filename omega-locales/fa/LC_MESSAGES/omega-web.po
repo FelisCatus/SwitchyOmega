@@ -561,6 +561,11 @@ msgstr "پورت"
 msgid "options_proxy_auth"
 msgstr "تصدیق"
 
+msgid "options_proxy_authNotSupported"
+msgstr "Your browser DOES NOT support $PROTOCOLDISP$ proxy authentication! "
+"Please do not report this issue to SwitchyOmega. Contact the support for "
+"your browser instead."
+
 msgid "options_proxy_authAllWarningPac"
 msgstr ""
 "اخطار : نام کاربری / رمز عبور ممکن است برای سرور های غیرمنتظره توسط اسکریپت "

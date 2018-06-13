@@ -53,10 +53,12 @@ angular.module('omega').controller 'FixedProfileCtrl', ($scope, $modal,
     scope.proxy = proxy
     auth = $scope.profile.auth?[prop]
     scope.auth = auth && angular.copy(auth)
+    scope.authSupported = $scope.authSupported[proxy.scheme]
+    scope.protocolDisp = proxy.scheme
     $modal.open(
       templateUrl: 'partials/fixed_auth_edit.html'
       scope: scope
-      size: 'sm'
+      size: if scope.authSupported then 'sm' else 'lg'
     ).result.then (auth) ->
       if not auth?.username
         if $scope.profile.auth
