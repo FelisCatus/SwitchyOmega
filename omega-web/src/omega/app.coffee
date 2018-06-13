@@ -33,6 +33,8 @@ angular.module('omega').config ($stateProvider, $urlRouterProvider,
   $httpProvider, $animateProvider, $compileProvider) ->
   $compileProvider.aHrefSanitizationWhitelist(
     /^\s*(https?|ftp|mailto|chrome-extension):/)
+  $compileProvider.imgSrcSanitizationWhitelist(
+    /^\s*(https?|local|data|chrome-extension):/)
   $animateProvider.classNameFilter(/angular-animate/)
 
   $urlRouterProvider.otherwise '/about'
