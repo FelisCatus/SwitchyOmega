@@ -782,6 +782,12 @@ msgstr "用戶名"
 msgid "options_proxyAuthPassword"
 msgstr "密碼"
 
+msgid "options_proxyAuthShowPassword"
+msgstr "顯示密碼"
+
+msgid "options_proxyAuthHidePassword"
+msgstr "隱藏密碼"
+
 msgid "options_proxyAuthNone"
 msgstr "(無密碼)"
 

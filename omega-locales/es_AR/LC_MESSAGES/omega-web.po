@@ -895,6 +895,12 @@ msgstr "Username"
 msgid "options_proxyAuthPassword"
 msgstr "Password"
 
+msgid "options_proxyAuthShowPassword"
+msgstr "Show password"
+
+msgid "options_proxyAuthHidePassword"
+msgstr "Hide password"
+
 msgid "options_proxyAuthNone"
 msgstr "No Authentication"
 

@@ -886,6 +886,12 @@ msgstr "Uživatelské jméno"
 msgid "options_proxyAuthPassword"
 msgstr "Heslo"
 
+msgid "options_proxyAuthShowPassword"
+msgstr "Show password"
+
+msgid "options_proxyAuthHidePassword"
+msgstr "Hide password"
+
 msgid "options_proxyAuthNone"
 msgstr "Bez ověřování"
 

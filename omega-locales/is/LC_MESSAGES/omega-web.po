@@ -761,6 +761,12 @@ msgstr ""
 msgid "options_proxyAuthPassword"
 msgstr ""
 
+msgid "options_proxyAuthShowPassword"
+msgstr "Show password"
+
+msgid "options_proxyAuthHidePassword"
+msgstr "Hide password"
+
 msgid "options_proxyAuthNone"
 msgstr ""
 

@@ -892,6 +892,12 @@ msgstr "نام کاربری"
 msgid "options_proxyAuthPassword"
 msgstr "رمز عبور"
 
+msgid "options_proxyAuthShowPassword"
+msgstr "Show password"
+
+msgid "options_proxyAuthHidePassword"
+msgstr "Hide password"
+
 msgid "options_proxyAuthNone"
 msgstr "بدون تصدیق"
 

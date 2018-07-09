@@ -782,6 +782,12 @@ msgstr "Brukernavn"
 msgid "options_proxyAuthPassword"
 msgstr "Passord"
 
+msgid "options_proxyAuthShowPassword"
+msgstr "Show password"
+
+msgid "options_proxyAuthHidePassword"
+msgstr "Hide password"
+
 msgid "options_proxyAuthNone"
 msgstr "Ingen identitetsbekreftelse"
 

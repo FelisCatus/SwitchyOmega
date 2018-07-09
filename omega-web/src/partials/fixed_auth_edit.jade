@@ -24,7 +24,7 @@ form(ng-submit='authForm.$valid && $close(auth)' name='authForm')
           disabled ng-show='!auth.username')
         span.input-group-btn
           button.btn.btn-default(type='button' ng-click='showPassword = !showPassword'
-            title="{{'showPassword_' + (showPassword ? 'hide' : 'show') | tr}}" ng-disabled='!auth.username')
+            title="{{(showPassword ? 'options_proxyAuthHidePassword' : 'options_proxyAuthShowPassword') | tr}}" ng-disabled='!auth.username')
             span.glyphicon(ng-class='{"glyphicon-eye-close": !showPassword, "glyphicon-eye-open": !!showPassword}')
   .modal-footer
     button.btn.btn-default(type='button' ng-click='$dismiss()') {{'dialog_cancel' | tr}}

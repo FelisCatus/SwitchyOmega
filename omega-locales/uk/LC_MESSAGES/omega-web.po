@@ -914,6 +914,12 @@ msgstr "Ім'я користувача"
 msgid "options_proxyAuthPassword"
 msgstr "Пароль"
 
+msgid "options_proxyAuthShowPassword"
+msgstr "Show password"
+
+msgid "options_proxyAuthHidePassword"
+msgstr "Hide password"
+
 msgid "options_proxyAuthNone"
 msgstr ""
 
