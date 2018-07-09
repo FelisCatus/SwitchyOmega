@@ -54,7 +54,7 @@ class Options
         value = profile
     return value
 
-  constructor: (options, @_storage, @_state, @log, @sync) ->
+  constructor: (options, @_storage, @_state, @log, @sync, @proxyImpl) ->
     @_options = {}
     @_tempProfileRules = {}
     @_tempProfileRulesByProfile = {}
@@ -566,9 +566,10 @@ class Options
 
       @_watchingProfiles = OmegaPac.Profiles.allReferenceSet(@_tempProfile,
         @_options, profileNotFound: @_profileNotFound.bind(this))
-      applyProxy = @applyProfileProxy(@_tempProfile, profile)
+
+      applyProxy = @proxyImpl.applyProfile(@_tempProfile, profile, @_options)
     else
-      applyProxy = @applyProfileProxy(profile)
+      applyProxy = @proxyImpl.applyProfile(profile, profile, @_options)
 
     return applyProxy if options? and options.update == false
 
@@ -597,16 +598,6 @@ class Options
   # @returns {boolean} True if system mode is activated
   ###
   isSystem: -> @_isSystem
-
-  ###*
-  # Set proxy settings based on the given profile.
-  # In base class, this method is not implemented and will always reject.
-  # @param {{}} profile The profile to apply
-  # @param {{}=profile} meta The metadata of the profile, like name and revision
-  # @returns {Promise} A promise which is fulfilled when the proxy is set.
-  ###
-  applyProfileProxy: (profile, meta) ->
-    Promise.reject new Error('not implemented')
 
   ###*
   # Called when current profile has changed.

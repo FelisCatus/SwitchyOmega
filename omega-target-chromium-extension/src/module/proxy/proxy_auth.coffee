@@ -3,18 +3,18 @@ OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 
 module.exports = class ProxyAuth
-  constructor: (options) ->
+  constructor: (log) ->
     @_requests = {}
-    @options = options
+    @log = log
 
   listening: false
   listen: ->
     return if @listening
     if not chrome.webRequest
-      @options.log.error('Proxy auth disabled! No webRequest permission.')
+      @log.error('Proxy auth disabled! No webRequest permission.')
       return
     if not chrome.webRequest.onAuthRequired
-      @options.log.error('Proxy auth disabled! onAuthRequired not available.')
+      @log.error('Proxy auth disabled! onAuthRequired not available.')
       return
     chrome.webRequest.onAuthRequired.addListener(
       @authHandler.bind(this)
@@ -35,9 +35,7 @@ module.exports = class ProxyAuth
   setProxies: (profiles) ->
     @_proxies = {}
     @_fallbacks = []
-    processProfile = (profile) =>
-      profile = @options.profile(profile)
-      return unless profile?.auth
+    for profile in profiles when profile.auth
       for scheme in OmegaPac.Profiles.schemes when profile[scheme.prop]
         auth = profile.auth?[scheme.prop]
         continue unless auth
@@ -59,13 +57,6 @@ module.exports = class ProxyAuth
           name: profile.name + '.' + 'all'
         })
 
-    if Array.isArray(profiles)
-      for profile in profiles
-        processProfile(profile)
-    else
-      for _, profile of profiles
-        processProfile(profile)
-
   _proxies: {}
   _fallbacks: []
   _requests: null
@@ -86,7 +77,7 @@ module.exports = class ProxyAuth
       proxy = list[req.authTries]
     else
       proxy = @_fallbacks[req.authTries - listLen]
-    @options.log.log('ProxyAuth', key, req.authTries, proxy?.name)
+    @log.log('ProxyAuth', key, req.authTries, proxy?.name)
 
     return {} unless proxy?
     req.authTries++

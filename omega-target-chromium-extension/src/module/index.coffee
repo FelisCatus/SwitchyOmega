@@ -7,6 +7,7 @@ module.exports =
   WebRequestMonitor: require('./web_request_monitor')
   Inspect: require('./inspect')
   Url: require('url')
+  proxy: require('./proxy')
 
 for name, value of require('omega-target')
   module.exports[name] ?= value

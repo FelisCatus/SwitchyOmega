@@ -179,7 +179,10 @@ if chrome?.storage?.sync or browser?.storage?.sync
     sync.enabled = false
   sync.transformValue = OmegaTargetCurrent.Options.transformValueForSync
 
-options = new OmegaTargetCurrent.Options(null, storage, state, Log, sync)
+proxyImpl = OmegaTargetCurrent.proxy.getProxyImpl(Log)
+state.set({proxyImplFeatures: proxyImpl.features})
+options = new OmegaTargetCurrent.Options(null, storage, state, Log, sync,
+  proxyImpl)
 options.externalApi = new OmegaTargetCurrent.ExternalApi(options)
 options.externalApi.listen()
 
@@ -218,7 +221,7 @@ options._inspect = new OmegaTargetCurrent.Inspect (url, tab) ->
 options.setProxyNotControllable(null)
 timeout = null
 
-options.watchProxyChange (details) ->
+proxyImpl.watchProxyChange (details) ->
   return if options.externalApi.disabled
   return unless details
   notControllableBefore = options.proxyNotControllable()
