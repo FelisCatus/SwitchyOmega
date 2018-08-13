@@ -11,28 +11,28 @@ jobs:
 
       - restore_cache:
           keys:
-          - v1-dependencies-build-{{ checksum "omega-build/package.json" }}
-          - v1-dependencies-build
+          - v2-dependencies-build-{{ checksum "omega-build/package.json" }}
+          - v2-dependencies-build
       - restore_cache:
           keys:
-          - v1-dependencies-pac-{{ checksum "omega-pac/package.json" }}
-          - v1-dependencies-pac
+          - v2-dependencies-pac-{{ checksum "omega-pac/package.json" }}
+          - v2-dependencies-pac
       - restore_cache:
           keys:
-          - v1-dependencies-target-{{ checksum "omega-target/package.json" }}
-          - v1-dependencies-target
+          - v2-dependencies-target-{{ checksum "omega-target/package.json" }}
+          - v2-dependencies-target
       - restore_cache:
           keys:
-          - v1-dependencies-web-{{ checksum "omega-web/package.json" }}
-          - v1-dependencies-web
+          - v2-dependencies-web-{{ checksum "omega-web/package.json" }}
+          - v2-dependencies-web
       - restore_cache:
           keys:
-          - v1-dependencies-webbower-{{ checksum "omega-web/bower.json" }}
-          - v1-dependencies-webbower
+          - v2-dependencies-webbower-{{ checksum "omega-web/bower.json" }}
+          - v2-dependencies-webbower
       - restore_cache:
           keys:
-          - v1-dependencies-targetchromium-{{ checksum "omega-target-chromium-extension/package.json" }}
-          - v1-dependencies-targetchromium
+          - v2-dependencies-targetchromium-{{ checksum "omega-target-chromium-extension/package.json" }}
+          - v2-dependencies-targetchromium
 
       - run: sudo npm install -g grunt-cli bower web-ext json
       - run: (cd omega-build && npm run deps)
@@ -40,23 +40,23 @@ jobs:
       - save_cache:
           paths:
             - omega-build/node_modules
-          key: v1-dependencies-build-{{ checksum "omega-build/package.json" }}
+          key: v2-dependencies-build-{{ checksum "omega-build/package.json" }}
       - save_cache:
           paths:
             - omega-pac/node_modules
-          key: v1-dependencies-pac-{{ checksum "omega-pac/package.json" }}
+          key: v2-dependencies-pac-{{ checksum "omega-pac/package.json" }}
       - save_cache:
           paths:
             - omega-web/node_modules
-          key: v1-dependencies-web-{{ checksum "omega-web/package.json" }}
+          key: v2-dependencies-web-{{ checksum "omega-web/package.json" }}
       - save_cache:
           paths:
             - omega-web/bower_components
-          key: v1-dependencies-webbower-{{ checksum "omega-web/bower.json" }}
+          key: v2-dependencies-webbower-{{ checksum "omega-web/bower.json" }}
       - save_cache:
           paths:
             - omega-target-chromium-extension/node_modules
-          key: v1-dependencies-targetchromium-{{ checksum "omega-target-chromium-extension/package.json" }}
+          key: v2-dependencies-targetchromium-{{ checksum "omega-target-chromium-extension/package.json" }}
 
       - run: (cd omega-build && sudo npm run dev)
       - run: (cd omega-pac && npm test)
