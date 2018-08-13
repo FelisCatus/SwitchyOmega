@@ -1,19 +1,26 @@
-## Please follow the guide below
-
-- You will be asked some questions, please read them **carefully** and answer honestly
-- Put an `x` into all the boxes [ ] relevant to your *pull request* (like that [x])
-- Use *Preview* tab to see how your *pull request* will actually look like
-
-- [ ] [Searched](https://github.com/FelisCatus/SwitchyOmega/search?q=is%3Apr&type=Issues) for similar pull requests
-- [ ] Compiled the code with Node.js
-
-### What is the purpose of your *pull request*?
+### What does this PR do?
 - [ ] Bug fix
 - [ ] Improvement
 - [ ] New feature
 
+(Note: Translations and typo fixes should be done on https://hosted.weblate.org/projects/switchyomega/ instead of PR.)
+
+Please explain the changes in details here...
+
+#### Compatibility
+
+Is this PR compatible with old versions? Can users simply upgrade the extension?
+Please describe any possible breaking changes (or surprising UX differences).
+
+#### Screenshots (if applicable)
+
 ---
 
-### Description of your *pull request* and other information
+After creating the PR:
 
-Explanation of your *pull request* in arbitrary form goes here. Please make sure the description explains the purpose and effect of your *pull request* and is worded well enough to be understood. Provide as much context and examples as possible.
+- Please make sure the CircleCI test passes. Feel free to add more commits for
+bug or style fixes.
+- Any merge conflicts should be fixed on *your* side. Prefer rebasing to merging.
+- Allow some time for project maintainers to review and merge the change.
+- New features & behavior changes are subject to discussion. Please understand
+that project maintainers may reject new features, or request changes.
