@@ -72,10 +72,15 @@ class ListenerProxyImpl extends ProxyImpl
         # HTTP proxy auth must be handled via webRequest.onAuthRequired.
         proxyInfo.username = auth.username
         proxyInfo.password = auth.password
-    if proxyInfo.type == 'socks' or proxyInfo.type == 'socks4'
+    if proxyInfo.type == 'socks'
       # Enable SOCKS remote DNS.
       # TODO(catus): Maybe allow the users to configure this?
       proxyInfo.proxyDNS = true
+
+    # TODO(catus): Maybe allow proxyDNS for socks4? Server may support SOCKS4a.
+    # It cannot default to true though, since SOCKS4 servers that does not have
+    # the SOCKS4a extension may simply refuse to work.
+
     return [proxyInfo]
 
 module.exports = ListenerProxyImpl
