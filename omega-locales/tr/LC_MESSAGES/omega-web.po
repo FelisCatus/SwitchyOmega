@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2018-08-14 11:14+0000\n"
+"PO-Revision-Date: 2018-08-15 12:41+0000\n"
 "Last-Translator: Abdullah Furkan <afy_1905@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/switchyomega/"
 "main/tr/>\n"
@@ -29,7 +29,7 @@ msgid "manifest_icon_default_title"
 msgstr "Yükleniyor…"
 
 msgid "upgrade_profile_auto"
-msgstr "Oto Geçiş"
+msgstr "Otomatik Geçiş"
 
 msgid "profile_direct"
 msgstr "[Doğrudan]"
@@ -63,28 +63,30 @@ msgstr ""
 "conditions that cannot be achieved by any other condition type."
 
 msgid "condition_HostLevelsCondition"
-msgstr "Host levels"
+msgstr "Sunucu Seviyeleri"
 
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
-"Matches the request if and only if the host level in within the given range."
-"<br>Host level is defined as the <b>number of dot-separated segments</b> of "
-"the host (domain name).<br>Example: <code>www.example.com</code> is with a "
-"host level of 3, while <code>internal</code> is of host level 1."
+"İstek sadece sunucu seviyesi(host level) belirtilen aralıkta ise eşleşir .\n"
+"<br>Tanımlanan sunucu seviyesi <b>nokta ile ayrılmış bölümlerin sayısı</b> "
+"sunucu (domain adı).<br>Örnek: <code>www.example.com</code> kodunun sunucu "
+"seviyesi 3 iken,  <code>internal</code> kodunun sunucu seviyesi 1'dir ."
 
 msgid "condition_IpCondition"
 msgstr "IP Literals"
 
 msgid "condition_help_IpCondition"
 msgstr ""
-"Matches the request if and only if the host is a <b>literal</b> IP address and"
-" in the subnet as specified by <a href='"
-"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation'>"
-"CIDR notation</a>.<br>For example, given the rule <code>127.0.0.1/16</code>, "
-"it matches all IP addresses like <code>127.0.*.*</code>.<br>"
-"So <code>127.0.0.1</code> matches while <code>127.1.0.0</code> does not. "
-"Host names like <code>localhost</code> will never match because they are "
-"<b>not</b> IP literals."
+"Gönderilen istek, sunucu istenilen şartlarda bir IP adresine sahipse ve alt "
+"ağda ise yani<a href='https://en.wikipedia.org/wiki/Classless_Inter-"
+"Domain_Routing#CIDR_notation'>CIDR notation</a>adresinde belirtilen "
+"özelliklere sahipse eşleşme gerçekleşir.<br>Örneğin,  <code>127.0.0.1/"
+"16</code>şartı mevcut olsun. Bu şarta <code>127.0.*.*</code> ile başlayan "
+"tüm IP'ler uyar yani eşleşme başarılı olur.<br>Bu "
+"yüzden<code>127.0.0.1</code> IP'si belirtilen kurala uyarken "
+"<code>127.1.0.0</code> IP'si kurala uymaz. <code>localhost</code> Şeklinde "
+"bir ada sahip olan sunucularda ise asla eşleşme gerçekleşmez çünkü istenilen "
+"şartlarda bir IP adresine sahip değillerdir."
 
 msgid "condition_UrlWildcardCondition"
 msgstr "URL wildcard"
@@ -100,16 +102,17 @@ msgstr ""
 msgid "condition_UrlRegexCondition"
 msgstr "URL regex"
 
+#, fuzzy
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
-"Matches URL by extremely powerful <a href='https://www.google.com/search?"
-"q=regular%20expression'>regular expression</a>.<br>However, regular "
+"URL eşlemesi oldukça güçlüdür.<a href='https://www.google.com/"
+"search?q=regular%20expression'>regular expression</a>.<br>However, regular "
 "expressions can be hard to construct (and read).<br>It is recommended to use "
 "wildcards for most cases and only use regex for conditions that cannot be "
 "achieved by any other condition type."
 
 msgid "condition_KeywordCondition"
-msgstr "Keyword"
+msgstr "Anahtar Kelime"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
@@ -120,7 +123,7 @@ msgstr ""
 "blocking some keywords in the URL, by requesting such URLs through a proxy."
 
 msgid "condition_FalseCondition"
-msgstr "(Disabled)"
+msgstr "(Devre dışı)"
 
 msgid "condition_details_FalseCondition"
 msgstr "(Condition ignored when matching)"
@@ -134,7 +137,7 @@ msgstr ""
 "the condition type back to the previous type."
 
 msgid "condition_TimeCondition"
-msgstr "Current Time"
+msgstr "Mevcut Zaman"
 
 msgid "condition_help_TimeCondition"
 msgstr ""
@@ -145,7 +148,7 @@ msgstr ""
 "The calculation happens roughly at the moment when the request is sent."
 
 msgid "condition_WeekdayCondition"
-msgstr "Day of the Week"
+msgstr "Haftanın Günü"
 
 msgid "condition_help_WeekdayCondition"
 msgstr ""
@@ -168,16 +171,16 @@ msgid "condition_group_default"
 msgstr " "
 
 msgid "condition_group_host"
-msgstr "Host"
+msgstr "Sunucu"
 
 msgid "condition_group_url"
 msgstr "Url"
 
 msgid "condition_group_special"
-msgstr "Special"
+msgstr "Özel"
 
 msgid "ruleListFormat_Switchy"
-msgstr "Switchy"
+msgstr "Değiştirilebilir"
 
 msgid "ruleListFormat_AutoProxy"
 msgstr "AutoProxy"
@@ -195,73 +198,73 @@ msgid "ruleList_error_missingResultProfile"
 msgstr "Missing result profile name at Line $LNO$: $SOURCE$"
 
 msgid "ruleList_error_invalidRule"
-msgstr "Invalid rule at Line $LNO$: $SOURCE$"
+msgstr "Geçersiz kural ! Satır $LNO$: $SOURCE$"
 
 msgid "ruleList_error_noDefaultRule"
 msgstr "Missing default rule with catch-all '*' condition!"
 
 msgid "dialog_close"
-msgstr "Close"
+msgstr "Kapat"
 
 msgid "dialog_save"
-msgstr "Save changes"
+msgstr "Değişikleri Kaydet"
 
 msgid "dialog_ok"
-msgstr "OK"
+msgstr "Tamam"
 
 msgid "dialog_cancel"
-msgstr "Cancel"
+msgstr "İptal"
 
 msgid "inputClear_clear"
-msgstr "Clear"
+msgstr "Temizle"
 
 msgid "inputClear_restore"
-msgstr "Restore"
+msgstr "Eski haline getir"
 
 msgid "options_title"
-msgstr "SwitchyOmega Options"
+msgstr "SwitchyOmega Seçenekler"
 
 msgid "options_experimental_badge"
 msgstr "α"
 
 msgid "options_navHeader_setting"
-msgstr "Settings"
+msgstr "Ayarlar"
 
 msgid "options_navHeader_profiles"
-msgstr "Profiles"
+msgstr "Hesaplar"
 
 msgid "options_navHeader_actions"
-msgstr "Actions"
+msgstr "Hareketler"
 
 msgid "options_tab_ui"
-msgstr "Interface"
+msgstr "Arayüz"
 
 msgid "options_tab_general"
 msgstr "General"
 
 msgid "options_tab_importExport"
-msgstr "Import/Export"
+msgstr "Ekle/Çıkar"
 
 msgid "options_newProfile"
-msgstr "Yeni profil…"
+msgstr "Yeni hesap…"
 
 msgid "options_apply"
-msgstr "Apply changes"
+msgstr "Değişiklikleri kaydet"
 
 msgid "options_discard"
-msgstr "Discard changes"
+msgstr "Değişiklikleri iptal et"
 
 msgid "options_reset"
-msgstr "Reset options"
+msgstr "Seçenekleri sıfırla"
 
 msgid "options_group_miscOptions"
-msgstr "Misc Options"
+msgstr "Diğer Seçenekler"
 
 msgid "options_confirmDeletion"
-msgstr "Confirm on condition deletion."
+msgstr "Koşula bağlı silinmeyi onayla."
 
 msgid "options_refreshOnProfileChange"
-msgstr "Refresh current tab on profile change."
+msgstr "Hesap güncellendiğinde mevcut sekmeyi yenile."
 
 msgid "options_showInspectMenu"
 msgstr "Allow inspecting proxy used for page elements via context menu."
@@ -270,7 +273,7 @@ msgid "options_addConditionsToBottom"
 msgstr "Put new conditions added using the popup to the bottom of the list."
 
 msgid "options_group_keyboardShortcut"
-msgstr "Keyboard Shortcut"
+msgstr "Klavye Kısayolu"
 
 msgid "options_menuShortcutHelp"
 msgstr ""
@@ -283,19 +286,19 @@ msgstr ""
 "(or /) in the menu to learn more."
 
 msgid "options_menuShortcutConfigure"
-msgstr "Configure shortcut"
+msgstr "Kısayolu ayarla"
 
 msgid "options_group_switchOptions"
 msgstr "Switch Options"
 
 msgid "options_startupProfile"
-msgstr "Startup Profile"
+msgstr "Başlangıç Hesabı"
 
 msgid "options_startupProfile_none"
-msgstr "(Current profile)"
+msgstr "(Mevcut Hesap)"
 
 msgid "options_showConditionTypesAdvanced"
-msgstr "Show advanced condition types"
+msgstr "Gelişmiş koşul tiplerini göster"
 
 msgid "options_showConditionTypesAdvancedHelp"
 msgstr ""
