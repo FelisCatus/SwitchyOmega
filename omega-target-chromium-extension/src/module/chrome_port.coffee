@@ -10,7 +10,11 @@ module.exports = class ChromePort
     @sender = @port.sender
 
     @disconnect = @port.disconnect.bind(@port)
-    @postMessage = @port.postMessage.bind(@port)
+    @postMessage = (args...) =>
+      try
+        @port.postMessage(args...)
+      catch
+        return
 
     @onMessage = new TrackedEvent(@port.onMessage)
     @onDisconnect = new TrackedEvent(@port.onDisconnect)
