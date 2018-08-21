@@ -23,7 +23,9 @@ class ProxyImpl
       ref_set = OmegaPac.Profiles.allReferenceSet(profile,
         options, profileNotFound: @_profileNotFound.bind(this))
       for own _, name of ref_set
-        referenced_profiles.push(OmegaPac.Profiles.byName(name, options))
+        profile = OmegaPac.Profiles.byName(name, options)
+        if profile
+          referenced_profiles.push(profile)
       @_proxyAuth.setProxies(referenced_profiles)
     )
   getProfilePacScript: (profile, meta, options) ->
