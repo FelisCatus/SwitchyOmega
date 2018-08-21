@@ -101,7 +101,7 @@ To build the project:
 
     # Install node and npm first (make sure npm --version > 2.0), then:
     
-    sudo npm install -g grunt-cli bower
+    sudo npm install -g grunt-cli@1.2.0 bower
     # In the project folder:
     cd omega-build
     npm run deps # This runs npm install in every module.

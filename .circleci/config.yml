@@ -34,7 +34,7 @@ jobs:
           - v2-dependencies-targetchromium-{{ checksum "omega-target-chromium-extension/package.json" }}
           - v2-dependencies-targetchromium
 
-      - run: sudo npm install -g grunt-cli bower web-ext json
+      - run: sudo npm install -g grunt-cli@1.2.0 bower web-ext json
       - run: (cd omega-build && npm run deps)
 
       - save_cache:
