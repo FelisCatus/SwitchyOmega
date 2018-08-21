@@ -7,7 +7,7 @@
     "coffeelint": "^1.16.0",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^1.0.1",
-    "grunt-bower-task": "^0.4.0",
+    "grunt-bower-task": "^0.5.0",
     "grunt-coffeelint": "^0.0.13",
     "grunt-contrib-coffee": "^0.11.1",
     "grunt-contrib-concat": "^0.5.0",
