@@ -248,7 +248,7 @@ class Options
         try
           Buffer = require('buffer').Buffer
           options = new Buffer(options, 'base64').toString('utf8')
-        catch
+        catch _
           options = null
       options = try JSON.parse(options)
     if not options

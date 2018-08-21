@@ -10,5 +10,5 @@ angular.module('omega').controller 'AboutCtrl', ($scope, $rootScope,
 
   try
     $scope.version = omegaDebug.getProjectVersion()
-  catch
+  catch _
     $scope.version = '?.?.?'

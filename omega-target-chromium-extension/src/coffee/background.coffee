@@ -8,7 +8,7 @@ Log = OmegaTargetCurrent.Log
 _writeLogToLocalStorage = (content) ->
   try
     localStorage['log'] += content
-  catch
+  catch _
     # Maybe we have reached our limit here. See #1288. Try trimming it.
     localStorage['log'] = content
 

@@ -97,7 +97,7 @@ module.exports = exports =
   safeRegex: (expr) ->
     try
       new RegExp(expr)
-    catch
+    catch _
       # Invalid regexp! Fall back to a regexp that does not match anything.
       /(?!)/
 

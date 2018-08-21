@@ -13,7 +13,7 @@ module.exports = class ChromePort
     @postMessage = (args...) =>
       try
         @port.postMessage(args...)
-      catch
+      catch _
         return
 
     @onMessage = new TrackedEvent(@port.onMessage)

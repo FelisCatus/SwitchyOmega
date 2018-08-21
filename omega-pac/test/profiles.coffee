@@ -27,7 +27,7 @@ describe 'Profiles', ->
           chai.assert.equal(matchResult.source, expected.source)
         else
           chai.assert.deepEqual(matchResult, expected)
-      catch
+      catch _
         printResult = JSON.stringify(matchResult)
         msg = ("expect profile to return #{JSON.stringify(expected)} " +
                 "instead of #{printResult} for request #{o_request}")

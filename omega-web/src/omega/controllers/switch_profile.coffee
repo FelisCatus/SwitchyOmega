@@ -196,7 +196,7 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
     if condition.conditionType.indexOf('Regex') >= 0
       try
         new RegExp(pattern)
-      catch
+      catch _
         return false
     return true
 

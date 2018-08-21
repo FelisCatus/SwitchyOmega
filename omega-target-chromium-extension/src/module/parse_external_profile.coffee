@@ -46,7 +46,7 @@ module.exports = (details, options, fixedProfileConfig) ->
               [profileName, revision] = tokens
               try
                 profileName = JSON.parse(profileName)
-              catch
+              catch _
                 profileName = null
               if profileName and revision
                 profile = OmegaPac.Profiles.byName(profileName, options)

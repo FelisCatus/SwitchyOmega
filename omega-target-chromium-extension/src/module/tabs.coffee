@@ -88,7 +88,7 @@ class ChromeTabs
   _chromeSetIcon: (params) ->
     try
       chrome.browserAction.setIcon?(params, @ignoreError)
-    catch
+    catch _
       # Some legacy Chrome versions will panic if there are other icon sizes.
       params.imageData = {19: params.imageData[19], 38: params.imageData[38]}
       chrome.browserAction.setIcon?(params, @ignoreError)

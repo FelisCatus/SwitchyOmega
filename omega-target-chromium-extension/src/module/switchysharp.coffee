@@ -52,6 +52,6 @@ module.exports = class SwitchySharp
       @port?.onMessage.addListener(@_onMessage.bind(this))
     try
       @port.postMessage({action: 'disable'})
-    catch
+    catch _
       @port = null
     return @port?
