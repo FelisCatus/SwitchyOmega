@@ -368,11 +368,12 @@ class Options
       if refresh?
         @_state.set({'refreshOnProfileChange': refresh})
 
-      showExternal = changes['-showExternalProfile']
-      if not showExternal?
-        showExternal = true
-        @_setOptions({'-showExternalProfile': true}, {persist: true})
-      @_state.set({'showExternalProfile': showExternal})
+      if Object::hasOwnProperty.call changes, '-showExternalProfile'
+        showExternal = changes['-showExternalProfile']
+        if not showExternal?
+          showExternal = true
+          @_setOptions({'-showExternalProfile': true}, {persist: true})
+        @_state.set({'showExternalProfile': showExternal})
 
       quickSwitchProfiles = changes['-quickSwitchProfiles']
       quickSwitchProfiles = @_cleanUpQuickSwitchProfiles(quickSwitchProfiles)
