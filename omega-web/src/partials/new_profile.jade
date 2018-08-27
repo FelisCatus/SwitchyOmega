@@ -48,7 +48,7 @@ form(ng-submit='newProfile.$valid && $close(profile)' name='newProfile')
           .help-block
             span.glyphicon.glyphicon-warning-sign
             = ' '
-            {{'options_pac_profile_unsupported_moz' | tr}}
+            | {{'options_pac_profile_unsupported_moz' | tr}}
     .radio
       label
         input(type='radio', name='profile-new-type', value='VirtualProfile' ng-model='profile.profileType')
