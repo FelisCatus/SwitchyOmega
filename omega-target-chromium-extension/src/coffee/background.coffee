@@ -253,10 +253,12 @@ proxyImpl.watchProxyChange (details) ->
   clearTimeout(timeout) if timeout?
   parsed = null
   timeout = setTimeout (->
-    options.setExternalProfile(parsed, {noRevert: noRevert, internal: internal})
+    if parsed
+      options.setExternalProfile(parsed,
+        {noRevert: noRevert, internal: internal})
   ), 500
 
-  parsed = options.parseExternalProfile(details)
+  parsed = proxyImpl.parseExternalProfile(details, options._options)
   return
 
 external = false

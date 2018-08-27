@@ -36,7 +36,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
             span(omega-profile-icon='externalProfile' icon='getIcon(externalProfile, "normal")' options='availableProfiles' disp-name='dispNameFilter')
             = ' '
             span(ng-show='!nameExternal.open') {{'popup_externalProfile' | tr}}
-            input.form-control(ng-show='!!nameExternal.open' ng-model='externalProfile.name' ng-blur='nameExternalForm.submit()'
+            input.form-control(ng-show='!!nameExternal.open' ng-model='externalProfile.name' ng-blur='nameExternalForm.$valid && saveExternal()'
               placeholder='{{"popup_externalProfileName" | tr}}' ui-validate='validateProfileName' autofocus)
       li.request-info(ng-show='!!requestInfoProvided' class='bg-warning')
         a(href='#' role='button' ng-click='showRequestInfo = true' data-shortcut='requestInfo')

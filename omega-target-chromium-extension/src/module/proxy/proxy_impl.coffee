@@ -8,6 +8,7 @@ class ProxyImpl
   @isSupported: -> false
   applyProfile: (profile, meta) -> Promise.reject()
   watchProxyChange: (callback) -> null
+  parseExternalProfile: (details, options) -> null
   _profileNotFound: (name) ->
     @log.error("Profile #{name} not found! Things may go very, very wrong.")
     return OmegaPac.Profiles.create({

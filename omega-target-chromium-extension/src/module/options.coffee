@@ -2,7 +2,6 @@ OmegaTarget = require('omega-target')
 OmegaPac = OmegaTarget.OmegaPac
 Promise = OmegaTarget.Promise
 querystring = require('querystring')
-parseExternalProfile = require('./parse_external_profile')
 WebRequestMonitor = require('./web_request_monitor')
 ChromePort = require('./chrome_port')
 fetchUrl = require('./fetch_url')
@@ -10,8 +9,6 @@ Url = require('url')
 
 class ChromeOptions extends OmegaTarget.Options
   _inspect: null
-  parseExternalProfile: (details) ->
-    parseExternalProfile(details, @_options, @_fixedProfileConfig.bind(this))
 
   fetchUrl: fetchUrl
 
