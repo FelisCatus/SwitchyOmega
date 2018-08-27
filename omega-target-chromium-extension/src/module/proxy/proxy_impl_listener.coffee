@@ -1,11 +1,11 @@
 OmegaTarget = require('omega-target')
 # The browser only accepts native promises as onRequest return values.
 # DO NOT USE Bluebird Promises here!
-NativePromise = Promise
+NativePromise = Promise ? null
 ProxyImpl = require('./proxy_impl')
 
 class ListenerProxyImpl extends ProxyImpl
-  @isSupported: -> browser?.proxy?.onRequest?
+  @isSupported: -> Promise? and browser?.proxy?.onRequest?
   features: ['fullUrl', 'socks5Auth']
   constructor: ->
     super(arguments...)
