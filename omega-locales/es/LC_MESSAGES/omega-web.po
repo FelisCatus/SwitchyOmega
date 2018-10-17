@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2018-05-23 13:42+0000\n"
-"Last-Translator: Jesús Parrillas <jesusparrillas@gmail.com>\n"
+"PO-Revision-Date: 2018-10-19 08:39+0000\n"
+"Last-Translator: David Molero Herrera <d.molero.h@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/switchyomega/"
 "main/es/>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.2.1\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
@@ -180,14 +180,12 @@ msgstr "Url"
 msgid "condition_group_special"
 msgstr "Especial"
 
-#, fuzzy
 msgid "ruleListFormat_Switchy"
 msgstr "Switchy"
 
 msgid "ruleListFormat_AutoProxy"
 msgstr "Proxy Automático"
 
-#, fuzzy
 msgid "ruleList_usageUrl"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
@@ -294,7 +292,7 @@ msgid "options_menuShortcutConfigure"
 msgstr "Configurar atajo"
 
 msgid "options_group_switchOptions"
-msgstr "Cambiar opciones"
+msgstr "Opciones del Conmutador"
 
 msgid "options_startupProfile"
 msgstr "Perfil inicial"
@@ -312,7 +310,7 @@ msgstr ""
 "que no se recomienda habilitar los avanzados."
 
 msgid "options_quickSwitch"
-msgstr "Cambio rápido"
+msgstr "Conmutador Rápido"
 
 msgid "options_cycledProfiles"
 msgstr "Perfiles cíclicos"
@@ -539,7 +537,7 @@ msgid "options_profileExportRuleList"
 msgstr "Publicar lista de reglas"
 
 msgid "options_profileExportRuleListHelp"
-msgstr "Exportar reglas Switch para publicar en formato texto."
+msgstr "Exportar Reglas del Conmutador para publicar en formato texto."
 
 msgid "options_profileExportPac"
 msgstr "Exportar PAC"
@@ -582,9 +580,10 @@ msgid "options_proxy_auth"
 msgstr "Autenticación"
 
 msgid "options_proxy_authNotSupported"
-msgstr "Your browser DOES NOT support $PROTOCOLDISP$ proxy authentication! "
-"Please do not report this issue to SwitchyOmega. Contact the support for "
-"your browser instead."
+msgstr ""
+"¡Tu navegador NO soporta la autenticación proxy $PROTOCOLDISP$! Por favor no "
+"reportes esta incidencia a SwitchyOmega. Ponte en contacto con el soporte "
+"para tu navegador."
 
 msgid "options_proxy_authAllWarningPac"
 msgstr ""
@@ -603,9 +602,9 @@ msgstr ""
 
 msgid "options_proxy_authReferencedWarning"
 msgstr ""
-"Además, el uso de este perfil en otros perfiles (por ejemplo, perfil Switch) "
-"puede hacer que el nombre de usuario/contraseña se envíe a los servidores "
-"proxy configurados en otros perfiles."
+"Adicionalmente, el uso de este perfil en otros perfiles (p. ej. Perfil "
+"Conmutador) puede hacer que el nombre de usuario/contraseña se envíe a los "
+"servidores proxy configurados en otros perfiles."
 
 msgid "options_scheme_default"
 msgstr "(por defecto)"
@@ -638,576 +637,721 @@ msgstr "URL PAC"
 
 msgid "options_pacUrlHelp"
 msgstr ""
+"El script PAC será actualizado desde esta URL. Si se deja en blanco, el "
+"siguiente script se usará directamente en su lugar."
 
 msgid "options_pacUrlFile"
 msgstr ""
+"Archivos con perfiles PAC: las URL solamente se pueden aplicar directamente. "
+"No se pueden usar como perfiles de resultados porque no se puede acceder a "
+"los archivos locales debido a una limitación del navegador."
 
 msgid "options_pacUrlFileDisabled"
 msgstr ""
+"Por lo tanto, no puedes usar un archivo PAC local para este perfil. Puedes "
+"crear un nuevo perfil PAC para eso si realmente quieres eso."
 
 msgid "options_group_pacScript"
-msgstr ""
+msgstr "Script PAC"
 
 msgid "options_pacScriptLastUpdate"
-msgstr ""
+msgstr "Script PAC descargado el $TIME$:"
 
 msgid "options_pacScriptObsolete"
 msgstr ""
+"Script PAC obsoleto debido a cambio de URL. Presiona el botón de descarga de "
+"arriba para actualizar."
 
 msgid "options_group_virtualProfile"
-msgstr ""
+msgstr "Perfil Virtual"
 
 msgid "options_virtualProfileTarget"
-msgstr ""
+msgstr "Objetivo"
 
 msgid "options_virtualProfileTargetHelp"
 msgstr ""
+"Cuando este perfil se aplique, actuará exactamente igual que el perfil "
+"seleccionado abajo."
 
 msgid "options_group_virtualProfileReplace"
-msgstr ""
+msgstr "Migrar a Perfil Virtual"
 
 msgid "options_virtualProfileReplace"
-msgstr ""
+msgstr "Reemplazar perfil objetivo"
 
 msgid "options_virtualProfileReplaceHelp"
 msgstr ""
+"Puedes migrar las opciones existentes para usar este perfil virtual en vez "
+"de $PROFILE$. Haciendo esto actualizarás todas las reglas existentes "
+"concernientes a $PROFILE$ y apuntarán a este perfil virtual, para que su "
+"perfil de resultados pueda ser controlado aquí."
 
 msgid "options_group_ruleListConfig"
-msgstr ""
+msgstr "Configuración de la Lista de Reglas"
 
 msgid "options_ruleListFormat"
-msgstr ""
+msgstr "Formato de la Lista de Reglas"
 
 msgid "options_group_ruleListResult"
-msgstr ""
+msgstr "Perfiles de resultados de la lista de reglas"
 
 msgid "options_ruleListMatchProfile"
-msgstr ""
+msgstr "Emparejar perfil"
 
 msgid "options_ruleListDefaultProfile"
-msgstr ""
+msgstr "Perfil por defecto"
 
 msgid "options_group_ruleListUrl"
-msgstr ""
+msgstr "URL de la lista de reglas"
 
 msgid "options_ruleListUrlHelp"
 msgstr ""
+"Esta lista de reglas será actualizada desde esta URL. Si se deja en blanco, "
+"el siguiente texto será interpretado en su lugar."
 
 msgid "options_group_ruleListText"
-msgstr ""
+msgstr "Texto de la Lista de Reglas"
 
 msgid "options_ruleListLastUpdate"
-msgstr ""
+msgstr "Lista de reglas descargada el $TIME$:"
 
 msgid "options_ruleListObsolete"
 msgstr ""
+"La lista de reglas está obsoleta debido a un cambio de URL. Presiona el "
+"botón descargar de arriba para actualizar."
 
 msgid "options_group_switchRules"
-msgstr ""
+msgstr "Reglas de conmutación"
 
 msgid "options_sort"
-msgstr ""
+msgstr "Ordenar"
 
 msgid "options_conditionType"
-msgstr ""
+msgstr "Tipo de Condición"
 
 msgid "options_showConditionTypeHelp"
-msgstr ""
+msgstr "Mostrar ayuda"
 
 msgid "options_conditionDetails"
-msgstr ""
+msgstr "Detalles de la Condición"
 
 msgid "options_resultProfile"
-msgstr ""
+msgstr "Perfil"
 
 msgid "options_conditionActions"
-msgstr ""
+msgstr "Acciones"
 
 msgid "options_addCondition"
-msgstr ""
+msgstr "Añadir condición"
 
 msgid "options_cloneRule"
-msgstr ""
+msgstr "Clonar"
 
 msgid "options_ruleNote"
-msgstr "Note"
+msgstr "Nota"
 
 msgid "options_switchAttachedProfileInCondition"
-msgstr ""
+msgstr "Reglas de la lista de reglas"
 
 msgid "options_switchAttachedProfileInConditionDetails"
 msgstr ""
+"(Cualquier solicitud que coincida con la lista de reglas a continuación)"
 
 msgid "options_switchAttachedProfileInConditionDisabled"
-msgstr ""
+msgstr "(Las reglas de la lista de reglas están DESHABILITADAS)"
 
 msgid "options_switchDefaultProfile"
-msgstr ""
+msgstr "Por defecto"
 
 msgid "options_hostLevelsBetween"
-msgstr ""
+msgstr "≤ niveles de host ≤"
 
 msgid "options_hourBetween"
-msgstr ""
+msgstr "≤ hora actual ≤"
 
 msgid "options_weekDayShort_0"
-msgstr ""
+msgstr "Lu"
 
 msgid "options_weekDayShort_1"
-msgstr ""
+msgstr "Ma"
 
 msgid "options_weekDayShort_2"
-msgstr ""
+msgstr "Mi"
 
 msgid "options_weekDayShort_3"
-msgstr ""
+msgstr "Ju"
 
 msgid "options_weekDayShort_4"
-msgstr ""
+msgstr "Vi"
 
 msgid "options_weekDayShort_5"
-msgstr ""
+msgstr "Sa"
 
 msgid "options_weekDayShort_6"
-msgstr ""
+msgstr "Do"
 
 msgid "options_group_conditionHelp"
-msgstr ""
+msgstr "Acerca de Tipos de Condición"
 
 msgid "options_group_attachProfile"
-msgstr ""
+msgstr "Importar lista de reglas en línea"
 
 msgid "options_attachProfile"
-msgstr ""
+msgstr "Añadir una lista de reglas"
 
 msgid "options_attachProfileHelp"
 msgstr ""
+"Puedes reusar una colección de condiciones en línea publicada por otros al "
+"añadirla a tu lista de reglas."
 
 msgid "options_modalHeader_welcome"
-msgstr ""
+msgstr "Bienvenido/a a SwitchyOmega"
 
 msgid "options_welcomeNormal"
-msgstr ""
+msgstr "Has instalado exitosamente SwitchyOmega, el proxy switcher definitivo."
 
 msgid "options_welcomeNormalGuide"
 msgstr ""
+"Indica a SwitchyOmega acerca de tus proxies a través de la pagina de "
+"opciones. Vamos a ver cómo."
 
 msgid "options_welcomeUpgrade"
 msgstr ""
+"Has actualizado exitosamente a SwitchyOmega. No te asustes, tus opciones "
+"existentes han sido completamente preservadas."
 
 msgid "options_welcomeUpgradeGuide"
-msgstr ""
+msgstr "Ahora veamos una guía rápida de la nueva página de opciones."
 
 msgid "options_guideNext"
-msgstr ""
+msgstr "Siguiente"
 
 msgid "options_guideDone"
-msgstr ""
+msgstr "Hecho"
 
 msgid "options_guideSkip"
-msgstr ""
+msgstr "Omitir guía"
 
 msgid "options_modalHeader_applyOptions"
-msgstr ""
+msgstr "Aplicar Opciones"
 
 msgid "options_optionsNotSaved"
 msgstr ""
+"¡Tus modificaciones de las opciones no han sido guardadas y se perderán si "
+"continúas!"
 
 msgid "options_applyOptionsRequired"
-msgstr ""
+msgstr "Tus cambios de las opciones deben aplicarse antes de proceder."
 
 msgid "options_applyOptionsConfirm"
-msgstr ""
+msgstr "¿Quieres guardar y aplicar las opciones?"
 
 msgid "options_modalHeader_renameProfile"
-msgstr ""
+msgstr "Renombrar Perfil"
 
 msgid "options_renameProfileName"
-msgstr ""
+msgstr "Nuevo nombre de perfil"
 
 msgid "options_profileNameConflict"
-msgstr ""
+msgstr "Ya existe un perfil con este nombre."
 
 msgid "options_profileNameReserved"
 msgstr ""
+"Los nombres de perfil que empiezan con doble guión bajo están reservados."
 
 msgid "options_profileNameHidden"
 msgstr ""
+"Los perfiles con nombres que empiecen por guión bajo se ocultarán en el menú "
+"emergente. Sin embargo, pueden seguirse utilizando en sitios como los "
+"resultados del perfil conmutador."
 
 msgid "options_modalHeader_replaceProfile"
-msgstr ""
+msgstr "Reemplazar Perfil"
 
 msgid "options_replaceProfile"
-msgstr ""
+msgstr "Reemplazar perfil"
 
 msgid "options_replaceProfileConfirm"
-msgstr ""
+msgstr "¿De verdad deseas reemplazar $FromProfile$ con $ToProfile$?"
 
 msgid "options_replaceProfileHelp"
 msgstr ""
+"Si continúas, todas las reglas apuntando a $FromProfile$ se actualizarán "
+"para usar $ToProfile$ en su lugar. Otras opciones, como el perfil de inicio "
+"y el Conmutador Rápido también se modificarán según corresponda. Sin "
+"embargo, los dos perfiles en sí NO serán modificados o eliminados."
 
 msgid "options_replaceProfileSuccess"
-msgstr ""
+msgstr "Opciones actualizadas."
 
 msgid "options_modalHeader_deleteProfile"
-msgstr ""
+msgstr "Eliminar Perfil"
 
 msgid "options_deleteProfileConfirm"
-msgstr ""
+msgstr "¿De verdad quieres borrar el siguiente perfil?"
 
 msgid "options_modalHeader_cannotDeleteProfile"
-msgstr ""
+msgstr "Incapaz de Borrar el Perfil"
 
 msgid "options_profileReferredBy"
 msgstr ""
+"Este perfil no puede ser borrado porque está referenciado por los siguientes "
+"perfiles:"
 
 msgid "options_modifyReferringProfiles"
 msgstr ""
+"Debes modificar estos perfiles y hacer que dejen de referenciar este perfil "
+"antes de que puedas borrarlo."
 
 msgid "options_profileNameEmpty"
-msgstr ""
+msgstr "El nombre del perfil no debe estar vacío."
 
 msgid "popup_title"
-msgstr ""
+msgstr "Ventana emergente de SwitchyOmega"
 
 msgid "options_modalHeader_proxyAuth"
-msgstr ""
+msgstr "Autenticación Proxy"
 
 msgid "options_proxyAuthUsername"
-msgstr ""
+msgstr "Nombre de usuario"
 
 msgid "options_proxyAuthPassword"
-msgstr ""
+msgstr "Contraseña"
 
 msgid "options_proxyAuthShowPassword"
-msgstr "Show password"
+msgstr "Mostrar contraseña"
 
 msgid "options_proxyAuthHidePassword"
-msgstr "Hide password"
+msgstr "Ocultar contraseña"
 
 msgid "options_proxyAuthNone"
-msgstr ""
+msgstr "Sin Autenticación"
 
 msgid "options_modalHeader_deleteRule"
-msgstr ""
+msgstr "Eliminar Regla"
 
 msgid "options_deleteRuleConfirm"
-msgstr ""
+msgstr "¿De verdad quieres borrar la siguiente regla?"
 
 msgid "options_deleteRule"
-msgstr ""
+msgstr "Borrar"
 
 msgid "options_modalHeader_resetRules"
-msgstr ""
+msgstr "Reestablecer reglas"
 
 msgid "options_resetRulesConfirm"
 msgstr ""
+"¿Estás seguro/a de establecer el perfil resultante de TODAS las reglas en el "
+"siguiente perfil?"
 
 msgid "options_resetRules"
-msgstr ""
+msgstr "Reestablecer reglas"
 
 msgid "options_resetRules_help"
-msgstr ""
+msgstr "Establecer perfil para todas las reglas"
 
 msgid "options_modalHeader_deleteAttached"
-msgstr ""
+msgstr "Eliminar Lista de Reglas"
 
 msgid "options_deleteAttachedConfirm"
 msgstr ""
+"¿Estás seguro/a de querer eliminar la lista de reglas del perfil actual?"
 
 msgid "options_ruleListLineCount"
-msgstr ""
+msgstr "$COUNT$ linea(s) de reglas"
 
 msgid "options_deleteAttached"
-msgstr ""
+msgstr "Eliminar lista de reglas"
 
 msgid "options_modalHeader_newProfile"
-msgstr ""
+msgstr "Nuevo Perfil"
 
 msgid "options_newProfileName"
-msgstr ""
+msgstr "Nombre del perfil"
 
 msgid "options_profileType"
-msgstr ""
+msgstr "Por favor selecciona el tipo de perfil:"
 
 msgid "options_profileTypeFixedProfile"
-msgstr ""
+msgstr "Perfil de Proxy"
 
 msgid "options_profileDescFixedProfile"
-msgstr ""
+msgstr "Tunelización del tráfico a través de servidores proxy."
 
 msgid "options_profileTypePacProfile"
-msgstr ""
+msgstr "Perfil PAC"
 
 msgid "options_profileDescPacProfile"
-msgstr ""
+msgstr "Elegir proxies usando un script PAC en línea/local."
 
 msgid "options_profileDescMorePacProfile"
 msgstr ""
+"Solo necesitarás esto si tienes un script PAC o una URL hacia uno. No "
+"intentes crear uno a menos que tengas conocimiento sobre PAC."
 
 msgid "options_profileTypeSwitchProfile"
-msgstr ""
+msgstr "Perfil Conmutador"
 
 msgid "options_profileDescSwitchProfile"
 msgstr ""
+"Aplicando distintos perfiles automáticamente en diversas condiciones tales "
+"como dominios o patrones.\n"
+" También puedes importar reglas publicadas en línea para un cambio más "
+"fácil. (Reemplaza el modo AutoSwitch + Lista de Reglas.)"
 
 msgid "options_profileTypeRuleListProfile"
-msgstr ""
+msgstr "Perfil de Lista de Reglas"
 
 msgid "options_profileDescRuleListProfile"
-msgstr ""
+msgstr "Reusando una colección en línea de condiciones publicadas por otros."
 
 msgid "options_profileTypeVirtualProfile"
-msgstr ""
+msgstr "Perfil Virtual"
 
 msgid "options_profileDescVirtualProfile"
 msgstr ""
+"Un perfil virtual puede actuar como cualquier otro perfil bajo demanda. "
+"Funciona bien con SwitchProfile, permitiondo cambiar el resultado de "
+"múltiples condiciones con un solo click."
 
 msgid "options_createProfile"
-msgstr ""
+msgstr "Crear"
 
 msgid "options_modalHeader_resetOptions"
-msgstr ""
+msgstr "Reestablecer Opciones"
 
 msgid "options_resetOptionsConfirm"
 msgstr ""
+"¿Realmente quieres reestablecer las opciones? ¡Todos los perfiles y "
+"configuración se PERDERÁN!"
 
 msgid "options_formInvalid"
-msgstr ""
+msgstr "Por favor corrige los errores de esta página."
 
 msgid "options_profileNotFound"
-msgstr ""
+msgstr "¡El perfil $PROFILE$ no existe! Las opciones pueden estar corruptas."
 
 msgid "options_resetSuccess"
-msgstr ""
+msgstr "Opciones reestablecidas."
 
 msgid "options_saveSuccess"
-msgstr ""
+msgstr "Opciones guardadas."
 
 msgid "options_importSuccess"
-msgstr ""
+msgstr "Opciones importadas."
 
 msgid "options_importFormatError"
-msgstr ""
+msgstr "¡Archivo de copia de seguridad no válido!"
 
 msgid "options_importDownloadError"
-msgstr ""
+msgstr "¡Error descargando el archivo de copia de seguridad!"
 
 msgid "options_profileDownloadSuccess"
-msgstr ""
+msgstr "Perfil actualizado existosamente."
 
 msgid "options_profileDownloadError"
-msgstr ""
+msgstr "¡Error descargando los datos del perfil!"
 
 msgid "options_profileDownloadError_NetworkError"
-msgstr ""
+msgstr "Un error de red ha ocurrido al actualizar."
 
 msgid "options_profileDownloadError_HttpError"
-msgstr ""
+msgstr "Un error HTTP ($STATUS$) ha ocurrido al actualizar."
 
 msgid "options_profileDownloadError_HttpNotFoundError"
 msgstr ""
+"La URL del Perfil no ha sido encontrada en el servidor. Por favor vuelve a "
+"comprobarla."
 
 msgid "options_profileDownloadError_HttpServerError"
-msgstr ""
+msgstr "El servidor remoto ha respondido con error ($STATUS$) al actualizar."
 
 msgid "options_profileDownloadError_ContentTypeRejectedError"
 msgstr ""
+"¡Los datos descargados son inválidos! Puedes abrir la URL del Perfil en tu "
+"navegador para inspeccionarla."
 
 msgid "options_downloadProfileNow"
-msgstr ""
+msgstr "Descargar el Perfil Ahora"
 
 msgid "options_guide_fixedProfileStep"
 msgstr ""
+"Un <b>Perfil Proxy</b> contiene ajustes como la ip y puerto del servidor "
+"para proxy.<br>Los perfiles son las unidades basicas de configuración en "
+"SwitchyOmega.<br>Hemos creado un perfil de ejemplo para ti. Intenta abrirlo."
 
 msgid "options_guide_fixedServersStep"
 msgstr ""
+"Puedes completar tu servidor proxy y puerto como desees.<br>SwitchyOmega <b>"
+"no viene con ningún servidor proxy</b>.<br>Por favor consulta con tu "
+"proveedor de red o con el manual de software de tu proxy si no sabes lo que "
+"se debe llenar aquí."
 
 msgid "options_guide_autoSwitchProfileStep"
 msgstr ""
+"Puedes decirle a SwitchyOmega que cambie entre proxies automáticamente a "
+"través del poderoso <b>Perfil Conmutador</b>.<br>Sin embargo, sus "
+"características no pueden ser cubiertas con esta breve guía.<br>Puedes abrir "
+"este perfil para desbloquear su poder más tarde."
 
 msgid "options_guide_addMoreProfilesStep"
 msgstr ""
+"¿Necesitas más perfiles? Siempre puedes añadir más <b>perfiles de tipo "
+"Proxy, Conmutador y otros</b><br>para todas tus necesidades de configuración "
+"con proxies.<br>¡Disfruta configurando tus proxies!"
 
 msgid "options_guide_conditionStep"
 msgstr ""
+"SwitchyOmega puede aplicar distintos perfiles para peticiones basadas en "
+"<b>condiciones</b>.<br> Por ejemplo, la condición <b>Comodín host</b> "
+"permite establecer el perfil para todas las URL en un domino."
 
 msgid "options_guide_conditionTypeStep"
 msgstr ""
+"Puedes usar varios tipos de condición para coincidir con el host o la URL "
+"completa. <br> Haz clic en el símbolo de interrogación para abrir la "
+"referencia de tipo."
 
 msgid "options_guide_conditionProfileStep"
 msgstr ""
+"SwitchyOmega aplica el perfil aquí seleccionado a <b>cualquier petición que "
+"coincida con la condición.</b> <br> El <b>perfil especial \"[Por defecto]\""
+"</b> hará que la petición se envíe sin ningún proxy."
 
 msgid "options_guide_switchDefaultStep"
 msgstr ""
+"Si ninguna condición se aplica a alguna solicitud, el perfil \"Por defecto\" "
+"será usado. <br>Las condiciones siempre serán consideradas <b>desde arriba "
+"hacia abajo</b> en orden.<br>Puedes cambiar el order arrastrando el icono "
+"ordenar."
 
 msgid "options_guide_applySwitchProfileStep"
 msgstr ""
+"Cuando termines de configurar el perfil conmutador, no te olvides de <b>"
+"cambiar a el en el menú emergente.</b><br/> El icono mostrará el perfil <b>"
+"resultante final</b> aplicado a la pestaña actual. <br/> <b>Pasando el "
+"cursor</b> sobre el icono revelará información detallada."
 
 msgid "popup_externalProfile"
-msgstr ""
+msgstr "(Perfil Externo)"
 
 msgid "popup_externalProfileName"
-msgstr ""
+msgstr "nombre del perfil"
 
 msgid "popup_proxyNotControllable_app"
 msgstr ""
+"La configuración del proxy está controlada por otra(s) aplicación(es) o "
+"extensión(es). Por favor deshabilita o desinstala las aplicaciones o "
+"extensiones en conflicto."
 
 msgid "popup_proxyNotControllable_policy"
 msgstr ""
+"La configuración del proxy está anulada por las políticas. Por favor, "
+"póngase en contacto con su administrador."
 
 msgid "popup_proxyNotControllable_unknown"
 msgstr ""
+"La configuración del proxy no puede ser controlada. Por favor, compruebe su "
+"sistema y la configuración del navegador."
 
 msgid "popup_proxyNotControllable_disabled"
 msgstr ""
+"La configuración del proxy está deshabilitada por solicitud explícita de "
+"otra(s) aplicación(es) o extensión(es)."
 
 msgid "popup_proxyNotControllable_upgrade"
 msgstr ""
+"Las configuraciones de proxy ahora están controladas por una versión más "
+"reciente de SwitchyOmega."
 
 msgid "popup_proxyNotControllableDetails"
 msgstr ""
+"No puedes cambiar los perfiles con SwitchyOmega a menos que soluciones el "
+"problema anterior."
 
 msgid "popup_proxyNotControllableDetails_upgrade"
 msgstr ""
+"No puede habilitar dos (o más) versiones de SwitchyOmega al mismo tiempo. "
+"Por favor deshabilita una de ellas."
 
 msgid "popup_proxyNotControllableManage"
-msgstr ""
+msgstr "Administrar extensiones"
 
 msgid "popup_addConditionTo"
-msgstr ""
+msgstr "Añadir condición a"
 
 msgid "popup_addCondition"
-msgstr ""
+msgstr "Añadir condición"
 
 msgid "popup_showOptions"
-msgstr ""
+msgstr "Opciones"
 
 msgid "popup_reportIssues"
-msgstr ""
+msgstr "Reportar problemas"
 
 msgid "popup_errorLog"
-msgstr ""
+msgstr "Guardar registro de errores"
 
 msgid "popup_requestErrorCount"
-msgstr ""
+msgstr "$COUNT$ recursos fallidos"
 
 msgid "popup_requestErrorHeading"
-msgstr ""
+msgstr "Recursos que no se pudieron cargar"
 
 msgid "popup_requestErrorWarning"
 msgstr ""
+"Algunos recursos no se pudieron cargar debido a problemas con tu red, "
+"servidor proxy o la página web."
 
 msgid "popup_requestErrorWarningHelp"
 msgstr ""
+"SwitchyOmega es solo el informador de estos problemas, no la causa de ellos."
 
 msgid "popup_requestErrorAddCondition"
 msgstr ""
+"Puede revisar los siguientes dominios y usar un proxy cuando sea apropiado."
 
 msgid "popup_requestErrorCannotAddCondition"
 msgstr ""
+"Puedes agregar condiciones de conmutación solo cuando se usa un Perfil "
+"Conmutador."
 
 msgid "popup_configureMonitorWebRequests"
-msgstr ""
+msgstr "Configurar el Monitor de Red"
 
 msgid "options_resultProfileForSelectedDomains"
-msgstr ""
+msgstr "Usar este perfil para todos los dominios seleccionados"
 
 msgid "options_pac_profile_unsupported_moz"
-msgstr "PAC Profiles WILL NOT work in Mozilla Firefox due to technical limitations!"
+msgstr ""
+"¡Los Perfiles PAC NO funcionan en Mozilla Firefox debido a limitaciones "
+"técnicas!"
 
 msgid "popup_issueTemplate"
 msgstr ""
+"\n"
+"\n"
+"\n"
+"<!-- Por favor escribe tu comentario SOBRE esta línea. -->\n"
+"SwitchyOmega $projectVersion$\n"
+"$userAgent$"
 
 msgid "browserAction_profileDetails_PacProfile"
-msgstr ""
+msgstr "(Script PAC)"
 
 msgid "browserAction_profileDetails_SystemProfile"
-msgstr ""
+msgstr "(controllado por otras extensiones o entorno)"
 
 msgid "browserAction_profileDetails_DirectProfile"
-msgstr ""
+msgstr "(sin usar ningún proxy)"
 
 msgid "browserAction_profileDetails_SwitchProfile"
-msgstr ""
+msgstr "(cambio basado en condiciones)"
 
 msgid "browserAction_profileDetails_RuleListProfile"
-msgstr ""
+msgstr "(cambio basado en la lista de reglas)"
 
 msgid "browserAction_titleNormal"
-msgstr ""
+msgstr "SwitchyOmega:: $PROFILE$"
 
 msgid "browserAction_titleWithResult"
 msgstr ""
+"SwitchyOmega:: $1:PROFILE$\n"
+"$3:DETAILS$"
 
 msgid "browserAction_titleNewerOptions"
 msgstr ""
+"ERROR: Una nueva versión de SwitchOmega es necesaria para cargar las "
+"opciones guardadas."
 
 msgid "browserAction_titleOptionError"
 msgstr ""
+"ERROR: Las opciones guardadas están corrompidas. Haz clic aquí para "
+"REINICIAR LAS OPCIONES."
 
 msgid "browserAction_titleDownloadFail"
 msgstr ""
+"Advertencia: Error al descargar los scripts PAC y/o las listas de reglas."
 
 msgid "browserAction_titleExternalProxy"
 msgstr ""
+"Nota: La configuración del proxy está actualmente controlada por otra(s) "
+"aplicación(es)."
 
 msgid "browserAction_titleInspect"
-msgstr ""
+msgstr "[Inspeccionar] $URL$"
 
 msgid "browserAction_defaultRuleDetails"
-msgstr ""
+msgstr "(por defecto)"
 
 msgid "browserAction_directResult"
-msgstr ""
+msgstr "DIRECTO"
 
 msgid "browserAction_attachedPrefix"
-msgstr ""
+msgstr "(RL) "
 
 msgid "browserAction_tempRulePrefix"
-msgstr ""
+msgstr "(TEMP) "
 
 msgid "contextMenu_inspectPage"
-msgstr ""
+msgstr "Inspeccionar proxy usado en esta página"
 
 msgid "contextMenu_inspectFrame"
-msgstr ""
+msgstr "Inspeccionar proxy utilizado para este Frame"
 
 msgid "contextMenu_inspectLink"
-msgstr ""
+msgstr "Inspeccionar proxy utilizado si este Enlace es abierto"
 
 msgid "contextMenu_inspectElement"
-msgstr ""
+msgstr "Inspeccionar proxy utilizado para este Elemento"
 
 msgid "contextMenu_enableQuickSwitch"
-msgstr ""
+msgstr "Habilitar Conmutador Rápido"
 
 msgid "about_title"
-msgstr ""
+msgstr "Acerca de"
 
 msgid "about_app_description"
-msgstr ""
+msgstr "Una herramienta de configuración de proxy"
 
 msgid "about_version"
-msgstr ""
+msgstr "Versión $VERSION$"
 
 msgid "about_experimental_warning_moz"
 msgstr ""
+"¡El soporte de Mozilla Firefox es altamente experimental! Si tienes "
+"problemas, informa utilizando los botones a continuación."
 
 msgid "about_disclaimer_networkService"
-msgstr ""
+msgstr "SwitchyOmega no proporciona proxies, VPN u otros servicios de red."
 
 msgid "about_disclaimer_privacy"
 msgstr ""
+"SwitchyOmega no te rastrea ni inserta anuncios en páginas web. Por favor ve "
+"nuestra <a href='https://github.com/FelisCatus/SwitchyOmega/wiki/Privacy'>"
+"política de privacidad</a>."
 
 msgid "about_help"
 msgstr ""
+"¿Otras preguntas? ¿Necesitas ayuda con el uso de SwitchyOmega? Por favor ve "
+"nuestro <a href='https://github.com/FelisCatus/SwitchyOmega/wiki/"
+"FAQ'>FAQ</a>."
 
 msgid "about_copyright"
 msgstr ""
+"Copyright 2012-2017 <a href='https://github.com/FelisCatus/SwitchyOmega/blob/"
+"master/AUTHORS'>Los autores de SwitchyOmega</a>. Todos los derechos "
+"reservados."
 
 msgid "about_credits"
 msgstr ""
+"SwitchyOmega es posible gracias al proyecto de código abierto <a "
+"href='https://github.com/FelisCatus/SwitchyOmega'>SwitchyOmega</a> y otro <a "
+"href='https://github.com/FelisCatus/SwitchyOmega/blob/master/AUTHORS'>"
+"software de código abierto</a>."
 
 msgid "about_license"
 msgstr ""
+"SwitchyOmega es <a href='https://www.gnu.org/philosophy/free-sw.en.html'>"
+"software libre</a> licenciado bajo <a href='https://www.gnu.org/licenses/"
+"gpl.html'>GNU General Public License</a> Versión 3 o posterior."
