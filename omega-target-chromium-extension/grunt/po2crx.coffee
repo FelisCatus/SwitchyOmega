@@ -10,7 +10,7 @@ module.exports =
       'build/_locales/ru/messages.json':
         '../omega-locales/ru/LC_MESSAGES/omega-web.po'
       'build/_locales/zh/messages.json':
-        '../omega-locales/zh_CN/LC_MESSAGES/omega-web.po'  
+        '../omega-locales/zh_CN/LC_MESSAGES/omega-web.po'
       'build/_locales/zh_CN/messages.json':
         '../omega-locales/zh_CN/LC_MESSAGES/omega-web.po'
       'build/_locales/zh_TW/messages.json':
