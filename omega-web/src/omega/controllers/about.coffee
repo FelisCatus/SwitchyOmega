@@ -1,4 +1,4 @@
-angular.module('omega').controller 'uib-AboutCtrl', ($scope, $rootScope,
+angular.module('omega').controller 'AboutCtrl', ($scope, $rootScope,
   $uibModal, omegaDebug) ->
 
   $scope.downloadLog = omegaDebug.downloadLog
