@@ -46,7 +46,7 @@ section.settings-group
         = ' '
         | {{'options_syncEnable' | tr}}
   div(ng-show='syncOptions == "sync"')
-    p.uib-alert.alert-success.width-limit
+    p.alert.alert-success.width-limit
       span.glyphicon.glyphicon-ok
       = ' '
       | {{"options_syncSyncAlert" | tr}}
@@ -57,7 +57,7 @@ section.settings-group
         = ' '
         | {{'options_syncDisable' | tr}}
   div(ng-show='syncOptions == "conflict"')
-    p.uib-alert.alert-info.width-limit
+    p.alert.alert-info.width-limit
       span.glyphicon.glyphicon-info-sign
       = ' '
       | {{"options_syncConflictAlert" | tr}}

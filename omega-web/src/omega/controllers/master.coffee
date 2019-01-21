@@ -313,7 +313,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
     return '' if not type
     if type == 'error'
       type = 'danger'
-    return 'uib-alert-' + type
+    return 'alert-' + type
 
   $scope.downloadIntervals = [15, 60, 180, 360, 720, 1440, -1]
   $scope.downloadIntervalI18n = (interval) ->
