@@ -1,5 +1,5 @@
-.btn-group.omega-profile-select(dropdown on-toggle="toggled(open)")
-  button.btn.btn-default.dropdown-toggle(dropdown-toggle type='button' aria-expanded='false'
+.btn-group.omega-profile-select(uib-dropdown on-toggle="toggled(open)")
+  button.btn.btn-default.uib-dropdown-toggle(uib-dropdown-toggle type='button' aria-expanded='false'
     role='listbox' aria-haspopup='true')
     span(omega-profile-icon='selectedProfile' options='options' icon='selectedProfile ? undefined : "glyphicon-time"')
     = ' '
@@ -7,7 +7,7 @@
     span(ng-show='!profileName') {{defaultText}}
     = ' '
     span.caret
-  ul.dropdown-menu(role='listbox')
+  ul.uib-dropdown-menu(role='listbox')
     li(role='option' ng-if='!!defaultText' ng-class='{active: profileName == ""}')
       a(ng-click='setProfileName("")')
         span.glyphicon.glyphicon-time

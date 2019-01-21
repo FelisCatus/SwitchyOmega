@@ -1,5 +1,5 @@
 angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
-  $q, $modal, $state, profileColors, profileIcons, omegaTarget,
+  $q, $uibModal, $state, profileColors, profileIcons, omegaTarget,
   $timeout, $location, $filter, getAttachedName, isProfileNameReserved,
   isProfileNameHidden, dispNameFilter, downloadFile) ->
 
@@ -118,7 +118,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
   $rootScope.applyOptionsConfirm = ->
     return $q.reject 'form_invalid' unless checkFormValid()
     return $q.when(true) unless $rootScope.optionsDirty
-    $modal.open(templateUrl: 'partials/apply_options_confirm.html').result
+    $uibModal.open(templateUrl: 'partials/apply_options_confirm.html').result
       .then -> $rootScope.applyOptions()
 
   $rootScope.newProfile = ->
@@ -134,7 +134,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
     scope.dispNameFilter = dispNameFilter
     scope.options = $scope.options
     scope.pacProfilesUnsupported = $scope.pacProfilesUnsupported
-    $modal.open(
+    $uibModal.open(
       templateUrl: 'partials/new_profile.html'
       scope: scope
     ).result.then (profile) ->
@@ -161,7 +161,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
           disp-name="dispNameFilter" style="display: inline-block;">
         </div>
         """
-      $modal.open(
+      $uibModal.open(
         templateUrl: 'partials/replace_profile.html'
         scope: scope
       ).result.then ({fromName, toName}) ->
@@ -191,7 +191,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
         reserved: '!$value || !isProfileNameReserved($value)'
       scope.dispNameFilter = $scope.dispNameFilter
       scope.options = $scope.options
-      $modal.open(
+      $uibModal.open(
         templateUrl: 'partials/rename_profile.html'
         scope: scope
       ).result.then (toName) ->
@@ -313,7 +313,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
     return '' if not type
     if type == 'error'
       type = 'danger'
-    return 'alert-' + type
+    return 'uib-alert-' + type
 
   $scope.downloadIntervals = [15, 60, 180, 360, 720, 1440, -1]
   $scope.downloadIntervalI18n = (interval) ->
@@ -337,7 +337,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
 
       scope = $rootScope.$new('isolate')
       scope.upgrade = (firstRun == 'upgrade')
-      $modal.open(
+      $uibModal.open(
         templateUrl: 'partials/options_welcome.html'
         keyboard: false
         scope: scope

@@ -28,11 +28,11 @@
       ng-if='profile.profileType != "VirtualProfile"')
   h2.profile-name {{'options_profileTabPrefix' | tr}}{{profile.name}}
 section.settings-group(ng-show='profile.syncOptions == "disabled"')
-  p.alert.alert-info.width-limit(ng-show='!profile.syncError')
+  p.uib-alert.alert-info.width-limit(ng-show='!profile.syncError')
     span.glyphicon.glyphicon-info-sign
     = ' '
     | {{'Syncing is disabled for this profile.'}}
-  p.alert.alert-danger.width-limit(ng-show='!!profile.syncError')
+  p.uib-alert.alert-danger.width-limit(ng-show='!!profile.syncError')
     span.glyphicon.glyphicon-remove
     = ' '
     | {{('options_profileSyncDisabled_' + profile.syncError.reason) | tr}}

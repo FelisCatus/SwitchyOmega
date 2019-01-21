@@ -1,4 +1,4 @@
-angular.module('omega').controller 'FixedProfileCtrl', ($scope, $modal,
+angular.module('omega').controller 'FixedProfileCtrl', ($scope, $uibModal,
   trFilter) ->
   $scope.urlSchemes = ['', 'http', 'https', 'ftp']
   $scope.urlSchemeDefault = 'fallbackProxy'
@@ -55,7 +55,7 @@ angular.module('omega').controller 'FixedProfileCtrl', ($scope, $modal,
     scope.auth = auth && angular.copy(auth)
     scope.authSupported = $scope.authSupported[proxy.scheme]
     scope.protocolDisp = proxy.scheme
-    $modal.open(
+    $uibModal.open(
       templateUrl: 'partials/fixed_auth_edit.html'
       scope: scope
       size: if scope.authSupported then 'sm' else 'lg'

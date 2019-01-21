@@ -1,6 +1,6 @@
 angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
-  $location, $timeout, $q, $modal, profileIcons, getAttachedName, omegaTarget,
-  trFilter, downloadFile) ->
+  $location, $timeout, $q, $uibModal, profileIcons, getAttachedName,
+  omegaTarget, trFilter, downloadFile) ->
   # == Rule list ==
   $scope.ruleListFormats = OmegaPac.Profiles.ruleListFormats
 
@@ -229,7 +229,7 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
       scope.ruleProfile = $scope.profileByName(scope.rule.profileName)
       scope.dispNameFilter = $scope.dispNameFilter
       scope.options = $scope.options
-      $modal.open(
+      $uibModal.open(
         templateUrl: 'partials/rule_remove_confirm.html'
         scope: scope
       ).result.then removeForReal
@@ -260,7 +260,7 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
       $scope.profileByName($scope.attachedOptions.defaultProfileName)
     scope.dispNameFilter = $scope.dispNameFilter
     scope.options = $scope.options
-    $modal.open(
+    $uibModal.open(
       templateUrl: 'partials/rule_reset_confirm.html'
       scope: scope
     ).result.then ->
@@ -353,7 +353,7 @@ angular.module('omega').controller 'SwitchProfileCtrl', ($scope, $rootScope,
     scope.attached = $scope.attached
     scope.dispNameFilter = $scope.dispNameFilter
     scope.options = $scope.options
-    $modal.open(
+    $uibModal.open(
       templateUrl: 'partials/delete_attached.html'
       scope: scope
     ).result.then ->

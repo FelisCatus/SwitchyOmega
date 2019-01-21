@@ -61,7 +61,7 @@ html(lang='en' ng-controller='MasterCtrl' ng-csp)
       This is already fixed but they don't have time for a new release:
       https://github.com/angular-ui/bootstrap/issues/2641
     .alert-top-wrapper(ng-show='alertShown')
-      div(alert type='workaround' close='hideAlert()'
+      div(uib-alert type='workaround' close='hideAlert()'
           class='{{alertClassForType(alert.type)}}')
         span.glyphicon(class="{{alertIcons[alert.type]}}")
         = ' '
