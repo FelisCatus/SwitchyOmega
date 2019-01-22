@@ -309,7 +309,7 @@ angular.module('omega').controller 'MasterCtrl', ($scope, $rootScope, $window,
     'error': 'glyphicon-remove',
     'danger': 'glyphicon-danger',
 
-  $scope.alertClassForType = (type) ->
+  $scope.alertClassForType = (type) -> # TODO: Fix or remove it.
     return '' if not type
     if type == 'error'
       type = 'danger'

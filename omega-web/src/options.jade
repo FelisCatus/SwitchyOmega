@@ -62,7 +62,7 @@ html(lang='en' ng-controller='MasterCtrl' ng-csp)
       https://github.com/angular-ui/bootstrap/issues/2641
     .alert-top-wrapper(ng-show='alertShown')
       div(uib-alert type='workaround' close='hideAlert()'
-          class='{{alertClassForType(alert.type)}}')
+          ng-class="'alert-' + (alert.type || 'warning')") 
         span.glyphicon(class="{{alertIcons[alert.type]}}")
         = ' '
         | {{alert.i18n ? (alert.i18n | tr) : alert.message}}
