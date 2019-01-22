@@ -45,7 +45,7 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           | {{'popup_requestErrorCount' | tr:[requestInfo.errorCount]}}
       li.divider
       li.profile.custom-profile(ng-repeat='profile in customProfiles' ng-class='{active: isActive(profile.name), "bg-info": isEffective(profile.name)}'
-        dropdown)
+        ulb-dropdown)
         a(href='#' role='button' ng-click='applyProfile(profile)' ng-if='!profile.validResultProfiles' title='{{getProfileTitle(profile)}}')
           span(omega-profile-inline='profile' icon='getIcon(profile)' options='availableProfiles' disp-name='dispNameFilter')
         a.profile-with-default-edit(href='#' role='button' ng-click='applyProfile(profile)' ng-if='!!profile.validResultProfiles' title='{{getProfileTitle(profile)}}')
