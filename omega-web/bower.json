@@ -26,8 +26,7 @@
     "angular-loader": "~1.7.2",
     "angular-i18n": "~1.7.2",
     "angular-sanitize": "~1.7.2",
-
-    "angular-bootstrap": "~1.0.0",
+    "angular-bootstrap": "~2.5.0",
     "angular-ui-router": "~1.0.20",
     "bootstrap": "~3.4.0",
     "script.js": "~2.5.3",
