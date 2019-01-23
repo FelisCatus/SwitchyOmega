@@ -4,8 +4,8 @@
   "private": true,
   "main": "./index.js",
   "devDependencies": {
-    "chai": "~1.9.1",
-    "coffeeify": "^0.7.0",
+    "chai": "^4.2.0",
+    "coffeeify": "^3.0.1",
     "coffeelint": "^1.16.0",
     "coffeescript": "^1.7.1",
     "grunt": "^1.0.3",
@@ -15,7 +15,7 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-mocha-test": "^0.13.3",
     "load-grunt-config": "^1.0.1",
-    "lolex": "^1.4.0",
+    "lolex": "^3.0.0",
     "minifyify": "^7.3.5"
   },
   "dependencies": {
