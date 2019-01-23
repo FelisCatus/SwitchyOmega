@@ -13,7 +13,7 @@
     "grunt-coffeelint": "^0.0.16",
     "grunt-contrib-coffee": "^2.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-mocha-test": "^0.13.0",
+    "grunt-mocha-test": "^0.13.3",
     "load-grunt-config": "^1.0.1",
     "minifyify": "^7.3.5",
     "mocha": "^1.20.0",
