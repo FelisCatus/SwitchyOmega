@@ -151,7 +151,7 @@ describe 'OptionsSync', ->
       sync = new OptionsSync(remote)
       sync.copyTo(storage)
 
-    it 'should merge with local as base', () ->
+    it 'should merge with local as base', ->
       check = ->
         return if storage.set.callCount == 0 or storage.remove.callCount == 0
         storage.set.should.have.been.calledOnce.and.calledWith({b: 2, c: 3})
