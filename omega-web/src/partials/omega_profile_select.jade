@@ -7,7 +7,7 @@
     span(ng-show='!profileName') {{defaultText}}
     = ' '
     span.caret
-  ul.uib-dropdown-menu(uib-dropdown-menu role='listbox')
+  ul.dropdown-menu(uib-dropdown-menu role='listbox')
     li(role='option' ng-if='!!defaultText' ng-class='{active: profileName == ""}')
       a(ng-click='setProfileName("")')
         span.glyphicon.glyphicon-time
