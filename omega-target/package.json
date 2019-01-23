@@ -16,7 +16,7 @@
     "grunt-mocha-test": "^0.13.3",
     "load-grunt-config": "^1.0.1",
     "minifyify": "^7.3.5",
-    "mocha": "^1.20.0",
+    "mocha": "^5.2.0",
     "sinon": "^1.12.2",
     "sinon-chai": "^2.6.0"
   },
