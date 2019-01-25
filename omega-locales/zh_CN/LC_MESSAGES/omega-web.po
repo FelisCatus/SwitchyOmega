@@ -224,6 +224,9 @@ msgstr "导入/导出"
 msgid "options_newProfile"
 msgstr "新建情景模式…"
 
+msgid "options_actions"
+msgstr "操作"
+
 msgid "options_apply"
 msgstr "应用选项"
 
