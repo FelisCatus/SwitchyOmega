@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2018-08-15 12:41+0000\n"
-"Last-Translator: Abdullah Furkan <afy_1905@hotmail.com>\n"
+"PO-Revision-Date: 2019-05-09 03:49+0000\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/switchyomega/"
 "main/tr/>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
@@ -22,8 +22,7 @@ msgstr "Proxy SwitchyOmega"
 
 msgid "manifest_app_description"
 msgstr ""
-"Birden çok vekil sunucuyu yönetin ve aralarında kolayca ve hızlıca geçiş "
-"yapın."
+"Birden çok vekil sunucuyu yönet ve aralarında kolayca ve hızlıca geçiş yap."
 
 msgid "manifest_icon_default_title"
 msgstr "Yükleniyor…"
@@ -56,14 +55,9 @@ msgstr "Sunucu düzenli ifadesi"
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
-"Like Host wildcard condition, but matches hosts (domain names) by <a "
-"href='https://www.google.com/search?q=regular%20expression'>regular "
-"expression</a>.<br>Regular expressions can be hard to construct (and read)."
-"<br>It is recommended to use wildcards for most cases and only use regex for "
-"conditions that cannot be achieved by any other condition type."
 
 msgid "condition_HostLevelsCondition"
-msgstr "Sunucu Seviyeleri"
+msgstr "Sunucu seviyeleri"
 
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
@@ -73,7 +67,7 @@ msgstr ""
 "seviyesi 3 iken,  <code>internal</code> kodunun sunucu seviyesi 1'dir ."
 
 msgid "condition_IpCondition"
-msgstr "IP Literals"
+msgstr ""
 
 msgid "condition_help_IpCondition"
 msgstr ""
@@ -93,76 +87,47 @@ msgstr "URL wildcard"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
-"Matches URLs of the request by wildcard.<br>See the Host wildcard section "
-"above for a quick wildcard reference.<br>Note that URL wildcards are not "
-"specially treated (no subdomain magic as in Host wildcard).<br>So <code>*://"
-"*.example.com/*</code> matches http://www.example.com/ but <b>does not</b> "
-"match http://example.com/."
 
 msgid "condition_UrlRegexCondition"
-msgstr "URL regex"
+msgstr ""
 
-#, fuzzy
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
-"URL eşlemesi oldukça güçlüdür.<a href='https://www.google.com/"
-"search?q=regular%20expression'>regular expression</a>.<br>However, regular "
-"expressions can be hard to construct (and read).<br>It is recommended to use "
-"wildcards for most cases and only use regex for conditions that cannot be "
-"achieved by any other condition type."
+"URL eşlemesi <a href='https://www.google.com/search?q=regular%20expression'>"
+"düzenli ifadeler</a> ile güçlüdür.<br>Ancak, düzenli ifadelerin "
+"oluşturulması (ve okunması) zor olabilir.<br>Çoğu durumda joker karakter "
+"kullanmanız ve yalnızca başka bir koşul türüyle elde edilemeyen koşullar "
+"için kurallı ifade kullanmanız önerilir."
 
 msgid "condition_KeywordCondition"
 msgstr "Anahtar Kelime"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
-"A keyword condition matches if the URL protocol is HTTP, and the pattern is "
-"an exact sub-string of the URL.<br>It behaves like the URL wildcard pattern "
-"<code>http://*<b>pattern</b>*</code>, where <b>pattern</b> is the keyword "
-"pattern.<br>Keyword conditions are useful if you want to bypass a firewall "
-"blocking some keywords in the URL, by requesting such URLs through a proxy."
 
 msgid "condition_FalseCondition"
 msgstr "(Devre dışı)"
 
 msgid "condition_details_FalseCondition"
-msgstr "(Condition ignored when matching)"
+msgstr "(Eşleme sırasında koşul görmezden gelindi)"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
-"You can disable a condition by setting its type to <code>(Disabled)</code>. "
-"A Disabled condition act as if it does not exist.<br>This feature can be "
-"used to disable conditions temporarily.<br>Disabled conditions still hold "
-"the previous information (like patterns) and can be re-enabled by setting "
-"the condition type back to the previous type."
 
 msgid "condition_TimeCondition"
 msgstr "Mevcut Zaman"
 
 msgid "condition_help_TimeCondition"
 msgstr ""
-"Matches if the current local time is in the range defined by "
-"<b>starting hour</b> and <b>ending hour</b>, both inclusive.<br>"
-"Local time, starting hour and ending hour are all calculated in "
-"<b>24-hour</b> format (from <b>0 to 23</b>). <br>"
-"The calculation happens roughly at the moment when the request is sent."
 
 msgid "condition_WeekdayCondition"
 msgstr "Haftanın Günü"
 
 msgid "condition_help_WeekdayCondition"
 msgstr ""
-"Matches if the <b>current day of week</b> is selected in condition details. "
-"Day is calculated according to local timezone.<br>"
-"The request and its URL don't matter to this condition. "
-"The result is solely based on the day of the week when the request is sent."
 
 msgid "condition_alert_fullUrlLimitation"
 msgstr ""
-"Full URL matching is no longer possible for <code>https://</code> "
-"URLs as of Chrome 52. "
-"<a href='https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-Full-URL-Limitation'>"
-"Learn more...</a>"
 
 msgid "condition_alert_fullUrlLimitationLink"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-Full-URL-Limitation"
@@ -189,19 +154,19 @@ msgid "ruleList_usageUrl"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
-msgstr "Missing '@with result' directive!"
+msgstr ""
 
 msgid "ruleList_error_unknownProfile"
-msgstr "Unknown profile: $PROFILE$"
+msgstr "Bilinmeyen profil: $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
-msgstr "Missing result profile name at Line $LNO$: $SOURCE$"
+msgstr ""
 
 msgid "ruleList_error_invalidRule"
-msgstr "Geçersiz kural ! Satır $LNO$: $SOURCE$"
+msgstr "$LNO$ nolu satırda geçersiz kural: $SOURCE$"
 
 msgid "ruleList_error_noDefaultRule"
-msgstr "Missing default rule with catch-all '*' condition!"
+msgstr ""
 
 msgid "dialog_close"
 msgstr "Kapat"
@@ -219,7 +184,7 @@ msgid "inputClear_clear"
 msgstr "Temizle"
 
 msgid "inputClear_restore"
-msgstr "Eski haline getir"
+msgstr "Eski Haline Getir"
 
 msgid "options_title"
 msgstr "SwitchyOmega Seçenekler"
@@ -231,7 +196,7 @@ msgid "options_navHeader_setting"
 msgstr "Ayarlar"
 
 msgid "options_navHeader_profiles"
-msgstr "Hesaplar"
+msgstr "Profiller"
 
 msgid "options_navHeader_actions"
 msgstr "Hareketler"
@@ -243,16 +208,16 @@ msgid "options_tab_general"
 msgstr "General"
 
 msgid "options_tab_importExport"
-msgstr "Ekle/Çıkar"
+msgstr "İçe veya Dışa Aktar"
 
 msgid "options_newProfile"
-msgstr "Yeni hesap…"
+msgstr "Yeni profil…"
 
 msgid "options_apply"
-msgstr "Değişiklikleri kaydet"
+msgstr "Değişiklikleri uygula"
 
 msgid "options_discard"
-msgstr "Değişiklikleri iptal et"
+msgstr "Değişiklikleri yoksay"
 
 msgid "options_reset"
 msgstr "Seçenekleri sıfırla"
@@ -264,277 +229,238 @@ msgid "options_confirmDeletion"
 msgstr "Koşula bağlı silinmeyi onayla."
 
 msgid "options_refreshOnProfileChange"
-msgstr "Hesap güncellendiğinde mevcut sekmeyi yenile."
+msgstr "Profil güncellendiğinde mevcut sekmeyi yenile."
 
 msgid "options_showInspectMenu"
-msgstr "Allow inspecting proxy used for page elements via context menu."
+msgstr ""
 
 msgid "options_addConditionsToBottom"
-msgstr "Put new conditions added using the popup to the bottom of the list."
+msgstr ""
 
 msgid "options_group_keyboardShortcut"
 msgstr "Klavye Kısayolu"
 
 msgid "options_menuShortcutHelp"
 msgstr ""
-"Pressing the shortcut will open the switch popup menu. (Defaults to Alt+Shift"
-"+O)."
 
 msgid "options_menuShortcutMore"
 msgstr ""
-"The items in the popup menu can also be accessed using the keyboard. Press ? "
-"(or /) in the menu to learn more."
 
 msgid "options_menuShortcutConfigure"
 msgstr "Kısayolu ayarla"
 
 msgid "options_group_switchOptions"
-msgstr "Switch Options"
+msgstr "Geçiş Seçenekleri"
 
 msgid "options_startupProfile"
 msgstr "Başlangıç Hesabı"
 
 msgid "options_startupProfile_none"
-msgstr "(Mevcut Hesap)"
+msgstr "(Geçerli profil)"
 
 msgid "options_showConditionTypesAdvanced"
 msgstr "Gelişmiş koşul tiplerini göster"
 
 msgid "options_showConditionTypesAdvancedHelp"
 msgstr ""
-"Gelişmiş ancak daha karmaşık özellikleri aktif hale getirir. Çoğunlukla "
-"mevcut temel özellikler yeterli olduğundan bu seçeneğin etkinleştirilmesi "
-"tavsiye edilmez."
+"Yeni tip gelişmiş ancak karmaşık geçiş koşullarının kilidini açar. Çoğu "
+"senaryoda, temel koşul türleri yeterli olmalıdır, bu yüzden bu seçenek "
+"önerilmez."
 
 msgid "options_quickSwitch"
-msgstr "Quick Switch"
+msgstr "Hızlı Geçiş"
 
 msgid "options_cycledProfiles"
-msgstr "Cycled Profiles"
+msgstr ""
 
 msgid "options_cycledProfilesHelp"
 msgstr ""
-"When you click on the icon (or use the shortcut above), the following "
-"profiles will be applied in their order."
 
 msgid "options_cycledProfilesTooFew"
 msgstr ""
-"You need to select at least 2 profiles to enable this function! You can drag "
-"them from the box below."
 
 msgid "options_notCycledProfiles"
-msgstr "Not Cycled Profiles"
+msgstr ""
 
 msgid "options_group_proxyChanges"
-msgstr "Proxy Changes"
+msgstr ""
 
 msgid "options_revertProxyChanges"
-msgstr "Revert proxy changes done by other apps."
+msgstr ""
 
 msgid "options_group_conflicts"
-msgstr "Conflicts"
+msgstr "Çakışmalar"
 
 msgid "options_conflicts_introduction"
 msgstr ""
-"Sometimes, other apps will also try to control the proxy settings, resulting "
-"in conflicts. Note that ad blockers and other extensions may also use proxy "
-"settings under the hood. Such conflicts cannot be avoided due to how the "
-"browser works."
 
 msgid "options_conflicts_lowerPriority"
 msgstr ""
-"A red badge like this on the SwitchyOmega icon indicates that another app has "
-"higher priority so SwitchyOmega cannot control the settings. Please try to "
-"uninstall SwitchyOmega and reinstall, which should raise SwitchyOmega's "
-"priority. If you still see conflicts after reinstallation, please consider "
-"removing the other app causing the conflict."
 
 msgid "options_conflicts_higherPriority"
 msgstr ""
-"If SwitchyOmega has higher priority, you can give the control back to other "
-"apps or system settings by selecting $SYSTEMPROFILE$ in the popup menu."
 
 msgid "options_showExternalProfile"
-msgstr "Show popup menu item to import proxy settings from other apps."
+msgstr ""
 
 msgid "options_showExternalProfileHelp"
 msgstr ""
-"When $SYSTEMPROFILE$ is selected, you can import the effective proxy settings "
-"from other apps by selecting $EXTERNALPROFILE$ on the popup menu. "
-"The settings will be imported as a profile using the name you provide. "
-"Please note that the imported profile is a snapshot and will not reflect "
-"any changes from the source app thereafter."
 
 msgid "options_group_networkRequests"
-msgstr "Network Requests"
+msgstr "Ağ İstekleri"
 
 msgid "options_monitorWebRequests"
-msgstr "Show count of failed web requests for resources in the current tab."
+msgstr ""
 
 msgid "options_monitorWebRequestsHelp"
-msgstr "A yellow badge will be displayed on the icon if some resources fail to load,<br>"
-"and you can set the profile for such resources conveniently via the popup menu."
+msgstr ""
 
 msgid "options_downloadOptions"
-msgstr "Download Options"
+msgstr "İndirme Seçenekleri"
 
 msgid "options_downloadOptionsHelp"
-msgstr "Configure the update frequency of online rule lists and PAC scripts."
+msgstr ""
 
 msgid "options_downloadInterval"
-msgstr "Download Interval"
+msgstr "İndirme zaman aralığı"
 
 msgid "options_downloadInterval_15"
-msgstr "15 Minutes"
+msgstr "15 Dakika"
 
 msgid "options_downloadInterval_60"
-msgstr "1 Hour"
+msgstr "1 Saat"
 
 msgid "options_downloadInterval_180"
-msgstr "3 Hours"
+msgstr "3 Saat"
 
 msgid "options_downloadInterval_360"
-msgstr "6 Hours"
+msgstr "6 Saat"
 
 msgid "options_downloadInterval_720"
-msgstr "12 Hours"
+msgstr "12 Saat"
 
 msgid "options_downloadInterval_1440"
-msgstr "Every day"
+msgstr "Her gün"
 
 msgid "options_downloadInterval_never"
-msgstr "Never"
+msgstr "Asla"
 
 msgid "options_group_importExportProfile"
-msgstr "Profile"
+msgstr "Profil"
 
 msgid "options_exportPacFile"
-msgstr "Export as PAC File"
+msgstr "PAC Dosyası Olarak Dışa Aktar"
 
 msgid "options_exportPacFileHelp"
 msgstr ""
-"Export the current profile as a PAC file, so you can use it in other "
-"browsers."
+"Geçerli profili PAC dosyası olarak dışa aktar, böylece diğer tarayıcılarda "
+"kullanabilirsin."
 
 msgid "options_exportProfileHelp"
-msgstr "To export a profile, use the top-right action bar on the profile page."
+msgstr ""
 
 msgid "options_exportLegacyRuleList"
 msgstr ""
-"Export rule lists using Proxy Switchy!/SwitchyPlus/SwitchySharp compatible "
-"format when possible."
 
 msgid "options_exportLegacyRuleListHelp"
 msgstr ""
-"Enable this option only if you publish rule lists for users of those "
-"projects.<br>Please consider advising your audience to upgrade to "
-"SwitchyOmega for the improvements."
 
 msgid "options_group_importExportSettings"
-msgstr "Settings"
+msgstr "Ayarlar"
 
 msgid "options_makeBackup"
-msgstr "Make backup"
+msgstr "Yedek oluştur"
 
 msgid "options_makeBackupHelp"
 msgstr ""
-"Make a full backup of your options (including profiles and all other "
-"options)."
+"Tüm ayarlarının tam bir yedeğini oluştur (profiller ve diğer seçenekler "
+"dahil)."
 
 msgid "options_restoreLocal"
-msgstr "Restore from file"
+msgstr "Dosyadan eski haline getir"
 
 msgid "options_restoreLocalHelp"
-msgstr "Restore your SwitchyOmega options from a local file."
+msgstr "SwitchyOmega seçeneklerini bir dosyadan eski haline getir."
 
 msgid "options_restoreOnline"
-msgstr "Restore from online"
+msgstr "Çevirimiçi eski haline getir"
 
 msgid "options_restoreOnlinePlaceholder"
-msgstr "Options file URL (e.g. 'http://example.com/switchy.bak')"
+msgstr "Seçenekler dosyası bağlantısı (ör. 'http://example.com/switchy.bak')"
 
 msgid "options_restoreOnlineSubmit"
-msgstr "Restore"
+msgstr "Eski haline getir"
 
 msgid "options_group_syncing"
-msgstr "Syncing (Experimental)"
+msgstr "Eşitleniyor (Deneysel)"
 
 msgid "options_syncEnable"
-msgstr "Enable Syncing"
+msgstr "Eşitlemeyi Etkinleş"
 
 msgid "options_syncEnableForce"
-msgstr "Download from Syncing"
+msgstr "Eşitlemeden İndir"
 
 msgid "options_syncDisable"
-msgstr "Disable syncing"
+msgstr "Eşitlemeyi pasifleştir"
 
 msgid "options_syncReset"
-msgstr "Clear remote copy"
+msgstr "Uzak kopyayı temizle"
 
 msgid "options_syncPristineHelp"
 msgstr ""
-"You can now automatically synchronize your settings and profiles across all "
-"your desktop devices running Chrome browser."
 
 msgid "options_syncSyncAlert"
-msgstr "Your options are automatically synchronized with your other devices."
+msgstr ""
 
 msgid "options_syncSyncHelp"
 msgstr ""
-"Please note that you must sign in to Chrome on each of your devices "
-"(including this one) for the syncing to actually work. <br> You may check "
-"this section on other devices to ensure that it is working."
 
 msgid "options_syncConflictAlert"
 msgstr ""
-"You have uploaded a copy of your options on another device via syncing."
 
 msgid "options_syncConflictHelp"
 msgstr ""
-"You may download the remote copy to your device if you like. <br>However, "
-"doing so would <b>overwrite your existing settings and profiles</b> on this "
-"device."
 
 msgid "options_syncUnsupportedHelp"
 msgstr ""
-"Options syncing is not supported on your platform or browser. For now, only "
-"Chrome browser on desktop is supported."
 
 msgid "options_profileSyncDisabled"
-msgstr "Syncing is disabled for this profile."
+msgstr "Bu profil için eşitleme pasifleştirildi."
 
 msgid "options_profileSyncDisabled_quotaPerItem"
-msgstr "Syncing is disabled for this profile for using too much storage space."
+msgstr ""
+"Çok fazla depolama alanı kullanması sebebiyle bu profil için eşleme "
+"pasifleştirildi."
 
 msgid "options_profileTabPrefix"
-msgstr "Profile :: "
+msgstr "Profil :: "
 
 msgid "options_renameProfile"
-msgstr "Rename"
+msgstr "Yeniden adlandır"
 
 msgid "options_deleteProfile"
-msgstr "Delete"
+msgstr "Sil"
 
 msgid "options_profileExportRuleList"
-msgstr "Publish rule list"
+msgstr "Kural listesini yayınla"
 
 msgid "options_profileExportRuleListHelp"
-msgstr "Export Switch Rules as text format for publishing."
+msgstr "Geçiş kurallarını metin biçiminde yayınlama için dışa aktar."
 
 msgid "options_profileExportPac"
-msgstr "Export PAC"
+msgstr "PAC Dışa Aktar"
 
 msgid "options_profileUnsupported"
-msgstr "Unsupported profile type $TYPE$!"
+msgstr "Desteklenmeyen profil türü $TYPE$!"
 
 msgid "options_profileUnsupportedHelp"
-msgstr "The options could be broken, or from a newer version of this program."
+msgstr ""
 
 msgid "options_profileEditSource"
-msgstr "Edit source code"
+msgstr "Kaynak kodunu düzenle"
 
 msgid "options_profileEditSourceHelp"
-msgstr "Show help about the source code format"
+msgstr "Kaynak kodu biçimi hakkında yardım göster"
 
 msgid "options_profileEditSourceHelpUrl"
 msgstr ""
@@ -545,207 +471,177 @@ msgid "options_group_proxyServers"
 msgstr "Proxy servers"
 
 msgid "options_proxy_scheme"
-msgstr "Scheme"
+msgstr "Şema"
 
 msgid "options_proxy_protocol"
-msgstr "Protocol"
+msgstr "Protokol"
 
 msgid "options_proxy_server"
-msgstr "Server"
+msgstr "Sunucu"
 
 msgid "options_proxy_port"
 msgstr "Port"
 
 msgid "options_proxy_auth"
-msgstr "Authentication"
+msgstr "Kimlik doğrulama"
 
 msgid "options_proxy_authNotSupported"
-msgstr "Your browser DOES NOT support $PROTOCOLDISP$ proxy authentication! "
-"Please do not report this issue to SwitchyOmega. Contact the support for "
-"your browser instead."
+msgstr ""
 
 msgid "options_proxy_authAllWarningPac"
 msgstr ""
-"Warning: The username/password may be sent to unexpected servers returned by "
-"the PAC script."
 
 msgid "options_proxy_authAllWarningPacUrl"
 msgstr ""
-"Please make sure that you trust the script provided via the URL above before "
-"entering sensitive credentials."
 
 msgid "options_proxy_authAllWarningPacScript"
 msgstr ""
-"Please make sure that you trust the script below before providing sensitive "
-"credentials."
 
 msgid "options_proxy_authReferencedWarning"
 msgstr ""
-"Additionally, using this profile in other profiles (e.g. Switch Profile) may "
-"cause the username/password to be sent to proxy servers configured in other "
-"profiles."
 
 msgid "options_scheme_default"
-msgstr "(default)"
+msgstr "(varsayılan)"
 
 msgid "options_protocol_direct"
-msgstr "DIRECT"
+msgstr ""
 
 msgid "options_protocol_useDefault"
-msgstr "(use default)"
+msgstr "(varsayılanı kullan)"
 
 msgid "options_proxy_single"
-msgstr "Use the proxy above for all protocols."
+msgstr ""
 
 msgid "options_proxy_expand"
-msgstr "Show Advanced"
+msgstr "Gelişmişi Göster"
 
 msgid "options_group_bypassList"
-msgstr "Bypass List"
+msgstr "Baypas Listesi"
 
 msgid "options_bypassListHelp"
 msgstr ""
-"Servers for which you do not want to use any proxy: (One server on each "
-"line.)"
 
 msgid "options_bypassListHelpLinkText"
 msgstr "(Joker karakterleri ve daha fazlası…)"
 
 msgid "options_group_pacUrl"
-msgstr "PAC URL"
+msgstr "PAC Bağlantısı"
 
 msgid "options_pacUrlHelp"
 msgstr ""
-"The PAC script will be updated from this URL. If it is left blank, the "
-"following script will be used directly instead."
 
 msgid "options_pacUrlFile"
 msgstr ""
-"PAC profiles with file: URLs can only be applied directly. They cannot be "
-"used as result profiles because local files cannot be accessed due to "
-"browser limitation."
 
 msgid "options_pacUrlFileDisabled"
 msgstr ""
-"Therefore, you cannot use local PAC file for this profile. You can create a "
-"new PAC profile for that if you really want that."
 
 msgid "options_group_pacScript"
-msgstr "PAC Script"
+msgstr "PAC Betiği"
 
 msgid "options_pacScriptLastUpdate"
-msgstr "PAC script downloaded at $TIME$:"
+msgstr "PAC betiği indirilme zamanı $TIME$:"
 
 msgid "options_pacScriptObsolete"
 msgstr ""
-"PAC script is obsolete due to URL change. Press the download button above to "
-"update."
 
 msgid "options_group_virtualProfile"
-msgstr "Virtual Profile"
+msgstr "Sanal Profil"
 
 msgid "options_virtualProfileTarget"
-msgstr "Target"
+msgstr "Hedef"
 
 msgid "options_virtualProfileTargetHelp"
 msgstr ""
-"When this profile is applied, it acts exactly the same as the profile "
-"selected below."
+"Bu profil uygulandığında, aşağıda seçilen profille tamamen aynı şekilde "
+"hareket eder."
 
 msgid "options_group_virtualProfileReplace"
-msgstr "Migrate to Virtual Profile"
+msgstr "Sanal Profile Taşı"
 
 msgid "options_virtualProfileReplace"
-msgstr "Replace target profile"
+msgstr "Hedef profille yer değiştir"
 
 msgid "options_virtualProfileReplaceHelp"
 msgstr ""
-"You can migrate existing options to use this virtual profile instead of "
-"$PROFILE$. Doing so will update all existing rules concerning $PROFILE$ and "
-"point them to this virtual profile, so that their result profile can be "
-"controlled here."
 
 msgid "options_group_ruleListConfig"
-msgstr "Rule List Config"
+msgstr "Kural Listesi Ayarı"
 
 msgid "options_ruleListFormat"
-msgstr "Rule List Format"
+msgstr "Kural Listesi Biçimi"
 
 msgid "options_group_ruleListResult"
-msgstr "Rule list result profiles"
+msgstr "Kural listesi sonuç profilleri"
 
 msgid "options_ruleListMatchProfile"
-msgstr "Match profile"
+msgstr "Profili eşle"
 
 msgid "options_ruleListDefaultProfile"
-msgstr "Default profile"
+msgstr "Varsayılan profil"
 
 msgid "options_group_ruleListUrl"
-msgstr "Rule List URL"
+msgstr "Kural Listesi Bağlantısı"
 
 msgid "options_ruleListUrlHelp"
 msgstr ""
-"The rule list will be updated from this URL. If it is left blank, the "
-"following text will be parsed instead."
 
 msgid "options_group_ruleListText"
-msgstr "Rule List Text"
+msgstr "Kural Listesi Metni"
 
 msgid "options_ruleListLastUpdate"
-msgstr "Rule list downloaded at $TIME$:"
+msgstr "Kural listesi indirilme zamanı $TIME$:"
 
 msgid "options_ruleListObsolete"
 msgstr ""
-"Rule list is obsolete due to URL change. Press the download button above to "
-"update."
 
 msgid "options_group_switchRules"
-msgstr "Switch rules"
+msgstr "Geçiş kuralları"
 
 msgid "options_sort"
-msgstr "Sort"
+msgstr "Sırala"
 
 msgid "options_conditionType"
-msgstr "Condition Type"
+msgstr "Koşul Türü"
 
 msgid "options_showConditionTypeHelp"
-msgstr "Show help"
+msgstr "Yardım göster"
 
 msgid "options_conditionDetails"
-msgstr "Condition Details"
+msgstr "Koşul Detayları"
 
 msgid "options_resultProfile"
-msgstr "Profile"
+msgstr "Profil"
 
 msgid "options_conditionActions"
 msgstr "Actions"
 
 msgid "options_addCondition"
-msgstr "Add condition"
+msgstr "Koşul ekle"
 
 msgid "options_cloneRule"
-msgstr "Clone"
+msgstr "Kopya"
 
 msgid "options_ruleNote"
 msgstr "Note"
 
 msgid "options_switchAttachedProfileInCondition"
-msgstr "Rule list rules"
+msgstr "Kural listesi kuralları"
 
 msgid "options_switchAttachedProfileInConditionDetails"
-msgstr "(Any request matching the rule list below)"
+msgstr ""
 
 msgid "options_switchAttachedProfileInConditionDisabled"
-msgstr "(Rule list rules are DISABLED)"
+msgstr "(Kural listesi kuralları PASİFLEŞTİRİLDİ)"
 
 msgid "options_switchDefaultProfile"
 msgstr "Default"
 
 msgid "options_hostLevelsBetween"
-msgstr "≤ host levels ≤"
+msgstr ""
 
 msgid "options_hourBetween"
-msgstr "≤ current hour ≤"
+msgstr "≤ geçerli saat ≤"
 
 msgid "options_weekDayShort_0"
 msgstr "Su"
@@ -769,445 +665,379 @@ msgid "options_weekDayShort_6"
 msgstr "Sa"
 
 msgid "options_group_conditionHelp"
-msgstr "About Condition Types"
+msgstr "Koşul Türleri Hakkında"
 
 msgid "options_group_attachProfile"
-msgstr "Import online rule lists"
+msgstr "Çevirimiçi kural listelerini içe aktar"
 
 msgid "options_attachProfile"
-msgstr "Add a rule list"
+msgstr "Kural listesi ekle"
 
 msgid "options_attachProfileHelp"
 msgstr ""
-"You can reuse an online collection of conditions published by others by "
-"adding a rule list."
 
 msgid "options_modalHeader_welcome"
-msgstr "Welcome to SwitchyOmega"
+msgstr "SwitchyOmega'ya Hoşgeldiniz"
 
 msgid "options_welcomeNormal"
 msgstr ""
-"You have successfully installed SwitchyOmega, the ultimate proxy switcher."
 
 msgid "options_welcomeNormalGuide"
 msgstr ""
-"Please tell SwitchyOmega about your proxies through the options page. Let's "
-"see how."
 
 msgid "options_welcomeUpgrade"
 msgstr ""
-"You have successfully upgraded to SwitchyOmega. Don't panic, your existing "
-"options are fully preserved."
 
 msgid "options_welcomeUpgradeGuide"
-msgstr "Now let's go through a quick guide of the new options page."
+msgstr ""
 
 msgid "options_guideNext"
-msgstr "Next"
+msgstr "Sonraki"
 
 msgid "options_guideDone"
-msgstr "Done"
+msgstr "Tamamlandı"
 
 msgid "options_guideSkip"
-msgstr "Skip guide"
+msgstr "Kılavuzu geç"
 
 msgid "options_modalHeader_applyOptions"
-msgstr "Apply Options"
+msgstr "Seçenekleri Uygula"
 
 msgid "options_optionsNotSaved"
 msgstr ""
-"Your modifications to the options have not been saved and will be lost if "
-"you proceed!"
 
 msgid "options_applyOptionsRequired"
-msgstr "Your changes to the options must be applied before you proceed."
+msgstr ""
 
 msgid "options_applyOptionsConfirm"
-msgstr "Do you want to save and apply the options?"
+msgstr "Seçenekleri kaydetmek ve uygulamak istiyor musun?"
 
 msgid "options_modalHeader_renameProfile"
-msgstr "Rename Profile"
+msgstr "Profili Yeniden Adlandır"
 
 msgid "options_renameProfileName"
-msgstr "New profile name"
+msgstr "Yeni profil adı"
 
 msgid "options_profileNameConflict"
-msgstr "A profile with this name already exists."
+msgstr "Bu adda bir profil zaten var."
 
 msgid "options_profileNameReserved"
-msgstr "Profile names beginning with double-underscore are reserved."
+msgstr ""
 
 msgid "options_profileNameHidden"
 msgstr ""
-"Profiles with names starting with underscore will be hidden on the popup "
-"menu. However, they can still be used in places like switch profile results."
 
 msgid "options_modalHeader_replaceProfile"
-msgstr "Replace Profile"
+msgstr "Profili Yer Değiştir"
 
 msgid "options_replaceProfile"
-msgstr "Replace Profile"
+msgstr "Profili Yer Değiştir"
 
 msgid "options_replaceProfileConfirm"
-msgstr "Do you really want to replace $FromProfile$ with $ToProfile$?"
+msgstr ""
+"Gerçekten $FromProfile$ profilini $ToProfile$ ile yer değiştirmek istiyor "
+"musun?"
 
 msgid "options_replaceProfileHelp"
 msgstr ""
-"If you proceed, all rules pointing to $FromProfile$ will be updated to use "
-"$ToProfile$ instead. Other options, such as startup profile and Quick Switch "
-"will also be modified as appropriate. However, the two profile themselves "
-"will NOT be changed or deleted."
 
 msgid "options_replaceProfileSuccess"
-msgstr "Options updated."
+msgstr "Seçenekler güncellendi."
 
 msgid "options_modalHeader_deleteProfile"
-msgstr "Delete Profile"
+msgstr "Profil Sil"
 
 msgid "options_deleteProfileConfirm"
-msgstr "Do you really want to delete the following profile?"
+msgstr "Aşağıdaki profili gerçekten silmek istiyor musun?"
 
 msgid "options_modalHeader_cannotDeleteProfile"
-msgstr "Unable to Delete Profile"
+msgstr "Profil Silinemedi"
 
 msgid "options_profileReferredBy"
-msgstr ""
-"This profile cannot be deleted because it is referred by the following "
-"profiles:"
+msgstr "Bu profil silinemez, çünkü aşağıdaki profillerle bağlantılı:"
 
 msgid "options_modifyReferringProfiles"
 msgstr ""
-"You must modify these profiles and make them stop referring to this profile "
-"before you can delete it."
+"Bu profilleri değiştirmeli ve silmeden önce bu profille bağlantılarını "
+"durdurmalısınız."
 
 msgid "options_profileNameEmpty"
-msgstr "The name of the profile must not be empty."
+msgstr "Profil adı boş olamaz."
 
 msgid "popup_title"
-msgstr "SwitchyOmega Popup"
+msgstr "SwitchyOmega Açılır Pencere"
 
 msgid "options_modalHeader_proxyAuth"
 msgstr "Proxy Authentication"
 
 msgid "options_proxyAuthUsername"
-msgstr "Username"
+msgstr "Kullanıcı adı"
 
 msgid "options_proxyAuthPassword"
 msgstr "Password"
 
 msgid "options_proxyAuthShowPassword"
-msgstr "Show password"
+msgstr "Parolayı göster"
 
 msgid "options_proxyAuthHidePassword"
-msgstr "Hide password"
+msgstr "Parolayı gizle"
 
 msgid "options_proxyAuthNone"
 msgstr "No Authentication"
 
 msgid "options_modalHeader_deleteRule"
-msgstr "Delete Rule"
+msgstr "Kuralı Sil"
 
 msgid "options_deleteRuleConfirm"
-msgstr "Do you really want to delete the following rule?"
+msgstr "Aşağıdaki kuralı silmek istediğine emin misin?"
 
 msgid "options_deleteRule"
 msgstr "Delete"
 
 msgid "options_modalHeader_resetRules"
-msgstr "Reset rules"
+msgstr "Kuralları sıfırla"
 
 msgid "options_resetRulesConfirm"
 msgstr ""
-"Are you sure to set the result profile of ALL rules to the following profile?"
 
 msgid "options_resetRules"
-msgstr "Reset rules"
+msgstr "Kuralları sıfırla"
 
 msgid "options_resetRules_help"
-msgstr "Set profile for all rules"
+msgstr "Tüm kurallar için profil ayarla"
 
 msgid "options_modalHeader_deleteAttached"
-msgstr "Remove Rule List"
+msgstr "Kural Listesini Kaldır"
 
 msgid "options_deleteAttachedConfirm"
-msgstr "Do you really want to remove the rule list from the current profile?"
+msgstr "Geçerli profilden kural listesini gerçekten kaldırmak istiyor musun?"
 
 msgid "options_ruleListLineCount"
-msgstr "$COUNT$ line(s) of rules"
+msgstr "$COUNT$ satır kural"
 
 msgid "options_deleteAttached"
-msgstr "Remove rule list"
+msgstr "Kural listesini kaldır"
 
 msgid "options_modalHeader_newProfile"
-msgstr "New Profile"
+msgstr "Yeni Profil"
 
 msgid "options_newProfileName"
-msgstr "Profile name"
+msgstr "Profil adı"
 
 msgid "options_profileType"
-msgstr "Please select the type of the profile:"
+msgstr "Lütfen profil türü seç:"
 
 msgid "options_profileTypeFixedProfile"
-msgstr "Proxy Profile"
+msgstr "Proxy Profili"
 
 msgid "options_profileDescFixedProfile"
-msgstr "Tunneling traffic through proxy servers."
+msgstr ""
 
 msgid "options_profileTypePacProfile"
-msgstr "PAC Profile"
+msgstr "PAC Profili"
 
 msgid "options_profileDescPacProfile"
-msgstr "Choosing proxies using an online/local PAC script."
+msgstr ""
 
 msgid "options_profileDescMorePacProfile"
 msgstr ""
-"You will only need this if you have a PAC script or a URL to it. Don't try "
-"to create one unless you have knowledge about PAC."
 
 msgid "options_profileTypeSwitchProfile"
-msgstr "Switch Profile"
+msgstr "Profile Geç"
 
 msgid "options_profileDescSwitchProfile"
 msgstr ""
-"Applying different profiles automatically on various conditions such as "
-"domains or patterns.\n"
-" You can also import rules published online for easier switching. (Replaces "
-"AutoSwitch mode + Rule List.)"
 
 msgid "options_profileTypeRuleListProfile"
-msgstr "Rule List Profile"
+msgstr "Kural Listesi Profili"
 
 msgid "options_profileDescRuleListProfile"
-msgstr "Reusing an online collection of conditions published by others."
+msgstr ""
 
 msgid "options_profileTypeVirtualProfile"
-msgstr "Virtual Profile"
+msgstr "Sanal Profil"
 
 msgid "options_profileDescVirtualProfile"
 msgstr ""
-"A virtual profile can act as any of the other profiles on demand. It works "
-"well with SwitchProfile, allowing you to change the result of multiple "
-"conditions by one click."
 
 msgid "options_createProfile"
-msgstr "Create"
+msgstr "Oluştur"
 
 msgid "options_modalHeader_resetOptions"
 msgstr "Reset Options"
 
 msgid "options_resetOptionsConfirm"
 msgstr ""
-"Do you really want to reset the options? All profiles and settings will be "
-"LOST!"
+"Seçenekleri gerçekten sıfırlamak istiyor musun? Tüm profiller ve ayarlar "
+"kaybedilecek!"
 
 msgid "options_formInvalid"
-msgstr "Please correct the errors in this page."
+msgstr "Lütfen sayfadaki hataları düzeltin."
 
 msgid "options_profileNotFound"
-msgstr "Profile $PROFILE$ does not exist! The options may be corrupted."
+msgstr "$PROFILE$ profili yok! Seçenekler bozulmuş olabilir."
 
 msgid "options_resetSuccess"
 msgstr "Options reset."
 
 msgid "options_saveSuccess"
-msgstr "Options saved."
+msgstr "Seçenekler kaydedildi."
 
 msgid "options_importSuccess"
-msgstr "Options imported."
+msgstr "Seçenekler içe aktarıldı."
 
 msgid "options_importFormatError"
-msgstr "Invalid backup file!"
+msgstr "Geçersiz yedek dosyası!"
 
 msgid "options_importDownloadError"
-msgstr "Error downloading backup file!"
+msgstr "Yedek dosyası indirirken hata!"
 
 msgid "options_profileDownloadSuccess"
-msgstr "Successfully updated profile."
+msgstr "Profil güncellendi."
 
 msgid "options_profileDownloadError"
-msgstr "Error downloading profile data!"
+msgstr "Profil verisi indirilirken hata!"
 
 msgid "options_profileDownloadError_NetworkError"
-msgstr "A network error occurred when updating."
+msgstr "Güncelleme sırasında ağ hatası oluştu."
 
 msgid "options_profileDownloadError_HttpError"
-msgstr "An HTTP error ($STATUS$) occurred when updating."
+msgstr "Güncelleme sırasında HTTP ($STATUS$) hatası oluştu."
 
 msgid "options_profileDownloadError_HttpNotFoundError"
-msgstr "The Profile URL was not found on the server. Please double-check."
+msgstr "Profil bağlantısı sunucuda bulunamadı. Lütfen tekrar kontrol edin."
 
 msgid "options_profileDownloadError_HttpServerError"
-msgstr "The remote server responded with error ($STATUS$) when updating."
+msgstr "Güncelleme sırasında uzak sunucu ($STATUS$) hatası verdi."
 
 msgid "options_profileDownloadError_ContentTypeRejectedError"
-msgstr "The downloaded data is invalid! "
-"You may open the Profile URL in your browser to inspect it."
+msgstr ""
 
 msgid "options_downloadProfileNow"
-msgstr "Download Profile Now"
+msgstr "Profili Şimdi İndir"
 
 msgid "options_guide_fixedProfileStep"
 msgstr ""
-"A <b>Proxy Profile</b> contains settings like server ip &amp; port for proxy."
-"<br>Profiles are the the basic configuration units in SwitchyOmega.<br>We "
-"have already created an example profile for you. Try opening it."
 
 msgid "options_guide_fixedServersStep"
 msgstr ""
-"You can fill in your proxy server and port here as you like.<br>SwitchyOmega "
-"<b>does not come with any proxy servers</b>.<br>Please consult your network "
-"provider or proxy software manual if you don't know what should be filled in "
-"here."
 
 msgid "options_guide_autoSwitchProfileStep"
 msgstr ""
-"You can tell SwitchyOmega to switch between proxies automatically through "
-"the mighty <b>Switch Profile</b>.<br>However, its features cannot be covered "
-"in this quick guide.<br>You can open this profile to unlock its power some "
-"time later."
 
 msgid "options_guide_addMoreProfilesStep"
 msgstr ""
-"Need more profiles? You can always add more <b>Proxy, Switch and other "
-"profiles</b><br>for all your proxying needs.<br>Enjoy proxying!"
 
 msgid "options_guide_conditionStep"
 msgstr ""
-"SwitchyOmega can apply different profiles to requests based on "
-"<b>conditions</b>.<br> For example, the <b>Host wildcard</b> condition "
-"allows you to set the profile for all URLs in a domain."
 
 msgid "options_guide_conditionTypeStep"
 msgstr ""
-"You can use various condition types to match the host or full URL. <br> "
-"Click on the question mark to open the type reference."
 
 msgid "options_guide_conditionProfileStep"
 msgstr ""
-"SwitchyOmega applies the selected profile here to <b>any request matching "
-"the condition.</b> <br> The special <b>\"[Direct]\" profile</b> will cause "
-"the request to be sent without any proxy."
 
 msgid "options_guide_switchDefaultStep"
 msgstr ""
-"If no condition applies to some request, the \"Default\" profile will be "
-"used. <br>Conditions are always considered <b>from top to bottom</b> in "
-"order.<br>You can change their order by dragging the sort icon."
 
 msgid "options_guide_applySwitchProfileStep"
 msgstr ""
-"When you are done setting the switch profile, don't forget to <b>switch to "
-"it in the popup menu.</b><br/> The icon will show you the <b>final result</"
-"b> profile applied for the current tab. <br/> <b>Hovering</b> on the icon "
-"will reveal a tooltip with details."
 
 msgid "popup_externalProfile"
-msgstr "(External Profile)"
+msgstr "(Harici Profil)"
 
 msgid "popup_externalProfileName"
-msgstr "profile name"
+msgstr "profile adı"
 
 msgid "popup_proxyNotControllable_app"
 msgstr ""
-"The proxy settings are controlled by other app(s) or extension(s). Please "
-"disable or uninstall the apps or extensions in conflict."
 
 msgid "popup_proxyNotControllable_policy"
 msgstr ""
-"The proxy settings are overruled by policies. Please contact your "
-"administrator."
 
 msgid "popup_proxyNotControllable_unknown"
 msgstr ""
-"The proxy settings cannot be controlled. Please check your system and "
-"browser settings."
 
 msgid "popup_proxyNotControllable_disabled"
 msgstr ""
-"The proxy settings are disabled by explicit request from other app(s) or "
-"extension(s)."
 
 msgid "popup_proxyNotControllable_upgrade"
-msgstr "Proxy settings are now controlled by a newer version of SwitchyOmega."
+msgstr ""
 
 msgid "popup_proxyNotControllableDetails"
 msgstr ""
-"You cannot switch profiles with SwitchyOmega unless you fix the problem "
-"above."
 
 msgid "popup_proxyNotControllableDetails_upgrade"
 msgstr ""
-"You can't enable two (or more) versions of SwitchyOmega at the same time. "
-"Please disable one of them."
 
 msgid "popup_proxyNotControllableManage"
-msgstr "Manage extensions"
+msgstr "Uzantıları yönet"
 
 msgid "popup_addConditionTo"
-msgstr "Add condition to"
+msgstr "Şuraya koşul ekle"
 
 msgid "popup_addCondition"
-msgstr "Add condition"
+msgstr "Koşul ekle"
 
 msgid "popup_showOptions"
 msgstr "Options"
 
 msgid "popup_reportIssues"
-msgstr "Report issues"
+msgstr "Hataları raporla"
 
 msgid "popup_errorLog"
-msgstr "Save error log"
+msgstr "Hata kayıtlarını kaydet"
 
 msgid "popup_requestErrorCount"
-msgstr "$COUNT$ failed resources"
+msgstr ""
 
 msgid "popup_requestErrorHeading"
-msgstr "Resources that failed to load"
+msgstr "Yüklemesi başarısız olan kaynaklar"
 
 msgid "popup_requestErrorWarning"
-msgstr "A few resources failed to load due to issues with your network, proxy server or the webpage."
+msgstr ""
 
 msgid "popup_requestErrorWarningHelp"
-msgstr "SwitchyOmega is just the reporter of these issues, not the cause of them."
+msgstr ""
 
 msgid "popup_requestErrorAddCondition"
-msgstr "You can review the following domains and use proxy for them when appropriate."
+msgstr ""
 
 msgid "popup_requestErrorCannotAddCondition"
-msgstr "You can add switch conditions for them only when using a Switch Profile."
+msgstr ""
 
 msgid "popup_configureMonitorWebRequests"
-msgstr "Configure Network Monitor"
+msgstr "Ağ İzleyicisini Yapılandır"
 
 msgid "options_resultProfileForSelectedDomains"
-msgstr "Use this profile for all selected domains"
+msgstr "Bu profili seçilen alan adları için kullan"
 
 msgid "options_pac_profile_unsupported_moz"
-msgstr "PAC Profiles WILL NOT work in Mozilla Firefox due to technical limitations!"
+msgstr ""
 
 msgid "popup_issueTemplate"
 msgstr ""
 "\n"
 "\n"
 "\n"
-"<!-- Please write your comment ABOVE this line. -->\n"
+"<!-- Yorumunuzunu bu satırın ÜSTÜNE yazın. -->\n"
 "SwitchyOmega $projectVersion$\n"
 "$userAgent$"
 
 msgid "browserAction_profileDetails_PacProfile"
-msgstr "(PAC script)"
+msgstr "(PAC betiği)"
 
 msgid "browserAction_profileDetails_SystemProfile"
-msgstr "(controlled by other extensions or environment)"
+msgstr "(diğer uzantılar veya çevre değişkenleri tarafından kontrol ediliyor)"
 
 msgid "browserAction_profileDetails_DirectProfile"
-msgstr "(not using any proxy)"
+msgstr "(hiçbir proxy kullanmıyor)"
 
 msgid "browserAction_profileDetails_SwitchProfile"
-msgstr "(switching based on conditions)"
+msgstr "(şart temelli geçiş yapma)"
 
 msgid "browserAction_profileDetails_RuleListProfile"
-msgstr "(switching based on rule list)"
+msgstr "(kural listesi temelli geçiş yapma)"
 
 msgid "browserAction_titleNormal"
 msgstr "SwitchyOmega:: $PROFILE$"
@@ -1219,19 +1049,18 @@ msgstr ""
 
 msgid "browserAction_titleNewerOptions"
 msgstr ""
-"ERROR: A newer version of SwitchOmega is required to load the stored options."
 
 msgid "browserAction_titleOptionError"
-msgstr "ERROR: The stored options are corrupted. Click here to RESET OPTIONS."
+msgstr ""
 
 msgid "browserAction_titleDownloadFail"
-msgstr "Warning: Failed to download PAC scripts and/or rule lists."
+msgstr ""
 
 msgid "browserAction_titleExternalProxy"
-msgstr "Note: The proxy settings are currently controlled by other app(s)."
+msgstr ""
 
 msgid "browserAction_titleInspect"
-msgstr "[Inspect] $URL$"
+msgstr ""
 
 msgid "browserAction_defaultRuleDetails"
 msgstr "(default)"
@@ -1246,48 +1075,63 @@ msgid "browserAction_tempRulePrefix"
 msgstr "(TEMP) "
 
 msgid "contextMenu_inspectPage"
-msgstr "Inspect proxy used for this page"
+msgstr ""
 
 msgid "contextMenu_inspectFrame"
-msgstr "Inspect proxy used for this Frame"
+msgstr ""
 
 msgid "contextMenu_inspectLink"
-msgstr "Inspect proxy to be used if this Link is opened"
+msgstr ""
 
 msgid "contextMenu_inspectElement"
-msgstr "Inspect proxy used for this Element"
+msgstr ""
 
 msgid "contextMenu_enableQuickSwitch"
-msgstr "Enable Quick Switch"
+msgstr "Hızlı Geçişi Etkinleştir"
 
 msgid "about_title"
-msgstr "About"
+msgstr "Hakkında"
 
 msgid "about_app_description"
-msgstr "A proxy configuration tool"
+msgstr "Proxy yapılandırma aracı"
 
 msgid "about_version"
-msgstr "Version $VERSION$"
+msgstr "Sürüm $VERSION$"
 
 msgid "about_experimental_warning_moz"
-msgstr "Mozilla Firefox support is highly experimental! If you encounter issues, please report using the buttons below."
+msgstr ""
+"Mozilla Firefox seteği yüksek oranda deneyseldir! Hatalar ile "
+"karşılaşırsanız, aşağıdaki düğmeleri kullanarak lütfen raporlayın."
 
 msgid "about_disclaimer_networkService"
-msgstr "SwitchyOmega does not provide proxies, VPNs, or other network services."
+msgstr "SwitchyOmega proxy, VPN veya diğer ağ servislerini sağlamaz."
 
 msgid "about_disclaimer_privacy"
-msgstr "SwitchyOmega does not track you or insert ads into webpages. Please see"
-" our <a href='https://github.com/FelisCatus/SwitchyOmega/wiki/Privacy#english'>privacy policy</a>."
+msgstr ""
+"SwitchyOmega sizi takip etmez veya internet sitelerine reklam yerleştirmez. "
+"Lütfen <a href='https://github.com/FelisCatus/SwitchyOmega/wiki/"
+"Privacy#english'>gizlilik politikası</a> sayfasına bakın."
 
 msgid "about_help"
-msgstr "Other questions? Need help with using SwitchyOmega? Please see our "
-"<a href='https://github.com/FelisCatus/SwitchyOmega/wiki/FAQ'>FAQ</a>."
+msgstr ""
+"SwitchyOmega kullanımı hakkında yardım ve diğer sorularınız için lütfen "
+"bakınız: <a href='https://github.com/FelisCatus/SwitchyOmega/wiki/"
+"FAQ'>SSS</a>."
 
 msgid "about_copyright"
-msgstr "Copyright 2012-2017 <a href='https://github.com/FelisCatus/SwitchyOmega/blob/master/AUTHORS'>The SwitchyOmega Authors</a>. All rights reserved."
+msgstr ""
+"Telif Hakkı 2012-2019 <a href='https://github.com/FelisCatus/SwitchyOmega/"
+"blob/master/AUTHORS'>SwitchyOmega Yazarları</a>. Tüm hakları saklıdır."
 
 msgid "about_credits"
-msgstr "SwitchyOmega is made possible by the <a href='https://github.com/FelisCatus/SwitchyOmega'>SwitchyOmega</a> open source project and other <a href='https://github.com/FelisCatus/SwitchyOmega/blob/master/AUTHORS'>open source software</a>."
+msgstr ""
+"SwitchyOmega <a href='https://github.com/FelisCatus/"
+"SwitchyOmega'>SwitchyOmega</a> açık kaynak kodlu bir projedir ve diğer <a "
+"href='https://github.com/FelisCatus/SwitchyOmega/blob/master/AUTHORS'>açık "
+"kaynak kodlu yazılımlar</a> kulanılarak üretilmiştir."
 
 msgid "about_license"
-msgstr "SwitchyOmega is <a href='https://www.gnu.org/philosophy/free-sw.en.html'>free software</a> licensed under <a href='https://www.gnu.org/licenses/gpl.html'>GNU General Public License</a> Version 3 or later."
+msgstr ""
+"SwitchyOmega <a href='https://www.gnu.org/philosophy/free-sw.en.html'>özgür "
+"yazılımdır</a> ve <a href='https://www.gnu.org/licenses/gpl.html'>GNU "
+"General Public License</a> Sürüm 3 ve sonrası ile lisanslanmıştır."
