@@ -3,45 +3,46 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2018-06-13 01:52+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-05-10 08:14+0000\n"
+"Last-Translator: Riccardo Feletto <riccardo.feletto@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/switchyomega/"
+"main/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 msgid "appNameShort"
-msgstr ""
+msgstr "SwitchyOmega"
 
 msgid "manifest_app_name"
-msgstr ""
+msgstr "Proxy SwitchyOmega"
 
 msgid "manifest_app_description"
-msgstr ""
+msgstr "Organizza e scegli fra proxy multipli in maniera facile e veloce."
 
 msgid "manifest_icon_default_title"
-msgstr ""
+msgstr "Caricamento…"
 
 msgid "upgrade_profile_auto"
-msgstr ""
+msgstr "Auto Switch"
 
 msgid "profile_direct"
-msgstr ""
+msgstr "[Diretto]"
 
 msgid "profile_system"
-msgstr ""
+msgstr "[Proxy di Sistema]"
 
 msgid "condition_HostWildcardCondition"
-msgstr ""
+msgstr "Host wildcard"
 
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
 
 msgid "condition_HostRegexCondition"
-msgstr ""
+msgstr "Host regex"
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
@@ -59,40 +60,40 @@ msgid "condition_help_IpCondition"
 msgstr ""
 
 msgid "condition_UrlWildcardCondition"
-msgstr ""
+msgstr "URL wildcard"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
 
 msgid "condition_UrlRegexCondition"
-msgstr ""
+msgstr "URL regex"
 
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
 
 msgid "condition_KeywordCondition"
-msgstr ""
+msgstr "Parole chiave"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
 
 msgid "condition_FalseCondition"
-msgstr ""
+msgstr "(Disabilitato)"
 
 msgid "condition_details_FalseCondition"
-msgstr ""
+msgstr "(Condizioni ignorate quando riscontrate)"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
 
 msgid "condition_TimeCondition"
-msgstr ""
+msgstr "Tempo attuale"
 
 msgid "condition_help_TimeCondition"
 msgstr ""
 
 msgid "condition_WeekdayCondition"
-msgstr ""
+msgstr "Giorno della settimana"
 
 msgid "condition_help_WeekdayCondition"
 msgstr ""
@@ -102,27 +103,28 @@ msgstr ""
 
 msgid "condition_alert_fullUrlLimitationLink"
 msgstr ""
+"https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-Full-URL-Limitation"
 
 msgid "condition_group_default"
 msgstr ""
 
 msgid "condition_group_host"
-msgstr ""
+msgstr "Host"
 
 msgid "condition_group_url"
-msgstr ""
+msgstr "Url"
 
 msgid "condition_group_special"
-msgstr ""
+msgstr "Speciale"
 
 msgid "ruleListFormat_Switchy"
-msgstr ""
+msgstr "Switchy"
 
 msgid "ruleListFormat_AutoProxy"
-msgstr ""
+msgstr "AutoProxy"
 
 msgid "ruleList_usageUrl"
-msgstr ""
+msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
 msgstr ""
