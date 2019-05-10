@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2019-05-10 08:14+0000\n"
+"PO-Revision-Date: 2019-05-10 11:34+0000\n"
 "Last-Translator: Riccardo Feletto <riccardo.feletto@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/switchyomega/"
 "main/it/>\n"
@@ -130,70 +130,70 @@ msgid "ruleList_error_resultNotEnabled"
 msgstr ""
 
 msgid "ruleList_error_unknownProfile"
-msgstr ""
+msgstr "Profilo sconosciuto: $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
 msgstr ""
 
 msgid "ruleList_error_invalidRule"
-msgstr ""
+msgstr "Regola non valida alla linea $LNO$: $SOURCE$"
 
 msgid "ruleList_error_noDefaultRule"
 msgstr ""
 
 msgid "dialog_close"
-msgstr ""
+msgstr "Chiusa"
 
 msgid "dialog_save"
-msgstr ""
+msgstr "Salva le modifiche"
 
 msgid "dialog_ok"
-msgstr ""
+msgstr "OK"
 
 msgid "dialog_cancel"
-msgstr ""
+msgstr "Cancella"
 
 msgid "inputClear_clear"
-msgstr ""
+msgstr "Pulisci"
 
 msgid "inputClear_restore"
-msgstr ""
+msgstr "Ripristina"
 
 msgid "options_title"
-msgstr ""
+msgstr "Opzioni di SwitchyOmega"
 
 msgid "options_experimental_badge"
-msgstr ""
+msgstr "α"
 
 msgid "options_navHeader_setting"
-msgstr ""
+msgstr "Impostazioni"
 
 msgid "options_navHeader_profiles"
-msgstr ""
+msgstr "Profili"
 
 msgid "options_navHeader_actions"
-msgstr ""
+msgstr "Azioni"
 
 msgid "options_tab_ui"
-msgstr ""
+msgstr "Interfaccia"
 
 msgid "options_tab_general"
-msgstr ""
+msgstr "Generale"
 
 msgid "options_tab_importExport"
-msgstr ""
+msgstr "Importa/Esporta"
 
 msgid "options_newProfile"
-msgstr ""
+msgstr "Nuovo profilo…"
 
 msgid "options_apply"
-msgstr ""
+msgstr "Applica i cambiamenti"
 
 msgid "options_discard"
-msgstr ""
+msgstr "Scarta i cambiamenti"
 
 msgid "options_reset"
-msgstr ""
+msgstr "Ripristina le opzioni"
 
 msgid "options_group_miscOptions"
 msgstr ""
