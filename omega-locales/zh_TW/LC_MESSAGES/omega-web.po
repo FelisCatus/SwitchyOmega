@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 11:15+0000\n"
-"PO-Revision-Date: 2018-08-11 04:35+0000\n"
-"Last-Translator: zhtw <zhtw2013@gmail.com>\n"
+"PO-Revision-Date: 2019-06-18 19:01+0000\n"
+"Last-Translator: byStarTW <pan93412@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "switchyomega/main/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.7\n"
 
 msgid "appNameShort"
 msgstr "SwitchyOmega"
@@ -21,7 +21,7 @@ msgid "manifest_app_name"
 msgstr "Proxy SwitchyOmega"
 
 msgid "manifest_app_description"
-msgstr "輕鬆快捷地管理和切換多個代理設定。"
+msgstr "輕鬆簡單地管理並切換多個代理伺服器設定。"
 
 msgid "manifest_icon_default_title"
 msgstr "正在載入……"
@@ -36,32 +36,32 @@ msgid "profile_system"
 msgstr "[系統代理]"
 
 msgid "condition_HostWildcardCondition"
-msgstr "域名萬用字元"
+msgstr "網域萬用字元"
 
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
-"依據域名（主機名稱）比對請求。<br><b>星號 <code>*</code></b> 比對零個或者多個字元。<br><b>問號 "
+"依據網域（主機名稱）比對請求。<br><b>星號 <code>*</code></b> 比對零個或者多個字元。<br><b>問號 "
 "<code>?</code></b> 比對任意一個字元。<br><br>請注意以 <code>*.</code> "
-"開頭的規則有特別處理，會同時比對子域名和自身。<br>例如: <code>*.example.com</code> 能比對 "
+"開頭的規則有特別處理，會同時比對子網域和自身。<br>例如: <code>*.example.com</code> 能比對 "
 "www.example.com ，<b>而且也能比對 example.com "
-"。</b><br>如果<b>只需要比對子域名</b>，請使用<b>兩個</b>星號開頭，如 <code>**.example.com</code>。"
+"。</b><br>如果<b>只需要比對子網域</b>，請使用<b>兩個</b>星號開頭，如 <code>**.example.com</code>。"
 
 msgid "condition_HostRegexCondition"
-msgstr "域名正則"
+msgstr "網域正規表示式"
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
-"類似域名萬用字元，但使用<a href='https://www.google.com/search?q=%E6%AD%A3%E5%88%99%E8%A1"
+"類似網域萬用字元，但使用<a href='https://www.google.com/search?q=%E6%AD%A3%E5%88%99%E8%A1"
 "%A8%E8%BE%BE%E5%BC%8F'>正規表示式</a>.<br>正規表示式很難編寫，且可讀性差。<br>因此，一般情況建議使用萬用字元。當其他任"
 "何條件都不能滿足要求時，才使用正規表示式。"
 
 msgid "condition_HostLevelsCondition"
-msgstr "域名層數"
+msgstr "網域層數"
 
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
-"如果域名層數在設定的範圍內則比對，否則不比對。<br>域名層數是指 <b>域名共有幾段（以點分隔）</b>.<br>例如: "
-"<code>www.example.com</code> 的域名層數為 3，而 <code>internal</code> 的域名層數為 1."
+"如果網域層數在設定的範圍內則比對，否則不比對。<br>網域層數是指 <b>網域共有幾段（以點分隔）</b>.<br>例如: "
+"<code>www.example.com</code> 的網域層數為 3，而 <code>internal</code> 的網域層數為 1."
 
 msgid "condition_IpCondition"
 msgstr "IP 位址常值"
@@ -80,12 +80,12 @@ msgstr "網址萬用字元"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
-"依據萬用字元規則比對網址。<br>關於萬用字元表示式，請參考上方的域名萬用字元一節的說明。<br>請注意網址萬用字元沒有任何特殊處理，不會特殊處理子域名等"
+"依據萬用字元規則比對網址。<br>關於萬用字元表示式，請參考上方的網域萬用字元一節的說明。<br>請注意網址萬用字元沒有任何特殊處理，不會特殊處理子網域等"
 "。<br>所以 <code>*://*.example.com/*</code> 能比對 http://www.example.com/ 但是 "
 "<b>不比對</b> http://example.com/."
 
 msgid "condition_UrlRegexCondition"
-msgstr "網址正則"
+msgstr "網址正規表示式"
 
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
@@ -98,7 +98,7 @@ msgstr "關鍵字"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
-"關鍵字條件的具體比對規則是：網址協議為HTTP且網址中包含該關鍵字。<br>類似於 <code>http://*<b>關鍵字</b>*</code>, "
+"關鍵字條件的具體比對規則是：網址協定為HTTP且網址中包含該關鍵字。<br>類似於 <code>http://*<b>關鍵字</b>*</code>, "
 "其中 <b>關鍵字</b> "
 "是設定好的關鍵字。<br>如果某防火牆依據網址中是否包含關鍵字來遮蔽網址，那麼可以使用關鍵字條件來通過代理訪問這樣的請求，以達到繞過防火牆的目的。"
 
@@ -111,14 +111,14 @@ msgstr "(比對請求時無視此條規則)"
 msgid "condition_help_FalseCondition"
 msgstr ""
 "設定規則類型為<code>(停用)</code>可以臨時停用某個條件。停用的條件在比對時視為不存在。<br>條件被停用後，仍然儲存有之前的資料（例如萬用字"
-"元或正則），因此當需要時，可以把條件類型改回之前的類型，以方便地重新啟用條件。"
+"元或正規表示式），因此當需要時，可以把條件類型改回之前的類型，以方便地重新啟用條件。"
 
 msgid "condition_TimeCondition"
 msgstr "目前時間"
 
 msgid "condition_help_TimeCondition"
 msgstr ""
-"如果目前本地時間在某個範圍內則比對。此範圍由<b>開始小時</b>和<b>結束小時</b>確定，包含開始的那個小時以及結束的那個小時。<br>本地時間、開"
+"如果目前本機時間在某個範圍內則比對。此範圍由<b>開始小時</b>和<b>結束小時</b>確定，包含開始的那個小時以及結束的那個小時。<br>本機時間、開"
 "始小時和結束小時均按照<b>24小時制</b>計算（從<b>0到23</b>）。<br>此條件大約在請求發出的瞬間，才計算是否比對。"
 
 msgid "condition_WeekdayCondition"
@@ -126,14 +126,14 @@ msgstr "每週幾"
 
 msgid "condition_help_WeekdayCondition"
 msgstr ""
-"只在每週的某幾天才比對。可以在條件詳情中勾選<b>星期幾有效</b>。依據當地時區來計算現在是星期幾，然後再檢視當天是否選中。<br>假設在請求傳送時是星"
+"只在每週的某幾天才比對。可以在條件詳情中勾選<b>星期幾有效</b>。依據當地時區來計算現在是星期幾，然後再檢視當天是否選取。<br>假設在請求傳送時是星"
 "期X：如果星期X被勾選，則比對所有請求。否則不比對任何請求。<br>除了日期以外，在比對過程中不會參考請求的網址或任何其他資訊。"
 
 msgid "condition_alert_fullUrlLimitation"
 msgstr ""
-"Chrome 52 起，<code>https://</code>協議下的完整網址無法正常比對。<a href='https://github.com/"
+"Chrome 52 起，<code>https://</code>協定下的完整網址無法正常比對。<a href='https://github.com/"
 "FelisCatus/SwitchyOmega/wiki/"
-"Chromium-%E5%AE%8C%E6%95%B4%E7%BD%91%E5%9D%80%E9%99%90%E5%88%B6'>更多信息...</a>"
+"Chromium-%E5%AE%8C%E6%95%B4%E7%BD%91%E5%9D%80%E9%99%90%E5%88%B6'>更多訊息...</a>"
 
 msgid "condition_alert_fullUrlLimitationLink"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-%E5%AE%8C%E6%95%B4%E7%BD%91%E5%9D%80%E9%99%90%E5%88%B6"
@@ -142,7 +142,7 @@ msgid "condition_group_default"
 msgstr " "
 
 msgid "condition_group_host"
-msgstr "域名"
+msgstr "網域"
 
 msgid "condition_group_url"
 msgstr "網址"
@@ -163,16 +163,16 @@ msgid "ruleList_error_resultNotEnabled"
 msgstr "語法錯誤：缺少 '@with result' 指令！"
 
 msgid "ruleList_error_unknownProfile"
-msgstr "未找到此情景模式: $PROFILE$"
+msgstr "未找到此情境模式: $PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
-msgstr "語法錯誤：缺少結果情景模式名稱。 行號 $LNO$: $SOURCE$"
+msgstr "語法錯誤：缺少結果情境模式名稱。 行號 $LNO$: $SOURCE$"
 
 msgid "ruleList_error_invalidRule"
 msgstr "語法錯誤：非法規則。行號 $LNO$: $SOURCE$"
 
 msgid "ruleList_error_noDefaultRule"
-msgstr "語法錯誤：缺少比對全部請求的預設規則。應在最後新增'*'規則和預設情景模式。"
+msgstr "語法錯誤：缺少比對全部請求的預設規則。應在最後新增'*'規則和預設情境模式。"
 
 msgid "dialog_close"
 msgstr "關閉"
@@ -202,7 +202,7 @@ msgid "options_navHeader_setting"
 msgstr "設定"
 
 msgid "options_navHeader_profiles"
-msgstr "情景模式"
+msgstr "情境模式"
 
 msgid "options_navHeader_actions"
 msgstr "操作"
@@ -217,7 +217,7 @@ msgid "options_tab_importExport"
 msgstr "匯入/匯出"
 
 msgid "options_newProfile"
-msgstr "新增情景模式…"
+msgstr "新增情境模式…"
 
 msgid "options_apply"
 msgstr "套用選項"
@@ -235,7 +235,7 @@ msgid "options_confirmDeletion"
 msgstr "刪除切換條件時需要確認。"
 
 msgid "options_refreshOnProfileChange"
-msgstr "當變更情景模式時重新整理目前分頁。"
+msgstr "當變更情境模式時重新整理目前分頁。"
 
 msgid "options_showInspectMenu"
 msgstr "右鍵選單中，可檢查網頁元素所使用的代理。"
@@ -247,7 +247,7 @@ msgid "options_group_keyboardShortcut"
 msgstr "鍵盤快速鍵"
 
 msgid "options_menuShortcutHelp"
-msgstr "按下快速鍵即可開啟彈出選單來切換情景模式。(預設快速鍵: Alt+Shift+O)."
+msgstr "按下快速鍵即可開啟彈出選單來切換情境模式。(預設快速鍵: Alt+Shift+O)."
 
 msgid "options_menuShortcutMore"
 msgstr "彈出選單中的選單項也可以用鍵盤進行選擇。在彈出選單中按下? (問號鍵，或/斜槓鍵) 檢視說明。"
@@ -259,10 +259,10 @@ msgid "options_group_switchOptions"
 msgstr "切換選項"
 
 msgid "options_startupProfile"
-msgstr "初始情景模式"
+msgstr "初始情境模式"
 
 msgid "options_startupProfile_none"
-msgstr "(目前情景模式)"
+msgstr "(目前情境模式)"
 
 msgid "options_showConditionTypesAdvanced"
 msgstr "顯示進階切換條件"
@@ -274,16 +274,16 @@ msgid "options_quickSwitch"
 msgstr "快速切換"
 
 msgid "options_cycledProfiles"
-msgstr "循環切換以下情景模式:"
+msgstr "循環切換以下情境模式:"
 
 msgid "options_cycledProfilesHelp"
-msgstr "點選圖示或按下快速鍵時，依次迴圈切換到以下情景模式。"
+msgstr "點選圖示或按下快速鍵時，依次迴圈切換到以下情境模式。"
 
 msgid "options_cycledProfilesTooFew"
-msgstr "必須至少選擇2個情景模式才能進行切換。請從下方框中拖動情景模式到此框。"
+msgstr "必須至少選擇2個情境模式才能進行切換。請從下方框中拖動情境模式到此框。"
 
 msgid "options_notCycledProfiles"
-msgstr "不迴圈切換的情景模式 (拖動到上面的框中啟用切換)"
+msgstr "不迴圈切換的情境模式 (拖動到上面的框中啟用切換)"
 
 msgid "options_group_proxyChanges"
 msgstr "代理設定變化"
@@ -313,7 +313,7 @@ msgstr "在彈出式選單中顯示選單項目，以匯入其他應用提供的
 msgid "options_showExternalProfileHelp"
 msgstr ""
 "選擇了 $SYSTEMPROFILE$ 的情況下，您可以在彈出式選單中選擇 $EXTERNALPROFILE$ "
-"來匯入其他應用提供的代理設定。匯入的設定將會成為一個新的情景模式，其名稱由您決定。請注意匯入的情景模式只是當時的一個快照，匯入後不會隨著原來的應用更新。"
+"來匯入其他應用提供的代理設定。匯入的設定將會成為一個新的情境模式，其名稱由您決定。請注意匯入的情境模式只是當時的一個快照，匯入後不會隨著原來的應用更新。"
 
 msgid "options_group_networkRequests"
 msgstr "網路請求"
@@ -322,14 +322,13 @@ msgid "options_monitorWebRequests"
 msgstr "在圖示上顯示目前頁面中由於網路原因而未載入的資源數量。"
 
 msgid "options_monitorWebRequestsHelp"
-msgstr "啟用此選項後，如有資源載入失敗，則圖示上會顯示數字提示。<br>"
-"此時，您可以通過彈出選單一次設定這些資源使用的情景模式，操作十分便捷。"
+msgstr "啟用此選項後，如有資源載入失敗，則圖示上會顯示數字提示。<br>此時，您可以通過彈出選單一次設定這些資源使用的情境模式，操作十分便捷。"
 
 msgid "options_downloadOptions"
 msgstr "下載選項"
 
 msgid "options_downloadOptionsHelp"
-msgstr "設定規則清單和PAC指令碼的更新間隔。"
+msgstr "設定規則清單和 PAC 指令碼的更新間隔。"
 
 msgid "options_downloadInterval"
 msgstr "更新間隔"
@@ -356,16 +355,16 @@ msgid "options_downloadInterval_never"
 msgstr "從不更新"
 
 msgid "options_group_importExportProfile"
-msgstr "情景模式"
+msgstr "情境模式"
 
 msgid "options_exportPacFile"
-msgstr "匯出PAC檔案"
+msgstr "匯出 PAC 檔案"
 
 msgid "options_exportPacFileHelp"
-msgstr "匯出PAC（代理自動設定）檔案,以便在其它瀏覽器使用。"
+msgstr "匯出 PAC（代理自動設定）檔案，以便在其它瀏覽器使用。"
 
 msgid "options_exportProfileHelp"
-msgstr "如需匯出情景模式，請使用情景模式設定頁面右上角的工具欄。"
+msgstr "如需匯出情境模式，請使用情境模式設定頁面右上角的工具欄。"
 
 msgid "options_exportLegacyRuleList"
 msgstr "匯出規則清單時使用 Proxy Switchy!/SwitchyPlus/SwitchySharp 相容格式。"
@@ -380,13 +379,13 @@ msgid "options_makeBackup"
 msgstr "輸出備份檔案"
 
 msgid "options_makeBackupHelp"
-msgstr "匯出一份包括情景模式和其他所有選項的備份檔案。"
+msgstr "匯出一份包括情境模式和其他所有選項的備份檔案。"
 
 msgid "options_restoreLocal"
 msgstr "從備份檔案還原"
 
 msgid "options_restoreLocalHelp"
-msgstr "匯入本地的備份檔案以還原所有選項。"
+msgstr "匯入本機的備份檔案以還原所有選項。"
 
 msgid "options_restoreOnline"
 msgstr "線上還原"
@@ -413,7 +412,7 @@ msgid "options_syncReset"
 msgstr "刪除雲端版本"
 
 msgid "options_syncPristineHelp"
-msgstr "您可以將設定和情景模式同步到所有使用Chrome瀏覽器的桌面裝置。"
+msgstr "您可以將設定和情境模式同步到所有使用Chrome瀏覽器的桌面裝置。"
 
 msgid "options_syncSyncAlert"
 msgstr "您的設定將會自動與其他裝置進行同步。"
@@ -425,19 +424,19 @@ msgid "options_syncConflictAlert"
 msgstr "您已經通過其他裝置上傳了一份選項用於同步。"
 
 msgid "options_syncConflictHelp"
-msgstr "您可以將雲端的選項下載到此裝置使用。<br>一旦選擇下載，<b>此裝置上的設定和情景模式將會被覆蓋</b>。"
+msgstr "您可以將雲端的選項下載到此裝置使用。<br>一旦選擇下載，<b>此裝置上的設定和情境模式將會被覆蓋</b>。"
 
 msgid "options_syncUnsupportedHelp"
 msgstr "選項同步暫不支援您的平臺或瀏覽器。目前只支援桌面版Chrome的瀏覽器的同步，請諒解。"
 
 msgid "options_profileSyncDisabled"
-msgstr "此情景模式已經停用同步。"
+msgstr "此情境模式已經停用同步。"
 
 msgid "options_profileSyncDisabled_quotaPerItem"
-msgstr "此情景模式使用儲存空間過多，因此無法進行同步。"
+msgstr "此情境模式使用儲存空間過多，因此無法進行同步。"
 
 msgid "options_profileTabPrefix"
-msgstr "情景模式： "
+msgstr "情境模式： "
 
 msgid "options_renameProfile"
 msgstr "變更名稱"
@@ -452,10 +451,10 @@ msgid "options_profileExportRuleListHelp"
 msgstr "將切換規則匯出為文字格式以便釋出。"
 
 msgid "options_profileExportPac"
-msgstr "匯出PAC"
+msgstr "匯出 PAC"
 
 msgid "options_profileUnsupported"
-msgstr "不支援的情景模式類型： $TYPE$!"
+msgstr "不支援的情境模式類型： $TYPE$!"
 
 msgid "options_profileUnsupportedHelp"
 msgstr "選項檔案已經損壞，或者目前版本過低無法處理選項。"
@@ -475,10 +474,10 @@ msgid "options_group_proxyServers"
 msgstr "代理伺服器"
 
 msgid "options_proxy_scheme"
-msgstr "網址協議"
+msgstr "網址協定"
 
 msgid "options_proxy_protocol"
-msgstr "代理協議"
+msgstr "代理協定"
 
 msgid "options_proxy_server"
 msgstr "代理伺服器"
@@ -494,7 +493,7 @@ msgstr "您的瀏覽器不支持 $PROTOCOLDISP$ 代理認證！如有問題請�
 "請勿反饋此問題給 SwitchyOmega."
 
 msgid "options_proxy_authAllWarningPac"
-msgstr "警告: 使用者名稱和密碼將會提供給 PAC 指令碼返回的任何伺服器，有時目標伺服器會出乎您的預料。"
+msgstr "警告：使用者名稱和密碼將會提供給 PAC 指令碼返回的任何伺服器，有時目標伺服器會出乎您的預料。"
 
 msgid "options_proxy_authAllWarningPacUrl"
 msgstr "在提供使用者名稱和密碼時，請先確保您可以信任以上網址提供的 PAC 指令碼。"
@@ -503,7 +502,7 @@ msgid "options_proxy_authAllWarningPacScript"
 msgstr "在提供使用者名稱和密碼時，請先確保您可以信任以下輸入的 PAC 指令碼。"
 
 msgid "options_proxy_authReferencedWarning"
-msgstr "此外，在其他情景模式（如自動切換）中使用此情景時，可能會導致使用者名稱和密碼被傳送至其他情景模式中設定的伺服器。"
+msgstr "此外，在其他情境模式（如自動切換）中使用此情境時，可能會導致使用者名稱和密碼被傳送至其他情境模式中設定的伺服器。"
 
 msgid "options_scheme_default"
 msgstr "(預設)"
@@ -533,13 +532,13 @@ msgid "options_group_pacUrl"
 msgstr "PAC 網址"
 
 msgid "options_pacUrlHelp"
-msgstr "應用將從此網址下載PAC指令碼。如果網址留空，則直接使用下方的指令碼內容。"
+msgstr "將會從此網址下載 PAC 指令碼。如果網址留空，則直接使用下方的指令碼內容。"
 
 msgid "options_pacUrlFile"
-msgstr "如果您使用本地PAC檔案，則該情景模式只能單獨使用，無法作為自動切換的結果。這是因為瀏覽器不允許讀取本地檔案。"
+msgstr "如果您使用本機 PAC 檔案，則該情境模式只能單獨使用，無法作為自動切換的結果。這是因為瀏覽器不允許讀取本機檔案。"
 
 msgid "options_pacUrlFileDisabled"
-msgstr "此情景模式已被引用，所以不能使用本地PAC檔案。如果您真的需要使用本地檔案，請另外新建一個PAC情景模式。"
+msgstr "此情境模式已被引用，所以不能使用本機 PAC 檔案。如果您真的需要使用本機檔案，請另外建立一個 PAC 情境模式。"
 
 msgid "options_group_pacScript"
 msgstr "PAC 指令碼"
@@ -551,24 +550,24 @@ msgid "options_pacScriptObsolete"
 msgstr "修改網址後尚未下載更新，因此指令碼已經過時。請使用上方的更新按鈕進行下載。"
 
 msgid "options_group_virtualProfile"
-msgstr "虛情景模式"
+msgstr "虛情境模式"
 
 msgid "options_virtualProfileTarget"
 msgstr "目標"
 
 msgid "options_virtualProfileTargetHelp"
-msgstr "當使用此情景模式時，相當於使用了以下情景模式："
+msgstr "當使用此情境模式時，相當於使用了以下情境模式："
 
 msgid "options_group_virtualProfileReplace"
-msgstr "遷移到虛情景模式"
+msgstr "遷移到虛情境模式"
 
 msgid "options_virtualProfileReplace"
-msgstr "取代目標情景模式"
+msgstr "取代目標情境模式"
 
 msgid "options_virtualProfileReplaceHelp"
 msgstr ""
-"通過此功能可以變更現有的選項，使用此虛情景模式來取代 $PROFILE$ 。此功能會把所有和 $PROFILE$ "
-"相關的切換規則改為使用此虛情景模式。這樣一來，就可以通過此虛情景模式來控制那些切換條件對應的結果。"
+"通過此功能可以變更現有的選項，使用此虛情境模式來取代 $PROFILE$ 。此功能會把所有和 $PROFILE$ "
+"相關的切換規則改為使用此虛情境模式。這樣一來，就可以通過此虛情境模式來控制那些切換條件對應的結果。"
 
 msgid "options_group_ruleListConfig"
 msgstr "規則清單設定"
@@ -577,13 +576,13 @@ msgid "options_ruleListFormat"
 msgstr "規則清單格式"
 
 msgid "options_group_ruleListResult"
-msgstr "規則清單結果情景模式"
+msgstr "規則清單結果情境模式"
 
 msgid "options_ruleListMatchProfile"
-msgstr "比對則使用情景模式"
+msgstr "比對則使用情境模式"
 
 msgid "options_ruleListDefaultProfile"
-msgstr "不比對則使用情景模式"
+msgstr "不比對則使用情境模式"
 
 msgid "options_group_ruleListUrl"
 msgstr "規則清單網址"
@@ -616,7 +615,7 @@ msgid "options_conditionDetails"
 msgstr "條件設定"
 
 msgid "options_resultProfile"
-msgstr "情景模式"
+msgstr "情境模式"
 
 msgid "options_conditionActions"
 msgstr "操作"
@@ -640,7 +639,7 @@ msgid "options_switchAttachedProfileInConditionDisabled"
 msgstr "(規則清單已停用！)"
 
 msgid "options_switchDefaultProfile"
-msgstr "預設情景模式"
+msgstr "預設情境模式"
 
 msgid "options_hostLevelsBetween"
 msgstr "≤ 主機層數 ≤"
@@ -724,16 +723,16 @@ msgid "options_renameProfileName"
 msgstr "新的名稱"
 
 msgid "options_profileNameConflict"
-msgstr "已經存在相同名稱的情景模式。"
+msgstr "已經存在相同名稱的情境模式。"
 
 msgid "options_profileNameReserved"
 msgstr "以雙下劃線開頭的名稱為系統保留，禁止使用。"
 
 msgid "options_profileNameHidden"
-msgstr "以下劃線開頭的情景模式不會在彈出選單中顯示，但仍可被用作切換的結果等。"
+msgstr "以下劃線開頭的情境模式不會在彈出選單中顯示，但仍可被用作切換的結果等。"
 
 msgid "options_modalHeader_replaceProfile"
-msgstr "取代情景模式"
+msgstr "取代情境模式"
 
 msgid "options_replaceProfile"
 msgstr "取代"
@@ -743,29 +742,29 @@ msgstr "您確定要使用 $ToProfile 來代替 $FromProfile$ 嗎?"
 
 msgid "options_replaceProfileHelp"
 msgstr ""
-"如果繼續操作，則和 $FromProfile$ 有關的切換規則將改為使用 $ToProfile$ 來代替。此外，啟動情景模式、快速切換等設定也會做相應調整。"
-"但請注意，此操作不影響這兩個情景模式本身。"
+"如果繼續操作，則和 $FromProfile$ 有關的切換規則將改為使用 $ToProfile$ "
+"來代替。此外，啟動情境模式、快速切換等設定也會做相應調整。但請注意，此操作不影響這兩個情境模式本身。"
 
 msgid "options_replaceProfileSuccess"
 msgstr "變更選項成功。"
 
 msgid "options_modalHeader_deleteProfile"
-msgstr "刪除情景模式"
+msgstr "刪除情境模式"
 
 msgid "options_deleteProfileConfirm"
-msgstr "真的要刪除這個情景模式嗎？"
+msgstr "真的要刪除這個情境模式嗎？"
 
 msgid "options_modalHeader_cannotDeleteProfile"
-msgstr "情景模式無法刪除"
+msgstr "情境模式無法刪除"
 
 msgid "options_profileReferredBy"
-msgstr "這個情景模式仍然被以下情景模式使用，所以無法刪除。"
+msgstr "這個情境模式仍然被以下情境模式使用，所以無法刪除。"
 
 msgid "options_modifyReferringProfiles"
-msgstr "修改以上所有情景模式並移除對此情景模式的引用後，方可刪除此情景模式。"
+msgstr "修改以上所有情境模式並移除對此情境模式的引用後，方可刪除此情境模式。"
 
 msgid "options_profileNameEmpty"
-msgstr "情景模式名稱不能為空。"
+msgstr "情境模式名稱不能為空。"
 
 msgid "popup_title"
 msgstr "SwitchyOmega 彈出選單"
@@ -801,19 +800,19 @@ msgid "options_modalHeader_resetRules"
 msgstr "重設全部規則"
 
 msgid "options_resetRulesConfirm"
-msgstr "真的要設定所有規則對應的情景模式為以下情景模式嗎？"
+msgstr "真的要設定所有規則對應的情境模式為以下情境模式嗎？"
 
 msgid "options_resetRules"
 msgstr "重設規則"
 
 msgid "options_resetRules_help"
-msgstr "批量設定所有規則的情景模式"
+msgstr "批量設定所有規則的情境模式"
 
 msgid "options_modalHeader_deleteAttached"
 msgstr "移除規則清單"
 
 msgid "options_deleteAttachedConfirm"
-msgstr "真的要移除目前情景模式的線上規則清單嗎？"
+msgstr "真的要移除目前情境模式的線上規則清單嗎？"
 
 msgid "options_ruleListLineCount"
 msgstr "共計$COUNT$行規則"
@@ -822,13 +821,13 @@ msgid "options_deleteAttached"
 msgstr "移除規則清單"
 
 msgid "options_modalHeader_newProfile"
-msgstr "新建情景模式"
+msgstr "建立情境模式"
 
 msgid "options_newProfileName"
-msgstr "情景模式名稱"
+msgstr "情境模式名稱"
 
 msgid "options_profileType"
-msgstr "請選擇情景模式的類型:"
+msgstr "請選擇情境模式的類型:"
 
 msgid "options_profileTypeFixedProfile"
 msgstr "代理伺服器"
@@ -837,31 +836,31 @@ msgid "options_profileDescFixedProfile"
 msgstr "經過代理伺服器訪問網站。"
 
 msgid "options_profileTypePacProfile"
-msgstr "PAC情景模式"
+msgstr "PAC 情境模式"
 
 msgid "options_profileDescPacProfile"
-msgstr "依據線上或本地的PAC指令碼選擇代理。"
+msgstr "依據線上或本機的 PAC 指令碼選擇代理。"
 
 msgid "options_profileDescMorePacProfile"
-msgstr "如果您沒有任何PAC指令碼，也沒有指令碼的網址，則不必使用此情景模式。不瞭解PAC的使用者不建議自行嘗試編寫指令碼。"
+msgstr "如果您沒有任何 PAC 指令碼，也沒有指令碼的網址，則不必使用此情境模式。不瞭解 PAC 的使用者不建議自行嘗試編寫指令碼。"
 
 msgid "options_profileTypeSwitchProfile"
 msgstr "自動切換模式"
 
 msgid "options_profileDescSwitchProfile"
-msgstr "依據多種條件，如域名或網址等自動選擇情景模式。您也可以匯入線上釋出的切換規則（如 AutoProxy 清單）以簡化設定。"
+msgstr "依據多種條件，如網域或網址等自動選擇情境模式。您也可以匯入線上釋出的切換規則（如 AutoProxy 清單）以簡化設定。"
 
 msgid "options_profileTypeRuleListProfile"
 msgstr "規則清單"
 
 msgid "options_profileDescRuleListProfile"
-msgstr "使用他人釋出的線上規則清單來切換情景模式。"
+msgstr "使用他人釋出的線上規則清單來切換情境模式。"
 
 msgid "options_profileTypeVirtualProfile"
-msgstr "虛擬情景模式"
+msgstr "虛擬情境模式"
 
 msgid "options_profileDescVirtualProfile"
-msgstr "虛擬情景模式可以作為某個其他情景模式使用，並可以依據需要變更目標。一般用在自動切換中，這樣就可以一次性變更多個條件對應的代理。"
+msgstr "虛擬情境模式可以作為某個其他情境模式使用，並可以依據需要變更目標。一般用在自動切換中，這樣就可以一次性變更多個條件對應的代理。"
 
 msgid "options_createProfile"
 msgstr "建立"
@@ -870,13 +869,13 @@ msgid "options_modalHeader_resetOptions"
 msgstr "重設選項"
 
 msgid "options_resetOptionsConfirm"
-msgstr "真的確定要重設選項嗎？如果繼續，現有的所有情景模式和選項將會遺失！"
+msgstr "真的確定要重設選項嗎？如果繼續，現有的所有情境模式和選項將會遺失！"
 
 msgid "options_formInvalid"
 msgstr "請更正這個頁面中的錯誤。"
 
 msgid "options_profileNotFound"
-msgstr "情景模式 $PROFILE$ 不存在！選項可能已經損壞。"
+msgstr "情境模式 $PROFILE$ 不存在！選項可能已經損壞。"
 
 msgid "options_resetSuccess"
 msgstr "選項已經重設。"
@@ -894,10 +893,10 @@ msgid "options_importDownloadError"
 msgstr "下載備份檔案時出錯！"
 
 msgid "options_profileDownloadSuccess"
-msgstr "情景模式已經更新成功。"
+msgstr "情境模式已經更新成功。"
 
 msgid "options_profileDownloadError"
-msgstr "下載情景模式資料時出錯！"
+msgstr "下載情境模式資料時出錯！"
 
 msgid "options_profileDownloadError_NetworkError"
 msgstr "更新時發生網路錯誤。"
@@ -906,21 +905,21 @@ msgid "options_profileDownloadError_HttpError"
 msgstr "更新時發生網路錯誤 (HTTP $STATUS$)."
 
 msgid "options_profileDownloadError_HttpNotFoundError"
-msgstr "在遠端伺服器上找不到情景模式網址對應的檔案。請檢查網址。"
+msgstr "在遠端伺服器上找不到情境模式網址對應的檔案。請檢查網址。"
 
 msgid "options_profileDownloadError_HttpServerError"
 msgstr "更新時遠端伺服器發生錯誤 ($STATUS$)。"
 
 msgid "options_profileDownloadError_ContentTypeRejectedError"
-msgstr "下載的資料不符合格式！建議您在瀏覽器中打開情景模式網址並檢查其內容。"
+msgstr "下載的資料不符合格式！建議您在瀏覽器中打開情境模式網址並檢查其內容。"
 
 msgid "options_downloadProfileNow"
-msgstr "立即更新情景模式"
+msgstr "立即更新情境模式"
 
 msgid "options_guide_fixedProfileStep"
 msgstr ""
-"<b>代理情景</b>包含了伺服器位址、埠等代理的資訊。<br>在 SwitchyOmega "
-"中，情景模式是代理設定的基本單元。<br>預設設定中已經建立了一個代理情景模式作為樣例。試著開啟它吧。"
+"<b>代理情境</b>包含了伺服器位址、埠等代理的資訊。<br>在 SwitchyOmega "
+"中，情境模式是代理設定的基本單元。<br>預設設定中已經建立了一個代理情境模式作為樣例。試著開啟它吧。"
 
 msgid "options_guide_fixedServersStep"
 msgstr ""
@@ -933,32 +932,32 @@ msgstr ""
 "裡的設定介面，來瞭解如何使用自動切換功能。"
 
 msgid "options_guide_addMoreProfilesStep"
-msgstr "如果您需要更多的情景模式，可以隨時在這裡建立<b>代理、切換和其他情景模式</b>。<br>教學到此結束，您可以繼續自訂設定。"
+msgstr "如果您需要更多的情境模式，可以隨時在這裡建立<b>代理、切換和其他情境模式</b>。<br>教學到此結束，您可以繼續自訂設定。"
 
 msgid "options_guide_conditionStep"
 msgstr ""
 "SwitchyOmega "
-"可以依據<b>切換條件</b>對不同的網路請求使用不同的情景模式。<br>例如<b>域名萬用字元</b>條件可以對某個域名下的所有網址使用特定的情景模式。"
+"可以依據<b>切換條件</b>對不同的網路請求使用不同的情境模式。<br>例如<b>網域萬用字元</b>條件可以對某個網域下的所有網址使用特定的情境模式。"
 
 msgid "options_guide_conditionTypeStep"
-msgstr "您可以使用各種條件類型來比對域名或者整個網址。<br> 點選問號按鈕來檢視條件類型的說明。"
+msgstr "您可以使用各種條件類型來比對網域或者整個網址。<br> 點選問號按鈕來檢視條件類型的說明。"
 
 msgid "options_guide_conditionProfileStep"
 msgstr ""
-"對於<b>任何比對該條件的請求</b>，SwitchyOmega 會使用這個情景模式。<br>如果選擇了<b>\"[直接連線]\""
-"情景模式</b>，則比對的請求不使用任何代理。"
+"對於<b>任何比對該條件的請求</b>，SwitchyOmega 會使用這個情境模式。<br>如果選擇了<b>\"[直接連線]\""
+"情境模式</b>，則比對的請求不使用任何代理。"
 
 msgid "options_guide_switchDefaultStep"
 msgstr ""
-"如果請求不比對任何條件，則使用預設情景模式。<br>條件的比對順序總是按此頁面<b>從上到下</b>。<br>您可以拖動排序圖示來變更條件的順序。"
+"如果請求不比對任何條件，則使用預設情境模式。<br>條件的比對順序總是按此頁面<b>從上到下</b>。<br>您可以拖動排序圖示來變更條件的順序。"
 
 msgid "options_guide_applySwitchProfileStep"
 msgstr ""
-"當您設定完畢後，別忘記<b>在彈出選單中啟用自動切換情景模式</b>。<br/>圖示將會顯示標籤頁切換的<b>最終結果</b>情景。<br/> <b>"
-"懸停在圖示上</b>則會顯示切換相關的詳細說明。"
+"當您設定完畢後，別忘記<b>在彈出選單中啟用自動切換情境模式</b>。<br/>圖示將會顯示標籤頁切換的<b>最終結果</b>情境。<br/> "
+"<b>懸停在圖示上</b>則會顯示切換相關的詳細說明。"
 
 msgid "popup_externalProfile"
-msgstr "(外部情景模式)"
+msgstr "(外部情境模式)"
 
 msgid "popup_externalProfileName"
 msgstr "儲存名稱"
@@ -967,7 +966,7 @@ msgid "popup_proxyNotControllable_app"
 msgstr "其他應用正在控制代理設定。請停用或者解除安裝發生衝突的應用。"
 
 msgid "popup_proxyNotControllable_policy"
-msgstr "代理設定被本地策略強制指定，無法修改。請聯繫系統管理員。"
+msgstr "代理設定被本機策略強制指定，無法修改。請聯繫系統管理員。"
 
 msgid "popup_proxyNotControllable_unknown"
 msgstr "無法設定代理設定。請檢查系統和瀏覽器設定。"
@@ -988,7 +987,7 @@ msgid "popup_proxyNotControllableManage"
 msgstr "管理擴充功能"
 
 msgid "popup_addConditionTo"
-msgstr "加入條件到情景模式"
+msgstr "加入條件到情境模式"
 
 msgid "popup_addCondition"
 msgstr "加入條件"
@@ -1015,19 +1014,19 @@ msgid "popup_requestErrorWarningHelp"
 msgstr "這些問題並非由 SwitchyOmega 自身導致，它只不過偵測並報告了錯誤而已。"
 
 msgid "popup_requestErrorAddCondition"
-msgstr "您可以檢視以下域名，並依據實際情況確定是否對其使用代理。"
+msgstr "您可以檢視以下網域，並依據實際情況確定是否對其使用代理。"
 
 msgid "popup_requestErrorCannotAddCondition"
-msgstr "在使用自動切換情景時，才可以將這些資源新增為切換條件。"
+msgstr "在使用自動切換情境時，才可以將這些資源新增為切換條件。"
 
 msgid "popup_configureMonitorWebRequests"
 msgstr "設定網路偵測選項"
 
 msgid "options_resultProfileForSelectedDomains"
-msgstr "對所有選中域名使用此情景模式："
+msgstr "對所有選取網域使用此情境模式："
 
 msgid "options_pac_profile_unsupported_moz"
-msgstr "由於技術限制，PAC 情景模式無法在 Mozilla Firefox 上工作！"
+msgstr "由於技術限制，PAC 情境模式無法在 Mozilla Firefox 上工作！"
 
 msgid "popup_issueTemplate"
 msgstr ""
@@ -1068,7 +1067,7 @@ msgid "browserAction_titleOptionError"
 msgstr "錯誤：選項檔案已經損壞，點選此處重設選項。"
 
 msgid "browserAction_titleDownloadFail"
-msgstr "警告：更新PAC檔案或規則清單失敗。"
+msgstr "警告：更新 PAC 檔案或規則清單失敗。"
 
 msgid "browserAction_titleExternalProxy"
 msgstr "注意：其他應用正在控制目前代理設定。"
