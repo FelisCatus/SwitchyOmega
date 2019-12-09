@@ -111,7 +111,7 @@ To build the project:
     grunt
     # After building, a folder will be generated:
     cd .. # Return to project root.
-    ls omega-chromium-extension/build/
+    ls omega-target-chromium-extension/build/
     # The folder above can be loaded as an unpacked extension in Chromium now.
 
 To enable `grunt watch`, run `grunt watch` once in the `omega-build` directory.
