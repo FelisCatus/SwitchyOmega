@@ -80,6 +80,17 @@ class ListenerProxyImpl extends ProxyImpl
     # TODO(catus): Maybe allow proxyDNS for socks4? Server may support SOCKS4a.
     # It cannot default to true though, since SOCKS4 servers that does not have
     # the SOCKS4a extension may simply refuse to work.
+    
+    # Send Proxy-Authorization header without challenge
+    # This is required when HTTPS proxy works in disguise mode
+    # Disguised proxy does not response 401/407 when credential is invalid or missing
+    # In this case, webRequest.onAuthRequired will never be fired 
+    # The header must be supplied via proxyAuthorizationHeader
+    if proxyInfo.type == 'http' or proxyInfo.type == 'https'
+      if auth.username and auth.password
+        header = "Basic " + btoa(auth.username + ':' + auth.password)
+        proxyInfo.proxyAuthorizationHeader = header
+    # TODO: Maybe we need make it configurable although it is not necessary 
 
     return [proxyInfo]
 
