@@ -82,8 +82,8 @@ class ListenerProxyImpl extends ProxyImpl
     # the SOCKS4a extension may simply refuse to work.
     
     # Send Proxy-Authorization header without challenge
-    # This is required when HTTPS proxy works in disguise mode
-    # Disguised proxy does not response 401/407 when credential is invalid or missing
+    # This is required when HTTP/HTTPS proxy does not response 401/407
+    # when credential is invalid or missing
     # In this case, webRequest.onAuthRequired will never be fired 
     # The header must be supplied via proxyAuthorizationHeader
     if proxyInfo.type == 'http' or proxyInfo.type == 'https'
