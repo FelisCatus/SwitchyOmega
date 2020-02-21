@@ -84,7 +84,7 @@ class ListenerProxyImpl extends ProxyImpl
     # Send Proxy-Authorization header without challenge
     # This is required when HTTP/HTTPS proxy does not response 401/407
     # when credential is invalid or missing
-    # webRequest.onAuthRequired is not fired 
+    # webRequest.onAuthRequired is not fired in this case
     # The header must be supplied via proxyAuthorizationHeader
     if proxyInfo.type == 'http' or proxyInfo.type == 'https'
       if auth.username and auth.password
