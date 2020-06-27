@@ -66,8 +66,8 @@ OmegaTargetPopup = {
   },
   getActivePageInfo: function(cb) {
     chrome.tabs.query({active: true, lastFocusedWindow: true}, function (tabs) {
-      if (tabs.length === 0 || !tabs[0].url) return cb();
-      var args = {tabId: tabs[0].id, url: tabs[0].url};
+      if (tabs.length === 0 || (!tabs[0].url && !tabs[0].pendingUrl)) return cb();
+      var args = {tabId: tabs[0].id, url: tabs[0].pendingUrl || tabs[0].url};
       callBackground('getPageInfo', [args], cb)
     });
   },

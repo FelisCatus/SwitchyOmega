@@ -136,8 +136,12 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
     refreshActivePage: ->
       d = $q['defer']()
       chrome.tabs.query {active: true, lastFocusedWindow: true}, (tabs) ->
-        if tabs[0].url and not isChromeUrl(tabs[0].url)
-          chrome.tabs.reload(tabs[0].id, {bypassCache: true})
+        url = tabs[0].pendingUrl || tabs[0].url
+        if url and not isChromeUrl(url)
+          if tabs[0].pendingUrl
+            chrome.tabs.update(tabs[0].id, {url})
+          else
+            chrome.tabs.reload(tabs[0].id, {bypassCache: true})
         d.resolve()
       return d.promise
     openManage: ->
