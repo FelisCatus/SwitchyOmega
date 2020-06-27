@@ -124,10 +124,10 @@ angular.module('omegaTarget', []).factory 'omegaTarget', ($q) ->
       clearBadge = true
       d = $q['defer']()
       chrome.tabs.query {active: true, lastFocusedWindow: true}, (tabs) ->
-        if not tabs[0]?.url
+        if tabs.length === 0 or not (tabs[0].pendingUrl || tabs[0].url)
           d.resolve(null)
           return
-        args = {tabId: tabs[0].id, url: tabs[0].url}
+        args = {tabId: tabs[0].id, url: tabs[0].pendingUrl || tabs[0].url}
         if tabs[0].id and requestInfoCallback
           connectBackground('tabRequestInfo', args,
             requestInfoCallback)
