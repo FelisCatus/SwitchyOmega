@@ -1,30 +1,30 @@
+var profileTemplate = document.getElementById('js-profile-tpl')
+  .cloneNode(true);
+profileTemplate.removeAttribute('id');
+
+var iconForProfileType = {
+  'DirectProfile': 'glyphicon-transfer',
+  'SystemProfile': 'glyphicon-off',
+  'AutoDetectProfile': 'glyphicon-file',
+  'FixedProfile': 'glyphicon-globe',
+  'PacProfile': 'glyphicon-file',
+  'VirtualProfile': 'glyphicon-question-sign',
+  'RuleListProfile': 'glyphicon-list',
+  'SwitchProfile': 'glyphicon-retweet',
+};
+var orderForType = {
+  'FixedProfile': -2000,
+  'PacProfile': -1000,
+  'VirtualProfile': 1000,
+  'SwitchProfile': 2000,
+  'RuleListProfile': 3000,
+};
+
 (function() {
   $script.ready('om-state', updateMenuByState);
   $script.ready('om-page-info', updateMenuByPageInfo);
   $script.ready(['om-state', 'om-page-info'], updateMenuByStateAndPageInfo);
-
-  var profileTemplate = document.getElementById('js-profile-tpl')
-    .cloneNode(true);
-  profileTemplate.removeAttribute('id');
-
-  var iconForProfileType = {
-    'DirectProfile': 'glyphicon-transfer',
-    'SystemProfile': 'glyphicon-off',
-    'AutoDetectProfile': 'glyphicon-file',
-    'FixedProfile': 'glyphicon-globe',
-    'PacProfile': 'glyphicon-file',
-    'VirtualProfile': 'glyphicon-question-sign',
-    'RuleListProfile': 'glyphicon-list',
-    'SwitchProfile': 'glyphicon-retweet',
-  };
-  var orderForType = {
-    'FixedProfile': -2000,
-    'PacProfile': -1000,
-    'VirtualProfile': 1000,
-    'SwitchProfile': 2000,
-    'RuleListProfile': 3000,
-  };
-
+  
   return;
 
   function updateMenuByState() {
