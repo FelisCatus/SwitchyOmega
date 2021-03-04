@@ -3,27 +3,30 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2015-02-17 07:02+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-03-05 14:50+0000\n"
+"Last-Translator: Patrik Kollár <nefray.pk@gmail.com>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/switchyomega/main/"
+"sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 4.5.1-dev\n"
 
+#, fuzzy
 msgid "appNameShort"
-msgstr ""
+msgstr "SwitchyOmega"
 
+#, fuzzy
 msgid "manifest_app_name"
-msgstr ""
+msgstr "Proxy SwitchyOmega"
 
 msgid "manifest_app_description"
-msgstr ""
+msgstr "Spravuj a prepínaj medzi viacerými proxy rýchlo a jednoducho."
 
 msgid "manifest_icon_default_title"
-msgstr ""
+msgstr "Načítavanie…"
 
 msgid "upgrade_profile_auto"
 msgstr ""
