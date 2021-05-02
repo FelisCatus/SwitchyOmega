@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2021-05-01 23:32+0000\n"
+"PO-Revision-Date: 2021-05-03 07:32+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/switchyomega/"
 "main/pt/>\n"
@@ -18,34 +18,47 @@ msgid "appNameShort"
 msgstr "SwitchyOmega"
 
 msgid "manifest_app_name"
-msgstr ""
+msgstr "Proxy SwitchyOmega"
 
 msgid "manifest_app_description"
-msgstr ""
+msgstr "Gira e troque entre vários proxies rápida e facilmente."
 
 msgid "manifest_icon_default_title"
-msgstr ""
+msgstr "Carregando…"
 
 msgid "upgrade_profile_auto"
-msgstr ""
+msgstr "Auto Troca"
 
 msgid "profile_direct"
-msgstr ""
+msgstr "[Direto]"
 
 msgid "profile_system"
-msgstr ""
+msgstr "[Proxy do Sistema]"
 
 msgid "condition_HostWildcardCondition"
-msgstr ""
+msgstr "Host curinga"
 
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
+"Matches de hosts (domínios) por curinga.<br><b>O asterisco <code>*</code></"
+"b> match de zero ou mais caracteres.<br><b>O ponto de interrogação "
+"<code>?</code></b> match de exatamente um carácter.<br><br>Note que regras a "
+"começar com <code>*.</code> são especialmente tratadas apenas num host com "
+"condições curinga.<br>Exemplo: <code>*.exemplo.com</code> vai dar match em "
+"www.exemplo.com <b>E também exemplo.com.</b><br>Para <b>apenas</b> "
+"subdomínios , use <b>dois</b> asteriscos como: <code>**.exemplo.com</code>."
 
 msgid "condition_HostRegexCondition"
 msgstr ""
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
+"Parecido com a condição curinga, mas dá matchs em hosts (nomes de domínios) "
+"por <a href='https://www.google.com.br/"
+"search?q=regular%20expression'>regular expression</a>.<br>As expressões "
+"regulares podem ser difíceis de construir (e ler).<br> É recomendado usar "
+"curingas para a maioria dos casos e usar regex apenas em condições que não "
+"pode ser conseguido em nenhum outro tipo de condição."
 
 msgid "condition_HostLevelsCondition"
 msgstr ""
@@ -60,25 +73,25 @@ msgid "condition_help_IpCondition"
 msgstr ""
 
 msgid "condition_UrlWildcardCondition"
-msgstr ""
+msgstr "URL wildcard"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
 
 msgid "condition_UrlRegexCondition"
-msgstr ""
+msgstr "URL regex"
 
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
 
 msgid "condition_KeywordCondition"
-msgstr ""
+msgstr "Palavra chave"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
 
 msgid "condition_FalseCondition"
-msgstr ""
+msgstr "(Desativado)"
 
 msgid "condition_details_FalseCondition"
 msgstr ""
@@ -103,18 +116,19 @@ msgstr ""
 
 msgid "condition_alert_fullUrlLimitationLink"
 msgstr ""
+"https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-Full-URL-Limitation"
 
 msgid "condition_group_default"
 msgstr " "
 
 msgid "condition_group_host"
-msgstr ""
+msgstr "Host"
 
 msgid "condition_group_url"
-msgstr ""
+msgstr "Url"
 
 msgid "condition_group_special"
-msgstr ""
+msgstr "Special"
 
 msgid "ruleListFormat_Switchy"
 msgstr ""
@@ -123,7 +137,7 @@ msgid "ruleListFormat_AutoProxy"
 msgstr ""
 
 msgid "ruleList_usageUrl"
-msgstr ""
+msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
 msgstr ""
@@ -147,7 +161,7 @@ msgid "dialog_save"
 msgstr ""
 
 msgid "dialog_ok"
-msgstr ""
+msgstr "OK"
 
 msgid "dialog_cancel"
 msgstr ""
@@ -159,10 +173,10 @@ msgid "inputClear_restore"
 msgstr ""
 
 msgid "options_title"
-msgstr ""
+msgstr "SwitchyOmega Options"
 
 msgid "options_experimental_badge"
-msgstr ""
+msgstr "α"
 
 msgid "options_navHeader_setting"
 msgstr ""
@@ -171,16 +185,16 @@ msgid "options_navHeader_profiles"
 msgstr ""
 
 msgid "options_navHeader_actions"
-msgstr ""
+msgstr "Actions"
 
 msgid "options_tab_ui"
-msgstr ""
+msgstr "Interface"
 
 msgid "options_tab_general"
-msgstr ""
+msgstr "General"
 
 msgid "options_tab_importExport"
-msgstr ""
+msgstr "Import/Export"
 
 msgid "options_newProfile"
 msgstr ""
@@ -192,7 +206,7 @@ msgid "options_discard"
 msgstr ""
 
 msgid "options_reset"
-msgstr ""
+msgstr "Reset options"
 
 msgid "options_group_miscOptions"
 msgstr ""
@@ -219,22 +233,25 @@ msgid "options_menuShortcutMore"
 msgstr ""
 
 msgid "options_menuShortcutConfigure"
-msgstr ""
+msgstr "Configurar atalho"
 
 msgid "options_group_switchOptions"
-msgstr ""
+msgstr "Opções de alteração"
 
 msgid "options_startupProfile"
-msgstr ""
+msgstr "Perfil de inicialização"
 
 msgid "options_startupProfile_none"
-msgstr ""
+msgstr "(Perfil atual)"
 
 msgid "options_showConditionTypesAdvanced"
 msgstr ""
 
 msgid "options_showConditionTypesAdvancedHelp"
 msgstr ""
+"Desbloqueia novos tipos de avançadas, porém complicadas, condições de "
+"mudança. Para a maioria dos cenários, as condições básicas devem ser "
+"suficientes, logo esta opção não é recomendada."
 
 msgid "options_quickSwitch"
 msgstr ""
@@ -285,7 +302,7 @@ msgid "options_monitorWebRequestsHelp"
 msgstr ""
 
 msgid "options_downloadOptions"
-msgstr ""
+msgstr "Download Options"
 
 msgid "options_downloadOptionsHelp"
 msgstr ""
@@ -294,7 +311,7 @@ msgid "options_downloadInterval"
 msgstr ""
 
 msgid "options_downloadInterval_15"
-msgstr ""
+msgstr "15 Minutes"
 
 msgid "options_downloadInterval_60"
 msgstr ""
@@ -351,7 +368,7 @@ msgid "options_restoreOnline"
 msgstr ""
 
 msgid "options_restoreOnlinePlaceholder"
-msgstr ""
+msgstr "Options file URL (e.g. 'http://example.com/switchy.bak')"
 
 msgid "options_restoreOnlineSubmit"
 msgstr ""
@@ -402,7 +419,7 @@ msgid "options_renameProfile"
 msgstr ""
 
 msgid "options_deleteProfile"
-msgstr ""
+msgstr "Delete"
 
 msgid "options_profileExportRuleList"
 msgstr ""
@@ -427,24 +444,26 @@ msgstr ""
 
 msgid "options_profileEditSourceHelpUrl"
 msgstr ""
+"https://github.com/FelisCatus/SwitchyOmega/wiki/SwitchyOmega-conditions-"
+"format#result-profile"
 
 msgid "options_group_proxyServers"
-msgstr ""
+msgstr "Proxy servers"
 
 msgid "options_proxy_scheme"
 msgstr ""
 
 msgid "options_proxy_protocol"
-msgstr ""
+msgstr "Protocol"
 
 msgid "options_proxy_server"
-msgstr ""
+msgstr "Server"
 
 msgid "options_proxy_port"
-msgstr ""
+msgstr "Port"
 
 msgid "options_proxy_auth"
-msgstr ""
+msgstr "Authentication"
 
 msgid "options_proxy_authNotSupported"
 msgstr ""
@@ -462,10 +481,10 @@ msgid "options_proxy_authReferencedWarning"
 msgstr ""
 
 msgid "options_scheme_default"
-msgstr ""
+msgstr "(default)"
 
 msgid "options_protocol_direct"
-msgstr ""
+msgstr "DIRECT"
 
 msgid "options_protocol_useDefault"
 msgstr ""
@@ -486,7 +505,7 @@ msgid "options_bypassListHelpLinkText"
 msgstr ""
 
 msgid "options_group_pacUrl"
-msgstr ""
+msgstr "PAC URL"
 
 msgid "options_pacUrlHelp"
 msgstr ""
@@ -573,7 +592,7 @@ msgid "options_resultProfile"
 msgstr ""
 
 msgid "options_conditionActions"
-msgstr ""
+msgstr "Actions"
 
 msgid "options_addCondition"
 msgstr ""
@@ -582,7 +601,7 @@ msgid "options_cloneRule"
 msgstr ""
 
 msgid "options_ruleNote"
-msgstr ""
+msgstr "Note"
 
 msgid "options_switchAttachedProfileInCondition"
 msgstr ""
@@ -594,7 +613,7 @@ msgid "options_switchAttachedProfileInConditionDisabled"
 msgstr ""
 
 msgid "options_switchDefaultProfile"
-msgstr ""
+msgstr "Default"
 
 msgid "options_hostLevelsBetween"
 msgstr ""
@@ -603,25 +622,25 @@ msgid "options_hourBetween"
 msgstr ""
 
 msgid "options_weekDayShort_0"
-msgstr ""
+msgstr "Su"
 
 msgid "options_weekDayShort_1"
-msgstr ""
+msgstr "Mo"
 
 msgid "options_weekDayShort_2"
-msgstr ""
+msgstr "Tu"
 
 msgid "options_weekDayShort_3"
-msgstr ""
+msgstr "We"
 
 msgid "options_weekDayShort_4"
-msgstr ""
+msgstr "Th"
 
 msgid "options_weekDayShort_5"
-msgstr ""
+msgstr "Fr"
 
 msgid "options_weekDayShort_6"
-msgstr ""
+msgstr "Sa"
 
 msgid "options_group_conditionHelp"
 msgstr ""
@@ -651,7 +670,7 @@ msgid "options_welcomeUpgradeGuide"
 msgstr ""
 
 msgid "options_guideNext"
-msgstr ""
+msgstr "Next"
 
 msgid "options_guideDone"
 msgstr ""
@@ -723,13 +742,13 @@ msgid "popup_title"
 msgstr ""
 
 msgid "options_modalHeader_proxyAuth"
-msgstr ""
+msgstr "Proxy Authentication"
 
 msgid "options_proxyAuthUsername"
 msgstr ""
 
 msgid "options_proxyAuthPassword"
-msgstr ""
+msgstr "Password"
 
 msgid "options_proxyAuthShowPassword"
 msgstr ""
@@ -738,7 +757,7 @@ msgid "options_proxyAuthHidePassword"
 msgstr ""
 
 msgid "options_proxyAuthNone"
-msgstr ""
+msgstr "No Authentication"
 
 msgid "options_modalHeader_deleteRule"
 msgstr ""
@@ -747,7 +766,7 @@ msgid "options_deleteRuleConfirm"
 msgstr ""
 
 msgid "options_deleteRule"
-msgstr ""
+msgstr "Delete"
 
 msgid "options_modalHeader_resetRules"
 msgstr ""
@@ -819,7 +838,7 @@ msgid "options_createProfile"
 msgstr ""
 
 msgid "options_modalHeader_resetOptions"
-msgstr ""
+msgstr "Reset Options"
 
 msgid "options_resetOptionsConfirm"
 msgstr ""
@@ -831,7 +850,7 @@ msgid "options_profileNotFound"
 msgstr ""
 
 msgid "options_resetSuccess"
-msgstr ""
+msgstr "Options reset."
 
 msgid "options_saveSuccess"
 msgstr ""
@@ -933,7 +952,7 @@ msgid "popup_addCondition"
 msgstr ""
 
 msgid "popup_showOptions"
-msgstr ""
+msgstr "Options"
 
 msgid "popup_reportIssues"
 msgstr ""
@@ -1008,16 +1027,16 @@ msgid "browserAction_titleInspect"
 msgstr ""
 
 msgid "browserAction_defaultRuleDetails"
-msgstr ""
+msgstr "(default)"
 
 msgid "browserAction_directResult"
-msgstr ""
+msgstr "DIRECT"
 
 msgid "browserAction_attachedPrefix"
-msgstr ""
+msgstr "(RL) "
 
 msgid "browserAction_tempRulePrefix"
-msgstr ""
+msgstr "(TEMP) "
 
 msgid "contextMenu_inspectPage"
 msgstr ""
@@ -1063,3 +1082,6 @@ msgstr ""
 
 msgid "about_license"
 msgstr ""
+"SwitchyOmega é um <a href='https://www.gnu.org/philosophy/free-"
+"sw.en.html'>software gratuito</a> licenciado sob <a href='https://www.gnu."
+"org/licenses/gpl.html'>Licença Pública Geral GNU</a> Versão 3 ou posterior."
