@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2021-05-11 13:32+0000\n"
+"PO-Revision-Date: 2021-05-11 13:37+0000\n"
 "Last-Translator: Dariusz Dębowski <ddebowski@outlook.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/switchyomega/main/"
 "pl/>\n"
@@ -22,19 +22,19 @@ msgid "manifest_app_name"
 msgstr "SwitchyOmega Proxy"
 
 msgid "manifest_app_description"
-msgstr ""
+msgstr "Zarządzanie i przełączanie się pomiędzy serwerami proxy."
 
 msgid "manifest_icon_default_title"
-msgstr ""
+msgstr "Wczytywanie…"
 
 msgid "upgrade_profile_auto"
-msgstr ""
+msgstr "Automatyczne przełączanie"
 
 msgid "profile_direct"
-msgstr ""
+msgstr "[Bez proxy]"
 
 msgid "profile_system"
-msgstr ""
+msgstr "[Proxy systemowe]"
 
 msgid "condition_HostWildcardCondition"
 msgstr ""
