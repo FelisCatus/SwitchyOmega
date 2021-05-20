@@ -1,4 +1,4 @@
-angular.module('omega').controller 'PacProfileCtrl', ($scope, $modal) ->
+angular.module('omega').controller 'PacProfileCtrl', ($scope, $uibModal) ->
   # coffeelint: disable=max_line_length
 
   # https://github.com/angular/angular.js/blob/master/src/ng/directive/input.js#L13
@@ -36,7 +36,7 @@ angular.module('omega').controller 'PacProfileCtrl', ($scope, $modal) ->
     auth = $scope.profile.auth?[prop]
     scope = $scope.$new('isolate')
     scope.auth = auth && angular.copy(auth)
-    $modal.open(
+    $uibModal.open(
       templateUrl: 'partials/fixed_auth_edit.html'
       scope: scope
       size: 'sm'

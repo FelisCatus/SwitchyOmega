@@ -1,11 +1,11 @@
 angular.module('omega').controller 'AboutCtrl', ($scope, $rootScope,
-  $modal, omegaDebug) ->
+  $uibModal, omegaDebug) ->
 
   $scope.downloadLog = omegaDebug.downloadLog
   $scope.reportIssue = omegaDebug.reportIssue
 
   $scope.showResetOptionsModal = ->
-    $modal.open(templateUrl: 'partials/reset_options_confirm.html').result
+    $uibModal.open(templateUrl: 'partials/reset_options_confirm.html').result
       .then -> omegaDebug.resetOptions()
 
   try
