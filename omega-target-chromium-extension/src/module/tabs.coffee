@@ -4,6 +4,7 @@ class ChromeTabs
 
   constructor: (@actionForUrl) ->
     @_dirtyTabs = {}
+    @_iconUpdatetime = {}
     return
 
   ignoreError: ->
@@ -35,7 +36,7 @@ class ChromeTabs
     if @_dirtyTabs.hasOwnProperty(tab.id)
       delete @_dirtyTabs[tab.id]
     else if not changeInfo.url?
-      if changeInfo.status? and changeInfo.status != 'loading'
+      if changeInfo.status == "complete"
         return
     @processTab(tab, changeInfo)
 
@@ -74,6 +75,11 @@ class ChromeTabs
 
   setIcon: (icon, tabId) ->
     return unless icon?
+    ctime = new Date().getTime()
+    if @_iconUpdatetime[tabId]? and (ctime - @_iconUpdatetime[tabId]) < 1000
+      return # skip if last update < 1000ms
+    else
+      @_iconUpdatetime[tabId] = ctime
     if tabId?
       params = {
         imageData: icon
