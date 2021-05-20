@@ -27,14 +27,10 @@ jobs:
           - v2-dependencies-web
       - restore_cache:
           keys:
-          - v2-dependencies-webbower-{{ checksum "omega-web/bower.json" }}
-          - v2-dependencies-webbower
-      - restore_cache:
-          keys:
           - v2-dependencies-targetchromium-{{ checksum "omega-target-chromium-extension/package.json" }}
           - v2-dependencies-targetchromium
 
-      - run: sudo npm install -g grunt-cli@1.2.0 bower web-ext json
+      - run: sudo npm install -g grunt-cli@1.2.0 yarn web-ext json
       - run: (cd omega-build && npm run deps)
 
       - save_cache:
@@ -49,10 +45,6 @@ jobs:
           paths:
             - omega-web/node_modules
           key: v2-dependencies-web-{{ checksum "omega-web/package.json" }}
-      - save_cache:
-          paths:
-            - omega-web/bower_components
-          key: v2-dependencies-webbower-{{ checksum "omega-web/bower.json" }}
       - save_cache:
           paths:
             - omega-target-chromium-extension/node_modules
