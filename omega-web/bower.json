@@ -34,7 +34,7 @@
     "ngprogress": "~1.0.4",
     "angular-ui-sortable": "~0.13.3",
     "jsondiffpatch": "~0.1.7",
-    "angular-spectrum-colorpicker": "~1.3.5",
+    "angular-spectrum-colorpicker": "git://github.com/powwowinc/angular-spectrum-colorpicker.git",
     "blob": "*",
     "FileSaver": "=1.3.3",
     "angular-ui-utils": "bower-validate",
