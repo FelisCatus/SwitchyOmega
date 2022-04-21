@@ -3,132 +3,149 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2018-06-13 01:52+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-04-22 05:07+0000\n"
+"Last-Translator: Still Hsu <dev@stillu.cc>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"switchyomega/main/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "appNameShort"
-msgstr ""
+msgstr "SwitchyOmega"
 
 msgid "manifest_app_name"
-msgstr ""
+msgstr "Proxy SwitchyOmega"
 
 msgid "manifest_app_description"
-msgstr ""
+msgstr "輕鬆快速地管理及切換多個 Proxy 設定。"
 
 msgid "manifest_icon_default_title"
-msgstr ""
+msgstr "載入中…"
 
 msgid "upgrade_profile_auto"
-msgstr ""
+msgstr "自動切換"
 
 msgid "profile_direct"
-msgstr ""
+msgstr "[直接連接]"
 
 msgid "profile_system"
-msgstr ""
+msgstr "[系統 Proxy]"
 
 msgid "condition_HostWildcardCondition"
-msgstr ""
+msgstr "域名萬用字元"
 
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
+"根據域名 (主機名稱) 的萬用字元進行匹配。<br><b>星號 <code>*</code></b> "
+"將會符合零個或多個字元。<br><b>問號 <code>?</code></b> "
+"將會符合任一字元。<br><br>請注意，以 <code>*.</code> "
+"開頭的規則會同時匹配其子域名及自身。<br>舉例來說：<code>*.example.com</code> "
+"將會符合 www.example.com <b>以及 example."
+"com。</b><br>若<b>只要符合子域名</b>，請使用<b>兩個</b>星號開頭，如 <code>**."
+"example.com</code>。"
 
 msgid "condition_HostRegexCondition"
-msgstr ""
+msgstr "域名正則式"
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
 
 msgid "condition_HostLevelsCondition"
-msgstr ""
+msgstr "域名層數"
 
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
 
 msgid "condition_IpCondition"
-msgstr ""
+msgstr "IP 地址字面量"
 
 msgid "condition_help_IpCondition"
 msgstr ""
 
 msgid "condition_UrlWildcardCondition"
-msgstr ""
+msgstr "網址萬用字元"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
 
 msgid "condition_UrlRegexCondition"
-msgstr ""
+msgstr "URL 正則式"
 
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
 
 msgid "condition_KeywordCondition"
-msgstr ""
+msgstr "關鍵字"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
 
 msgid "condition_FalseCondition"
-msgstr ""
+msgstr "(禁用)"
 
 msgid "condition_details_FalseCondition"
-msgstr ""
+msgstr "(匹配時無視此規則)"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
 
 msgid "condition_TimeCondition"
-msgstr ""
+msgstr "目前時間"
 
 msgid "condition_help_TimeCondition"
 msgstr ""
 
 msgid "condition_WeekdayCondition"
-msgstr ""
+msgstr "每周幾"
 
 msgid "condition_help_WeekdayCondition"
 msgstr ""
 
 msgid "condition_alert_fullUrlLimitation"
 msgstr ""
+"自 Chrome 52 起，<code>https://</code>下的完整網址將無法正常匹配。<a "
+"href='https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-%E5%AE%8C%E6%9"
+"5%B4%E7%BD%91%E5%9D%80%E9%99%90%E5%88%B6'>更多訊息...</a>"
 
+#, fuzzy
 msgid "condition_alert_fullUrlLimitationLink"
 msgstr ""
+"https://github.com/FelisCatus/SwitchyOmega/wiki/Chromium-Full-URL-Limitation"
 
+#, fuzzy
 msgid "condition_group_default"
-msgstr ""
+msgstr " "
 
 msgid "condition_group_host"
-msgstr ""
+msgstr "域名"
 
 msgid "condition_group_url"
-msgstr ""
+msgstr "網址"
 
 msgid "condition_group_special"
-msgstr ""
+msgstr "特殊"
 
+#, fuzzy
 msgid "ruleListFormat_Switchy"
-msgstr ""
+msgstr "Switchy"
 
+#, fuzzy
 msgid "ruleListFormat_AutoProxy"
-msgstr ""
+msgstr "AutoProxy"
 
+#, fuzzy
 msgid "ruleList_usageUrl"
-msgstr ""
+msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
 
 msgid "ruleList_error_resultNotEnabled"
-msgstr ""
+msgstr "缺少 '@with result' 指令！"
 
 msgid "ruleList_error_unknownProfile"
-msgstr ""
+msgstr "未知設定檔：$PROFILE$"
 
 msgid "ruleList_error_missingResultProfile"
 msgstr ""
@@ -140,64 +157,64 @@ msgid "ruleList_error_noDefaultRule"
 msgstr ""
 
 msgid "dialog_close"
-msgstr ""
+msgstr "關閉"
 
 msgid "dialog_save"
-msgstr ""
+msgstr "儲存變更"
 
 msgid "dialog_ok"
-msgstr ""
+msgstr "確定"
 
 msgid "dialog_cancel"
-msgstr ""
+msgstr "取消"
 
 msgid "inputClear_clear"
-msgstr ""
+msgstr "清除"
 
 msgid "inputClear_restore"
-msgstr ""
+msgstr "還原"
 
 msgid "options_title"
-msgstr ""
+msgstr "SwitchyOmega 選項"
 
 msgid "options_experimental_badge"
-msgstr ""
+msgstr "α"
 
 msgid "options_navHeader_setting"
-msgstr ""
+msgstr "設定"
 
 msgid "options_navHeader_profiles"
-msgstr ""
+msgstr "設定檔"
 
 msgid "options_navHeader_actions"
-msgstr ""
+msgstr "操作"
 
 msgid "options_tab_ui"
-msgstr ""
+msgstr "介面"
 
 msgid "options_tab_general"
-msgstr ""
+msgstr "一般設定"
 
 msgid "options_tab_importExport"
-msgstr ""
+msgstr "匯入/匯出"
 
 msgid "options_newProfile"
-msgstr ""
+msgstr "新增設定檔…"
 
 msgid "options_apply"
-msgstr ""
+msgstr "套用變更"
 
 msgid "options_discard"
-msgstr ""
+msgstr "放棄變更"
 
 msgid "options_reset"
-msgstr ""
+msgstr "重置設定"
 
 msgid "options_group_miscOptions"
-msgstr ""
+msgstr "其他設定"
 
 msgid "options_confirmDeletion"
-msgstr ""
+msgstr "需確認刪除切換條件。"
 
 msgid "options_refreshOnProfileChange"
 msgstr ""
@@ -209,7 +226,7 @@ msgid "options_addConditionsToBottom"
 msgstr ""
 
 msgid "options_group_keyboardShortcut"
-msgstr ""
+msgstr "鍵盤快捷鍵"
 
 msgid "options_menuShortcutHelp"
 msgstr ""
@@ -218,28 +235,28 @@ msgid "options_menuShortcutMore"
 msgstr ""
 
 msgid "options_menuShortcutConfigure"
-msgstr ""
+msgstr "設定快捷鍵"
 
 msgid "options_group_switchOptions"
-msgstr ""
+msgstr "切換選項"
 
 msgid "options_startupProfile"
-msgstr ""
+msgstr "初始設定檔"
 
 msgid "options_startupProfile_none"
-msgstr ""
+msgstr "(當前設定檔)"
 
 msgid "options_showConditionTypesAdvanced"
-msgstr ""
+msgstr "顯示進階切換條件"
 
 msgid "options_showConditionTypesAdvancedHelp"
 msgstr ""
 
 msgid "options_quickSwitch"
-msgstr ""
+msgstr "快速切换"
 
 msgid "options_cycledProfiles"
-msgstr ""
+msgstr "循環切換設定檔"
 
 msgid "options_cycledProfilesHelp"
 msgstr ""
@@ -251,13 +268,13 @@ msgid "options_notCycledProfiles"
 msgstr ""
 
 msgid "options_group_proxyChanges"
-msgstr ""
+msgstr "Proxy 設定變更"
 
 msgid "options_revertProxyChanges"
 msgstr ""
 
 msgid "options_group_conflicts"
-msgstr ""
+msgstr "衝突"
 
 msgid "options_conflicts_introduction"
 msgstr ""
@@ -293,31 +310,31 @@ msgid "options_downloadInterval"
 msgstr ""
 
 msgid "options_downloadInterval_15"
-msgstr ""
+msgstr "15 分鐘"
 
 msgid "options_downloadInterval_60"
-msgstr ""
+msgstr "1 小時"
 
 msgid "options_downloadInterval_180"
-msgstr ""
+msgstr "3 小時"
 
 msgid "options_downloadInterval_360"
-msgstr ""
+msgstr "6 小時"
 
 msgid "options_downloadInterval_720"
-msgstr ""
+msgstr "12 小時"
 
 msgid "options_downloadInterval_1440"
-msgstr ""
+msgstr "每天"
 
 msgid "options_downloadInterval_never"
-msgstr ""
+msgstr "永不"
 
 msgid "options_group_importExportProfile"
-msgstr ""
+msgstr "設定檔"
 
 msgid "options_exportPacFile"
-msgstr ""
+msgstr "匯出 PAC 檔案"
 
 msgid "options_exportPacFileHelp"
 msgstr ""
@@ -464,10 +481,10 @@ msgid "options_scheme_default"
 msgstr ""
 
 msgid "options_protocol_direct"
-msgstr ""
+msgstr "直接連接"
 
 msgid "options_protocol_useDefault"
-msgstr ""
+msgstr "(同預設)"
 
 msgid "options_proxy_single"
 msgstr ""
@@ -476,7 +493,7 @@ msgid "options_proxy_expand"
 msgstr ""
 
 msgid "options_group_bypassList"
-msgstr ""
+msgstr "不使用 Proxy 的位址清單"
 
 msgid "options_bypassListHelp"
 msgstr ""
@@ -485,10 +502,10 @@ msgid "options_bypassListHelpLinkText"
 msgstr ""
 
 msgid "options_group_pacUrl"
-msgstr ""
+msgstr "PAC 網址"
 
 msgid "options_pacUrlHelp"
-msgstr ""
+msgstr "PAC 腳本將從此網址更新。如果將其留空，則將直接使用以下腳本。"
 
 msgid "options_pacUrlFile"
 msgstr ""
@@ -497,25 +514,25 @@ msgid "options_pacUrlFileDisabled"
 msgstr ""
 
 msgid "options_group_pacScript"
-msgstr ""
+msgstr "PAC 腳本"
 
 msgid "options_pacScriptLastUpdate"
 msgstr ""
 
 msgid "options_pacScriptObsolete"
-msgstr ""
+msgstr "由於已變更網址，PAC 腳本已過時。按上面的下載按鈕進行更新。"
 
 msgid "options_group_virtualProfile"
-msgstr ""
+msgstr "虛擬設定檔"
 
 msgid "options_virtualProfileTarget"
-msgstr ""
+msgstr "目標"
 
 msgid "options_virtualProfileTargetHelp"
 msgstr ""
 
 msgid "options_group_virtualProfileReplace"
-msgstr ""
+msgstr "遷移到虛擬設定檔"
 
 msgid "options_virtualProfileReplace"
 msgstr ""
@@ -556,35 +573,38 @@ msgstr ""
 msgid "options_group_switchRules"
 msgstr ""
 
+#, fuzzy
 msgid "options_sort"
-msgstr ""
+msgstr "排序"
 
+#, fuzzy
 msgid "options_conditionType"
-msgstr ""
+msgstr "條件類型"
 
+#, fuzzy
 msgid "options_showConditionTypeHelp"
-msgstr ""
+msgstr "顯示説明"
 
 msgid "options_conditionDetails"
-msgstr ""
+msgstr "條件詳情"
 
 msgid "options_resultProfile"
-msgstr ""
+msgstr "設定檔"
 
 msgid "options_conditionActions"
-msgstr ""
+msgstr "操作"
 
 msgid "options_addCondition"
-msgstr ""
+msgstr "新增條件"
 
 msgid "options_cloneRule"
-msgstr ""
+msgstr "複製"
 
 msgid "options_ruleNote"
-msgstr ""
+msgstr "備註"
 
 msgid "options_switchAttachedProfileInCondition"
-msgstr ""
+msgstr "規則清單規則"
 
 msgid "options_switchAttachedProfileInConditionDetails"
 msgstr ""
@@ -602,34 +622,34 @@ msgid "options_hourBetween"
 msgstr ""
 
 msgid "options_weekDayShort_0"
-msgstr ""
+msgstr "日"
 
 msgid "options_weekDayShort_1"
-msgstr ""
+msgstr "一"
 
 msgid "options_weekDayShort_2"
-msgstr ""
+msgstr "二"
 
 msgid "options_weekDayShort_3"
-msgstr ""
+msgstr "三"
 
 msgid "options_weekDayShort_4"
-msgstr ""
+msgstr "四"
 
 msgid "options_weekDayShort_5"
-msgstr ""
+msgstr "五"
 
 msgid "options_weekDayShort_6"
-msgstr ""
+msgstr "六"
 
 msgid "options_group_conditionHelp"
-msgstr ""
+msgstr "關於條件種類"
 
 msgid "options_group_attachProfile"
 msgstr ""
 
 msgid "options_attachProfile"
-msgstr ""
+msgstr "新增條件清單"
 
 msgid "options_attachProfileHelp"
 msgstr ""
