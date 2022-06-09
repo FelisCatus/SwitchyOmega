@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Russian (SwitchyOmega)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-21 02:34+0200\n"
-"PO-Revision-Date: 2022-06-04 09:13+0000\n"
+"PO-Revision-Date: 2022-06-10 15:14+0000\n"
 "Last-Translator: solokot <solokot@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/switchyomega/"
 "main/ru/>\n"
@@ -53,7 +53,6 @@ msgstr ""
 msgid "condition_HostRegexCondition"
 msgstr "Регулярное выражение хоста"
 
-#, fuzzy
 msgid "condition_help_HostRegexCondition"
 msgstr ""
 "Подобно шаблону хоста, но проверяет на совпадение хосты (доменные имена) с "
@@ -65,7 +64,6 @@ msgstr ""
 msgid "condition_HostLevelsCondition"
 msgstr "Уровни хоста"
 
-#, fuzzy
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
 "Соответствует запросу только тогда, когда уровень хоста находится в заданном "
@@ -76,7 +74,6 @@ msgstr ""
 msgid "condition_IpCondition"
 msgstr "Маска IP"
 
-#, fuzzy
 msgid "condition_help_IpCondition"
 msgstr ""
 "Соответствует запросу только тогда, если хост является <b>числовым "
@@ -637,7 +634,6 @@ msgstr ""
 "PAC-скрипт будет обновляться с этого URL-адреса. Если его оставить пустым, "
 "будет использоваться следующий скрипт."
 
-#, fuzzy
 msgid "options_pacUrlFile"
 msgstr ""
 "Профили PAC с файлом: URL-адреса могут применяться только напрямую. Они не "
@@ -674,7 +670,6 @@ msgstr ""
 msgid "options_group_virtualProfileReplace"
 msgstr "Перенести в виртуальный профиль"
 
-#, fuzzy
 msgid "options_virtualProfileReplace"
 msgstr "Заменить целевой профиль"
 
@@ -797,7 +792,6 @@ msgstr "Импортировать онлайн-список правил"
 msgid "options_attachProfile"
 msgstr "Добавить список правил"
 
-#, fuzzy
 msgid "options_attachProfileHelp"
 msgstr ""
 "Вы можете повторно использовать онлайн-набор условий, опубликованных "
@@ -989,7 +983,6 @@ msgstr ""
 msgid "options_profileTypeSwitchProfile"
 msgstr "Переключаемый профиль"
 
-#, fuzzy
 msgid "options_profileDescSwitchProfile"
 msgstr ""
 "Автоматическое применение различных профилей в различных условиях, таких как "
@@ -1139,7 +1132,6 @@ msgstr ""
 "Настройки прокси контролируются другими приложениями или расширениями. "
 "Отключите или удалите эти приложения или расширения."
 
-#, fuzzy
 msgid "popup_proxyNotControllable_policy"
 msgstr ""
 "Настройки прокси отменяются системой. Свяжитесь с вашим администратором."
@@ -1279,11 +1271,9 @@ msgstr "(по умолчанию)"
 msgid "browserAction_directResult"
 msgstr "НАПРЯМУЮ"
 
-#, fuzzy
 msgid "browserAction_attachedPrefix"
 msgstr "(RL) "
 
-#, fuzzy
 msgid "browserAction_tempRulePrefix"
 msgstr "(TEMP) "
 
