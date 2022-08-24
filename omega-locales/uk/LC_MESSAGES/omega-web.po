@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2022-07-26 11:20+0000\n"
+"PO-Revision-Date: 2022-08-25 14:16+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/switchyomega/"
 "main/uk/>\n"
@@ -1065,12 +1065,12 @@ msgstr ""
 msgid "options_profileTypeSwitchProfile"
 msgstr "Профіль перемикання"
 
-#, fuzzy
 msgid "options_profileDescSwitchProfile"
 msgstr ""
 "Автоматичне застосування різних профілів в різних умовах, таких як домени "
-"або шаблони. Ви також можете імпортувати опубліковані в онлайн правила для "
-"більш зручного перемикання. (Замінює режим автопереключеніе + список правил.)"
+"або шаблони.\n"
+"Ви також можете імпортувати опубліковані в онлайн правила для зручнішого "
+"перемикання. (Замінює саморушнє перемикання + список правил.)"
 
 msgid "options_profileTypeRuleListProfile"
 msgstr "Профіль списку правил"
@@ -1248,10 +1248,8 @@ msgid "popup_proxyNotControllable_disabled"
 msgstr ""
 "Налаштування проксі відключені явним запитом інших додатків або розширень."
 
-#, fuzzy
 msgid "popup_proxyNotControllable_upgrade"
-msgstr ""
-"Налаштування проксі тепер контролюються більш новою версією SwitchyOmega."
+msgstr "Налаштування проксі тепер контролюються новішою версією SwitchyOmega."
 
 #, fuzzy
 msgid "popup_proxyNotControllableDetails"
@@ -1355,10 +1353,9 @@ msgstr "SwitchyOmega :: $PROFILE$"
 msgid "browserAction_titleWithResult"
 msgstr "SwitchyOmega :: $1: PROFILE$ $3: DETAILS$"
 
-#, fuzzy
 msgid "browserAction_titleNewerOptions"
 msgstr ""
-"ПОМИЛКА: для завантаження збережених параметрів потрібно більш нова версія "
+"ПОМИЛКА: для завантаження збережених параметрів потрібна новіша версія "
 "SwitchOmega."
 
 #, fuzzy
