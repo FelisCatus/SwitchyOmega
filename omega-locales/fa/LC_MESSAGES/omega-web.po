@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: SwitchyOmega 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 10:29+0000\n"
-"PO-Revision-Date: 2023-03-30 08:39+0000\n"
-"Last-Translator: Masoud <mrem71@gmail.com>\n"
+"PO-Revision-Date: 2023-12-08 19:04+0000\n"
+"Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/switchyomega/"
 "main/fa/>\n"
 "Language: fa\n"
@@ -12,32 +12,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 msgid "appNameShort"
-msgstr "SwitchyOmega"
+msgstr "سوییچی‌اومگا"
 
 msgid "manifest_app_name"
-msgstr "پروکسی SwitchyOmega"
+msgstr "سوییچی‌اومگای پیشکار"
 
 msgid "manifest_app_description"
-msgstr ""
-"به راحتی و با سرعت بین پروکسی های خود جابه‌جا شوید و آنها را مدیریت کنید."
+msgstr "مدیریت و تعویض سریع و آسان بین چندین پیشکار."
 
 msgid "manifest_icon_default_title"
-msgstr "درحال بارگذاری…"
+msgstr "بار کردن…"
 
 msgid "upgrade_profile_auto"
-msgstr "سوییچ خودکار"
+msgstr "تعویض خودکار"
 
 msgid "profile_direct"
 msgstr "[مستقیم]"
 
 msgid "profile_system"
-msgstr "[پروکسی سیستم]"
+msgstr "[پیشکار سامانه]"
 
 msgid "condition_HostWildcardCondition"
-msgstr "Wildcard میزبان"
+msgstr "وایلدکارد میزبان"
 
 msgid "condition_help_HostWildcardCondition"
 msgstr ""
@@ -51,7 +50,7 @@ msgstr ""
 "نمایید . <code>**.example.com</code>."
 
 msgid "condition_HostRegexCondition"
-msgstr "عبارت منظم میزبان"
+msgstr "عبارت باقاعدهٔ میزبان"
 
 msgid "condition_help_HostRegexCondition"
 msgstr ""
@@ -62,7 +61,7 @@ msgstr ""
 "در مواقعی که به هیچ روشی نمیشود عبارتی رو یافت از عبارات منظم استفاده کنید ."
 
 msgid "condition_HostLevelsCondition"
-msgstr "سطح های میزبان"
+msgstr "سطح‌های میزبان"
 
 msgid "condition_help_HostLevelsCondition"
 msgstr ""
@@ -87,7 +86,7 @@ msgstr ""
 "آی پی<b>دقیق</b> نمی‌باشند."
 
 msgid "condition_UrlWildcardCondition"
-msgstr "فرانویسه ادرس (URL)"
+msgstr "وایلدکارد نشانی"
 
 msgid "condition_help_UrlWildcardCondition"
 msgstr ""
@@ -99,7 +98,7 @@ msgstr ""
 "ادرس http://example.com را<b>تشخیص نمی‌دهد .</b>."
 
 msgid "condition_UrlRegexCondition"
-msgstr "عبارت منظم ادرس"
+msgstr "عبارت باقاعدهٔ نشانی"
 
 msgid "condition_help_UrlRegexCondition"
 msgstr ""
@@ -109,7 +108,7 @@ msgstr ""
 "از عبارات منظم استفاده کنید ."
 
 msgid "condition_KeywordCondition"
-msgstr "کلمات کلیدی"
+msgstr "کلیدواژه"
 
 msgid "condition_help_KeywordCondition"
 msgstr ""
@@ -122,10 +121,10 @@ msgstr ""
 "آن ها عبور کرده."
 
 msgid "condition_FalseCondition"
-msgstr "(غیرفعال)"
+msgstr "(از کار افتاده)"
 
 msgid "condition_details_FalseCondition"
-msgstr "(درحین بررسی این شرط در نظر گرفته نمیشود)"
+msgstr "(شرط هنگام تطبیق نادیده گرفته شد)"
 
 msgid "condition_help_FalseCondition"
 msgstr ""
@@ -136,7 +135,7 @@ msgstr ""
 "به حالت قبلی آن را فعال کنید ."
 
 msgid "condition_TimeCondition"
-msgstr "زمان فعلی"
+msgstr "زمان کنونی"
 
 msgid "condition_help_TimeCondition"
 msgstr ""
@@ -170,16 +169,16 @@ msgid "condition_group_host"
 msgstr "میزبان"
 
 msgid "condition_group_url"
-msgstr "ادرس"
+msgstr "نشانی"
 
 msgid "condition_group_special"
 msgstr "ویژه"
 
 msgid "ruleListFormat_Switchy"
-msgstr "Switchy"
+msgstr "سوییچی"
 
 msgid "ruleListFormat_AutoProxy"
-msgstr "پروکسی خودکار"
+msgstr "پیشکار خودکار"
 
 msgid "ruleList_usageUrl"
 msgstr "https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage"
@@ -203,22 +202,22 @@ msgid "dialog_close"
 msgstr "بستن"
 
 msgid "dialog_save"
-msgstr "ذخیره تغییرات"
+msgstr "ذخیرهٔ تغییرات"
 
 msgid "dialog_ok"
-msgstr "اکی"
+msgstr "قبول"
 
 msgid "dialog_cancel"
-msgstr "کنسل"
+msgstr "لغو"
 
 msgid "inputClear_clear"
-msgstr "پاک"
+msgstr "پاک‌سازی"
 
 msgid "inputClear_restore"
-msgstr "بازگرداندن"
+msgstr "بازگردانی"
 
 msgid "options_title"
-msgstr "تنظیمات SwitchyOmega"
+msgstr "گزینه‌های سوییچی‌اومگا"
 
 msgid "options_experimental_badge"
 msgstr "α"
@@ -227,10 +226,10 @@ msgid "options_navHeader_setting"
 msgstr "تنظیمات"
 
 msgid "options_navHeader_profiles"
-msgstr "پروفایل ها"
+msgstr "نمایه‌ها"
 
 msgid "options_navHeader_actions"
-msgstr "اکشن ها"
+msgstr "کنش‌ها"
 
 msgid "options_tab_ui"
 msgstr "رابط"
@@ -239,22 +238,22 @@ msgid "options_tab_general"
 msgstr "عمومی"
 
 msgid "options_tab_importExport"
-msgstr "واردکردن/خروجی گرفتن"
+msgstr "درون یا برون‌ریزی"
 
 msgid "options_newProfile"
-msgstr "پروفایل جدید .…"
+msgstr "نمایهٔ جدید…"
 
 msgid "options_apply"
-msgstr "ذخیره ی تغییرات"
+msgstr "اعمال تغییرات"
 
 msgid "options_discard"
-msgstr "بیخیال تغییرات"
+msgstr "دور ریختن تغییرات"
 
 msgid "options_reset"
-msgstr "ریست کردن تنظیمات"
+msgstr "بازنشانی گزینه‌ها"
 
 msgid "options_group_miscOptions"
-msgstr "دیگر تنظیمات"
+msgstr "گزینه‌های متفرّقه"
 
 msgid "options_confirmDeletion"
 msgstr "تصدیق در زمان حذف شروط."
@@ -271,7 +270,7 @@ msgid "options_addConditionsToBottom"
 msgstr "شرایط جدید اضافه شد از طریق پنجره ی pop-up را در انتهای لیست قرار بده."
 
 msgid "options_group_keyboardShortcut"
-msgstr "میانبرهای کیبرد"
+msgstr "میان‌برهای صفحه‌کلید"
 
 msgid "options_menuShortcutHelp"
 msgstr "کلید میانبر برای باز کردن منوی popup .( پیش فرض Alt+Shift+O )."
@@ -282,16 +281,16 @@ msgstr ""
 "دسترسی داشته باشید . با فشاردادن ؟ ( یا /) میتوانید بیشتر یاد بگیرید ."
 
 msgid "options_menuShortcutConfigure"
-msgstr "تنظیم میانبر ها"
+msgstr "پیکربندی میان‌بر"
 
 msgid "options_group_switchOptions"
-msgstr "تنظیم جابه جایی"
+msgstr "گزینه‌های تعویض"
 
 msgid "options_startupProfile"
-msgstr "پروفایل شروع برنامه"
+msgstr "نمایهٔ آغازین"
 
 msgid "options_startupProfile_none"
-msgstr "(پروفایل کنونی)"
+msgstr "(نمایهٔ کنونی)"
 
 msgid "options_showConditionTypesAdvanced"
 msgstr "نمایش حالت های پیشرفته ی شروط"
@@ -302,10 +301,10 @@ msgstr ""
 "نوع‌های عادی کافی میباشد ، این گزینه پیشنهاد نمی‌شود."
 
 msgid "options_quickSwitch"
-msgstr "جا به جایی سریع"
+msgstr "تعویض سریع"
 
 msgid "options_cycledProfiles"
-msgstr "پروفایل های چرخشی"
+msgstr "نمایه‌های چرخشی"
 
 msgid "options_cycledProfilesHelp"
 msgstr ""
@@ -321,13 +320,13 @@ msgid "options_notCycledProfiles"
 msgstr "پروفایل های غیرچرخشی"
 
 msgid "options_group_proxyChanges"
-msgstr "تغییر پروکسی"
+msgstr "تغییرات پیشکار"
 
 msgid "options_revertProxyChanges"
 msgstr "بازگرداندن تغییرات پروکسی انجام شده توسط دیگر برنامه ها."
 
 msgid "options_group_conflicts"
-msgstr "تضادها"
+msgstr "تداخل‌ها"
 
 msgid "options_conflicts_introduction"
 msgstr ""
@@ -365,7 +364,7 @@ msgstr ""
 "برنامه منبع را نشان نمی دهد."
 
 msgid "options_group_networkRequests"
-msgstr "درخواست های شبکه"
+msgstr "درخواست‌های شبکه"
 
 msgid "options_monitorWebRequests"
 msgstr "نمایش میزان درخواست های ناموفق منابع وب در تب کنونی."
@@ -377,28 +376,28 @@ msgstr ""
 " تنظیم کنید ."
 
 msgid "options_downloadOptions"
-msgstr "دانلود تنظیمات"
+msgstr "گزینه‌های بارگیری"
 
 msgid "options_downloadOptionsHelp"
 msgstr "تناوب بروزرسانی لیست قوانین آنلاین و اسکریپت های PAC را تنظیم کنید ."
 
 msgid "options_downloadInterval"
-msgstr "فاصله ی دانلود"
+msgstr "دورهٔ بارگیری"
 
 msgid "options_downloadInterval_15"
-msgstr "15 دقیقه"
+msgstr "۱۵ دقیقه"
 
 msgid "options_downloadInterval_60"
-msgstr "1 ساعت"
+msgstr "۱ ساعت"
 
 msgid "options_downloadInterval_180"
-msgstr "3 ساعت"
+msgstr "۳ ساعت"
 
 msgid "options_downloadInterval_360"
-msgstr "6 ساعت"
+msgstr "۶ ساعت"
 
 msgid "options_downloadInterval_720"
-msgstr "12 ساعت"
+msgstr "۱۲ ساعت"
 
 msgid "options_downloadInterval_1440"
 msgstr "هر روز"
@@ -407,7 +406,7 @@ msgid "options_downloadInterval_never"
 msgstr "هرگز"
 
 msgid "options_group_importExportProfile"
-msgstr "پروفایل"
+msgstr "نمایه"
 
 msgid "options_exportPacFile"
 msgstr "خروجی به صورت فایل PAC"
@@ -436,7 +435,7 @@ msgid "options_group_importExportSettings"
 msgstr "تنظیمات"
 
 msgid "options_makeBackup"
-msgstr "گرفتن پشتیبان"
+msgstr "پشتیبان‌گیری"
 
 msgid "options_makeBackupHelp"
 msgstr "گرفتن پشتیبان کامل از تنظیمات ( شامل پروفایل ها و تمامی تنظیمات )."
@@ -454,19 +453,19 @@ msgid "options_restoreOnlinePlaceholder"
 msgstr "تنظیمات آدرس فایل ( به طور مثال 'http://example.com/switchy.bak' )"
 
 msgid "options_restoreOnlineSubmit"
-msgstr "بازگرداندن"
+msgstr "بازگردانی"
 
 msgid "options_group_syncing"
-msgstr "همگام سازی ( ازمایشی )"
+msgstr "همگام‌سازی (آزمایشی)"
 
 msgid "options_syncEnable"
-msgstr "فعال سازی همگام سازی"
+msgstr "به کار انداختن همگام‌سازی"
 
 msgid "options_syncEnableForce"
 msgstr "دانلود از همگام سازی"
 
 msgid "options_syncDisable"
-msgstr "غیرفعال کردن همگام سازی"
+msgstr "از کار انداختن همگام‌سازی"
 
 msgid "options_syncReset"
 msgstr "پاک کردن کپی ریموت"
@@ -510,13 +509,13 @@ msgstr ""
 "است ."
 
 msgid "options_profileTabPrefix"
-msgstr "پروفایل :: "
+msgstr "نمایه :: "
 
 msgid "options_renameProfile"
 msgstr "تغییر نام"
 
 msgid "options_deleteProfile"
-msgstr "پاک کردن"
+msgstr "حذف"
 
 msgid "options_profileExportRuleList"
 msgstr "انتشار لیست قوانین"
@@ -525,7 +524,7 @@ msgid "options_profileExportRuleListHelp"
 msgstr "قوانین تغییر را به صورت تکست برای انتشار خروجی بگیر ."
 
 msgid "options_profileExportPac"
-msgstr "خروج PAC"
+msgstr "برون‌ریزی PAC"
 
 msgid "options_profileUnsupported"
 msgstr "نوع $TYPE$! برای پروفایل پشتیبانی نمیشود!"
@@ -545,22 +544,22 @@ msgstr ""
 "format#result-profile"
 
 msgid "options_group_proxyServers"
-msgstr "سرور های پروکسی"
+msgstr "کارسازهای پیشکار"
 
 msgid "options_proxy_scheme"
-msgstr "طرح"
+msgstr "طرحواره"
 
 msgid "options_proxy_protocol"
-msgstr "پروتکل"
+msgstr "شیوه‌نامه"
 
 msgid "options_proxy_server"
-msgstr "سرور"
+msgstr "کارساز"
 
 msgid "options_proxy_port"
-msgstr "پورت"
+msgstr "درگاه"
 
 msgid "options_proxy_auth"
-msgstr "تصدیق"
+msgstr "هویت‌سنجی"
 
 msgid "options_proxy_authNotSupported"
 msgstr ""
@@ -590,22 +589,22 @@ msgstr ""
 "پروفایل ها شود."
 
 msgid "options_scheme_default"
-msgstr "(پیش فرض)"
+msgstr "(پیش‌گزیده)"
 
 msgid "options_protocol_direct"
 msgstr "مستقیم"
 
 msgid "options_protocol_useDefault"
-msgstr "(استفاده از پیش فرض)"
+msgstr "(استفاده از پیش‌گزیده)"
 
 msgid "options_proxy_single"
 msgstr "استفاده از پروکسی بالا برای همه ی پروتکل ها."
 
 msgid "options_proxy_expand"
-msgstr "نمایش پیشرفته"
+msgstr "نمایش پیش‌رفته"
 
 msgid "options_group_bypassList"
-msgstr "لیست استثنا"
+msgstr "سیاههٔ صرف نظر"
 
 msgid "options_bypassListHelp"
 msgstr ""
@@ -616,7 +615,7 @@ msgid "options_bypassListHelpLinkText"
 msgstr "( فرانویسه و بیشتر فراهم است .... )"
 
 msgid "options_group_pacUrl"
-msgstr "آدرس PAC"
+msgstr "نشانی PAC"
 
 msgid "options_pacUrlHelp"
 msgstr ""
@@ -635,7 +634,7 @@ msgstr ""
 "یک پروفایل PAC جدید بسازید اگر واقعا نیاز هست ."
 
 msgid "options_group_pacScript"
-msgstr "اسکریپت PAC"
+msgstr "کدنوشتهٔ PAC"
 
 msgid "options_pacScriptLastUpdate"
 msgstr "دانلود اسکریپت PAC در تاریخ $TIME$:"
@@ -646,7 +645,7 @@ msgstr ""
 "رسانی فشاردهید ."
 
 msgid "options_group_virtualProfile"
-msgstr "پرووفایل مجازی"
+msgstr "نمایهٔ مجازی"
 
 msgid "options_virtualProfileTarget"
 msgstr "هدف"
@@ -662,13 +661,12 @@ msgstr "مهاجرت به پروفایل مجازی"
 msgid "options_virtualProfileReplace"
 msgstr "پروفایل هدف را جایگزین کنید"
 
-#, fuzzy
 msgid "options_virtualProfileReplaceHelp"
 msgstr ""
-"می توانید گزینه های موجود را برای استفاده از این نمایه مجازی به جای $ "
-"PROFILE $ منتقل کنید. با انجام این کار ، همه قوانین موجود در مورد $ PROFILE $"
-" به روز می شود و آنها را به این نمایه مجازی نشان می دهد ، تا نمایه نتیجه "
-"آنها در اینجا کنترل شود."
+"می توانید گزینه های موجود را برای استفاده از این نمایهٔ مجازی به جای "
+"$PROFILE$ مهاجرت دهید. انجام این کار همهٔ قوانین موجود در مورد $PROFILE$ را "
+"نیز به‌روز خواهد کرد و آن‌ها را به این نمایهٔ مجازی منتقل می‌کند تا نمایهٔ "
+"نتیجه‌شان بتواند این‌جا واپایش شود."
 
 msgid "options_group_ruleListConfig"
 msgstr "تنظیمات لیست قوانین"
@@ -696,9 +694,8 @@ msgstr ""
 msgid "options_group_ruleListText"
 msgstr "متن لیست قوانین"
 
-#, fuzzy
 msgid "options_ruleListLastUpdate"
-msgstr "فهرست قوانین بارگیری شده در $ TIME $:"
+msgstr "سیاههٔ قوانین بارگیری شده در $TIME$:"
 
 msgid "options_ruleListObsolete"
 msgstr ""
@@ -709,7 +706,7 @@ msgid "options_group_switchRules"
 msgstr "قوانین سوییچ"
 
 msgid "options_sort"
-msgstr "ترتیب"
+msgstr "چینش"
 
 msgid "options_conditionType"
 msgstr "نوع شرط"
@@ -721,19 +718,19 @@ msgid "options_conditionDetails"
 msgstr "جزییات شرط"
 
 msgid "options_resultProfile"
-msgstr "پروفایل"
+msgstr "نمایه"
 
 msgid "options_conditionActions"
-msgstr "عملیات ها"
+msgstr "کنش‌ها"
 
 msgid "options_addCondition"
 msgstr "افزودن شرط"
 
 msgid "options_cloneRule"
-msgstr "کپی"
+msgstr "شبیه‌سازی"
 
 msgid "options_ruleNote"
-msgstr "Note"
+msgstr "یادداشت"
 
 msgid "options_switchAttachedProfileInCondition"
 msgstr "قوانین لیست قوانین"
@@ -745,7 +742,7 @@ msgid "options_switchAttachedProfileInConditionDisabled"
 msgstr "( قوانین لیست قوانین غیرفعالند )"
 
 msgid "options_switchDefaultProfile"
-msgstr "پیش فرض"
+msgstr "پیش‌گزیده"
 
 msgid "options_hostLevelsBetween"
 msgstr "≤ سطوح میزبان ≤"
@@ -754,25 +751,25 @@ msgid "options_hourBetween"
 msgstr "≤ ساعت کنونی ≤"
 
 msgid "options_weekDayShort_0"
-msgstr "Su"
+msgstr "ی"
 
 msgid "options_weekDayShort_1"
-msgstr "Mo"
+msgstr "د"
 
 msgid "options_weekDayShort_2"
-msgstr "Tu"
+msgstr "س"
 
 msgid "options_weekDayShort_3"
-msgstr "We"
+msgstr "چ"
 
 msgid "options_weekDayShort_4"
-msgstr "Th"
+msgstr "پ"
 
 msgid "options_weekDayShort_5"
-msgstr "Fr"
+msgstr "آ"
 
 msgid "options_weekDayShort_6"
-msgstr "Sa"
+msgstr "ش"
 
 msgid "options_group_conditionHelp"
 msgstr "درباره ی انوع شروط"
@@ -811,7 +808,7 @@ msgid "options_guideNext"
 msgstr "بعدی"
 
 msgid "options_guideDone"
-msgstr "تمام"
+msgstr "انجام شد"
 
 msgid "options_guideSkip"
 msgstr "بیخیال آموزش"
@@ -894,7 +891,7 @@ msgid "options_proxyAuthUsername"
 msgstr "نام کاربری"
 
 msgid "options_proxyAuthPassword"
-msgstr "رمز عبور"
+msgstr "گذرواژه"
 
 msgid "options_proxyAuthShowPassword"
 msgstr "نمایش رمز عبور"
@@ -912,17 +909,17 @@ msgid "options_deleteRuleConfirm"
 msgstr "واقعا قصد حذف نمودن قانون را دارید ؟"
 
 msgid "options_deleteRule"
-msgstr "پاک کردن"
+msgstr "حذف"
 
 msgid "options_modalHeader_resetRules"
-msgstr "ریست کردن قوانین"
+msgstr "بازنشانی قوانین"
 
 msgid "options_resetRulesConfirm"
 msgstr ""
 "آیا از تغییر دادن نتایج پروفایل تمامی قوانین به پروفایل زیر مطمئن هستید ؟"
 
 msgid "options_resetRules"
-msgstr "ریست کردن قوانین"
+msgstr "بازنشانی قوانین"
 
 msgid "options_resetRules_help"
 msgstr "تنظیم پورفایل برای تمام کاربران"
@@ -991,7 +988,7 @@ msgstr ""
 "شرط را با یک کلیک تغییر دهید."
 
 msgid "options_createProfile"
-msgstr "ساختن"
+msgstr "ایجاد"
 
 msgid "options_modalHeader_resetOptions"
 msgstr "ریست کردن تنظیمات"
@@ -1156,7 +1153,7 @@ msgid "popup_addCondition"
 msgstr "افزودن شرط"
 
 msgid "popup_showOptions"
-msgstr "تنظیمات"
+msgstr "گزینه‌ها"
 
 msgid "popup_reportIssues"
 msgstr "گزارش مشکلات"
@@ -1252,7 +1249,7 @@ msgid "browserAction_titleInspect"
 msgstr "[بررسی] $URL$"
 
 msgid "browserAction_defaultRuleDetails"
-msgstr "(پیش فرض)"
+msgstr "(پیش‌گزیده)"
 
 msgid "browserAction_directResult"
 msgstr "مستقیم"
