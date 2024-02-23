@@ -1,5 +1,5 @@
 angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
-  $location, $rootScope, $timeout, $state, $modal, profileColorPalette,
+  $location, $rootScope, $timeout, $state, $uibModal, profileColorPalette,
   getAttachedName, getParentName, getVirtualTarget) ->
   name = $stateParams.name
   profileTemplates =
@@ -49,13 +49,13 @@ angular.module('omega').controller 'ProfileCtrl', ($scope, $stateParams,
       for own key of refSet
         refProfiles.push(OmegaPac.Profiles.byKey(key, $rootScope.options))
       scope.refs = refProfiles
-      $modal.open(
+      $uibModal.open(
         templateUrl: 'partials/cannot_delete_profile.html'
         scope: scope
       )
       return
     else
-      $modal.open(
+      $uibModal.open(
         templateUrl: 'partials/delete_profile.html'
         scope: scope
       ).result.then ->

@@ -45,16 +45,16 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           | {{'popup_requestErrorCount' | tr:[requestInfo.errorCount]}}
       li.divider
       li.profile.custom-profile(ng-repeat='profile in customProfiles' ng-class='{active: isActive(profile.name), "bg-info": isEffective(profile.name)}'
-        dropdown)
+        ulb-dropdown)
         a(href='#' role='button' ng-click='applyProfile(profile)' ng-if='!profile.validResultProfiles' title='{{getProfileTitle(profile)}}')
           span(omega-profile-inline='profile' icon='getIcon(profile)' options='availableProfiles' disp-name='dispNameFilter')
         a.profile-with-default-edit(href='#' role='button' ng-click='applyProfile(profile)' ng-if='!!profile.validResultProfiles' title='{{getProfileTitle(profile)}}')
           span(omega-profile-inline='profile' icon='getIcon(profile)' options='availableProfiles' disp-name='dispNameFilter')
           = ' '
           | [{{profile.defaultProfileName}}]
-          button.dropdown-toggle.btn.btn-default(role='button' dropdown-toggle href='#' ng-click='$event.stopPropagation()')
+          button.uib-dropdown-toggle.btn.btn-default(role='button' uib-dropdown-toggle href='#' ng-click='$event.stopPropagation()')
             span.glyphicon.glyphicon-chevron-down
-        ul.dropdown-menu(ng-if='!!profile.validResultProfiles')
+        ul.uib-dropdown-menu(ng-if='!!profile.validResultProfiles')
           li(ng-repeat='p in profile.validResultProfiles' ng-class='{active: p.name == profile.defaultProfileName}')
             a(href='#' role='button' ng-click='setDefaultProfile(profile.name, p.name)' title='{{getProfileTitle(profile)}}')
               span(omega-profile-inline='p' options='availableProfiles' disp-name='dispNameFilter')
@@ -64,13 +64,13 @@ html(lang='en' ng-app='omegaPopup' ng-controller='PopupCtrl' ng-csp)
           span.glyphicon.glyphicon-plus
           = ' '
           span {{'popup_addCondition' | tr}}
-      li(ng-show='!!currentDomain && validResultProfiles.length' dropdown is-open="tempRuleMenu.open")
-        a.dropdown-toggle(href='#' role='button' dropdown-toggle data-shortcut='tempRule')
+      li(ng-show='!!currentDomain && validResultProfiles.length' uib-dropdown is-open="tempRuleMenu.open")
+        a.uib-dropdown-toggle(href='#' role='button' uib-dropdown-toggle data-shortcut='tempRule')
           span.glyphicon.glyphicon-filter
           = ' '
           span.current-domain {{currentDomain}}
           span.caret
-        ul.dropdown-menu
+        ul.uib-dropdown-menu
           li(ng-repeat='profile in validResultProfiles' ng-class='{active: profile.name == currentTempRuleProfile}'
             ng-show='!!currentTempRuleProfile || validResultProfiles.length == 1 || profile.name != currentProfileName')
             a(href='#' role='button' ng-click='addTempRule(currentDomain, profile.name)' title='{{getProfileTitle(profile)}}')
