@@ -101,12 +101,15 @@ class ChromeOptions extends OmegaTarget.Options
           index = (index + 1) % profiles.length
           @applyProfile(profiles[index]).then =>
             if @_options['-refreshOnProfileChange']
-              url = tab.url
+              url = tab.pendingUrl || tab.url
               return if not url
               return if url.substr(0, 6) == 'chrome'
               return if url.substr(0, 6) == 'about:'
               return if url.substr(0, 4) == 'moz-'
-              chrome.tabs.reload(tab.id)
+              if tab.pendingUrl
+                chrome.tabs.update(tab.id, {url})
+              else
+                chrome.tabs.reload(tab.id)
     else
       chrome.browserAction.setPopup({popup: 'popup/index.html'})
 
