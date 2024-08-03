@@ -7,7 +7,6 @@
     "coffeelint": "^1.16.0",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^1.0.1",
-    "grunt-bower-task": "^0.5.0",
     "grunt-coffeelint": "^0.0.13",
     "grunt-contrib-coffee": "^0.11.1",
     "grunt-contrib-concat": "^0.5.0",
@@ -17,10 +16,126 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-mocha-test": "~0.11.0",
     "grunt-ng-annotate": "^0.3.2",
+    "grunt-npm-bower": "0.0.4",
     "load-grunt-config": "^0.13.1",
     "omega-pac": "../omega-pac"
   },
   "scripts": {
-    "dev": "npm link omega-pac && npm link"
+    "dev": "npm link omega-pac && npm link",
+    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'bower_components', 'junction') } catch (e) { }\""
+  },
+  "dependencies": {
+    "@bower_components/angular": "angular/bower-angular#1.7.6",
+    "@bower_components/angular-animate": "angular/bower-angular-animate#~1.7.2",
+    "@bower_components/angular-bootstrap": "angular-ui/bootstrap-bower#~2.5.0",
+    "@bower_components/angular-i18n": "angular/bower-angular-i18n#~1.7.2",
+    "@bower_components/angular-ladda": "remotty/angular-ladda#~0.4.3",
+    "@bower_components/angular-loader": "angular/bower-angular-loader#~1.7.2",
+    "@bower_components/angular-sanitize": "angular/bower-angular-sanitize#~1.7.2",
+    "@bower_components/angular-spectrum-colorpicker": "Jimdo/angular-spectrum-colorpicker#~1.3.5",
+    "@bower_components/angular-ui-router": "angular-ui/angular-ui-router-bower#~1.0.20",
+    "@bower_components/angular-ui-sortable": "angular-ui/ui-sortable#~0.19.0",
+    "@bower_components/angular-ui-utils": "angular-ui/ui-utils#bower-validate",
+    "@bower_components/blob": "eligrey/Blob.js#*",
+    "@bower_components/bootstrap": "twbs/bootstrap#~3.4.0",
+    "@bower_components/FileSaver": "eligrey/FileSaver.js#~2.0.0",
+    "@bower_components/jquery": "jquery/jquery-dist#1.9.1 - 3",
+    "@bower_components/jquery-ui": "components/jqueryui#>=1.8",
+    "@bower_components/jqueryui-touch-punch": "furf/jquery-ui-touch-punch#*",
+    "@bower_components/jsondiffpatch": "benjamine/JsonDiffPatch#~0.3.11",
+    "@bower_components/ladda": "hakimel/Ladda#>=0.9.8",
+    "@bower_components/ngprogress": "VictorBjelkholm/ngProgress#~1.1.3",
+    "@bower_components/script.js": "ded/script.js#~2.5.3",
+    "@bower_components/shepherd.js": "HubSpot/shepherd#~2.3.2",
+    "@bower_components/spectrum": "bgrins/spectrum#1.6.0",
+    "@bower_components/spin.js": "fgnass/spin.js#~2.0.2",
+    "@bower_components/tether": "HubSpot/tether#~0.6.5"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
+  },
+  "exportsOverride": {
+    "@bower_components/script.js": {
+      "": "dist/*.min.js"
+    },
+    "@bower_components/jquery": {
+      "": "dist/jquery.min.js"
+    },
+    "@bower_components/jquery-ui": {
+      "": []
+    },
+    "@bower_components/jqueryui-touch-punch": {
+      "": "jquery.ui.touch-punch.min.js"
+    },
+    "@bower_components/angular": {
+      "": "angular.min.js"
+    },
+    "@bower_components/angular-animate": {
+      "": "*.min.js"
+    },
+    "@bower_components/angular-bootstrap": {
+      "": "ui-bootstrap-tpls.min.js"
+    },
+    "@bower_components/angular-i18n": {
+      "": [
+        "angular-locale_en-us.js",
+        "angular-locale_zh-cn.js",
+        "angular-locale_zh-hk.js",
+        "angular-locale_zh-tw.js"
+      ]
+    },
+    "@bower_components/angular-loader": {
+      "": "*.min.js"
+    },
+    "@bower_components/angular-sanitize": {
+      "": "*.min.js"
+    },
+    "@bower_components/angular-spectrum-colorpicker": {
+      "": "dist/*.min.js"
+    },
+    "@bower_components/angular-ui-router": {
+      "": "release/*.min.js"
+    },
+    "@bower_components/angular-ui-sortable": {
+      "": "*.min.js"
+    },
+    "@bower_components/angular-ui-utils": {
+      "": "*.min.js"
+    },
+    "@bower_components/bootstrap": {
+      "css": "dist/css/bootstrap.min.css",
+      "fonts": "dist/fonts/*",
+      "js": "js/dropdown.*"
+    },
+    "@bower_components/ngprogress": {
+      "": "build/*.min.js"
+    },
+    "@bower_components/jsondiffpatch": {
+      "": "public/build/jsondiffpatch.min.js"
+    },
+    "@bower_components/shepherd.js": {
+      "": [
+        "*.min.js",
+        "css/shepherd-theme-arrows.css"
+      ]
+    },
+    "@bower_components/spectrum": {
+      "": [
+        "*.js",
+        "*.css"
+      ]
+    },
+    "@bower_components/FileSaver": {
+      "": "*.min.js"
+    },
+    "@bower_components/blob": {
+      "": "*.js"
+    },
+    "@bower_components/ladda": {
+      "": [
+        "dist/ladda-themeless.min.css",
+        "dist/ladda.min.js"
+      ]
+    }
   }
 }
