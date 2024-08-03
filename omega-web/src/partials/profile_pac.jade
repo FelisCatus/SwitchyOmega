@@ -37,4 +37,4 @@ div(ng-controller='PacProfileCtrl')
       p.alert.alert-danger.width-limit(ng-show='profile.pacUrl && !profile.lastUpdate')
         | {{'options_pacScriptObsolete' | tr}}
       textarea.monospace.form-control.width-limit(ng-model='profile.pacScript' rows=20
-        ng-disabled='pacUrlCtrl.ctrl.$invalid || !!profile.pacUrl')
+        ng-readonly='pacUrlCtrl.ctrl.$invalid || !!profile.pacUrl')

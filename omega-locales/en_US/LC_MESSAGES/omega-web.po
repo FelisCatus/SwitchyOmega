@@ -242,6 +242,9 @@ msgstr "Import/Export"
 msgid "options_newProfile"
 msgstr "New profile…"
 
+msgid "options_actions"
+msgstr "Actions"
+
 msgid "options_apply"
 msgstr "Apply changes"
 
