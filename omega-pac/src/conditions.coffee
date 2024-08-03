@@ -185,15 +185,15 @@ module.exports = exports =
   parseIp: (ip) ->
     if ip.charCodeAt(0) == '['.charCodeAt(0)
       ip = ip.substr 1, ip.length - 2
-    addr = new IP.v4.Address(ip)
+    addr = new IP.Address4(ip)
     if not addr.isValid()
-      addr = new IP.v6.Address(ip)
+      addr = new IP.Address6(ip)
       if not addr.isValid()
         return null
     return addr
   normalizeIp: (addr) ->
     return (addr.correctForm ? addr.canonicalForm).call(addr)
-  ipv6Max: new IP.v6.Address('::/0').endAddress().canonicalForm()
+  ipv6Max: new IP.Address6('::/0').endAddress().canonicalForm()
 
   localHosts: ["127.0.0.1", "[::1]", "localhost"]
 
@@ -479,9 +479,9 @@ module.exports = exports =
           throw new Error "Invalid IP address #{addr}"
         cache.normalized = @normalizeIp cache.addr
         mask = if cache.addr.v4
-          new IP.v4.Address('255.255.255.255/' + cache.addr.subnetMask)
+          new IP.Address4('255.255.255.255/' + cache.addr.subnetMask)
         else
-          new IP.v6.Address(@ipv6Max + '/' + cache.addr.subnetMask)
+          new IP.Address6(@ipv6Max + '/' + cache.addr.subnetMask)
         cache.mask = @normalizeIp mask.startAddress()
         cache
       match: (condition, request, cache) ->

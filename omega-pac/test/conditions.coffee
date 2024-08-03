@@ -359,7 +359,7 @@ describe 'Conditions', ->
   describe 'WeekdayCondition', ->
     clock = null
     before ->
-      clock = lolex.install 0, ['Date']
+      clock = lolex.install now: 0, toFake: ['Date']
     after ->
       clock.uninstall()
 
@@ -458,7 +458,7 @@ describe 'Conditions', ->
   describe 'TimeCondition', ->
     clock = null
     before ->
-      clock = lolex.install 0, ['Date']
+      clock = lolex.install now: 0, toFake: ['Date']
     after ->
       clock.uninstall()
 
