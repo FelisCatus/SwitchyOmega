@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-hub": "^0.7.0"
+    "grunt": "^1.0.3",
+    "grunt-hub": "^1.0.0"
   },
   "scripts": {
     "deps": "npm install && (cd ../omega-pac && npm install) && (cd ../omega-target && npm install) && (cd ../omega-web && npm install && bower install) && (cd ../omega-target-chromium-extension/ && npm install)",
