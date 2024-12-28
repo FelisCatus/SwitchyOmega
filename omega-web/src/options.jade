@@ -42,7 +42,7 @@ html(lang='en' ng-controller='MasterCtrl' ng-csp)
               = ' '
               span {{'options_newProfile' | tr}}
           li.divider
-          li.nav-header Actions
+          li.nav-header {{'options_actions' | tr}}
           li
             a.btn-default.btn.align-initial(role='button' ng-click='applyOptions()'
                 ng-class='{"btn-success": optionsDirty}')

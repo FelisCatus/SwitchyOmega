@@ -28,5 +28,5 @@ div(ng-controller='RuleListProfileCtrl')
           ladda='updatingProfile[profile.name]' data-spinner-color="#000000")
         | #[span.glyphicon.glyphicon-download-alt] {{'options_downloadProfileNow' | tr}}
     textarea.monospace.form-control.width-limit(ng-model='profile.ruleList' rows=20
-      ng-disabled='!!profile.sourceUrl')
+      ng-readonly='!!profile.sourceUrl')
 
