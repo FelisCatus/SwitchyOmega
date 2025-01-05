@@ -6,6 +6,7 @@ module.exports =
     'autoprefixer'
     'coffeelint'
     'coffee'
-    'bower'
+    'npmBower'
   ]
+  npm: ['npmBower']
   test: ['mochaTest']
