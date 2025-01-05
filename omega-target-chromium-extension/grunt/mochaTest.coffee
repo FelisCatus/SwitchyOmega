@@ -2,5 +2,5 @@ module.exports =
   test:
     options:
       reporter: 'spec'
-      require: 'coffee-script/register'
+      require: 'coffeescript/register'
     src: ['test/**/*.coffee']
