@@ -7,24 +7,6 @@
     .cloneNode(true);
   profileTemplate.removeAttribute('id');
 
-  var iconForProfileType = {
-    'DirectProfile': 'glyphicon-transfer',
-    'SystemProfile': 'glyphicon-off',
-    'AutoDetectProfile': 'glyphicon-file',
-    'FixedProfile': 'glyphicon-globe',
-    'PacProfile': 'glyphicon-file',
-    'VirtualProfile': 'glyphicon-question-sign',
-    'RuleListProfile': 'glyphicon-list',
-    'SwitchProfile': 'glyphicon-retweet',
-  };
-  var orderForType = {
-    'FixedProfile': -2000,
-    'PacProfile': -1000,
-    'VirtualProfile': 1000,
-    'SwitchProfile': 2000,
-    'RuleListProfile': 3000,
-  };
-
   return;
 
   function updateMenuByState() {
@@ -39,6 +21,14 @@
   }
 
   function compareProfile(a, b) {
+    var orderForType = {
+      'FixedProfile': -2000,
+      'PacProfile': -1000,
+      'VirtualProfile': 1000,
+      'SwitchProfile': 2000,
+      'RuleListProfile': 3000,
+    };
+    
     var diff;
     diff = (orderForType[a.profileType] | 0) - (orderForType[b.profileType] | 0);
     if (diff !== 0) {
@@ -186,6 +176,17 @@
   }
 
   function createMenuItemForProfile(profile, profiles) {
+    var iconForProfileType = {
+      'DirectProfile': 'glyphicon-transfer',
+      'SystemProfile': 'glyphicon-off',
+      'AutoDetectProfile': 'glyphicon-file',
+      'FixedProfile': 'glyphicon-globe',
+      'PacProfile': 'glyphicon-file',
+      'VirtualProfile': 'glyphicon-question-sign',
+      'RuleListProfile': 'glyphicon-list',
+      'SwitchProfile': 'glyphicon-retweet',
+    };
+
     var profileDisp = profileTemplate.cloneNode(true);
     var text = OmegaTargetPopup.getMessage('profile_' + profile.name) ||
       profile.name;
