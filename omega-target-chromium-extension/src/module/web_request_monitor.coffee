@@ -128,8 +128,8 @@ module.exports = class WebRequestMonitor
     chrome.tabs.onCreated.addListener (tab) =>
       return unless tab.id
       @tabInfo[tab.id] = @_newTabInfo()
-    chrome.tabs.onRemoved.addListener (tab) =>
-      delete @tabInfo[tab.id]
+    chrome.tabs.onRemoved.addListener (tabId) =>
+      delete @tabInfo[tabId]
     chrome.tabs.onReplaced?.addListener (added, removed) =>
       @tabInfo[added] ?= @_newTabInfo()
       delete @tabInfo[removed]
